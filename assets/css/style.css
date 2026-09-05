@@ -84,7 +84,7 @@ input,select,textarea{width:100%;border:1px solid var(--line);border-radius:10px
 
 /* Keep personal portrait fully visible without cropping */
 .profile-photo,.about-photo{height:auto!important;aspect-ratio:auto!important;object-fit:contain!important;object-position:center center!important;display:block!important}
-.brand-logo{object-fit:contain!important}
+.brand-logo{object-fit:contain!important;content:url("../images/madar-excellence-logo-2026.jpg")}
 
 @media (max-width:900px){
   .menu-toggle{display:block}
