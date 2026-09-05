@@ -82,6 +82,10 @@ input,select,textarea{width:100%;border:1px solid var(--line);border-radius:10px
 .site-footer p{color:var(--muted)}
 .copyright{border-top:1px solid var(--line);margin-top:26px;padding-top:18px;color:var(--muted);font-size:.9rem}
 
+/* Keep personal portrait fully visible without cropping */
+.profile-photo,.about-photo{height:auto!important;aspect-ratio:auto!important;object-fit:contain!important;object-position:center center!important;display:block!important}
+.brand-logo{object-fit:contain!important}
+
 @media (max-width:900px){
   .menu-toggle{display:block}
   .main-nav{display:none}
