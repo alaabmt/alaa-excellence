@@ -7,6 +7,34 @@ if (toggle && nav) {
 const year = document.getElementById('year');
 if (year) year.textContent = new Date().getFullYear();
 
+const backToTop = document.createElement('button');
+backToTop.type = 'button';
+backToTop.className = 'back-to-top';
+backToTop.setAttribute('aria-label', 'العودة إلى أعلى الصفحة');
+backToTop.setAttribute('title', 'العودة إلى الأعلى');
+backToTop.textContent = '↑';
+document.body.appendChild(backToTop);
+
+const updateScrollControls = () => {
+  const scrolled = window.scrollY > 260;
+  document.body.classList.toggle('is-scrolled', scrolled);
+  backToTop.classList.toggle('visible', scrolled);
+};
+
+window.addEventListener('scroll', updateScrollControls, { passive: true });
+updateScrollControls();
+
+backToTop.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  if (nav) nav.classList.remove('open');
+});
+
+if (nav) {
+  nav.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => nav.classList.remove('open'));
+  });
+}
+
 const filterButtons = [...document.querySelectorAll('[data-filter]')];
 const articleGrid = document.getElementById('article-grid');
 const articleCards = [...document.querySelectorAll('.article-card[data-category]')];
