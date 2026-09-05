@@ -16,31 +16,23 @@ jobs:
         run: |
           python3 - <<'PY'
           from pathlib import Path
-          import base64, hashlib, re
-          parts = sorted(Path('.upload').glob('madar.part*'))
-          assert len(parts) == 6, f'Expected 6 parts, found {len(parts)}: {parts}'
-          chunks=[]
-          for p in parts:
-              s=p.read_text().strip()
-              print(p, len(s))
-              bad=re.sub(r'[A-Za-z0-9+/=]', '', s)
-              assert not bad, f'Invalid characters in {p}: {bad[:40]!r}'
-              chunks.append(s)
-          raw=base64.b64decode(''.join(chunks), validate=True)
+          import base64, hashlib
+          src=Path('assets/videos/madar-brand-intro-tiny50.b64')
+          raw=base64.b64decode(src.read_text().strip(), validate=True)
           digest=hashlib.sha256(raw).hexdigest()
           print('decoded bytes', len(raw), 'sha256', digest)
-          assert len(raw) == 52836, f'Unexpected size: {len(raw)}'
-          assert digest == '8bb74ee9a7d80e48d3e2192a9965d6766804973ed7d0f52d381e9a3be1297bce', 'SHA256 mismatch'
+          assert len(raw) == 8314, f'Unexpected size: {len(raw)}'
+          assert digest == '1954246fe5175dfb30c15798b6fc7cefab52e20229f475e92705d5b9bd0d7741', 'SHA256 mismatch'
           out=Path('assets/videos/madar-brand-intro.mp4')
-          out.parent.mkdir(parents=True, exist_ok=True)
           out.write_bytes(raw)
           PY
           rm -rf .upload
+          rm -f assets/videos/madar-brand-intro-tiny48.b64 assets/videos/madar-brand-intro-tiny50.b64
           rm -f .github/workflows/assemble-brand-video.yml
       - name: Commit assembled video
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
-          git commit -m "Add optimized Madar brand intro video"
+          git commit -m "Add compact Madar brand intro video"
           git push
