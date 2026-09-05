@@ -11,11 +11,30 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Assemble video
+      - name: Assemble and verify video
+        shell: bash
         run: |
-          mkdir -p assets/videos
-          cat .upload/madar.part* | base64 -d > assets/videos/madar-brand-intro.mp4
-          test -s assets/videos/madar-brand-intro.mp4
+          python3 - <<'PY'
+          from pathlib import Path
+          import base64, hashlib, re
+          parts = sorted(Path('.upload').glob('madar.part*'))
+          assert len(parts) == 6, f'Expected 6 parts, found {len(parts)}: {parts}'
+          chunks=[]
+          for p in parts:
+              s=p.read_text().strip()
+              print(p, len(s))
+              bad=re.sub(r'[A-Za-z0-9+/=]', '', s)
+              assert not bad, f'Invalid characters in {p}: {bad[:40]!r}'
+              chunks.append(s)
+          raw=base64.b64decode(''.join(chunks), validate=True)
+          digest=hashlib.sha256(raw).hexdigest()
+          print('decoded bytes', len(raw), 'sha256', digest)
+          assert len(raw) == 52836, f'Unexpected size: {len(raw)}'
+          assert digest == '8bb74ee9a7d80e48d3e2192a9965d6766804973ed7d0f52d381e9a3be1297bce', 'SHA256 mismatch'
+          out=Path('assets/videos/madar-brand-intro.mp4')
+          out.parent.mkdir(parents=True, exist_ok=True)
+          out.write_bytes(raw)
+          PY
           rm -rf .upload
           rm -f .github/workflows/assemble-brand-video.yml
       - name: Commit assembled video
