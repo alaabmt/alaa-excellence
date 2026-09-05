@@ -5,18 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>المقالات والأفكار | مَدار التميّز | الدكتور علاء محمد أحمد</title>
   <meta name="description" content="مقالات وأفكار للدكتور علاء محمد أحمد في التميّز والقيادة والجودة والعمل والحياة.">
-  <link rel="stylesheet" href="assets/css/style.css?v=20260906-filter1">
+  <link rel="stylesheet" href="assets/css/style.css?v=20260906-filter2">
 </head>
 <body>
 <header class="site-header">
   <div class="topbar"><div class="container topbar-inner"><div class="social">LinkedIn · YouTube · X</div><div class="lang-switch"><a href="#">العربية</a><span>|</span><a href="#" aria-disabled="true">English قريباً</a></div></div></div>
-  <div class="container brand-row"><a class="brand" href="index.html"><img class="brand-logo" src="assets/images/madar-logo-refined.webp?v=20260906-filter1" alt="شعار مَدار التميّز مع الدكتور علاء محمد أحمد"><div><strong>مَدار التميّز</strong><small>مع الدكتور علاء محمد أحمد</small></div></a><button class="menu-toggle" aria-label="فتح القائمة">☰</button></div>
+  <div class="container brand-row"><a class="brand" href="index.html"><img class="brand-logo" src="assets/images/madar-logo-refined.webp?v=20260906-filter2" alt="شعار مَدار التميّز مع الدكتور علاء محمد أحمد"><div><strong>مَدار التميّز</strong><small>مع الدكتور علاء محمد أحمد</small></div></a><button class="menu-toggle" aria-label="فتح القائمة">☰</button></div>
   <nav class="main-nav"><div class="container nav-links"><a href="index.html">الرئيسية</a><a href="about.html">نبذة شخصية</a><a href="books.html">الكتب</a><a href="research.html">الأبحاث والمنشورات</a><a href="articles.html" class="active">المقالات والأفكار</a><a href="healthcare-excellence.html">التميّز الصحي</a><a href="leadership-excellence.html">التميّز والقيادة</a><a href="life-society.html">الحياة والمجتمع</a><a href="personality.html">اختبارات الشخصية والعمل</a><a href="training.html">التعلّم والتطوير التنفيذي</a><a href="services.html">الاستشارات</a><a href="videos.html">مقاطع فيديو</a><a href="news.html">أخبار وأنشطة</a><a href="contact.html">تواصل معي</a></div></nav>
 </header>
 <main>
 <section class="page-hero"><div class="container"><span class="eyebrow">المقالات والأفكار</span><h1>أفكار للتميّز في العمل والحياة.</h1><p>مقالات قصيرة وتحليلية في التميّز، القيادة، الإدارة، الجودة والحياة؛ تجمع بين التأمل والخبرة العملية.</p></div></section>
-<section class="container section">
-  <div class="filter-row" aria-label="تصفية المقالات حسب الموضوع">
+<section class="container section articles-library">
+  <div class="filter-row" aria-label="تصفية المقالات حسب القسم الرئيسي">
     <button class="chip active" type="button" data-filter="all" aria-pressed="true">كل المقالات</button>
     <button class="chip" type="button" data-filter="idea" aria-pressed="false">فكرة اليوم</button>
     <button class="chip" type="button" data-filter="leadership" aria-pressed="false">التميّز والقيادة</button>
@@ -25,38 +25,86 @@
     <button class="chip" type="button" data-filter="life" aria-pressed="false">الحياة والمجتمع</button>
   </div>
 
-  <div class="article-grid">
-    <article class="article-card" data-category="idea management leadership" data-href="idea-busy-or-progress.html">
-      <span class="tag">فكرة اليوم</span>
+  <div class="article-tools" aria-label="أدوات البحث والتصفية">
+    <div class="article-search-wrap">
+      <label for="article-search">ابحث في المقالات</label>
+      <input id="article-search" class="article-search" type="search" placeholder="اكتب كلمة أو عبارة…" autocomplete="off">
+    </div>
+    <div>
+      <label for="topic-filter">الموضوع</label>
+      <select id="topic-filter">
+        <option value="all">كل الموضوعات</option>
+      </select>
+    </div>
+    <div>
+      <label for="date-filter">تاريخ النشر</label>
+      <select id="date-filter">
+        <option value="all">كل التواريخ</option>
+        <option value="today">اليوم</option>
+        <option value="week">هذا الأسبوع</option>
+        <option value="month">هذا الشهر</option>
+        <option value="3months">آخر 3 أشهر</option>
+        <option value="year">هذه السنة</option>
+      </select>
+    </div>
+    <div>
+      <label for="read-filter">مدة القراءة</label>
+      <select id="read-filter">
+        <option value="all">كل المدد</option>
+        <option value="quick">سريعة · حتى 3 دقائق</option>
+        <option value="medium">متوسطة · 4–7 دقائق</option>
+        <option value="deep">متعمقة · 8 دقائق فأكثر</option>
+      </select>
+    </div>
+    <div>
+      <label for="sort-filter">ترتيب حسب</label>
+      <select id="sort-filter">
+        <option value="newest">الأحدث</option>
+        <option value="oldest">الأقدم</option>
+        <option value="shortest">الأقصر قراءة</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="article-results-bar">
+    <span id="article-results-count" aria-live="polite"></span>
+    <button id="clear-article-filters" class="clear-filters" type="button">مسح الفلاتر</button>
+  </div>
+
+  <div class="article-grid" id="article-grid">
+    <article class="article-card" data-category="idea management leadership" data-topic="الإنتاجية" data-date="2026-09-06" data-read-minutes="3" data-href="idea-busy-or-progress.html">
+      <div class="article-meta"><span class="tag">فكرة اليوم</span><span>3 دقائق قراءة</span><time datetime="2026-09-06">6 سبتمبر 2026</time></div>
       <h3><a href="idea-busy-or-progress.html">هل أنت مشغول… أم تتقدّم؟</a></h3>
       <p><a href="idea-busy-or-progress.html">لماذا لا تكفي كثرة المهام، وكيف نقيس يومنا بما أصبح أفضل نتيجة لعملنا.</a></p>
       <a class="article-action" href="idea-busy-or-progress.html">اقرأ الفكرة ←</a>
     </article>
 
-    <article class="article-card" data-category="life leadership" data-href="article-ahsanu-amala.html">
-      <span class="tag">الحياة والتميّز</span>
+    <article class="article-card" data-category="life leadership" data-topic="التميّز الشخصي" data-date="2026-09-05" data-read-minutes="5" data-href="article-ahsanu-amala.html">
+      <div class="article-meta"><span class="tag">الحياة والتميّز</span><span>5 دقائق قراءة</span><time datetime="2026-09-05">5 سبتمبر 2026</time></div>
       <h3><a href="article-ahsanu-amala.html">أحسن عملاً: فلسفة التميّز في الحياة</a></h3>
       <p><a href="article-ahsanu-amala.html">كيف يتحول معنى الإحسان في العمل إلى منهج يبدأ من الإنسان ويمتد إلى البيت والمؤسسة والمجتمع والدولة.</a></p>
       <a class="article-action" href="article-ahsanu-amala.html">اقرأ المقال ←</a>
     </article>
 
-    <article class="article-card" data-category="healthcare management">
-      <span class="tag">التميّز الصحي</span>
+    <article class="article-card" data-category="healthcare management" data-topic="تجربة المريض" data-date="2026-09-20" data-read-minutes="7">
+      <div class="article-meta"><span class="tag">التميّز الصحي</span><span>7 دقائق قراءة</span><span>قريباً</span></div>
       <h3>هل جودة النظام تعني بالضرورة تجربة مريض ممتازة؟</h3>
       <p>مقال تحليلي قادم حول العلاقة بين جودة الأنظمة وتجربة المريض.</p>
       <span class="article-action" aria-label="قريباً">قريباً</span>
     </article>
 
-    <article class="article-card" data-category="leadership management">
-      <span class="tag">التميّز والقيادة</span>
+    <article class="article-card" data-category="leadership management" data-topic="إدارة التغيير" data-date="2026-09-27" data-read-minutes="8">
+      <div class="article-meta"><span class="tag">التميّز والقيادة</span><span>8 دقائق قراءة</span><span>قريباً</span></div>
       <h3>لماذا تفشل بعض مبادرات التغيير؟</h3>
       <p>مقال قادم حول الفجوة بين إطلاق مبادرات التغيير وتحقيق التحول الفعلي.</p>
       <span class="article-action" aria-label="قريباً">قريباً</span>
     </article>
   </div>
+
+  <p id="article-empty-state" class="article-empty-state" hidden>لا توجد مقالات تطابق هذه الفلاتر حالياً. جرّب توسيع نطاق البحث.</p>
 </section>
 </main>
 <footer class="site-footer"><div class="container footer-grid"><div><strong>مَدار التميّز</strong><p>معرفة واستشارات في التميّز المؤسسي، التحول، الجودة والابتكار.</p></div><div><strong>روابط سريعة</strong><p><a href="articles.html">المقالات</a> · <a href="training.html">التعلّم والتطوير التنفيذي</a> · <a href="services.html">الاستشارات</a></p></div><div><strong>النشرة البريدية</strong><p>سيتم تفعيل الاشتراك في مرحلة لاحقة.</p></div></div><div class="container copyright">© <span id="year"></span> الدكتور علاء محمد أحمد — جميع الحقوق محفوظة.</div></footer>
-<script src="assets/js/main.js?v=20260906-filter1"></script>
+<script src="assets/js/main.js?v=20260906-filter2"></script>
 </body>
 </html>
