@@ -1,0 +1,29 @@
+name: Rebuild profile image
+
+on:
+  push:
+    paths:
+      - '.profile_chunks/ready'
+
+permissions:
+  contents: write
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Rebuild and verify high-resolution image
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat .profile_chunks/chunk[0-9][0-9].txt | tr -d '\n\r' | base64 --decode > assets/images/alaa-mohammad-ahmad-profile-hq.webp
+          test "$(stat -c%s assets/images/alaa-mohammad-ahmad-profile-hq.webp)" = "39934"
+          test "$(git hash-object assets/images/alaa-mohammad-ahmad-profile-hq.webp)" = "5cbdf8bbe7c90db215f8d8601e0ac3c12d6d2d48"
+          rm -rf .profile_chunks
+          rm -f .github/workflows/rebuild-profile.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Install verified high-resolution profile image"
+          git push
