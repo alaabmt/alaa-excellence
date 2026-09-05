@@ -3,87 +3,62 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>تواصل معي | منصة التميّز | د. علاء أحمد</title>
-  <meta name="description" content="منصة عربية للتميّز الصحي والقيادة والتطوير والعمل والحياة.">
-  <link rel="stylesheet" href="assets/css/style.css">
+  <title>تواصل معي | مَدار التميّز | الدكتور علاء محمد أحمد</title>
+  <meta name="description" content="تواصل مع الدكتور علاء محمد أحمد للاستشارات، التعلّم والتطوير التنفيذي، التعاون البحثي، والفرص المهنية.">
+  <link rel="stylesheet" href="assets/css/style.css?v=20260906-contact1">
 </head>
 <body>
-
 <header class="site-header">
-  <div class="topbar">
-    <div class="container topbar-inner">
-      <div class="social">LinkedIn · YouTube · X</div>
-      <div class="lang-switch"><a href="#">العربية</a><span>|</span><a href="#" aria-disabled="true">English قريباً</a></div>
-    </div>
-  </div>
-  <div class="container brand-row">
-    <a class="brand" href="index.html">
-      <div class="brand-mark">ا</div>
-      <div>
-        <strong>منصة التميّز</strong>
-        <small>مع د. علاء أحمد</small>
-      </div>
-    </a>
-    <button class="menu-toggle" aria-label="فتح القائمة">☰</button>
-  </div>
-  <nav class="main-nav">
-    <div class="container nav-links">
-      <a href="index.html">الرئيسية</a>
-<a href="about.html">نبذة شخصية</a>
-<a href="books.html">الكتب</a>
-<a href="research.html">الأبحاث والمنشورات</a>
-<a href="articles.html">المقالات والأفكار</a>
-<a href="healthcare-excellence.html">التميّز الصحي</a>
-<a href="leadership-excellence.html">التميّز والقيادة</a>
-<a href="life-society.html">الحياة والمجتمع</a>
-<a href="personality.html">اختبارات الشخصية والعمل</a>
-<a href="services.html">الدورات والخدمات</a>
-<a href="videos.html">مقاطع فيديو</a>
-<a href="news.html">أخبار وأنشطة</a>
-<a href="contact.html" class="active">تواصل معي</a>
-    </div>
-  </nav>
+  <div class="topbar"><div class="container topbar-inner"><div class="social">LinkedIn · YouTube · X</div><div class="lang-switch"><a href="#">العربية</a><span>|</span><a href="#" aria-disabled="true">English قريباً</a></div></div></div>
+  <div class="container brand-row"><a class="brand" href="index.html"><img class="brand-logo" src="assets/images/madar-logo-refined.webp?v=20260906-contact1" alt="شعار مَدار التميّز مع الدكتور علاء محمد أحمد"><div><strong>مَدار التميّز</strong><small>مع الدكتور علاء محمد أحمد</small></div></a><button class="menu-toggle" aria-label="فتح القائمة">☰</button></div>
+  <nav class="main-nav"><div class="container nav-links"><a href="index.html">الرئيسية</a><a href="about.html">نبذة شخصية</a><a href="books.html">الكتب</a><a href="research.html">الأبحاث والمنشورات</a><a href="articles.html">المقالات والأفكار</a><a href="healthcare-excellence.html">التميّز الصحي</a><a href="leadership-excellence.html">التميّز والقيادة</a><a href="life-society.html">الحياة والمجتمع</a><a href="personality.html">اختبارات الشخصية والعمل</a><a href="training.html">التعلّم والتطوير التنفيذي</a><a href="services.html">الاستشارات</a><a href="videos.html">مقاطع فيديو</a><a href="news.html">أخبار وأنشطة</a><a href="contact.html" class="active">تواصل معي</a></div></nav>
 </header>
 
 <main>
+<section class="page-hero"><div class="container"><span class="eyebrow">تواصل معي</span><h1>ابدأ محادثة.</h1><p>للاستشارات، التعلّم والتطوير التنفيذي، التعاون البحثي، دعوات المؤتمرات، أو الفرص المهنية.</p></div></section>
 
-<section class="page-hero"><div class="container"><span class="eyebrow">تواصل معي</span><h1>ابدأ محادثة.</h1><p>للاستشارات، التدريب، التعاون البحثي، أو الاستفسار عن الكتب والخدمات.</p></div></section>
 <section class="container section">
   <div class="contact-box">
-    <form onsubmit="return false;">
-      <label>الاسم<input type="text" placeholder="الاسم الكامل"></label>
-      <label>البريد الإلكتروني<input type="email" placeholder="name@example.com"></label>
-      <label>موضوع الرسالة<select><option>استشارة</option><option>دورة أو ورشة</option><option>Coaching / Mentoring</option><option>كتاب</option><option>تعاون بحثي</option><option>أخرى</option></select></label>
-      <label>الرسالة<textarea rows="6" placeholder="اكتب رسالتك هنا"></textarea></label>
-      <button class="btn primary">إرسال</button>
+    <form action="https://formspree.io/f/xrpgabye" method="POST">
+      <input type="hidden" name="_subject" value="رسالة جديدة من موقع مَدار التميّز">
+      <label>الاسم
+        <input type="text" name="name" placeholder="الاسم الكامل" autocomplete="name" required>
+      </label>
+      <label>البريد الإلكتروني
+        <input type="email" name="email" placeholder="name@example.com" autocomplete="email" required>
+      </label>
+      <label>الجهة أو المؤسسة
+        <input type="text" name="organization" placeholder="اسم الجهة — اختياري" autocomplete="organization">
+      </label>
+      <label>موضوع الرسالة
+        <select name="inquiry_type" required>
+          <option value="" selected disabled>اختر موضوع الرسالة</option>
+          <option value="استشارة">استشارة</option>
+          <option value="التعلم والتطوير التنفيذي">التعلّم والتطوير التنفيذي</option>
+          <option value="تعاون بحثي">تعاون بحثي</option>
+          <option value="دعوة مؤتمر أو محاضرة">دعوة مؤتمر أو محاضرة</option>
+          <option value="كتاب أو منشور">كتاب أو منشور</option>
+          <option value="تعاون مهني">تعاون مهني</option>
+          <option value="أخرى">أخرى</option>
+        </select>
+      </label>
+      <label>الرسالة
+        <textarea name="message" rows="7" placeholder="اكتب رسالتك هنا" required></textarea>
+      </label>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none">
+      <button class="btn primary" type="submit">إرسال الرسالة</button>
     </form>
+
     <div class="contact-note">
-      <h3>قبل النشر</h3>
-      <p>يمكن ربط هذا النموذج لاحقاً بـ Formspree أو Netlify Forms أو خدمة بريدية. النسخة الحالية لا ترسل بيانات فعلياً.</p>
+      <h3>كيف يمكننا البدء؟</h3>
+      <p>اختر موضوع الرسالة واكتب باختصار ما الذي ترغب في مناقشته. كلما كانت المعلومات أوضح، كان من الأسهل فهم الطلب والرد بصورة مناسبة.</p>
+      <p><strong>الخصوصية:</strong> تُستخدم البيانات المرسلة عبر النموذج لغرض التواصل والرد على طلبك فقط.</p>
     </div>
   </div>
 </section>
-
 </main>
 
-<footer class="site-footer">
-  <div class="container footer-grid">
-    <div>
-      <strong>منصة التميّز</strong>
-      <p>أفكار في التميّز الصحي، القيادة، العمل والحياة.</p>
-    </div>
-    <div>
-      <strong>روابط سريعة</strong>
-      <p><a href="articles.html">المقالات</a> · <a href="books.html">الكتب</a> · <a href="services.html">الخدمات</a></p>
-    </div>
-    <div>
-      <strong>النشرة البريدية</strong>
-      <p>سيتم تفعيل الاشتراك في مرحلة لاحقة.</p>
-    </div>
-  </div>
-  <div class="container copyright">© <span id="year"></span> د. علاء أحمد — جميع الحقوق محفوظة.</div>
-</footer>
-
-<script src="assets/js/main.js"></script>
+<footer class="site-footer"><div class="container footer-grid"><div><strong>مَدار التميّز</strong><p>معرفة واستشارات في التميّز المؤسسي، التحول، الجودة والابتكار.</p></div><div><strong>روابط سريعة</strong><p><a href="articles.html">المقالات</a> · <a href="training.html">التعلّم والتطوير التنفيذي</a> · <a href="services.html">الاستشارات</a></p></div><div><strong>النشرة البريدية</strong><p>سيتم تفعيل الاشتراك في مرحلة لاحقة.</p></div></div><div class="container copyright">© <span id="year"></span> الدكتور علاء محمد أحمد — جميع الحقوق محفوظة.</div></footer>
+<script src="assets/js/main.js?v=20260906-contact1"></script>
 </body>
 </html>
