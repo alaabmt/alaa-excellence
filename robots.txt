@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://alaabmt.github.io/alaa-excellence/sitemap.xml
+Sitemap: https://alaabmt.github.io/alaa-excellence/sitemap.txt
