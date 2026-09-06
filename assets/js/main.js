@@ -1,4 +1,83 @@
-const siteLogo = 'assets/images/madar-logo.png?v=20260906-logo10';
+const siteBase = 'https://alaabmt.github.io/alaa-excellence/';
+const siteLogoAbsolute = `${siteBase}assets/images/madar-logo.png`;
+const seoPages = {
+  'about.html': {
+    title: 'الدكتور علاء محمد أحمد | خبير التميّز المؤسسي والتحول والجودة | مَدار التميّز',
+    description: 'النبذة التنفيذية للدكتور علاء محمد أحمد: خبرة في التميّز المؤسسي والتحول والجودة والابتكار والتميّز الصحي، مع مسيرة في القيادة والبحث وبناء القدرات.',
+    type: 'profile',
+    schema: {
+      '@context': 'https://schema.org',
+      '@type': 'Person',
+      name: 'الدكتور علاء محمد أحمد',
+      url: `${siteBase}about.html`,
+      image: `${siteBase}assets/images/alaa-mohammad-ahmad-profile-hq.webp`,
+      jobTitle: 'خبير ومستشار في التميّز المؤسسي، التحول، الجودة والابتكار',
+      knowsAbout: ['التميّز المؤسسي','التحول المؤسسي','التحول الرقمي','نظم إدارة الجودة','الابتكار المؤسسي','التميّز الصحي','بناء القدرات']
+    }
+  },
+  'training.html': {
+    title: 'التعلّم والتطوير التنفيذي | الدكتور علاء محمد أحمد | مَدار التميّز',
+    description: 'برامج التعلّم والتطوير التنفيذي مع الدكتور علاء محمد أحمد في القيادة والتحسين والجودة وإدارة المشاريع وإدارة التغيير وسلامة المرضى، مع التركيز على التطبيق وقياس الأثر.',
+    type: 'website',
+    schema: {
+      '@context': 'https://schema.org',
+      '@type': 'WebPage',
+      name: 'التعلّم والتطوير التنفيذي',
+      url: `${siteBase}training.html`,
+      inLanguage: 'ar',
+      about: { '@type': 'Person', name: 'الدكتور علاء محمد أحمد', url: `${siteBase}about.html` }
+    }
+  }
+};
+
+function upsertMeta(selector, attributes) {
+  let el = document.head.querySelector(selector);
+  if (!el) {
+    el = document.createElement('meta');
+    document.head.appendChild(el);
+  }
+  Object.entries(attributes).forEach(([key, value]) => el.setAttribute(key, value));
+}
+
+function applyPageSEO() {
+  const path = window.location.pathname.split('/').pop() || 'index.html';
+  const data = seoPages[path];
+  if (!data) return;
+  const canonicalUrl = `${siteBase}${path}`;
+  document.title = data.title;
+  upsertMeta('meta[name="description"]', { name: 'description', content: data.description });
+  upsertMeta('meta[name="robots"]', { name: 'robots', content: 'index,follow,max-image-preview:large' });
+  let canonical = document.head.querySelector('link[rel="canonical"]');
+  if (!canonical) {
+    canonical = document.createElement('link');
+    canonical.rel = 'canonical';
+    document.head.appendChild(canonical);
+  }
+  canonical.href = canonicalUrl;
+  upsertMeta('meta[property="og:locale"]', { property: 'og:locale', content: 'ar_AR' });
+  upsertMeta('meta[property="og:type"]', { property: 'og:type', content: data.type });
+  upsertMeta('meta[property="og:site_name"]', { property: 'og:site_name', content: 'مَدار التميّز' });
+  upsertMeta('meta[property="og:title"]', { property: 'og:title', content: data.title });
+  upsertMeta('meta[property="og:description"]', { property: 'og:description', content: data.description });
+  upsertMeta('meta[property="og:url"]', { property: 'og:url', content: canonicalUrl });
+  upsertMeta('meta[property="og:image"]', { property: 'og:image', content: siteLogoAbsolute });
+  upsertMeta('meta[name="twitter:card"]', { name: 'twitter:card', content: 'summary_large_image' });
+  upsertMeta('meta[name="twitter:title"]', { name: 'twitter:title', content: data.title });
+  upsertMeta('meta[name="twitter:description"]', { name: 'twitter:description', content: data.description });
+  upsertMeta('meta[name="twitter:image"]', { name: 'twitter:image', content: siteLogoAbsolute });
+  let schema = document.head.querySelector('script[data-madar-seo-schema]');
+  if (!schema) {
+    schema = document.createElement('script');
+    schema.type = 'application/ld+json';
+    schema.dataset.madarSeoSchema = 'true';
+    document.head.appendChild(schema);
+  }
+  schema.textContent = JSON.stringify(data.schema);
+}
+
+applyPageSEO();
+
+const siteLogo = 'assets/images/madar-logo.png?v=20260906-seo2';
 
 function applySiteLogo() {
   const mobile = window.matchMedia('(max-width: 600px)').matches;
