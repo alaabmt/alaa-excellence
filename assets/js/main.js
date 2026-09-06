@@ -1,23 +1,9 @@
-const logoBase64Url = 'assets/images/madar-logo-600q72.b64?v=20260906-logo6';
-fetch(logoBase64Url, { cache: 'no-store' })
-  .then((response) => {
-    if (!response.ok) throw new Error('Logo asset failed to load');
-    return response.text();
-  })
-  .then((base64) => {
-    const siteLogo = `data:image/webp;base64,${base64.trim()}`;
-    document.querySelectorAll('.brand-logo').forEach((logo) => {
-      logo.setAttribute('src', siteLogo);
-      logo.style.setProperty('content', `url("${siteLogo}")`, 'important');
-      logo.style.setProperty('background', 'transparent', 'important');
-    });
-  })
-  .catch(() => {
-    document.querySelectorAll('.brand-logo').forEach((logo) => {
-      logo.removeAttribute('src');
-      logo.style.removeProperty('content');
-    });
-  });
+const siteLogo = 'assets/images/madar-logo-final-20260906.png?v=20260906-logo7';
+document.querySelectorAll('.brand-logo').forEach((logo) => {
+  logo.setAttribute('src', siteLogo);
+  logo.style.setProperty('content', `url("${siteLogo}")`, 'important');
+  logo.style.setProperty('background', 'transparent', 'important');
+});
 
 const toggle = document.querySelector('.menu-toggle');
 const nav = document.querySelector('.main-nav');
