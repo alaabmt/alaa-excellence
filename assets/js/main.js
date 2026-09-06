@@ -1,7 +1,7 @@
-const transparentLogo = 'assets/images/madar-logo-transparent.svg?v=20260906-logo3';
+const siteLogo = 'assets/images/madar-logo-refined.webp?v=20260906-final-logo';
 document.querySelectorAll('.brand-logo').forEach((logo) => {
-  logo.setAttribute('src', transparentLogo);
-  logo.style.setProperty('content', `url("${transparentLogo}")`, 'important');
+  logo.setAttribute('src', siteLogo);
+  logo.style.setProperty('content', `url("${siteLogo}")`, 'important');
   logo.style.setProperty('background', 'transparent', 'important');
 });
 
