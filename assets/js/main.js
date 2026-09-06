@@ -1,3 +1,10 @@
+const transparentLogo = 'assets/images/madar-logo-transparent.svg?v=20260906-logo3';
+document.querySelectorAll('.brand-logo').forEach((logo) => {
+  logo.setAttribute('src', transparentLogo);
+  logo.style.setProperty('content', `url("${transparentLogo}")`, 'important');
+  logo.style.setProperty('background', 'transparent', 'important');
+});
+
 const toggle = document.querySelector('.menu-toggle');
 const nav = document.querySelector('.main-nav');
 if (toggle && nav) {
