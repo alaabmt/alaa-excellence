@@ -1,35 +1,43 @@
-const siteLogo = 'assets/images/madar-logo.png?v=20260906-logo9';
+const siteLogo = 'assets/images/madar-logo.png?v=20260906-logo10';
 
 function applySiteLogo() {
   const mobile = window.matchMedia('(max-width: 600px)').matches;
-  const tablet = window.matchMedia('(max-width: 900px)').matches;
-  const frameWidth = mobile ? 220 : (tablet ? 240 : 280);
-  const frameHeight = mobile ? 132 : (tablet ? 145 : 160);
-  const imageWidth = mobile ? 500 : (tablet ? 540 : 620);
+  const logoWidth = mobile ? 175 : 210;
 
   document.querySelectorAll('.brand').forEach((brand) => {
-    if (!brand.querySelector('.brand-logo')) return;
-    brand.style.setProperty('position', 'relative', 'important');
-    brand.style.setProperty('display', 'block', 'important');
-    brand.style.setProperty('width', `${frameWidth}px`, 'important');
-    brand.style.setProperty('height', `${frameHeight}px`, 'important');
-    brand.style.setProperty('min-width', `${frameWidth}px`, 'important');
-    brand.style.setProperty('overflow', 'hidden', 'important');
-    brand.style.setProperty('flex', `0 0 ${frameWidth}px`, 'important');
-  });
+    let logo = brand.querySelector('.brand-logo');
+    if (!logo) {
+      logo = document.createElement('img');
+      logo.className = 'brand-logo';
+      logo.alt = 'شعار مَدار التميّز مع الدكتور علاء محمد أحمد';
+      brand.prepend(logo);
+    }
 
-  document.querySelectorAll('.brand-logo').forEach((logo) => {
+    brand.querySelectorAll('.brand-mark, .brand > div').forEach((item) => {
+      if (item !== logo) item.style.setProperty('display', 'none', 'important');
+    });
+
+    brand.style.setProperty('position', 'static', 'important');
+    brand.style.setProperty('display', 'flex', 'important');
+    brand.style.setProperty('align-items', 'center', 'important');
+    brand.style.setProperty('width', 'auto', 'important');
+    brand.style.setProperty('height', 'auto', 'important');
+    brand.style.setProperty('min-width', '0', 'important');
+    brand.style.setProperty('overflow', 'visible', 'important');
+    brand.style.setProperty('flex', '0 1 auto', 'important');
+
     logo.setAttribute('src', siteLogo);
     logo.style.setProperty('content', 'none', 'important');
-    logo.style.setProperty('position', 'absolute', 'important');
-    logo.style.setProperty('left', '50%', 'important');
-    logo.style.setProperty('top', '50%', 'important');
-    logo.style.setProperty('transform', 'translate(-50%, -50%)', 'important');
-    logo.style.setProperty('width', `${imageWidth}px`, 'important');
+    logo.style.setProperty('position', 'static', 'important');
+    logo.style.setProperty('left', 'auto', 'important');
+    logo.style.setProperty('top', 'auto', 'important');
+    logo.style.setProperty('transform', 'none', 'important');
+    logo.style.setProperty('width', `${logoWidth}px`, 'important');
     logo.style.setProperty('height', 'auto', 'important');
-    logo.style.setProperty('max-width', 'none', 'important');
+    logo.style.setProperty('max-width', mobile ? '48vw' : '210px', 'important');
     logo.style.setProperty('max-height', 'none', 'important');
     logo.style.setProperty('object-fit', 'contain', 'important');
+    logo.style.setProperty('object-position', 'center', 'important');
     logo.style.setProperty('background', 'transparent', 'important');
     logo.style.setProperty('box-shadow', 'none', 'important');
     logo.style.setProperty('border-radius', '0', 'important');
