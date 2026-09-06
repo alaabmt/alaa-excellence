@@ -1,8 +1,9 @@
-const siteLogo = 'assets/images/madar-logo-final-20260906.png?v=20260906-logo7';
+const siteLogo = 'assets/images/madar-logo-final-20260906.png?v=20260906-logo8';
 document.querySelectorAll('.brand-logo').forEach((logo) => {
   logo.setAttribute('src', siteLogo);
-  logo.style.setProperty('content', `url("${siteLogo}")`, 'important');
+  logo.style.setProperty('content', 'none', 'important');
   logo.style.setProperty('background', 'transparent', 'important');
+  logo.style.setProperty('object-fit', 'contain', 'important');
 });
 
 const toggle = document.querySelector('.menu-toggle');
