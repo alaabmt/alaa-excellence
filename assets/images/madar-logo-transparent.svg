@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1536 856" role="img" aria-labelledby="title desc">
+  <title id="title">مَدار التميّز مع الدكتور علاء محمد أحمد</title>
+  <desc id="desc">الشعار الرسمي لمَدار التميّز بخلفية شفافة</desc>
+  <defs>
+    <filter id="removeBlack" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+      <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  .333 .333 .333 0 0" result="lumAlpha"/>
+      <feComponentTransfer in="lumAlpha" result="cutBlack">
+        <feFuncA type="linear" slope="40" intercept="-0.4"/>
+      </feComponentTransfer>
+    </filter>
+  </defs>
+  <image href="madar-logo-user-20260906.webp" x="0" y="0" width="1536" height="856" preserveAspectRatio="xMidYMid meet" filter="url(#removeBlack)"/>
+</svg>
