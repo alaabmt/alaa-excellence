@@ -1,0 +1,1 @@
+The site logo is supplied by the user and should be served from a correctly typed image file.
