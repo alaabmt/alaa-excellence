@@ -1,0 +1,46 @@
+name: Remove homepage pathways block
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/remove-homepage-pathways.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Remove only the eight-card pathways block from homepage
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          p = Path('index.html')
+          s = p.read_text(encoding='utf-8')
+          original = s
+
+          pattern = r'<section class="tenx-pathways"\b[^>]*>.*?</section>'
+          s, count = re.subn(pattern, '', s, count=1, flags=re.S)
+          if count != 1:
+              raise SystemExit(f'Expected exactly one tenx-pathways section, removed {count}')
+
+          p.write_text(s, encoding='utf-8')
+          print('Removed tenx-pathways section from index.html; all other homepage content preserved.')
+          PY
+      - name: Commit
+        shell: bash
+        run: |
+          if git diff --quiet; then exit 0; fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add index.html
+          git commit -m 'Remove redundant eight-card block from homepage [skip ci]'
+          git push
