@@ -1,6 +1,6 @@
 const siteBase = 'https://tamayuz10x.com/';
-const siteLogoAbsolute = `${siteBase}assets/images/1788762427725.png`;
-const siteLogo = 'assets/images/1788762427725.png?v=20260907-logo1';
+const siteLogoAbsolute = `${siteBase}assets/images/file_0000000047188210ac6952e999d2eda7.png`;
+const siteLogo = 'assets/images/file_0000000047188210ac6952e999d2eda7.png?v=20260907-logo2';
 
 function applySiteLogo() {
   const mobile = window.matchMedia('(max-width: 600px)').matches;
@@ -11,7 +11,7 @@ function applySiteLogo() {
     if (!logo) {
       logo = document.createElement('img');
       logo.className = 'brand-logo';
-      logo.alt = 'شعار مَدار التميّز مع الدكتور علاء محمد أحمد';
+      logo.alt = 'شعار التميّز 10X';
       brand.prepend(logo);
     }
 
@@ -29,6 +29,7 @@ function applySiteLogo() {
     brand.style.setProperty('flex', '0 1 auto', 'important');
 
     logo.setAttribute('src', siteLogo);
+    logo.setAttribute('alt', 'شعار التميّز 10X');
     logo.style.setProperty('content', 'none', 'important');
     logo.style.setProperty('position', 'static', 'important');
     logo.style.setProperty('left', 'auto', 'important');
@@ -43,6 +44,18 @@ function applySiteLogo() {
     logo.style.setProperty('background', 'transparent', 'important');
     logo.style.setProperty('box-shadow', 'none', 'important');
     logo.style.setProperty('border-radius', '0', 'important');
+  });
+
+  document.querySelectorAll('img[src*="1788762427725.png"], img[src*="madar-logo"], img[src*="logo-web.jpg"], img[src*="madar-excellence-logo"]').forEach((logo) => {
+    logo.setAttribute('src', siteLogo);
+    logo.setAttribute('alt', 'شعار التميّز 10X');
+  });
+
+  document.querySelectorAll('meta[property="og:image"], meta[name="twitter:image"]').forEach((meta) => {
+    meta.setAttribute('content', siteLogoAbsolute);
+  });
+  document.querySelectorAll('meta[property="og:image:alt"]').forEach((meta) => {
+    meta.setAttribute('content', 'شعار التميّز 10X');
   });
 }
 
