@@ -1,0 +1,98 @@
+name: Normalize social preview metadata
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/normalize-social-preview.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  normalize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Ensure static Open Graph and Twitter metadata on all HTML pages
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re, html
+
+          DEFAULT_IMAGE = 'https://tamayuz10x.com/assets/social/dubai-paperless-share.png?v=20260907-social-global1'
+          OLD_LOGO = 'https://tamayuz10x.com/assets/images/file_0000000047188210ac6952e999d2eda7.png'
+
+          def attr(content, name, prop=False):
+              key = 'property' if prop else 'name'
+              m = re.search(rf'<meta\s+[^>]*{key}=["\']{re.escape(name)}["\'][^>]*content=["\']([^"\']*)["\'][^>]*>', content, re.I)
+              if not m:
+                  m = re.search(rf'<meta\s+[^>]*content=["\']([^"\']*)["\'][^>]*{key}=["\']{re.escape(name)}["\'][^>]*>', content, re.I)
+              return html.unescape(m.group(1)).strip() if m else ''
+
+          def title_of(content):
+              m = re.search(r'<title>(.*?)</title>', content, re.I|re.S)
+              return re.sub(r'\s+', ' ', html.unescape(m.group(1))).strip() if m else 'التميّز 10X'
+
+          def canonical_of(content):
+              m = re.search(r'<link\s+[^>]*rel=["\']canonical["\'][^>]*href=["\']([^"\']+)["\']', content, re.I)
+              if not m:
+                  m = re.search(r'<link\s+[^>]*href=["\']([^"\']+)["\'][^>]*rel=["\']canonical["\']', content, re.I)
+              return m.group(1).strip() if m else ''
+
+          changed=[]
+          for p in Path('.').glob('*.html'):
+              s=p.read_text(encoding='utf-8')
+              original=s
+              t=title_of(s)
+              desc=attr(s,'description') or 'التميّز 10X — معرفة عربية في التميّز المؤسسي وهندسة التحول والقيادة والابتكار.'
+              can=canonical_of(s) or f'https://tamayuz10x.com/{p.name if p.name != "index.html" else ""}'
+
+              # Upgrade old logo preview to the stable 1200x630 social card.
+              s=s.replace(OLD_LOGO, DEFAULT_IMAGE)
+
+              additions=[]
+              if not attr(s,'og:title',True): additions.append(f'<meta property="og:title" content="{html.escape(t, quote=True)}">')
+              if not attr(s,'og:description',True): additions.append(f'<meta property="og:description" content="{html.escape(desc, quote=True)}">')
+              if not attr(s,'og:url',True): additions.append(f'<meta property="og:url" content="{html.escape(can, quote=True)}">')
+              if not attr(s,'og:image',True): additions.append(f'<meta property="og:image" content="{DEFAULT_IMAGE}">')
+              if not attr(s,'og:image:secure_url',True): additions.append(f'<meta property="og:image:secure_url" content="{DEFAULT_IMAGE}">')
+              if not attr(s,'og:image:type',True): additions.append('<meta property="og:image:type" content="image/png">')
+              if not attr(s,'og:image:width',True): additions.append('<meta property="og:image:width" content="1200">')
+              if not attr(s,'og:image:height',True): additions.append('<meta property="og:image:height" content="630">')
+              if not attr(s,'og:image:alt',True): additions.append('<meta property="og:image:alt" content="بطاقة التميّز 10X مع صورة الدكتور علاء محمد أحمد وهوية الموقع">')
+
+              # Make Twitter/X preview large and complete.
+              if re.search(r'<meta\s+[^>]*name=["\']twitter:card["\'][^>]*>', s, re.I):
+                  s=re.sub(r'<meta\s+[^>]*name=["\']twitter:card["\'][^>]*>', '<meta name="twitter:card" content="summary_large_image">', s, count=1, flags=re.I)
+              else:
+                  additions.append('<meta name="twitter:card" content="summary_large_image">')
+              if not attr(s,'twitter:title'): additions.append(f'<meta name="twitter:title" content="{html.escape(t, quote=True)}">')
+              if not attr(s,'twitter:description'): additions.append(f'<meta name="twitter:description" content="{html.escape(desc, quote=True)}">')
+              if not attr(s,'twitter:image'): additions.append(f'<meta name="twitter:image" content="{DEFAULT_IMAGE}">')
+              if not attr(s,'twitter:image:alt'): additions.append('<meta name="twitter:image:alt" content="بطاقة التميّز 10X مع صورة الدكتور علاء محمد أحمد وهوية الموقع">')
+
+              if additions:
+                  pos=re.search(r'</head>',s,re.I)
+                  if pos:
+                      s=s[:pos.start()]+'\n'+'\n'.join(additions)+'\n'+s[pos.start():]
+
+              if s != original:
+                  p.write_text(s,encoding='utf-8')
+                  changed.append(p.name)
+
+          print(f'Updated {len(changed)} HTML pages')
+          for x in changed: print(x)
+          PY
+      - name: Commit normalized social metadata
+        shell: bash
+        run: |
+          if git diff --quiet; then exit 0; fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add '*.html'
+          git commit -m 'Normalize social previews across site [skip ci]'
+          git push
