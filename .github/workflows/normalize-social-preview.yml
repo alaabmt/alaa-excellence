@@ -24,7 +24,7 @@ jobs:
           import re, html
 
           DEFAULT_IMAGE = 'https://tamayuz10x.com/assets/social/dubai-paperless-share.png?v=20260907-social-global1'
-          OLD_LOGO = 'https://tamayuz10x.com/assets/images/file_0000000047188210ac6952e999d2eda7.png'
+          BRAND_LOGO = 'https://tamayuz10x.com/assets/images/file_0000000047188210ac6952e999d2eda7.png'
 
           def attr(content, name, prop=False):
               key = 'property' if prop else 'name'
@@ -43,6 +43,16 @@ jobs:
                   m = re.search(r'<link\s+[^>]*href=["\']([^"\']+)["\'][^>]*rel=["\']canonical["\']', content, re.I)
               return m.group(1).strip() if m else ''
 
+          def replace_meta_content(content, key, value, prop=False):
+              attr_name = 'property' if prop else 'name'
+              pattern1 = rf'(<meta\s+[^>]*{attr_name}=["\']{re.escape(key)}["\'][^>]*content=["\'])([^"\']*)(["\'][^>]*>)'
+              pattern2 = rf'(<meta\s+[^>]*content=["\'])([^"\']*)(["\'][^>]*{attr_name}=["\']{re.escape(key)}["\'][^>]*>)'
+              if re.search(pattern1, content, re.I):
+                  return re.sub(pattern1, lambda m: m.group(1)+value+m.group(3), content, count=1, flags=re.I)
+              if re.search(pattern2, content, re.I):
+                  return re.sub(pattern2, lambda m: m.group(1)+value+m.group(3), content, count=1, flags=re.I)
+              return content
+
           changed=[]
           for p in Path('.').glob('*.html'):
               s=p.read_text(encoding='utf-8')
@@ -51,8 +61,18 @@ jobs:
               desc=attr(s,'description') or 'التميّز 10X — معرفة عربية في التميّز المؤسسي وهندسة التحول والقيادة والابتكار.'
               can=canonical_of(s) or f'https://tamayuz10x.com/{p.name if p.name != "index.html" else ""}'
 
-              # Upgrade old logo preview to the stable 1200x630 social card.
-              s=s.replace(OLD_LOGO, DEFAULT_IMAGE)
+              # Repair any publisher schema logo that may have been touched previously.
+              s = re.sub(
+                  r'("logo"\s*:\s*\{\s*"@type"\s*:\s*"ImageObject"\s*,\s*"url"\s*:\s*")[^"]+("\s*\})',
+                  lambda m: m.group(1)+BRAND_LOGO+m.group(2), s, flags=re.I)
+
+              # Only social-preview image tags should use the 1200x630 social card.
+              current_og_image = attr(s,'og:image',True)
+              if current_og_image == BRAND_LOGO:
+                  s = replace_meta_content(s,'og:image',DEFAULT_IMAGE,True)
+              current_twitter_image = attr(s,'twitter:image')
+              if current_twitter_image == BRAND_LOGO:
+                  s = replace_meta_content(s,'twitter:image',DEFAULT_IMAGE,False)
 
               additions=[]
               if not attr(s,'og:title',True): additions.append(f'<meta property="og:title" content="{html.escape(t, quote=True)}">')
@@ -65,7 +85,6 @@ jobs:
               if not attr(s,'og:image:height',True): additions.append('<meta property="og:image:height" content="630">')
               if not attr(s,'og:image:alt',True): additions.append('<meta property="og:image:alt" content="بطاقة التميّز 10X مع صورة الدكتور علاء محمد أحمد وهوية الموقع">')
 
-              # Make Twitter/X preview large and complete.
               if re.search(r'<meta\s+[^>]*name=["\']twitter:card["\'][^>]*>', s, re.I):
                   s=re.sub(r'<meta\s+[^>]*name=["\']twitter:card["\'][^>]*>', '<meta name="twitter:card" content="summary_large_image">', s, count=1, flags=re.I)
               else:
