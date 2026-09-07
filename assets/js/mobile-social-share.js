@@ -12,34 +12,59 @@
   const pageTitle = () => document.querySelector('meta[property="og:title"]')?.content || document.querySelector('h1')?.textContent?.trim() || document.title;
   const pageDescription = () => document.querySelector('meta[property="og:description"]')?.content || document.querySelector('meta[name="description"]')?.content || '';
 
-  async function nativeShare(platform, fallbackUrl) {
-    if (!navigator.share || !isMobileLike()) {
-      window.location.href = fallbackUrl;
-      return;
-    }
-
+  const sharePayload = () => {
     const title = pageTitle();
     const url = pageUrl();
     const description = pageDescription();
     const text = description ? `${title}\n\n${description}` : title;
+    return { title, text, url };
+  };
 
+  async function nativeShare(fallbackUrl) {
+    if (!navigator.share || !isMobileLike()) {
+      window.location.href = fallbackUrl;
+      return;
+    }
     try {
-      await navigator.share({ title, text, url });
+      await navigator.share(sharePayload());
     } catch (error) {
-      // If the user cancels the Android/iOS share sheet, do nothing.
       if (error && error.name === 'AbortError') return;
-      // If native sharing is unavailable at runtime, fall back to the platform web composer.
       window.location.href = fallbackUrl;
     }
   }
 
-  document.addEventListener('click', (event) => {
-    const link = event.target.closest('a.tenx-share-btn[href*="linkedin.com/sharing/share-offsite"]');
-    if (!link) return;
-    if (!isMobileLike() || !navigator.share) return;
+  function openWhatsAppApp(fallbackUrl) {
+    const { title, url } = sharePayload();
+    const message = encodeURIComponent(`${title}\n${url}`);
+    const appUrl = `whatsapp://send?text=${message}`;
+    let hidden = false;
+    const onVisibility = () => {
+      if (document.hidden) hidden = true;
+    };
+    document.addEventListener('visibilitychange', onVisibility, { once: true });
+    window.location.href = appUrl;
+    window.setTimeout(() => {
+      if (!hidden && document.visibilityState === 'visible') window.location.href = fallbackUrl;
+    }, 1400);
+  }
 
-    event.preventDefault();
-    event.stopPropagation();
-    nativeShare('linkedin', link.href);
+  document.addEventListener('click', (event) => {
+    const link = event.target.closest('a.tenx-share-btn');
+    if (!link || !isMobileLike()) return;
+    const href = link.href || '';
+
+    if (href.includes('linkedin.com/sharing/share-offsite') || href.includes('facebook.com/sharer/sharer.php')) {
+      if (!navigator.share) return;
+      event.preventDefault();
+      event.stopPropagation();
+      nativeShare(href);
+      return;
+    }
+
+    if (href.includes('api.whatsapp.com/send')) {
+      event.preventDefault();
+      event.stopPropagation();
+      openWhatsAppApp(href);
+    }
   }, true);
 })();
