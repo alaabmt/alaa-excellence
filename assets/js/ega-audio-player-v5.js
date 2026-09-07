@@ -17,7 +17,8 @@
 
   const normalize = (s) => String(s || '').normalize('NFC').replace(/\s+/g, ' ').trim();
 
-  // Article-specific pronunciation dictionary. The spoken layer is separate from the visible article.
+  // Visible Arabic always keeps taa marbuta (ة). Only the hidden speech layer may
+  // use taa maftuha (ت) to force a correct connected pronunciation when needed.
   const phraseFixes = [
     [/تقنية الصهر/g, 'تِقْنِيَّتُ الصَّهْرِ'],
     [/تقنيةً للصهر/g, 'تِقْنِيَّةً لِلصَّهْرِ'],
@@ -26,7 +27,7 @@
     [/صهر الألمنيوم/g, 'صَهْرُ الأَلُومِنْيُومِ'],
     [/خلية الصهر/g, 'خَلِيَّتُ الصَّهْرِ'],
     [/خلايا الصهر/g, 'خَلايا الصَّهْرِ'],
-    [/طاقة الصهر/g, 'طاقَتُ الصَّهْرِ'],
+    [/طاقة الصهر/g, 'طَاقَتُ الصَّهْرِ'],
     [/المعرفة التشغيلية/g, 'المَعْرِفَتُ التَّشْغِيلِيَّةُ'],
     [/المعرفة الصناعية/g, 'المَعْرِفَتُ الصِّنَاعِيَّةُ'],
     [/الكفاءة التشغيلية/g, 'الكَفاءَتُ التَّشْغِيلِيَّةُ'],
@@ -57,10 +58,6 @@
   function speechText(raw) {
     let out = normalize(raw);
     for (const [re, value] of phraseFixes) out = out.replace(re, value);
-
-    // In connected speech, taa marbuta must be pronounced /t/, not /h/.
-    // Convert it only in the hidden spoken layer when another Arabic word follows.
-    out = out.replace(/ة([ًٌٍَُِ]?)(?=\s+[\u0621-\u064A])/g, (_, mark) => `ت${mark || 'ُ'}`);
     return out.normalize('NFC');
   }
 
