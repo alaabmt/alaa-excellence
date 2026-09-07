@@ -44,7 +44,6 @@
   function openWhatsAppApp(fallbackUrl) {
     const title = pageTitle();
     const url = freshUrl('whatsapp');
-    // Keep the URL on its own line so WhatsApp's link-preview parser can detect it cleanly.
     const message = encodeURIComponent(`${title}\n\n${url}`);
     const appUrl = `whatsapp://send?text=${message}`;
     let hidden = false;
@@ -87,4 +86,14 @@
       openWhatsAppApp(fallback);
     }
   }, true);
+
+  // The homepage philosophy is maintained as a separate layer so it can evolve
+  // without duplicating or disturbing the eight-pillar model that follows it.
+  const cleanPath = window.location.pathname.replace(/\/+$/, '');
+  if (!cleanPath || /\/index\.html$/i.test(cleanPath)) {
+    const script = document.createElement('script');
+    script.src = 'assets/js/homepage-philosophy.js?v=20260907-philosophy1';
+    script.defer = true;
+    document.head.appendChild(script);
+  }
 })();
