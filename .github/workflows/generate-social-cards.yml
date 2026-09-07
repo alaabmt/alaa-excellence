@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - 'scripts/generate_social_cards.py'
+      - 'scripts/generate_social_cards_v2.py'
       - 'case-dubai-paperless-10x.html'
       - 'case-ega-dx-ultra-innovation.html'
       - 'articles.html'
@@ -31,21 +32,24 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Install image dependencies
-        run: pip install pillow arabic-reshaper python-bidi
+      - name: Install Arabic fonts and image dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y fonts-noto-core libraqm0
+          pip install pillow
 
-      - name: Generate cards and update social metadata
-        run: python scripts/generate_social_cards.py
+      - name: Generate cards with native Arabic shaping
+        run: python scripts/generate_social_cards_v2.py
 
       - name: Commit generated social assets
         shell: bash
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/social/*.png case-dubai-paperless-10x.html case-ega-dx-ultra-innovation.html articles.html
+          git add assets/social/*.png case-dubai-paperless-10x.html case-ega-dx-ultra-innovation.html
           if git diff --cached --quiet; then
             echo "No social-card changes to commit."
           else
-            git commit -m "Generate social share cards [skip ci]"
+            git commit -m "Regenerate social cards with clear Arabic text [skip ci]"
             git push origin main
           fi
