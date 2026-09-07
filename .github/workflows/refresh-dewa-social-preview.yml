@@ -1,0 +1,34 @@
+name: Refresh DEWA social preview
+on:
+  push:
+    paths:
+      - '.github/workflows/refresh-dewa-social-preview.yml'
+permissions:
+  contents: write
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Refresh DEWA Open Graph image URL and schema image
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('case-dewa-hydro-insight-smart-water.html')
+          s = p.read_text(encoding='utf-8')
+          old = 'https://tamayuz10x.com/assets/social/dubai-paperless-share.png?v=20260907-social-global1'
+          new = 'https://tamayuz10x.com/assets/social/dubai-paperless-share.png?v=20260907-dewa-linkedin1'
+          s = s.replace(old, new)
+          needle = '"mainEntityOfPage":"https://tamayuz10x.com/case-dewa-hydro-insight-smart-water.html"'
+          repl = '"image":{"@type":"ImageObject","url":"' + new + '","width":1200,"height":630},' + needle
+          if '"image":{"@type":"ImageObject","url":"https://tamayuz10x.com/assets/social/dubai-paperless-share.png?v=20260907-dewa-linkedin1"' not in s:
+              s = s.replace(needle, repl)
+          p.write_text(s, encoding='utf-8')
+          PY
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add case-dewa-hydro-insight-smart-water.html
+          git diff --cached --quiet || git commit -m "Refresh DEWA social preview metadata [skip ci]"
+          git push
