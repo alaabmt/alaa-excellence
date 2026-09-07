@@ -1,0 +1,46 @@
+name: Enable global title-first audio controls
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/enable-global-audio-controls-v2.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Refresh site engagement script on all HTML pages
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          tag = '<script src="assets/js/site-engagement.js?v=20260907-engage2"></script>'
+          changed = []
+          for p in Path('.').glob('*.html'):
+              s = p.read_text(encoding='utf-8')
+              original = s
+              s = re.sub(r'<script src="assets/js/site-engagement\.js(?:\?v=[^"]*)?"></script>', tag, s)
+              if tag not in s:
+                  marker = '</body>'
+                  s = s.replace(marker, tag + marker)
+              if s != original:
+                  p.write_text(s, encoding='utf-8')
+                  changed.append(str(p))
+          print(f'Updated {len(changed)} HTML pages')
+          for name in changed:
+              print(name)
+          PY
+      - name: Commit
+        run: |
+          if git diff --quiet; then exit 0; fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add '*.html'
+          git commit -m 'Use global title-first audio controls across site [skip ci]'
+          git push
