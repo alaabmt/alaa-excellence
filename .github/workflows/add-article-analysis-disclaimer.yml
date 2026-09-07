@@ -2,6 +2,9 @@ name: Add article analysis disclaimer
 
 on:
   workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/add-article-analysis-disclaimer.yml'
 
 permissions:
   contents: write
@@ -28,7 +31,6 @@ jobs:
               if text in s:
                   continue
 
-              # Prefer immediately before a references/sources section.
               patterns = [
                   r'(?=<section[^>]+(?:id|class)=["\'][^"\']*(?:references|sources|refs)[^"\']*["\'])',
                   r'(?=<h[23][^>]*>\s*(?:المراجع|المصادر|References|Sources)\s*</h[23]>)',
@@ -41,7 +43,6 @@ jobs:
                       inserted = True
                       break
 
-              # Fallback: before article/main closing tag, so it remains at the end of the article.
               if not inserted:
                   for tag in ('</article>', '</main>'):
                       i = s.lower().rfind(tag)
