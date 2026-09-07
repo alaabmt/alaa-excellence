@@ -322,3 +322,12 @@ document.querySelectorAll('.article-card[data-href]').forEach((card) => {
     if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); go(); }
   });
 });
+
+// Load the reusable sharing panel on article and case-study pages.
+if (/\/(case-|idea-|article-)/.test(window.location.pathname)) {
+  const shareScript = document.createElement('script');
+  shareScript.src = 'assets/js/article-share.js?v=20260907-share1';
+  shareScript.defer = true;
+  shareScript.dataset.tenxShareLoader = 'true';
+  document.body.appendChild(shareScript);
+}
