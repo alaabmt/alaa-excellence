@@ -1,0 +1,43 @@
+name: Fix DEWA social image for Meta
+
+on:
+  push:
+    paths:
+      - '.github/workflows/fix-dewa-social-image-meta.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Point DEWA social image to GitHub Pages host
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('case-dewa-hydro-insight-smart-water.html')
+          s = p.read_text(encoding='utf-8')
+          old = 'https://tamayuz10x.com/assets/social/dubai-paperless-share.png?v=20260907-dewa-linkedin1'
+          new = 'https://alaabmt.github.io/alaa-excellence/assets/social/dubai-paperless-share.png'
+          count = s.count(old)
+          if count < 3:
+              raise SystemExit(f'Expected at least 3 occurrences, found {count}')
+          s = s.replace(old, new)
+          p.write_text(s, encoding='utf-8')
+          print(f'Replaced {count} occurrences')
+          PY
+      - name: Commit change
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add case-dewa-hydro-insight-smart-water.html
+          if git diff --cached --quiet; then
+            echo 'No changes to commit'
+            exit 0
+          fi
+          git commit -m 'Fix DEWA social image host for Meta [skip ci]'
+          git push origin main
