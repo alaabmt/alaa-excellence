@@ -1,0 +1,77 @@
+name: Add article analysis disclaimer
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Add disclaimer to article pages and editorial standard
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+
+          title = 'تنويه:'
+          text = 'يعبر هذا المقال عن تحليل ورأي مهني مبنيين على المصادر المشار إليها. وللتفاصيل الكاملة أو الأحدث، يُرجى الرجوع إلى المصادر الأصلية والوثائق الرسمية.'
+          block = f'''\n<section class="tenx-analysis-disclaimer" aria-label="تنويه منهجي">\n  <p><strong>{title}</strong><br>{text}</p>\n</section>\n'''
+
+          pages = sorted(set(Path('.').glob('article-*.html')) | set(Path('.').glob('case-*.html')) | set(Path('.').glob('idea-*.html')))
+          changed = []
+          for p in pages:
+              s = p.read_text(encoding='utf-8')
+              if text in s:
+                  continue
+
+              # Prefer immediately before a references/sources section.
+              patterns = [
+                  r'(?=<section[^>]+(?:id|class)=["\'][^"\']*(?:references|sources|refs)[^"\']*["\'])',
+                  r'(?=<h[23][^>]*>\s*(?:المراجع|المصادر|References|Sources)\s*</h[23]>)',
+              ]
+              inserted = False
+              for pat in patterns:
+                  m = re.search(pat, s, flags=re.I)
+                  if m:
+                      s = s[:m.start()] + block + s[m.start():]
+                      inserted = True
+                      break
+
+              # Fallback: before article/main closing tag, so it remains at the end of the article.
+              if not inserted:
+                  for tag in ('</article>', '</main>'):
+                      i = s.lower().rfind(tag)
+                      if i != -1:
+                          s = s[:i] + block + s[i:]
+                          inserted = True
+                          break
+
+              if inserted:
+                  p.write_text(s, encoding='utf-8')
+                  changed.append(str(p))
+
+          manual = Path('10X_Agent_AI_Master_Operating_Manual_AR.md')
+          if manual.exists():
+              s = manual.read_text(encoding='utf-8')
+              if text not in s:
+                  s += f'''\n\n## التنويه الثابت في المقالات\nيوضع التنويه الآتي في نهاية كل مقال، وقبل قائمة المراجع أو المصادر متى وجدت:\n\n**{title}**  \n{text}\n'''
+                  manual.write_text(s, encoding='utf-8')
+                  changed.append(str(manual))
+
+          print('Updated:', ', '.join(changed) if changed else 'nothing')
+          PY
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- '*.html' 10X_Agent_AI_Master_Operating_Manual_AR.md
+          if git diff --cached --quiet; then
+            echo "No changes"
+            exit 0
+          fi
+          git commit -m "Add analysis disclaimer to articles [skip ci]"
+          git push
