@@ -1,0 +1,34 @@
+name: Refresh EGA pronunciation v3
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/refresh-ega-pronunciation-v3.yml'
+permissions:
+  contents: write
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Bust pronunciation script cache
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('case-ega-dx-ultra-innovation.html')
+          text = p.read_text(encoding='utf-8')
+          text = text.replace('ega-pronunciation-test.js?v=20260907-pron2', 'ega-pronunciation-test.js?v=20260907-pron3')
+          text = text.replace('ega-pronunciation-test.js?v=20260907-pron1', 'ega-pronunciation-test.js?v=20260907-pron3')
+          p.write_text(text, encoding='utf-8')
+          PY
+      - name: Commit change
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add case-ega-dx-ultra-innovation.html
+          if git diff --cached --quiet; then
+            echo "No change needed"
+          else
+            git commit -m "Load fully vocalized EGA speech script [skip ci]"
+            git push origin main
+          fi
