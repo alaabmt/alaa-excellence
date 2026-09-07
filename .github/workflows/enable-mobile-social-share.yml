@@ -23,7 +23,7 @@ jobs:
           from pathlib import Path
           import re
 
-          tag = '<script src="assets/js/mobile-social-share.js?v=20260907-shareapp2"></script>'
+          tag = '<script src="assets/js/mobile-social-share.js?v=20260907-shareapp3"></script>'
           changed=[]
           for p in Path('.').glob('*.html'):
               s=p.read_text(encoding='utf-8')
@@ -39,7 +39,7 @@ jobs:
           if manual.exists():
               s=manual.read_text(encoding='utf-8')
               marker='## معيار المشاركة الاجتماعية على الهاتف'
-              block='''## معيار المشاركة الاجتماعية على الهاتف\n- المرجع المتخصص الإلزامي: `SOCIAL-SHARING-STANDARD.md`.\n- على الهاتف، زر LinkedIn وزر Facebook يستخدمان Web Share API أولاً عند توفره لفتح لوحة مشاركة النظام واختيار التطبيق المثبت، بدلاً من إجبار المستخدم على صفحة المشاركة داخل المتصفح.\n- زر WhatsApp على الهاتف يحاول فتح تطبيق WhatsApp مباشرة عبر رابط التطبيق، ثم يستخدم رابط الويب كخيار احتياطي إذا لم يُفتح التطبيق.\n- إذا ألغى المستخدم لوحة المشاركة الأصلية فلا يُفتح بديل تلقائياً. وإذا فشلت المشاركة الأصلية تقنياً أو لم تكن مدعومة، يُستخدم رابط الويب كخيار احتياطي.\n- كل صفحة قابلة للمشاركة يجب أن تحتوي Open Graph ثابتاً وصورة HTTPS مناسبة، ويجب اختبار المعاينة على الهاتف مع مراعاة cache الخارجي للمنصات.\n'''
+              block='''## معيار المشاركة الاجتماعية على الهاتف\n- المرجع المتخصص الإلزامي: `SOCIAL-SHARING-STANDARD.md`.\n- على الهاتف، زر LinkedIn وزر Facebook يستخدمان Web Share API أولاً عند توفره لفتح لوحة مشاركة النظام واختيار التطبيق المثبت، بدلاً من إجبار المستخدم على صفحة المشاركة داخل المتصفح.\n- زر WhatsApp على الهاتف يحاول فتح تطبيق WhatsApp مباشرة عبر رابط التطبيق، ثم يستخدم رابط الويب كخيار احتياطي إذا لم يُفتح التطبيق.\n- عند وجود cache قديم لدى Facebook أو WhatsApp، يجب أن يستخدم رابط المشاركة نسخة query فريدة للمشاركة حتى تضطر المنصة إلى إعادة جلب Open Graph الحالي، مع إبقاء canonical الصفحة نفسه دون تغيير.\n- إذا ألغى المستخدم لوحة المشاركة الأصلية فلا يُفتح بديل تلقائياً. وإذا فشلت المشاركة الأصلية تقنياً أو لم تكن مدعومة، يُستخدم رابط الويب كخيار احتياطي.\n- كل صفحة قابلة للمشاركة يجب أن تحتوي Open Graph ثابتاً وصورة HTTPS مناسبة، ويجب اختبار المعاينة على الهاتف مع مراعاة cache الخارجي للمنصات.\n'''
               if marker in s:
                   s=re.sub(r'## معيار المشاركة الاجتماعية على الهاتف\n.*?(?=\n## |\Z)', block+'\n', s, flags=re.S)
               else:
@@ -56,5 +56,5 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add '*.html' '10X_Agent_AI_Master_Operating_Manual_AR.md'
-          git commit -m 'Use mobile app sharing for Facebook and WhatsApp across site [skip ci]'
+          git commit -m 'Refresh mobile social sharing across site [skip ci]'
           git push
