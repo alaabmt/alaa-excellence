@@ -1,0 +1,33 @@
+name: Update 10X homepage quote
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - .github/workflows/update-tenx-home-quote.yml
+permissions:
+  contents: write
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Replace quote
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('assets/js/main.js')
+          s = p.read_text(encoding='utf-8')
+          old = 'التميّز 10X لا يعني أن نفعل المزيد بالطريقة نفسها؛ بل أن نعيد التفكير فيما يمكن تحقيقه، وكيف يمكن تحقيقه.'
+          new = 'التميّز 10X يبدأ حين لا نكتفي بتحسين الحاضر، بل نفكر من موقع المستقبل، ونعيد تعريف ما يمكن للمؤسسة أن تصبح عليه، ثم نبني القدرة على الوصول إليه.'
+          if old not in s:
+              raise SystemExit('Target quote not found')
+          p.write_text(s.replace(old, new, 1), encoding='utf-8')
+          PY
+      - name: Commit
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add assets/js/main.js
+          git diff --cached --quiet && exit 0
+          git commit -m 'Update 10X homepage philosophy quote [skip ci]'
+          git push
