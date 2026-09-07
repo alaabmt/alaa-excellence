@@ -1,4 +1,4 @@
-name: Remove homepage pathways block
+name: Remove homepage eight-item signature block
 
 on:
   workflow_dispatch:
@@ -16,24 +16,23 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: Remove only the eight-card pathways block from homepage
+      - name: Remove only the compact eight-item block from homepage model
         shell: bash
         run: |
           python - <<'PY'
           from pathlib import Path
           import re
 
-          p = Path('index.html')
+          p = Path('assets/js/main.js')
           s = p.read_text(encoding='utf-8')
-          original = s
 
-          pattern = r'<section class="tenx-pathways"\b[^>]*>.*?</section>'
-          s, count = re.subn(pattern, '', s, count=1, flags=re.S)
+          pattern = r'\n\s*<div class="tenx-signature"[^>]*>\s*<div class="tenx-signature-mark">.*?</div>\s*<div class="tenx-signature-track">.*?</div>\s*</div>\s*'
+          s, count = re.subn(pattern, '\n', s, count=1, flags=re.S)
           if count != 1:
-              raise SystemExit(f'Expected exactly one tenx-pathways section, removed {count}')
+              raise SystemExit(f'Expected exactly one tenx-signature block, removed {count}')
 
           p.write_text(s, encoding='utf-8')
-          print('Removed tenx-pathways section from index.html; all other homepage content preserved.')
+          print('Removed the compact eight-item signature block only; all other homepage model content preserved.')
           PY
       - name: Commit
         shell: bash
@@ -41,6 +40,6 @@ jobs:
           if git diff --quiet; then exit 0; fi
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add index.html
-          git commit -m 'Remove redundant eight-card block from homepage [skip ci]'
+          git add assets/js/main.js
+          git commit -m 'Remove compact eight-item block from homepage [skip ci]'
           git push
