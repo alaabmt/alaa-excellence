@@ -1,0 +1,39 @@
+name: Install article sharing component
+
+on:
+  push:
+    paths:
+      - '.github/workflows/install-article-share.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Add share loader to main JavaScript
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('assets/js/main.js')
+          text = p.read_text(encoding='utf-8')
+          marker = 'data-tenx-share-loader'
+          if marker not in text:
+              text += '''\n\n// Load the reusable sharing panel on article and case-study pages.\nif (/\/(case-|idea-|article-)/.test(window.location.pathname)) {\n  const shareScript = document.createElement('script');\n  shareScript.src = 'assets/js/article-share.js?v=20260907-share1';\n  shareScript.defer = true;\n  shareScript.dataset.tenxShareLoader = 'true';\n  document.body.appendChild(shareScript);\n}\n'''
+              p.write_text(text, encoding='utf-8')
+          PY
+      - name: Commit installed loader
+        run: |
+          if git diff --quiet; then
+            echo "No changes needed"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/js/main.js
+          git commit -m "Enable sharing panel on articles and case studies"
+          git push
