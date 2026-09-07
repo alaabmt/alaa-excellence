@@ -1,0 +1,51 @@
+name: Generate social share cards
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/generate_social_cards.py'
+      - 'case-dubai-paperless-10x.html'
+      - 'case-ega-dx-ultra-innovation.html'
+      - 'articles.html'
+      - 'assets/images/alaa-mohammad-ahmad-profile-hq.webp'
+      - 'assets/images/file_0000000047188210ac6952e999d2eda7.png'
+      - '.github/workflows/generate-social-cards.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-social-cards:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install image dependencies
+        run: pip install pillow arabic-reshaper python-bidi
+
+      - name: Generate cards and update social metadata
+        run: python scripts/generate_social_cards.py
+
+      - name: Commit generated social assets
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/social/*.png case-dubai-paperless-10x.html case-ega-dx-ultra-innovation.html articles.html
+          if git diff --cached --quiet; then
+            echo "No social-card changes to commit."
+          else
+            git commit -m "Generate social share cards [skip ci]"
+            git push origin main
+          fi
