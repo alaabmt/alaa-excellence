@@ -1,0 +1,54 @@
+name: Enforce mixed-content protection
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/enforce-mixed-content-protection.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  protect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Add CSP mixed-content protection to HTML pages
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          meta = '<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests; block-all-mixed-content">'
+          changed = []
+          for path in Path('.').glob('*.html'):
+              text = path.read_text(encoding='utf-8')
+              if 'http-equiv="Content-Security-Policy"' in text:
+                  continue
+              if '<head>' in text:
+                  text = text.replace('<head>', '<head>' + meta, 1)
+              elif '<head ' in text:
+                  i = text.find('>', text.find('<head '))
+                  if i == -1:
+                      continue
+                  text = text[:i+1] + meta + text[i+1:]
+              else:
+                  continue
+              path.write_text(text, encoding='utf-8')
+              changed.append(str(path))
+          print('Updated:', ', '.join(changed) if changed else 'none')
+          PY
+      - name: Commit changes
+        run: |
+          if git diff --quiet; then
+            echo "No changes"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add '*.html'
+          git commit -m "Protect pages from mixed content [skip ci]"
+          git push
