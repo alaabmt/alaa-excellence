@@ -59,26 +59,109 @@ function applySiteLogo() {
   });
 }
 
-function applyTenXPhilosophyFiveSteps() {
-  const flow = document.querySelector('.tenx-flow');
-  const people = document.querySelector('.tenx-people');
-  if (!flow || !people) return;
+function applyTenXUnifiedModel() {
+  const philosophy = document.querySelector('.tenx-philosophy');
+  const pathways = document.querySelector('.tenx-pathways');
+  if (!philosophy) return;
 
-  people.className = 'tenx-step';
-  people.removeAttribute('aria-label');
-  people.innerHTML = '<span class="num">05</span><h3>الموظفون والقدرات المؤسسية</h3><p>نبني قدرات الموظفين ونمكّنهم، ونعزز مشاركتهم وتجربتهم ورفاههم، ونطوّر المواهب والمهارات المستقبلية اللازمة لقيادة التحول وتحقيق نتائج 10X.</p>';
-  flow.appendChild(people);
+  philosophy.className = 'tenx-system';
+  philosophy.setAttribute('aria-labelledby', 'tenx-system-title');
+  philosophy.innerHTML = `
+    <div class="container">
+      <header class="tenx-system-intro">
+        <span class="eyebrow">فلسفة التميّز 10X</span>
+        <h2 id="tenx-system-title">لا نحسّن الحاضر فقط؛ نعيد تصميم المستقبل ونقرّبه.</h2>
+        <p class="tenx-question">ماذا لو لم يكن السؤال: <strong>كيف نصبح أفضل مما نحن عليه اليوم؟</strong><br>بل: <strong>ماذا يمكن أن تصبح عليه مؤسستنا بعد عشر سنوات، وكيف نبدأ بناء ذلك المستقبل من اليوم؟</strong></p>
+        <p>من هنا تنطلق <strong>فلسفة التميّز 10X</strong>. هي فلسفة مؤسسية تتجاوز التحسين التدريجي إلى <strong>مضاعفة الممكن</strong>؛ فلا تنطلق من حدود الواقع الحالي، بل من استشراف المستقبل، ورفع سقف الطموح، وإعادة التفكير في القيمة التي يمكن للمؤسسة أن تصنعها.</p>
+        <p>ثم تعمل على تقريب ذلك المستقبل من خلال قيادة قادرة على التحول، وإنسان ممكّن، وقدرات متجددة، ونماذج عمل أكثر مرونة، وابتكار أسرع، وذكاء مؤسسي وتقني أعمق؛ وصولاً إلى <strong>قفزات نوعية ومستدامة في القيمة والنتائج والأثر</strong>.</p>
+        <blockquote>التميّز 10X لا يعني أن نفعل المزيد بالطريقة نفسها؛ بل أن نعيد التفكير فيما يمكن تحقيقه، وكيف يمكن تحقيقه.</blockquote>
+      </header>
 
-  if (!document.getElementById('tenx-five-steps-style')) {
+      <div class="tenx-octet-heading">
+        <span class="eyebrow">ثُمانيّة التميّز 10X</span>
+        <h3>ثمانية مرتكزات لبناء المؤسسة القادرة على صناعة مستقبلها</h3>
+        <p>تحوّل ثُمانيّة التميّز 10X الفلسفة إلى منظومة مؤسسية مترابطة؛ تبدأ من المستقبل الذي تطمح إليه المؤسسة، ثم تعيد تشكيل استراتيجيتها وقيادتها وقدراتها ونموذج عملها وابتكارها وذكائها، لتنتهي بقيمة وأثر يتجاوزان حدود الأداء التقليدي.</p>
+      </div>
+
+      <div class="tenx-signature" aria-label="المسار البصري لثُمانيّة التميّز 10X">
+        <div class="tenx-signature-mark"><span>10</span><b>X</b><small>من المستقبل إلى الأثر</small></div>
+        <div class="tenx-signature-track">
+          <span><b>01</b> المستقبل</span><i>←</i>
+          <span><b>02</b> القيمة</span><i>←</i>
+          <span><b>03</b> القيادة</span><i>←</i>
+          <span><b>04</b> القدرات</span><i>←</i>
+          <span><b>05</b> المؤسسة</span><i>←</i>
+          <span><b>06</b> الابتكار</span><i>←</i>
+          <span><b>07</b> الذكاء</span><i>←</i>
+          <span><b>08</b> الأثر</span>
+        </div>
+      </div>
+
+      <div class="tenx-octet-grid">
+        <article class="tenx-octet-card"><span class="tenx-num">01</span><div><h4>استشراف المستقبل وصناعة الطموح</h4><strong class="tenx-lead">نرى أبعد من حدود الحاضر.</strong><p>نستشرف التحولات والفرص والسيناريوهات التي يمكن أن تعيد تشكيل المؤسسة وقطاعها، ونبني صورة واضحة لما يمكن أن تصبح عليه خلال السنوات القادمة، ثم نحوّل هذه الصورة إلى <strong>طموح 10X</strong> يرفع سقف الممكن ويوجّه قرارات اليوم.</p><em>لا ننتظر المستقبل؛ نستعد له ونبدأ في صناعته.</em></div></article>
+
+        <article class="tenx-octet-card"><span class="tenx-num">02</span><div><h4>إعادة تعريف القيمة والاتجاه الاستراتيجي</h4><strong class="tenx-lead">نرفع الطموح من تحسين الأداء إلى مضاعفة القيمة.</strong><p>نعيد التفكير في الغاية والاتجاه والأولويات الاستراتيجية، وفي القيمة التي تقدمها المؤسسة لمتعامليها وموظفيها وشركائها ومجتمعها، ونبحث عن الفرص القادرة على إحداث قفزات نوعية بدلاً من الاكتفاء بتحسينات محدودة. ويمتد ذلك إلى بناء الشراكات والمنظومات التي توسّع قدرة المؤسسة على صناعة القيمة والأثر.</p><em>10X يبدأ عندما نعيد تعريف ما يستحق أن نصنعه، ولمن، ولماذا.</em></div></article>
+
+        <article class="tenx-octet-card"><span class="tenx-num">03</span><div><h4>القيادة وثقافة التحول والحوكمة المستقبلية</h4><strong class="tenx-lead">نحوّل الطموح إلى إرادة مؤسسية قادرة على التغيير.</strong><p>نبني قيادة تستشرف وتلهم وتحسم، وثقافة تقوم على الثقة والمساءلة والتعلم والجرأة المحسوبة والتكيف، وحوكمة مرنة تسرّع القرار وتمكّن الابتكار وتحافظ في الوقت نفسه على المسؤولية والشفافية.</p><em>المستقبل يحتاج قيادة تمكّنه، لا أنظمة تعيده إلى الماضي.</em></div></article>
+
+        <article class="tenx-octet-card"><span class="tenx-num">04</span><div><h4>مضاعفة القدرات والتمكين</h4><strong class="tenx-lead">طموح 10X يحتاج قدرة 10X.</strong><p>لا يمكن تحقيق نتائج استثنائية بقدرات صُممت لمتطلبات الأمس. لذلك نستثمر في مضاعفة قدرات الموظفين والقيادات، ونوسّع مساحة القرار والمبادرة، وننمّي المواهب والتعلم والمهارات المستقبلية، في <strong>بيئة عمل داعمة ومحفّزة على التمكين والنمو</strong> تعزز المشاركة والرفاه الوظيفي والثقة والتعاون.</p><em>طموح 10X يحتاج قدرة 10X… وبيئة عمل تطلق هذه القدرة.</em></div></article>
+
+        <article class="tenx-octet-card"><span class="tenx-num">05</span><div><h4>إعادة ابتكار المؤسسة ونموذج عملها</h4><strong class="tenx-lead">لا نحسّن المؤسسة فقط؛ نعيد التفكير في كيفية عملها.</strong><p>نعيد النظر في العمليات والهياكل ونماذج التشغيل والخدمات وتجارب أصحاب المصلحة وطرق اتخاذ القرار والعمل، ونزيل التعقيد والهدر والعوائق التي تحد من السرعة والقيمة، لبناء مؤسسة أبسط وأسرع وأكثر مرونة وجودة وقدرة على التكيف وصناعة القيمة.</p><em>عندما لا يكفي التحسين، يصبح إعادة التصميم ضرورة.</em></div></article>
+
+        <article class="tenx-octet-card"><span class="tenx-num">06</span><div><h4>الابتكار والتجريب لتسريع التحول</h4><strong class="tenx-lead">نختبر أسرع، نتعلم أبكر، ونوسّع ما يصنع الفرق.</strong><p>نحوّل الابتكار من نشاط منفصل إلى قدرة مؤسسية مستمرة؛ نكتشف الفرص، ونطوّر الأفكار، ونختبر الحلول والنماذج الجديدة بسرعة، ونتعلم من النتائج، ثم نوسّع ما يثبت قدرته على صناعة القيمة.</p><em>لا ننتظر الحل المثالي؛ نجرّب، نتعلم، ثم نوسّع الأثر.</em></div></article>
+
+        <article class="tenx-octet-card"><span class="tenx-num">07</span><div><h4>تعظيم الذكاء المؤسسي والتقني</h4><strong class="tenx-lead">نجعل المؤسسة أقدر على الفهم والتنبؤ والقرار والتنفيذ.</strong><p>نحوّل البيانات إلى معرفة، والمعرفة إلى قرار، والقرار إلى فعل؛ ونوظف التحول الرقمي والأتمتة والذكاء الاصطناعي و<strong>Agentic AI</strong> لتعزيز قدرات الإنسان والمؤسسة وإعادة تصور الخدمات والعمليات وطرق العمل.</p><em>التقنية ليست غاية 10X؛ بل قوة تضاعف ذكاء المؤسسة وقدرتها.</em></div></article>
+
+        <article class="tenx-octet-card"><span class="tenx-num">08</span><div><h4>مضاعفة القيمة والأثر المستدام</h4><strong class="tenx-lead">ما لا يتحول إلى قيمة وأثر ليس 10X.</strong><p>نقيس النجاح بما أحدثته المؤسسة من تحول حقيقي: في النتائج والأداء، وتجربة أصحاب المصلحة، وقدرات الموظفين، والكفاءة والابتكار، والقيمة الاقتصادية والاجتماعية، والاستدامة. ولا نتوقف عند تحقيق النتائج؛ بل نبني القدرة على التعلم منها والمحافظة عليها ومضاعفتها عبر الزمن.</p><em>10X لا يُقاس بعدد المبادرات، بل بحجم القيمة والأثر الذي يبقى بعدها.</em></div></article>
+      </div>
+
+      <div class="tenx-final">8 مرتكزات. فلسفة واحدة. طموح 10X.</div>
+    </div>`;
+
+  if (pathways) pathways.remove();
+
+  if (!document.getElementById('tenx-unified-style')) {
     const style = document.createElement('style');
-    style.id = 'tenx-five-steps-style';
-    style.textContent = '@media (min-width:1001px){.tenx-flow{grid-template-columns:repeat(5,minmax(0,1fr))}}';
+    style.id = 'tenx-unified-style';
+    style.textContent = `
+      .tenx-system{padding:82px 0;background:linear-gradient(145deg,#07192d 0%,#0b3155 48%,#102943 100%);color:#fff;overflow:hidden;position:relative}
+      .tenx-system:before{content:'10X';position:absolute;left:-2vw;top:80px;font-size:min(25vw,320px);font-weight:900;line-height:1;color:rgba(255,255,255,.025);letter-spacing:-.08em;pointer-events:none}
+      .tenx-system .eyebrow{color:#9dc8e9;font-weight:800;letter-spacing:.03em}
+      .tenx-system-intro{max-width:980px;position:relative;z-index:1}
+      .tenx-system-intro h2{font-size:clamp(2.25rem,5vw,4rem);line-height:1.35;margin:10px 0 24px;color:#fff;max-width:900px}
+      .tenx-system-intro p{font-size:1.08rem;line-height:2;color:#dce9f4;margin:0 0 16px}
+      .tenx-system-intro .tenx-question{font-size:clamp(1.12rem,2.1vw,1.4rem);color:#fff;padding:20px 24px;border-right:4px solid #e7c86d;background:rgba(255,255,255,.06);border-radius:16px;margin:26px 0}
+      .tenx-system-intro blockquote{margin:30px 0 0;padding:22px 26px;border:1px solid rgba(255,255,255,.18);border-radius:18px;background:rgba(255,255,255,.07);font-size:clamp(1.15rem,2.4vw,1.45rem);font-weight:800;line-height:1.9;color:#fff}
+      .tenx-octet-heading{max-width:900px;margin:68px 0 26px}
+      .tenx-octet-heading h3{font-size:clamp(1.9rem,4vw,3rem);line-height:1.4;color:#fff;margin:8px 0 14px}
+      .tenx-octet-heading p{color:#dce9f4;line-height:1.95;font-size:1.05rem;margin:0}
+      .tenx-signature{display:grid;grid-template-columns:220px 1fr;gap:24px;align-items:stretch;margin:34px 0 36px;padding:24px;border:1px solid rgba(255,255,255,.18);border-radius:26px;background:rgba(255,255,255,.055);box-shadow:0 22px 60px rgba(0,0,0,.16)}
+      .tenx-signature-mark{min-height:190px;border-radius:20px;background:#fff;color:#0b3155;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+      .tenx-signature-mark span{font-size:5.6rem;font-weight:900;letter-spacing:-.11em;line-height:1}
+      .tenx-signature-mark b{font-size:5.8rem;font-weight:900;line-height:1;margin-right:4px}
+      .tenx-signature-mark small{position:absolute;bottom:17px;right:18px;left:18px;text-align:center;font-weight:800;font-size:.82rem;letter-spacing:.02em}
+      .tenx-signature-track{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;align-content:center;direction:rtl}
+      .tenx-signature-track span{min-height:74px;padding:13px 12px;border-radius:16px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.16);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;font-weight:800;color:#fff;line-height:1.45}
+      .tenx-signature-track span b{display:block;color:#e7c86d;font-size:.78rem;margin-bottom:4px;letter-spacing:.08em}
+      .tenx-signature-track i{display:none}
+      .tenx-octet-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+      .tenx-octet-card{display:grid;grid-template-columns:58px 1fr;gap:18px;padding:25px 24px;border-radius:22px;background:rgba(255,255,255,.075);border:1px solid rgba(255,255,255,.17);backdrop-filter:blur(6px);transition:transform .2s ease,border-color .2s ease,background .2s ease}
+      .tenx-octet-card:hover{transform:translateY(-3px);border-color:rgba(231,200,109,.55);background:rgba(255,255,255,.1)}
+      .tenx-num{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#fff;color:#0b3155;font-weight:900;font-size:.95rem;box-shadow:0 8px 20px rgba(0,0,0,.12)}
+      .tenx-octet-card h4{font-size:1.28rem;line-height:1.55;color:#fff;margin:2px 0 8px}
+      .tenx-lead{display:block;color:#e7c86d;line-height:1.75;margin-bottom:8px;font-size:1rem}
+      .tenx-octet-card p{color:#dce9f4;line-height:1.9;margin:0;font-size:.96rem}
+      .tenx-octet-card em{display:block;margin-top:13px;padding-top:12px;border-top:1px solid rgba(255,255,255,.14);color:#fff;font-style:normal;font-weight:800;line-height:1.7;font-size:.93rem}
+      .tenx-final{margin-top:36px;padding:25px 22px;border-radius:20px;background:#fff;color:#0b3155;text-align:center;font-size:clamp(1.45rem,3vw,2.15rem);font-weight:900;letter-spacing:.01em;box-shadow:0 18px 44px rgba(0,0,0,.18)}
+      @media (max-width:900px){.tenx-system{padding:62px 0}.tenx-signature{grid-template-columns:1fr}.tenx-signature-mark{min-height:160px}.tenx-signature-track{grid-template-columns:repeat(4,1fr)}.tenx-octet-grid{grid-template-columns:1fr}}
+      @media (max-width:620px){.tenx-system{padding:50px 0}.tenx-system-intro h2{font-size:2.25rem}.tenx-system-intro .tenx-question{padding:18px;font-size:1.05rem}.tenx-signature{padding:15px;border-radius:20px}.tenx-signature-track{grid-template-columns:repeat(2,1fr);gap:9px}.tenx-signature-track span{min-height:68px}.tenx-octet-card{grid-template-columns:46px 1fr;gap:13px;padding:20px 16px}.tenx-num{width:44px;height:44px}.tenx-octet-card h4{font-size:1.15rem}.tenx-final{font-size:1.35rem;padding:22px 14px}}
+    `;
     document.head.appendChild(style);
   }
 }
 
 applySiteLogo();
-applyTenXPhilosophyFiveSteps();
+applyTenXUnifiedModel();
 window.addEventListener('resize', applySiteLogo, { passive: true });
 
 const toggle = document.querySelector('.menu-toggle');
