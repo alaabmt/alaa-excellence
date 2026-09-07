@@ -59,7 +59,26 @@ function applySiteLogo() {
   });
 }
 
+function applyTenXPhilosophyFiveSteps() {
+  const flow = document.querySelector('.tenx-flow');
+  const people = document.querySelector('.tenx-people');
+  if (!flow || !people) return;
+
+  people.className = 'tenx-step';
+  people.removeAttribute('aria-label');
+  people.innerHTML = '<span class="num">05</span><h3>الموظفون والقدرات المؤسسية</h3><p>نبني قدرات الموظفين ونمكّنهم، ونعزز مشاركتهم وتجربتهم ورفاههم، ونطوّر المواهب والمهارات المستقبلية اللازمة لقيادة التحول وتحقيق نتائج 10X.</p>';
+  flow.appendChild(people);
+
+  if (!document.getElementById('tenx-five-steps-style')) {
+    const style = document.createElement('style');
+    style.id = 'tenx-five-steps-style';
+    style.textContent = '@media (min-width:1001px){.tenx-flow{grid-template-columns:repeat(5,minmax(0,1fr))}}';
+    document.head.appendChild(style);
+  }
+}
+
 applySiteLogo();
+applyTenXPhilosophyFiveSteps();
 window.addEventListener('resize', applySiteLogo, { passive: true });
 
 const toggle = document.querySelector('.menu-toggle');
