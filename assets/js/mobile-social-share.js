@@ -2,31 +2,39 @@
   if (window.__tenxMobileSocialShareLoaded) return;
   window.__tenxMobileSocialShareLoaded = true;
 
+  const SHARE_REVISION = '20260907-social5';
+
   const isMobileLike = () => {
     const coarse = window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
     const narrow = window.matchMedia && window.matchMedia('(max-width: 900px)').matches;
     return coarse || narrow || /Android|iPhone|iPad|Mobile/i.test(navigator.userAgent || '');
   };
 
-  const pageUrl = () => document.querySelector('link[rel="canonical"]')?.href || window.location.href.split('#')[0];
+  const canonicalUrl = () => document.querySelector('link[rel="canonical"]')?.href || window.location.href.split('#')[0].split('?')[0];
   const pageTitle = () => document.querySelector('meta[property="og:title"]')?.content || document.querySelector('h1')?.textContent?.trim() || document.title;
   const pageDescription = () => document.querySelector('meta[property="og:description"]')?.content || document.querySelector('meta[name="description"]')?.content || '';
 
-  const sharePayload = () => {
+  function freshUrl(platform) {
+    const base = canonicalUrl();
+    const sep = base.includes('?') ? '&' : '?';
+    return `${base}${sep}share=${encodeURIComponent(platform)}-${SHARE_REVISION}`;
+  }
+
+  function sharePayload(platform) {
     const title = pageTitle();
-    const url = pageUrl();
+    const url = freshUrl(platform);
     const description = pageDescription();
     const text = description ? `${title}\n\n${description}` : title;
     return { title, text, url };
-  };
+  }
 
-  async function nativeShare(fallbackUrl) {
+  async function nativeShare(platform, fallbackUrl) {
     if (!navigator.share || !isMobileLike()) {
       window.location.href = fallbackUrl;
       return;
     }
     try {
-      await navigator.share(sharePayload());
+      await navigator.share(sharePayload(platform));
     } catch (error) {
       if (error && error.name === 'AbortError') return;
       window.location.href = fallbackUrl;
@@ -34,18 +42,18 @@
   }
 
   function openWhatsAppApp(fallbackUrl) {
-    const { title, url } = sharePayload();
-    const message = encodeURIComponent(`${title}\n${url}`);
+    const title = pageTitle();
+    const url = freshUrl('whatsapp');
+    // Keep the URL on its own line so WhatsApp's link-preview parser can detect it cleanly.
+    const message = encodeURIComponent(`${title}\n\n${url}`);
     const appUrl = `whatsapp://send?text=${message}`;
     let hidden = false;
-    const onVisibility = () => {
-      if (document.hidden) hidden = true;
-    };
+    const onVisibility = () => { if (document.hidden) hidden = true; };
     document.addEventListener('visibilitychange', onVisibility, { once: true });
     window.location.href = appUrl;
     window.setTimeout(() => {
       if (!hidden && document.visibilityState === 'visible') window.location.href = fallbackUrl;
-    }, 1400);
+    }, 1600);
   }
 
   document.addEventListener('click', (event) => {
@@ -53,18 +61,30 @@
     if (!link || !isMobileLike()) return;
     const href = link.href || '';
 
-    if (href.includes('linkedin.com/sharing/share-offsite') || href.includes('facebook.com/sharer/sharer.php')) {
+    if (href.includes('linkedin.com/sharing/share-offsite')) {
       if (!navigator.share) return;
       event.preventDefault();
       event.stopPropagation();
-      nativeShare(href);
+      nativeShare('linkedin', href);
+      return;
+    }
+
+    if (href.includes('facebook.com/sharer/sharer.php')) {
+      event.preventDefault();
+      event.stopPropagation();
+      const fallback = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(freshUrl('facebook'))}`;
+      if (navigator.share) nativeShare('facebook', fallback);
+      else window.location.href = fallback;
       return;
     }
 
     if (href.includes('api.whatsapp.com/send')) {
       event.preventDefault();
       event.stopPropagation();
-      openWhatsAppApp(href);
+      const title = pageTitle();
+      const url = freshUrl('whatsapp');
+      const fallback = `https://api.whatsapp.com/send?text=${encodeURIComponent(`${title}\n\n${url}`)}`;
+      openWhatsAppApp(fallback);
     }
   }, true);
 })();
