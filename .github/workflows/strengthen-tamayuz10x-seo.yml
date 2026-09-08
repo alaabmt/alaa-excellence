@@ -26,6 +26,6 @@ jobs:
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add index.html sitemap.xml
-          git commit -m "Strengthen Tamayuz 10X search identity [skip ci]"
+          git add *.html sitemap.xml
+          git commit -m "Strengthen Tamayuz 10X site-wide search identity [skip ci]"
           git push
