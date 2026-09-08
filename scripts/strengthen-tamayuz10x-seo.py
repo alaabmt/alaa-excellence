@@ -33,7 +33,6 @@ PRIMARY_PAGES = [
     "contact.html",
 ]
 
-# These hub pages carry the English transliteration in the document title as well.
 BILINGUAL_TITLE_PAGES = {
     "index.html",
     "vision-mission-values.html",
@@ -47,15 +46,17 @@ BILINGUAL_TITLE_PAGES = {
 IDENTITY_SCHEMA = '''\n<!-- tamayuz10x-site-identity-v1 -->\n<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://tamayuz10x.com/#website","url":"https://tamayuz10x.com/","name":"التميّز 10X","alternateName":["Tamayuz 10X","Tamayuz10X"],"inLanguage":"ar"}</script>\n'''
 
 
+def replace_legacy_brand(value: str) -> str:
+    return value.replace("مَدار التميّز", SITE_AR).replace("مدار التميّز", SITE_AR)
+
+
 def add_brand_to_text(value: str, bilingual: bool = False) -> str:
     """Preserve the page topic, normalize legacy branding, then add the site identity once."""
-    value = value.replace("مَدار التميّز", SITE_AR).strip()
-    # Avoid repeating an already-present site identity.
+    value = replace_legacy_brand(value).strip()
     if SITE_AR not in value:
         value = f"{value} | {SITE_AR}"
     if bilingual and SITE_EN not in value:
         value = f"{value} | {SITE_EN}"
-    # Collapse accidental exact duplicates from earlier edits.
     value = value.replace(f"{SITE_AR} | {SITE_AR}", SITE_AR)
     value = value.replace(f"{SITE_EN} | {SITE_EN}", SITE_EN)
     return value
@@ -71,7 +72,6 @@ def replace_title(s: str, filename: str) -> str:
 
 
 def normalize_meta_title(s: str, attr_name: str, filename: str) -> str:
-    # Handles both property= and name= metadata.
     pattern = rf'(<meta\s+(?:property|name)="{re.escape(attr_name)}"\s+content=")([^"]*)(")'
     m = re.search(pattern, s, flags=re.I)
     if not m:
@@ -85,7 +85,6 @@ def normalize_site_name(s: str) -> str:
     pattern = r'(<meta\s+property="og:site_name"\s+content=")([^"]*)(")'
     if re.search(pattern, s, flags=re.I):
         return re.sub(pattern, lambda m: m.group(1) + SITE_NAME + m.group(3), s, count=1, flags=re.I)
-    # Add it if a page omitted it.
     return s.replace("</head>", f'<meta property="og:site_name" content="{SITE_NAME}">\n</head>', 1)
 
 
@@ -99,8 +98,7 @@ def ensure_canonical(s: str, filename: str) -> str:
 
 
 def normalize_logo_and_navigation(s: str) -> str:
-    # Remove legacy identity references from the primary site surfaces.
-    s = s.replace("مَدار التميّز", SITE_AR)
+    s = replace_legacy_brand(s)
     s = re.sub(r'assets/images/(?:madar-original-logo\.webp|madar-logo\.png)', OFFICIAL_LOGO, s, flags=re.I)
     s = s.replace('alt="شعار التميّز 10X"', 'alt="شعار التميّز 10X — Tamayuz 10X"')
     s = s.replace('alt="شعار التميّز 10X — Tamayuz 10X — Tamayuz 10X"', 'alt="شعار التميّز 10X — Tamayuz 10X"')
@@ -124,7 +122,6 @@ def strengthen_footer_link(s: str) -> str:
 
 
 def ensure_identity_schema(s: str, filename: str) -> str:
-    # The homepage already has the richer WebSite graph with alternateName.
     if filename == "index.html":
         return s
     if "tamayuz10x-site-identity-v1" in s:
@@ -151,7 +148,6 @@ def process_page(filename: str) -> None:
 for page in PRIMARY_PAGES:
     process_page(page)
 
-# Regenerate the primary sitemap so every indexable navigation hub is discoverable.
 urls = []
 for page in PRIMARY_PAGES:
     url = "https://tamayuz10x.com/" if page == "index.html" else f"https://tamayuz10x.com/{page}"
@@ -164,7 +160,6 @@ Path("sitemap.xml").write_text(
     encoding="utf-8",
 )
 
-# QA: fail the run instead of publishing inconsistent identity signals.
 errors = []
 for page in PRIMARY_PAGES:
     s = Path(page).read_text(encoding="utf-8")
@@ -176,7 +171,7 @@ for page in PRIMARY_PAGES:
         errors.append(f"{page}: English site identity missing from hub title")
     if f'property="og:site_name" content="{SITE_NAME}"' not in s:
         errors.append(f"{page}: og:site_name not normalized")
-    if "مَدار التميّز" in s:
+    if "مَدار التميّز" in s or "مدار التميّز" in s:
         errors.append(f"{page}: legacy brand remains")
     if "madar-original-logo.webp" in s or "madar-logo.png" in s:
         errors.append(f"{page}: legacy logo remains")
