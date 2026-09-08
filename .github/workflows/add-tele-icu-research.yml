@@ -1,0 +1,67 @@
+name: Add Tele-ICU research
+
+on:
+  push:
+    paths:
+      - '.github/workflows/add-tele-icu-research.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Add Tele-ICU research if missing
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path('research.html')
+          s = p.read_text(encoding='utf-8')
+          title = 'Exploring the impact and challenges of tele-ICU: A qualitative study on nursing perspectives'
+          doi = '10.1016/j.apnr.2025.151914'
+          if title in s or doi in s:
+              print('Already present; no duplicate added.')
+              raise SystemExit(0)
+
+          article = '''  <article class="research-feature">
+    <span class="research-kicker">بحث منشور · Applied Nursing Research · أبريل 2025</span>
+    <h2>Exploring the impact and challenges of tele-ICU: A qualitative study on nursing perspectives</h2>
+    <div class="ar-title">استكشاف أثر وتحديات العناية المركزة عن بُعد: دراسة نوعية من منظور التمريض</div>
+    <div class="research-meta"><span>Applied Nursing Research · Vol. 82</span><span>Article 151914</span><span>DOI: 10.1016/j.apnr.2025.151914</span></div>
+    <p class="research-authors"><strong>المؤلفون:</strong> Ahmad Rajeh Saifan، Mohammad Sameer Odeh، Bayan Oleimat، Mohannad Eid AbuRuz، Alaa Mohammad Ahmed، Nadin M. Abdel Razeq، Waddah D'emeh، Mohammad Yahya Ayoub، Nabeel Al-Yateem.</p>
+    <div class="research-summary"><h3>ملخص بالعربية</h3><p>تستكشف الدراسة تصورات ممرضي العناية المركزة والعناية المركزة عن بُعد <strong>Tele-Intensive Care Unit (Tele-ICU) — العناية المركزة عن بُعد</strong>، مع التركيز على الفوائد المتوقعة، والتحديات التشغيلية، ومتطلبات دمج هذا النموذج في بيئات الرعاية الحرجة. اعتمدت الدراسة منهجاً نوعياً باستخدام مقابلات شبه منظّمة مع ممرضين انتقلوا من أدوار العناية المركزة التقليدية إلى أدوار Tele-ICU، ثم حُللت البيانات موضوعياً لاستخلاص الأنماط الرئيسة. أظهرت النتائج فوائد مرتبطة بالمراقبة المستمرة للمرضى، ودعم التدخل المبكر، وتحسين استخدام الموارد، إلى جانب مزايا تنظيمية محتملة مثل خفض مدة الإقامة وتقليل إعادة الإدخال وتحسين التخطيط لما بعد الخروج. وفي المقابل، برزت تحديات تشمل البنية التحتية التقنية، والتكلفة، ومقاومة تغيير سير العمل، ونقص التدريب، إضافة إلى اعتبارات ثقافية وتنظيمية. وتخلص الدراسة إلى أن نجاح Tele-ICU لا يعتمد على التقنية وحدها، بل على تكامل الاستثمار التقني مع التدريب والسياسات الداعمة وإعادة تصميم العمل السريري بما يحافظ على جودة الرعاية وسلامة المريض.</p></div>
+    <div class="research-actions"><a class="primary" href="https://www.sciencedirect.com/science/article/abs/pii/S0897189725000163" target="_blank" rel="noopener noreferrer">فتح صفحة البحث</a><a class="secondary" href="https://doi.org/10.1016/j.apnr.2025.151914" target="_blank" rel="noopener noreferrer">فتح DOI</a></div>
+  </article>
+
+'''
+          target = '<h2>Understanding the Importance and Future Directions of Cultural Sensitivity in Healthcare: Developing a Culturally sensitive Patient Experience Framework with Emirati Patients as a Case Study</h2>'
+          pos = s.find(target)
+          if pos < 0:
+              target = '<h2>Missing the point: Quality-driven healthcare institutions may mistakenly disregard their role in nursing and medical education</h2>'
+              pos = s.find(target)
+          if pos < 0:
+              raise SystemExit('Insertion target not found')
+          start = s.rfind('<article class="research-feature">', 0, pos)
+          if start < 0:
+              raise SystemExit('Target article start not found')
+          s = s[:start] + article + s[start:]
+
+          schema = '<script type="application/ld+json">{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"Exploring the impact and challenges of tele-ICU: A qualitative study on nursing perspectives","datePublished":"2025-04","author":[{"@type":"Person","name":"Ahmad Rajeh Saifan"},{"@type":"Person","name":"Mohammad Sameer Odeh"},{"@type":"Person","name":"Bayan Oleimat"},{"@type":"Person","name":"Mohannad Eid AbuRuz"},{"@type":"Person","name":"Alaa Mohammad Ahmed"},{"@type":"Person","name":"Nadin M. Abdel Razeq"},{"@type":"Person","name":"Waddah Demeh"},{"@type":"Person","name":"Mohammad Yahya Ayoub"},{"@type":"Person","name":"Nabeel Al-Yateem"}],"isPartOf":{"@type":"Periodical","name":"Applied Nursing Research"},"volumeNumber":"82","pagination":"151914","sameAs":"https://doi.org/10.1016/j.apnr.2025.151914"}</script>\n'
+          s = s.replace('</head>', schema + '</head>', 1)
+          p.write_text(s, encoding='utf-8')
+          print('Added Tele-ICU research entry.')
+          PY
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research.html
+          if git diff --cached --quiet; then
+            echo "No changes"
+            exit 0
+          fi
+          git commit -m "Add Tele-ICU research entry [skip ci]"
+          git push
