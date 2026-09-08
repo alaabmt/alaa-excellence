@@ -25,35 +25,26 @@ jobs:
               print('Already present; no duplicate added.')
               raise SystemExit(0)
 
-          article = '''
-  <article class="research-feature">
+          article = '''  <article class="research-feature">
     <span class="research-kicker">بحث منشور · Journal of Pediatric Nursing · 2017</span>
     <h2>Evaluating the Reliability and Validity of the Arabic Version of the Parents Perceptions of Uncertainty Scale (A-PPUS)</h2>
     <div class="ar-title">تقييم موثوقية وصدق النسخة العربية من مقياس إدراك الوالدين لعدم اليقين المرتبط بمرض الطفل (A-PPUS)</div>
-    <div class="research-meta">
-      <span>Journal of Pediatric Nursing · Vol. 36</span>
-      <span>Pages 179–185</span>
-      <span>DOI: 10.1016/j.pedn.2017.06.017</span>
-    </div>
+    <div class="research-meta"><span>Journal of Pediatric Nursing · Vol. 36</span><span>Pages 179–185</span><span>DOI: 10.1016/j.pedn.2017.06.017</span></div>
     <p class="research-authors"><strong>المؤلفون:</strong> Nabeel Al-Yateem، Maria Brenner، Alaa Ahmad، Syed Azizur Rahman.</p>
-    <div class="research-summary">
-      <h3>ملخص بالعربية</h3>
-      <p>تتناول الدراسة تكييف واختبار النسخة العربية من <strong>Parents Perceptions of Uncertainty Scale (PPUS) — مقياس إدراك الوالدين لعدم اليقين</strong>، وهو مقياس يستخدم لتقدير مستوى الغموض وعدم اليقين الذي قد يواجهه والدا الطفل أثناء المرض والعلاج. ركزت الدراسة على التحقق من الخصائص السيكومترية للنسخة العربية، بما يشمل الموثوقية والصدق، بهدف توفير أداة مناسبة للاستخدام مع الأسر الناطقة بالعربية في السياقات السريرية والبحثية. وأظهرت النتائج مستوى مرتفعاً من الاتساق الداخلي؛ إذ بلغ معامل كرونباخ ألفا 0.93، ما يدعم موثوقية الأداة. وتكمن أهمية البحث في توفير مقياس عربي يمكن أن يساعد الفرق الصحية والباحثين على فهم عدم اليقين لدى الوالدين بصورة أكثر منهجية، وربط ذلك بجودة التواصل، والدعم النفسي، ومشاركة الأسرة في رعاية الطفل.</p>
-    </div>
-    <div class="research-actions">
-      <a class="primary" href="https://www.sciencedirect.com/science/article/abs/pii/S0882596316304626" target="_blank" rel="noopener noreferrer">فتح صفحة البحث</a>
-      <a class="secondary" href="https://doi.org/10.1016/j.pedn.2017.06.017" target="_blank" rel="noopener noreferrer">فتح DOI</a>
-    </div>
+    <div class="research-summary"><h3>ملخص بالعربية</h3><p>تتناول الدراسة تكييف واختبار النسخة العربية من <strong>Parents Perceptions of Uncertainty Scale (PPUS) — مقياس إدراك الوالدين لعدم اليقين</strong>، وهو مقياس يستخدم لتقدير مستوى الغموض وعدم اليقين الذي قد يواجهه والدا الطفل أثناء المرض والعلاج. ركزت الدراسة على التحقق من الخصائص السيكومترية للنسخة العربية، بما يشمل الموثوقية والصدق، بهدف توفير أداة مناسبة للاستخدام مع الأسر الناطقة بالعربية في السياقات السريرية والبحثية. وأظهرت النتائج مستوى مرتفعاً من الاتساق الداخلي؛ إذ بلغ معامل كرونباخ ألفا 0.93، ما يدعم موثوقية الأداة. وتكمن أهمية البحث في توفير مقياس عربي يمكن أن يساعد الفرق الصحية والباحثين على فهم عدم اليقين لدى الوالدين بصورة أكثر منهجية، وربط ذلك بجودة التواصل، والدعم النفسي، ومشاركة الأسرة في رعاية الطفل.</p></div>
+    <div class="research-actions"><a class="primary" href="https://www.sciencedirect.com/science/article/abs/pii/S0882596316304626" target="_blank" rel="noopener noreferrer">فتح صفحة البحث</a><a class="secondary" href="https://doi.org/10.1016/j.pedn.2017.06.017" target="_blank" rel="noopener noreferrer">فتح DOI</a></div>
   </article>
 
 '''
-
-          marker = '  <article class="research-feature">\n    <span class="research-kicker">بحث منشور · 2017</span>\n    <h2>The quality of information received by parents of children with chronic ill health attending hospitals as indicated by measures of illness uncertainty</h2>'
-          if marker not in s:
-              raise SystemExit('Insertion marker not found')
-          s = s.replace(marker, article + marker, 1)
-
-          schema = '''<script type="application/ld+json">{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"Evaluating the Reliability and Validity of the Arabic Version of the Parents Perceptions of Uncertainty Scale (A-PPUS)","datePublished":"2017","author":[{"@type":"Person","name":"Nabeel Al-Yateem"},{"@type":"Person","name":"Maria Brenner"},{"@type":"Person","name":"Alaa Ahmad"},{"@type":"Person","name":"Syed Azizur Rahman"}],"isPartOf":{"@type":"Periodical","name":"Journal of Pediatric Nursing"},"volumeNumber":"36","pagination":"179-185","sameAs":"https://doi.org/10.1016/j.pedn.2017.06.017"}</script>\n'''
+          target = '<h2>The quality of information received by parents of children with chronic ill health attending hospitals as indicated by measures of illness uncertainty</h2>'
+          pos = s.find(target)
+          if pos < 0:
+              raise SystemExit('Target research heading not found')
+          start = s.rfind('<article class="research-feature">', 0, pos)
+          if start < 0:
+              raise SystemExit('Target article start not found')
+          s = s[:start] + article + s[start:]
+          schema = '<script type="application/ld+json">{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"Evaluating the Reliability and Validity of the Arabic Version of the Parents Perceptions of Uncertainty Scale (A-PPUS)","datePublished":"2017","author":[{"@type":"Person","name":"Nabeel Al-Yateem"},{"@type":"Person","name":"Maria Brenner"},{"@type":"Person","name":"Alaa Ahmad"},{"@type":"Person","name":"Syed Azizur Rahman"}],"isPartOf":{"@type":"Periodical","name":"Journal of Pediatric Nursing"},"volumeNumber":"36","pagination":"179-185","sameAs":"https://doi.org/10.1016/j.pedn.2017.06.017"}</script>\n'
           s = s.replace('</head>', schema + '</head>', 1)
           p.write_text(s, encoding='utf-8')
           print('Added A-PPUS research entry.')
