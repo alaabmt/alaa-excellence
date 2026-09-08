@@ -1,10 +1,13 @@
-name: Add article analysis disclaimer
+name: Enforce article editorial disclaimer
 
 on:
   workflow_dispatch:
   push:
     paths:
       - '.github/workflows/add-article-analysis-disclaimer.yml'
+      - 'article-*.html'
+      - 'case-*.html'
+      - 'idea-*.html'
 
 permissions:
   contents: write
@@ -14,21 +17,28 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Add disclaimer to article pages and editorial standard
+      - name: Enforce disclaimer on all article pages and master manual
         run: |
           python3 - <<'PY'
           from pathlib import Path
           import re
 
-          title = 'تنويه:'
-          text = 'يعبر هذا المقال عن تحليل ورأي مهني مبنيين على المصادر المشار إليها. وللتفاصيل الكاملة أو الأحدث، يُرجى الرجوع إلى المصادر الأصلية والوثائق الرسمية.'
-          block = f'''\n<section class="tenx-analysis-disclaimer" aria-label="تنويه منهجي">\n  <p><strong>{title}</strong><br>{text}</p>\n</section>\n'''
+          title = 'تنويه تحريري:'
+          text = 'الآراء والتحليلات الواردة في هذا المقال تمثل رأي الكاتب وتحليله المهني استنادًا إلى المصادر المشار إليها، ولا تمثل بالضرورة المواقف الرسمية للجهات المذكورة. وللاطلاع على المعلومات والمراجع الأصلية والكاملة والأحدث، يُرجى الرجوع مباشرة إلى المصادر الأصلية والوثائق الرسمية الواردة في قائمة المراجع.'
+          block = f'''\n<section class="tenx-analysis-disclaimer" role="note" aria-label="تنويه تحريري" dir="rtl" style="margin:32px 0 24px;padding:18px 20px;border-right:4px solid #b28643;border-radius:14px;background:#faf7f1;text-align:right;line-height:1.9">\n  <p><strong>{title}</strong><br>{text}</p>\n</section>\n'''
 
           pages = sorted(set(Path('.').glob('article-*.html')) | set(Path('.').glob('case-*.html')) | set(Path('.').glob('idea-*.html')))
           changed = []
+          disclaimer_re = re.compile(r'\n?<section[^>]+class=["\'][^"\']*tenx-analysis-disclaimer[^"\']*["\'][^>]*>.*?</section>\n?', re.I | re.S)
+
           for p in pages:
               s = p.read_text(encoding='utf-8')
-              if text in s:
+              # Normalize any older disclaimer to the approved wording.
+              if disclaimer_re.search(s):
+                  ns = disclaimer_re.sub('\n' + block.strip() + '\n', s, count=1)
+                  if ns != s:
+                      p.write_text(ns, encoding='utf-8')
+                      changed.append(str(p))
                   continue
 
               patterns = [
@@ -58,8 +68,9 @@ jobs:
           manual = Path('10X_Agent_AI_Master_Operating_Manual_AR.md')
           if manual.exists():
               s = manual.read_text(encoding='utf-8')
+              section = f'''\n\n## التنويه التحريري الإلزامي في المقالات\nيوضع التنويه الآتي في نهاية كل صفحة `article-*` أو `case-*` أو `idea-*`، وقبل قائمة المراجع أو المصادر متى وجدت. وجوده شرط للنشر:\n\n**{title}**  \n{text}\n'''
               if text not in s:
-                  s += f'''\n\n## التنويه الثابت في المقالات\nيوضع التنويه الآتي في نهاية كل مقال، وقبل قائمة المراجع أو المصادر متى وجدت:\n\n**{title}**  \n{text}\n'''
+                  s += section
                   manual.write_text(s, encoding='utf-8')
                   changed.append(str(manual))
 
@@ -74,5 +85,5 @@ jobs:
             echo "No changes"
             exit 0
           fi
-          git commit -m "Add analysis disclaimer to articles [skip ci]"
+          git commit -m "Enforce editorial disclaimer on article pages [skip ci]"
           git push
