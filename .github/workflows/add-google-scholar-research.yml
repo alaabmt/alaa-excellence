@@ -1,0 +1,123 @@
+name: Add verified Google Scholar research
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/add-google-scholar-research.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Add non-duplicate verified research entries
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import json
+
+          p = Path('research.html')
+          s = p.read_text(encoding='utf-8')
+
+          records = [
+            {
+              'title': 'Quality and safety issue: language barriers in healthcare, a qualitative study of non-Arab healthcare practitioners caring for Arabic patients in the UAE',
+              'ar': 'حواجز اللغة في الرعاية الصحية: قضية جودة وسلامة في رعاية المرضى الناطقين بالعربية في دولة الإمارات',
+              'date': '22 ديسمبر 2023',
+              'journal': 'BMJ Open',
+              'meta': 'Vol. 13 · Issue 12 · e076326',
+              'doi': '10.1136/bmjopen-2023-076326',
+              'authors': "Nabeel Al-Yateem، Heba Hijazi، Ahmad Rajeh Saifan، Alaa Ahmad، Rami Masa'Deh، Intima Alrimawi، Syed Azizur Rahman، Muhammad Arsyad Subu، Fatma Refaat Ahmed.",
+              'summary': 'بحث نوعي استكشف خبرات 14 من الممارسين الصحيين غير الناطقين بالعربية العاملين في مرافق صحية مختلفة في دولة الإمارات، باستخدام مقابلات شبه منظّمة. أظهرت النتائج أن الحواجز اللغوية لا تقتصر على صعوبة نقل المعلومة، بل قد تمتد إلى جودة الخدمة وسلامة المريض وتجربة الممارس نفسه. برزت ثلاثة موضوعات رئيسة في روايات المشاركين: الشعور بالعزلة أثناء التعامل مع الموقف، ومحاولات الاقتراب من المريض وتجاوز فجوة اللغة، ومشاعر الذنب والخوف وعدم الرضا عندما لا يكون التواصل كافياً. وتدعم الدراسة الحاجة إلى خدمات ترجمة مهنية أكثر تنظيماً وتدريب الفرق الصحية على العمل الفعّال مع المترجمين، مع التعامل مع اللغة بوصفها عنصراً من عناصر السلامة والجودة وليس مسألة تواصل جانبية.',
+              'primary': 'https://bmjopen.bmj.com/content/13/12/e076326',
+              'secondary': 'https://doi.org/10.1136/bmjopen-2023-076326'
+            },
+            {
+              'title': 'Research priorities for specialized nursing practice in the United Arab Emirates',
+              'ar': 'أولويات البحث للممارسة التمريضية التخصصية في دولة الإمارات العربية المتحدة',
+              'date': '2018',
+              'journal': 'International Nursing Review',
+              'meta': 'Vol. 65 · Issue 3 · pp. 381–391',
+              'doi': '10.1111/inr.12402',
+              'authors': 'Nabeel Al-Yateem، Muna Al-Tamimi، Maria Brenner، Hanan Altawil، Alaa Ahmad، Sharon Brownie.',
+              'summary': 'استخدمت الدراسة أسلوب دلفي على مرحلتين لتحديد أولويات البحث ذات الأهمية السريرية في مجالات التمريض التخصصي في دولة الإمارات. شارك 783 شخصاً في الجولة الأولى و1116 في الجولة الثانية بعد توسيع الوصول إلى مواقع سريرية إضافية. وانتهت الدراسة إلى تحديد 58 أولوية بحثية عالية الأهمية موزعة على تخصصات من بينها تمريض الأطفال والطوارئ والعناية المركزة والأمومة والولادة وغرف العمليات والرعاية طويلة الأمد. وتوفر النتائج خريطة عملية يمكن أن تساعد الباحثين والمؤسسات الأكاديمية وجهات التمويل وصنّاع السياسات على توجيه البحث نحو قضايا سريرية ذات صلة مباشرة بالممارسة وتحسين الرعاية المبنية على الدليل.',
+              'primary': 'https://onlinelibrary.wiley.com/doi/10.1111/inr.12402',
+              'secondary': 'https://doi.org/10.1111/inr.12402'
+            },
+            {
+              'title': 'Mental health literacy among pediatric hospital staff in the United Arab Emirates',
+              'ar': 'الثقافة المعرفية بالصحة النفسية لدى العاملين في مستشفيات الأطفال في دولة الإمارات العربية المتحدة',
+              'date': '8 ديسمبر 2017',
+              'journal': 'BMC Psychiatry',
+              'meta': 'Vol. 17 · Article 390',
+              'doi': '10.1186/s12888-017-1556-z',
+              'authors': 'Nabeel Al-Yateem، Rachel Rossiter، Walter Robb، Alaa Ahmad، Mahmoud Saleh Elhalik، Sumaya Albloshi، Shameran Slewa-Younan.',
+              'summary': 'قيّمت الدراسة مستوى المعرفة بالصحة النفسية لدى العاملين الصحيين الذين يقدمون الرعاية للأطفال المصابين بأمراض مزمنة في دولة الإمارات من خلال مسح مقطعي تضمن سيناريوهات سريرية لاضطراب ما بعد الصدمة والذهان والاكتئاب المصحوب بأفكار انتحارية. أظهرت النتائج محدودية القدرة على التعرف الصحيح إلى الاضطرابات وإلى التدخلات المبنية على الدليل؛ وكانت أعلى دقة للتعرف إلى الذهان 54.3%. كما أظهرت درجات مقياس K10 أن نحو 40% من المشاركين لديهم مستويات متوسطة إلى مرتفعة من الضيق النفسي. وتبرز النتائج الحاجة إلى تعزيز التعليم الجامعي والتطوير المهني المستمر في الصحة النفسية، إلى جانب دعم الصحة النفسية للعاملين أنفسهم.',
+              'primary': 'https://link.springer.com/article/10.1186/s12888-017-1556-z',
+              'secondary': 'https://doi.org/10.1186/s12888-017-1556-z'
+            },
+            {
+              'title': 'The quality of information received by parents of children with chronic ill health attending hospitals as indicated by measures of illness uncertainty',
+              'ar': 'جودة المعلومات المقدمة لوالدي الأطفال المصابين بأمراض مزمنة كما تعكسها مستويات عدم اليقين المرتبطة بالمرض',
+              'date': '2017',
+              'journal': 'Scandinavian Journal of Caring Sciences',
+              'meta': 'Vol. 31 · Issue 4 · pp. 839–849',
+              'doi': '10.1111/scs.12405',
+              'authors': 'Nabeel Al-Yateem، Charles Docherty، Hanan Altawil، Muna Al-Tamimi، Alaa Ahmad.',
+              'summary': 'بحثت الدراسة مستوى عدم اليقين الذي يختبره والدا الأطفال المصابين بأمراض مزمنة في دولة الإمارات باعتباره مؤشراً على جودة المعلومات والتواصل الصحي. استخدمت الدراسة تصميماً وصفياً استكشافياً مقطعياً وأداة Parent Perception of Uncertainty Scale بعد تكييفها ثقافياً. أظهرت النتائج أن معظم المشاركين عانوا مستويات متوسطة أو مرتفعة من عدم اليقين، وأن المستوى كان أعلى لدى من لا يتحدثون اللغة المحلية، ولدى بعض الفئات المرتبطة بعمر الطفل وحدّة حالته. ولم يسجل سوى نحو 5% من المشاركين مستوى منخفضاً من عدم اليقين. وتدعم النتائج أهمية التواصل الواضح والمتسق مع الأسر بوصفه جزءاً من جودة الرعاية ودعم اتخاذ القرار وتقليل الضغط النفسي.',
+              'primary': 'https://onlinelibrary.wiley.com/doi/10.1111/scs.12405',
+              'secondary': 'https://doi.org/10.1111/scs.12405'
+            }
+          ]
+
+          cards = []
+          added = []
+          for r in records:
+              if r['title'].lower() in s.lower():
+                  continue
+              cards.append(f'''\n  <article class="research-feature">\n    <span class="research-kicker">بحث منشور · {r['date']}</span>\n    <h2>{r['title']}</h2>\n    <div class="ar-title">{r['ar']}</div>\n    <div class="research-meta"><span>{r['journal']}</span><span>{r['meta']}</span><span>DOI: {r['doi']}</span></div>\n    <p class="research-authors"><strong>المؤلفون:</strong> {r['authors']}</p>\n    <div class="research-summary"><h3>ملخص بالعربية</h3><p>{r['summary']}</p></div>\n    <div class="research-actions">\n      <a class="primary" href="{r['primary']}" target="_blank" rel="noopener noreferrer">فتح صفحة البحث</a>\n      <a class="secondary" href="{r['secondary']}" target="_blank" rel="noopener noreferrer">فتح DOI</a>\n    </div>\n  </article>\n''')
+              added.append(r)
+
+          if cards:
+              anchor = '</section>\n</main>'
+              if anchor not in s:
+                  raise SystemExit('research section anchor not found')
+              s = s.replace(anchor, ''.join(cards) + '\n' + anchor, 1)
+
+          marker = 'google-scholar-research-schema-v1'
+          if added and marker not in s:
+              schema = {
+                '@context':'https://schema.org',
+                '@graph':[{
+                  '@type':'ScholarlyArticle',
+                  'headline':r['title'],
+                  'author':{'@type':'Person','name':'Alaa Ahmad'},
+                  'isPartOf':{'@type':'Periodical','name':r['journal']},
+                  'sameAs':'https://doi.org/' + r['doi']
+                } for r in added]
+              }
+              block = '\n<!-- google-scholar-research-schema-v1 -->\n<script type="application/ld+json">' + json.dumps(schema, ensure_ascii=False) + '</script>\n'
+              s = s.replace('</head>', block + '</head>', 1)
+
+          if cards:
+              p.write_text(s, encoding='utf-8')
+              print('Added:', len(cards))
+          else:
+              print('No new research entries; duplicates skipped.')
+          PY
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research.html
+          if git diff --cached --quiet; then
+            echo "No changes"
+            exit 0
+          fi
+          git commit -m "Add verified non-duplicate research entries [skip ci]"
+          git push
