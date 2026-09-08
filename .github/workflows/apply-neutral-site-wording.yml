@@ -1,0 +1,30 @@
+name: Apply neutral site wording
+
+on:
+  push:
+    paths:
+      - 'scripts/neutralize_labels.py'
+      - '.github/workflows/apply-neutral-site-wording.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Update wording
+        run: python3 scripts/neutralize_labels.py
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- '*.html'
+          if git diff --cached --quiet; then
+            echo "No changes"
+            exit 0
+          fi
+          git commit -m "Neutralize commercial wording site-wide [skip ci]"
+          git push
