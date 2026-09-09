@@ -1,0 +1,80 @@
+name: Activate English edition
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'en/index.html'
+      - '.github/workflows/activate-english-edition.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  activate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Enable English switch and hreflang
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          changed = []
+          for p in Path('.').rglob('*.html'):
+              if 'en' in p.parts or '.git' in p.parts:
+                  continue
+              s = p.read_text(encoding='utf-8')
+              old = s
+
+              # Enable the existing English-coming-soon switch without changing page layout.
+              s = re.sub(
+                  r'<a\s+href="#"\s+aria-disabled="true">English\s*قريباً</a>',
+                  '<a href="/en/" hreflang="en" lang="en">English</a>',
+                  s,
+                  flags=re.I,
+              )
+              s = re.sub(
+                  r'<a\s+aria-disabled="true"\s+href="#">English\s*قريباً</a>',
+                  '<a href="/en/" hreflang="en" lang="en">English</a>',
+                  s,
+                  flags=re.I,
+              )
+
+              # Add alternate-language metadata to the Arabic homepage if absent.
+              if p.as_posix() == 'index.html' and 'hreflang="en"' not in s:
+                  marker = '<link rel="canonical" href="https://tamayuz10x.com/">'
+                  if marker in s:
+                      s = s.replace(
+                          marker,
+                          marker + '<link rel="alternate" hreflang="ar" href="https://tamayuz10x.com/">'
+                                   '<link rel="alternate" hreflang="en" href="https://tamayuz10x.com/en/">'
+                                   '<link rel="alternate" hreflang="x-default" href="https://tamayuz10x.com/">',
+                          1,
+                      )
+
+              if s != old:
+                  p.write_text(s, encoding='utf-8')
+                  changed.append(str(p))
+
+          print('Updated files:')
+          for item in changed:
+              print(' -', item)
+          PY
+
+      - name: Commit changes
+        run: |
+          if git diff --quiet; then
+            echo "No English-switch changes required."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add '*.html' '**/*.html' 2>/dev/null || true
+          git commit -m "Enable English edition links [skip ci]"
+          git push
