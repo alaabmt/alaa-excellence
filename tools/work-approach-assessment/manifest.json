@@ -1,0 +1,41 @@
+{
+  "instrument": "Work Approach Assessment",
+  "deployBuild": "17.5-report-architecture",
+  "displayVersion": "17.5",
+  "scientificBankVersion": "17.0-theory-aligned-pilot",
+  "blueprintVersion": "17.0-core3-socialfocus-needs6-flexpairs4",
+  "languageAdaptationVersion": "17.0-ar-en-conceptual",
+  "participantPagesSelfContained": true,
+  "runtimeExternalDependencies": [],
+  "sections": {
+    "preference": 30,
+    "social": 9,
+    "environmentNeeds": 9,
+    "flex": 8
+  },
+  "totalAssessmentScreens": 56,
+  "contentStatus": "research_pilot_not_validated",
+  "clarityEditsThisBuild": [
+    "plain participant language in report",
+    "Section 6 sequence clarified as response-priority order, not fixed behavior"
+  ],
+  "rtlArabic": true,
+  "ltrEnglish": true,
+  "participantReport": {
+    "format": "10-section color-guided rich report",
+    "coreRelativeIndicators": "numeric Response Priority Index; /100 removed from participant display; 50 is an internal scoring-format reference, not a population mean",
+    "socialCoordinationIndicator": "participant display uses direct situation counts and process breakdown; stored descriptive index retained for research/export",
+    "environmentNeedIndicators": "rank-first participant display; relative numeric indices secondary and non-normative",
+    "flexScoring": "no correctness score, no Flex total score, no participant shift-count headline; factor-by-factor paired-context interpretation",
+    "print": "A4 print CSS retained; sections labeled Section/قسم pending final browser/PDF visual pagination check"
+  },
+  "reportEditsThisBuild": [
+    "participant-facing terminology simplified",
+    "core /100 semantics removed",
+    "visual priority sequence retained with non-fixed-sequence explanation",
+    "social coordination converted to direct situation counts",
+    "environment needs made rank-first",
+    "Flex made factor-by-factor with neutral shifted/consistent styling",
+    "development experiment decoupled from lowest core score"
+  ]
+}

@@ -1,0 +1,2016 @@
+{
+  "meta": {
+    "instrument": "Work Approach Assessment",
+    "instrument_ar": "تقييم أسلوب العمل",
+    "version": "17.0-theory-aligned-pilot",
+    "blueprintVersion": "17.0-core3-socialfocus-needs6-flexpairs4",
+    "languageAdaptationVersion": "17.0-ar-en-conceptual",
+    "status": "research_pilot_not_validated",
+    "generated": "2026-09-03",
+    "theoreticalBackbone": "Action Regulation Theory; Person–Environment Fit for environment layer; person–situation interactionism for contextual adaptation",
+    "scoringNote": "Core and environment indicators are relative/ipsative pilot indices, not norms or percentiles. Social coordination is descriptive. Flex is interpreted from matched contextual response shifts, not a correctness score.",
+    "displayVersion": "17.4",
+    "languageRevision": "17.4-rich-report-bilingual"
+  },
+  "constructs": {
+    "U": {
+      "ar": "فهم الموقف",
+      "en": "Understanding the Situation",
+      "color": "#39a56e"
+    },
+    "S": {
+      "ar": "تنظيم العمل",
+      "en": "Structuring the Work",
+      "color": "#d3a03a"
+    },
+    "A": {
+      "ar": "بدء العمل",
+      "en": "Starting Action",
+      "color": "#e88443"
+    },
+    "SOC": {
+      "ar": "التنسيق مع الآخرين",
+      "en": "Working with Others",
+      "color": "#4f83c2"
+    }
+  },
+  "needs": {
+    "CLARITY": {
+      "ar": "وضوح الهدف والدور",
+      "en": "Goal & role clarity"
+    },
+    "INFO": {
+      "ar": "الوصول إلى المعلومات",
+      "en": "Access to information"
+    },
+    "AUTONOMY": {
+      "ar": "مساحة لاتخاذ القرار",
+      "en": "Room to decide"
+    },
+    "PARTICIPATION": {
+      "ar": "المشاركة في القرارات",
+      "en": "Voice in decisions"
+    },
+    "PACE": {
+      "ar": "وضوح الأولويات والتوقيت",
+      "en": "Priority & timing clarity"
+    },
+    "CHANGE": {
+      "ar": "فهم التغيير",
+      "en": "Understanding change"
+    }
+  },
+  "preference": [
+    {
+      "id": "WP001",
+      "section": "preference",
+      "status": "pilot",
+      "context": "new_initiative",
+      "stem": {
+        "ar": "تبدأ مبادرة جديدة. الاتجاه العام واضح، لكن بعض التفاصيل ما زالت تتشكل. ما الذي تميل إلى إعطائه الأولوية؟",
+        "en": "You are beginning a new initiative. The overall direction is clear, but some details are still taking shape. What do you tend to prioritize?"
+      },
+      "options": [
+        {
+          "code": "U",
+          "indicator": "critical_info",
+          "text": {
+            "ar": "أحدد التفاصيل القليلة التي قد تغيّر اتجاه العمل فعلاً.",
+            "en": "Identify the few details that could materially change the direction."
+          }
+        },
+        {
+          "code": "S",
+          "indicator": "priority",
+          "text": {
+            "ar": "أرتب الأولويات المباشرة وكيف سينظم العمل في المرحلة الأولى.",
+            "en": "Set the immediate priorities and how the first phase will be organized."
+          }
+        },
+        {
+          "code": "A",
+          "indicator": "readiness",
+          "text": {
+            "ar": "أبدأ بخطوة عملية صغيرة وأطوّرها مع اتضاح التفاصيل.",
+            "en": "Begin with a small workable step and refine it as more becomes clear."
+          }
+        }
+      ]
+    },
+    {
+      "id": "WP002",
+      "section": "preference",
+      "status": "pilot",
+      "context": "multiple_explanations",
+      "stem": {
+        "ar": "تواجه مشكلة في العمل، وهناك أكثر من تفسير معقول لما يحدث. ويمكن تجربة أحد الاتجاهات على نطاق محدود قبل الالتزام به بالكامل. ما الذي تميل إلى إعطائه الأولوية؟",
+        "en": "You need to respond to a work issue. More than one explanation seems plausible, and an approach can be tested on a small scale before full commitment. What do you tend to prioritize?"
+      },
+      "options": [
+        {
+          "code": "U",
+          "indicator": "alternatives",
+          "text": {
+            "ar": "أقارن بين التفسيرات المحتملة وأتحقق مما يدعم كل واحد منها.",
+            "en": "Compare the possible explanations and check what supports each one."
+          }
+        },
+        {
+          "code": "S",
+          "indicator": "structure",
+          "text": {
+            "ar": "أحدد معايير واضحة للمفاضلة بين الاتجاهات الممكنة.",
+            "en": "Set clear criteria for choosing between the possible approaches."
+          }
+        },
+        {
+          "code": "A",
+          "indicator": "next_step",
+          "text": {
+            "ar": "أجرب اتجاهًا واحدًا على نطاق محدود وأستخدم النتيجة لتحديد الخطوة التالية.",
+            "en": "Try one approach on a small scale and use the result to guide the next step."
+          }
+        }
+      ]
+    },
+    {
+      "id": "WP003",
+      "section": "preference",
+      "status": "pilot",
+      "context": "deadline_pressure",
+      "stem": {
+        "ar": "يقترب موعد مهم، والفريق يعمل تحت ضغط، وما زالت عدة أمور تحتاج إلى معالجة. ما الذي تميل إلى إعطائه الأولوية؟",
+        "en": "A deadline is approaching, the team is under pressure, and several issues still need attention. What do you tend to prioritize?"
+      },
+      "options": [
+        {
+          "code": "U",
+          "indicator": "critical_info",
+          "text": {
+            "ar": "أحدد المعلومة الأساسية التي نحتاجها قبل القرار التالي.",
+            "en": "Identify the information that is essential before the next decision."
+          }
+        },
+        {
+          "code": "S",
+          "indicator": "priority",
+          "text": {
+            "ar": "أرتب ما يجب إنجازه الآن وما يمكن تأجيله.",
+            "en": "Prioritize what must be completed now and what can wait."
+          }
+        },
+        {
+          "code": "A",
+          "indicator": "momentum",
+          "text": {
+            "ar": "أحدد الخطوة العملية التالية التي تبقي العمل متقدمًا.",
+            "en": "Identify the next practical step that keeps the work moving."
+          }
+        }
+      ]
+    },
+    {
+      "id": "WP004",
+      "section": "preference",
+      "status": "pilot",
+      "context": "scope_change",
+      "stem": {
+        "ar": "يتغير نطاق مشروع أثناء التنفيذ، ويؤثر التغيير في جزء من العمل الجاري. ما الذي تميل إلى إعطائه الأولوية عند التعامل مع التغيير؟",
+        "en": "A project is already underway when its scope changes in a way that affects work in progress. What do you tend to prioritize when responding to the change?"
+      },
+      "options": [
+        {
+          "code": "U",
+          "indicator": "causal_relations",
+          "text": {
+            "ar": "أحدد كيف سيؤثر التغيير في بقية أجزاء العمل المرتبطة به.",
+            "en": "Identify how the change will affect the connected parts of the work."
+          }
+        },
+        {
+          "code": "S",
+          "indicator": "priority",
+          "text": {
+            "ar": "أعيد ترتيب الأولويات بما يتناسب مع نطاق العمل الجديد.",
+            "en": "Reorder the priorities to fit the new scope."
+          }
+        },
+        {
+          "code": "A",
+          "indicator": "momentum",
+          "text": {
+            "ar": "أبدأ بالجزء الذي أصبح واضحًا وفق النطاق الجديد حتى يستمر العمل.",
+            "en": "Start with the part that is now clear under the new scope so the work keeps moving."
+          }
+        }
+      ]
+    },
+    {
+      "id": "WP005",
+      "section": "preference",
+      "status": "pilot",
+      "context": "recurring_problem",
+      "stem": {
+        "ar": "مشكلة في العمل عولجت أكثر من مرة، لكنها تعود للظهور. هذه المرة، ما الذي تميل إلى إعطائه الأولوية؟",
+        "en": "A work problem has been addressed more than once, but it keeps returning. This time, what do you tend to prioritize?"
+      },
+      "options": [
+        {
+          "code": "U",
+          "indicator": "causal_relations",
+          "text": {
+            "ar": "أفحص ما إذا كان هناك سبب متكرر لم تتم معالجته بعد.",
+            "en": "Check whether there is a recurring cause that has not yet been addressed."
+          }
+        },
+        {
+          "code": "S",
+          "indicator": "structure",
+          "text": {
+            "ar": "أحدد طريقة معالجة واضحة وكيف ستتم متابعتها أثناء التنفيذ.",
+            "en": "Define a clear response and how it will be tracked during implementation."
+          }
+        },
+        {
+          "code": "A",
+          "indicator": "next_step",
+          "text": {
+            "ar": "أجرب تغييرًا محدودًا وأستخدم ما يحدث لتحديد الخطوة التالية.",
+            "en": "Try a limited change and use what happens to decide the next step."
+          }
+        }
+      ]
+    },
+    {
+      "id": "WP006",
+      "section": "preference",
+      "status": "pilot",
+      "context": "co_leading",
+      "stem": {
+        "ar": "ستتشارك مع شخص آخر في قيادة عمل، ووقت التحضير محدود. ما الذي تميل إلى إعطائه الأولوية قبل البدء؟",
+        "en": "You will share responsibility for leading a work assignment with someone else, and preparation time is limited. What do you tend to prioritize before starting?"
+      },
+      "options": [
+        {
+          "code": "U",
+          "indicator": "alternatives",
+          "text": {
+            "ar": "أراجع النقاط التي قد نفهمها بصورة مختلفة قبل أن تؤثر في العمل.",
+            "en": "Review the points you may understand differently before they affect the work."
+          }
+        },
+        {
+          "code": "S",
+          "indicator": "sequence",
+          "text": {
+            "ar": "أرتب الأجزاء الأساسية للعمل وما الذي يحتاج إلى حسم مبكر.",
+            "en": "Structure the main parts of the work and what needs to be settled early."
+          }
+        },
+        {
+          "code": "A",
+          "indicator": "readiness",
+          "text": {
+            "ar": "أبدأ بما أصبح واضحًا وأعالج التفاصيل المتبقية أثناء العمل.",
+            "en": "Start with what is already clear and work through the remaining details as you go."
+          }
+        }
+      ]
+    },
+    {
+      "id": "WP007",
+      "section": "preference",
+      "status": "pilot",
+      "context": "conflicting_data",
+      "stem": {
+        "ar": "يعرض مصدران مهمان أرقامًا مختلفة حول الموضوع نفسه. ما الذي تميل إلى إعطائه الأولوية؟",
+        "en": "Two important sources show different figures for the same issue. What do you tend to prioritize?"
+      },
+      "options": [
+        {
+          "code": "U",
+          "indicator": "critical_info",
+          "text": {
+            "ar": "أتحقق من مصدر كل رقم وطريقة احتسابه لفهم سبب الاختلاف.",
+            "en": "Check the source and calculation behind each figure to understand the difference."
+          }
+        },
+        {
+          "code": "S",
+          "indicator": "structure",
+          "text": {
+            "ar": "أحدد أي رقم سيُستخدم في القرار وما الشروط التي يجب أن يستوفيها.",
+            "en": "Set a clear basis for which figure will be used in the decision."
+          }
+        },
+        {
+          "code": "A",
+          "indicator": "readiness",
+          "text": {
+            "ar": "أستخدم أفضل تقدير متاح إذا كان القرار قابلًا للتعديل لاحقًا.",
+            "en": "Use the best available estimate if the decision can be adjusted later."
+          }
+        }
+      ]
+    },
+    {
+      "id": "WP008",
+      "section": "preference",
+      "status": "pilot",
+      "context": "interdependence",
+      "stem": {
+        "ar": "يعتمد عملك على عدة أقسام، ولا يملك أي قسم الصورة كاملة. ما الذي تميل إلى إعطائه الأولوية؟",
+        "en": "Your work depends on several departments, and no single department has the full picture. What do you tend to prioritize?"
+      },
+      "options": [
+        {
+          "code": "U",
+          "indicator": "causal_relations",
+          "text": {
+            "ar": "أحدد العلاقات بين الأجزاء وأين يمكن أن يؤثر تعطل جزء في بقية العمل.",
+            "en": "Map the connections between the parts and where one issue could affect the rest of the work."
+          }
+        },
+        {
+          "code": "S",
+          "indicator": "sequence",
+          "text": {
+            "ar": "أرتب كيف يعتمد كل جزء على الآخر وتسلسل العمل بينها.",
+            "en": "Set out how the parts depend on one another and the sequence of work across them."
+          }
+        },
+        {
+          "code": "A",
+          "indicator": "next_step",
+          "text": {
+            "ar": "أبدأ بجزء يمكن دفعه إلى الأمام دون انتظار اكتمال الصورة كلها.",
+            "en": "Start with a part that can move forward without waiting for the whole picture."
+          }
+        }
+      ]
+    },
+    {
+      "id": "WP009",
+      "section": "preference",
+      "status": "pilot",
+      "context": "new_idea",
+      "stem": {
+        "ar": "لديكم فكرة واعدة لم تُجرَّب من قبل في بيئة العمل. ما الذي تميل إلى إعطائه الأولوية؟",
+        "en": "You have a promising idea that has not been tried before in your workplace. What do you tend to prioritize?"
+      },
+      "options": [
+        {
+          "code": "U",
+          "indicator": "critical_info",
+          "text": {
+            "ar": "أحدد ما الذي نحتاج إلى معرفته حتى نحكم على صلاحية الفكرة.",
+            "en": "Identify what we need to know to judge whether the idea is viable."
+          }
+        },
+        {
+          "code": "S",
+          "indicator": "structure",
+          "text": {
+            "ar": "أحدد شروطًا واضحة للتجربة وما الذي سيجعلنا نوسعها أو نوقفها.",
+            "en": "Set clear conditions for the trial and what would justify expanding or stopping it."
+          }
+        },
+        {
+          "code": "A",
+          "indicator": "next_step",
+          "text": {
+            "ar": "أجرب الفكرة على نطاق محدود وأتعلم مما يحدث.",
+            "en": "Try the idea on a limited scale and learn from what happens."
+          }
+        }
+      ]
+    },
+    {
+      "id": "WP010",
+      "section": "preference",
+      "status": "pilot",
+      "context": "operational_questions",
+      "stem": {
+        "ar": "بدأ التنفيذ، لكن الأسئلة العملية المتكررة تبطئ العمل. ما الذي تميل إلى إعطائه الأولوية؟",
+        "en": "Work is underway, but repeated practical questions are slowing progress. What do you tend to prioritize?"
+      },
+      "options": [
+        {
+          "code": "U",
+          "indicator": "causal_relations",
+          "text": {
+            "ar": "أتحقق مما إذا كانت الأسئلة تكشف فجوة في فهم الهدف أو طريقة العمل.",
+            "en": "Check whether the repeated questions reveal a gap in the goal or operating approach."
+          }
+        },
+        {
+          "code": "S",
+          "indicator": "structure",
+          "text": {
+            "ar": "أحدد ما يحتاج إلى قرار الآن وما يمكن التعامل معه ضمن قواعد عمل واضحة.",
+            "en": "Clarify what needs a decision now and what can be handled through clear working rules."
+          }
+        },
+        {
+          "code": "A",
+          "indicator": "momentum",
+          "text": {
+            "ar": "أواصل ما يمكن تنفيذه الآن وأجمع الأسئلة غير العاجلة لنقطة مراجعة واحدة.",
+            "en": "Keep the workable parts moving and collect non-urgent questions for one review point."
+          }
+        }
+      ]
+    },
+    {
+      "id": "WP011",
+      "section": "preference",
+      "status": "pilot",
+      "context": "limited_background",
+      "stem": {
+        "ar": "يطلب منك مديرك العمل وفق توجيه لم تتضح لك خلفيته كاملة. ما الذي تميل إلى إعطائه الأولوية؟",
+        "en": "Your manager asks you to work in a particular direction, but you do not yet have the full background. What do you tend to prioritize?"
+      },
+      "options": [
+        {
+          "code": "U",
+          "indicator": "critical_info",
+          "text": {
+            "ar": "أطلب المعلومة التي أحتاجها لفهم المخاطر أو القيود الأساسية قبل التنفيذ.",
+            "en": "Ask for the information needed to understand the key risks or constraints before acting."
+          }
+        },
+        {
+          "code": "S",
+          "indicator": "sequence",
+          "text": {
+            "ar": "أحوّل التوجيه إلى أولويات وخطوات واضحة ضمن ما هو معروف.",
+            "en": "Turn the direction into clear priorities and steps within what is already known."
+          }
+        },
+        {
+          "code": "A",
+          "indicator": "readiness",
+          "text": {
+            "ar": "أبدأ بالجزء الواضح من التوجيه وأتعامل مع الباقي عندما تتضح الصورة.",
+            "en": "Start with the clear part of the direction and handle the rest as the picture develops."
+          }
+        }
+      ]
+    },
+    {
+      "id": "WP012",
+      "section": "preference",
+      "status": "pilot",
+      "context": "negative_feedback",
+      "stem": {
+        "ar": "وصلت ملاحظة سلبية عن تجربة مرتبطة بعمل فريقك. ما الذي تميل إلى إعطائه الأولوية؟",
+        "en": "You receive negative feedback about an experience connected to your team. What do you tend to prioritize?"
+      },
+      "options": [
+        {
+          "code": "U",
+          "indicator": "alternatives",
+          "text": {
+            "ar": "أتحقق مما إذا كانت الملاحظة حالة منفردة أم تشير إلى نمط أوسع.",
+            "en": "Check whether the feedback is an isolated case or points to a wider pattern."
+          }
+        },
+        {
+          "code": "S",
+          "indicator": "priority",
+          "text": {
+            "ar": "أحدد ما الذي يحتاج إلى معالجة أولًا وكيف ستتم متابعة ذلك.",
+            "en": "Define what needs to be addressed first and how progress will be checked."
+          }
+        },
+        {
+          "code": "A",
+          "indicator": "next_step",
+          "text": {
+            "ar": "أبدأ بإجراء محدود يعالج الجزء الأكثر وضوحًا من المشكلة.",
+            "en": "Start with a limited action that addresses the clearest part of the issue."
+          }
+        }
+      ]
+    },
+    {
+      "id": "WP013",
+      "section": "preference",
+      "status": "pilot",
+      "context": "resource_limit",
+      "stem": {
+        "ar": "الموارد المتاحة لا تكفي لتلبية جميع الطلبات في الوقت نفسه. ما الذي تميل إلى إعطائه الأولوية؟",
+        "en": "The available resources are not enough to meet every request at the same time. What do you tend to prioritize?"
+      },
+      "options": [
+        {
+          "code": "U",
+          "indicator": "alternatives",
+          "text": {
+            "ar": "أتحقق من أثر تأجيل كل طلب قبل المفاضلة بينها.",
+            "en": "Check the impact of delaying each request before choosing between them."
+          }
+        },
+        {
+          "code": "S",
+          "indicator": "priority",
+          "text": {
+            "ar": "أرتب الطلبات وفق معايير واضحة للأولوية.",
+            "en": "Rank the requests using clear priority criteria."
+          }
+        },
+        {
+          "code": "A",
+          "indicator": "momentum",
+          "text": {
+            "ar": "أبدأ بما يمكن إنجازه الآن ويحقق قيمة واضحة بالموارد المتاحة.",
+            "en": "Start with what can be completed now and creates clear value with the resources available."
+          }
+        }
+      ]
+    },
+    {
+      "id": "WP014",
+      "section": "preference",
+      "status": "pilot",
+      "context": "resistance",
+      "stem": {
+        "ar": "تواجه مقاومة واضحة لتغيير مطلوب في العمل. ما الذي تميل إلى إعطائه الأولوية؟",
+        "en": "You are facing clear resistance to a required change at work. What do you tend to prioritize?"
+      },
+      "options": [
+        {
+          "code": "U",
+          "indicator": "causal_relations",
+          "text": {
+            "ar": "أفهم السبب العملي وراء المقاومة وما الذي يجعل التغيير صعبًا.",
+            "en": "Understand the practical reason behind the resistance and what makes the change difficult."
+          }
+        },
+        {
+          "code": "S",
+          "indicator": "sequence",
+          "text": {
+            "ar": "أرتب ما الذي سيتغير أولًا وما الذي سيبقى ثابتًا أثناء الانتقال.",
+            "en": "Structure what will change first and what will remain stable during the transition."
+          }
+        },
+        {
+          "code": "A",
+          "indicator": "next_step",
+          "text": {
+            "ar": "أبدأ بجزء محدود من التغيير يمكن تطبيقه الآن دون تعطيل العمل.",
+            "en": "Start with a limited part of the change that can be implemented without disrupting the work."
+          }
+        }
+      ]
+    },
+    {
+      "id": "WP015",
+      "section": "preference",
+      "status": "pilot",
+      "context": "measurement",
+      "stem": {
+        "ar": "العمل مستمر، لكن المؤشرات الحالية لا تساعدكم على معرفة ما إذا كان الوضع يتحسن. ما الذي تميل إلى إعطائه الأولوية؟",
+        "en": "Work is continuing, but the current measures do not show whether things are improving. What do you tend to prioritize?"
+      },
+      "options": [
+        {
+          "code": "U",
+          "indicator": "critical_info",
+          "text": {
+            "ar": "أتحقق مما إذا كانت المؤشرات تقيس النتيجة التي نريد فهمها فعلًا.",
+            "en": "Check whether the measures actually reflect the outcome we need to understand."
+          }
+        },
+        {
+          "code": "S",
+          "indicator": "structure",
+          "text": {
+            "ar": "أحدد عددًا قليلًا من المؤشرات وكيف ستُراجع خلال الفترة القادمة.",
+            "en": "Set a small number of measures and how they will be reviewed over the next period."
+          }
+        },
+        {
+          "code": "A",
+          "indicator": "readiness",
+          "text": {
+            "ar": "أبدأ باستخدام مؤشر عملي متاح الآن وأطوّره مع ظهور ما نتعلمه.",
+            "en": "Start with a workable measure available now and refine it as we learn more."
+          }
+        }
+      ]
+    },
+    {
+      "id": "WP016",
+      "section": "preference",
+      "status": "pilot",
+      "context": "reversible_opportunity",
+      "stem": {
+        "ar": "أمامكم فرصة جيدة، ويمكن التراجع عن القرار بسهولة إذا لم ينجح. ما الذي تميل إلى إعطائه الأولوية قبل البدء؟",
+        "en": "You have a promising opportunity, and the decision can be reversed easily if it does not work. What do you tend to prioritize before starting?"
+      },
+      "options": [
+        {
+          "code": "U",
+          "indicator": "alternatives",
+          "text": {
+            "ar": "أحدد النقطة التي إذا ثبت أنها غير صحيحة ستغيّر قيمة الفرصة أكثر من غيرها.",
+            "en": "Identify the assumption that would most change the value of the opportunity if it proved wrong."
+          }
+        },
+        {
+          "code": "S",
+          "indicator": "structure",
+          "text": {
+            "ar": "أحدد حدودًا بسيطة للتجربة ونقطة واضحة للمراجعة.",
+            "en": "Set simple boundaries for the trial and a clear review point."
+          }
+        },
+        {
+          "code": "A",
+          "indicator": "next_step",
+          "text": {
+            "ar": "أبدأ بتجربة صغيرة حتى أحصل على معلومات من الواقع.",
+            "en": "Begin with a small trial to get information from practice."
+          }
+        }
+      ]
+    },
+    {
+      "id": "WP017",
+      "section": "preference",
+      "status": "pilot",
+      "context": "dependency_delay",
+      "stem": {
+        "ar": "يعتمد جزء مهم من العمل على شخص يتأخر في تنفيذ ما اتُفق عليه. ما الذي تميل إلى إعطائه الأولوية؟",
+        "en": "An important part of the work depends on someone who is late in delivering what was agreed. What do you tend to prioritize?"
+      },
+      "options": [
+        {
+          "code": "U",
+          "indicator": "causal_relations",
+          "text": {
+            "ar": "أتحقق من السبب الذي يجعل التأخير يتكرر قبل تغيير المسار.",
+            "en": "Check what is causing the delay to recur before changing course."
+          }
+        },
+        {
+          "code": "S",
+          "indicator": "sequence",
+          "text": {
+            "ar": "أعيد ترتيب العمل بحيث يكون واضحًا ما الذي يعتمد على هذه الخطوة وما البدائل المتاحة.",
+            "en": "Restructure the work so it is clear what depends on this step and what alternatives are available."
+          }
+        },
+        {
+          "code": "A",
+          "indicator": "momentum",
+          "text": {
+            "ar": "أبدأ بمسار بديل يمكن أن يحافظ على تقدم العمل الآن.",
+            "en": "Start an alternative route that can keep the work moving now."
+          }
+        }
+      ]
+    },
+    {
+      "id": "WP018",
+      "section": "preference",
+      "status": "pilot",
+      "context": "decision_disagreement",
+      "stem": {
+        "ar": "تم اتخاذ قرار في العمل، وأنت غير مقتنع به بالكامل. ما الذي تميل إلى إعطائه الأولوية بعد ذلك؟",
+        "en": "A work decision has been made, and you are not fully convinced by it. What do you tend to prioritize next?"
+      },
+      "options": [
+        {
+          "code": "U",
+          "indicator": "critical_info",
+          "text": {
+            "ar": "أحدد المعلومة التي يمكن أن تغيّر تقييمي للقرار فعلًا إذا ظهرت.",
+            "en": "Identify the information that could genuinely change your assessment of the decision if it emerges."
+          }
+        },
+        {
+          "code": "S",
+          "indicator": "structure",
+          "text": {
+            "ar": "أحدد ما الذي أصبح محسومًا وما الذي يمكن مراجعته لاحقًا.",
+            "en": "Clarify what is now settled and what can still be reviewed later."
+          }
+        },
+        {
+          "code": "A",
+          "indicator": "readiness",
+          "text": {
+            "ar": "أبدأ بتنفيذ ما تم حسمه وأتعامل مع المستجدات عندما تظهر.",
+            "en": "Start implementing what has been decided and deal with new information as it appears."
+          }
+        }
+      ]
+    },
+    {
+      "id": "WP019",
+      "section": "preference",
+      "status": "pilot",
+      "context": "conditions_change",
+      "stem": {
+        "ar": "كانت الخطة مناسبة في البداية، لكن ظروف العمل تغيّرت أثناء التنفيذ. ما الذي تميل إلى إعطائه الأولوية؟",
+        "en": "The original plan made sense, but conditions change during implementation. What do you tend to prioritize?"
+      },
+      "options": [
+        {
+          "code": "U",
+          "indicator": "causal_relations",
+          "text": {
+            "ar": "أحدد ما الذي تغيّر فعلًا وما أثره في الأساس الذي بُنيت عليه الخطة.",
+            "en": "Identify what has actually changed and how it affects the basis of the plan."
+          }
+        },
+        {
+          "code": "S",
+          "indicator": "sequence",
+          "text": {
+            "ar": "أعيد ترتيب الأولويات والخطوات التي تأثرت بالظروف الجديدة.",
+            "en": "Reorder the priorities and steps affected by the new conditions."
+          }
+        },
+        {
+          "code": "A",
+          "indicator": "momentum",
+          "text": {
+            "ar": "أبدأ بما لا يزال صالحًا للتنفيذ بدل إيقاف العمل كله.",
+            "en": "Start with what is still workable rather than stopping all progress."
+          }
+        }
+      ]
+    },
+    {
+      "id": "WP020",
+      "section": "preference",
+      "status": "pilot",
+      "context": "limited_authority",
+      "stem": {
+        "ar": "ترى مشكلة مهمة في العمل، لكن صلاحيتك لحلها محدودة. ما الذي تميل إلى إعطائه الأولوية؟",
+        "en": "You see an important problem at work, but your authority to solve it is limited. What do you tend to prioritize?"
+      },
+      "options": [
+        {
+          "code": "U",
+          "indicator": "critical_info",
+          "text": {
+            "ar": "أجمع المعلومات التي توضح أثر المشكلة وما الذي يحتاج إلى قرار أعلى.",
+            "en": "Gather the information that shows the impact of the problem and what requires a higher-level decision."
+          }
+        },
+        {
+          "code": "S",
+          "indicator": "structure",
+          "text": {
+            "ar": "أحدد ما يقع ضمن صلاحياتي وما الذي يحتاج إلى تصعيد أو اعتماد.",
+            "en": "Clarify what is within your authority and what needs escalation or approval."
+          }
+        },
+        {
+          "code": "A",
+          "indicator": "next_step",
+          "text": {
+            "ar": "أبدأ بما أستطيع معالجته ضمن صلاحيتي الحالية دون انتظار حل المشكلة كلها.",
+            "en": "Start with what you can address within your current authority without waiting for the whole issue to be resolved."
+          }
+        }
+      ]
+    },
+    {
+      "id": "WP021",
+      "section": "preference",
+      "status": "pilot",
+      "context": "over_dependency",
+      "stem": {
+        "ar": "المشروع يسير جيدًا، لكنه أصبح يعتمد عليك في تفاصيل كثيرة. ما الذي تميل إلى إعطائه الأولوية؟",
+        "en": "The project is going well, but it has started to depend on you for too many details. What do you tend to prioritize?"
+      },
+      "options": [
+        {
+          "code": "U",
+          "indicator": "alternatives",
+          "text": {
+            "ar": "أحدد أي التفاصيل تحتاج فعلًا إلى تدخلي وأيها يمكن أن تستمر من دوني.",
+            "en": "Identify which details genuinely need your input and which can continue without you."
+          }
+        },
+        {
+          "code": "S",
+          "indicator": "structure",
+          "text": {
+            "ar": "أعيد تنظيم العمل بحيث تصبح القرارات والخطوات المتكررة أوضح ويمكن تنفيذها دون الرجوع إليّ في كل مرة.",
+            "en": "Restructure the work so recurring decisions and steps are clear enough to continue without coming back to you each time."
+          }
+        },
+        {
+          "code": "A",
+          "indicator": "next_step",
+          "text": {
+            "ar": "أنقل جزءًا واضحًا من العمل الآن حتى يبدأ الاعتماد عليّ بالتراجع عمليًا.",
+            "en": "Transfer a clear part of the work now so the dependency begins to reduce in practice."
+          }
+        }
+      ]
+    },
+    {
+      "id": "WP022",
+      "section": "preference",
+      "status": "pilot",
+      "context": "sustainable_performance",
+      "stem": {
+        "ar": "النتائج جيدة، لكن الفريق يبدو مستنزفًا من طريقة العمل الحالية. ما الذي تميل إلى إعطائه الأولوية؟",
+        "en": "Results are good, but the team looks drained by the current way of working. What do you tend to prioritize?"
+      },
+      "options": [
+        {
+          "code": "U",
+          "indicator": "causal_relations",
+          "text": {
+            "ar": "أتحقق مما إذا كانت طريقة تحقيق النتائج قابلة للاستمرار وما الذي يسبب الاستنزاف.",
+            "en": "Check whether the way the results are being achieved is sustainable and what is causing the strain."
+          }
+        },
+        {
+          "code": "S",
+          "indicator": "priority",
+          "text": {
+            "ar": "أعيد ترتيب الأولويات وحجم العمل بما يناسب القدرة المتاحة.",
+            "en": "Rebalance priorities and workload to fit the available capacity."
+          }
+        },
+        {
+          "code": "A",
+          "indicator": "next_step",
+          "text": {
+            "ar": "أبدأ بتغيير عملي صغير يخفف الضغط دون إيقاف ما يحقق النتائج.",
+            "en": "Start with one practical change that reduces pressure without stopping what is working."
+          }
+        }
+      ]
+    },
+    {
+      "id": "WP023",
+      "section": "preference",
+      "status": "pilot",
+      "context": "cross_group_support",
+      "stem": {
+        "ar": "تحتاج إلى دعم جهة أخرى لفكرة مهمة. ما الذي تميل إلى إعطائه الأولوية؟",
+        "en": "You need another group to support an important idea. What do you tend to prioritize?"
+      },
+      "options": [
+        {
+          "code": "U",
+          "indicator": "critical_info",
+          "text": {
+            "ar": "أحدد أقوى دليل يوضح المشكلة أو الفرصة التي تعالجها الفكرة.",
+            "en": "Identify the strongest evidence that makes the problem or opportunity clear."
+          }
+        },
+        {
+          "code": "S",
+          "indicator": "sequence",
+          "text": {
+            "ar": "أرتب الفكرة في صورة طلب واضح: ما المطلوب، ولماذا، وما الخطوة التالية.",
+            "en": "Structure the idea into a clear request: what is needed, why it matters, and what comes next."
+          }
+        },
+        {
+          "code": "A",
+          "indicator": "next_step",
+          "text": {
+            "ar": "أقترح خطوة عملية صغيرة تُظهر قيمة الفكرة في الواقع.",
+            "en": "Propose a small practical step that makes the value of the idea visible."
+          }
+        }
+      ]
+    },
+    {
+      "id": "WP024",
+      "section": "preference",
+      "status": "pilot",
+      "context": "rapid_change",
+      "stem": {
+        "ar": "يتغير الموقف بسرعة، ولا يوجد وقت لبناء خطة كاملة. ما الذي تميل إلى إعطائه الأولوية؟",
+        "en": "The situation is changing quickly, and there is no time to build a complete plan. What do you tend to prioritize?"
+      },
+      "options": [
+        {
+          "code": "U",
+          "indicator": "critical_info",
+          "text": {
+            "ar": "أحدد المعلومة التي لا يمكن تجاهلها قبل التحرك.",
+            "en": "Identify the information that cannot be ignored before moving."
+          }
+        },
+        {
+          "code": "S",
+          "indicator": "priority",
+          "text": {
+            "ar": "أحدد الأولويات القريبة وحدود العمل المؤقتة حتى يبقى الاتجاه واضحًا.",
+            "en": "Set the immediate priorities and temporary boundaries so the direction stays clear."
+          }
+        },
+        {
+          "code": "A",
+          "indicator": "readiness",
+          "text": {
+            "ar": "أبدأ بخطوة قابلة للتعديل بدل انتظار اكتمال الخطة.",
+            "en": "Start with an adjustable step rather than waiting for a complete plan."
+          }
+        }
+      ]
+    },
+    {
+      "id": "WP025",
+      "section": "preference",
+      "status": "pilot",
+      "context": "work_transfer",
+      "stem": {
+        "ar": "تحتاج إلى نقل جزء من عملك إلى شخص لا يتبع لك إداريًا. ما الذي تميل إلى إعطائه الأولوية؟",
+        "en": "You need to transfer part of your work to someone who does not report to you. What do you tend to prioritize?"
+      },
+      "options": [
+        {
+          "code": "U",
+          "indicator": "critical_info",
+          "text": {
+            "ar": "أحدد ما الذي يحتاجه الشخص لفهم العمل والقرارات المرتبطة به.",
+            "en": "Identify what the person needs to understand the work and the decisions connected to it."
+          }
+        },
+        {
+          "code": "S",
+          "indicator": "sequence",
+          "text": {
+            "ar": "أرتب نطاق العمل والخطوات وحدود المسؤولية بصورة واضحة.",
+            "en": "Structure the scope, steps, and boundaries of responsibility clearly."
+          }
+        },
+        {
+          "code": "A",
+          "indicator": "readiness",
+          "text": {
+            "ar": "أبدأ بجزء محدد يمكن نقله الآن بدل انتظار ترتيب مثالي لكل التفاصيل.",
+            "en": "Start with a defined part that can be transferred now rather than waiting for every detail to be perfect."
+          }
+        }
+      ]
+    },
+    {
+      "id": "WP026",
+      "section": "preference",
+      "status": "pilot",
+      "context": "service_launch",
+      "stem": {
+        "ar": "سيتم إطلاق خدمة جديدة، وما زالت بعض تفاصيل التنفيذ غير محسومة. ما الذي تميل إلى إعطائه الأولوية؟",
+        "en": "A new service is about to launch, and some implementation details are still unsettled. What do you tend to prioritize?"
+      },
+      "options": [
+        {
+          "code": "U",
+          "indicator": "critical_info",
+          "text": {
+            "ar": "أحدد التفاصيل التي قد تؤثر فعليًا في الإطلاق أو تجربة المستفيد.",
+            "en": "Identify the unsettled details that could materially affect the launch or the user experience."
+          }
+        },
+        {
+          "code": "S",
+          "indicator": "priority",
+          "text": {
+            "ar": "أحدد ما يجب أن يكون جاهزًا عند الإطلاق وما يمكن استكماله لاحقًا.",
+            "en": "Define what must be ready at launch and what can be completed later."
+          }
+        },
+        {
+          "code": "A",
+          "indicator": "readiness",
+          "text": {
+            "ar": "أبدأ الإطلاق ضمن حدود واضحة إذا كانت المتطلبات الأساسية متوفرة.",
+            "en": "Begin the launch within clear boundaries if the essential requirements are in place."
+          }
+        }
+      ]
+    },
+    {
+      "id": "WP027",
+      "section": "preference",
+      "status": "pilot",
+      "context": "external_delay",
+      "stem": {
+        "ar": "يتأخر طرف خارجي باستمرار، ويؤثر ذلك في تقدم عملك. ما الذي تميل إلى إعطائه الأولوية؟",
+        "en": "An external party is repeatedly late, and the delays are affecting your work. What do you tend to prioritize?"
+      },
+      "options": [
+        {
+          "code": "U",
+          "indicator": "causal_relations",
+          "text": {
+            "ar": "أبحث عن نمط متكرر يفسر التأخير قبل أن أغير طريقة التعامل معه.",
+            "en": "Look for a recurring pattern that explains the delays before changing how I respond."
+          }
+        },
+        {
+          "code": "S",
+          "indicator": "sequence",
+          "text": {
+            "ar": "أعيد ترتيب الخطوات التي تعتمد على هذا الطرف وأوضح البدائل الممكنة.",
+            "en": "Restructure the steps that depend on this party and clarify the available alternatives."
+          }
+        },
+        {
+          "code": "A",
+          "indicator": "momentum",
+          "text": {
+            "ar": "أبدأ بمسار مؤقت يقلل اعتماد التقدم على استجابة الطرف الخارجي.",
+            "en": "Start a temporary route that reduces how much progress depends on the external party."
+          }
+        }
+      ]
+    },
+    {
+      "id": "WP028",
+      "section": "preference",
+      "status": "pilot",
+      "context": "unclear_ownership",
+      "stem": {
+        "ar": "هناك عمل مهم، لكن المسؤولية عنه موزعة بين عدة أطراف وغير واضحة بما يكفي. ما الذي تميل إلى إعطائه الأولوية؟",
+        "en": "Responsibility for an important piece of work is spread across several people, and the boundaries are unclear. What do you tend to prioritize?"
+      },
+      "options": [
+        {
+          "code": "U",
+          "indicator": "causal_relations",
+          "text": {
+            "ar": "أحدد أين يبدأ الالتباس وما القرارات التي تتأثر به.",
+            "en": "Identify where the ambiguity begins and which decisions it affects."
+          }
+        },
+        {
+          "code": "S",
+          "indicator": "structure",
+          "text": {
+            "ar": "أوضح حدود المسؤولية ونقاط الانتقال بين أجزاء العمل.",
+            "en": "Clarify the responsibility boundaries and the handoff points between parts of the work."
+          }
+        },
+        {
+          "code": "A",
+          "indicator": "next_step",
+          "text": {
+            "ar": "أبدأ بالجزء الذي يمكن حسمه الآن بدل انتظار حل كل مناطق التداخل.",
+            "en": "Start with the part that can be settled now rather than waiting for every overlap to be resolved."
+          }
+        }
+      ]
+    },
+    {
+      "id": "WP029",
+      "section": "preference",
+      "status": "pilot",
+      "context": "competing_priorities",
+      "stem": {
+        "ar": "لدى أصحاب العلاقة أولويات مختلفة ومتعارضة. ما الذي تميل إلى إعطائه الأولوية؟",
+        "en": "Key stakeholders have different and competing priorities. What do you tend to prioritize?"
+      },
+      "options": [
+        {
+          "code": "U",
+          "indicator": "alternatives",
+          "text": {
+            "ar": "أفهم ما الذي تحاول كل أولوية تحقيقه أو حمايته قبل المفاضلة.",
+            "en": "Understand what each priority is trying to achieve or protect before weighing them."
+          }
+        },
+        {
+          "code": "S",
+          "indicator": "priority",
+          "text": {
+            "ar": "أضع معايير مشتركة تساعد على ترتيب الأولويات واتخاذ القرار.",
+            "en": "Set shared criteria for ranking the priorities and making the decision."
+          }
+        },
+        {
+          "code": "A",
+          "indicator": "momentum",
+          "text": {
+            "ar": "أبدأ بالجزء الذي يمكن التقدم فيه دون أن يحسم الخلاف كله.",
+            "en": "Start with the part that can move forward without resolving the entire disagreement."
+          }
+        }
+      ]
+    },
+    {
+      "id": "WP030",
+      "section": "preference",
+      "status": "pilot",
+      "context": "after_action",
+      "stem": {
+        "ar": "أنهيتم مرحلة مهمة من العمل وتريد أن تستفيد منها في المرحلة التالية. ما الذي تميل إلى إعطائه الأولوية؟",
+        "en": "You have completed an important stage of work and want to use what you learned in the next stage. What do you tend to prioritize?"
+      },
+      "options": [
+        {
+          "code": "U",
+          "indicator": "causal_relations",
+          "text": {
+            "ar": "أتحقق مما أسهم فعلًا في النتائج وما قد لا يكون أحدث فرقًا حقيقيًا.",
+            "en": "Check what actually drove the results and what may not have made a real difference."
+          }
+        },
+        {
+          "code": "S",
+          "indicator": "sequence",
+          "text": {
+            "ar": "أحدد ما الذي سيستمر كما هو وما الذي يحتاج إلى ترتيب مختلف في المرحلة التالية.",
+            "en": "Set what will continue as it is and what needs to be structured differently in the next stage."
+          }
+        },
+        {
+          "code": "A",
+          "indicator": "next_step",
+          "text": {
+            "ar": "أبدأ المرحلة التالية بتغيير عملي واحد يمكن ملاحظة أثره بسرعة.",
+            "en": "Start the next stage with one practical change whose effect can be observed quickly."
+          }
+        }
+      ]
+    }
+  ],
+  "social": [
+    {
+      "id": "SO01",
+      "section": "social",
+      "status": "pilot",
+      "process": "understanding",
+      "stem": {
+        "ar": "تتكرر شكوى مرتبطة بخدمة تقدمها جهة عملك، ولديك سجلات كافية ومجموعة من الموظفين الذين يتعاملون معها يوميًا. أي طريقة تميل إلى استخدامها أكثر لفهم المشكلة؟",
+        "en": "A complaint about one of your services keeps recurring. You have usable records and staff who deal with it every day. Which approach are you more likely to use to understand the issue?"
+      },
+      "options": [
+        {
+          "code": "TASK",
+          "text": {
+            "ar": "أبدأ بمراجعة السجلات والحالات المتكررة لأبحث عن نمط واضح.",
+            "en": "Start by reviewing the records and recurring cases to look for a clear pattern."
+          }
+        },
+        {
+          "code": "SOC",
+          "text": {
+            "ar": "أبدأ بالحديث مع من يتعاملون مع المشكلة يوميًا لأفهم ما يرونه في الواقع.",
+            "en": "Start by speaking with the people who deal with the issue every day to understand what they are seeing in practice."
+          }
+        }
+      ]
+    },
+    {
+      "id": "SO02",
+      "section": "social",
+      "status": "pilot",
+      "process": "understanding",
+      "stem": {
+        "ar": "يقدم فريقان تفسيرين مختلفين للمشكلة نفسها. ما الطريقة الأقرب لك لفهم سبب الاختلاف؟",
+        "en": "Two teams give different explanations for the same work problem. How are you more likely to make sense of the difference?"
+      },
+      "options": [
+        {
+          "code": "TASK",
+          "text": {
+            "ar": "أقارن المعلومات التي يعتمد عليها كل فريق لأعرف أين بدأ اختلاف التفسير.",
+            "en": "Compare the information each team is using to see where their explanations start to differ."
+          }
+        },
+        {
+          "code": "SOC",
+          "text": {
+            "ar": "أناقش مثالًا عمليًا واحدًا مع أشخاص من الفريقين لأفهم كيف يرى كل فريق المشكلة.",
+            "en": "Discuss one real example with people from both teams to understand how each team is seeing the issue."
+          }
+        }
+      ]
+    },
+    {
+      "id": "SO03",
+      "section": "social",
+      "status": "pilot",
+      "process": "understanding",
+      "stem": {
+        "ar": "وصلتك ملاحظة سلبية عن تجربة مرتبطة بعملك، ولديك بيانات عن حالات مشابهة. أي طريقة تميل إلى استخدامها أكثر لفهم ما حدث؟",
+        "en": "You receive negative feedback about an experience connected to your work, and you also have data on similar cases. Which approach are you more likely to use to understand what happened?"
+      },
+      "options": [
+        {
+          "code": "TASK",
+          "text": {
+            "ar": "أراجع الحالات المشابهة لأعرف إن كانت الملاحظة جزءًا من نمط أوسع.",
+            "en": "Review similar cases to see whether the feedback is part of a wider pattern."
+          }
+        },
+        {
+          "code": "SOC",
+          "text": {
+            "ar": "أتحدث مع الطرف المعني لأفهم كيف مرّ بالتجربة وما الذي كان مهمًا بالنسبة له.",
+            "en": "Speak with the person involved to understand how they experienced the situation and what mattered to them."
+          }
+        }
+      ]
+    },
+    {
+      "id": "SO04",
+      "section": "social",
+      "status": "pilot",
+      "process": "structuring",
+      "stem": {
+        "ar": "يعتمد مشروعك على عدة فرق، ولكل فريق جزء واضح من العمل. أي طريقة تميل إلى استخدامها أكثر لتنظيم العمل بينها؟",
+        "en": "Your project depends on several teams, and each team owns a clear part of the work. Which approach are you more likely to use to organize the work between them?"
+      },
+      "options": [
+        {
+          "code": "TASK",
+          "text": {
+            "ar": "أحدد تسلسل العمل وما الذي يحتاجه كل جزء قبل أن يبدأ.",
+            "en": "Set the sequence of work and what each part needs before it can begin."
+          }
+        },
+        {
+          "code": "SOC",
+          "text": {
+            "ar": "أنسق مع الفرق حتى نتفق على ما يحتاجه كل طرف من الآخر ومتى.",
+            "en": "Coordinate with the teams so we agree on what each side needs from the others and when."
+          }
+        }
+      ]
+    },
+    {
+      "id": "SO05",
+      "section": "social",
+      "status": "pilot",
+      "process": "structuring",
+      "stem": {
+        "ar": "تتكرر الأخطاء أو حالات سوء الفهم عندما ينتقل العمل من فريق إلى آخر. ما الطريقة الأقرب لك لجعل الانتقال أوضح؟",
+        "en": "Errors or misunderstandings keep happening when work passes from one team to another. Which approach are you more likely to use to make the transition clearer?"
+      },
+      "options": [
+        {
+          "code": "TASK",
+          "text": {
+            "ar": "أحدد ما الذي يجب أن يكتمل قبل انتقال العمل إلى الفريق التالي.",
+            "en": "Define what must be complete before the work moves to the next team."
+          }
+        },
+        {
+          "code": "SOC",
+          "text": {
+            "ar": "أتفق مع الفريقين على ما يحتاجه الفريق المستلم ومتى نعتبر انتقال العمل مكتملًا.",
+            "en": "Agree with both teams on what the receiving team needs and what a complete transfer looks like."
+          }
+        }
+      ]
+    },
+    {
+      "id": "SO06",
+      "section": "social",
+      "status": "pilot",
+      "process": "structuring",
+      "stem": {
+        "ar": "تتنافس عدة طلبات على الأولوية في عمل تشترك فيه أكثر من جهة. ما الطريقة الأقرب لك لتحديد ما يأتي أولًا؟",
+        "en": "Several requests are competing for priority in work shared by more than one group. How are you more likely to decide what comes first?"
+      },
+      "options": [
+        {
+          "code": "TASK",
+          "text": {
+            "ar": "أستخدم معايير واضحة لترتيب الطلبات حسب الأولوية.",
+            "en": "Use clear priority criteria to rank the requests."
+          }
+        },
+        {
+          "code": "SOC",
+          "text": {
+            "ar": "أتفق مع الجهات الأساسية على معايير الأولوية ثم نرتب الطلبات على أساسها.",
+            "en": "Agree on priority criteria with the key groups, then rank the requests using those criteria."
+          }
+        }
+      ]
+    },
+    {
+      "id": "SO07",
+      "section": "social",
+      "status": "pilot",
+      "process": "action",
+      "stem": {
+        "ar": "يمكن تجربة فكرة محدودة المخاطر على نطاق صغير، ويعتمد نجاحها جزئيًا على تعاون جهة أخرى. أي طريقة تميل إلى استخدامها أكثر للبدء؟",
+        "en": "A low-risk idea can be tested on a small scale, and its success partly depends on another group. Which approach are you more likely to use to get started?"
+      },
+      "options": [
+        {
+          "code": "TASK",
+          "text": {
+            "ar": "أبدأ بجزء يمكن تنفيذه داخل نطاقي حتى تظهر أول نتيجة عملية.",
+            "en": "Start with a part I can execute within my own scope so there is an early practical result."
+          }
+        },
+        {
+          "code": "SOC",
+          "text": {
+            "ar": "أتفق مع الجهة الأخرى على خطوة مشتركة صغيرة ونبدأ بها معًا.",
+            "en": "Agree a small joint step with the other group and start with that together."
+          }
+        }
+      ]
+    },
+    {
+      "id": "SO08",
+      "section": "social",
+      "status": "pilot",
+      "process": "action",
+      "stem": {
+        "ar": "ظهر موضوع عاجل ويمكنك معالجة جزء منه مباشرة، لكن أجزاء أخرى ستتأثر بقرارك. أي طريقة تميل إلى استخدامها أكثر للبدء؟",
+        "en": "An urgent issue appears. You can address part of it directly, but other people will be affected by what you do. Which approach are you more likely to use to get started?"
+      },
+      "options": [
+        {
+          "code": "TASK",
+          "text": {
+            "ar": "أبدأ بالجزء الذي يقع ضمن مسؤوليتي ويمكن تنفيذه فورًا.",
+            "en": "Start with the part that is within my responsibility and can be acted on immediately."
+          }
+        },
+        {
+          "code": "SOC",
+          "text": {
+            "ar": "أتفق بسرعة مع الأطراف الأساسية على الخطوة الأولى ثم نتحرك.",
+            "en": "Quickly align with the key people on the first step and then move."
+          }
+        }
+      ]
+    },
+    {
+      "id": "SO09",
+      "section": "social",
+      "status": "pilot",
+      "process": "action",
+      "stem": {
+        "ar": "ستنقل جزءًا من عملك إلى شخص آخر. ما الطريقة الأقرب لك لبدء الانتقال؟",
+        "en": "You are transferring part of your work to someone else. Which approach are you more likely to use to begin the transition?"
+      },
+      "options": [
+        {
+          "code": "TASK",
+          "text": {
+            "ar": "أعطيه نطاق العمل والمعلومات الأساسية ثم أبدأ نقل الجزء المتفق عليه.",
+            "en": "Give them the scope and essential information, then transfer the agreed part."
+          }
+        },
+        {
+          "code": "SOC",
+          "text": {
+            "ar": "أقضي معه وقتًا قصيرًا في مراجعة العمل معًا قبل أن أنقل الجزء المتفق عليه.",
+            "en": "Spend a short time reviewing the work together before transferring the agreed part."
+          }
+        }
+      ]
+    }
+  ],
+  "environmentNeeds": [
+    {
+      "id": "N1",
+      "section": "needs",
+      "status": "pilot",
+      "stem": {
+        "ar": "تبدأ دورًا جديدًا، ولن تكون كل ظروف العمل مثالية منذ اليوم الأول. رتّب ما سيصنع أكبر فرق لك شخصيًا.",
+        "en": "You are starting a new role, and not every part of the work environment can be ideal from day one. Rank what would make the biggest difference to you personally."
+      },
+      "options": [
+        {
+          "code": "CLARITY",
+          "text": {
+            "ar": "أن يكون الهدف المتوقع وحدود مسؤوليتي واضحين.",
+            "en": "A clear understanding of the expected outcome and the boundaries of my responsibility."
+          }
+        },
+        {
+          "code": "INFO",
+          "text": {
+            "ar": "أن أستطيع الوصول بسهولة إلى المعلومات الأساسية عندما أحتاجها.",
+            "en": "Easy access to essential information when I need it."
+          }
+        },
+        {
+          "code": "AUTONOMY",
+          "text": {
+            "ar": "أن تكون لدي مساحة مناسبة لاختيار طريقة تنفيذ العمل ضمن مسؤوليتي.",
+            "en": "Enough room to choose how I carry out the work within my responsibility."
+          }
+        },
+        {
+          "code": "PARTICIPATION",
+          "text": {
+            "ar": "أن تكون لدي فرصة حقيقية لإبداء رأيي في القرارات التي تؤثر مباشرة في عملي.",
+            "en": "A real opportunity to give input on decisions that directly affect my work."
+          }
+        }
+      ]
+    },
+    {
+      "id": "N2",
+      "section": "needs",
+      "status": "pilot",
+      "stem": {
+        "ar": "بدأ مشروع سريع الإيقاع، وهناك أشياء كثيرة يمكن تحسينها. رتّب ما سيكون أكثر فائدة لك شخصيًا.",
+        "en": "A fast-moving project has started, and many things could be improved. Rank what would be most useful to you personally."
+      },
+      "options": [
+        {
+          "code": "CLARITY",
+          "text": {
+            "ar": "أن يكون الهدف النهائي واضحًا حتى لو تغيّرت التفاصيل.",
+            "en": "A clear end goal even if the details change."
+          }
+        },
+        {
+          "code": "INFO",
+          "text": {
+            "ar": "أن أعرف خلفية القرارات المهمة والمعلومات التي بُنيت عليها.",
+            "en": "Background and information behind important decisions."
+          }
+        },
+        {
+          "code": "AUTONOMY",
+          "text": {
+            "ar": "أن أستطيع اتخاذ القرارات الواقعة ضمن دوري دون الرجوع في كل خطوة.",
+            "en": "Authority to make decisions within my role without checking back on every step."
+          }
+        },
+        {
+          "code": "PACE",
+          "text": {
+            "ar": "أن أعرف بوضوح ما يحتاج اهتمامًا الآن وما يمكن أن ينتظر.",
+            "en": "Clarity on what needs attention now and what can wait."
+          }
+        }
+      ]
+    },
+    {
+      "id": "N3",
+      "section": "needs",
+      "status": "pilot",
+      "stem": {
+        "ar": "تعمل في بيئة تتغير فيها الخطط كثيرًا. رتّب ما يساعدك أكثر على البقاء فعّالًا عندما يحدث ذلك.",
+        "en": "You work in an environment where plans change often. Rank what helps you stay effective when that happens."
+      },
+      "options": [
+        {
+          "code": "CLARITY",
+          "text": {
+            "ar": "أن أعرف ما الذي يبقى ثابتًا في الهدف والمسؤوليات.",
+            "en": "Knowing what remains stable in the goal and responsibilities."
+          }
+        },
+        {
+          "code": "INFO",
+          "text": {
+            "ar": "أن تصلني بسرعة المعلومات الجديدة التي تؤثر في قراراتي.",
+            "en": "Receiving new information that affects my decisions quickly."
+          }
+        },
+        {
+          "code": "AUTONOMY",
+          "text": {
+            "ar": "أن تكون لدي مساحة لتعديل طريقة التنفيذ ضمن مسؤوليتي.",
+            "en": "Room to adjust how I deliver within my responsibility."
+          }
+        },
+        {
+          "code": "CHANGE",
+          "text": {
+            "ar": "أن أفهم لماذا تغيّر الاتجاه وما الذي يعنيه التغيير لعملي.",
+            "en": "Understanding why the direction changed and what the change means for my work."
+          }
+        }
+      ]
+    },
+    {
+      "id": "N4",
+      "section": "needs",
+      "status": "pilot",
+      "stem": {
+        "ar": "يعتمد عملك على عدة أطراف والوقت محدود. رتّب ما يهمك أكثر حتى تعمل بأفضل صورة.",
+        "en": "Your work depends on several parties, and time is limited. Rank what matters most for you to work at your best."
+      },
+      "options": [
+        {
+          "code": "CLARITY",
+          "text": {
+            "ar": "أن تكون مسؤولية القرار وما هو متوقع من كل طرف واضحة.",
+            "en": "Clear decision ownership and clear expectations for each party."
+          }
+        },
+        {
+          "code": "INFO",
+          "text": {
+            "ar": "أن تكون المعلومات الأساسية ومعايير النجاح متاحة للجميع.",
+            "en": "Shared access to the essential information and success criteria."
+          }
+        },
+        {
+          "code": "PARTICIPATION",
+          "text": {
+            "ar": "أن توجد مساحة لمناقشة الاختلافات المهمة قبل التنفيذ المشترك.",
+            "en": "Room to discuss important differences before we start working together."
+          }
+        },
+        {
+          "code": "PACE",
+          "text": {
+            "ar": "أن نتفق على ما هو عاجل وما يمكن أن ينتظر عندما يزيد الضغط.",
+            "en": "Agreement on what is urgent and what can wait when pressure increases."
+          }
+        }
+      ]
+    },
+    {
+      "id": "N5",
+      "section": "needs",
+      "status": "pilot",
+      "stem": {
+        "ar": "مسؤوليتك واضحة، لكن هناك أكثر من طريقة للوصول إلى النتيجة. رتّب ما سيصنع أكبر فرق لك.",
+        "en": "Your responsibility is clear, but there is more than one way to reach the result. Rank what would make the biggest difference to you."
+      },
+      "options": [
+        {
+          "code": "CLARITY",
+          "text": {
+            "ar": "أن أعرف النتيجة المطلوبة وحدود القرارات التي أملكها.",
+            "en": "Knowing the expected outcome and the boundaries of the decisions I own."
+          }
+        },
+        {
+          "code": "AUTONOMY",
+          "text": {
+            "ar": "أن تكون لدي حرية مناسبة لاختيار طريقة التنفيذ التي أراها أنسب.",
+            "en": "Appropriate freedom to choose how I do the work."
+          }
+        },
+        {
+          "code": "PARTICIPATION",
+          "text": {
+            "ar": "أن أستطيع مناقشة القرارات المشتركة مع الأطراف المعنية.",
+            "en": "The ability to discuss shared decisions with the people involved."
+          }
+        },
+        {
+          "code": "CHANGE",
+          "text": {
+            "ar": "أن أعرف ما الذي يمكن تغييره وما الذي يجب أن يبقى ثابتًا.",
+            "en": "Knowing what can be changed and what needs to stay fixed."
+          }
+        }
+      ]
+    },
+    {
+      "id": "N6",
+      "section": "needs",
+      "status": "pilot",
+      "stem": {
+        "ar": "ازداد الضغط وتغيّرت بعض الأولويات. رتّب ما تحتاجه أكثر حتى تبقى فعّالًا.",
+        "en": "Pressure has increased and some priorities have changed. Rank what you need most to remain effective."
+      },
+      "options": [
+        {
+          "code": "CLARITY",
+          "text": {
+            "ar": "أن أفهم الأولويات الجديدة وما هو متوقع مني الآن.",
+            "en": "A clear understanding of the new priorities and what is now expected from me."
+          }
+        },
+        {
+          "code": "PARTICIPATION",
+          "text": {
+            "ar": "أن أستطيع توضيح أثر التغيير في عملي قبل تثبيت طريقة التنفيذ.",
+            "en": "A chance to raise the impact of the change on my work before the approach is finalized."
+          }
+        },
+        {
+          "code": "PACE",
+          "text": {
+            "ar": "أن تكون هناك نقطة واضحة للحسم أو المراجعة.",
+            "en": "A clear point for a decision or review."
+          }
+        },
+        {
+          "code": "CHANGE",
+          "text": {
+            "ar": "أن أفهم سبب التغيير وما الذي سيبقى كما هو.",
+            "en": "Understanding why the change happened and what will remain the same."
+          }
+        }
+      ]
+    },
+    {
+      "id": "N7",
+      "section": "needs",
+      "status": "pilot",
+      "stem": {
+        "ar": "لديك مهمة جديدة وفيها مساحة واسعة للاجتهاد. رتّب ما يساعدك أكثر على البدء بثقة.",
+        "en": "You have a new assignment with plenty of room for judgment. Rank what helps you begin with confidence."
+      },
+      "options": [
+        {
+          "code": "INFO",
+          "text": {
+            "ar": "أن تتوفر لدي المعلومات والخلفية اللازمة لفهم المهمة.",
+            "en": "The information and background I need to understand the assignment."
+          }
+        },
+        {
+          "code": "AUTONOMY",
+          "text": {
+            "ar": "أن تكون لدي حرية مناسبة لاختيار طريقة تنفيذها.",
+            "en": "Appropriate freedom to choose how I deliver it."
+          }
+        },
+        {
+          "code": "PACE",
+          "text": {
+            "ar": "أن يكون واضحًا ما الذي يجب أن يحدث أولًا ومتى.",
+            "en": "Clarity on what needs to happen first and by when."
+          }
+        },
+        {
+          "code": "CHANGE",
+          "text": {
+            "ar": "أن أعرف مسبقًا ما الذي يمكن تعديله إذا تغيرت الظروف.",
+            "en": "Knowing in advance what can be adjusted if circumstances change."
+          }
+        }
+      ]
+    },
+    {
+      "id": "N8",
+      "section": "needs",
+      "status": "pilot",
+      "stem": {
+        "ar": "تعمل مع فريق جديد ولا تعرف بعد كيف تُتخذ القرارات أو تُدار التغييرات. رتّب ما سيساعدك أكثر على العمل بثقة وفعالية.",
+        "en": "You are working with a new team and do not yet know how decisions and changes are handled. Rank what would help you work most confidently and effectively."
+      },
+      "options": [
+        {
+          "code": "INFO",
+          "text": {
+            "ar": "أن أعرف أين أجد المعلومات وإلى من أرجع عندما أحتاج مساعدة.",
+            "en": "Knowing where to find information and who to go to when I need help."
+          }
+        },
+        {
+          "code": "PARTICIPATION",
+          "text": {
+            "ar": "أن يكون لي صوت حقيقي عندما يؤثر القرار في عملي.",
+            "en": "A real voice when a decision will affect my work."
+          }
+        },
+        {
+          "code": "PACE",
+          "text": {
+            "ar": "أن تكون الأولويات ومواعيد الحسم واضحة.",
+            "en": "Clear priorities and decision timelines."
+          }
+        },
+        {
+          "code": "CHANGE",
+          "text": {
+            "ar": "أن تُشرح التغييرات المهمة وأثرها بدل أن تظهر دون سياق.",
+            "en": "Important changes being explained, including their impact, rather than appearing without context."
+          }
+        }
+      ]
+    },
+    {
+      "id": "N9",
+      "section": "needs",
+      "status": "pilot",
+      "stem": {
+        "ar": "في عمل معقد قد لا تحصل على كل أشكال الدعم التي تفضلها. رتّب ما سيكون الأصعب عليك العمل من دونه.",
+        "en": "In complex work, you may not get every kind of support you would prefer. Rank what would be hardest for you to work without."
+      },
+      "options": [
+        {
+          "code": "AUTONOMY",
+          "text": {
+            "ar": "مساحة كافية لاتخاذ القرارات الواقعة ضمن مسؤوليتي.",
+            "en": "Enough room to make decisions within my responsibility."
+          }
+        },
+        {
+          "code": "PARTICIPATION",
+          "text": {
+            "ar": "القدرة على مناقشة الاختلافات مع الأطراف التي يعتمد عليها التنفيذ.",
+            "en": "The ability to discuss differences with the people on whom execution depends."
+          }
+        },
+        {
+          "code": "PACE",
+          "text": {
+            "ar": "وضوح ما هو عاجل وما يمكن أن ينتظر.",
+            "en": "Clarity on what is urgent and what can wait."
+          }
+        },
+        {
+          "code": "CHANGE",
+          "text": {
+            "ar": "وضوح ما الذي يتغير وما الذي يبقى ثابتًا عندما يتغير الاتجاه.",
+            "en": "Clarity on what is changing and what remains stable when direction shifts."
+          }
+        }
+      ]
+    }
+  ],
+  "flex": [
+    {
+      "id": "FX1A",
+      "section": "flex",
+      "status": "pilot",
+      "pair": "REV",
+      "condition": "hard_to_reverse",
+      "parameter": "reversibility",
+      "stem": {
+        "ar": "تدرس تغييرًا في طريقة العمل. القرار سيؤثر في عدد كبير من المستفيدين وسيكون التراجع عنه صعبًا بعد التطبيق. أي استجابة أقرب لما ستفعله؟",
+        "en": "You are considering a change in how the work is done. It will affect many users and will be difficult to reverse once implemented. Which response is closest to what you would do?"
+      },
+      "options": [
+        {
+          "code": "U",
+          "text": {
+            "ar": "أتحقق من المعلومة التي يمكن أن تغيّر القرار بصورة جوهرية.",
+            "en": "Check the information that could materially change the decision."
+          }
+        },
+        {
+          "code": "S",
+          "text": {
+            "ar": "أحدد حدودًا واضحة للتنفيذ ونقطة قريبة للمراجعة.",
+            "en": "Set clear implementation boundaries and a near-term review point."
+          }
+        },
+        {
+          "code": "A",
+          "text": {
+            "ar": "أبدأ بخطوة محدودة يمكن تعديلها وأستخدم ما يحدث لتوجيه الخطوة التالية.",
+            "en": "Begin with a limited, adjustable step and use what happens to guide the next move."
+          }
+        }
+      ]
+    },
+    {
+      "id": "FX1B",
+      "section": "flex",
+      "status": "pilot",
+      "pair": "REV",
+      "condition": "easy_to_reverse",
+      "parameter": "reversibility",
+      "stem": {
+        "ar": "تدرس تغييرًا في طريقة العمل. يمكن تجربته على نطاق محدود، والتراجع عنه سهل إذا لم يكن مناسبًا. أي استجابة أقرب لما ستفعله؟",
+        "en": "You are considering a change in how the work is done. It can be tried on a limited scale and reversed easily if it is not suitable. Which response is closest to what you would do?"
+      },
+      "options": [
+        {
+          "code": "U",
+          "text": {
+            "ar": "أتحقق من المعلومة التي يمكن أن تغيّر القرار بصورة جوهرية.",
+            "en": "Check the information that could materially change the decision."
+          }
+        },
+        {
+          "code": "S",
+          "text": {
+            "ar": "أحدد حدودًا واضحة للتنفيذ ونقطة قريبة للمراجعة.",
+            "en": "Set clear implementation boundaries and a near-term review point."
+          }
+        },
+        {
+          "code": "A",
+          "text": {
+            "ar": "أبدأ بخطوة محدودة يمكن تعديلها وأستخدم ما يحدث لتوجيه الخطوة التالية.",
+            "en": "Begin with a limited, adjustable step and use what happens to guide the next move."
+          }
+        }
+      ]
+    },
+    {
+      "id": "FX2A",
+      "section": "flex",
+      "status": "pilot",
+      "pair": "TIME",
+      "condition": "high_pressure",
+      "parameter": "time_pressure",
+      "stem": {
+        "ar": "ظهر موضوع يحتاج إلى قرار اليوم، والوقت المتاح محدود. المخاطرة متوسطة وبعض الخطوات يمكن تعديلها لاحقًا. أي استجابة أقرب لما ستفعله؟",
+        "en": "An issue needs a decision today, and time is limited. The risk is moderate and some steps can be adjusted later. Which response is closest to what you would do?"
+      },
+      "options": [
+        {
+          "code": "U",
+          "text": {
+            "ar": "أحدد المعلومة الواحدة التي قد تغيّر اتجاه القرار قبل أن أتحرك.",
+            "en": "Identify the one piece of information most likely to change the direction before moving."
+          }
+        },
+        {
+          "code": "S",
+          "text": {
+            "ar": "أحدد الأولويات المباشرة وترتيب الخطوات التالية.",
+            "en": "Set the immediate priorities and sequence the next steps."
+          }
+        },
+        {
+          "code": "A",
+          "text": {
+            "ar": "أبدأ بأول خطوة عملية يمكن تنفيذها الآن.",
+            "en": "Start with the first practical step that can be taken now."
+          }
+        }
+      ]
+    },
+    {
+      "id": "FX2B",
+      "section": "flex",
+      "status": "pilot",
+      "pair": "TIME",
+      "condition": "normal_time",
+      "parameter": "time_pressure",
+      "stem": {
+        "ar": "ظهر الموضوع نفسه، لكن لديك عدة أيام قبل الحاجة إلى القرار. المخاطرة متوسطة وبعض الخطوات يمكن تعديلها لاحقًا. أي استجابة أقرب لما ستفعله؟",
+        "en": "The same issue arises, but you have several days before a decision is needed. The risk is moderate and some steps can be adjusted later. Which response is closest to what you would do?"
+      },
+      "options": [
+        {
+          "code": "U",
+          "text": {
+            "ar": "أحدد المعلومة الواحدة التي قد تغيّر اتجاه القرار قبل أن أتحرك.",
+            "en": "Identify the one piece of information most likely to change the direction before moving."
+          }
+        },
+        {
+          "code": "S",
+          "text": {
+            "ar": "أحدد الأولويات المباشرة وترتيب الخطوات التالية.",
+            "en": "Set the immediate priorities and sequence the next steps."
+          }
+        },
+        {
+          "code": "A",
+          "text": {
+            "ar": "أبدأ بأول خطوة عملية يمكن تنفيذها الآن.",
+            "en": "Start with the first practical step that can be taken now."
+          }
+        }
+      ]
+    },
+    {
+      "id": "FX3A",
+      "section": "flex",
+      "status": "pilot",
+      "pair": "INTER",
+      "condition": "high_interdependence",
+      "parameter": "interdependence",
+      "stem": {
+        "ar": "تعتمد المهمة على عدة فرق، وكل فريق يحتاج إلى نتائج عمل الآخرين حتى ينجح العمل. أي استجابة أقرب لما ستفعله؟",
+        "en": "The task depends on several teams, and each team needs work from the others for the overall task to succeed. Which response is closest to what you would do?"
+      },
+      "options": [
+        {
+          "code": "U",
+          "text": {
+            "ar": "أحدد العلاقات بين الأجزاء وما الذي قد يؤثر في النتيجة.",
+            "en": "Map the connections between the parts and what could affect the outcome."
+          }
+        },
+        {
+          "code": "S",
+          "text": {
+            "ar": "أوضح ترتيب العمل ونقاط المسؤولية الأساسية.",
+            "en": "Clarify the sequence of work and the key responsibility points."
+          }
+        },
+        {
+          "code": "A",
+          "text": {
+            "ar": "أبدأ بالجزء الذي يمكن البدء به الآن دون تعطيل بقية العمل.",
+            "en": "Start with the part that can begin now without blocking the rest of the work."
+          }
+        }
+      ]
+    },
+    {
+      "id": "FX3B",
+      "section": "flex",
+      "status": "pilot",
+      "pair": "INTER",
+      "condition": "low_interdependence",
+      "parameter": "interdependence",
+      "stem": {
+        "ar": "المهمة نفسها مقسمة إلى أجزاء مستقلة نسبيًا، ويمكن لكل فريق إنجاز الجزء الخاص به دون اعتماد كبير على الآخرين. أي استجابة أقرب لما ستفعله؟",
+        "en": "The same task is divided into largely independent parts, and each team can complete its part with little reliance on the others. Which response is closest to what you would do?"
+      },
+      "options": [
+        {
+          "code": "U",
+          "text": {
+            "ar": "أحدد العلاقات بين الأجزاء وما الذي قد يؤثر في النتيجة.",
+            "en": "Map the connections between the parts and what could affect the outcome."
+          }
+        },
+        {
+          "code": "S",
+          "text": {
+            "ar": "أوضح ترتيب العمل ونقاط المسؤولية الأساسية.",
+            "en": "Clarify the sequence of work and the key responsibility points."
+          }
+        },
+        {
+          "code": "A",
+          "text": {
+            "ar": "أبدأ بالجزء الذي يمكن البدء به الآن دون تعطيل بقية العمل.",
+            "en": "Start with the part that can begin now without blocking the rest of the work."
+          }
+        }
+      ]
+    },
+    {
+      "id": "FX4A",
+      "section": "flex",
+      "status": "pilot",
+      "pair": "AMB",
+      "condition": "high_ambiguity",
+      "parameter": "ambiguity",
+      "stem": {
+        "ar": "تعمل على موضوع مهم، لكن الاتجاه العام ما زال يحتمل أكثر من تفسير وبعض المعلومات الأساسية غير مكتملة. أي استجابة أقرب لما ستفعله؟",
+        "en": "You are working on an important issue, but the overall direction still allows more than one interpretation and some key information is incomplete. Which response is closest to what you would do?"
+      },
+      "options": [
+        {
+          "code": "U",
+          "text": {
+            "ar": "أقارن بين التفسيرات الممكنة حتى أعرف أيها أقرب للواقع قبل أن أبني عليه.",
+            "en": "Compare the plausible interpretations to see which one is most credible before acting on it."
+          }
+        },
+        {
+          "code": "S",
+          "text": {
+            "ar": "أحدد نطاقًا مؤقتًا وأولويات واضحة للعمل ضمنه.",
+            "en": "Set a temporary scope and clear priorities to work within."
+          }
+        },
+        {
+          "code": "A",
+          "text": {
+            "ar": "أبدأ بالجزء الواضح وأستخدم ما يظهر أثناء التنفيذ لتوجيه الخطوة التالية.",
+            "en": "Start with the clear part and use what emerges during execution to guide the next step."
+          }
+        }
+      ]
+    },
+    {
+      "id": "FX4B",
+      "section": "flex",
+      "status": "pilot",
+      "pair": "AMB",
+      "condition": "lower_ambiguity",
+      "parameter": "ambiguity",
+      "stem": {
+        "ar": "تعمل على الموضوع نفسه، والاتجاه العام واضح، لكن بعض التفاصيل غير المهمة ما زالت غير مكتملة. أي استجابة أقرب لما ستفعله؟",
+        "en": "You are working on the same issue. The overall direction is clear, but some lower-impact details are still incomplete. Which response is closest to what you would do?"
+      },
+      "options": [
+        {
+          "code": "U",
+          "text": {
+            "ar": "أقارن بين التفسيرات الممكنة حتى أعرف أيها أقرب للواقع قبل أن أبني عليه.",
+            "en": "Compare the plausible interpretations to see which one is most credible before acting on it."
+          }
+        },
+        {
+          "code": "S",
+          "text": {
+            "ar": "أحدد نطاقًا مؤقتًا وأولويات واضحة للعمل ضمنه.",
+            "en": "Set a temporary scope and clear priorities to work within."
+          }
+        },
+        {
+          "code": "A",
+          "text": {
+            "ar": "أبدأ بالجزء الواضح وأستخدم ما يظهر أثناء التنفيذ لتوجيه الخطوة التالية.",
+            "en": "Start with the clear part and use what emerges during execution to guide the next step."
+          }
+        }
+      ]
+    }
+  ]
+}
