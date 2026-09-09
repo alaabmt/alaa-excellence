@@ -12,6 +12,7 @@ SITE = "https://tamayuz10x.com"
 SITEMAP = Path("sitemap.xml")
 ROBOTS = Path("robots.txt")
 ARTICLES = Path("articles.html")
+EN_ARTICLES = Path("en/articles.html")
 CONTENT_PREFIXES = ("case-", "article-", "idea-")
 
 
@@ -56,10 +57,17 @@ def validate_canonical(path: Path, canonical: str) -> None:
         raise RuntimeError(f"Canonical must not contain query/fragment in {path}: {canonical}")
 
 
+def page_candidates() -> list[Path]:
+    pages = list(Path(".").glob("*.html"))
+    if Path("en").is_dir():
+        pages.extend(Path("en").glob("*.html"))
+    return sorted(pages, key=lambda p: p.as_posix())
+
+
 def discover_indexable_pages() -> list[tuple[str, Path, str]]:
     rows: list[tuple[str, Path, str]] = []
     seen: set[str] = set()
-    for path in sorted(Path(".").glob("*.html")):
+    for path in page_candidates():
         canonical, noindex = parse_page(path)
         if noindex or not canonical:
             continue
@@ -69,19 +77,33 @@ def discover_indexable_pages() -> list[tuple[str, Path, str]]:
         seen.add(canonical)
         rows.append((canonical, path, git_lastmod(path)))
     if f"{SITE}/" not in seen:
-        raise RuntimeError("Homepage canonical is missing from discovered indexable pages")
+        raise RuntimeError("Arabic homepage canonical is missing from discovered indexable pages")
+    if Path("en/index.html").exists() and f"{SITE}/en/" not in seen:
+        raise RuntimeError("English homepage canonical is missing from discovered indexable pages")
     return rows
 
 
 def validate_content_links(rows: list[tuple[str, Path, str]]) -> None:
-    library = ARTICLES.read_text(encoding="utf-8")
+    ar_library = ARTICLES.read_text(encoding="utf-8")
+    en_library = EN_ARTICLES.read_text(encoding="utf-8") if EN_ARTICLES.exists() else ""
     missing: list[str] = []
     for _, path, _ in rows:
-        if path.name.startswith(CONTENT_PREFIXES) and f'href="{path.name}"' not in library:
-            missing.append(path.name)
+        if not path.name.startswith(CONTENT_PREFIXES):
+            continue
+        if path.parent == Path("."):
+            if f'href="{path.name}"' not in ar_library and f"href='{path.name}'" not in ar_library:
+                missing.append(path.as_posix())
+        elif path.parent == Path("en") and en_library:
+            if (
+                f'href="{path.name}"' not in en_library
+                and f"href='{path.name}'" not in en_library
+                and f'href="/en/{path.name}"' not in en_library
+                and f"href='/en/{path.name}'" not in en_library
+            ):
+                missing.append(path.as_posix())
     if missing:
         raise RuntimeError(
-            "Indexable content pages missing an internal link from articles.html: "
+            "Indexable content pages missing an internal link from their language article library: "
             + ", ".join(missing)
         )
 
@@ -100,7 +122,8 @@ def write_sitemap(rows: list[tuple[str, Path, str]]) -> None:
 
     def sort_key(row):
         url, path, _ = row
-        return (0 if path.name == "index.html" else 1, url)
+        priority = 0 if path.as_posix() == "index.html" else 1 if path.as_posix() == "en/index.html" else 2
+        return (priority, url)
 
     for url, _, lastmod in sorted(rows, key=sort_key):
         node = ET.SubElement(root, f"{{{ns}}}url")
@@ -119,7 +142,7 @@ def main() -> int:
     rows = discover_indexable_pages()
     validate_content_links(rows)
     write_sitemap(rows)
-    print(f"Sitemap validated and generated with {len(rows)} indexable URLs.")
+    print(f"Sitemap validated and generated with {len(rows)} indexable URLs across Arabic and English editions.")
     print("lastmod values come from each page's latest Git commit date; they are not forced to today's date.")
     return 0
 
