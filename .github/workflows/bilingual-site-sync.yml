@@ -51,7 +51,7 @@ jobs:
           python-version: '3.12'
 
       - name: Install synchronization dependencies
-        run: python -m pip install --disable-pip-version-check requests==2.32.5 beautifulsoup4==4.13.5
+        run: python -m pip install --disable-pip-version-check beautifulsoup4==4.13.5 translators==6.0.1
 
       - name: Determine synchronization mode
         id: mode
@@ -71,8 +71,6 @@ jobs:
 
       - name: Synchronize Arabic and English pages
         shell: bash
-        env:
-          BILINGUAL_CHANGED_FILES: ${{ steps.mode.outputs.mode == 'changed' && '' || '' }}
         run: |
           if [[ "${{ steps.mode.outputs.mode }}" == "full" ]]; then
             python scripts/bilingual_sync.py --full-ar
@@ -87,7 +85,7 @@ jobs:
           python - <<'PY'
           from pathlib import Path
           from bs4 import BeautifulSoup
-          import re, sys
+          import sys
 
           excluded = {'contact-madar.html'}
           failures = []
@@ -122,7 +120,7 @@ jobs:
         id: commit
         shell: bash
         run: |
-          if git diff --quiet && git status --porcelain | grep -q '^$'; then
+          if git diff --quiet && [[ -z "$(git status --porcelain)" ]]; then
             echo 'changed=false' >> "$GITHUB_OUTPUT"
             echo 'No bilingual synchronization changes required.'
             exit 0
