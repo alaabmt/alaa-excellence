@@ -42,13 +42,16 @@ jobs:
           def replace_all(pattern, replacement, text):
               return re.sub(pattern, replacement, text, flags=re.I)
 
-          s = replace_all(r'(<meta\s+property=["\']og:image["\']\s+content=["\'])[^"\']+(["\']\s*/?>)', rf'\1{url}\2', s)
-          s = replace_all(r'(<meta\s+property=["\']og:image:secure_url["\']\s+content=["\'])[^"\']+(["\']\s*/?>)', rf'\1{url}\2', s)
-          s = replace_all(r'(<meta\s+name=["\']twitter:image["\']\s+content=["\'])[^"\']+(["\']\s*/?>)', rf'\1{url}\2', s)
-          s = replace_all(r'(<meta\s+property=["\']og:image:type["\']\s+content=["\'])[^"\']+(["\']\s*/?>)', r'\1image/jpeg\2', s)
-          s = replace_all(r'(<meta\s+property=["\']og:image:width["\']\s+content=["\'])[^"\']+(["\']\s*/?>)', r'\11200\2', s)
-          s = replace_all(r'(<meta\s+property=["\']og:image:height["\']\s+content=["\'])[^"\']+(["\']\s*/?>)', r'\1630\2', s)
-          s = replace_all(r'(<meta\s+name=["\']twitter:card["\']\s+content=["\'])[^"\']+(["\']\s*/?>)', r'\1summary_large_image\2', s)
+          # Repair malformed metadata left by an earlier ambiguous backreference.
+          s = s.replace('J00">\ns0">\n', '<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">\n')
+
+          s = replace_all(r'(<meta\s+property=["\']og:image["\']\s+content=["\'])[^"\']+(["\']\s*/?>)', rf'\g<1>{url}\g<2>', s)
+          s = replace_all(r'(<meta\s+property=["\']og:image:secure_url["\']\s+content=["\'])[^"\']+(["\']\s*/?>)', rf'\g<1>{url}\g<2>', s)
+          s = replace_all(r'(<meta\s+name=["\']twitter:image["\']\s+content=["\'])[^"\']+(["\']\s*/?>)', rf'\g<1>{url}\g<2>', s)
+          s = replace_all(r'(<meta\s+property=["\']og:image:type["\']\s+content=["\'])[^"\']+(["\']\s*/?>)', r'\g<1>image/jpeg\g<2>', s)
+          s = replace_all(r'(<meta\s+property=["\']og:image:width["\']\s+content=["\'])[^"\']+(["\']\s*/?>)', r'\g<1>1200\g<2>', s)
+          s = replace_all(r'(<meta\s+property=["\']og:image:height["\']\s+content=["\'])[^"\']+(["\']\s*/?>)', r'\g<1>630\g<2>', s)
+          s = replace_all(r'(<meta\s+name=["\']twitter:card["\']\s+content=["\'])[^"\']+(["\']\s*/?>)', r'\g<1>summary_large_image\g<2>', s)
 
           page.write_text(s, encoding='utf-8')
           print(f'Generated {out}: {out.stat().st_size} bytes')
@@ -63,5 +66,5 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add 'assets/images/tamayuz-profile-share.jpg' index.html
-          git commit -m 'Use lightweight social preview card for WhatsApp [skip ci]'
+          git commit -m 'Repair social preview metadata [skip ci]'
           git push
