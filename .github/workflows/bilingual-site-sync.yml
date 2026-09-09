@@ -17,6 +17,7 @@ on:
       - '10X_Agent_AI_Master_Operating_Manual_AR.md'
       - 'ARABIC-LANGUAGE-AND-TTS-STANDARD.md'
       - 'BILINGUAL-SITE-PARITY-STANDARD.md'
+      - '10X_ENGLISH_EDITORIAL_TRANSLATION_AND_HUMAN_STYLE_STANDARD.md'
 
 permissions:
   contents: write
@@ -25,7 +26,7 @@ permissions:
 
 concurrency:
   group: bilingual-site-sync
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   synchronize:
@@ -43,6 +44,9 @@ jobs:
           test -s 10X_Agent_AI_Master_Operating_Manual_AR.md
           test -s BILINGUAL-SITE-PARITY-STANDARD.md
           test -s ARABIC-LANGUAGE-AND-TTS-STANDARD.md
+          if [[ -f 10X_ENGLISH_EDITORIAL_TRANSLATION_AND_HUMAN_STYLE_STANDARD.md ]]; then
+            test -s 10X_ENGLISH_EDITORIAL_TRANSLATION_AND_HUMAN_STYLE_STANDARD.md
+          fi
           echo 'Governing bilingual standards loaded.'
 
       - name: Set up Python
@@ -51,7 +55,10 @@ jobs:
           python-version: '3.12'
 
       - name: Install synchronization dependencies
-        run: python -m pip install --disable-pip-version-check beautifulsoup4==4.13.5 translators==6.0.1
+        shell: bash
+        run: |
+          python -m pip install --disable-pip-version-check beautifulsoup4==4.13.5 transformers==4.57.1 sentencepiece==0.2.1 sacremoses==0.1.1
+          python -m pip install --disable-pip-version-check torch --index-url https://download.pytorch.org/whl/cpu
 
       - name: Determine synchronization mode
         id: mode
@@ -63,7 +70,7 @@ jobs:
           fi
           changed="$(git diff --name-only HEAD^ HEAD || true)"
           printf '%s\n' "$changed" > /tmp/bilingual-changed.txt
-          if printf '%s\n' "$changed" | grep -Eq '^(scripts/bilingual_sync\.py|\.github/workflows/bilingual-site-sync\.yml|10X_Agent_AI_Master_Operating_Manual_AR\.md|ARABIC-LANGUAGE-AND-TTS-STANDARD\.md|BILINGUAL-SITE-PARITY-STANDARD\.md)$'; then
+          if printf '%s\n' "$changed" | grep -Eq '^(scripts/bilingual_sync\.py|\.github/workflows/bilingual-site-sync\.yml|10X_Agent_AI_Master_Operating_Manual_AR\.md|ARABIC-LANGUAGE-AND-TTS-STANDARD\.md|BILINGUAL-SITE-PARITY-STANDARD\.md|10X_ENGLISH_EDITORIAL_TRANSLATION_AND_HUMAN_STYLE_STANDARD\.md)$'; then
             echo 'mode=full' >> "$GITHUB_OUTPUT"
           else
             echo 'mode=changed' >> "$GITHUB_OUTPUT"
@@ -71,6 +78,9 @@ jobs:
 
       - name: Synchronize Arabic and English pages
         shell: bash
+        env:
+          TOKENIZERS_PARALLELISM: 'false'
+          HF_HUB_DISABLE_TELEMETRY: '1'
         run: |
           if [[ "${{ steps.mode.outputs.mode }}" == "full" ]]; then
             python scripts/bilingual_sync.py --full-ar
@@ -110,6 +120,10 @@ jobs:
               can = e.find('link', rel=lambda x: x and 'canonical' in (x if isinstance(x,list) else [x]))
               if not can or '/en/' not in can.get('href',''):
                   failures.append(f'English canonical invalid: {en}')
+              ar_alt = e.find('link', attrs={'hreflang':'ar'})
+              en_alt = e.find('link', attrs={'hreflang':'en'})
+              if not ar_alt or not en_alt:
+                  failures.append(f'hreflang metadata missing: {en}')
           if failures:
               print('\n'.join(failures), file=sys.stderr)
               raise SystemExit(1)
@@ -129,6 +143,7 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add en/ '*.html' .bilingual-translation-cache.json
           git commit -m 'Synchronize Arabic and English site editions [skip bilingual-sync]'
+          git pull --rebase origin main
           git push origin HEAD:main
           echo 'changed=true' >> "$GITHUB_OUTPUT"
           echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
