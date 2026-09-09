@@ -2,8 +2,24 @@
   'use strict';
   const path = location.pathname;
   if (!path.includes('/tools/')) return;
-  const isAr = document.documentElement.lang === 'ar' || document.documentElement.dir === 'rtl' || /\/ar\.html$/i.test(path);
-  const key = 'tamayuz10x-assessment-consent-v1';
+
+  const params = new URLSearchParams(location.search);
+  const explicit = params.get('lang');
+  let lang;
+  if (explicit === 'ar' || explicit === 'en') {
+    lang = explicit;
+  } else if (window.T10X_DEFAULT_LANG === 'ar' || window.T10X_DEFAULT_LANG === 'en') {
+    lang = window.T10X_DEFAULT_LANG;
+  } else if (/\/ar\.html$/i.test(path)) {
+    lang = 'ar';
+  } else if (/\/en\.html$/i.test(path)) {
+    lang = 'en';
+  } else {
+    lang = document.documentElement.lang === 'ar' || document.documentElement.dir === 'rtl' ? 'ar' : 'en';
+  }
+  const isAr = lang === 'ar';
+
+  const key = 'tamayuz10x-assessment-consent-v2:' + path + ':' + lang;
   if (sessionStorage.getItem(key) === 'accepted') return;
 
   const style = document.createElement('style');
@@ -21,6 +37,7 @@
   const overlay = document.createElement('div');
   overlay.className = 't10x-consent';
   overlay.dir = isAr ? 'rtl' : 'ltr';
+  overlay.lang = lang;
   overlay.innerHTML = isAr ? `
     <section class="t10x-consent-card" role="dialog" aria-modal="true" aria-labelledby="t10xConsentTitle">
       <h2 id="t10xConsentTitle">قبل أن تبدأ</h2>
