@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - '*.html'
+      - 'en/*.html'
       - 'robots.txt'
       - 'scripts/update_sitemap.py'
       - '.github/workflows/update-sitemap.yml'
