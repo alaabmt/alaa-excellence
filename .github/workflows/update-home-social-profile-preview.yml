@@ -1,0 +1,78 @@
+name: Update homepage social profile preview
+
+on:
+  push:
+    paths:
+      - '.github/workflows/update-home-social-profile-preview.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-preview:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Read new profile image and update homepage Open Graph
+        shell: bash
+        run: |
+          python -m pip install --quiet pillow
+          python - <<'PY'
+          from pathlib import Path
+          from PIL import Image
+          import re
+
+          html_path = Path('index.html')
+          image_path = Path('assets/images/Tamayuz Profile.png')
+          if not image_path.exists():
+              raise SystemExit('Missing assets/images/Tamayuz Profile.png')
+
+          width, height = Image.open(image_path).size
+          image_url = 'https://tamayuz10x.com/assets/images/Tamayuz%20Profile.png?v=20260909-profile-preview1'
+          schema_image_url = 'https://tamayuz10x.com/assets/images/Tamayuz%20Profile.png'
+
+          s = html_path.read_text(encoding='utf-8')
+
+          def replace_meta(s, key, value, prop=False):
+              attr = 'property' if prop else 'name'
+              pattern = rf'(<meta\s+[^>]*{attr}=["\']{re.escape(key)}["\'][^>]*content=["\'])([^"\']*)(["\'][^>]*>)'
+              if re.search(pattern, s, re.I):
+                  return re.sub(pattern, lambda m: m.group(1) + value + m.group(3), s, count=1, flags=re.I)
+              return s
+
+          s = replace_meta(s, 'og:image', image_url, True)
+          s = replace_meta(s, 'og:image:secure_url', image_url, True)
+          s = replace_meta(s, 'og:image:type', 'image/png', True)
+          s = replace_meta(s, 'og:image:width', str(width), True)
+          s = replace_meta(s, 'og:image:height', str(height), True)
+          s = replace_meta(s, 'og:image:alt', 'صورة الدكتور علاء محمد أحمد المعتمدة لهوية التميّز 10X', True)
+          s = replace_meta(s, 'twitter:image', image_url, False)
+          s = replace_meta(s, 'twitter:image:alt', 'صورة الدكتور علاء محمد أحمد المعتمدة لهوية التميّز 10X', False)
+
+          # Keep structured profile data aligned with the newly selected profile image.
+          s = re.sub(
+              r'("@type"\s*:\s*"Person".*?"image"\s*:\s*")[^"]+("\s*,\s*"jobTitle")',
+              lambda m: m.group(1) + schema_image_url + m.group(2),
+              s,
+              count=1,
+              flags=re.S,
+          )
+
+          html_path.write_text(s, encoding='utf-8')
+          print(f'Homepage social image: {image_url}')
+          print(f'Image dimensions: {width}x{height}')
+          PY
+
+      - name: Commit homepage preview update
+        shell: bash
+        run: |
+          if git diff --quiet; then exit 0; fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add index.html
+          git commit -m 'Use Tamayuz Profile for homepage social preview [skip ci]'
+          git push
