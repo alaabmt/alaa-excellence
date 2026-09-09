@@ -1,0 +1,156 @@
+name: Bilingual site synchronization
+
+on:
+  workflow_dispatch:
+    inputs:
+      full_sync:
+        description: 'Run a full Arabic-to-English synchronization'
+        required: false
+        default: 'true'
+  push:
+    branches: [main]
+    paths:
+      - '*.html'
+      - 'en/*.html'
+      - 'scripts/bilingual_sync.py'
+      - '.github/workflows/bilingual-site-sync.yml'
+      - '10X_Agent_AI_Master_Operating_Manual_AR.md'
+      - 'ARABIC-LANGUAGE-AND-TTS-STANDARD.md'
+      - 'BILINGUAL-SITE-PARITY-STANDARD.md'
+
+permissions:
+  contents: write
+  pages: write
+  actions: read
+
+concurrency:
+  group: bilingual-site-sync
+  cancel-in-progress: false
+
+jobs:
+  synchronize:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - name: Checkout current main
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Read governing standards
+        run: |
+          test -s 10X_Agent_AI_Master_Operating_Manual_AR.md
+          test -s BILINGUAL-SITE-PARITY-STANDARD.md
+          test -s ARABIC-LANGUAGE-AND-TTS-STANDARD.md
+          echo 'Governing bilingual standards loaded.'
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install synchronization dependencies
+        run: python -m pip install --disable-pip-version-check requests==2.32.5 beautifulsoup4==4.13.5
+
+      - name: Determine synchronization mode
+        id: mode
+        shell: bash
+        run: |
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+            echo 'mode=full' >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          changed="$(git diff --name-only HEAD^ HEAD || true)"
+          printf '%s\n' "$changed" > /tmp/bilingual-changed.txt
+          if printf '%s\n' "$changed" | grep -Eq '^(scripts/bilingual_sync\.py|\.github/workflows/bilingual-site-sync\.yml|10X_Agent_AI_Master_Operating_Manual_AR\.md|ARABIC-LANGUAGE-AND-TTS-STANDARD\.md|BILINGUAL-SITE-PARITY-STANDARD\.md)$'; then
+            echo 'mode=full' >> "$GITHUB_OUTPUT"
+          else
+            echo 'mode=changed' >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Synchronize Arabic and English pages
+        shell: bash
+        env:
+          BILINGUAL_CHANGED_FILES: ${{ steps.mode.outputs.mode == 'changed' && '' || '' }}
+        run: |
+          if [[ "${{ steps.mode.outputs.mode }}" == "full" ]]; then
+            python scripts/bilingual_sync.py --full-ar
+          else
+            export BILINGUAL_CHANGED_FILES="$(cat /tmp/bilingual-changed.txt)"
+            python scripts/bilingual_sync.py --changed
+          fi
+
+      - name: Validate structural parity
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from bs4 import BeautifulSoup
+          import re, sys
+
+          excluded = {'contact-madar.html'}
+          failures = []
+          for ar in sorted(Path('.').glob('*.html')):
+              if ar.name in excluded:
+                  continue
+              en = Path('en') / ar.name
+              if not en.exists():
+                  failures.append(f'missing counterpart: {en}')
+                  continue
+              a = BeautifulSoup(ar.read_text(encoding='utf-8'), 'html.parser')
+              e = BeautifulSoup(en.read_text(encoding='utf-8'), 'html.parser')
+              for soup in (a, e):
+                  for t in soup(['script','style']):
+                      t.decompose()
+              a_sections = [x.name for x in a.find_all(['main','section','article','aside','footer'])]
+              e_sections = [x.name for x in e.find_all(['main','section','article','aside','footer'])]
+              if a_sections != e_sections:
+                  failures.append(f'section structure mismatch: {ar.name}')
+              if not e.html or e.html.get('lang') != 'en' or e.html.get('dir') != 'ltr':
+                  failures.append(f'English language metadata invalid: {en}')
+              can = e.find('link', rel=lambda x: x and 'canonical' in (x if isinstance(x,list) else [x]))
+              if not can or '/en/' not in can.get('href',''):
+                  failures.append(f'English canonical invalid: {en}')
+          if failures:
+              print('\n'.join(failures), file=sys.stderr)
+              raise SystemExit(1)
+          print('Structural bilingual parity gate passed for all root public HTML pages.')
+          PY
+
+      - name: Commit synchronized pages
+        id: commit
+        shell: bash
+        run: |
+          if git diff --quiet && git status --porcelain | grep -q '^$'; then
+            echo 'changed=false' >> "$GITHUB_OUTPUT"
+            echo 'No bilingual synchronization changes required.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add en/ '*.html' .bilingual-translation-cache.json
+          git commit -m 'Synchronize Arabic and English site editions [skip bilingual-sync]'
+          git push origin HEAD:main
+          echo 'changed=true' >> "$GITHUB_OUTPUT"
+          echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+      - name: Request GitHub Pages build for synchronized head
+        if: steps.commit.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        shell: bash
+        run: |
+          curl --fail-with-body -L -X POST \
+            -H 'Accept: application/vnd.github+json' \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H 'X-GitHub-Api-Version: 2026-03-10' \
+            "https://api.github.com/repos/${GITHUB_REPOSITORY}/pages/builds"
+
+      - name: Record synchronization summary
+        shell: bash
+        run: |
+          echo '## Tamayuz 10X bilingual synchronization' >> "$GITHUB_STEP_SUMMARY"
+          echo "Mode: ${{ steps.mode.outputs.mode }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "Repository head after run: $(git rev-parse HEAD)" >> "$GITHUB_STEP_SUMMARY"
+          echo 'Arabic and English pages are required to remain structurally paired.' >> "$GITHUB_STEP_SUMMARY"
