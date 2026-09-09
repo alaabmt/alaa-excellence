@@ -10,22 +10,22 @@ import time
 from pathlib import Path
 from urllib.parse import urlsplit, urlunsplit
 
-import requests
-from bs4 import BeautifulSoup, NavigableString
+import translators as ts
+from bs4 import BeautifulSoup
 
 SITE = "https://tamayuz10x.com"
 CACHE_PATH = Path(".bilingual-translation-cache.json")
-AR_RE = re.compile(r"[\u0600-\u06FF]")
-EN_WORD_RE = re.compile(r"[A-Za-z]{2,}")
-SKIP_TAGS = {"style", "code", "pre", "kbd", "samp", "svg", "math", "noscript"}
 ROOT_EXCLUDE = {"contact-madar.html"}
+SERVICES = ("bing", "yandex", "alibaba", "google", "mymemory")
+AR_RE = re.compile(r"[\u0600-\u06FF]")
+EN_RE = re.compile(r"[A-Za-z]{2,}")
 PROTECTED_AR_EN = {
     "التميّز 10X": "Tamayuz 10X",
     "الدكتور علاء محمد أحمد": "Dr. Alaa Mohammad Ahmed",
     "علاء محمد أحمد": "Alaa Mohammad Ahmed",
 }
 PROTECTED_EN_AR = {v: k for k, v in PROTECTED_AR_EN.items()}
-TEXT_ATTRS = {"title", "alt", "aria-label", "placeholder"}
+TEXT_ATTRS = ("title", "alt", "aria-label", "placeholder")
 META_KEYS = {"description", "og:title", "og:description", "og:image:alt", "twitter:title", "twitter:description"}
 
 
@@ -42,302 +42,231 @@ def save_cache(cache: dict[str, str]) -> None:
     CACHE_PATH.write_text(json.dumps(cache, ensure_ascii=False, indent=2, sort_keys=True) + "\n", encoding="utf-8")
 
 
-class Translator:
+def needs_translation(text: str, src: str) -> bool:
+    return bool(AR_RE.search(text)) if src == "ar" else bool(EN_RE.search(text))
+
+
+def looks_technical(text: str) -> bool:
+    s = text.strip()
+    if not s:
+        return True
+    if s.startswith(("http://", "https://", "mailto:", "tel:", "#", "/", "./", "../")):
+        return True
+    if re.fullmatch(r"[A-Za-z0-9_.:/?#=&%+@-]+", s) and " " not in s:
+        return True
+    return False
+
+
+class MultiTranslator:
     def __init__(self, src: str, dst: str, cache: dict[str, str]):
         self.src = src
         self.dst = dst
         self.cache = cache
-        self.session = requests.Session()
-        self.session.headers.update({"User-Agent": "Mozilla/5.0 Tamayuz10X-BilingualSync/1.0"})
+        self.mapping = PROTECTED_AR_EN if src == "ar" else PROTECTED_EN_AR
 
-    def needs_translation(self, text: str) -> bool:
-        if self.src == "ar":
-            return bool(AR_RE.search(text))
-        return bool(EN_WORD_RE.search(text)) and not self._looks_technical(text)
-
-    @staticmethod
-    def _looks_technical(text: str) -> bool:
-        s = text.strip()
-        if not s:
-            return True
-        if s.startswith(("http://", "https://", "mailto:", "tel:", "#", "/", "./", "../")):
-            return True
-        if re.fullmatch(r"[A-Za-z0-9_.:/?#=&%+@-]+", s) and " " not in s:
-            return True
-        if re.fullmatch(r"[A-Z0-9][A-Z0-9 .&/+_-]{0,18}", s):
-            return True
-        return False
-
-    def _mask_protected(self, text: str) -> tuple[str, dict[str, str]]:
-        mapping = PROTECTED_AR_EN if self.src == "ar" else PROTECTED_EN_AR
+    def _mask(self, text: str) -> tuple[str, dict[str, str]]:
         masked = text
         tokens: dict[str, str] = {}
-        for i, (source, target) in enumerate(sorted(mapping.items(), key=lambda x: len(x[0]), reverse=True)):
+        for i, (source, target) in enumerate(sorted(self.mapping.items(), key=lambda x: len(x[0]), reverse=True)):
             if source in masked:
                 token = f"ZXQPROTECTED{i}QXZ"
                 masked = masked.replace(source, token)
                 tokens[token] = target
         return masked, tokens
 
-    def translate(self, text: str) -> str:
-        if not self.needs_translation(text):
+    @staticmethod
+    def _unmask(text: str, tokens: dict[str, str]) -> str:
+        for token, replacement in tokens.items():
+            for variant in (token, token.lower(), token.upper(), token.replace("ZXQ", "ZXQ ")):
+                text = text.replace(variant, replacement)
+        return text
+
+    def text(self, text: str) -> str:
+        if not needs_translation(text, self.src) or looks_technical(text):
             return text
         raw = text.strip()
-        if not raw:
-            return text
         key = f"{self.src}>{self.dst}|{raw}"
         if key in self.cache:
             translated = self.cache[key]
         else:
-            masked, tokens = self._mask_protected(raw)
-            translated = self._request(masked)
-            for token, replacement in tokens.items():
-                translated = translated.replace(token, replacement)
-                translated = translated.replace(token.lower(), replacement)
+            masked, tokens = self._mask(raw)
+            translated = self._translate_text(masked)
+            translated = self._unmask(translated, tokens)
             self.cache[key] = translated
-        prefix = text[: len(text) - len(text.lstrip())]
-        suffix = text[len(text.rstrip()):]
-        return prefix + translated + suffix
+        lead = text[: len(text) - len(text.lstrip())]
+        tail = text[len(text.rstrip()):]
+        return lead + translated + tail
 
-    def _request(self, text: str) -> str:
-        params = {"client": "gtx", "sl": self.src, "tl": self.dst, "dt": "t", "q": text}
-        last = None
-        for attempt in range(6):
+    def html(self, html: str) -> str:
+        masked, tokens = self._mask(html)
+        errors = []
+        for service in SERVICES:
             try:
-                r = self.session.get("https://translate.googleapis.com/translate_a/single", params=params, timeout=35)
-                r.raise_for_status()
-                data = r.json()
-                result = "".join(piece[0] for piece in data[0] if piece and piece[0])
-                if result.strip():
-                    time.sleep(0.04)
-                    return result
+                print(f"  provider={service}", flush=True)
+                out = ts.translate_html(masked, translator=service, from_language=self.src, to_language=self.dst)
+                out = str(out)
+                if out and len(out) > max(200, int(len(masked) * 0.45)):
+                    return self._unmask(out, tokens)
             except Exception as exc:
-                last = exc
-                time.sleep(min(12, 1.5 ** attempt))
-        raise RuntimeError(f"Translation failed for text: {text[:120]!r}: {last}")
+                errors.append(f"{service}: {exc}")
+                time.sleep(1.2)
+        raise RuntimeError("All HTML translation providers failed: " + " | ".join(errors[-5:]))
+
+    def _translate_text(self, text: str) -> str:
+        errors = []
+        for service in SERVICES:
+            try:
+                out = ts.translate_text(text, translator=service, from_language=self.src, to_language=self.dst)
+                out = str(out).strip()
+                if out:
+                    time.sleep(0.08)
+                    return out
+            except Exception as exc:
+                errors.append(f"{service}: {exc}")
+                time.sleep(0.5)
+        raise RuntimeError("All text translation providers failed: " + " | ".join(errors[-5:]))
 
 
-def counterpart(path: Path, target_lang: str) -> Path:
-    if target_lang == "en":
-        return Path("en") / path.name
-    if path.parts and path.parts[0] == "en":
-        return Path(path.name)
-    return path
-
-
-def canonical_for(path: Path, lang: str) -> str:
-    if path.name == "index.html":
-        return f"{SITE}/en/" if lang == "en" else f"{SITE}/"
-    return f"{SITE}/en/{path.name}" if lang == "en" else f"{SITE}/{path.name}"
-
-
-def ar_url_for(name: str) -> str:
+def ar_url(name: str) -> str:
     return f"{SITE}/" if name == "index.html" else f"{SITE}/{name}"
 
 
-def en_url_for(name: str) -> str:
+def en_url(name: str) -> str:
     return f"{SITE}/en/" if name == "index.html" else f"{SITE}/en/{name}"
 
 
-def internal_path_to_lang(url: str, target_lang: str) -> str:
+def canonical(name: str, lang: str) -> str:
+    return en_url(name) if lang == "en" else ar_url(name)
+
+
+def counterpart(source: Path, target_lang: str) -> Path:
+    return Path("en") / source.name if target_lang == "en" else Path(source.name)
+
+
+def map_internal_href(url: str, target_lang: str) -> str:
     if not url or url.startswith(("mailto:", "tel:", "javascript:", "data:", "#")):
         return url
-    parts = urlsplit(url)
-    if parts.scheme and parts.netloc and parts.netloc != "tamayuz10x.com":
+    u = urlsplit(url)
+    if u.scheme and u.netloc and u.netloc != "tamayuz10x.com":
         return url
-    p = parts.path
+    p = u.path
     if target_lang == "en":
         if p in ("", "/", "/index.html", "index.html"):
-            newp = "/en/"
+            p2 = "/en/"
         elif p.startswith("/en/"):
-            newp = p
+            p2 = p
         elif p.startswith("/") and p.endswith(".html") and p.count("/") == 1:
-            newp = "/en" + p
+            p2 = "/en" + p
         elif not p.startswith("/") and p.endswith(".html") and "/" not in p:
-            newp = "/en/" + p
+            p2 = "/en/" + p
+        elif not u.scheme and not u.netloc and p and not p.startswith(("/", "../")):
+            p2 = "../" + p
         else:
-            newp = p
-        if not parts.scheme and not parts.netloc and p and not p.startswith("/") and not p.endswith(".html") and not p.startswith("../"):
-            newp = "../" + p
+            p2 = p
     else:
         if p in ("/en", "/en/", "/en/index.html", "en/index.html"):
-            newp = "/"
+            p2 = "/"
         elif p.startswith("/en/") and p.endswith(".html"):
-            newp = "/" + p[len("/en/"):]
+            p2 = "/" + p[len("/en/"):]
         elif p.startswith("../"):
-            newp = p[3:]
+            p2 = p[3:]
         else:
-            newp = p
-    return urlunsplit((parts.scheme, parts.netloc, newp, parts.query, parts.fragment))
+            p2 = p
+    return urlunsplit((u.scheme, u.netloc, p2, u.query, u.fragment))
 
 
-def adjust_resource_path(url: str, target_lang: str) -> str:
-    if not url or url.startswith(("http://", "https://", "//", "data:", "blob:", "#")):
+def map_resource(url: str, target_lang: str) -> str:
+    if not url or url.startswith(("http://", "https://", "//", "data:", "blob:", "#", "/")):
         return url
     if target_lang == "en":
-        if url.startswith("../") or url.startswith("/"):
-            return url
-        return "../" + url
+        return url if url.startswith("../") else "../" + url
     while url.startswith("../"):
         url = url[3:]
     return url
 
 
-def translate_jsonld(obj, tr: Translator, source_url: str, target_url: str):
-    if isinstance(obj, dict):
-        out = {}
-        for k, v in obj.items():
-            if isinstance(v, str):
-                if source_url and source_url in v:
-                    v = v.replace(source_url, target_url)
-                if k.startswith("@") or k in {"url", "image", "sameAs", "identifier", "contentUrl", "embedUrl"}:
-                    out[k] = v
-                else:
-                    out[k] = tr.translate(v)
-            else:
-                out[k] = translate_jsonld(v, tr, source_url, target_url)
-        return out
-    if isinstance(obj, list):
-        return [translate_jsonld(x, tr, source_url, target_url) for x in obj]
-    if isinstance(obj, str):
-        return tr.translate(obj)
-    return obj
-
-
-def translate_js_strings(script_text: str, tr: Translator) -> str:
-    quote_re = re.compile(r"(?P<q>['\"])(?P<s>(?:\\.|(?!\1).)*?)(?P=q)", re.S)
-    def repl(m):
-        s = m.group("s")
-        if "\n" in s or "\\" in s or len(s) > 500:
-            return m.group(0)
-        if tr.src == "ar" and not AR_RE.search(s):
-            return m.group(0)
-        if tr.src == "en" and (not EN_WORD_RE.search(s) or Translator._looks_technical(s)):
-            return m.group(0)
-        translated = tr.translate(s)
-        q = m.group("q")
-        translated = translated.replace("\\", "\\\\").replace(q, "\\" + q)
-        return q + translated + q
-    try:
-        return quote_re.sub(repl, script_text)
-    except Exception:
-        return script_text
-
-
-def ensure_hreflang(soup: BeautifulSoup, page_name: str, target_lang: str) -> None:
+def add_language_metadata(soup: BeautifulSoup, name: str, lang: str) -> None:
+    if soup.html:
+        soup.html["lang"] = lang
+        soup.html["dir"] = "ltr" if lang == "en" else "rtl"
     head = soup.head
     if not head:
         return
-    for tag in list(head.find_all("link")):
-        rel = tag.get("rel") or []
-        rels = [str(x).lower() for x in rel] if isinstance(rel, list) else [str(rel).lower()]
-        if "alternate" in rels and tag.get("hreflang") in {"ar", "en", "x-default"}:
-            tag.decompose()
-    canonical = canonical_for(Path(page_name), target_lang)
+    for link in list(head.find_all("link")):
+        rel = link.get("rel") or []
+        rels = rel if isinstance(rel, list) else [rel]
+        if "alternate" in [str(x).lower() for x in rels] and link.get("hreflang") in {"ar", "en", "x-default"}:
+            link.decompose()
     can = head.find("link", rel=lambda x: x and "canonical" in (x if isinstance(x, list) else [x]))
-    if can:
-        can["href"] = canonical
-    else:
-        can = soup.new_tag("link", rel="canonical", href=canonical)
+    if not can:
+        can = soup.new_tag("link", rel="canonical")
         head.append(can)
-    for lang, href in (("ar", ar_url_for(page_name)), ("en", en_url_for(page_name)), ("x-default", ar_url_for(page_name))):
-        tag = soup.new_tag("link", rel="alternate", hreflang=lang, href=href)
-        can.insert_after(tag)
-        can = tag
+    can["href"] = canonical(name, lang)
+    anchor = can
+    for code, href in (("ar", ar_url(name)), ("en", en_url(name)), ("x-default", ar_url(name))):
+        tag = soup.new_tag("link", rel="alternate", hreflang=code, href=href)
+        anchor.insert_after(tag)
+        anchor = tag
 
 
-def set_language_switch(soup: BeautifulSoup, page_name: str, target_lang: str) -> None:
-    if target_lang == "en":
-        for a in soup.find_all("a"):
-            txt = a.get_text(" ", strip=True).lower()
-            if a.get("hreflang") == "en" or a.get("lang") == "en" or txt in {"english", "en"}:
-                a["href"] = "/" if page_name == "index.html" else f"/{page_name}"
-                a["hreflang"] = "ar"
-                a["lang"] = "ar"
-                a.clear(); a.append("العربية")
-    else:
-        for a in soup.find_all("a"):
-            txt = a.get_text(" ", strip=True)
-            if a.get("hreflang") == "ar" or a.get("lang") == "ar" or txt == "العربية":
-                a["href"] = "/en/" if page_name == "index.html" else f"/en/{page_name}"
-                a["hreflang"] = "en"
-                a["lang"] = "en"
-                a.clear(); a.append("English")
+def fix_language_switch(soup: BeautifulSoup, name: str, lang: str) -> None:
+    for a in soup.find_all("a"):
+        text = a.get_text(" ", strip=True)
+        if lang == "en" and (a.get("hreflang") == "en" or a.get("lang") == "en" or text.lower() in {"english", "en"}):
+            a["href"] = "/" if name == "index.html" else f"/{name}"
+            a["hreflang"] = "ar"; a["lang"] = "ar"
+            a.clear(); a.append("العربية")
+        elif lang == "ar" and (a.get("hreflang") == "ar" or a.get("lang") == "ar" or text == "العربية"):
+            a["href"] = "/en/" if name == "index.html" else f"/en/{name}"
+            a["hreflang"] = "en"; a["lang"] = "en"
+            a.clear(); a.append("English")
 
 
-def transform_html(source: Path, target_lang: str, cache: dict[str, str]) -> str:
-    source_lang = "ar" if target_lang == "en" else "en"
-    tr = Translator(source_lang, target_lang, cache)
-    html = source.read_text(encoding="utf-8")
-    soup = BeautifulSoup(html, "html.parser")
-    page_name = source.name
-    if soup.html:
-        soup.html["lang"] = target_lang
-        soup.html["dir"] = "ltr" if target_lang == "en" else "rtl"
-
-    source_url = ar_url_for(page_name) if source_lang == "ar" else en_url_for(page_name)
-    target_url = en_url_for(page_name) if target_lang == "en" else ar_url_for(page_name)
-
-    for node in list(soup.find_all(string=True)):
-        parent = node.parent
-        if not parent or parent.name in SKIP_TAGS:
-            continue
-        if parent.name == "script":
-            if (parent.get("type") or "").lower() == "application/ld+json":
-                try:
-                    data = json.loads(str(node))
-                    data = translate_jsonld(data, tr, source_url, target_url)
-                    node.replace_with(json.dumps(data, ensure_ascii=False, separators=(",", ":")))
-                except Exception:
-                    pass
-            else:
-                translated = translate_js_strings(str(node), tr)
-                if translated != str(node):
-                    node.replace_with(translated)
-            continue
-        if isinstance(node, NavigableString):
-            text = str(node)
-            if tr.needs_translation(text):
-                node.replace_with(tr.translate(text))
+def transform(source: Path, target_lang: str, cache: dict[str, str]) -> str:
+    src_lang = "ar" if target_lang == "en" else "en"
+    tr = MultiTranslator(src_lang, target_lang, cache)
+    original = source.read_text(encoding="utf-8")
+    print(f"TRANSLATE {source} {src_lang}->{target_lang}", flush=True)
+    translated_html = tr.html(original)
+    soup = BeautifulSoup(translated_html, "html.parser")
+    name = source.name
 
     for tag in soup.find_all(True):
         for attr in TEXT_ATTRS:
-            if tag.has_attr(attr):
-                tag[attr] = tr.translate(str(tag[attr]))
+            if tag.has_attr(attr) and needs_translation(str(tag[attr]), src_lang):
+                tag[attr] = tr.text(str(tag[attr]))
         if tag.name == "meta" and tag.has_attr("content"):
             key = (tag.get("name") or tag.get("property") or "").lower()
-            if key in META_KEYS:
-                tag["content"] = tr.translate(str(tag["content"]))
+            if key in META_KEYS and needs_translation(str(tag["content"]), src_lang):
+                tag["content"] = tr.text(str(tag["content"]))
             elif key == "og:locale":
                 tag["content"] = "en_US" if target_lang == "en" else "ar_AR"
             elif key == "og:url":
-                tag["content"] = target_url
+                tag["content"] = canonical(name, target_lang)
         if tag.name == "a" and tag.has_attr("href"):
-            tag["href"] = internal_path_to_lang(str(tag["href"]), target_lang)
+            tag["href"] = map_internal_href(str(tag["href"]), target_lang)
         for attr in ("src", "poster"):
             if tag.has_attr(attr):
-                tag[attr] = adjust_resource_path(str(tag[attr]), target_lang)
+                tag[attr] = map_resource(str(tag[attr]), target_lang)
         if tag.has_attr("srcset"):
-            parts = []
-            for item in str(tag["srcset"]).split(","):
-                bits = item.strip().split()
+            items = []
+            for part in str(tag["srcset"]).split(","):
+                bits = part.strip().split()
                 if bits:
-                    bits[0] = adjust_resource_path(bits[0], target_lang)
-                parts.append(" ".join(bits))
-            tag["srcset"] = ", ".join(parts)
+                    bits[0] = map_resource(bits[0], target_lang)
+                items.append(" ".join(bits))
+            tag["srcset"] = ", ".join(items)
         if tag.name == "form" and tag.has_attr("action"):
-            tag["action"] = internal_path_to_lang(str(tag["action"]), target_lang)
+            tag["action"] = map_internal_href(str(tag["action"]), target_lang)
 
-    ensure_hreflang(soup, page_name, target_lang)
-    set_language_switch(soup, page_name, target_lang)
-
+    add_language_metadata(soup, name, target_lang)
+    fix_language_switch(soup, name, target_lang)
     result = str(soup)
     if target_lang == "en":
-        result = re.sub(r"(?<!\.)\bassets/", "../assets/", result)
-        result = result.replace("../../assets/", "../assets/")
+        result = re.sub(r"(?<!\.)\bassets/", "../assets/", result).replace("../../assets/", "../assets/")
     else:
         result = result.replace("../assets/", "assets/")
-    if html.lstrip().lower().startswith("<!doctype") and not result.lstrip().lower().startswith("<!doctype"):
+    if original.lstrip().lower().startswith("<!doctype") and not result.lstrip().lower().startswith("<!doctype"):
         result = "<!doctype html>\n" + result
     return result
 
@@ -346,23 +275,16 @@ def root_pages() -> list[Path]:
     return [p for p in sorted(Path(".").glob("*.html")) if p.name not in ROOT_EXCLUDE]
 
 
-def sync_pair(source: Path, target_lang: str, cache: dict[str, str]) -> bool:
+def sync(source: Path, target_lang: str, cache: dict[str, str]) -> bool:
     target = counterpart(source, target_lang)
     target.parent.mkdir(parents=True, exist_ok=True)
-    new = transform_html(source, target_lang, cache)
+    new = transform(source, target_lang, cache)
     old = target.read_text(encoding="utf-8") if target.exists() else None
     if new == old:
         return False
     target.write_text(new, encoding="utf-8")
-    print(f"SYNC {source} -> {target}")
+    print(f"WRITE {target}", flush=True)
     return True
-
-
-def changed_files() -> list[str]:
-    env = os.getenv("BILINGUAL_CHANGED_FILES", "").strip()
-    if env:
-        return [x.strip() for x in env.splitlines() if x.strip()]
-    return []
 
 
 def main() -> int:
@@ -371,27 +293,25 @@ def main() -> int:
     ap.add_argument("--changed", action="store_true")
     args = ap.parse_args()
     cache = load_cache()
-    changed = False
+    any_change = False
     if args.full_ar:
-        for p in root_pages():
-            changed |= sync_pair(p, "en", cache)
+        for page in root_pages():
+            any_change |= sync(page, "en", cache)
     elif args.changed:
-        paths = changed_files()
+        paths = [x.strip() for x in os.getenv("BILINGUAL_CHANGED_FILES", "").splitlines() if x.strip()]
         ar_changed = [Path(x) for x in paths if "/" not in x and x.endswith(".html") and x not in ROOT_EXCLUDE]
         en_changed = [Path(x) for x in paths if x.startswith("en/") and x.endswith(".html")]
         if ar_changed and en_changed:
-            print("Bilingual conflict: Arabic and English pages changed in the same commit; no automatic overwrite.", file=sys.stderr)
+            print("Bilingual conflict: both language editions changed in one commit; human review required.", file=sys.stderr)
             return 2
-        for p in ar_changed:
-            if p.exists():
-                changed |= sync_pair(p, "en", cache)
-        for p in en_changed:
-            if p.exists():
-                changed |= sync_pair(p, "ar", cache)
+        for page in ar_changed:
+            if page.exists(): any_change |= sync(page, "en", cache)
+        for page in en_changed:
+            if page.exists(): any_change |= sync(page, "ar", cache)
     else:
         ap.error("Choose --full-ar or --changed")
     save_cache(cache)
-    print("CHANGED=1" if changed else "CHANGED=0")
+    print("CHANGED=1" if any_change else "CHANGED=0")
     return 0
 
 
