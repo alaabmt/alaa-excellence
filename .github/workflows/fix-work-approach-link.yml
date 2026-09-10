@@ -1,0 +1,35 @@
+name: Fix Work Approach Assessment Link
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/fix-work-approach-link.yml'
+permissions:
+  contents: write
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Fix English Work Approach Assessment link
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('en/personality.html')
+          s=p.read_text(encoding='utf-8')
+          old='href="tools/work-approach-assessment/"'
+          new='href="/tools/work-approach-assessment/consent-en.html"'
+          if old not in s:
+              raise SystemExit('Expected relative Work Approach Assessment link not found')
+          s=s.replace(old,new,1)
+          p.write_text(s,encoding='utf-8')
+          PY
+      - name: Commit
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add en/personality.html
+          git commit -m "Fix English Work Approach Assessment link"
+          git push origin main
