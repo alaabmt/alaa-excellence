@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow"><title>Sign in | Tamayuz 10X</title>
+<link rel="stylesheet" href="/assets/css/style.css">
+<style>body{background:#f5f7fa}.auth-shell{width:min(520px,calc(100% - 32px));margin:8vh auto}.auth-card{background:#fff;border:1px solid #dfe6ee;border-radius:22px;padding:28px;box-shadow:0 18px 50px rgba(20,45,75,.08)}.auth-card h1{margin-top:0;color:#0b2545}.auth-card label{display:block;margin:14px 0 6px;font-weight:700}.auth-card input{width:100%;padding:12px 13px;border:1px solid #cfd9e4;border-radius:11px;font:inherit}.auth-card button{width:100%;margin-top:18px;padding:12px;border:0;border-radius:11px;background:#0b2545;color:#fff;font:inherit;font-weight:800;cursor:pointer}.auth-links{display:flex;justify-content:space-between;gap:12px;margin-top:16px;flex-wrap:wrap}.status{min-height:1.5em;margin-top:12px;color:#9b2c2c}.brand{text-align:center;margin-bottom:16px}.brand img{height:58px;max-width:220px;object-fit:contain}</style>
+<script src="/assets/js/auth-config.js"></script>
+</head>
+<body><main class="auth-shell"><div class="brand"><a href="/"><img src="/assets/images/file_0000000047188210ac6952e999d2eda7.png" alt="Tamayuz 10X"></a></div><section class="auth-card"><h1 id="title">Sign in</h1><p id="intro">Sign in before starting either assessment.</p><form id="form"><label id="emailLabel" for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required><label id="passwordLabel" for="password">Password</label><input id="password" name="password" type="password" autocomplete="current-password" required minlength="8"><button id="submit" type="submit">Sign in</button><p class="status" id="status" role="status" aria-live="polite"></p></form><div class="auth-links"><a id="registerLink" href="/account/register.html">Create an account</a><a id="backLink" href="/personality.html">Back to assessments</a></div></section></main>
+<script type="module">
+import { authConfigured, createAuthClient, safeNext } from '/assets/js/assessment-auth-client.js';
+const p=new URLSearchParams(location.search),lang=p.get('lang')==='ar'?'ar':'en',next=safeNext(p.get('next'));
+if(lang==='ar'){document.documentElement.lang='ar';document.documentElement.dir='rtl';document.title='تسجيل الدخول | التميّز 10X';title.textContent='تسجيل الدخول';intro.textContent='يجب تسجيل الدخول قبل بدء أي من التقييمين.';emailLabel.textContent='البريد الإلكتروني';passwordLabel.textContent='كلمة المرور';submit.textContent='تسجيل الدخول';registerLink.textContent='إنشاء حساب';backLink.textContent='العودة إلى التقييمات';}
+registerLink.href=`/account/register.html?lang=${lang}&next=${encodeURIComponent(next)}`;
+backLink.href=lang==='ar'?'/personality.html':'/en/personality.html';
+if(!authConfigured()){status.textContent=lang==='ar'?'لم يكتمل ربط خدمة تسجيل الدخول بعد.':'The sign-in service has not been connected yet.';submit.disabled=true;}
+else{const client=await createAuthClient();const existing=await client.auth.getSession();if(existing.data.session)location.replace(next);form.addEventListener('submit',async e=>{e.preventDefault();submit.disabled=true;status.textContent=lang==='ar'?'جارٍ التحقق…':'Checking…';const {error}=await client.auth.signInWithPassword({email:email.value.trim(),password:password.value});if(error){status.textContent=lang==='ar'?'تعذر تسجيل الدخول. تحقق من البيانات وحاول مرة أخرى.':'Sign-in failed. Check your details and try again.';submit.disabled=false;return;}location.replace(next);});}
+</script></body></html>
