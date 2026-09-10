@@ -1,0 +1,69 @@
+name: Sync Arabic articles page to English 2026-09-10
+on:
+  push:
+    paths:
+      - '.github/workflows/sync-arabic-articles-english-20260910.yml'
+permissions:
+  contents: write
+jobs:
+  synchronize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Update English Abu Dhabi card to latest Arabic source
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          p = Path('en/articles.html')
+          s = p.read_text(encoding='utf-8')
+          replacements = {
+              'From Digital Government to Anticipatory Government: How Abu Dhabi Is Building 2027 Capabilities Today':
+                  'From Digital Government to Anticipatory Government: How Abu Dhabi Is Building the Capabilities for an AI-Native Future',
+              'If an institution already knows how it wants to operate tomorrow, what must it build today? Abu Dhabi’s case shows how a 2027 AI-native ambition is being translated into workforce capability, governance, digital infrastructure and operational uses that are already producing measurable interim results.':
+                  'If an organization already knows how it wants to operate tomorrow, what must it build today? Abu Dhabi’s case shows how its 2027 ambition is being translated into workforce capabilities, governance, digital infrastructure and operational uses that are already showing measurable results before the end-state is complete.',
+              'Read how future capabilities are built today':
+                  'See how future capability is being built today',
+          }
+          for old, new in replacements.items():
+              count = s.count(old)
+              if count < 1:
+                  raise SystemExit(f'Expected text not found: {old[:80]}')
+              s = s.replace(old, new)
+
+          p.write_text(s, encoding='utf-8')
+          PY
+      - name: Validate bilingual page metadata and counterpart links
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from bs4 import BeautifulSoup
+
+          for path, lang, direction in [('articles.html','ar','rtl'),('en/articles.html','en','ltr')]:
+              soup = BeautifulSoup(Path(path).read_text(encoding='utf-8'), 'html.parser')
+              assert soup.html.get('lang') == lang
+              assert soup.html.get('dir') == direction
+              assert soup.find('link', attrs={'hreflang':'ar'})
+              assert soup.find('link', attrs={'hreflang':'en'})
+          en = BeautifulSoup(Path('en/articles.html').read_text(encoding='utf-8'), 'html.parser')
+          switch = en.find('a', attrs={'hreflang':'ar'})
+          assert switch and switch.get('href') == '/articles.html'
+          card = en.find('article', attrs={'data-href':'case-tamm-autogov-ai-native-government.html'})
+          assert card
+          assert 'AI-Native Future' in card.get_text(' ', strip=True)
+          print('Articles bilingual parity checks passed.')
+          PY
+      - name: Commit synchronized English page
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add en/articles.html
+          if git diff --cached --quiet; then
+            echo 'No change required.'
+            exit 0
+          fi
+          git commit -m 'Synchronize English articles page with latest Arabic source [skip bilingual-sync]'
+          git pull --rebase origin main
+          git push origin HEAD:main
