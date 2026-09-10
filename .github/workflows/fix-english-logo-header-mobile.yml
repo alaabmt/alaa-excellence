@@ -1,0 +1,131 @@
+name: Fix English logo and mobile header
+
+on:
+  push:
+    paths:
+      - '.github/workflows/fix-english-logo-header-mobile.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Read governing standards
+        run: |
+          test -s 10X_Agent_AI_Master_Operating_Manual_AR.md
+          test -s BILINGUAL-SITE-PARITY-STANDARD.md
+
+      - name: Repair English logo paths and load English stylesheet
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          logo = '/assets/images/file_0000000047188210ac6952e999d2eda7.png?v=20260910-enlogo1'
+          changed = []
+          for path in sorted(Path('en').glob('*.html')):
+              s = path.read_text(encoding='utf-8')
+              old = s
+
+              # Use one root-relative logo URL throughout the English edition.
+              s = re.sub(
+                  r'(<img\b[^>]*\bclass=["\'][^"\']*\bbrand-logo\b[^"\']*["\'][^>]*\bsrc=["\'])[^"\']+(["\'])',
+                  lambda m: m.group(1) + logo + m.group(2),
+                  s,
+                  flags=re.I,
+              )
+              # Handle src-before-class markup as well.
+              s = re.sub(
+                  r'(<img\b(?=[^>]*\bclass=["\'][^"\']*\bbrand-logo\b)[^>]*\bsrc=["\'])[^"\']+(["\'])',
+                  lambda m: m.group(1) + logo + m.group(2),
+                  s,
+                  flags=re.I,
+              )
+              # Ensure English accessible alt text on the brand logo.
+              s = re.sub(
+                  r'(<img\b(?=[^>]*\bclass=["\'][^"\']*\bbrand-logo\b)[^>]*\balt=["\'])[^"\']*(["\'])',
+                  r'\1Tamayuz 10X logo\2',
+                  s,
+                  flags=re.I,
+              )
+
+              # Ensure the English-specific stylesheet is loaded after the shared stylesheet.
+              if 'assets/css/style-en.css' not in s:
+                  m = list(re.finditer(r'<link\b[^>]*href=["\'][^"\']*assets/css/style\.css[^"\']*["\'][^>]*>', s, flags=re.I))
+                  if m:
+                      pos = m[-1].end()
+                      s = s[:pos] + '\n<link href="/assets/css/style-en.css?v=20260910-header1" rel="stylesheet"/>' + s[pos:]
+                  else:
+                      s = s.replace('</head>', '<link href="/assets/css/style-en.css?v=20260910-header1" rel="stylesheet"/>\n</head>', 1)
+
+              if s != old:
+                  path.write_text(s, encoding='utf-8')
+                  changed.append(str(path))
+
+          print('English pages updated:', len(changed))
+          for p in changed:
+              print(p)
+          PY
+
+      - name: Add compact English mobile header rules
+        run: |
+          cat >> assets/css/style-en.css <<'EOF'
+
+/* English header/logo normalization — language-specific only. */
+html[lang="en"] .brand-row{min-height:96px!important;padding:10px 0!important;gap:14px!important}
+html[lang="en"] .brand{display:flex!important;align-items:center!important;min-width:0}
+html[lang="en"] .brand-logo{display:block!important;width:auto!important;max-width:min(280px,68vw)!important;height:auto!important;max-height:76px!important;object-fit:contain!important}
+html[lang="en"] .menu-toggle{flex:0 0 auto!important;margin-left:auto!important}
+@media(max-width:800px){
+  html[lang="en"] .brand-row{min-height:88px!important;padding:8px 0!important}
+  html[lang="en"] .brand-logo{max-height:62px!important;max-width:68vw!important}
+}
+@media(max-width:430px){
+  html[lang="en"] .brand-row{min-height:82px!important;padding:7px 0!important}
+  html[lang="en"] .brand-logo{max-height:56px!important;max-width:66vw!important}
+  html[lang="en"] .menu-toggle{font-size:2rem!important;padding:6px!important}
+}
+EOF
+
+      - name: Verify English logo/header repair
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re, sys
+          failures=[]
+          for path in sorted(Path('en').glob('*.html')):
+              s=path.read_text(encoding='utf-8')
+              if 'brand-logo' in s:
+                  for tag in re.findall(r'<img\b[^>]*class=["\'][^"\']*brand-logo[^"\']*["\'][^>]*>', s, flags=re.I):
+                      if '/assets/images/file_0000000047188210ac6952e999d2eda7.png' not in tag:
+                          failures.append(f'{path}: non-root English logo path')
+                      if 'alt="Tamayuz 10X logo"' not in tag and "alt='Tamayuz 10X logo'" not in tag:
+                          failures.append(f'{path}: logo alt not English')
+                  if 'assets/css/style-en.css' not in s:
+                      failures.append(f'{path}: missing style-en.css')
+          if failures:
+              print('\n'.join(failures), file=sys.stderr)
+              raise SystemExit(1)
+          print('English logo/header verification passed.')
+          PY
+
+      - name: Commit repair
+        run: |
+          if git diff --quiet -- en assets/css/style-en.css; then
+            echo 'No English logo/header changes required.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add en assets/css/style-en.css
+          git commit -m 'Fix English logo path and compact mobile header'
+          git pull --rebase origin main
+          git push origin HEAD:main
