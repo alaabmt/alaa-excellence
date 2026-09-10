@@ -1,0 +1,77 @@
+name: Fix English articles topic localization
+
+on:
+  push:
+    paths:
+      - '.github/workflows/fix-english-articles-topics.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Read governing manual
+        run: test -s 10X_Agent_AI_Master_Operating_Manual_AR.md
+
+      - name: Localize English article topic data and language switch
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('en/articles.html')
+          s = p.read_text(encoding='utf-8')
+          replacements = {
+              'data-topic="التعافي المعزز وإعادة تصميم رحلة المريض"': 'data-topic="Enhanced Recovery &amp; Patient Journey Redesign"',
+              'data-topic="إعادة تصميم العمل والقيمة الصحية"': 'data-topic="Work Redesign &amp; Healthcare Value"',
+              'data-topic="الحكومة الاستباقية وبناء القدرات المستقبلية"': 'data-topic="Proactive Government &amp; Future Capability Building"',
+              'data-topic="الذكاء المؤسسي والاستدامة"': 'data-topic="Organizational Intelligence &amp; Sustainability"',
+              'data-topic="الابتكار الصناعي والقدرات المؤسسية"': 'data-topic="Industrial Innovation &amp; Organizational Capability"',
+              'data-topic="التحول الرقمي وإعادة تصميم العمليات"': 'data-topic="Digital Transformation &amp; Process Redesign"',
+              'data-topic="القيادة وتمكين الفريق"': 'data-topic="Leadership &amp; Team Empowerment"',
+              'data-topic="قياس الأداء"': 'data-topic="Performance Measurement"',
+              'data-topic="الإنتاجية"': 'data-topic="Productivity"',
+              'data-topic="التميّز الشخصي"': 'data-topic="Personal Excellence"',
+              '<div class="lang-switch"><a href="/articles.html" hreflang="ar" lang="ar">العربية</a><span>|</span><a href="/articles.html" hreflang="ar" lang="ar">العربية</a></div>': '<div class="lang-switch"><span>English</span><span>|</span><a href="/articles.html" hreflang="ar" lang="ar">العربية</a></div>',
+              'content="بطاقة التميّز 10X" name="twitter:image:alt"': 'content="Tamayuz 10X social card" name="twitter:image:alt"',
+              'content="التميّز 10X | Tamayuz 10X" property="og:site_name"': 'content="Tamayuz 10X" property="og:site_name"',
+              '"inLanguage":"ar"': '"inLanguage":"en"',
+          }
+          for old, new in replacements.items():
+              s = s.replace(old, new)
+          p.write_text(s, encoding='utf-8')
+          PY
+
+      - name: Verify no Arabic topic data remains
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re, sys
+          s = Path('en/articles.html').read_text(encoding='utf-8')
+          bad = re.findall(r'data-topic="[^"]*[\u0600-\u06FF][^"]*"', s)
+          if bad:
+              print('\n'.join(bad), file=sys.stderr)
+              raise SystemExit(1)
+          if s.count('>العربية</a>') != 1:
+              raise SystemExit('English articles language switch must contain exactly one Arabic counterpart link')
+          print('English articles topics and language switch verified.')
+          PY
+
+      - name: Commit fix
+        run: |
+          if git diff --quiet -- en/articles.html; then
+            echo 'No changes required.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add en/articles.html
+          git commit -m 'Localize English articles topic filters'
+          git pull --rebase origin main
+          git push origin HEAD:main
