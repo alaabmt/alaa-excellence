@@ -1,0 +1,113 @@
+name: Finalize English About terminology
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/finalize-english-about-terminology.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  finalize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Apply remaining editorial corrections
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('en/about.html')
+          s = p.read_text(encoding='utf-8')
+
+          replacements = {
+            '<!DOCTYPE html>\n<!DOCTYPE html>\n': '<!DOCTYPE html>\n',
+            'بطاقة التميّز 10X مع صورة الدكتور علاء محمد أحمد وهوية الموقع': 'Tamayuz 10X profile card featuring Dr. Alaa Mohammad Ahmed and the site identity',
+            'Malaysian University of Science': 'Universiti Sains Malaysia',
+            'including bone, diabetes and cancer': 'including orthopedics, diabetes and cancer',
+            'An integrated model that elevates specialist service to a national reference level through the power of clinical practice, clarity of measurement, path integration, quality of outcomes and patient experience.': 'An integrated model that elevates specialized services toward national reference-level performance through strong clinical practice, integrated care pathways, clear performance measurement, high-quality outcomes and patient experience.',
+            'Patient-Reported Outcomes<em>Patient-Related Outcomes</em>': 'Patient-Reported Outcomes (PROs)<em>Patient-Reported Outcomes</em>',
+            'Lean Six Sigma Green Belt<small>Green Belt Six Sigma</small>': 'Lean Six Sigma Green Belt',
+            'Lean Six Sigma Yellow Belt<small>Yellow Belt Six Sigma</small>': 'Lean Six Sigma Yellow Belt',
+            'Change Management<small>Change Management</small>': 'Change Management',
+            'International conferences chaired or supported through scientific leadership roles': 'International conferences chaired, led or supported through scientific leadership roles',
+            'Leading the professional category within the system of the Emirates Ladies Award.': 'Leading the Professional Category within the Emirates Women Award.',
+            'Leading the category of institutions that build supportive environments for women’s empowerment and professional advancement.': 'Leading the Women Empowerment in Organizations Category, focused on organizations that build supportive environments for women’s empowerment and professional advancement.'
+          }
+
+          missing = []
+          for old, new in replacements.items():
+              if old not in s:
+                  missing.append(old)
+              else:
+                  s = s.replace(old, new)
+
+          if missing:
+              print('Warning: some expected source strings were already changed or not found:')
+              for item in missing:
+                  print(' -', item)
+
+          p.write_text(s, encoding='utf-8')
+          PY
+
+      - name: Verify English About quality gate
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          s = Path('en/about.html').read_text(encoding='utf-8')
+
+          required = [
+            'Senior Business Consultant',
+            'Quality and Accreditation Manager for Stem Cell Transplantation',
+            'Pathway to Excellence Program',
+            'Pathway to Excellence Conference – USA',
+            'Universiti Sains Malaysia',
+            'including orthopedics, diabetes and cancer',
+            'integrated care pathways',
+            'Patient-Reported Outcomes (PROs)',
+            'Lean Six Sigma Green Belt',
+            'Lean Six Sigma Yellow Belt',
+            'International conferences chaired, led or supported through scientific leadership roles',
+            'Tamayuz 10X profile card featuring Dr. Alaa Mohammad Ahmed and the site identity'
+          ]
+          forbidden = [
+            'Path of Excellence Conference',
+            'Malaysian University of Science',
+            'including bone, diabetes and cancer',
+            'Patient-Related Outcomes',
+            'Green Belt Six Sigma',
+            'Yellow Belt Six Sigma',
+            '<!DOCTYPE html>\n<!DOCTYPE html>',
+            'بطاقة التميّز 10X'
+          ]
+
+          for item in required:
+              assert item in s, f'Missing required wording: {item}'
+          for item in forbidden:
+              assert item not in s, f'Forbidden legacy wording remains: {item}'
+
+          # Arabic is allowed only in the explicit Arabic language-switch anchor.
+          cleaned = re.sub(r'<a[^>]*lang="ar"[^>]*>.*?</a>', '', s, flags=re.S)
+          # Exclude CSS/JS where Arabic may occur through shared scripts only by source URL; there should be no Arabic literal here.
+          assert not re.search(r'[\u0600-\u06FF]', cleaned), 'Unexpected Arabic text remains in English About page'
+          print('English About terminology and consistency gate passed.')
+          PY
+
+      - name: Commit changes
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add en/about.html
+          if git diff --cached --quiet; then
+            echo 'No changes needed.'
+          else
+            git commit -m 'Complete remaining English About terminology corrections'
+            git push origin main
+          fi
