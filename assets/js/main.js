@@ -1,6 +1,9 @@
 const siteBase = 'https://tamayuz10x.com/';
 const siteLogoAbsolute = `${siteBase}assets/images/file_0000000047188210ac6952e999d2eda7.png`;
-const siteLogo = 'assets/images/file_0000000047188210ac6952e999d2eda7.png?v=20260907-logo2';
+const siteLogo = '/assets/images/file_0000000047188210ac6952e999d2eda7.png?v=20260907-logo2';
+const documentLanguage = (document.documentElement.lang || '').toLowerCase();
+const isArabicPage = documentLanguage === 'ar' || documentLanguage.startsWith('ar-');
+const siteLogoAlt = isArabicPage ? 'شعار التميّز 10X' : 'Tamayuz 10X logo';
 
 function applySiteLogo() {
   const mobile = window.matchMedia('(max-width: 600px)').matches;
@@ -11,7 +14,7 @@ function applySiteLogo() {
     if (!logo) {
       logo = document.createElement('img');
       logo.className = 'brand-logo';
-      logo.alt = 'شعار التميّز 10X';
+      logo.alt = siteLogoAlt;
       brand.prepend(logo);
     }
 
@@ -29,7 +32,7 @@ function applySiteLogo() {
     brand.style.setProperty('flex', '0 1 auto', 'important');
 
     logo.setAttribute('src', siteLogo);
-    logo.setAttribute('alt', 'شعار التميّز 10X');
+    logo.setAttribute('alt', siteLogoAlt);
     logo.style.setProperty('content', 'none', 'important');
     logo.style.setProperty('position', 'static', 'important');
     logo.style.setProperty('left', 'auto', 'important');
@@ -48,18 +51,19 @@ function applySiteLogo() {
 
   document.querySelectorAll('img[src*="1788762427725.png"], img[src*="madar-logo"], img[src*="logo-web.jpg"], img[src*="madar-excellence-logo"]').forEach((logo) => {
     logo.setAttribute('src', siteLogo);
-    logo.setAttribute('alt', 'شعار التميّز 10X');
+    logo.setAttribute('alt', siteLogoAlt);
   });
 
   document.querySelectorAll('meta[property="og:image"], meta[name="twitter:image"]').forEach((meta) => {
     meta.setAttribute('content', siteLogoAbsolute);
   });
   document.querySelectorAll('meta[property="og:image:alt"]').forEach((meta) => {
-    meta.setAttribute('content', 'شعار التميّز 10X');
+    meta.setAttribute('content', siteLogoAlt);
   });
 }
 
 function applyTenXUnifiedModel() {
+  if (!isArabicPage) return;
   const philosophy = document.querySelector('.tenx-philosophy');
   const pathways = document.querySelector('.tenx-pathways');
   if (!philosophy) return;
