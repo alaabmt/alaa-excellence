@@ -1,5 +1,4 @@
 name: One-time bilingual parity synchronization audit
-# trigger
 on:
   push:
     paths:
@@ -22,11 +21,12 @@ jobs:
           cat 10X_Agent_AI_Master_Operating_Manual_AR.md >/dev/null
           cat BILINGUAL-SITE-PARITY-STANDARD.md >/dev/null
           cat ARABIC-LANGUAGE-AND-TTS-STANDARD.md >/dev/null
-      - name: Apply unambiguous shared-component parity fixes and audit all public pairs
+      - name: Apply safe shared-component fixes and audit public pairs
         run: |
           python3 - <<'PY'
           from pathlib import Path
-          import re, sys
+          import re, sys, posixpath
+          from urllib.parse import urlsplit
 
           EXCLUDE={'contact-madar.html'}
           root=sorted(p for p in Path('.').glob('*.html') if p.name not in EXCLUDE)
@@ -41,63 +41,70 @@ jobs:
               ap=Path(name); ep=Path('en')/name
               a=ap.read_text(encoding='utf-8'); e=ep.read_text(encoding='utf-8')
               ah='site-engagement.js' in a; eh='site-engagement.js' in e
-              if ah and not eh:
-                  tag='<script src="../assets/js/site-engagement.js?v=20260907-engage1"></script>'
-                  if '</body>' in e:
-                      e=e.replace('</body>',tag+'</body>',1)
-                      ep.write_text(e,encoding='utf-8')
-                      print('FIX shared engagement ->',ep)
-              elif eh and not ah:
-                  tag='<script src="assets/js/site-engagement.js?v=20260907-engage1"></script>'
-                  if '</body>' in a:
-                      a=a.replace('</body>',tag+'</body>',1)
-                      ap.write_text(a,encoding='utf-8')
-                      print('FIX shared engagement ->',ap)
+              if ah and not eh and '</body>' in e:
+                  e=e.replace('</body>','<script src="../assets/js/site-engagement.js?v=20260907-engage1"></script></body>',1)
+                  ep.write_text(e,encoding='utf-8'); print('FIX shared engagement ->',ep)
+              elif eh and not ah and '</body>' in a:
+                  a=a.replace('</body>','<script src="assets/js/site-engagement.js?v=20260907-engage1"></script></body>',1)
+                  ap.write_text(a,encoding='utf-8'); print('FIX shared engagement ->',ap)
 
           sp=Path('case-seha-virtual-hospital-expertise-network.html')
           if sp.exists():
-              s=sp.read_text(encoding='utf-8')
-              old=s
+              s=sp.read_text(encoding='utf-8'); old=s
               s=re.sub(r'<div class="audio-box"[^>]*>.*?</div>', '', s, count=1, flags=re.S)
               s=re.sub(r'<div class="floating-audio"[^>]*id="floatingAudio".*?</div>', '', s, count=1, flags=re.S)
               s=re.sub(r'<div class="tts-source"[^>]*>.*?</div>', '', s, count=1, flags=re.S)
               s=re.sub(r'<script>\(function\(\)\{const items=\[\.\.\.document\.querySelectorAll\(\'\[data-tts-id\]\'\)\].*?</script>', '', s, count=1, flags=re.S)
               if s!=old:
-                  sp.write_text(s,encoding='utf-8')
-                  print('FIX removed duplicate legacy Seha audio player')
+                  sp.write_text(s,encoding='utf-8'); print('FIX removed duplicate legacy Seha audio player')
 
-          def attr_link(text, rel=None, hreflang=None):
-              for m in re.finditer(r'<link\b[^>]*>',text,re.I):
-                  tag=m.group(0)
-                  if rel and not re.search(r'\brel=["\'][^"\']*'+re.escape(rel)+r'[^"\']*["\']',tag,re.I): continue
-                  if hreflang and not re.search(r'\bhreflang=["\']'+re.escape(hreflang)+r'["\']',tag,re.I): continue
-                  hm=re.search(r'\bhref=["\']([^"\']+)',tag,re.I)
-                  if hm:return hm.group(1)
-              return None
-          def tagseq(text): return re.findall(r'<(main|section|article|aside|footer)\b',text,re.I)
+          attr_re=re.compile(r'([:\w-]+)\s*=\s*(["\'])(.*?)\2',re.S)
+          def attrs(tag): return {k.lower():v for k,_,v in attr_re.findall(tag)}
+          def first_tag(text,tag):
+              m=re.search(r'<'+tag+r'\b[^>]*>',text,re.I|re.S); return attrs(m.group(0)) if m else {}
+          def links(text): return [attrs(m.group(0)) for m in re.finditer(r'<link\b[^>]*>',text,re.I|re.S)]
+          def anchors(text): return [attrs(m.group(0)) for m in re.finditer(r'<a\b[^>]*>',text,re.I|re.S)]
+          def canonical(text):
+              for x in links(text):
+                  if 'canonical' in x.get('rel','').lower().split(): return x.get('href')
+          def alternate(text,lang):
+              for x in links(text):
+                  if 'alternate' in x.get('rel','').lower().split() and x.get('hreflang','').lower()==lang: return x.get('href')
+          def resolved_path(href, lang_side, name):
+              if not href:return None
+              u=urlsplit(href); p=u.path
+              if href.startswith('http://') or href.startswith('https://'): return p or '/'
+              base='/' if lang_side=='ar' else '/en/'
+              if p.startswith('/'): return posixpath.normpath(p) + ('/' if p.endswith('/') and p!='/' else '')
+              return posixpath.normpath(posixpath.join(base,p))
+          def has_switch(text,code,expected_path,side,name):
+              for x in anchors(text):
+                  if x.get('hreflang','').lower()==code and resolved_path(x.get('href'),side,name)==expected_path:return True
+              return False
+          def tagseq(text): return [x.lower() for x in re.findall(r'<(main|section|article|aside|footer)\b',text,re.I)]
           def count_tag(text,t): return len(re.findall(r'<'+t+r'\b',text,re.I))
-          def visible_switch(text, code, href):
-              return bool(re.search(r'<a\b(?=[^>]*\bhreflang=["\']'+code+r'["\'])(?=[^>]*\bhref=["\']'+re.escape(href)+r'["\'])[^>]*>',text,re.I))
 
           for name in sorted(rnames & enames):
               ap=Path(name); ep=Path('en')/name
               a=ap.read_text(encoding='utf-8'); e=ep.read_text(encoding='utf-8')
-              if not re.search(r'<html\b[^>]*\blang=["\']ar["\'][^>]*\bdir=["\']rtl["\']',a,re.I): failures.append(f'AR lang/dir: {name}')
-              if not re.search(r'<html\b[^>]*\blang=["\']en["\'][^>]*\bdir=["\']ltr["\']',e,re.I): failures.append(f'EN lang/dir: en/{name}')
+              ha=first_tag(a,'html'); he=first_tag(e,'html')
+              if ha.get('lang','').lower()!='ar' or ha.get('dir','').lower()!='rtl': failures.append(f'AR lang/dir: {name}')
+              if he.get('lang','').lower()!='en' or he.get('dir','').lower()!='ltr': failures.append(f'EN lang/dir: en/{name}')
               arurl='https://tamayuz10x.com/' if name=='index.html' else f'https://tamayuz10x.com/{name}'
               enurl='https://tamayuz10x.com/en/' if name=='index.html' else f'https://tamayuz10x.com/en/{name}'
-              if attr_link(a,'canonical')!=arurl: failures.append(f'AR canonical: {name}')
-              if attr_link(e,'canonical')!=enurl: failures.append(f'EN canonical: en/{name}')
+              if canonical(a)!=arurl: failures.append(f'AR canonical: {name}')
+              if canonical(e)!=enurl: failures.append(f'EN canonical: en/{name}')
               for txt,label in ((a,name),(e,'en/'+name)):
-                  if attr_link(txt,'alternate','ar')!=arurl: failures.append(f'hreflang ar: {label}')
-                  if attr_link(txt,'alternate','en')!=enurl: failures.append(f'hreflang en: {label}')
-              ars='/en/' if name=='index.html' else f'/en/{name}'
-              ens='/' if name=='index.html' else f'/{name}'
-              if not visible_switch(a,'en',ars): failures.append(f'AR visible switch: {name}')
-              if not visible_switch(e,'ar',ens): failures.append(f'EN visible switch: en/{name}')
+                  if alternate(txt,'ar')!=arurl: failures.append(f'hreflang ar: {label}')
+                  if alternate(txt,'en')!=enurl: failures.append(f'hreflang en: {label}')
+              enpath='/en/' if name=='index.html' else f'/en/{name}'
+              arpath='/' if name=='index.html' else f'/{name}'
+              if not has_switch(a,'en',enpath,'ar',name): failures.append(f'AR visible switch: {name}')
+              if not has_switch(e,'ar',arpath,'en',name): failures.append(f'EN visible switch: en/{name}')
               if tagseq(a)!=tagseq(e): failures.append(f'section sequence: {name}')
               for t in ('h1','h2','h3','h4','article','aside','details','table','img','video','iframe'):
-                  if count_tag(a,t)!=count_tag(e,t): failures.append(f'{t} count mismatch: {name} ({count_tag(a,t)} vs {count_tag(e,t)})')
+                  ca,ce=count_tag(a,t),count_tag(e,t)
+                  if ca!=ce: failures.append(f'{t} count mismatch: {name} ({ca} vs {ce})')
               if ('site-engagement.js' in a)!=('site-engagement.js' in e): failures.append(f'shared engagement mismatch: {name}')
 
           print('PUBLIC PAIRS',len(rnames & enames))
@@ -107,7 +114,7 @@ jobs:
               raise SystemExit(2)
           print('PARITY AUDIT PASSED')
           PY
-      - name: Commit safe synchronization changes and self-clean workflow
+      - name: Commit synchronization changes and self-clean workflow
         run: |
           rm -f .github/workflows/one-time-bilingual-parity-audit-run7.yml
           git config user.name github-actions[bot]
