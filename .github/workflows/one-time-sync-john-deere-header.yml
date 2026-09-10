@@ -31,10 +31,6 @@ jobs:
           if '<header class="site-header">' not in e:
               e = e.replace('<body><main>', '<body>' + en_header + '<main>', 1)
 
-          # Ensure page-specific reciprocal links are exact if header already existed.
-          a = a.replace('href="/en/" hreflang="en"', 'href="/en/case-john-deere-see-spray-precision-decision.html" hreflang="en"')
-          e = e.replace('href="/" hreflang="ar"', 'href="/case-john-deere-see-spray-precision-decision.html" hreflang="ar"')
-
           ar.write_text(a, encoding='utf-8')
           en.write_text(e, encoding='utf-8')
           PY
@@ -42,17 +38,17 @@ jobs:
         run: |
           python - <<'PY'
           from pathlib import Path
-          from bs4 import BeautifulSoup
-          pages=[('case-john-deere-see-spray-precision-decision.html','ar','rtl','/en/case-john-deere-see-spray-precision-decision.html'),('en/case-john-deere-see-spray-precision-decision.html','en','ltr','/case-john-deere-see-spray-precision-decision.html')]
-          for path,lang,direction,target in pages:
-              s=BeautifulSoup(Path(path).read_text(encoding='utf-8'),'html.parser')
-              assert s.html.get('lang')==lang and s.html.get('dir')==direction
-              assert s.find('header',class_='site-header')
-              other='en' if lang=='ar' else 'ar'
-              sw=s.find('a',attrs={'hreflang':other})
-              assert sw and sw.get('href')==target
-              assert s.find('link',attrs={'rel':'canonical'})
-              assert s.find('link',attrs={'hreflang':'ar'}) and s.find('link',attrs={'hreflang':'en'})
+          checks = [
+            ('case-john-deere-see-spray-precision-decision.html', 'lang="ar" dir="rtl"', 'href="/en/case-john-deere-see-spray-precision-decision.html" hreflang="en"'),
+            ('en/case-john-deere-see-spray-precision-decision.html', 'lang="en" dir="ltr"', 'href="/case-john-deere-see-spray-precision-decision.html" hreflang="ar"'),
+          ]
+          for path, meta, switch in checks:
+              text = Path(path).read_text(encoding='utf-8')
+              assert meta in text
+              assert '<header class="site-header">' in text
+              assert switch in text
+              assert 'rel="canonical"' in text
+              assert 'hreflang="ar"' in text and 'hreflang="en"' in text
           print('John Deere bilingual header and reciprocal language links validated.')
           PY
       - name: Commit synchronized pages and remove one-time workflow
