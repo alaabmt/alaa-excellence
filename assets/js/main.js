@@ -1,9 +1,12 @@
 const siteBase = 'https://tamayuz10x.com/';
 const siteLogoAbsolute = `${siteBase}assets/images/file_0000000047188210ac6952e999d2eda7.png`;
-const siteLogo = '/assets/images/file_0000000047188210ac6952e999d2eda7.png?v=20260907-logo2';
+const siteLogo = '/assets/images/file_0000000047188210ac6952e999d2eda7.png?v=20260910-logo4';
+const siteLogoFallback = '/assets/images/logo-web.jpg?v=20260910-logo4';
 const documentLanguage = (document.documentElement.lang || '').toLowerCase();
 const isArabicPage = documentLanguage === 'ar' || documentLanguage.startsWith('ar-');
 const siteLogoAlt = isArabicPage ? 'شعار التميّز 10X' : 'Tamayuz 10X logo';
+const topicAllLabel = isArabicPage ? 'كل الموضوعات' : 'All Topics';
+const topicSortLocale = isArabicPage ? 'ar' : 'en';
 
 function applySiteLogo() {
   const mobile = window.matchMedia('(max-width: 600px)').matches;
@@ -31,6 +34,10 @@ function applySiteLogo() {
     brand.style.setProperty('overflow', 'visible', 'important');
     brand.style.setProperty('flex', '0 1 auto', 'important');
 
+    logo.onerror = () => {
+      logo.onerror = null;
+      logo.setAttribute('src', siteLogoFallback);
+    };
     logo.setAttribute('src', siteLogo);
     logo.setAttribute('alt', siteLogoAlt);
     logo.style.setProperty('content', 'none', 'important');
@@ -50,6 +57,10 @@ function applySiteLogo() {
   });
 
   document.querySelectorAll('img[src*="1788762427725.png"], img[src*="madar-logo"], img[src*="logo-web.jpg"], img[src*="madar-excellence-logo"]').forEach((logo) => {
+    logo.onerror = () => {
+      logo.onerror = null;
+      logo.setAttribute('src', siteLogoFallback);
+    };
     logo.setAttribute('src', siteLogo);
     logo.setAttribute('alt', siteLogoAlt);
   });
@@ -226,8 +237,8 @@ const availableCardsForCategory = () => articleCards.filter((card) => activeCate
 const populateTopics = () => {
   if (!topicFilter) return;
   const previous = topicFilter.value;
-  const topics = [...new Set(availableCardsForCategory().map((card) => card.dataset.topic).filter(Boolean))].sort((a, b) => a.localeCompare(b, 'ar'));
-  topicFilter.innerHTML = '<option value="all">كل الموضوعات</option>' + topics.map((topic) => `<option value="${topic}">${topic}</option>`).join('');
+  const topics = [...new Set(availableCardsForCategory().map((card) => card.dataset.topic).filter(Boolean))].sort((a, b) => a.localeCompare(b, topicSortLocale));
+  topicFilter.innerHTML = `<option value="all">${topicAllLabel}</option>` + topics.map((topic) => `<option value="${topic}">${topic}</option>`).join('');
   if (topics.includes(previous)) topicFilter.value = previous;
 };
 const sortCards = () => {
