@@ -1,0 +1,90 @@
+name: Polish English homepage quality
+
+on:
+  push:
+    paths:
+      - '.github/workflows/polish-english-homepage-quality.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  polish-homepage:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Apply approved English terminology and editorial quality
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('en/index.html')
+          s = p.read_text(encoding='utf-8')
+
+          replacements = {
+            'property="og:site_name"/><meta content="التميّز 10X | Tamayuz 10X"': 'property="og:site_name"/><meta content="Tamayuz 10X"',
+            'Corporate Excellence, Organizational Transformation, Leadership, Digital Transformation and Artificial Intelligence.': 'Organizational Excellence, Organizational Transformation, Leadership, Quality, Innovation, Digital Transformation and Artificial Intelligence.',
+            '"image":"https://tamayuz10x.com/assets/images/Tamayuz%20Profile.png"': '"image":"https://tamayuz10x.com/assets/images/alaa-mohammad-ahmad-profile-hq.webp"',
+            '"jobTitle":"Senior Business Consultant | Organizational Excellence & Transformation"': '"jobTitle":"Senior Business Consultant specializing in Organizational Excellence, Transformation, Quality and Innovation"',
+            '"knowsAbout":["Organizational Excellence","Organizational Transformation","Organizational Transformation","Digital Transformation","Artificial Intelligence","Agentic AI","Quality Management Systems","Performance Management","Leadership","Organizational Innovation","Healthcare Excellence"]': '"knowsAbout":["Organizational Excellence","Organizational Transformation","Quality","Innovation","Capability Building","Digital Transformation","Artificial Intelligence","Agentic AI","Quality Management Systems","Performance Management","Leadership","Healthcare Excellence"]',
+            '>Capacity Building</a>': '>Capability Building</a>',
+            'Senior Business Consultant specializing in organizational excellence and transformation, combining executive experience, research and applied knowledge to strengthen performance, leadership, quality and innovation. His work also explores how digital transformation, artificial intelligence and agentic AI can support smarter, more adaptive and sustainable organizations.': 'Senior Business Consultant specializing in Organizational Excellence, Transformation, Quality and Innovation. He combines executive experience, research and applied knowledge to strengthen organizational performance, leadership and capability. His work also explores how digital transformation, artificial intelligence and agentic AI can support smarter, more adaptive and sustainable organizations.',
+            '10X results require capabilities designed for the future, not only for today. We strengthen leadership and workforce capability, expand ownership and decision-making, develop future-ready skills and create an environment that supports initiative, engagement and sustained performance, job well-being, trust and collaboration, creating human and institutional capacity commensurate with the level of ambition and transformation targeted.': '10X results require capabilities designed for the future, not only for today. We strengthen leadership and workforce capability, expand ownership and decision-making, develop future-ready skills, and create an environment that supports initiative, engagement, well-being, trust, collaboration and sustained performance.',
+            'Ambitious 10x requires 10x capacity... and a working environment releases this capacity.': '10X ambition requires 10X capability—and a work environment that enables people to use it.',
+            '<div class="tenx-statement"><strong>10X</strong> It doesn’t mean to be ten times better; ten years is a foregone conclusion. The question is: What should we innovate today to get to the front line in ten years?</div>': '<div class="tenx-statement"><strong>10X</strong> does not mean becoming ten times better. It means asking what must be redesigned, built or innovated today to reach the front line of excellence ten years from now.</div>',
+            'Eight interconnected pathways to build a forward-looking institution that consciously leads the transformation, develops its capabilities, and delivers sustainable value and impact.': 'Eight interconnected pathways for building a forward-looking organization that can lead transformation deliberately, strengthen its capabilities, and deliver sustainable value and impact.',
+            'build institutional ambition beyond incremental improvement.': 'build organizational ambition beyond incremental improvement.',
+            '<h3>Human and institutional capacity</h3><p>Employee development and leadership, employee experience, empowerment and engagement, talent management, continuous learning, future skills and readiness for transformation.</p>': '<h3>People &amp; Organizational Capability</h3><p>Develop people and leaders, strengthen employee experience, empowerment and engagement, build talent and future-ready skills, and create continuous learning that supports transformation.</p>',
+            'organizational flexibility, and linking continuous improvement to actual results.': 'organizational agility, and linking continuous improvement to measurable results.',
+            '<h3>Transformation, Innovation and Redesign the System</h3><p>Transforming engineering, redesigning operating models and processes, managing portfolios of initiatives, institutional innovation and transforming change into sustainable impact.</p>': '<h3>Transformation, Innovation &amp; System Redesign</h3><p>Advance organizational transformation through operating-model and process redesign, initiative portfolio management, organizational innovation, and disciplined change that produces sustained impact.</p>',
+            '<h3>Digital Transformation and Artificial Intelligence</h3><p>Data, Digital Transformation, Artificial Intelligence and Agentic AI, Automation, Decision Support, and Redesign the Systeming the Human-Technology Relationship.</p>': '<h3>Digital Transformation &amp; Artificial Intelligence</h3><p>Use data, digital transformation, artificial intelligence, agentic AI, automation and decision support to redesign the relationship between people, technology and work.</p>',
+            '<h3>Results, impact and sustainability</h3>': '<h3>Results, Impact &amp; Sustainability</h3>',
+            '<span>Purpose</span> ← <span>Leadership</span> ← <span>Human</span> ← <span>Value</span> ← <span>Performance</span> ← <span>Transformation</span> ← <span>Smart.</span> ← <span>Results</span>': '<span>Purpose</span> → <span>Leadership</span> → <span>Capability</span> → <span>Value</span> → <span>Performance</span> → <span>Transformation</span> → <span>Intelligence</span> → <span>Results</span>',
+            'performance and institutional transformation.': 'performance and organizational transformation.',
+            'Tamayuz 10X <span dir="ltr">Tamayuz 10X</span>': 'Tamayuz 10X',
+            'Knowledge, research and consultancy in corporate excellence, transformation engineering, leadership and innovation.': 'Knowledge and consulting in organizational excellence, transformation, quality and innovation.'
+          }
+
+          changed = []
+          for old, new in replacements.items():
+              if old in s:
+                  s = s.replace(old, new)
+                  changed.append(old[:70])
+              elif new not in s:
+                  raise SystemExit(f'Missing expected homepage text: {old[:120]}')
+
+          p.write_text(s, encoding='utf-8')
+          print(f'Applied/verified {len(replacements)} homepage corrections.')
+          PY
+
+      - name: Verify terminology and remove machine-translation artifacts
+        run: |
+          grep -F 'Senior Business Consultant specializing in Organizational Excellence, Transformation, Quality and Innovation' en/index.html
+          grep -F '>Capability Building</a>' en/index.html
+          grep -F 'People &amp; Organizational Capability' en/index.html
+          grep -F 'Transformation, Innovation &amp; System Redesign' en/index.html
+          grep -F 'Digital Transformation &amp; Artificial Intelligence' en/index.html
+          grep -F '10X ambition requires 10X capability' en/index.html
+          grep -F 'Purpose</span> → <span>Leadership' en/index.html
+          ! grep -F 'Corporate Excellence' en/index.html
+          ! grep -F 'Capacity Building</a>' en/index.html
+          ! grep -F 'Transforming engineering' en/index.html
+          ! grep -F 'Redesign the Systeming' en/index.html
+          ! grep -F 'human and institutional capacity' en/index.html
+          ! grep -F 'Smart.</span>' en/index.html
+
+      - name: Commit changes
+        run: |
+          if git diff --quiet -- en/index.html; then
+            echo 'No homepage changes needed.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add en/index.html
+          git commit -m 'Polish English homepage terminology and clarity'
+          git push origin main
