@@ -76,6 +76,22 @@ Object keys should be generated server-side and must not trust a browser-supplie
 5. When a user opens a report from My Account, authorization is checked against `user_id` before the PDF is streamed.
 6. Email delivery sends the report only to the verified account email unless a later product decision explicitly changes that rule.
 
+## Current implementation status — 10 Sep 2026
+Completed in development:
+- `assessment_reports` metadata table in Supabase with RLS.
+- Authenticated users can read only their own report metadata.
+- No browser write grant for report metadata.
+- Cloudflare Worker source and R2 binding configuration added to the feature branch.
+- Supabase Security Advisor rerun after the report-storage migration: no security findings.
+
+Not yet activated:
+- The actual R2 bucket and Worker deployment in the owner's Cloudflare account.
+- Cloudflare Worker internal secret and matching Supabase server-side secret.
+- PDF generation/upload/download endpoint wiring.
+- Production email delivery.
+
+The Cloudflare account is not connected to the current execution environment, so activation requires an owner-side Cloudflare action or a connected Cloudflare integration. No Cloudflare secret should be pasted into chat or committed to GitHub.
+
 ## Non-negotiable security rules
 - Never commit a Supabase service-role key, database password, SMTP credential, Cloudflare API token, R2 access key, or Worker internal secret.
 - Keep R2 private; no permanent public report URLs.
