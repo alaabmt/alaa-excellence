@@ -1,0 +1,120 @@
+name: Finalize English About quality
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/finalize-english-about-quality.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  finalize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Final editorial and language cleanup
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+
+          p = Path('en/about.html')
+          t = p.read_text(encoding='utf-8')
+          repl = {
+            'Dr. Alaa Mohammad Ahmed Executive Biography: Over 20 years of leadership, organizational excellence, quality and transformation, research, capacity building, awards and scientific leadership.': 'Professional biography of Dr. Alaa Mohammad Ahmed, Senior Business Consultant with more than 20 years of experience in organizational excellence, transformation, quality, research, capability building and performance improvement.',
+            'An executive leader and expert in corporate excellence, transformation, quality and innovation, with over 20 years of experience building systems, improving performance and building capacity.': 'Senior Business Consultant specializing in organizational excellence, transformation, quality and innovation, with more than 20 years of experience strengthening systems, performance and organizational capability.',
+            '<section class="chapter"><div class="chapter-no"><strong>01</strong><span>Basis</span>': '<section class="chapter"><div class="chapter-no"><strong>01</strong><span>Foundation</span>',
+            'Quality of Institutions and Health Education': 'Organizational Quality &amp; Health Education',
+            'Research linking institutional quality to education and professional development.': 'Research linking organizational quality with education and professional development.',
+            'Institutional excellence in enhancing the image and status of nursing': 'Organizational excellence in advancing the image and status of nursing',
+            '<strong>Institutional Assessment</strong>': '<strong>Organizational Assessment</strong>',
+            'Contributing in teams that have led the efforts of organizational excellence and achieving advanced results in successive sessions.': 'Contributing to teams that led organizational excellence efforts and achieved advanced results across successive award cycles.',
+            '<h3>ANCC National Magnet Conference®</h3><p>Participate as a representative of Abu Dhabi Health in the development of professional and nursing excellence programs.</p>': '<h3>ANCC National Magnet Conference®</h3><p>Participated as a representative of Abu Dhabi Health, contributing to professional and nursing excellence development.</p>',
+            '<h3>Path of Excellence Conference – USA</h3><p>Participate as a representative of Abu Dhabi Health and transfer best practices to excellence programs.</p>': '<h3>Path of Excellence Conference – USA</h3><p>Participated as a representative of Abu Dhabi Health and supported the transfer of leading practices into excellence programs.</p>',
+            '<h3>Infection Prevention and Control Conferences</h3><p>Chairing the 1st and 2nd Infection Control and Prevention Conference in the UAE.</p>': '<h3>Infection Prevention and Control Conferences</h3><p>Chaired the first and second Infection Prevention and Control Conferences in the UAE.</p>',
+            'Education and training': 'Education &amp; Training',
+            'Change management<small>Change Management</small>': 'Change Management<small>Change Management</small>',
+            'Key performance indicators<em>KPIs</em>': 'Key Performance Indicators<em>KPIs</em>',
+            'Governance and continuous improvement<em>Governance &amp; Improvement</em>': 'Governance &amp; Continuous Improvement<em>Governance &amp; Improvement</em>',
+            'Patient Experience Measurement<em>Patient Experience Measures</em>': 'Patient Experience Measures<em>Patient Experience Measures</em>',
+            'Clinical Practice Guidelines<em>Clinical Practice Guidelines</em>': 'Clinical Practice Guidelines<em>Clinical Practice Guidelines</em>',
+            'Research Capacity Building</h3><p>Leading research mentorship and capacity-building initiatives': 'Research Capacity Building</h3><p>Leading research mentorship and capability-building initiatives',
+            'aria-label="Tamayuz 10XTamayuz 10X"': 'aria-label="Tamayuz 10X"',
+            'Tamayuz 10X <span dir="ltr">Tamayuz 10X</span>': 'Tamayuz 10X',
+            'Contact me': 'Contact',
+            '>Personal profile<': '>About<',
+            '>Health Excellence<': '>Healthcare Excellence<',
+            '>Excellence and Leadership<': '>Leadership &amp; Excellence<',
+            '>Personality and Work Tests<': '>Personality &amp; Work Assessments<',
+          }
+          for a,b in repl.items():
+              t=t.replace(a,b)
+          p.write_text(t,encoding='utf-8')
+
+          j = Path('assets/js/site-engagement.js')
+          s = j.read_text(encoding='utf-8')
+          s = s.replace("    const shareText = `${title} — التميّز 10X`;", "    const isEnglish = (document.documentElement.lang || '').toLowerCase().startsWith('en');\n    const shareText = isEnglish ? `${title} — Tamayuz 10X` : `${title} — التميّز 10X`;")
+          s = s.replace("    const isEnglish = (document.documentElement.lang || '').toLowerCase().startsWith('en');\n    const shareLabel", "    const shareLabel")
+          s = s.replace('<button class="tenx-share-btn tenx-copy-link" type="button">نسخ الرابط</button>', '<button class="tenx-share-btn tenx-copy-link" type="button">${isEnglish ? \'Copy Link\' : \'نسخ الرابط\'}</button>')
+          s = s.replace('<button class="tenx-share-btn tenx-native-share" type="button">مشاركة أخرى</button>', '<button class="tenx-share-btn tenx-native-share" type="button">${isEnglish ? \'More Sharing Options\' : \'مشاركة أخرى\'}</button>')
+          s = s.replace('<div class="tenx-share-note">على الهاتف، يتيح «مشاركة أخرى» اختيار التطبيقات المتاحة على جهازك، ومنها Instagram عندما يدعم الجهاز المشاركة إليها.</div>`;', '<div class="tenx-share-note">${isEnglish ? \'On mobile, More Sharing Options lets you choose from the sharing apps available on your device, including Instagram when supported.\' : \'على الهاتف، يتيح «مشاركة أخرى» اختيار التطبيقات المتاحة على جهازك، ومنها Instagram عندما يدعم الجهاز المشاركة إليها.\'}</div>`;')
+          s = s.replace("        copyButton.textContent = 'تم نسخ الرابط';", "        copyButton.textContent = isEnglish ? 'Link Copied' : 'تم نسخ الرابط';")
+          s = s.replace("      } catch (_) { window.prompt('انسخ رابط الصفحة:', canonical); }", "      } catch (_) { window.prompt(isEnglish ? 'Copy page link:' : 'انسخ رابط الصفحة:', canonical); }")
+          j.write_text(s,encoding='utf-8')
+
+          # Final static checks on the English About page.
+          final = p.read_text(encoding='utf-8')
+          required = [
+              'Senior Business Consultant specializing in Organizational Excellence, Transformation, Quality and Innovation',
+              'Quality and Accreditation Manager for Stem Cell Transplantation',
+              'Professional Journey',
+              'Education &amp; Professional Credentials',
+              'Executive Experience &amp; Major Transformation Initiatives',
+              'Research &amp; Knowledge Leadership',
+              'Professional Development &amp; Capability Building',
+              'Awards &amp; Organizational Excellence',
+              'Conferences &amp; Professional Leadership',
+              'ANCC National Magnet Conference®',
+              'Healthcare Excellence',
+              'Leadership &amp; Excellence',
+              'Personality &amp; Work Assessments',
+          ]
+          forbidden = [
+              'Executive leader and expert in corporate excellence',
+              'The executive map of the march',
+              '20 Search', '50 Clinic<',
+              'Quality System for Stem Cell Transplantation', '<h3>Consultant</h3>',
+              'Research and Cognitive Leadership', '<span>Attendance</span>',
+              'the U S Magnet Conference', 'Knowledge and consultancy in institutional excellence',
+              'Tamayuz 10X <span dir="ltr">Tamayuz 10X</span>',
+              '>Personal profile<', '>Health Excellence<', '>Excellence and Leadership<',
+              '>Personality and Work Tests<', '>Contact me<',
+          ]
+          miss=[x for x in required if x not in final]
+          bad=[x for x in forbidden if x in final]
+          if miss or bad:
+              raise SystemExit(f'English About final gate failed: missing={miss}; forbidden={bad}')
+
+          jsfinal=j.read_text(encoding='utf-8')
+          js_required=['Share the Knowledge','Copy Link','More Sharing Options','Link Copied','Tamayuz 10X']
+          if any(x not in jsfinal for x in js_required):
+              raise SystemExit('English share localization gate failed')
+          print('Final English About quality gate passed.')
+          PY
+      - name: Commit final quality pass
+        run: |
+          if git diff --quiet -- en/about.html assets/js/site-engagement.js; then
+            echo 'No changes required.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add en/about.html assets/js/site-engagement.js
+          git commit -m 'Finalize professional English About page'
+          git push origin HEAD:main
