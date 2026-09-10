@@ -14,12 +14,16 @@ jobs:
         run: |
           python - <<'PY'
           from pathlib import Path
-          import textwrap
-          s=Path('.github/workflows/one-time-publish-see-spray.yml').read_text()
-          start=s.index('        run: |\n', s.index('- name: Publish approved bilingual case'))+len('        run: |\n')
-          end=s.index('      - name: Validate publication-date integrity', start)
-          code=textwrap.dedent(s[start:end])
-          exec(compile(code,'see-spray-publication','exec'))
+          s = Path('.github/workflows/one-time-publish-see-spray.yml').read_text()
+          marker = '- name: Publish approved bilingual case'
+          step = s.index(marker)
+          run_marker = '        run: |\n'
+          start = s.index(run_marker, step) + len(run_marker)
+          end = s.index('      - name: Validate publication-date integrity', start)
+          block = s[start:end]
+          lines = block.splitlines()
+          code = '\n'.join(line[10:] if line.startswith('          ') else line for line in lines)
+          exec(compile(code, 'see-spray-publication', 'exec'))
           PY
       - name: Validate publication-date integrity
         run: python scripts/check_article_dates.py
