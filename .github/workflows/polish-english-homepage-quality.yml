@@ -26,7 +26,7 @@ jobs:
           s = p.read_text(encoding='utf-8')
 
           replacements = {
-            'property="og:site_name"/><meta content="التميّز 10X | Tamayuz 10X"': 'property="og:site_name"/><meta content="Tamayuz 10X"',
+            '<meta content="التميّز 10X | Tamayuz 10X" property="og:site_name"/>': '<meta content="Tamayuz 10X" property="og:site_name"/>',
             'Corporate Excellence, Organizational Transformation, Leadership, Digital Transformation and Artificial Intelligence.': 'Organizational Excellence, Organizational Transformation, Leadership, Quality, Innovation, Digital Transformation and Artificial Intelligence.',
             '"image":"https://tamayuz10x.com/assets/images/Tamayuz%20Profile.png"': '"image":"https://tamayuz10x.com/assets/images/alaa-mohammad-ahmad-profile-hq.webp"',
             '"jobTitle":"Senior Business Consultant | Organizational Excellence & Transformation"': '"jobTitle":"Senior Business Consultant specializing in Organizational Excellence, Transformation, Quality and Innovation"',
@@ -49,11 +49,9 @@ jobs:
             'Knowledge, research and consultancy in corporate excellence, transformation engineering, leadership and innovation.': 'Knowledge and consulting in organizational excellence, transformation, quality and innovation.'
           }
 
-          changed = []
           for old, new in replacements.items():
               if old in s:
                   s = s.replace(old, new)
-                  changed.append(old[:70])
               elif new not in s:
                   raise SystemExit(f'Missing expected homepage text: {old[:120]}')
 
