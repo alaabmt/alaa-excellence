@@ -24,12 +24,19 @@ jobs:
           test -s BILINGUAL-SITE-PARITY-STANDARD.md
           echo 'Governing standards loaded.'
 
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install audit dependencies
+        run: python -m pip install --disable-pip-version-check beautifulsoup4==4.13.5
+
       - name: Remove Arabic-only runtime scripts from English pages
         run: |
           python - <<'PY'
           from pathlib import Path
           from bs4 import BeautifulSoup
-          import re
 
           arabic_only = {
               'arabic-tts-standard.js',
