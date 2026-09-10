@@ -1,7 +1,6 @@
 window.TAMAYUZ_AUTH_CONFIG = Object.freeze({
   provider: 'supabase',
-  supabaseUrl: '',
-  supabaseAnonKey: '',
+  publicConfigEndpoint: 'https://dqrsjhcfmpjhcxvtxosy.supabase.co/functions/v1/public-auth-config',
   loginPath: '/account/login.html',
   registerPath: '/account/register.html',
   accountPath: '/account/',
