@@ -46,7 +46,21 @@ jobs:
             '<span>Purpose</span> ← <span>Leadership</span> ← <span>Human</span> ← <span>Value</span> ← <span>Performance</span> ← <span>Transformation</span> ← <span>Smart.</span> ← <span>Results</span>': '<span>Purpose</span> → <span>Leadership</span> → <span>Capability</span> → <span>Value</span> → <span>Performance</span> → <span>Transformation</span> → <span>Intelligence</span> → <span>Results</span>',
             'performance and institutional transformation.': 'performance and organizational transformation.',
             'Tamayuz 10X <span dir="ltr">Tamayuz 10X</span>': 'Tamayuz 10X',
-            'Knowledge, research and consultancy in corporate excellence, transformation engineering, leadership and innovation.': 'Knowledge and consulting in organizational excellence, transformation, quality and innovation.'
+            'Knowledge, research and consultancy in corporate excellence, transformation engineering, leadership and innovation.': 'Knowledge and consulting in organizational excellence, transformation, quality and innovation.',
+            '<h2 id="pathways-title">Tamayuz 10X Tracks</h2>': '<h2 id="pathways-title">Tamayuz 10X Pathways</h2>',
+            '<h3>Purpose, Strategy and Future</h3>': '<h3>Purpose, Strategy &amp; Future</h3>',
+            '<h3>Leadership Culture and Governance</h3>': '<h3>Leadership, Culture &amp; Governance</h3>',
+            '<h3>Value and stakeholder experience</h3>': '<h3>Value &amp; Stakeholder Experience</h3>',
+            '<h3>Operational Excellence and Performance Management</h3>': '<h3>Operational Excellence &amp; Performance Management</h3>',
+            'employee and stakeholder outcomes, institutional and community impact, sustainability and learning from results to feed into the next transformation cycle.': 'employee and stakeholder outcomes, organizational and community impact, sustainability, and learning from results to inform the next transformation cycle.',
+            'redesigns how an organization thinks, leads, works, and makes its impact.': 'redesigns how an organization thinks, leads, works and creates impact.',
+            '<span>Staff</span>': '<span>People</span>',
+            '<span>Job well-being</span>': '<span>Workplace Well-Being</span>',
+            '<div class="section-heading"><span>Renewed content</span><h2>Idea of the Day</h2></div>': '<div class="section-heading"><span>Fresh insight</span><h2>Idea of the Day</h2></div>',
+            '<h2>From idea to book.</h2>': '<h2>From an Idea to a Book</h2>',
+            '<p>A space to view books, their summaries, target groups, and purchase links.</p><a class="text-link" href="/en/books.html">Go to the books page.</a>': '<p>Explore books, concise summaries, intended audiences and purchase links.</p><a class="text-link" href="/en/books.html">Explore the books</a>',
+            '<span class="eyebrow">Tamayuz 10X Message</span><h2>A brief idea every week.</h2><p>This space is ready to activate the newsletter later.</p>': '<span class="eyebrow">Tamayuz 10X Newsletter</span><h2>One concise idea each week</h2><p>Newsletter subscriptions will be available soon.</p>',
+            '<div><strong>Newsletter</strong><p>Subscription will be activated at a later stage.</p></div>': '<div><strong>Newsletter</strong><p>Subscriptions will be available soon.</p></div>'
           }
 
           for old, new in replacements.items():
@@ -67,13 +81,17 @@ jobs:
           grep -F 'Transformation, Innovation &amp; System Redesign' en/index.html
           grep -F 'Digital Transformation &amp; Artificial Intelligence' en/index.html
           grep -F '10X ambition requires 10X capability' en/index.html
+          grep -F 'Tamayuz 10X Pathways' en/index.html
           grep -F 'Purpose</span> → <span>Leadership' en/index.html
+          grep -F 'organizational and community impact' en/index.html
           ! grep -F 'Corporate Excellence' en/index.html
           ! grep -F 'Capacity Building</a>' en/index.html
           ! grep -F 'Transforming engineering' en/index.html
           ! grep -F 'Redesign the Systeming' en/index.html
           ! grep -F 'human and institutional capacity' en/index.html
+          ! grep -F 'institutional and community impact' en/index.html
           ! grep -F 'Smart.</span>' en/index.html
+          ! grep -F 'Renewed content' en/index.html
 
       - name: Commit changes
         run: |
@@ -84,5 +102,5 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add en/index.html
-          git commit -m 'Polish English homepage terminology and clarity'
+          git commit -m 'Complete English homepage editorial quality pass'
           git push origin main
