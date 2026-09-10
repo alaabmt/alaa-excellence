@@ -1,0 +1,94 @@
+name: Localize English engagement controls
+
+on:
+  push:
+    paths:
+      - '.github/workflows/localize-english-engagement.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  localize-engagement:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Read governing standards
+        run: |
+          test -s 10X_Agent_AI_Master_Operating_Manual_AR.md
+          test -s BILINGUAL-SITE-PARITY-STANDARD.md
+
+      - name: Localize shared engagement component by page language
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          p = Path('assets/js/site-engagement.js')
+          s = p.read_text(encoding='utf-8')
+
+          replacements = [
+            ("  const AUTHOR_IMAGE = '/assets/images/alaa-mohammad-ahmad-profile-hq.webp';\n",
+             "  const AUTHOR_IMAGE = '/assets/images/alaa-mohammad-ahmad-profile-hq.webp';\n  const ui = (en, ar) => IS_ENGLISH_PAGE ? en : ar;\n"),
+            ("  function formatArabicDate(raw) {", "  function formatArticleDate(raw) {"),
+            ("    try { return new Intl.DateTimeFormat('ar-AE', { day: 'numeric', month: 'long', year: 'numeric' }).format(date); }",
+             "    try { return new Intl.DateTimeFormat(IS_ENGLISH_PAGE ? 'en-US' : 'ar-AE', { day: 'numeric', month: 'long', year: 'numeric' }).format(date); }"),
+            ("    const dateLabel = formatArabicDate(published);", "    const dateLabel = formatArticleDate(published);"),
+            ("<span>${minutes} دقائق قراءة</span>", "<span>${IS_ENGLISH_PAGE ? `${minutes} min read` : `${minutes} دقائق قراءة`}</span>"),
+            ("<div class=\"tenx-listen-controls\" aria-label=\"الاستماع إلى المقال\">", "<div class=\"tenx-listen-controls\" aria-label=\"${ui('Listen to this article', 'الاستماع إلى المقال')}\">"),
+            ("<button type=\"button\" class=\"tenx-listen-btn\">استمع إلى المقال</button>", "<button type=\"button\" class=\"tenx-listen-btn\">${ui('Listen to Article', 'استمع إلى المقال')}</button>"),
+            ("<button type=\"button\" class=\"tenx-stop-btn\" disabled>إيقاف</button>", "<button type=\"button\" class=\"tenx-stop-btn\" disabled>${ui('Stop', 'إيقاف')}</button>"),
+            ("<select class=\"tenx-speed\" aria-label=\"سرعة القراءة\">", "<select class=\"tenx-speed\" aria-label=\"${ui('Reading speed', 'سرعة القراءة')}\">"),
+            ("      status.textContent = 'ميزة الاستماع غير مدعومة في هذا المتصفح.';", "      status.textContent = ui('Audio playback is not supported in this browser.', 'ميزة الاستماع غير مدعومة في هذا المتصفح.');"),
+            ("    floating.setAttribute('aria-label', 'التحكم في الاستماع أثناء التمرير');", "    floating.setAttribute('aria-label', ui('Listening controls while scrolling', 'التحكم في الاستماع أثناء التمرير'));"),
+            ("<div class=\"tenx-floating-label\">الاستماع إلى المقال</div>", "<div class=\"tenx-floating-label\">${ui('Listen to Article', 'الاستماع إلى المقال')}</div>"),
+            ("<button type=\"button\" class=\"tenx-floating-btn tenx-floating-pause\">إيقاف مؤقت</button>", "<button type=\"button\" class=\"tenx-floating-btn tenx-floating-pause\">${ui('Pause', 'إيقاف مؤقت')}</button>"),
+            ("<button type=\"button\" class=\"tenx-floating-btn tenx-floating-stop\">إيقاف</button>", "<button type=\"button\" class=\"tenx-floating-btn tenx-floating-stop\">${ui('Stop', 'إيقاف')}</button>"),
+            ("<select class=\"tenx-floating-speed\" aria-label=\"سرعة القراءة أثناء التمرير\">", "<select class=\"tenx-floating-speed\" aria-label=\"${ui('Reading speed while scrolling', 'سرعة القراءة أثناء التمرير')}\">"),
+            ("      chosenVoice = voices.find((v) => /^ar[-_]AE$/i.test(v.lang)) || voices.find((v) => /^ar[-_]SA$/i.test(v.lang)) || voices.find((v) => /^ar[-_]/i.test(v.lang)) || null;",
+             "      chosenVoice = IS_ENGLISH_PAGE\n        ? (voices.find((v) => /^en[-_]US$/i.test(v.lang)) || voices.find((v) => /^en[-_]GB$/i.test(v.lang)) || voices.find((v) => /^en[-_]/i.test(v.lang)) || null)\n        : (voices.find((v) => /^ar[-_]AE$/i.test(v.lang)) || voices.find((v) => /^ar[-_]SA$/i.test(v.lang)) || voices.find((v) => /^ar[-_]/i.test(v.lang)) || null);"),
+            ("      play.textContent = 'استمع إلى المقال';", "      play.textContent = ui('Listen to Article', 'استمع إلى المقال');"),
+            ("      floatingPause.textContent = 'إيقاف مؤقت';", "      floatingPause.textContent = ui('Pause', 'إيقاف مؤقت');"),
+            ("      utterance.lang = chosenVoice?.lang || 'ar-AE';", "      utterance.lang = chosenVoice?.lang || (IS_ENGLISH_PAGE ? 'en-US' : 'ar-AE');"),
+            ("        status.textContent = 'تعذر تشغيل الصوت على هذا الجهاز.';", "        status.textContent = ui('Audio could not be played on this device.', 'تعذر تشغيل الصوت على هذا الجهاز.');"),
+            ("      status.textContent = `الاستماع جارٍ · ${speed.options[speed.selectedIndex].text}`;", "      status.textContent = IS_ENGLISH_PAGE ? `Playing · ${speed.options[speed.selectedIndex].text}` : `الاستماع جارٍ · ${speed.options[speed.selectedIndex].text}`;"),
+            ("        play.textContent = 'متابعة الاستماع';", "        play.textContent = ui('Resume', 'متابعة الاستماع');"),
+            ("        floatingPause.textContent = 'متابعة';", "        floatingPause.textContent = ui('Resume', 'متابعة');"),
+            ("        status.textContent = 'تم إيقاف القراءة مؤقتاً.';", "        status.textContent = ui('Playback paused.', 'تم إيقاف القراءة مؤقتاً.');"),
+            ("        play.textContent = 'إيقاف مؤقت';", "        play.textContent = ui('Pause', 'إيقاف مؤقت');"),
+            ("        status.textContent = 'الاستماع جارٍ.';", "        status.textContent = ui('Playing.', 'الاستماع جارٍ.');"),
+            ("      if (!segments.length) { status.textContent = 'لا يوجد نص قابل للقراءة.'; return; }", "      if (!segments.length) { status.textContent = ui('No readable text was found.', 'لا يوجد نص قابل للقراءة.'); return; }"),
+            ("      play.textContent = 'إيقاف مؤقت';", "      play.textContent = ui('Pause', 'إيقاف مؤقت');"),
+            ("        status.textContent = `تم تغيير السرعة إلى ${value}×. استأنف عند الجاهزية.`;", "        status.textContent = IS_ENGLISH_PAGE ? `Speed changed to ${value}×. Resume when ready.` : `تم تغيير السرعة إلى ${value}×. استأنف عند الجاهزية.`;"),
+          ]
+
+          for old, new in replacements:
+              if old in s:
+                  s = s.replace(old, new)
+
+          p.write_text(s, encoding='utf-8')
+          PY
+
+      - name: Verify English engagement localization
+        run: |
+          grep -F "const ui = (en, ar) => IS_ENGLISH_PAGE ? en : ar;" assets/js/site-engagement.js
+          grep -F "Listen to Article" assets/js/site-engagement.js
+          grep -F "utterance.lang = chosenVoice?.lang || (IS_ENGLISH_PAGE ? 'en-US' : 'ar-AE');" assets/js/site-engagement.js
+          grep -F "Intl.DateTimeFormat(IS_ENGLISH_PAGE ? 'en-US' : 'ar-AE'" assets/js/site-engagement.js
+
+      - name: Commit engagement localization
+        run: |
+          if git diff --quiet -- assets/js/site-engagement.js; then
+            echo 'Engagement localization already applied.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add assets/js/site-engagement.js
+          git commit -m 'Localize English article engagement controls'
+          git pull --rebase origin main
+          git push origin HEAD:main
