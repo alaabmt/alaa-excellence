@@ -1,0 +1,91 @@
+name: Sync latest Arabic Abu Dhabi case to English
+on:
+  push:
+    paths:
+      - '.github/workflows/sync-latest-arabic-abu-dhabi-case-en-20260910.yml'
+permissions:
+  contents: write
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Restore publication-quality English expanded case baseline
+        shell: bash
+        run: |
+          git show 3e54f187753e57dc1e48295ac7e4dc450979b66b:en/case-tamm-autogov-ai-native-government.html > en/case-tamm-autogov-ai-native-government.html
+      - name: Align latest metadata, editorial note and articles card
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          case = Path('en/case-tamm-autogov-ai-native-government.html')
+          s = case.read_text(encoding='utf-8')
+          s = s.replace('https://tamayuz10x.com/assets/images/tamayuz-profile-share.jpg?v=20260910-tamm4', 'https://tamayuz10x.com/assets/images/tamayuz-profile-share.jpg?v=20260910-tamm5')
+          s = s.replace('Abu Dhabi AI-Native Government Strategy: Building Future Capabilities | Tamayuz 10X', 'Abu Dhabi AI-Native Government Strategy | Tamayuz 10X')
+          s = s.replace('How Abu Dhabi is turning its AI-native government ambition into workforce capability, sovereign infrastructure, anticipatory services and measurable results.', 'How Abu Dhabi is translating its ambition for an AI-native government into workforce capability, digital infrastructure, governance and anticipatory services that are beginning to produce measurable results.')
+          if 'tenx-analysis-disclaimer' not in s:
+              marker = '<section class="refs">'
+              note = '<section class="tenx-analysis-disclaimer" role="note" aria-label="Editorial note" dir="ltr" style="margin:32px 0 24px;padding:18px 20px;border-left:4px solid #b28643;border-radius:14px;background:#faf7f1;text-align:left;line-height:1.8"><p><strong>Editorial note:</strong><br>The views and analysis in this article reflect the author’s professional interpretation based on the cited sources and do not necessarily represent the official positions of the organizations mentioned. For the original, complete and most current information, consult the primary sources and official documents listed in the references.</p></section>\n'
+              if marker not in s:
+                  raise SystemExit('References section marker not found in English case')
+              s = s.replace(marker, note + marker, 1)
+          case.write_text(s, encoding='utf-8')
+
+          p = Path('en/articles.html')
+          a = p.read_text(encoding='utf-8')
+          replacements = {
+              'From Digital Government to Anticipatory Government: How Abu Dhabi Is Building 2027 Capabilities Today': 'From Digital Government to Anticipatory Government: How Abu Dhabi Is Building the Capabilities for an AI-Native Future',
+              'If an institution already knows how it wants to operate tomorrow, what must it build today? Abu Dhabi’s case shows how a 2027 AI-native ambition is being translated into workforce capability, governance, digital infrastructure and operational uses that are already producing measurable interim results.': 'If an organization already knows how it wants to operate tomorrow, what must it build today? Abu Dhabi’s case shows how its 2027 ambition is being translated into workforce capabilities, governance, digital infrastructure and operational uses that are already showing measurable results before the end-state is complete.',
+              'Read how future capabilities are built today': 'See how future capability is being built today',
+          }
+          for old, new in replacements.items():
+              if old in a:
+                  a = a.replace(old, new)
+          p.write_text(a, encoding='utf-8')
+          PY
+      - name: Validate pair existence, metadata, reciprocal links and core structure
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          ar = Path('case-tamm-autogov-ai-native-government.html').read_text(encoding='utf-8')
+          en = Path('en/case-tamm-autogov-ai-native-government.html').read_text(encoding='utf-8')
+          assert 'lang="ar"' in ar and 'dir="rtl"' in ar
+          assert 'lang="en"' in en and 'dir="ltr"' in en
+          assert 'hreflang="en"' in ar and 'https://tamayuz10x.com/en/case-tamm-autogov-ai-native-government.html' in ar
+          assert 'hreflang="ar"' in en and 'href="https://tamayuz10x.com/case-tamm-autogov-ai-native-government.html"' in en
+          assert 'href="/case-tamm-autogov-ai-native-government.html" hreflang="ar"' in en
+          for token in ['class="case-hero"','class="case-body"','class="metrics"','class="bridge"','class="move"','class="reflection"','class="refs"']:
+              assert token in ar, ('Arabic missing', token)
+              assert token in en, ('English missing', token)
+          # The latest intentional Arabic revision and the restored editorial English baseline share the expanded 4-metric/5-stage capability architecture.
+          assert ar.count('class="metric-card"') == en.count('class="metric-card"') == 4
+          assert ar.count('class="case-section"') == en.count('class="case-section"')
+          assert 'tenx-analysis-disclaimer' in ar and 'tenx-analysis-disclaimer' in en
+
+          ar_articles = Path('articles.html').read_text(encoding='utf-8')
+          en_articles = Path('en/articles.html').read_text(encoding='utf-8')
+          assert '<html dir="rtl" lang="ar">' in ar_articles or '<html lang="ar" dir="rtl">' in ar_articles
+          assert '<html dir="ltr" lang="en">' in en_articles or '<html lang="en" dir="ltr">' in en_articles
+          assert 'href="/en/articles.html" hreflang="en"' in ar_articles
+          assert 'href="/articles.html" hreflang="ar"' in en_articles
+          assert 'AI-Native Future' in en_articles
+          print('Targeted Arabic/English parity validation passed.')
+          PY
+      - name: Commit synchronized English files
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add en/case-tamm-autogov-ai-native-government.html en/articles.html
+          if git diff --cached --quiet; then
+            echo 'No synchronization changes required.'
+            exit 0
+          fi
+          git commit -m 'Synchronize latest Abu Dhabi case and articles card in English [skip bilingual-sync]'
+          git pull --rebase origin main
+          git push origin HEAD:main
