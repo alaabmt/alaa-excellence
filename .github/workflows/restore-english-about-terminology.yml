@@ -1,4 +1,4 @@
-name: Restore English about terminology
+name: Finalize English consultant terminology
 
 on:
   push:
@@ -10,58 +10,34 @@ permissions:
   contents: write
 
 jobs:
-  restore:
+  finalize:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Restore previous English about page and synchronization logic
-        shell: bash
-        run: |
-          git show 932539fd326f077ac14028a56f82bc4c8620fca2:en/about.html > en/about.html
-          git show 932539fd326f077ac14028a56f82bc4c8620fca2:scripts/bilingual_sync.py > scripts/bilingual_sync.py
-          rm -f ENGLISH-BIOGRAPHY-CV-SOURCE-OF-TRUTH.md
-
-      - name: Apply terminology-only corrections
+      - name: Apply terminology-only correction and retire this one-off workflow
         shell: bash
         run: |
           python - <<'PY'
           from pathlib import Path
           p = Path('en/about.html')
           s = p.read_text(encoding='utf-8')
-          replacements = {
-              'Senior Business Advisor': 'Senior Business Consultant',
-              'Education and Credits': 'Education and Certifications',
-              'Certified Healthcare Quality Professional (CPHQ)': 'Certified Professional in Healthcare Quality (CPHQ)',
-              'the Infection Control and Epidemiology Board': 'Certified Board in Infection Control and Epidemiology',
-              'Internal evaluator certified according to the European Excellence Model': 'Certified EFQM Internal Assessor',
-              'UAE Innovation Award Accredited Evaluator': 'Certified UAE Innovation Award Assessor',
-              'Head Coach at TeamSTEPPS': 'TeamSTEPPS Master Trainer',
-              'Head Coach at CUSP': 'CUSP Master Trainer',
-              'Certified Core Cardiopulmonary Resuscitation Trainer': 'Basic Life Support (BLS) Instructor',
-          }
-          for old, new in replacements.items():
-              s = s.replace(old, new)
+          s = s.replace('<h3>Senior Business Consultant</h3>', '<h3>Consultant</h3>')
+          s = s.replace('<h3>Senior Business Advisor</h3>', '<h3>Consultant</h3>')
           p.write_text(s, encoding='utf-8')
           PY
+          grep -q '<h3>Consultant</h3>' en/about.html
+          rm -f .github/workflows/restore-english-about-terminology.yml
 
-      - name: Verify no CV rewrite remains
-        shell: bash
-        run: |
-          grep -q 'I lead corporate excellence to transform strategy into sustainable results.' en/about.html
-          grep -q '<h3>Senior Business Consultant</h3>' en/about.html
-          ! grep -q 'Nursing Leader | Healthcare Quality' en/about.html
-          ! grep -q 'author-supplied CV' en/about.html
-
-      - name: Commit restoration
+      - name: Commit final terminology correction
         shell: bash
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add en/about.html scripts/bilingual_sync.py
-          git add -u ENGLISH-BIOGRAPHY-CV-SOURCE-OF-TRUTH.md || true
-          git commit -m 'Correct English professional title terminology'
+          git add en/about.html
+          git add -u .github/workflows/restore-english-about-terminology.yml
+          git commit -m 'Use Consultant title and retire terminology workflow'
           git pull --rebase origin main
           git push origin HEAD:main
