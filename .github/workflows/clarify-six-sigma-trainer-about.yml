@@ -51,3 +51,5 @@ jobs:
           git add en/about.html
           git commit -m 'Show Six Sigma Green and Yellow Belt trainer roles'
           git push origin main
+
+# trigger: 2026-09-10 trainer clarification
