@@ -18,25 +18,41 @@ jobs:
           test -s 10X_Agent_AI_Master_Operating_Manual_AR.md
           test -s BILINGUAL-SITE-PARITY-STANDARD.md
           test -s ARABIC-LANGUAGE-AND-TTS-STANDARD.md
-          cat 10X_Agent_AI_Master_Operating_Manual_AR.md >/dev/null
-          cat BILINGUAL-SITE-PARITY-STANDARD.md >/dev/null
-          cat ARABIC-LANGUAGE-AND-TTS-STANDARD.md >/dev/null
-      - name: Apply safe shared-component fixes and audit public pairs
+      - name: Synchronize safe shared components and reciprocal switches
         run: |
           python3 - <<'PY'
           from pathlib import Path
-          import re, sys, posixpath
-          from urllib.parse import urlsplit
+          import re, sys
 
           EXCLUDE={'contact-madar.html'}
           root=sorted(p for p in Path('.').glob('*.html') if p.name not in EXCLUDE)
           en=sorted(Path('en').glob('*.html'))
           rnames={p.name for p in root}; enames={p.name for p in en}
-          print(f'INVENTORY Arabic={len(root)} English={len(en)}')
           failures=[]
           for n in sorted(rnames-enames): failures.append(f'MISSING English: en/{n}')
           for n in sorted(enames-rnames): failures.append(f'MISSING Arabic: {n}')
+          print(f'INVENTORY Arabic={len(root)} English={len(en)} paired={len(rnames & enames)}')
 
+          switch_re=re.compile(r'<div\b([^>]*\bclass=["\'][^"\']*\blang-switch\b[^"\']*["\'][^>]*)>.*?</div>',re.I|re.S)
+          def sync_switch(path,lang,name):
+              s=path.read_text(encoding='utf-8')
+              href=('/en/' if name=='index.html' else f'/en/{name}') if lang=='ar' else ('/' if name=='index.html' else f'/{name}')
+              inner=(f'<span>العربية</span><span>|</span><a href="{href}" hreflang="en" lang="en">English</a>' if lang=='ar'
+                     else f'<span>English</span><span>|</span><a href="{href}" hreflang="ar" lang="ar">العربية</a>')
+              m=switch_re.search(s)
+              if not m:
+                  failures.append(f'NO language switch container: {path}')
+                  return
+              replacement=f'<div{m.group(1)}>{inner}</div>'
+              ns=s[:m.start()]+replacement+s[m.end():]
+              if ns!=s:
+                  path.write_text(ns,encoding='utf-8'); print('FIX switch ->',path)
+
+          for name in sorted(rnames & enames):
+              sync_switch(Path(name),'ar',name)
+              sync_switch(Path('en')/name,'en',name)
+
+          # Propagate the newest shared author/audio/sharing component to both versions.
           for name in sorted(rnames & enames):
               ap=Path(name); ep=Path('en')/name
               a=ap.read_text(encoding='utf-8'); e=ep.read_text(encoding='utf-8')
@@ -48,16 +64,19 @@ jobs:
                   a=a.replace('</body>','<script src="assets/js/site-engagement.js?v=20260907-engage1"></script></body>',1)
                   ap.write_text(a,encoding='utf-8'); print('FIX shared engagement ->',ap)
 
+          # Seha Arabic had a page-specific legacy audio UI in addition to the shared player.
+          # Remove that duplicate UI only; content and evidence remain untouched.
           sp=Path('case-seha-virtual-hospital-expertise-network.html')
-          if sp.exists():
+          if sp.exists() and Path('en/case-seha-virtual-hospital-expertise-network.html').exists():
               s=sp.read_text(encoding='utf-8'); old=s
               s=re.sub(r'<div class="audio-box"[^>]*>.*?</div>', '', s, count=1, flags=re.S)
               s=re.sub(r'<div class="floating-audio"[^>]*id="floatingAudio".*?</div>', '', s, count=1, flags=re.S)
               s=re.sub(r'<div class="tts-source"[^>]*>.*?</div>', '', s, count=1, flags=re.S)
               s=re.sub(r'<script>\(function\(\)\{const items=\[\.\.\.document\.querySelectorAll\(\'\[data-tts-id\]\'\)\].*?</script>', '', s, count=1, flags=re.S)
               if s!=old:
-                  sp.write_text(s,encoding='utf-8'); print('FIX removed duplicate legacy Seha audio player')
+                  sp.write_text(s,encoding='utf-8'); print('FIX remove duplicate legacy Seha audio')
 
+          # Metadata and high-level structure validation without reformatting pages.
           attr_re=re.compile(r'([:\w-]+)\s*=\s*(["\'])(.*?)\2',re.S)
           def attrs(tag): return {k.lower():v for k,_,v in attr_re.findall(tag)}
           def first_tag(text,tag):
@@ -69,18 +88,9 @@ jobs:
                   if 'canonical' in x.get('rel','').lower().split(): return x.get('href')
           def alternate(text,lang):
               for x in links(text):
-                  if 'alternate' in x.get('rel','').lower().split() and x.get('hreflang','').lower()==lang: return x.get('href')
-          def resolved_path(href, lang_side, name):
-              if not href:return None
-              u=urlsplit(href); p=u.path
-              if href.startswith('http://') or href.startswith('https://'): return p or '/'
-              base='/' if lang_side=='ar' else '/en/'
-              if p.startswith('/'): return posixpath.normpath(p) + ('/' if p.endswith('/') and p!='/' else '')
-              return posixpath.normpath(posixpath.join(base,p))
-          def has_switch(text,code,expected_path,side,name):
-              for x in anchors(text):
-                  if x.get('hreflang','').lower()==code and resolved_path(x.get('href'),side,name)==expected_path:return True
-              return False
+                  if 'alternate' in x.get('rel','').lower().split() and x.get('hreflang','').lower()==lang:return x.get('href')
+          def has_switch(text,code,href):
+              return any(x.get('hreflang','').lower()==code and x.get('href')==href for x in anchors(text))
           def tagseq(text): return [x.lower() for x in re.findall(r'<(main|section|article|aside|footer)\b',text,re.I)]
           def count_tag(text,t): return len(re.findall(r'<'+t+r'\b',text,re.I))
 
@@ -99,27 +109,26 @@ jobs:
                   if alternate(txt,'en')!=enurl: failures.append(f'hreflang en: {label}')
               enpath='/en/' if name=='index.html' else f'/en/{name}'
               arpath='/' if name=='index.html' else f'/{name}'
-              if not has_switch(a,'en',enpath,'ar',name): failures.append(f'AR visible switch: {name}')
-              if not has_switch(e,'ar',arpath,'en',name): failures.append(f'EN visible switch: en/{name}')
+              if not has_switch(a,'en',enpath): failures.append(f'AR switch: {name}')
+              if not has_switch(e,'ar',arpath): failures.append(f'EN switch: en/{name}')
               if tagseq(a)!=tagseq(e): failures.append(f'section sequence: {name}')
               for t in ('h1','h2','h3','h4','article','aside','details','table','img','video','iframe'):
                   ca,ce=count_tag(a,t),count_tag(e,t)
                   if ca!=ce: failures.append(f'{t} count mismatch: {name} ({ca} vs {ce})')
-              if ('site-engagement.js' in a)!=('site-engagement.js' in e): failures.append(f'shared engagement mismatch: {name}')
+              if ('site-engagement.js' in a)!=('site-engagement.js' in e): failures.append(f'engagement mismatch: {name}')
 
-          print('PUBLIC PAIRS',len(rnames & enames))
           if failures:
               print('PARITY FAILURES:',file=sys.stderr)
               for f in failures: print(f,file=sys.stderr)
               raise SystemExit(2)
           print('PARITY AUDIT PASSED')
           PY
-      - name: Commit synchronization changes and self-clean workflow
+      - name: Commit synchronized files and remove one-time workflow
         run: |
           rm -f .github/workflows/one-time-bilingual-parity-audit-run7.yml
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
           git add -A
-          git commit -m 'Synchronize shared bilingual components [skip bilingual-sync] [skip ci]'
+          git commit -m 'Synchronize bilingual navigation and shared components [skip bilingual-sync] [skip ci]'
           git pull --rebase origin main
           git push origin HEAD:main
