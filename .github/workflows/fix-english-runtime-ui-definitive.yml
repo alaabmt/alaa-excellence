@@ -1,0 +1,181 @@
+name: Fix English runtime UI definitively
+
+on:
+  push:
+    paths:
+      - '.github/workflows/fix-english-runtime-ui-definitive.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Read governing standards
+        run: |
+          test -s 10X_Agent_AI_Master_Operating_Manual_AR.md
+          test -s BILINGUAL-SITE-PARITY-STANDARD.md
+
+      - name: Fix shared language-aware runtime
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          p = Path('assets/js/main.js')
+          s = p.read_text(encoding='utf-8')
+          old = s
+
+          s = s.replace(
+              "const siteLogo = '/assets/images/file_0000000047188210ac6952e999d2eda7.png?v=20260907-logo2';",
+              "const siteLogo = '/assets/images/file_0000000047188210ac6952e999d2eda7.png?v=20260910-logo4';\nconst siteLogoFallback = '/assets/images/logo-web.jpg?v=20260910-logo4';",
+          )
+
+          anchor = "const siteLogoAlt = isArabicPage ? 'شعار التميّز 10X' : 'Tamayuz 10X logo';"
+          if "const topicAllLabel" not in s:
+              s = s.replace(
+                  anchor,
+                  anchor + "\nconst topicAllLabel = isArabicPage ? 'كل الموضوعات' : 'All Topics';\nconst topicSortLocale = isArabicPage ? 'ar' : 'en';",
+                  1,
+              )
+
+          s = s.replace(
+              "logo.setAttribute('src', siteLogo);\n    logo.setAttribute('alt', siteLogoAlt);",
+              "logo.onerror = () => {\n      logo.onerror = null;\n      logo.setAttribute('src', siteLogoFallback);\n    };\n    logo.setAttribute('src', siteLogo);\n    logo.setAttribute('alt', siteLogoAlt);",
+          )
+
+          s = s.replace(
+              ".sort((a, b) => a.localeCompare(b, 'ar'));",
+              ".sort((a, b) => a.localeCompare(b, topicSortLocale));",
+          )
+          s = s.replace(
+              "topicFilter.innerHTML = '<option value=\"all\">كل الموضوعات</option>' + topics.map((topic) => `<option value=\"${topic}\">${topic}</option>`).join('');",
+              "topicFilter.innerHTML = `<option value=\"all\">${topicAllLabel}</option>` + topics.map((topic) => `<option value=\"${topic}\">${topic}</option>`).join('');",
+          )
+
+          if s == old:
+              raise SystemExit('main.js did not change; expected runtime patterns were not found')
+          p.write_text(s, encoding='utf-8')
+          PY
+
+      - name: Fix English page assets and cache busting
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          logo = '/assets/images/file_0000000047188210ac6952e999d2eda7.png?v=20260910-logo4'
+          for p in sorted(Path('en').glob('*.html')):
+              s = p.read_text(encoding='utf-8')
+              old = s
+
+              # Normalize brand logo tag regardless of attribute order.
+              def fix_logo_tag(m):
+                  tag = m.group(0)
+                  if 'brand-logo' not in tag:
+                      return tag
+                  tag = re.sub(r'\bsrc=["\'][^"\']*["\']', f'src="{logo}"', tag, count=1, flags=re.I)
+                  if re.search(r'\balt=["\'][^"\']*["\']', tag, flags=re.I):
+                      tag = re.sub(r'\balt=["\'][^"\']*["\']', 'alt="Tamayuz 10X logo"', tag, count=1, flags=re.I)
+                  else:
+                      tag = tag[:-1] + ' alt="Tamayuz 10X logo">'
+                  return tag
+              s = re.sub(r'<img\b[^>]*>', fix_logo_tag, s, flags=re.I)
+
+              # Force browsers to load the corrected shared runtime.
+              s = re.sub(
+                  r'(?:\.\./|/)?assets/js/main\.js(?:\?[^"\']*)?',
+                  '/assets/js/main.js?v=20260910-langfix4',
+                  s,
+                  flags=re.I,
+              )
+
+              # Ensure the English-specific CSS is loaded and cache-busted.
+              if 'assets/css/style-en.css' in s:
+                  s = re.sub(
+                      r'(?:\.\./|/)?assets/css/style-en\.css(?:\?[^"\']*)?',
+                      '/assets/css/style-en.css?v=20260910-header4',
+                      s,
+                      flags=re.I,
+                  )
+              else:
+                  matches = list(re.finditer(r'<link\b[^>]*href=["\'][^"\']*assets/css/style\.css[^"\']*["\'][^>]*>', s, flags=re.I))
+                  if matches:
+                      pos = matches[-1].end()
+                      s = s[:pos] + '\n<link href="/assets/css/style-en.css?v=20260910-header4" rel="stylesheet"/>' + s[pos:]
+
+              # English Articles default must stay English before and after JS runs.
+              if p.as_posix() == 'en/articles.html':
+                  s = re.sub(
+                      r'(<select\b[^>]*id=["\']topic-filter["\'][^>]*>\s*<option\b[^>]*value=["\']all["\'][^>]*>)[^<]*(</option>)',
+                      r'\1All Topics\2',
+                      s,
+                      count=1,
+                      flags=re.I,
+                  )
+
+              if s != old:
+                  p.write_text(s, encoding='utf-8')
+          PY
+
+      - name: Add compact English mobile header CSS
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('assets/css/style-en.css')
+          s = p.read_text(encoding='utf-8')
+          marker = '/* definitive English mobile header fix */'
+          if marker not in s:
+              s += '''\n\n/* definitive English mobile header fix */\nhtml[lang="en"] .brand-row{min-height:84px!important;padding:8px 0!important;gap:14px!important}\nhtml[lang="en"] .brand{display:flex!important;align-items:center!important;min-width:0!important}\nhtml[lang="en"] .brand-logo{display:block!important;width:auto!important;height:auto!important;max-width:min(240px,64vw)!important;max-height:58px!important;object-fit:contain!important}\nhtml[lang="en"] .menu-toggle{margin-left:auto!important;flex:0 0 auto!important}\n@media(max-width:430px){\n  html[lang="en"] .brand-row{min-height:76px!important;padding:6px 0!important}\n  html[lang="en"] .brand-logo{max-width:62vw!important;max-height:52px!important}\n  html[lang="en"] .menu-toggle{font-size:2rem!important;padding:6px!important}\n}\n'''
+              p.write_text(s, encoding='utf-8')
+          PY
+
+      - name: Verify definitive fix
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re, sys
+
+          failures=[]
+          main = Path('assets/js/main.js').read_text(encoding='utf-8')
+          if "const topicAllLabel = isArabicPage ? 'كل الموضوعات' : 'All Topics';" not in main:
+              failures.append('main.js: missing language-aware topic label')
+          if "localeCompare(b, topicSortLocale)" not in main:
+              failures.append('main.js: topic sorting still not language-aware')
+          if "siteLogoFallback" not in main:
+              failures.append('main.js: logo fallback missing')
+
+          a = Path('en/articles.html').read_text(encoding='utf-8')
+          if '<option value="all">All Topics</option>' not in a:
+              failures.append('en/articles.html: default topic is not All Topics')
+          if '/assets/js/main.js?v=20260910-langfix4' not in a:
+              failures.append('en/articles.html: main.js cache bust missing')
+          if '/assets/images/file_0000000047188210ac6952e999d2eda7.png?v=20260910-logo4' not in a:
+              failures.append('en/articles.html: normalized logo URL missing')
+          if 'alt="Tamayuz 10X logo"' not in a:
+              failures.append('en/articles.html: English logo alt missing')
+
+          if failures:
+              print('\n'.join(failures), file=sys.stderr)
+              raise SystemExit(1)
+          print('Definitive English runtime UI verification passed.')
+          PY
+
+      - name: Commit definitive fix
+        run: |
+          if git diff --quiet -- assets/js/main.js assets/css/style-en.css en; then
+            echo 'No changes required.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add assets/js/main.js assets/css/style-en.css en
+          git commit -m 'Fix English topic filter and logo runtime'
+          git pull --rebase origin main
+          git push origin HEAD:main
