@@ -2,8 +2,6 @@ name: Clarify Six Sigma trainer role on English About page
 
 on:
   push:
-    paths:
-      - '.github/workflows/clarify-six-sigma-trainer-about.yml'
   workflow_dispatch:
 
 permissions:
@@ -28,11 +26,15 @@ jobs:
               '<div class="training-item">Lean Six Sigma Green Belt</div>': '<div class="training-item">Lean Six Sigma Green Belt<small>Trainer</small></div>',
               '<div class="training-item">Lean Six Sigma Yellow Belt</div>': '<div class="training-item">Lean Six Sigma Yellow Belt<small>Trainer</small></div>',
           }
+          changed = False
           for old, new in replacements.items():
-              if old not in s:
-                  raise SystemExit(f'Missing expected text: {old}')
-              s = s.replace(old, new, 1)
-          p.write_text(s, encoding='utf-8')
+              if old in s:
+                  s = s.replace(old, new, 1)
+                  changed = True
+              elif new not in s:
+                  raise SystemExit(f'Missing expected Six Sigma item: {old}')
+          if changed:
+              p.write_text(s, encoding='utf-8')
           PY
 
       - name: Verify trainer labels
@@ -51,5 +53,3 @@ jobs:
           git add en/about.html
           git commit -m 'Show Six Sigma Green and Yellow Belt trainer roles'
           git push origin main
-
-# trigger: 2026-09-10 trainer clarification
