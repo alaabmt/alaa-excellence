@@ -1,0 +1,125 @@
+name: Apply English LTR quality
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/apply-english-ltr-quality.yml'
+
+permissions:
+  contents: write
+  pages: write
+  actions: read
+
+jobs:
+  normalize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - run: python -m pip install --disable-pip-version-check beautifulsoup4==4.13.5
+
+      - name: Normalize all English pages for LTR and English metadata
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from bs4 import BeautifulSoup
+          import json,re
+
+          css_href='/assets/css/style-en.css?v=20260910-ltr1'
+          changed=[]
+          for path in sorted(Path('en').glob('*.html')):
+              raw=path.read_text(encoding='utf-8')
+              soup=BeautifulSoup(raw,'html.parser')
+              if soup.html:
+                  soup.html['lang']='en'; soup.html['dir']='ltr'
+              if soup.head:
+                  old=soup.head.find('link',attrs={'data-english-layout':'ltr'})
+                  if old: old.decompose()
+                  link=soup.new_tag('link',rel='stylesheet',href=css_href)
+                  link['data-english-layout']='ltr'
+                  soup.head.append(link)
+
+              # Correct common metadata artifacts from path translation.
+              for tag in soup.find_all(['meta','link']):
+                  for attr in ('content','href'):
+                      if tag.has_attr(attr) and isinstance(tag[attr],str):
+                          tag[attr]=tag[attr].replace('https://tamayuz10x.com/../assets/','https://tamayuz10x.com/assets/')
+                          tag[attr]=tag[attr].replace('https://tamayuz10x.com/en/../assets/','https://tamayuz10x.com/assets/')
+              for script in soup.find_all('script',attrs={'type':'application/ld+json'}):
+                  txt=script.string
+                  if not txt: continue
+                  try:
+                      data=json.loads(txt)
+                  except Exception:
+                      continue
+                  def walk(x):
+                      if isinstance(x,dict):
+                          for k,v in list(x.items()):
+                              if k=='inLanguage' and v=='ar': x[k]='en'
+                              else: walk(v)
+                      elif isinstance(x,list):
+                          for y in x: walk(y)
+                  walk(data)
+                  script.string=json.dumps(data,ensure_ascii=False,separators=(',',':'))
+
+              out='<!DOCTYPE html>\n'+str(soup)
+              if out!=raw:
+                  path.write_text(out,encoding='utf-8')
+                  changed.append(str(path))
+
+          print('Normalized',len(changed),'English pages')
+          PY
+
+      - name: English visible-text and layout gate
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from bs4 import BeautifulSoup
+          import re,sys
+          ar=re.compile(r'[\u0600-\u06FF]')
+          failures=[]
+          for path in sorted(Path('en').glob('*.html')):
+              soup=BeautifulSoup(path.read_text(encoding='utf-8'),'html.parser')
+              if not soup.html or soup.html.get('lang')!='en' or soup.html.get('dir')!='ltr':
+                  failures.append(f'bad html language/direction: {path}')
+              link=soup.find('link',attrs={'data-english-layout':'ltr'})
+              if not link:
+                  failures.append(f'missing English LTR stylesheet: {path}')
+              # Flag Arabic that can be rendered as page content. Explicit Arabic language switch is allowed.
+              for node in soup.find_all(string=True):
+                  parent=node.parent
+                  if not parent or parent.name in {'script','style','code','pre','svg','noscript'}: continue
+                  text=' '.join(str(node).split())
+                  if not text or not ar.search(text): continue
+                  if parent.name=='a' and (parent.get('lang')=='ar' or parent.get('hreflang')=='ar'): continue
+                  if parent.find_parent('a',attrs={'lang':'ar'}) or parent.find_parent('a',attrs={'hreflang':'ar'}): continue
+                  failures.append(f'visible Arabic in English page {path}: {text[:100]}')
+                  break
+          if failures:
+              print('\n'.join(failures),file=sys.stderr)
+              raise SystemExit(1)
+          print('English LTR and visible-language gate passed.')
+          PY
+
+      - name: Commit normalized English pages
+        shell: bash
+        run: |
+          if [[ -z "$(git status --porcelain en/)" ]]; then
+            echo 'No English page changes required.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add en/*.html
+          git commit -m 'Apply true LTR layout to English edition'
+          git pull --rebase origin main
+          git push origin HEAD:main
