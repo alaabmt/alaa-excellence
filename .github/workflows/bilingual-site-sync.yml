@@ -71,11 +71,7 @@ jobs:
           fi
           changed="$(git diff --name-only HEAD^ HEAD || true)"
           printf '%s\n' "$changed" > /tmp/bilingual-changed.txt
-          if printf '%s\n' "$changed" | grep -Eq '^(scripts/bilingual_sync\.py|scripts/normalize_language_pairs\.py|\.github/workflows/bilingual-site-sync\.yml|10X_Agent_AI_Master_Operating_Manual_AR\.md|ARABIC-LANGUAGE-AND-TTS-STANDARD\.md|BILINGUAL-SITE-PARITY-STANDARD\.md|10X_ENGLISH_EDITORIAL_TRANSLATION_AND_HUMAN_STYLE_STANDARD\.md)$'; then
-            echo 'mode=full' >> "$GITHUB_OUTPUT"
-          else
-            echo 'mode=changed' >> "$GITHUB_OUTPUT"
-          fi
+          echo 'mode=changed' >> "$GITHUB_OUTPUT"
 
       - name: Normalize reciprocal page links
         shell: bash
@@ -104,13 +100,15 @@ jobs:
 
           excluded = {'contact-madar.html'}
           failures = []
-          for ar in sorted(Path('.').glob('*.html')):
-              if ar.name in excluded:
-                  continue
-              en = Path('en') / ar.name
-              if not en.exists():
-                  failures.append(f'missing counterpart: {en}')
-                  continue
+          root = {p.name for p in Path('.').glob('*.html') if p.name not in excluded}
+          english = {p.name for p in Path('en').glob('*.html')}
+          for name in sorted(root - english):
+              failures.append(f'missing English counterpart: en/{name}')
+          for name in sorted(english - root):
+              failures.append(f'missing Arabic counterpart: {name}')
+          for name in sorted(root & english):
+              ar = Path(name)
+              en = Path('en') / name
               a = BeautifulSoup(ar.read_text(encoding='utf-8'), 'html.parser')
               e = BeautifulSoup(en.read_text(encoding='utf-8'), 'html.parser')
               for soup in (a, e):
@@ -119,7 +117,7 @@ jobs:
               a_sections = [x.name for x in a.find_all(['main','section','article','aside','footer'])]
               e_sections = [x.name for x in e.find_all(['main','section','article','aside','footer'])]
               if a_sections != e_sections:
-                  failures.append(f'section structure mismatch: {ar.name}')
+                  failures.append(f'section structure mismatch: {name}')
               if not a.html or a.html.get('lang') != 'ar' or a.html.get('dir') != 'rtl':
                   failures.append(f'Arabic language metadata invalid: {ar}')
               if not e.html or e.html.get('lang') != 'en' or e.html.get('dir') != 'ltr':
@@ -128,19 +126,19 @@ jobs:
                   ar_alt = page.find('link', attrs={'hreflang':'ar'})
                   en_alt = page.find('link', attrs={'hreflang':'en'})
                   if not ar_alt or not en_alt:
-                      failures.append(f'hreflang metadata missing: {ar.name} {expected}')
+                      failures.append(f'hreflang metadata missing: {name} {expected}')
               ar_switch = a.find('a', attrs={'hreflang':'en'})
               en_switch = e.find('a', attrs={'hreflang':'ar'})
-              expected_en = '/en/' if ar.name == 'index.html' else f'/en/{ar.name}'
-              expected_ar = '/' if ar.name == 'index.html' else f'/{ar.name}'
+              expected_en = '/en/' if name == 'index.html' else f'/en/{name}'
+              expected_ar = '/' if name == 'index.html' else f'/{name}'
               if ar_switch and ar_switch.get('href') != expected_en:
-                  failures.append(f'Arabic switch target invalid: {ar.name}')
+                  failures.append(f'Arabic switch target invalid: {name}')
               if en_switch and en_switch.get('href') != expected_ar:
                   failures.append(f'English switch target invalid: {en}')
           if failures:
               print('\n'.join(failures), file=sys.stderr)
               raise SystemExit(1)
-          print('Structural bilingual parity gate passed for all root public HTML pages.')
+          print(f'Bilingual parity gate passed for {len(root)} Arabic and {len(english)} English public pages.')
           PY
 
       - name: Commit synchronized pages
