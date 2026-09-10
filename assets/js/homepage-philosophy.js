@@ -1,4 +1,9 @@
 (() => {
+  // This enhancement contains Arabic-only homepage copy. Never run it on
+  // the English edition (or any future non-Arabic language edition).
+  const documentLanguage = (document.documentElement.lang || '').toLowerCase();
+  if (documentLanguage !== 'ar' && !documentLanguage.startsWith('ar-')) return;
+
   const path = window.location.pathname.replace(/\/+$/, '');
   if (path && !/\/index\.html$/i.test(path)) return;
 
