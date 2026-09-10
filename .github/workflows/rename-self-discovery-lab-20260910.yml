@@ -1,0 +1,105 @@
+name: Rename Self-Discovery Lab bilingual labels
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  update-labels:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Apply approved bilingual naming
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          # Keep the navigation label consistent across the Arabic and English editions.
+          for p in list(Path('.').glob('*.html')) + list(Path('en').glob('*.html')):
+              s = p.read_text(encoding='utf-8')
+              old = s
+              s = s.replace('>Personality and Work Tests<', '>Self-Discovery Lab<')
+              s = s.replace('>اختبارات الشخصية والعمل<', '>مختبر اكتشاف الذات<')
+              if s != old:
+                  p.write_text(s, encoding='utf-8')
+
+          # English landing page: page name and first assessment name only.
+          p = Path('en/personality.html')
+          s = p.read_text(encoding='utf-8')
+          repl = {
+              '<title>Personality and Work Tests  Tamayuz 10X  Dr. Alaa Mohammad Ahmed</title>': '<title>Self-Discovery Lab | Tamayuz 10X | Dr. Alaa Mohammad Ahmed</title>',
+              '<meta content="Personality and work tests page within Tamayuz 10X." name="description"/>': '<meta content="Self-Discovery Lab: explore how you learn, work, lead, communicate and make decisions." name="description"/>',
+              '<h1>Personal and Work Lab</h1>': '<h1>Self-Discovery Lab</h1>',
+              '<article class="test-card assessment-card"><h3>Learning Preferences File</h3><span class="assessment-en">Learning Preference Profile</span>': '<article class="test-card assessment-card"><h3>How You Learn</h3><span class="assessment-en">Learning Style Profile</span>',
+          }
+          for a,b in repl.items():
+              if a not in s:
+                  raise SystemExit(f'Missing expected English text: {a}')
+              s = s.replace(a,b,1)
+          p.write_text(s, encoding='utf-8')
+
+          # Arabic landing page: equivalent approved Arabic naming.
+          p = Path('personality.html')
+          s = p.read_text(encoding='utf-8')
+          repl = {
+              '<title>اختبارات الشخصية والعمل | التميّز 10X | الدكتور علاء محمد أحمد</title>': '<title>مختبر اكتشاف الذات | التميّز 10X | الدكتور علاء محمد أحمد</title>',
+              '<meta content="صفحة اختبارات الشخصية والعمل ضمن التميّز 10X." name="description"/>': '<meta content="مختبر اكتشاف الذات: لفهم كيف تتعلّم وتعمل وتقود وتتواصل وتتخذ القرار." name="description"/>',
+              '<h1>مختبر الشخصية والعمل</h1>': '<h1>مختبر اكتشاف الذات</h1>',
+              '<article class="test-card assessment-card"><h3>ملف تفضيلات التعلّم</h3><span class="assessment-en">Learning Preference Profile</span>': '<article class="test-card assessment-card"><h3>كيف تتعلّم؟</h3><span class="assessment-en" dir="rtl">بصمتك في التعلّم</span>',
+          }
+          for a,b in repl.items():
+              if a not in s:
+                  raise SystemExit(f'Missing expected Arabic text: {a}')
+              s = s.replace(a,b,1)
+          p.write_text(s, encoding='utf-8')
+
+          # Update the assessment itself without changing its URL, scoring model, or behavior.
+          p = Path('tools/learning-preference-profile/index.html')
+          s = p.read_text(encoding='utf-8')
+          s = s.replace('<title>ملف تفضيلات التعلّم | التميّز 10X</title>', '<title>كيف تتعلّم؟ | بصمتك في التعلّم | التميّز 10X</title>')
+          s = s.replace('<span>Learning Preference Profile</span>', '<span>Learning Style Profile</span>')
+          s = s.replace('<strong>Learning Preference Profile</strong>', '<strong>Learning Style Profile</strong>')
+          p.write_text(s, encoding='utf-8')
+
+          for name in ['app.js', 'app-v2.js']:
+              p = Path('tools/learning-preference-profile') / name
+              if not p.exists():
+                  continue
+              s = p.read_text(encoding='utf-8')
+              s = s.replace("t('Learning Preference Profile | Tamayuz 10X','ملف تفضيلات التعلّم | التميّز 10X')", "t('How You Learn | Learning Style Profile | Tamayuz 10X','كيف تتعلّم؟ | بصمتك في التعلّم | التميّز 10X')")
+              s = s.replace("${t('Your Learning Preference Profile','ملف تفضيلات تعلّمك')}", "${t('Learning Style Profile','بصمتك في التعلّم')}")
+              s = s.replace("${t('How do you prefer to learn?','كيف تُفَضِّل أن تَتَعَلَّم؟')}", "${t('How You Learn','كيف تتعلّم؟')}")
+              p.write_text(s, encoding='utf-8')
+
+          # Remove this one-time workflow after applying the update.
+          Path('.github/workflows/rename-self-discovery-lab-20260910.yml').unlink()
+          PY
+
+      - name: Verify approved labels
+        run: |
+          grep -q '<h1>Self-Discovery Lab</h1>' en/personality.html
+          grep -q '<h3>How You Learn</h3><span class="assessment-en">Learning Style Profile</span>' en/personality.html
+          grep -q '<h1>مختبر اكتشاف الذات</h1>' personality.html
+          grep -q '<h3>كيف تتعلّم؟</h3><span class="assessment-en" dir="rtl">بصمتك في التعلّم</span>' personality.html
+          grep -q 'How You Learn | Learning Style Profile | Tamayuz 10X' tools/learning-preference-profile/app.js
+          grep -q 'كيف تتعلّم؟ | بصمتك في التعلّم | التميّز 10X' tools/learning-preference-profile/app.js
+          ! grep -R --include='*.html' -n '>Personality and Work Tests<' .
+          ! grep -R --include='*.html' -n '>اختبارات الشخصية والعمل<' .
+
+      - name: Commit update
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          if git diff --cached --quiet; then
+            exit 0
+          fi
+          git commit -m 'Rename bilingual self-discovery experience [skip bilingual-sync]'
+          git push origin HEAD:main
