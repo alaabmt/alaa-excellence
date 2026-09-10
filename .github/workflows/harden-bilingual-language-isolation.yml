@@ -1,0 +1,92 @@
+name: Harden bilingual language isolation
+
+on:
+  push:
+    paths:
+      - '.github/workflows/harden-bilingual-language-isolation.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  harden:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Read governing standards
+        run: |
+          test -s 10X_Agent_AI_Master_Operating_Manual_AR.md
+          test -s BILINGUAL-SITE-PARITY-STANDARD.md
+          test -s ARABIC-LANGUAGE-AND-TTS-STANDARD.md
+
+      - name: Make bilingual generator preserve runtime language separation
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          p = Path('scripts/bilingual_sync.py')
+          s = p.read_text(encoding='utf-8')
+
+          constants_anchor = 'META_KEYS = {"description", "og:title", "og:description", "og:image:alt", "twitter:title", "twitter:description"}\n'
+          constants = '''ENGLISH_FORBIDDEN_RUNTIME = {\n    "arabic-tts-standard.js",\n    "arabic-tts-tanween-fix.js",\n    "ega-audio-player-v5.js",\n    "ega-audio-player-v7.js",\n    "ega-pronunciation-fixes.js",\n    "ega-pronunciation-test.js",\n    "ega-visible-diacritics.js",\n    "homepage-philosophy.js",\n}\n'''
+          if 'ENGLISH_FORBIDDEN_RUNTIME' not in s:
+              if constants_anchor not in s:
+                  raise SystemExit('Could not locate constants anchor')
+              s = s.replace(constants_anchor, constants_anchor + constants, 1)
+
+          func_anchor = '\ndef collect_strings(soup: BeautifulSoup, src_lang: str) -> list[str]:\n'
+          func = '''\ndef enforce_runtime_language_isolation(soup: BeautifulSoup, target_lang: str) -> None:\n    if target_lang != "en":\n        return\n    for script in list(soup.find_all("script", src=True)):\n        src = str(script.get("src", ""))\n        filename = src.split("?", 1)[0].rstrip("/").split("/")[-1]\n        if filename in ENGLISH_FORBIDDEN_RUNTIME:\n            script.decompose()\n\n'''
+          if 'def enforce_runtime_language_isolation' not in s:
+              if func_anchor not in s:
+                  raise SystemExit('Could not locate function anchor')
+              s = s.replace(func_anchor, func + func_anchor, 1)
+
+          call_anchor = '    add_language_metadata(soup, name, target_lang)\n    fix_language_switch(soup, name, target_lang)\n'
+          call_replacement = '    enforce_runtime_language_isolation(soup, target_lang)\n    add_language_metadata(soup, name, target_lang)\n    fix_language_switch(soup, name, target_lang)\n'
+          if '    enforce_runtime_language_isolation(soup, target_lang)\n' not in s:
+              if call_anchor not in s:
+                  raise SystemExit('Could not locate transform call anchor')
+              s = s.replace(call_anchor, call_replacement, 1)
+
+          p.write_text(s, encoding='utf-8')
+          PY
+
+      - name: Add permanent runtime isolation gate to bilingual synchronization
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          p = Path('.github/workflows/bilingual-site-sync.yml')
+          s = p.read_text(encoding='utf-8')
+          if 'Validate English runtime language isolation' not in s:
+              anchor = "      - name: Commit synchronized pages\n"
+              block = '''      - name: Validate English runtime language isolation\n        shell: bash\n        run: |\n          python - <<'PY2'\n          from pathlib import Path\n          from bs4 import BeautifulSoup, Comment\n          import re, sys\n\n          forbidden = {\n              'arabic-tts-standard.js',\n              'arabic-tts-tanween-fix.js',\n              'ega-audio-player-v5.js',\n              'ega-audio-player-v7.js',\n              'ega-pronunciation-fixes.js',\n              'ega-pronunciation-test.js',\n              'ega-visible-diacritics.js',\n              'homepage-philosophy.js',\n          }\n          ar = re.compile(r'[\\u0600-\\u06FF]')\n          failures = []\n          for path in sorted(Path('en').glob('*.html')):\n              soup = BeautifulSoup(path.read_text(encoding='utf-8'), 'html.parser')\n              for script in soup.find_all('script', src=True):\n                  filename = str(script.get('src','')).split('?',1)[0].rstrip('/').split('/')[-1]\n                  if filename in forbidden:\n                      failures.append(f'{path}: forbidden Arabic runtime script: {filename}')\n              if not soup.html or soup.html.get('lang') != 'en' or soup.html.get('dir') != 'ltr':\n                  failures.append(f'{path}: English lang/dir metadata invalid')\n              audit = BeautifulSoup(str(soup), 'html.parser')\n              for tag in audit(['script','style','noscript','svg']):\n                  tag.decompose()\n              for node in audit.find_all(string=True):\n                  if isinstance(node, Comment):\n                      continue\n                  text = ' '.join(str(node).split())\n                  if not text or not ar.search(text):\n                      continue\n                  parent = node.parent\n                  allowed = text == 'العربية' or bool(parent and (parent.get('lang') == 'ar' or parent.find_parent(attrs={'lang':'ar'})))\n                  if not allowed:\n                      failures.append(f'{path}: visible Arabic leakage: {text[:100]}')\n          if failures:\n              print('\\n'.join(failures), file=sys.stderr)\n              raise SystemExit(1)\n          print('English runtime language isolation gate passed.')\n          PY2\n\n'''
+              if anchor not in s:
+                  raise SystemExit('Could not locate bilingual workflow commit anchor')
+              s = s.replace(anchor, block + anchor, 1)
+          p.write_text(s, encoding='utf-8')
+          PY
+
+      - name: Verify hardening
+        run: |
+          grep -F 'ENGLISH_FORBIDDEN_RUNTIME' scripts/bilingual_sync.py
+          grep -F 'enforce_runtime_language_isolation(soup, target_lang)' scripts/bilingual_sync.py
+          grep -F 'Validate English runtime language isolation' .github/workflows/bilingual-site-sync.yml
+
+      - name: Commit permanent language isolation
+        run: |
+          if git diff --quiet -- scripts/bilingual_sync.py .github/workflows/bilingual-site-sync.yml; then
+            echo 'Permanent language isolation already applied.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add scripts/bilingual_sync.py .github/workflows/bilingual-site-sync.yml
+          git commit -m 'Preserve language isolation during bilingual sync'
+          git pull --rebase origin main
+          git push origin HEAD:main
