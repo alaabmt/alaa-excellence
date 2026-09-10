@@ -2,9 +2,11 @@
   if (window.__tenxEngagementLoaded) return;
   window.__tenxEngagementLoaded = true;
 
-  const AUTHOR_NAME = 'الدكتور علاء محمد أحمد';
-  const AUTHOR_URL = 'about.html';
-  const AUTHOR_IMAGE = 'assets/images/alaa-mohammad-ahmad-profile-hq.webp';
+  const PAGE_LANG = (document.documentElement.lang || '').toLowerCase();
+  const IS_ENGLISH_PAGE = PAGE_LANG === 'en' || PAGE_LANG.startsWith('en-');
+  const AUTHOR_NAME = IS_ENGLISH_PAGE ? 'Dr. Alaa Mohammad Ahmed' : 'الدكتور علاء محمد أحمد';
+  const AUTHOR_URL = IS_ENGLISH_PAGE ? '/en/about.html' : '/about.html';
+  const AUTHOR_IMAGE = '/assets/images/alaa-mohammad-ahmad-profile-hq.webp';
   const path = window.location.pathname.toLowerCase();
   const isArticlePage = /\/(case-|idea-|article-)/.test(path);
   const canonical = document.querySelector('link[rel="canonical"]')?.href || window.location.href.split('#')[0];
