@@ -1,0 +1,87 @@
+name: Isolate homepage languages
+
+on:
+  push:
+    paths:
+      - '.github/workflows/isolate-homepage-language.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  isolate-homepage:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Separate Arabic runtime content from English homepage
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          main = Path('assets/js/main.js')
+          s = main.read_text(encoding='utf-8')
+
+          # Shared assets should resolve from both / and /en/.
+          s = s.replace(
+              "const siteLogo = 'assets/images/file_0000000047188210ac6952e999d2eda7.png?v=20260907-logo2';",
+              "const siteLogo = '/assets/images/file_0000000047188210ac6952e999d2eda7.png?v=20260907-logo2';"
+          )
+
+          marker = "const siteLogo = '/assets/images/file_0000000047188210ac6952e999d2eda7.png?v=20260907-logo2';\n"
+          language_block = (
+              "const documentLanguage = (document.documentElement.lang || '').toLowerCase();\n"
+              "const isArabicPage = documentLanguage === 'ar' || documentLanguage.startsWith('ar-');\n"
+              "const siteLogoAlt = isArabicPage ? 'شعار التميّز 10X' : 'Tamayuz 10X logo';\n"
+          )
+          if 'const isArabicPage =' not in s:
+              if marker not in s:
+                  raise SystemExit('Could not locate siteLogo marker in main.js')
+              s = s.replace(marker, marker + language_block, 1)
+
+          # Shared logo behavior must be language-neutral.
+          s = s.replace("logo.alt = 'شعار التميّز 10X';", "logo.alt = siteLogoAlt;")
+          s = s.replace("logo.setAttribute('alt', 'شعار التميّز 10X');", "logo.setAttribute('alt', siteLogoAlt);")
+          s = s.replace("meta.setAttribute('content', 'شعار التميّز 10X');", "meta.setAttribute('content', siteLogoAlt);")
+
+          # The 10X unified model contains Arabic copy. It is allowed to mutate
+          # Arabic pages only. English keeps its own authored HTML untouched.
+          old = "function applyTenXUnifiedModel() {\n  const philosophy = document.querySelector('.tenx-philosophy');"
+          new = "function applyTenXUnifiedModel() {\n  if (!isArabicPage) return;\n  const philosophy = document.querySelector('.tenx-philosophy');"
+          if old in s:
+              s = s.replace(old, new, 1)
+          elif new not in s:
+              raise SystemExit('Could not add Arabic-only guard to applyTenXUnifiedModel')
+
+          main.write_text(s, encoding='utf-8')
+
+          en = Path('en/index.html')
+          e = en.read_text(encoding='utf-8')
+          # The English homepage does not load Arabic TTS code.
+          e = e.replace('<script src="../assets/js/arabic-tts-standard.js?v=20260907-tts1"></script>', '')
+          en.write_text(e, encoding='utf-8')
+          PY
+
+      - name: Verify homepage language isolation
+        run: |
+          grep -F "if (!isArabicPage) return;" assets/js/main.js
+          grep -F "const siteLogoAlt = isArabicPage ?" assets/js/main.js
+          grep -F "Tamayuz 10X Philosophy" en/index.html
+          grep -F "Senior Business Consultant specializing in Organizational Excellence, Transformation, Quality and Innovation" en/index.html
+          ! grep -F 'arabic-tts-standard.js' en/index.html
+
+      - name: Commit homepage isolation
+        run: |
+          if git diff --quiet -- assets/js/main.js en/index.html; then
+            echo 'Homepage isolation already applied.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add assets/js/main.js en/index.html
+          git commit -m 'Isolate Arabic runtime content from English homepage'
+          git push origin main
