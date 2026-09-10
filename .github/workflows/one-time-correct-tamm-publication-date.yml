@@ -27,14 +27,12 @@ jobs:
               s = s.replace('"datePublished":"2026-09-08"', '"datePublished":"2026-09-10"')
               path.write_text(s, encoding='utf-8')
 
-          # Arabic index card: correct the actual publication date.
+          # Arabic index card: correct actual publication date and remove old workaround.
           p = Path('articles.html')
           s = p.read_text(encoding='utf-8')
-          old = '<article class="article-card" data-category="case management" data-date="2026-09-08" data-href="case-tamm-autogov-ai-native-government.html" data-read-minutes="10" data-topic="الحكومة الاستباقية وبناء القدرات المستقبلية">'
-          new = '<article class="article-card" data-category="case management" data-date="2026-09-10" data-href="case-tamm-autogov-ai-native-government.html" data-read-minutes="10" data-topic="الحكومة الاستباقية وبناء القدرات المستقبلية">'
-          s = s.replace(old, new)
+          s = s.replace('data-date="2026-09-08" data-updated="2026-09-10" data-href="case-tamm-autogov-ai-native-government.html"', 'data-date="2026-09-10" data-href="case-tamm-autogov-ai-native-government.html"')
+          s = s.replace('data-date="2026-09-08" data-href="case-tamm-autogov-ai-native-government.html"', 'data-date="2026-09-10" data-href="case-tamm-autogov-ai-native-government.html"')
           s = s.replace('<time datetime="2026-09-08">8 سبتمبر 2026</time></div><h3><a href="case-tamm-autogov-ai-native-government.html">', '<time datetime="2026-09-10">10 سبتمبر 2026</time></div><h3><a href="case-tamm-autogov-ai-native-government.html">')
-          # Remove any temporary index-repair script previously added.
           marker = '<script data-tenx-index-repair="20260910">'
           if marker in s:
               start = s.index(marker)
@@ -43,7 +41,7 @@ jobs:
                   s = s[:start] + s[end + len('</script>'):]
           p.write_text(s, encoding='utf-8')
 
-          # English index card: correct publication date and remove data-updated workaround.
+          # English index card: correct actual publication date and remove old workaround.
           p = Path('en/articles.html')
           s = p.read_text(encoding='utf-8')
           s = s.replace('data-date="2026-09-08" data-updated="2026-09-10" data-href="case-tamm-autogov-ai-native-government.html"', 'data-date="2026-09-10" data-href="case-tamm-autogov-ai-native-government.html"')
