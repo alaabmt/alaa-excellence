@@ -1,0 +1,105 @@
+name: Editorial rewrite English homepage
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/editorial-rewrite-english-homepage.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  rewrite:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Rewrite English homepage editorially
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          p=Path('en/index.html')
+          s=p.read_text(encoding='utf-8')
+
+          replacements={
+            'Tamayuz 10XTamayuz 10X':'Tamayuz 10X',
+            'Tamayuz 10X  Tamayuz 10X  Dr. Alaa Mohammad Ahmed':'Tamayuz 10X | Dr. Alaa Mohammad Ahmed',
+            'Tamayuz 10X  Tamayuz 10X with Dr. Alaa Mohammad Ahmed: knowledge, research and insights into corporate excellence, transformation engineering, leadership, quality, innovation, digital transformation and artificial intelligence.':'Tamayuz 10X with Dr. Alaa Mohammad Ahmed: research, insight and applied knowledge in organizational excellence, transformation, leadership, quality, innovation, digital transformation and artificial intelligence.',
+            'An intellectual space in corporate excellence, transformation engineering, leadership, digital transformation and artificial intelligence.':'Research, insight and applied knowledge in organizational excellence, transformation, leadership, digital transformation and artificial intelligence.',
+            'Dr. Alaa Mohammad Ahmed photo supported for Tamayuz 10X ID':'Official portrait of Dr. Alaa Mohammad Ahmed for Tamayuz 10X',
+            'Personal profile':'About',
+            'Health Excellence':'Healthcare Excellence',
+            'Excellence and Leadership':'Leadership & Excellence',
+            'Personality and Work Tests':'Personality & Work Assessments',
+            'Capacity-building':'Capacity Building',
+            'Professional experience':'Professional Expertise',
+            'Contact me':'Contact',
+            'Open Menu':'Open menu',
+            'We build excellence that turns into results.':'We build excellence that delivers results.',
+            'An intellectual space for leaders and those interested in the engineering of organizational transformation. We weave research and visions that go beyond the familiar concept of excellence, to establish a culture of Tamayuz 10X; a culture that makes the best of what exists today a stepping stone towards what could become the standard of excellence ten years later. Together, we seek to enrich the Arab leadership mind with tools that anticipate the future and turn ambition into an exceptional reality.':'A platform for leaders and professionals shaping organizational transformation. Tamayuz 10X brings together research, practical insight and forward-looking ideas that move beyond conventional approaches to excellence. It treats today’s best performance as a starting point for what could define excellence ten years from now—helping leaders anticipate change, strengthen organizational capability and translate ambition into measurable results.',
+            'Read the latest ideas':'Explore the latest insights',
+            'Meet Dr. Alaa Mohammad Ahmed':'About Dr. Alaa Mohammad Ahmed',
+            'An expert and consultant in corporate excellence and transformation engineering, combining executive expertise, research and applied knowledge to develop performance, leadership, quality and innovation, while employing digital transformation, artificial intelligence and Agentic AI to build smarter and more sustainable enterprises.':'Senior Business Consultant specializing in organizational excellence and transformation, combining executive experience, research and applied knowledge to strengthen performance, leadership, quality and innovation. His work also explores how digital transformation, artificial intelligence and agentic AI can support smarter, more adaptive and sustainable organizations.',
+            'We don’t just reach the front line; we look beyond it and build the ability to get ahead.':'We do not stop at today’s leading practice. We look beyond it and build the capability to move ahead.',
+            'An enterprise philosophy that goes beyond incremental improvement to envision what might be the future front line. It builds on what is best today, and then builds through innovation and re-innovation the capabilities and practices that enable an enterprise to reach what may become the benchmark of excellence ten years later.':'Tamayuz 10X is an organizational excellence philosophy that goes beyond incremental improvement. It starts with the best of what exists today, then uses foresight, redesign, innovation and capability building to pursue what could become a benchmark of excellence ten years from now.',
+            'Looking ahead.':'Foresight',
+            'We begin with the image of the institution we want to see in 10 years, not with the limitations of the current reality.':'We begin with a clear view of the organization we want to become in ten years, rather than allowing today’s constraints to define tomorrow’s ambition.',
+            'Redesign':'Redesign the System',
+            'We rethink strategy, leadership, culture, and operations rather than just gradually improving them.':'We rethink strategy, leadership, culture and operations instead of relying only on incremental improvement.',
+            'Accelerating Transformation':'Accelerate Transformation',
+            'We employ capabilities, data, digital transformation and artificial intelligence to bring the future closer to the present.':'We combine organizational capability, data, digital transformation and artificial intelligence to accelerate progress toward the future state.',
+            'Value and Results':'Value & Results',
+            'We measure success by the value, outcomes, and capabilities brought about by transformation, not by the number of initiatives or the volume of activity.':'We measure success by the value, outcomes and capabilities created through transformation—not by the number of initiatives or the volume of activity.',
+            'Capacity Building and Empowerment':'Capability Building & Empowerment',
+            '10X results cannot be achieved with capabilities designed for today’s reality. We are doubling staff and leadership capabilities, empowering them, expanding decision and initiative space, and developing future talent and skills, in a supportive and empowering work environment that fosters engagement':'10X results require capabilities designed for the future, not only for today. We strengthen leadership and workforce capability, expand ownership and decision-making, develop future-ready skills and create an environment that supports initiative, engagement and sustained performance',
+            'Transformation Engineering':'Organizational Transformation',
+            'Institutional transformation':'Organizational Transformation',
+            'Institutional Excellence':'Organizational Excellence',
+            'Institutional Innovation':'Organizational Innovation',
+            'Health Excellence':'Healthcare Excellence',
+            'Performance management':'Performance Management',
+            'Artificial Intelligence':'Artificial Intelligence',
+          }
+          for old,new in replacements.items():
+              s=s.replace(old,new)
+
+          # Correct language switch and English metadata.
+          s=s.replace('<div class="lang-switch"><a href="/" hreflang="ar" lang="ar">العربية</a><span>|</span><a href="/" hreflang="ar" lang="ar">العربية</a></div>', '<div class="lang-switch"><a href="/en/" aria-current="page">English</a><span>|</span><a href="/" hreflang="ar" lang="ar">العربية</a></div>')
+          s=s.replace('"inLanguage":"ar"','"inLanguage":"en"')
+          s=re.sub(r'"jobTitle":"[^"]*"', '"jobTitle":"Senior Business Consultant | Organizational Excellence & Transformation"', s, count=1)
+          s=s.replace('https://tamayuz10x.com/../assets/','https://tamayuz10x.com/assets/')
+          s=s.replace('https://tamayuz10x.com/en/../assets/','https://tamayuz10x.com/assets/')
+          s=s.replace('meta content="صورة الدكتور علاء محمد أحمد المعتمدة لهوية التميّز 10X" name="twitter:image:alt"', 'meta content="Official portrait of Dr. Alaa Mohammad Ahmed for Tamayuz 10X" name="twitter:image:alt"')
+
+          # English-specific LTR details for components inherited from Arabic CSS.
+          if 'homepage-en-editorial-fix' not in s:
+              s=s.replace('</style>', '.homepage-en-editorial-fix{}\nhtml[lang="en"] .tenx-statement{border-right:0;border-left:4px solid #fff}html[lang="en"] .sector-bridge{border-right:0;border-left:4px solid #0c3155}\n</style>',1)
+
+          p.write_text(s,encoding='utf-8')
+          PY
+
+      - name: Editorial quality checks
+        shell: bash
+        run: |
+          grep -q 'Senior Business Consultant specializing in organizational excellence and transformation' en/index.html
+          grep -q 'We build excellence that delivers results.' en/index.html
+          grep -q 'Capability Building & Empowerment' en/index.html
+          grep -q '"inLanguage":"en"' en/index.html
+          grep -q 'English</a><span>|</span><a href="/" hreflang="ar" lang="ar">العربية' en/index.html
+          ! grep -q 'Tamayuz 10XTamayuz 10X' en/index.html
+          ! grep -q 'engineering of organizational transformation' en/index.html
+
+      - name: Commit English editorial rewrite
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add en/index.html
+          git commit -m 'Rewrite English homepage in professional editorial English'
+          git pull --rebase origin main
+          git push origin HEAD:main
