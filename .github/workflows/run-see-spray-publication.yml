@@ -1,0 +1,32 @@
+name: "Run See Spray publication"
+on:
+  push:
+    paths:
+      - .github/workflows/run-see-spray-publication.yml
+permissions:
+  contents: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Execute publication script
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import textwrap
+          s=Path('.github/workflows/one-time-publish-see-spray.yml').read_text()
+          start=s.index('        run: |\n', s.index('- name: Publish approved bilingual case'))+len('        run: |\n')
+          end=s.index('      - name: Validate publication-date integrity', start)
+          code=textwrap.dedent(s[start:end])
+          exec(compile(code,'see-spray-publication','exec'))
+          PY
+      - name: Validate publication-date integrity
+        run: python scripts/check_article_dates.py
+      - name: Commit publication
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add case-john-deere-see-spray-precision-decision.html en/case-john-deere-see-spray-precision-decision.html articles.html en/articles.html sitemap.xml data/article-publication-dates.json
+          git commit -m "Publish John Deere See and Spray 10X case [skip bilingual-sync]" || exit 0
+          git push
