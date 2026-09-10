@@ -1,0 +1,37 @@
+/* Tamayuz 10X — English edition LTR corrections */
+html[lang="en"],html[lang="en"] body{direction:ltr!important;text-align:left}
+html[lang="en"] .topbar-inner,html[lang="en"] .brand-row,html[lang="en"] .nav-links,html[lang="en"] .hero-grid,html[lang="en"] .about-hero-grid{direction:ltr}
+html[lang="en"] .lang-switch{direction:ltr;text-align:left}
+html[lang="en"] .brand{direction:ltr}
+html[lang="en"] .main-nav,html[lang="en"] main,html[lang="en"] section,html[lang="en"] article{direction:ltr}
+html[lang="en"] p,html[lang="en"] h1,html[lang="en"] h2,html[lang="en"] h3,html[lang="en"] h4,html[lang="en"] li,html[lang="en"] .eyebrow{text-align:left}
+html[lang="en"] [dir="rtl"]{direction:ltr!important;text-align:left!important}
+html[lang="en"] [lang="ar"],html[lang="en"] [dir="rtl"][lang="ar"]{direction:rtl!important;text-align:right!important}
+
+/* Biography / about page: mirror the Arabic physical layout into a true LTR layout. */
+html[lang="en"] .metric{border-left:0!important;border-right:1px solid rgba(255,255,255,.13)}
+html[lang="en"] .metric:last-child{border-right:0}
+html[lang="en"] .map-steps:before{left:8%!important;right:8%!important}
+html[lang="en"] .credential{border-right:0!important;border-left:5px solid var(--gold)}
+html[lang="en"] .closing{border-right:0!important;border-left:5px solid var(--gold)}
+html[lang="en"] .story-wrap:before{left:46px!important;right:auto!important}
+html[lang="en"] .chapter{padding-left:126px!important;padding-right:0!important}
+html[lang="en"] .chapter-no{left:0!important;right:auto!important}
+html[lang="en"] .map-step{text-align:center!important}
+html[lang="en"] .tenx-statement,html[lang="en"] .sector-bridge{border-right:0!important;border-left:4px solid currentColor}
+
+@media(max-width:800px){
+  html[lang="en"] .metric:nth-child(even){border-right:0!important}
+  html[lang="en"] .map-steps{padding-left:12px!important;padding-right:0!important}
+  html[lang="en"] .map-steps:before{left:45px!important;right:auto!important}
+  html[lang="en"] .map-step{grid-template-columns:70px 1fr!important;text-align:left!important}
+  html[lang="en"] .map-step h3,html[lang="en"] .map-step small{text-align:left!important}
+  html[lang="en"] .story-wrap:before{left:26px!important;right:auto!important}
+  html[lang="en"] .chapter{padding-left:82px!important;padding-right:0!important}
+  html[lang="en"] .chapter-no{left:0!important;right:auto!important}
+}
+
+@media(max-width:560px){
+  html[lang="en"] .story-wrap:before{left:23px!important;right:auto!important}
+  html[lang="en"] .chapter{padding-left:70px!important;padding-right:0!important}
+}
