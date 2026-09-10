@@ -1,0 +1,50 @@
+name: Fix English About professional titles
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/fix-english-about-professional-titles.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Correct approved professional titles
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('en/about.html')
+          s = p.read_text(encoding='utf-8')
+          replacements = {
+              '<h3>Consultant</h3>': '<h3>Senior Business Consultant</h3>',
+              '<h3>Quality System for Stem Cell Transplantation</h3>': '<h3>Quality and Accreditation Manager for Stem Cell Transplantation</h3>',
+          }
+          for old, new in replacements.items():
+              if old not in s:
+                  raise SystemExit(f'Expected text not found: {old}')
+              s = s.replace(old, new, 1)
+          p.write_text(s, encoding='utf-8')
+          PY
+      - name: Verify titles
+        run: |
+          grep -Fq '<h3>Senior Business Consultant</h3>' en/about.html
+          grep -Fq '<h3>Quality and Accreditation Manager for Stem Cell Transplantation</h3>' en/about.html
+          ! grep -Fq '<h3>Consultant</h3>' en/about.html
+          ! grep -Fq '<h3>Quality System for Stem Cell Transplantation</h3>' en/about.html
+      - name: Commit correction
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add en/about.html
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'Fix English About professional titles'
+          git push origin HEAD:main
