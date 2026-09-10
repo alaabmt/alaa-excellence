@@ -1,0 +1,68 @@
+name: Fix tool bilingual brand label
+
+on:
+  push:
+    paths:
+      - '.github/workflows/fix-tool-bilingual-brand-label.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fix-brand-label:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Read governing manual
+        run: test -s 10X_Agent_AI_Master_Operating_Manual_AR.md
+
+      - name: Fix Learning Preference Profile brand language
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          index = Path('tools/learning-preference-profile/index.html')
+          s = index.read_text(encoding='utf-8')
+          s = s.replace(
+              '<div><strong>التميّز 10X | Tamayuz 10X</strong><span>Learning Preference Profile</span></div>',
+              '<div><strong id="lppBrandName">التميّز 10X</strong><span>Learning Preference Profile</span></div>'
+          )
+          s = s.replace(
+              '<strong><a href="../../index.html" style="color:inherit;text-decoration:none">التميّز 10X | <span dir="ltr">Tamayuz 10X</span></a></strong>',
+              '<strong><a id="lppFooterBrand" href="../../index.html" style="color:inherit;text-decoration:none">التميّز 10X</a></strong>'
+          )
+          index.write_text(s, encoding='utf-8')
+
+          app = Path('tools/learning-preference-profile/app.js')
+          js = app.read_text(encoding='utf-8')
+          old = """    langBtn.textContent = state.lang === 'ar' ? 'English' : 'العربية';\n    document.title = t('Learning Preference Profile | Tamayuz 10X','ملف تفضيلات التعلّم | التميّز 10X');"""
+          new = """    langBtn.textContent = state.lang === 'ar' ? 'English' : 'العربية';\n    const brandName = document.getElementById('lppBrandName');\n    const footerBrand = document.getElementById('lppFooterBrand');\n    if (brandName) brandName.textContent = state.lang === 'ar' ? 'التميّز 10X' : 'Tamayuz 10X';\n    if (footerBrand) footerBrand.textContent = state.lang === 'ar' ? 'التميّز 10X' : 'Tamayuz 10X';\n    document.title = t('Learning Preference Profile | Tamayuz 10X','ملف تفضيلات التعلّم | التميّز 10X');"""
+          if old not in js:
+              raise SystemExit('applyLang target not found')
+          js = js.replace(old, new, 1)
+          app.write_text(js, encoding='utf-8')
+          PY
+
+      - name: Verify language-specific brand labels
+        run: |
+          grep -F 'id="lppBrandName">التميّز 10X</strong>' tools/learning-preference-profile/index.html
+          grep -F "brandName.textContent = state.lang === 'ar' ? 'التميّز 10X' : 'Tamayuz 10X';" tools/learning-preference-profile/app.js
+          ! grep -F 'التميّز 10X | Tamayuz 10X' tools/learning-preference-profile/index.html
+
+      - name: Commit changes
+        run: |
+          if git diff --quiet -- tools/learning-preference-profile/index.html tools/learning-preference-profile/app.js; then
+            echo 'No changes needed.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add tools/learning-preference-profile/index.html tools/learning-preference-profile/app.js
+          git commit -m 'Use language-specific branding in learning profile tool'
+          git pull --rebase origin main
+          git push origin HEAD:main
