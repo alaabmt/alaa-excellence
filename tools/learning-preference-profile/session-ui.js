@@ -1,6 +1,6 @@
 (() => {
   'use strict';
-  const API='https://api.tamayuz10x.com';
+  const API='https://lpp-api.alaatoinnovate.workers.dev';
   const SESSION_KEY='tamayuz10x-lpp-session';
   const SESSION_NAME_KEY='tamayuz10x-lpp-session-name';
   const LPP_KEY='tamayuz10x-lpp-v1';
@@ -38,11 +38,11 @@
     </section>`;
   }
 
-  function renderCreated(c,u,name,live=true){
+  function renderCreated(c,u,name){
     const host=document.getElementById('sessionCreated'); if(!host) return;
     const q1=qrPrimary(u), q2=qrFallback(u);
     const dashboard=`trainer-dashboard.html?session=${encodeURIComponent(c)}`;
-    host.innerHTML=`${live?'':'<p class="lpp-session-error">'+tx('Cloudflare is not connected yet. This temporary code will not collect group results across devices.','Cloudflare غير متصل بعد. هذا الرمز مؤقت ولن يجمع نتائج المجموعة بين الأجهزة.')+'</p>'}<div class="lpp-session-created"><div class="lpp-session-details"><span>${tx('Session code','رمز الجلسة')}</span><strong dir="ltr">${c}</strong>${name?`<small>${esc(name)}</small>`:''}<label>${tx('Participant link','رابط المشاركين')}<input value="${esc(u)}" readonly></label><div class="lpp-actions"><button class="lpp-btn" id="copySession" type="button">${tx('Copy link','نسخ الرابط')}</button><a class="lpp-btn primary" href="${esc(u)}">${tx('Open participant link','فتح رابط المشارك')}</a><a class="lpp-btn" id="openQr" href="${esc(q1)}" target="_blank" rel="noopener">${tx('Open QR','فتح QR')}</a>${live?`<a class="lpp-btn" href="${esc(dashboard)}">${tx('Open group dashboard','فتح لوحة المجموعة')}</a>`:''}</div></div><div class="lpp-qr"><img id="sessionQrImage" src="${esc(q1)}" data-fallback="${esc(q2)}" alt="QR code"><span>${tx('Participants can scan this QR code with their phone camera.','يمكن للمشاركين مسح رمز QR بكاميرا الهاتف.')}</span><small id="qrStatus"></small></div></div>`;
+    host.innerHTML=`<div class="lpp-session-created"><div class="lpp-session-details"><span>${tx('Session code','رمز الجلسة')}</span><strong dir="ltr">${c}</strong>${name?`<small>${esc(name)}</small>`:''}<label>${tx('Participant link','رابط المشاركين')}<input value="${esc(u)}" readonly></label><div class="lpp-actions"><button class="lpp-btn" id="copySession" type="button">${tx('Copy link','نسخ الرابط')}</button><a class="lpp-btn primary" href="${esc(u)}">${tx('Open participant link','فتح رابط المشارك')}</a><a class="lpp-btn" id="openQr" href="${esc(q1)}" target="_blank" rel="noopener">${tx('Open QR','فتح QR')}</a><a class="lpp-btn" href="${esc(dashboard)}">${tx('Open group dashboard','فتح لوحة المجموعة')}</a></div></div><div class="lpp-qr"><img id="sessionQrImage" src="${esc(q1)}" data-fallback="${esc(q2)}" alt="QR code"><span>${tx('Participants can scan this QR code with their phone camera.','يمكن للمشاركين مسح رمز QR بكاميرا الهاتف.')}</span><small id="qrStatus"></small></div></div>`;
     document.getElementById('copySession').onclick=e=>copyText(u,e.currentTarget);
     const img=document.getElementById('sessionQrImage');
     img.addEventListener('error',()=>{const fb=img.dataset.fallback;if(fb&&img.src!==fb){img.src=fb;document.getElementById('openQr').href=fb;}else document.getElementById('qrStatus').textContent=tx('QR image could not load. Use the link or code.','تعذر تحميل QR. استخدم الرابط أو الرمز.');});
@@ -55,13 +55,27 @@
     try{
       const r=await fetch(`${API}/api/lpp/sessions`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name})});
       const d=await r.json(); if(!r.ok||!d.ok) throw new Error(d.error||'Create failed');
-      const c=d.session.code, u=d.session.participant_url||sessionUrl(c);
+      const c=d.session.code, u=d.session.join_url||d.session.participant_url||sessionUrl(c);
       localStorage.setItem(SESSION_KEY,c); localStorage.setItem(SESSION_NAME_KEY,name);
       localStorage.setItem(`tamayuz10x-lpp-trainer-token-${c}`,d.trainer_token);
-      renderCreated(c,u,name,true);
+      renderCreated(c,u,name);
     }catch(e){
-      host.innerHTML=`<p class="lpp-session-error">${tx('The live Cloudflare session could not be created yet. The backend still needs to be deployed/connected.','تعذر إنشاء الجلسة المباشرة على Cloudflare حتى الآن. ما زالت الخدمة الخلفية تحتاج إلى النشر/الربط.')}</p>`;
+      host.innerHTML=`<p class="lpp-session-error">${tx('The live group session could not be created. Please try again.','تعذر إنشاء جلسة المجموعة المباشرة. يرجى المحاولة مرة أخرى.')}</p>`;
     }finally{btn.disabled=false;btn.textContent=tx('Create live session','إنشاء جلسة مباشرة');}
+  }
+
+  async function validateIncomingSession(){
+    if(!incoming) return;
+    try{
+      const r=await fetch(`${API}/api/lpp/sessions/${encodeURIComponent(incoming)}`); const d=await r.json();
+      if(!r.ok||!d.ok||d.session?.closed_at||d.session?.closed) throw new Error('invalid');
+      localStorage.setItem(SESSION_KEY,incoming);
+      if(d.session?.name) localStorage.setItem(SESSION_NAME_KEY,d.session.name);
+    }catch(e){
+      localStorage.removeItem(SESSION_KEY);
+      const banner=document.createElement('div');banner.className='lpp-session-error';banner.textContent=tx('This group session is unavailable or has been closed.','جلسة المجموعة هذه غير متاحة أو تم إغلاقها.');
+      document.querySelector('#lppApp .lpp-hero')?.before(banner);
+    }
   }
 
   async function joinSession(){
@@ -71,9 +85,9 @@
     status.textContent=tx('Checking session…','جارٍ التحقق من الجلسة...');
     try{
       const r=await fetch(`${API}/api/lpp/sessions/${encodeURIComponent(c)}`); const d=await r.json();
-      if(!r.ok||!d.ok) throw new Error('not-found');
-      localStorage.setItem(SESSION_KEY,c); location.href=sessionUrl(c);
-    }catch(e){status.innerHTML=`<p class="lpp-session-error">${tx('This session could not be verified. Check the code or Cloudflare connection.','تعذر التحقق من هذه الجلسة. راجع الرمز أو اتصال Cloudflare.')}</p>`;}
+      if(!r.ok||!d.ok||d.session?.closed_at||d.session?.closed) throw new Error('not-found');
+      localStorage.setItem(SESSION_KEY,c); if(d.session?.name)localStorage.setItem(SESSION_NAME_KEY,d.session.name); location.href=sessionUrl(c);
+    }catch(e){status.innerHTML=`<p class="lpp-session-error">${tx('This session could not be verified. Check the code and try again.','تعذر التحقق من هذه الجلسة. راجع الرمز وحاول مرة أخرى.')}</p>`;}
   }
 
   function wire(){
@@ -92,7 +106,8 @@
     if(mode==='trainer') document.getElementById('entryTrainer')?.click();
     if(mode==='join') document.getElementById('entryJoin')?.click();
   }
-  function injectStartHub(){if(mode)return;const hero=document.querySelector('#lppApp .lpp-hero');if(!hero||document.getElementById('lppEntryHub'))return;hero.insertAdjacentHTML('beforebegin',panelsMarkup(false));wire();}
+  function injectStartHub(){if(mode||incoming)return;const hero=document.querySelector('#lppApp .lpp-hero');if(!hero||document.getElementById('lppEntryHub'))return;hero.insertAdjacentHTML('beforebegin',panelsMarkup(false));wire();}
+  function injectSessionBanner(){if(!incoming)return;const hero=document.querySelector('#lppApp .lpp-hero');if(!hero||document.getElementById('activeSessionBanner'))return;const name=localStorage.getItem(SESSION_NAME_KEY)||'';hero.insertAdjacentHTML('beforebegin',`<div class="lpp-session-banner" id="activeSessionBanner"><b>${tx('Group session','جلسة المجموعة')}:</b> <span dir="ltr">${esc(incoming)}</span>${name?` <small>${esc(name)}</small>`:''}</div>`);}
   function injectSessionIntoResults(){const c=incoming||localStorage.getItem(SESSION_KEY)||'';if(!c)return;const head=document.querySelector('#lppApp .lpp-results-head');if(!head||document.getElementById('resultSessionBadge'))return;head.insertAdjacentHTML('afterend',`<div class="lpp-result-session" id="resultSessionBadge"><b>${tx('Group session code','رمز جلسة المجموعة')}</b><span dir="ltr">${esc(c)}</span><small id="cloudSubmitStatus"></small></div>`);submitCompletedResult(c);}
 
   function calcForSubmit(state){
@@ -111,9 +126,9 @@
     const x=calcForSubmit(state);const started=state.startedAt?new Date(state.startedAt).toISOString():null;const completed=new Date(state.completedAt).toISOString();
     const payload={participant_id:pid,language:state.lang==='en'?'en':'ar',started_at:started,completed_at:completed,duration_seconds:state.startedAt?Math.max(0,Math.round((state.completedAt-state.startedAt)/1000)):null,responses:state.responses,scores:x.scores,facets:x.facets};
     const status=document.getElementById('cloudSubmitStatus');if(status)status.textContent=tx(' · Sending to group…',' · جارٍ إرسال النتيجة للمجموعة...');
-    try{const r=await fetch(`${API}/api/lpp/sessions/${encodeURIComponent(c)}/responses`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});const d=await r.json();if(!r.ok||!d.ok)throw new Error();localStorage.setItem(marker,'1');if(status)status.textContent=tx(' · Added to group',' · أضيفت إلى المجموعة');}catch(e){if(status)status.textContent=tx(' · Group sync pending',' · مزامنة المجموعة غير متاحة');}
+    try{const r=await fetch(`${API}/api/lpp/sessions/${encodeURIComponent(c)}/responses`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});const d=await r.json();if(!r.ok||!d.ok)throw new Error();localStorage.setItem(marker,'1');if(status)status.textContent=tx(' · Added to group',' · أضيفت إلى المجموعة');}catch(e){if(status)status.textContent=tx(' · Group sync pending',' · مزامنة المجموعة معلّقة');}
   }
 
-  const app=document.getElementById('lppApp');if(app){const observer=new MutationObserver(()=>{injectStartHub();injectSessionIntoResults();});observer.observe(app,{childList:true,subtree:true});}
-  showModeOverlay();injectStartHub();injectSessionIntoResults();
+  const app=document.getElementById('lppApp');if(app){const observer=new MutationObserver(()=>{injectStartHub();injectSessionBanner();injectSessionIntoResults();});observer.observe(app,{childList:true,subtree:true});}
+  validateIncomingSession();showModeOverlay();injectStartHub();injectSessionBanner();injectSessionIntoResults();
 })();
