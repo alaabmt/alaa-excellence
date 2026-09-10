@@ -1,0 +1,193 @@
+name: Editorial polish English About
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/editorial-polish-english-about.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  polish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Apply approved professional English
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          page_path = Path('en/about.html')
+          text = page_path.read_text(encoding='utf-8')
+
+          replacements = {
+            'Executive leader and expert in corporate excellence, transformation, quality and innovation': 'Senior Business Consultant specializing in Organizational Excellence, Transformation, Quality and Innovation',
+            'I lead corporate excellence to transform strategy into sustainable results.': 'I help organizations turn excellence and transformation strategies into sustainable results.',
+            'More than twenty years of leadership in building quality and excellence systems, developing specialized services, driving improvement, research, and capacity building; with a clear focus on measurable results and corporate sustainability.': 'More than 20 years of experience in quality, organizational excellence, transformation, research and capability building, with a focus on measurable performance and sustainable organizational results.',
+            '<strong>20 years</strong><span>Leadership, quality, excellence and transformation</span>': '<strong>20+ Years</strong><span>Leadership, Quality, Excellence &amp; Transformation</span>',
+            '<strong>14 Hospitals</strong><span>Within the scope of excellence programs</span>': '<strong>14 Hospitals</strong><span>Across organizational excellence initiatives</span>',
+            '<strong>50 Clinic</strong><span>Included in development programs</span>': '<strong>50+ Clinics</strong><span>Included in improvement and development initiatives</span>',
+            '<strong>250 projects</strong><span>To improve processes and services</span>': '<strong>250+ Improvement Projects</strong><span>Process and service improvement initiatives</span>',
+            '<strong>2,500 trainees</strong><span>the Specialized Programs</span>': '<strong>2,500+ Professionals Trained</strong><span>Across specialized professional programs</span>',
+            '<strong>20 Search</strong><span>A scientific publication.</span>': '<strong>20+ Publications</strong><span>Research and scientific publications</span>',
+            'The executive map of the march': 'Professional Journey',
+            'Six interconnected stages that lead from knowledge to impact': 'Six interconnected stages from knowledge to organizational impact',
+            'The page presents the march as a single sequence: a strong scientific foundation, executive leadership, knowledge production, capacity building, industry excellence, and then leading the scientific and professional presence.': 'The journey connects academic foundations, executive experience, research, capability building, excellence systems and professional leadership.',
+            '<h3>Education and Certifications</h3><small>Basis</small>': '<h3>Education &amp; Professional Credentials</h3><small>Foundation</small>',
+            '<h3>Executive experience</h3>': '<h3>Executive Experience</h3>',
+            '<h3>Research and knowledge</h3><small>Production</small>': '<h3>Research &amp; Knowledge</h3><small>Knowledge Creation</small>',
+            '<h3>Capacity-building</h3>': '<h3>Capability Building</h3>',
+            '<h3>Awards and Excellence</h3>': '<h3>Awards &amp; Organizational Excellence</h3>',
+            '<h3>Conferences</h3><small>Scientific presence</small>': '<h3>Conferences &amp; Professional Leadership</h3><small>Professional &amp; Academic Engagement</small>',
+            'Education and professional accreditation': 'Education &amp; Professional Credentials',
+            'A scientific base that made the language of leadership and quality': 'A multidisciplinary foundation in nursing, quality and organizational performance',
+            'From nursing to quality management and then PhD in quality and productivity, supported by professional accreditations in quality, excellence, safety and analysis.': 'Academic development spanning nursing, quality management, and quality and productivity, complemented by professional certifications in healthcare quality, excellence, patient safety and performance improvement.',
+            'Accreditations and major professional certifications': 'Major Professional Certifications &amp; Credentials',
+            'Certified Board in Infection Control and Epidemiology': 'Certified in Infection Control and Epidemiology (CIC®)',
+            'American Health Care Research and Quality Agency (AHRQ)': 'Agency for Healthcare Research and Quality (AHRQ)',
+            'Advanced Statistics and Analysis Using SPSS': 'Advanced Statistics and Data Analysis Using SPSS',
+            'Executive experience and major projects': 'Executive Experience &amp; Major Transformation Initiatives',
+            'Driving complete systems, not single projects': 'Building systems, not isolated projects',
+            'The executable value is shown in the size of the scope, the type of system built, and the result achieved; so the experience is shown here by impact.': 'The value of this experience is reflected in the scale of the systems developed, the complexity of the transformation, and the results achieved.',
+            'System-wide excellence programme': 'System-Wide Organizational Excellence Program',
+            'Leading excellence programs across 14 hospitals and more than 50 clinics, with shared governance, performance indicators, change management and organizational development.': 'Leading organizational excellence initiatives across 14 hospitals and more than 50 clinics, supported by shared governance, performance indicators, change management and organizational development.',
+            '250 Improvement Projects': '250+ Improvement Projects',
+            '50 Clinic': '50+ Clinics',
+            '32 Improvement Projects with Competitive Results': '32 Quality Improvement Projects with Enterprise-Level Recognition',
+            'Leading and guiding 32 quality improvement projects, with one project receiving the best Cleveland Clinic Enterprise system-wide improvement project.': 'Leading and mentoring 32 quality improvement projects, including initiatives recognized among leading improvement projects across the Cleveland Clinic enterprise.',
+            'Best Project in the System': 'Enterprise-Level Recognition',
+            'Quality System for Stem Cell Transplantation': 'Quality and Accreditation Manager for Stem Cell Transplantation',
+            'Work within the program establishment efforts in collaboration with Mayo Clinic, leading the quality management system, governance, documentation, indicators and readiness for adoption.': 'Supported the establishment of the stem cell transplantation program in collaboration with Mayo Clinic, leading quality management, accreditation readiness, governance, documentation, performance indicators and continuous improvement.',
+            'Executive Office of the Executive Director': 'Office of the Executive Director',
+            '<h3>Consultant</h3>': '<h3>Senior Business Consultant</h3>',
+            'Leading and supporting excellence projects and institutional transformation, centers of excellence, specialized institutes, operating models and performance improvement.': 'Leading and advising on organizational excellence and transformation initiatives, including Centers of Excellence, specialized institutes, operating models and performance improvement.',
+            'Specialty Operating Model': 'Specialized Care Operating Model',
+            'Specialized Institutes (Institutes)': 'Specialized Institutes',
+            'Related Indicators': 'Integrated Performance Indicators',
+            'Patient Results and Experience': 'Patient Outcomes &amp; Experience',
+            'Centers of Excellence (Centres of Excellence)': 'Centers of Excellence',
+            '<span class="chip">Bones.</span>': '<span class="chip">Orthopedics</span>',
+            '<span class="chip">Cancer.</span>': '<span class="chip">Cancer</span>',
+            'Leading Services (Flagship Services)': 'Flagship Clinical Services',
+            'Patient-related findings': 'Patient-Reported Outcomes',
+            'Complex Case Teams': 'Multidisciplinary Teams for Complex Cases',
+            'Excellence in Clinical Documentation': 'Clinical Documentation Excellence',
+            'Financial impact achieved by improving the quality of clinical documentation and accuracy of data, raising the index of severity and difficulty of cases and linking this to the revenue cycle.': 'Financial impact achieved by improving clinical documentation quality and data accuracy, strengthening the documentation of severity of illness and case complexity, and linking these improvements to the revenue cycle.',
+            'Research and Cognitive Leadership': 'Research &amp; Knowledge Leadership',
+            'Research as a tool for decision-making and improving practice': 'Research as a driver of better decisions and clinical practice',
+            'Research expertise combines scientific production, leadership of research programs, mentorship, and linking research to the Foundation’s results.': 'Research expertise combines research output, leadership of research programs, mentorship, and alignment of research with organizational priorities and outcomes.',
+            '<strong>+20</strong><span>Scientific research and publication</span>': '<strong>20+</strong><span>Research Publications</span>',
+            'Building research capacity': 'Research Capacity Building',
+            'Leading a program of research guidance and linking research to the results of the institution and developing new researchers.': 'Leading research mentorship and capacity-building initiatives that connect research with organizational priorities and support the development of emerging researchers.',
+            'Training, development and capacity-building': 'Professional Development &amp; Capability Building',
+            'Transforming training into sustainable institutional capacity': 'Transforming learning into sustainable organizational capability',
+            'The goal is not the number of training hours, but rather that the trainee and the team become able to improve work and lead change from within the organization.': 'The goal is not the number of training hours, but the ability of professionals and teams to improve practice and lead change from within the organization.',
+            '<strong>+2500</strong><span>Trained in specialized programs</span>': '<strong>2,500+</strong><span>Professionals Trained</span>',
+            'Applied programs in quality, improvement, leadership and safety': 'Applied Programs in Quality, Improvement, Leadership &amp; Patient Safety',
+            'Green Belt in Six Sigma': 'Lean Six Sigma Green Belt',
+            'Yellow Belt in Six Sigma': 'Lean Six Sigma Yellow Belt',
+            'Improvement Model and Project Management': 'Model for Improvement &amp; Project Management',
+            'Capacity building is not a separate training activity; it is a transformational tool that makes an organization less dependent on experts and better able to improve itself.': 'Capability building is not a separate training activity; it is a transformation mechanism that strengthens an organization’s ability to improve, adapt and sustain performance from within.',
+            'Awards and Institutional Excellence': 'Awards &amp; Organizational Excellence',
+            'From the application of excellence standards to the establishment of recognition systems': 'From applying excellence frameworks to designing recognition systems',
+            'This expertise combines assessment, organisation preparation, award criteria design, and leading initiatives that make excellence measurable and scalable.': 'This experience combines assessment, organizational readiness, award-criteria design and leadership of initiatives that make excellence measurable and scalable.',
+            'Founder and Chairman': 'Founder &amp; Chair',
+            'Head of Professional Category – Emirates Ladies Award': 'Head of the Professional Category – Emirates Women Award',
+            'Head of Women Empowerment for Enterprises': 'Head of the Women Empowerment in Organizations Category',
+            'the Emirates Innovation Award': 'UAE Innovation Award',
+            'Evaluate organizational innovation, maturity and ability to turn ideas into results.': 'Assessing organizational innovation maturity and the ability to convert ideas into measurable results.',
+            'Dubai Quality Award Sheikh Khalifa Excellence Award': 'Dubai Quality Award &amp; Sheikh Khalifa Excellence Award',
+            'Award is a way to build a stronger system': 'Awards as a catalyst for stronger organizational systems',
+            'Focus on leaving behind better leadership, more mature processes and more sustainable results.': 'Using recognition frameworks to strengthen leadership, mature organizational processes and sustain better results.',
+            '<span>Attendance</span>': '<span>Professional Leadership</span>',
+            'Conferences and Scientific Leadership': 'Conferences &amp; Professional Leadership',
+            'From Professional Engagement to Leading Science Platforms': 'From professional participation to leading scientific and professional platforms',
+            'The scientific presence included international representation, the presidency of scientific conferences and programs, and lectures in quality, leadership, safety and institutional change.': 'Professional and academic engagement has included international representation, leadership of scientific conferences and programs, and speaking engagements in quality, leadership, patient safety and organizational change.',
+            '<strong>+5</strong><span>International conferences chaired or led by its scientific programs and committees</span>': '<strong>5+</strong><span>International conferences chaired or supported through scientific leadership roles</span>',
+            'the U S Magnet Conference': 'ANCC National Magnet Conference®',
+            'the Infection Control Conferences': 'Infection Prevention and Control Conferences',
+            'Lectures and participations on change management, performance indicators, teamwork, communication and patient safety.': 'Presentations and speaking engagements on change management, performance indicators, teamwork, communication and patient safety.',
+            'The march is not measured by the number of positions, but by the size of the systems that were built, the capabilities that were developed, and the results that continued after the project ended.': 'A professional journey is measured not by the number of positions held, but by the systems built, the capabilities strengthened, and the results sustained beyond individual projects.',
+            'Knowledge and consultancy in institutional excellence, transformation, quality and innovation.': 'Knowledge and consulting in organizational excellence, transformation, quality and innovation.',
+            '>Professional experience<': '>Professional Expertise<',
+            'Executive expertise in institutional excellence, transformation, quality, innovation, research and capacity building.': 'Professional expertise in organizational excellence, transformation, quality, innovation, research and capability building.',
+            'Institutional Excellence': 'Organizational Excellence',
+            'Institutional transformation': 'Organizational Transformation',
+            'Capacity-building': 'Capability Building',
+            'institutional transformation': 'organizational transformation',
+            'institutional excellence': 'organizational excellence',
+            '<meta content="الدكتور علاء محمد أحمد" name="author"/>': '<meta content="Dr. Alaa Mohammad Ahmed" name="author"/>',
+            '<meta content="التميّز 10X | Tamayuz 10X" property="og:site_name"/>': '<meta content="Tamayuz 10X" property="og:site_name"/>',
+            'Dr. Alaa Mohammad Ahmed  Executive Biography and Experience in Excellence and Quality  Tamayuz 10X  Tamayuz 10X': 'Dr. Alaa Mohammad Ahmed | Professional Biography | Tamayuz 10X',
+            'Dr. Alaa Mohammad Ahmed  Executive Biography  Tamayuz 10X  Tamayuz 10X': 'Dr. Alaa Mohammad Ahmed | Professional Biography | Tamayuz 10X',
+            'https://tamayuz10x.com/../assets/images/alaa-mohammad-ahmad-profile-hq.webp': 'https://tamayuz10x.com/assets/images/alaa-mohammad-ahmad-profile-hq.webp',
+            '"jobTitle":"Executive leader and expert in corporate excellence, transformation, quality and innovation"': '"jobTitle":"Senior Business Consultant | Organizational Excellence, Transformation, Quality and Innovation"',
+            'Tamayuz 10X Tamayuz 10X': 'Tamayuz 10X',
+          }
+
+          for old, new in replacements.items():
+              text = text.replace(old, new)
+
+          page_path.write_text(text, encoding='utf-8')
+
+          # Make the global share component language-aware so English pages never receive Arabic sharing UI.
+          js_path = Path('assets/js/site-engagement.js')
+          js = js_path.read_text(encoding='utf-8')
+          old = '''    const encodedText = encodeURIComponent(shareText);\n    const box = document.createElement('section');\n    box.className = 'tenx-share-box';\n    box.setAttribute('aria-label', 'مشاركة الصفحة');\n    box.innerHTML = `\n      <div class="tenx-share-copy"><span>شارك المعرفة</span><h2>وجدت هذه الصفحة مفيدة؟ شاركها مع من قد يستفيد منها.</h2><p>المعرفة تصبح أكثر قيمة عندما تنتقل.</p></div>'''
+          new = '''    const encodedText = encodeURIComponent(shareText);\n    const isEnglish = (document.documentElement.lang || '').toLowerCase().startsWith('en');\n    const shareLabel = isEnglish ? 'Share the Knowledge' : 'شارك المعرفة';\n    const shareHeading = isEnglish ? 'Found this page useful? Share it with someone who may benefit.' : 'وجدت هذه الصفحة مفيدة؟ شاركها مع من قد يستفيد منها.';\n    const shareIntro = isEnglish ? 'Knowledge creates greater value when it is shared.' : 'المعرفة تصبح أكثر قيمة عندما تنتقل.';\n    const shareAria = isEnglish ? 'Share this page' : 'مشاركة الصفحة';\n    const box = document.createElement('section');\n    box.className = 'tenx-share-box';\n    box.setAttribute('aria-label', shareAria);\n    box.innerHTML = `\n      <div class="tenx-share-copy"><span>${shareLabel}</span><h2>${shareHeading}</h2><p>${shareIntro}</p></div>'''
+          if old not in js:
+              raise SystemExit('Could not locate share box source block')
+          js = js.replace(old, new, 1)
+          js = js.replace("copy.textContent = 'نسخ الرابط';", "copy.textContent = isEnglish ? 'Copy Link' : 'نسخ الرابط';")
+          js = js.replace("native.textContent = 'مشاركة أخرى';", "native.textContent = isEnglish ? 'More Sharing Options' : 'مشاركة أخرى';")
+          js = js.replace("note.textContent = 'على الهاتف، يتيح «مشاركة أخرى» اختيار التطبيقات المتاحة على جهازك، ومنها Instagram عندما يدعم الجهاز المشاركة إليها.';", "note.textContent = isEnglish ? 'On mobile, More Sharing Options lets you choose from the sharing apps available on your device, including Instagram when supported.' : 'على الهاتف، يتيح «مشاركة أخرى» اختيار التطبيقات المتاحة على جهازك، ومنها Instagram عندما يدعم الجهاز المشاركة إليها.';")
+          js_path.write_text(js, encoding='utf-8')
+
+          # Editorial quality gate.
+          final = page_path.read_text(encoding='utf-8')
+          required = [
+              'Senior Business Consultant',
+              'Quality and Accreditation Manager for Stem Cell Transplantation',
+              'Organizational Excellence',
+              'Capability Building',
+              'Research &amp; Knowledge Leadership',
+              'Professional Journey',
+              'Clinical Documentation Excellence',
+              'ANCC National Magnet Conference®',
+          ]
+          forbidden = [
+              'Executive leader and expert in corporate excellence',
+              'The executive map of the march',
+              '20 Search',
+              '50 Clinic<',
+              'Quality System for Stem Cell Transplantation',
+              '<h3>Consultant</h3>',
+              'Research and Cognitive Leadership',
+              '<span>Attendance</span>',
+              'the U S Magnet Conference',
+              'Knowledge and consultancy in institutional excellence',
+              'Tamayuz 10X Tamayuz 10X',
+          ]
+          missing = [x for x in required if x not in final]
+          remaining = [x for x in forbidden if x in final]
+          if missing or remaining:
+              raise SystemExit(f'Quality gate failed. Missing={missing}; forbidden_remaining={remaining}')
+          print('English About editorial gate passed.')
+          PY
+      - name: Commit editorial polish
+        run: |
+          if git diff --quiet -- en/about.html assets/js/site-engagement.js; then
+            echo 'No changes required.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add en/about.html assets/js/site-engagement.js
+          git commit -m 'Polish English About page and localize sharing UI'
+          git push origin HEAD:main
