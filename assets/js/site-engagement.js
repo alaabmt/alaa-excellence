@@ -284,11 +284,16 @@
     const encodedUrl = encodeURIComponent(canonical);
     const shareText = `${title} — التميّز 10X`;
     const encodedText = encodeURIComponent(shareText);
+    const isEnglish = (document.documentElement.lang || '').toLowerCase().startsWith('en');
+    const shareLabel = isEnglish ? 'Share the Knowledge' : 'شارك المعرفة';
+    const shareHeading = isEnglish ? 'Found this page useful? Share it with someone who may benefit.' : 'وجدت هذه الصفحة مفيدة؟ شاركها مع من قد يستفيد منها.';
+    const shareIntro = isEnglish ? 'Knowledge creates greater value when it is shared.' : 'المعرفة تصبح أكثر قيمة عندما تنتقل.';
+    const shareAria = isEnglish ? 'Share this page' : 'مشاركة الصفحة';
     const box = document.createElement('section');
     box.className = 'tenx-share-box';
-    box.setAttribute('aria-label', 'مشاركة الصفحة');
+    box.setAttribute('aria-label', shareAria);
     box.innerHTML = `
-      <div class="tenx-share-copy"><span>شارك المعرفة</span><h2>وجدت هذه الصفحة مفيدة؟ شاركها مع من قد يستفيد منها.</h2><p>المعرفة تصبح أكثر قيمة عندما تنتقل.</p></div>
+      <div class="tenx-share-copy"><span>${shareLabel}</span><h2>${shareHeading}</h2><p>${shareIntro}</p></div>
       <div class="tenx-share-actions">
         <a class="tenx-share-btn tenx-share-primary" href="https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         <a class="tenx-share-btn" href="https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}" target="_blank" rel="noopener noreferrer">Facebook</a>
