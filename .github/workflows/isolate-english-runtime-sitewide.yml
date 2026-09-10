@@ -1,0 +1,137 @@
+name: Isolate English runtime site-wide
+
+on:
+  push:
+    paths:
+      - '.github/workflows/isolate-english-runtime-sitewide.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  isolate-english-runtime:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Read governing standards
+        run: |
+          test -s 10X_Agent_AI_Master_Operating_Manual_AR.md
+          test -s BILINGUAL-SITE-PARITY-STANDARD.md
+          echo 'Governing standards loaded.'
+
+      - name: Remove Arabic-only runtime scripts from English pages
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from bs4 import BeautifulSoup
+          import re
+
+          arabic_only = {
+              'arabic-tts-standard.js',
+              'arabic-tts-tanween-fix.js',
+              'ega-audio-player-v5.js',
+              'ega-audio-player-v7.js',
+              'ega-pronunciation-fixes.js',
+              'ega-pronunciation-test.js',
+              'ega-visible-diacritics.js',
+              'homepage-philosophy.js',
+          }
+          changed = []
+          for path in sorted(Path('en').glob('*.html')):
+              raw = path.read_text(encoding='utf-8')
+              soup = BeautifulSoup(raw, 'html.parser')
+              removed = []
+              for script in list(soup.find_all('script', src=True)):
+                  src = script.get('src', '')
+                  filename = src.split('?')[0].rstrip('/').split('/')[-1]
+                  if filename in arabic_only:
+                      removed.append(filename)
+                      script.decompose()
+              if not removed:
+                  continue
+              out = str(soup)
+              if raw.lstrip().lower().startswith('<!doctype') and not out.lstrip().lower().startswith('<!doctype'):
+                  out = '<!doctype html>\n' + out
+              path.write_text(out, encoding='utf-8')
+              changed.append((str(path), removed))
+          for path, removed in changed:
+              print(path + ': removed ' + ', '.join(removed))
+          print('English pages changed:', len(changed))
+          PY
+
+      - name: Make shared article engagement language-aware
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path('assets/js/site-engagement.js')
+          s = path.read_text(encoding='utf-8')
+          if "const IS_ENGLISH_PAGE" not in s:
+              marker = "  const AUTHOR_NAME = 'الدكتور علاء محمد أحمد';\n  const AUTHOR_URL = 'about.html';\n  const AUTHOR_IMAGE = 'assets/images/alaa-mohammad-ahmad-profile-hq.webp';\n"
+              block = "  const PAGE_LANG = (document.documentElement.lang || '').toLowerCase();\n  const IS_ENGLISH_PAGE = PAGE_LANG === 'en' || PAGE_LANG.startsWith('en-');\n  const AUTHOR_NAME = IS_ENGLISH_PAGE ? 'Dr. Alaa Mohammad Ahmed' : 'الدكتور علاء محمد أحمد';\n  const AUTHOR_URL = IS_ENGLISH_PAGE ? '/en/about.html' : '/about.html';\n  const AUTHOR_IMAGE = '/assets/images/alaa-mohammad-ahmad-profile-hq.webp';\n"
+              if marker not in s:
+                  raise SystemExit('Could not locate author constants in site-engagement.js')
+              s = s.replace(marker, block, 1)
+          path.write_text(s, encoding='utf-8')
+          PY
+
+      - name: Audit English pages for Arabic leakage and language metadata
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from bs4 import BeautifulSoup, Comment
+          import re, sys
+
+          ar = re.compile(r'[\u0600-\u06FF]')
+          failures = []
+          allowed_exact = {'العربية'}
+          for path in sorted(Path('en').glob('*.html')):
+              soup = BeautifulSoup(path.read_text(encoding='utf-8'), 'html.parser')
+              if not soup.html or soup.html.get('lang') != 'en' or soup.html.get('dir') != 'ltr':
+                  failures.append(f'{path}: invalid lang/dir')
+              for tag in soup(['script','style','noscript','svg']):
+                  tag.decompose()
+              for node in soup.find_all(string=True):
+                  if isinstance(node, Comment):
+                      continue
+                  text = ' '.join(str(node).split())
+                  if not text or not ar.search(text):
+                      continue
+                  parent = node.parent
+                  explicitly_arabic = bool(parent and (parent.get('lang') == 'ar' or parent.find_parent(attrs={'lang':'ar'})))
+                  if text in allowed_exact or explicitly_arabic:
+                      continue
+                  failures.append(f'{path}: visible Arabic leakage: {text[:100]}')
+              for tag in soup.find_all(True):
+                  for attr in ('title','alt','aria-label','placeholder'):
+                      value = ' '.join(str(tag.get(attr, '')).split())
+                      if value and ar.search(value) and value not in allowed_exact and tag.get('lang') != 'ar':
+                          failures.append(f'{path}: Arabic in {attr}: {value[:100]}')
+          if failures:
+              print('\n'.join(failures), file=sys.stderr)
+              raise SystemExit(1)
+          print('English visible-language audit passed.')
+          PY
+
+      - name: Verify shared runtime guards
+        run: |
+          grep -F "if (!isArabicPage) return;" assets/js/main.js
+          grep -F "const IS_ENGLISH_PAGE" assets/js/site-engagement.js
+
+      - name: Commit site-wide English isolation
+        run: |
+          if git diff --quiet -- en assets/js/site-engagement.js; then
+            echo 'Site-wide English runtime isolation already applied.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add en assets/js/site-engagement.js
+          git commit -m 'Isolate Arabic runtime from English site edition'
+          git pull --rebase origin main
+          git push origin HEAD:main
