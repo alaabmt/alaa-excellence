@@ -14,6 +14,7 @@ on:
       - 'en/*.html'
       - 'scripts/bilingual_sync.py'
       - 'scripts/normalize_language_pairs.py'
+      - 'scripts/enforce_language_runtime_isolation.py'
       - '.github/workflows/bilingual-site-sync.yml'
       - '10X_Agent_AI_Master_Operating_Manual_AR.md'
       - 'ARABIC-LANGUAGE-AND-TTS-STANDARD.md'
@@ -89,6 +90,10 @@ jobs:
             export BILINGUAL_CHANGED_FILES="$(cat /tmp/bilingual-changed.txt)"
             python scripts/bilingual_sync.py --changed
           fi
+
+      - name: Enforce language runtime isolation
+        shell: bash
+        run: python scripts/enforce_language_runtime_isolation.py --fix
 
       - name: Validate structural parity
         shell: bash
@@ -177,4 +182,4 @@ jobs:
           echo '## Tamayuz 10X bilingual synchronization' >> "$GITHUB_STEP_SUMMARY"
           echo "Mode: ${{ steps.mode.outputs.mode }}" >> "$GITHUB_STEP_SUMMARY"
           echo "Repository head after run: $(git rev-parse HEAD)" >> "$GITHUB_STEP_SUMMARY"
-          echo 'Arabic and English pages are required to remain structurally paired.' >> "$GITHUB_STEP_SUMMARY"
+          echo 'Arabic and English pages are required to remain structurally paired and runtime language-isolated.' >> "$GITHUB_STEP_SUMMARY"
