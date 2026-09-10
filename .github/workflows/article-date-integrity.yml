@@ -1,0 +1,46 @@
+name: Article date integrity
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'articles.html'
+      - 'en/articles.html'
+      - 'case-*.html'
+      - 'article-*.html'
+      - 'idea-*.html'
+      - 'en/case-*.html'
+      - 'en/article-*.html'
+      - 'en/idea-*.html'
+      - 'data/article-publication-dates.json'
+      - 'scripts/check_article_dates.py'
+      - '.github/workflows/article-date-integrity.yml'
+  pull_request:
+    paths:
+      - 'articles.html'
+      - 'en/articles.html'
+      - 'case-*.html'
+      - 'article-*.html'
+      - 'idea-*.html'
+      - 'en/case-*.html'
+      - 'en/article-*.html'
+      - 'en/idea-*.html'
+      - 'data/article-publication-dates.json'
+      - 'scripts/check_article_dates.py'
+      - '.github/workflows/article-date-integrity.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-dates:
+    name: Validate publication-date integrity
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate dates across article pages and indexes
+        run: python scripts/check_article_dates.py
