@@ -1,4 +1,5 @@
 import { currentSession } from './assessment-auth-client.js';
+import { startAssessmentAttempt } from './assessment-attempts-client.js';
 
 function message(lang, key) {
   const ar = {
@@ -18,21 +19,28 @@ function renderStatus(text, lang) {
   document.body.innerHTML = `<main style="max-width:720px;margin:10vh auto;padding:24px;font-family:system-ui,sans-serif;line-height:1.8;text-align:${lang === 'ar' ? 'right' : 'left'}"><p>${text}</p></main>`;
 }
 
-function assessmentKey(asset) {
+function assessmentKeyFor(asset) {
   return asset === 'lpp' ? 'learning-preference-profile' : 'work-approach-assessment';
 }
 
-async function ensureAttempt(client, asset) {
-  const key = assessmentKey(asset);
-  const storageKey = `tamayuz10x-attempt:${key}`;
-  const existing = sessionStorage.getItem(storageKey);
-  if (existing) return existing;
-  const { data, error } = await client.functions.invoke('assessment-attempts', {
-    body: { assessment_key: key }
-  });
-  if (error || !data?.attempt?.id) throw error || new Error('ATTEMPT_CREATE_FAILED');
-  sessionStorage.setItem(storageKey, data.attempt.id);
-  return data.attempt.id;
+async function ensureAttempt(asset) {
+  const assessmentKey = assessmentKeyFor(asset);
+  const storageKey = `tamayuz10x-current-attempt:${assessmentKey}`;
+  try {
+    const existing = JSON.parse(sessionStorage.getItem(storageKey) || 'null');
+    if (existing?.id && existing?.assessmentKey === assessmentKey && !existing?.completed) return existing;
+  } catch (_) {}
+
+  const data = await startAssessmentAttempt(assessmentKey);
+  const attempt = {
+    id: data?.attempt?.id,
+    assessmentKey,
+    startedAt: data?.attempt?.started_at || new Date().toISOString(),
+    completed: false
+  };
+  if (!attempt.id) throw new Error('ATTEMPT_ID_MISSING');
+  sessionStorage.setItem(storageKey, JSON.stringify(attempt));
+  return attempt;
 }
 
 export async function loadProtectedAssessment(asset, options = {}) {
@@ -40,7 +48,7 @@ export async function loadProtectedAssessment(asset, options = {}) {
   const lang = options.lang || (document.documentElement.lang === 'ar' ? 'ar' : 'en');
   try {
     renderStatus(message(lang, 'loading'), lang);
-    const { client, session } = await currentSession();
+    const { session } = await currentSession();
     if (!session) {
       const next = encodeURIComponent(location.pathname + location.search + location.hash);
       location.replace(`${cfg.loginPath || '/account/login.html'}?lang=${lang}&next=${next}`);
@@ -52,12 +60,24 @@ export async function loadProtectedAssessment(asset, options = {}) {
       return;
     }
 
-    await ensureAttempt(client, asset);
-    const { data: html, error } = await client.functions.invoke('assessment-content', {
-      body: { asset },
-      responseType: 'text'
+    await ensureAttempt(asset);
+
+    if (!cfg.protectedContentEndpoint) throw new Error('CONTENT_ENDPOINT_NOT_CONFIGURED');
+    const url = new URL(cfg.protectedContentEndpoint);
+    url.searchParams.set('asset', asset);
+    const response = await fetch(url, {
+      method: 'GET',
+      mode: 'cors',
+      credentials: 'omit',
+      headers: { Authorization: `Bearer ${session.access_token}` }
     });
-    if (error || typeof html !== 'string') throw error || new Error('CONTENT_UNAVAILABLE');
+    if (response.status === 401) {
+      const next = encodeURIComponent(location.pathname + location.search + location.hash);
+      location.replace(`${cfg.loginPath || '/account/login.html'}?lang=${lang}&next=${next}`);
+      return;
+    }
+    if (!response.ok) throw new Error(`CONTENT_${response.status}`);
+    const html = await response.text();
     document.open();
     document.write(html);
     document.close();
