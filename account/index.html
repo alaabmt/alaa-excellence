@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow">
+<title>حسابي | التميّز 10X</title>
+<link rel="stylesheet" href="/assets/css/style.css">
+<style>body{background:#f5f7fa}.account-shell{width:min(760px,calc(100% - 32px));margin:6vh auto}.card{background:#fff;border:1px solid #dfe6ee;border-radius:22px;padding:26px;margin:14px 0}.row{display:flex;justify-content:space-between;gap:14px;align-items:center;flex-wrap:wrap}.btn{border:0;border-radius:11px;padding:11px 16px;background:#0b2545;color:#fff;font:inherit;font-weight:800;cursor:pointer}.muted{color:#64748b}.attempt{border-top:1px solid #e5eaf0;padding:12px 0}.attempt:first-child{border-top:0}</style>
+<script src="/assets/js/auth-config.js"></script>
+</head>
+<body><main class="account-shell"><div class="card"><div class="row"><div><h1 id="title">حسابي</h1><p class="muted" id="identity">جارٍ تحميل بيانات الحساب…</p></div><button class="btn" id="logout">تسجيل الخروج</button></div></div><div class="card"><h2 id="historyTitle">محاولاتي في التقييمات</h2><div id="history" class="muted">جارٍ التحميل…</div></div><p><a id="back" href="/personality.html">العودة إلى مختبر اكتشاف الذات</a></p></main>
+<script type="module">
+import { currentSession } from '/assets/js/assessment-auth-client.js';
+const lang=new URLSearchParams(location.search).get('lang')==='en'?'en':'ar';
+document.documentElement.lang=lang;document.documentElement.dir=lang==='ar'?'rtl':'ltr';
+if(lang==='en'){document.title='My account | Tamayuz 10X';title.textContent='My account';historyTitle.textContent='My assessment attempts';logout.textContent='Sign out';back.textContent='Back to the Self-Discovery Lab';back.href='/en/personality.html';}
+try{
+ const {client,session}=await currentSession();
+ if(!session){location.replace(`/account/login.html?lang=${lang}&next=${encodeURIComponent('/account/?lang='+lang)}`);}
+ else{
+   const [{data:profile},{data:attempts,error}]=await Promise.all([
+     client.from('profiles').select('username,full_name').eq('id',session.user.id).maybeSingle(),
+     client.from('assessment_attempts').select('assessment_key,status,started_at,completed_at').order('started_at',{ascending:false}).limit(20)
+   ]);
+   identity.textContent=[profile?.full_name,profile?.username?`@${profile.username}`:null,session.user.email].filter(Boolean).join(' · ');
+   if(error) throw error;
+   if(!attempts?.length){history.textContent=lang==='ar'?'لا توجد محاولات محفوظة حتى الآن.':'No saved assessment attempts yet.';}
+   else{history.innerHTML=attempts.map(a=>`<div class="attempt"><strong>${a.assessment_key==='learning-preference-profile'?(lang==='ar'?'بصمتك في التعلّم':'Learning Style Profile'):(lang==='ar'?'تقييم أسلوب العمل':'Work Approach Assessment')}</strong><br><span class="muted">${a.status} · ${new Date(a.started_at).toLocaleString(lang==='ar'?'ar':'en')}</span></div>`).join('');}
+   logout.onclick=async()=>{await client.auth.signOut();location.replace(lang==='ar'?'/personality.html':'/en/personality.html');};
+ }
+}catch(e){console.error(e);identity.textContent=lang==='ar'?'تعذر تحميل الحساب.':'Could not load account.';history.textContent='';}
+</script></body></html>
