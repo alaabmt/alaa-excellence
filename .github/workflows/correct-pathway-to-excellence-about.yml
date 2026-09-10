@@ -1,0 +1,62 @@
+name: Correct Pathway to Excellence experience
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/correct-pathway-to-excellence-about.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Apply approved Pathway to Excellence wording
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('en/about.html')
+          s = p.read_text(encoding='utf-8')
+
+          old_seha = '''<p>Leading organizational excellence initiatives across 14 hospitals and more than 50 clinics, supported by shared governance, performance indicators, change management and organizational development.</p><div class="chips"><span class="chip gold">250+ Improvement Projects</span><span class="chip">14 Hospitals</span><span class="chip">50+ Clinics</span></div>'''
+          new_seha = '''<p>Leading organizational excellence initiatives across 14 hospitals and more than 50 clinics, including leadership of the Pathway to Excellence Program, supported by shared governance, performance indicators, change management and organizational development.</p><div class="chips"><span class="chip gold">250+ Improvement Projects</span><span class="chip">Pathway to Excellence Program</span><span class="chip">14 Hospitals</span><span class="chip">50+ Clinics</span></div>'''
+
+          old_conf = '''<article class="conf-card"><h3>Path of Excellence Conference – USA</h3><p>Participated as a representative of Abu Dhabi Health and supported the transfer of leading practices into excellence programs.</p></article>'''
+          new_conf = '''<article class="conf-card"><h3>Pathway to Excellence Conference – USA</h3><p>Participated as a representative of Abu Dhabi Health, supporting the Pathway to Excellence Program and transferring relevant practices into nursing and organizational excellence initiatives.</p></article>'''
+
+          if old_seha not in s:
+              raise SystemExit('SEHA wording not found')
+          if old_conf not in s:
+              raise SystemExit('Conference wording not found')
+
+          s = s.replace(old_seha, new_seha, 1)
+          s = s.replace(old_conf, new_conf, 1)
+          p.write_text(s, encoding='utf-8')
+          PY
+      - name: Verify corrections
+        run: |
+          grep -q 'including leadership of the Pathway to Excellence Program' en/about.html
+          grep -q '>Pathway to Excellence Program<' en/about.html
+          grep -q 'Pathway to Excellence Conference – USA' en/about.html
+          if grep -q 'Path of Excellence Conference' en/about.html; then
+            echo 'Old mistranslated conference title remains' >&2
+            exit 1
+          fi
+      - name: Commit changes
+        run: |
+          if git diff --quiet; then
+            echo 'No changes required.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add en/about.html
+          git commit -m 'Correct Pathway to Excellence program and conference'
+          git push origin main
