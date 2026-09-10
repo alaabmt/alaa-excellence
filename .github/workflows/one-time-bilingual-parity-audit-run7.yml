@@ -1,0 +1,122 @@
+name: One-time bilingual parity synchronization audit
+on:
+  push:
+    paths:
+      - '.github/workflows/one-time-bilingual-parity-audit-run7.yml'
+permissions:
+  contents: write
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 50
+      - name: Read governing standards
+        run: |
+          test -s 10X_Agent_AI_Master_Operating_Manual_AR.md
+          test -s BILINGUAL-SITE-PARITY-STANDARD.md
+          test -s ARABIC-LANGUAGE-AND-TTS-STANDARD.md
+          cat 10X_Agent_AI_Master_Operating_Manual_AR.md >/dev/null
+          cat BILINGUAL-SITE-PARITY-STANDARD.md >/dev/null
+          cat ARABIC-LANGUAGE-AND-TTS-STANDARD.md >/dev/null
+      - name: Apply unambiguous shared-component parity fixes and audit all public pairs
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re, sys
+
+          EXCLUDE={'contact-madar.html'}
+          root=sorted(p for p in Path('.').glob('*.html') if p.name not in EXCLUDE)
+          en=sorted(Path('en').glob('*.html'))
+          rnames={p.name for p in root}; enames={p.name for p in en}
+          print(f'INVENTORY Arabic={len(root)} English={len(en)}')
+          failures=[]
+          for n in sorted(rnames-enames): failures.append(f'MISSING English: en/{n}')
+          for n in sorted(enames-rnames): failures.append(f'MISSING Arabic: {n}')
+
+          # Recent shared engagement component was added to Arabic copies only.
+          # Propagate the same shared component to the counterpart without touching prose.
+          for name in sorted(rnames & enames):
+              ap=Path(name); ep=Path('en')/name
+              a=ap.read_text(encoding='utf-8'); e=ep.read_text(encoding='utf-8')
+              ah='site-engagement.js' in a; eh='site-engagement.js' in e
+              if ah and not eh:
+                  tag='<script src="../assets/js/site-engagement.js?v=20260907-engage1"></script>'
+                  if '</body>' in e:
+                      e=e.replace('</body>',tag+'</body>',1)
+                      ep.write_text(e,encoding='utf-8')
+                      print('FIX shared engagement ->',ep)
+              elif eh and not ah:
+                  tag='<script src="assets/js/site-engagement.js?v=20260907-engage1"></script>'
+                  if '</body>' in a:
+                      a=a.replace('</body>',tag+'</body>',1)
+                      ap.write_text(a,encoding='utf-8')
+                      print('FIX shared engagement ->',ap)
+
+          # Seha Arabic carried a legacy page-specific audio player in addition to the
+          # newer shared bilingual engagement/audio component. Remove only the legacy
+          # duplicate UI/inline player so both languages use the same shared component.
+          sp=Path('case-seha-virtual-hospital-expertise-network.html')
+          if sp.exists():
+              s=sp.read_text(encoding='utf-8')
+              old=s
+              s=re.sub(r'<div class="audio-box"[^>]*>.*?</div>', '', s, count=1, flags=re.S)
+              s=re.sub(r'<div class="floating-audio"[^>]*id="floatingAudio".*?</div>', '', s, count=1, flags=re.S)
+              s=re.sub(r'<div class="tts-source"[^>]*>.*?</div>', '', s, count=1, flags=re.S)
+              s=re.sub(r'<script>\(function\(\)\{const items=\[\.\.\.document\.querySelectorAll\(\'\[data-tts-id\]\'\)\].*?</script>', '', s, count=1, flags=re.S)
+              if s!=old:
+                  sp.write_text(s,encoding='utf-8')
+                  print('FIX removed duplicate legacy Seha audio player')
+
+          def attr_link(text, rel=None, hreflang=None):
+              for m in re.finditer(r'<link\b[^>]*>',text,re.I):
+                  tag=m.group(0)
+                  if rel and not re.search(r'\brel=["\'][^"\']*'+re.escape(rel)+r'[^"\']*["\']',tag,re.I): continue
+                  if hreflang and not re.search(r'\bhreflang=["\']'+re.escape(hreflang)+r'["\']',tag,re.I): continue
+                  hm=re.search(r'\bhref=["\']([^"\']+)',tag,re.I)
+                  if hm:return hm.group(1)
+              return None
+          def tagseq(text): return re.findall(r'<(main|section|article|aside|footer)\b',text,re.I)
+          def count_tag(text,t): return len(re.findall(r'<'+t+r'\b',text,re.I))
+          def visible_switch(text, code, href):
+              return bool(re.search(r'<a\b(?=[^>]*\bhreflang=["\']'+code+r'["\'])(?=[^>]*\bhref=["\']'+re.escape(href)+r'["\'])[^>]*>',text,re.I))
+
+          for name in sorted(rnames & enames):
+              ap=Path(name); ep=Path('en')/name
+              a=ap.read_text(encoding='utf-8'); e=ep.read_text(encoding='utf-8')
+              if not re.search(r'<html\b[^>]*\blang=["\']ar["\'][^>]*\bdir=["\']rtl["\']',a,re.I): failures.append(f'AR lang/dir: {name}')
+              if not re.search(r'<html\b[^>]*\blang=["\']en["\'][^>]*\bdir=["\']ltr["\']',e,re.I): failures.append(f'EN lang/dir: en/{name}')
+              arurl='https://tamayuz10x.com/' if name=='index.html' else f'https://tamayuz10x.com/{name}'
+              enurl='https://tamayuz10x.com/en/' if name=='index.html' else f'https://tamayuz10x.com/en/{name}'
+              if attr_link(a,'canonical')!=arurl: failures.append(f'AR canonical: {name}')
+              if attr_link(e,'canonical')!=enurl: failures.append(f'EN canonical: en/{name}')
+              for txt,label in ((a,name),(e,'en/'+name)):
+                  if attr_link(txt,'alternate','ar')!=arurl: failures.append(f'hreflang ar: {label}')
+                  if attr_link(txt,'alternate','en')!=enurl: failures.append(f'hreflang en: {label}')
+              ars='/en/' if name=='index.html' else f'/en/{name}'
+              ens='/' if name=='index.html' else f'/{name}'
+              if not visible_switch(a,'en',ars): failures.append(f'AR visible switch: {name}')
+              if not visible_switch(e,'ar',ens): failures.append(f'EN visible switch: en/{name}')
+              if tagseq(a)!=tagseq(e): failures.append(f'section sequence: {name}')
+              for t in ('h1','h2','h3','h4','article','aside','details','table','img','video','iframe'):
+                  if count_tag(a,t)!=count_tag(e,t): failures.append(f'{t} count mismatch: {name} ({count_tag(a,t)} vs {count_tag(e,t)})')
+              if ('site-engagement.js' in a)!=('site-engagement.js' in e): failures.append(f'shared engagement mismatch: {name}')
+
+          print('PUBLIC PAIRS',len(rnames & enames))
+          if failures:
+              print('PARITY FAILURES:',file=sys.stderr)
+              for f in failures: print(f,file=sys.stderr)
+              raise SystemExit(2)
+          print('PARITY AUDIT PASSED')
+          PY
+      - name: Commit safe synchronization changes and self-clean workflow
+        run: |
+          rm -f .github/workflows/one-time-bilingual-parity-audit-run7.yml
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add -A
+          git commit -m 'Synchronize shared bilingual components [skip bilingual-sync] [skip ci]'
+          git pull --rebase origin main
+          git push origin HEAD:main
