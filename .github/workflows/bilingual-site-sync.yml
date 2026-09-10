@@ -32,7 +32,7 @@ concurrency:
 
 jobs:
   synchronize:
-    if: github.actor != 'github-actions[bot]'
+    if: github.actor != 'github-actions[bot]' && (github.event_name == 'workflow_dispatch' || !contains(github.event.head_commit.message, '[skip bilingual-sync]'))
     runs-on: ubuntu-latest
     timeout-minutes: 360
     steps:
@@ -73,6 +73,13 @@ jobs:
           changed="$(git diff --name-only HEAD^ HEAD || true)"
           printf '%s\n' "$changed" > /tmp/bilingual-changed.txt
           echo 'mode=changed' >> "$GITHUB_OUTPUT"
+
+      - name: Refresh to latest main without losing source-change list
+        shell: bash
+        run: |
+          git fetch origin main
+          git merge --ff-only origin/main
+          echo "Synchronization base refreshed to $(git rev-parse HEAD)."
 
       - name: Normalize reciprocal page links
         shell: bash
