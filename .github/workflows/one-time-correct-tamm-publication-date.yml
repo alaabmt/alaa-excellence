@@ -1,0 +1,70 @@
+name: One-time correct Abu Dhabi case publication date
+
+on:
+  push:
+    paths:
+      - '.github/workflows/one-time-correct-tamm-publication-date.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  correct-date:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Correct publication date and remove temporary updated-first override
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          # Case pages: this version was actually published on 10 Sep 2026.
+          for path in [Path('case-tamm-autogov-ai-native-government.html'), Path('en/case-tamm-autogov-ai-native-government.html')]:
+              s = path.read_text(encoding='utf-8')
+              s = s.replace('article:published_time" content="2026-09-08', 'article:published_time" content="2026-09-10')
+              s = s.replace('"datePublished":"2026-09-08"', '"datePublished":"2026-09-10"')
+              path.write_text(s, encoding='utf-8')
+
+          # Arabic index card: correct the actual publication date.
+          p = Path('articles.html')
+          s = p.read_text(encoding='utf-8')
+          old = '<article class="article-card" data-category="case management" data-date="2026-09-08" data-href="case-tamm-autogov-ai-native-government.html" data-read-minutes="10" data-topic="الحكومة الاستباقية وبناء القدرات المستقبلية">'
+          new = '<article class="article-card" data-category="case management" data-date="2026-09-10" data-href="case-tamm-autogov-ai-native-government.html" data-read-minutes="10" data-topic="الحكومة الاستباقية وبناء القدرات المستقبلية">'
+          s = s.replace(old, new)
+          s = s.replace('<time datetime="2026-09-08">8 سبتمبر 2026</time></div><h3><a href="case-tamm-autogov-ai-native-government.html">', '<time datetime="2026-09-10">10 سبتمبر 2026</time></div><h3><a href="case-tamm-autogov-ai-native-government.html">')
+          # Remove any temporary index-repair script previously added.
+          marker = '<script data-tenx-index-repair="20260910">'
+          if marker in s:
+              start = s.index(marker)
+              end = s.find('</script>', start)
+              if end != -1:
+                  s = s[:start] + s[end + len('</script>'):]
+          p.write_text(s, encoding='utf-8')
+
+          # English index card: correct publication date and remove data-updated workaround.
+          p = Path('en/articles.html')
+          s = p.read_text(encoding='utf-8')
+          s = s.replace('data-date="2026-09-08" data-updated="2026-09-10" data-href="case-tamm-autogov-ai-native-government.html"', 'data-date="2026-09-10" data-href="case-tamm-autogov-ai-native-government.html"')
+          s = s.replace('data-date="2026-09-08" data-href="case-tamm-autogov-ai-native-government.html"', 'data-date="2026-09-10" data-href="case-tamm-autogov-ai-native-government.html"')
+          s = s.replace('<time datetime="2026-09-08">September 8, 2026.</time></div><h3><a href="/en/case-tamm-autogov-ai-native-government.html">', '<time datetime="2026-09-10">September 10, 2026.</time></div><h3><a href="/en/case-tamm-autogov-ai-native-government.html">')
+          marker = '<script data-tenx-index-repair="20260910">'
+          if marker in s:
+              start = s.index(marker)
+              end = s.find('</script>', start)
+              if end != -1:
+                  s = s[:start] + s[end + len('</script>'):]
+          p.write_text(s, encoding='utf-8')
+          PY
+      - name: Commit correction
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add case-tamm-autogov-ai-native-government.html en/case-tamm-autogov-ai-native-government.html articles.html en/articles.html
+          if git diff --cached --quiet; then
+            echo "No changes needed"
+          else
+            git commit -m "Correct Abu Dhabi case publication date to 10 September 2026 [skip bilingual-sync] [skip ci]"
+            git push
+          fi
