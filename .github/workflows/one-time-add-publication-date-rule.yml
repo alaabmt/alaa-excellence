@@ -1,0 +1,45 @@
+name: One-time add publication date rule to 10X manual
+
+on:
+  push:
+    paths:
+      - '.github/workflows/one-time-add-publication-date-rule.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  update-manual:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Append publication-date governance rule
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('10X_Agent_AI_Master_Operating_Manual_AR.md')
+          s = p.read_text(encoding='utf-8')
+          marker = '## 10.1 حوكمة تاريخ النشر والتحديث'
+          block = '''\n\n## 10.1 حوكمة تاريخ النشر والتحديث\n- تاريخ النشر `datePublished` هو **تاريخ أول إتاحة عامة فعلية للنسخة المنشورة من المادة**، ولا يُستنتج من تاريخ إنشاء الملف أو تعديله أو ترتيب البطاقة.\n- بعد النشر لا يتغير `datePublished` إلا لتصحيح خطأ واقعي موثق في تاريخ النشر الأصلي.\n- أي مراجعة لاحقة تغيّر `dateModified` فقط، ولا تُستخدم لرفع المادة في ترتيب «الأحدث» ما لم توجد واجهة مستقلة صريحة للمحتوى المحدّث حديثاً.\n- ترتيب «الأحدث» في `articles.html` و`en/articles.html` يعتمد حصراً على `datePublished`.\n- يجب أن تتطابق قيمة تاريخ النشر في جميع المواضع التالية: سجل الحقيقة `data/article-publication-dates.json`، و`data-date` في بطاقة الفهرس، و`<time datetime>` الظاهر في البطاقة، و`article:published_time`، وSchema.org `datePublished`.\n- يجب أن تحمل النسختان العربية والإنجليزية للمادة نفسها تاريخ النشر نفسه.\n- يجب ألا يكون `dateModified` أقدم من `datePublished`، ويُمنع استخدام تاريخ نشر مستقبلي.\n- أي مادة جديدة تُضاف أولاً إلى سجل `data/article-publication-dates.json`، ثم تمر عبر فحص `Article date integrity` قبل اعتماد النشر.\n- يمنع استخدام JavaScript أو أي ترتيب استثنائي لفرض مادة في أعلى قائمة «الأحدث» خلافاً لتاريخ نشرها الحقيقي.\n'''
+          if marker not in s:
+              # Place directly after section 10 so the rule governs article cards/publishing chronology.
+              anchor = '## 11. معيار العربية والصوت'
+              if anchor in s:
+                  s = s.replace(anchor, block + '\n' + anchor, 1)
+              else:
+                  s += block
+              p.write_text(s, encoding='utf-8')
+          PY
+      - name: Commit manual update
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add 10X_Agent_AI_Master_Operating_Manual_AR.md
+          if git diff --cached --quiet; then
+            echo "Manual already contains publication-date rule"
+          else
+            git commit -m "Add publication date governance to 10X operating manual [skip bilingual-sync] [skip ci]"
+            git push
+          fi
