@@ -7,19 +7,6 @@ on:
         description: 'Run a full Arabic-to-English synchronization'
         required: false
         default: 'true'
-  push:
-    branches: [main]
-    paths:
-      - '*.html'
-      - 'en/*.html'
-      - 'scripts/bilingual_sync.py'
-      - 'scripts/normalize_language_pairs.py'
-      - 'scripts/enforce_language_runtime_isolation.py'
-      - '.github/workflows/bilingual-site-sync.yml'
-      - '10X_Agent_AI_Master_Operating_Manual_AR.md'
-      - 'ARABIC-LANGUAGE-AND-TTS-STANDARD.md'
-      - 'BILINGUAL-SITE-PARITY-STANDARD.md'
-      - '10X_ENGLISH_EDITORIAL_TRANSLATION_AND_HUMAN_STYLE_STANDARD.md'
 
 permissions:
   contents: write
@@ -32,7 +19,6 @@ concurrency:
 
 jobs:
   synchronize:
-    if: github.actor != 'github-actions[bot]' && (github.event_name == 'workflow_dispatch' || !contains(github.event.head_commit.message, '[skip bilingual-sync]'))
     runs-on: ubuntu-latest
     timeout-minutes: 360
     steps:
@@ -62,25 +48,6 @@ jobs:
           python -m pip install --disable-pip-version-check beautifulsoup4==4.13.5 transformers==4.57.1 sentencepiece==0.2.1 sacremoses==0.1.1
           python -m pip install --disable-pip-version-check torch --index-url https://download.pytorch.org/whl/cpu
 
-      - name: Determine synchronization mode
-        id: mode
-        shell: bash
-        run: |
-          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
-            echo 'mode=full' >> "$GITHUB_OUTPUT"
-            exit 0
-          fi
-          changed="$(git diff --name-only HEAD^ HEAD || true)"
-          printf '%s\n' "$changed" > /tmp/bilingual-changed.txt
-          echo 'mode=changed' >> "$GITHUB_OUTPUT"
-
-      - name: Refresh to latest main without losing source-change list
-        shell: bash
-        run: |
-          git fetch origin main
-          git merge --ff-only origin/main
-          echo "Synchronization base refreshed to $(git rev-parse HEAD)."
-
       - name: Normalize reciprocal page links
         shell: bash
         run: python scripts/normalize_language_pairs.py
@@ -90,13 +57,7 @@ jobs:
         env:
           TOKENIZERS_PARALLELISM: 'false'
           HF_HUB_DISABLE_TELEMETRY: '1'
-        run: |
-          if [[ "${{ steps.mode.outputs.mode }}" == "full" ]]; then
-            python scripts/bilingual_sync.py --full-ar
-          else
-            export BILINGUAL_CHANGED_FILES="$(cat /tmp/bilingual-changed.txt)"
-            python scripts/bilingual_sync.py --changed
-          fi
+        run: python scripts/bilingual_sync.py --full-ar
 
       - name: Enforce language runtime isolation
         shell: bash
@@ -187,6 +148,6 @@ jobs:
         shell: bash
         run: |
           echo '## Tamayuz 10X bilingual synchronization' >> "$GITHUB_STEP_SUMMARY"
-          echo "Mode: ${{ steps.mode.outputs.mode }}" >> "$GITHUB_STEP_SUMMARY"
+          echo 'Mode: manual full synchronization' >> "$GITHUB_STEP_SUMMARY"
           echo "Repository head after run: $(git rev-parse HEAD)" >> "$GITHUB_STEP_SUMMARY"
-          echo 'Arabic and English pages are required to remain structurally paired and runtime language-isolated.' >> "$GITHUB_STEP_SUMMARY"
+          echo 'Automatic content translation on push is disabled. Arabic and English editorial pages are maintained independently.' >> "$GITHUB_STEP_SUMMARY"
