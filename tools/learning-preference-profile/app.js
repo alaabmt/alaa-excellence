@@ -38,6 +38,10 @@
     document.documentElement.lang = state.lang;
     document.documentElement.dir = state.lang === 'ar' ? 'rtl' : 'ltr';
     langBtn.textContent = state.lang === 'ar' ? 'English' : 'العربية';
+    const brandName = document.getElementById('lppBrandName');
+    const footerBrand = document.getElementById('lppFooterBrand');
+    if (brandName) brandName.textContent = state.lang === 'ar' ? 'التميّز 10X' : 'Tamayuz 10X';
+    if (footerBrand) footerBrand.textContent = state.lang === 'ar' ? 'التميّز 10X' : 'Tamayuz 10X';
     document.title = t('Learning Preference Profile | Tamayuz 10X','ملف تفضيلات التعلّم | التميّز 10X');
   }
   function pairKey(a,b){ return [a,b].sort((x,y)=>ORDER.indexOf(x)-ORDER.indexOf(y)).join(''); }
