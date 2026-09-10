@@ -282,9 +282,9 @@
   function addGlobalShare() {
     if (document.querySelector('.tenx-share-box')) return;
     const encodedUrl = encodeURIComponent(canonical);
-    const shareText = `${title} — التميّز 10X`;
-    const encodedText = encodeURIComponent(shareText);
     const isEnglish = (document.documentElement.lang || '').toLowerCase().startsWith('en');
+    const shareText = isEnglish ? `${title} — Tamayuz 10X` : `${title} — التميّز 10X`;
+    const encodedText = encodeURIComponent(shareText);
     const shareLabel = isEnglish ? 'Share the Knowledge' : 'شارك المعرفة';
     const shareHeading = isEnglish ? 'Found this page useful? Share it with someone who may benefit.' : 'وجدت هذه الصفحة مفيدة؟ شاركها مع من قد يستفيد منها.';
     const shareIntro = isEnglish ? 'Knowledge creates greater value when it is shared.' : 'المعرفة تصبح أكثر قيمة عندما تنتقل.';
@@ -300,10 +300,10 @@
         <a class="tenx-share-btn" href="https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedText}" target="_blank" rel="noopener noreferrer">X</a>
         <a class="tenx-share-btn" href="https://api.whatsapp.com/send?text=${encodedText}%20${encodedUrl}" target="_blank" rel="noopener noreferrer">WhatsApp</a>
         <a class="tenx-share-btn" href="https://t.me/share/url?url=${encodedUrl}&text=${encodedText}" target="_blank" rel="noopener noreferrer">Telegram</a>
-        <button class="tenx-share-btn tenx-copy-link" type="button">نسخ الرابط</button>
-        <button class="tenx-share-btn tenx-native-share" type="button">مشاركة أخرى</button>
+        <button class="tenx-share-btn tenx-copy-link" type="button">${isEnglish ? 'Copy Link' : 'نسخ الرابط'}</button>
+        <button class="tenx-share-btn tenx-native-share" type="button">${isEnglish ? 'More Sharing Options' : 'مشاركة أخرى'}</button>
       </div>
-      <div class="tenx-share-note">على الهاتف، يتيح «مشاركة أخرى» اختيار التطبيقات المتاحة على جهازك، ومنها Instagram عندما يدعم الجهاز المشاركة إليها.</div>`;
+      <div class="tenx-share-note">${isEnglish ? 'On mobile, More Sharing Options lets you choose from the sharing apps available on your device, including Instagram when supported.' : 'على الهاتف، يتيح «مشاركة أخرى» اختيار التطبيقات المتاحة على جهازك، ومنها Instagram عندما يدعم الجهاز المشاركة إليها.'}</div>`;
 
     const article = isArticlePage ? getArticleContainer() : null;
     if (article) {
@@ -326,10 +326,10 @@
       try {
         await navigator.clipboard.writeText(canonical);
         const original = copyButton.textContent;
-        copyButton.textContent = 'تم نسخ الرابط';
+        copyButton.textContent = isEnglish ? 'Link Copied' : 'تم نسخ الرابط';
         copyButton.classList.add('is-copied');
         window.setTimeout(() => { copyButton.textContent = original; copyButton.classList.remove('is-copied'); }, 1800);
-      } catch (_) { window.prompt('انسخ رابط الصفحة:', canonical); }
+      } catch (_) { window.prompt(isEnglish ? 'Copy page link:' : 'انسخ رابط الصفحة:', canonical); }
     });
     const nativeButton = box.querySelector('.tenx-native-share');
     if (!navigator.share) nativeButton.remove();
