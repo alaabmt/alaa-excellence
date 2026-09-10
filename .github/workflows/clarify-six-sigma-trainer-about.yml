@@ -1,0 +1,53 @@
+name: Clarify Six Sigma trainer role on English About page
+
+on:
+  push:
+    paths:
+      - '.github/workflows/clarify-six-sigma-trainer-about.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-about:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Update Six Sigma trainer wording
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('en/about.html')
+          s = p.read_text(encoding='utf-8')
+          replacements = {
+              '<div class="training-item">Lean Six Sigma Green Belt</div>': '<div class="training-item">Lean Six Sigma Green Belt<small>Trainer</small></div>',
+              '<div class="training-item">Lean Six Sigma Yellow Belt</div>': '<div class="training-item">Lean Six Sigma Yellow Belt<small>Trainer</small></div>',
+          }
+          for old, new in replacements.items():
+              if old not in s:
+                  raise SystemExit(f'Missing expected text: {old}')
+              s = s.replace(old, new, 1)
+          p.write_text(s, encoding='utf-8')
+          PY
+
+      - name: Verify trainer labels
+        run: |
+          grep -F 'Lean Six Sigma Green Belt<small>Trainer</small>' en/about.html
+          grep -F 'Lean Six Sigma Yellow Belt<small>Trainer</small>' en/about.html
+
+      - name: Commit changes
+        run: |
+          if git diff --quiet -- en/about.html; then
+            echo 'No change needed.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add en/about.html
+          git commit -m 'Show Six Sigma Green and Yellow Belt trainer roles'
+          git push origin main
