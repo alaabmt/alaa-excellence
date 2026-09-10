@@ -1,0 +1,2 @@
+NO — NOT LIVE
+Reason: Stop-the-Publish Gate remains active until Arabic and English index cards are integrated into the live index files, CI passes, Pages deploys, and both public URLs are verified.
