@@ -1,0 +1,10 @@
+name = "tamayuz10x-assessment-reports"
+main = "src/index.js"
+compatibility_date = "2026-09-10"
+
+[[r2_buckets]]
+binding = "REPORTS_BUCKET"
+bucket_name = "tamayuz10x-assessment-reports"
+
+# Set REPORTS_INTERNAL_KEY with `wrangler secret put REPORTS_INTERNAL_KEY`.
+# Never commit the secret value to GitHub.
