@@ -1,0 +1,89 @@
+name: One-time articles index repair
+
+on:
+  push:
+    paths:
+      - '.github/workflows/one-time-fix-articles-index.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Repair Arabic and English article indexes
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          def inject_behavior(text, english=False):
+              target = 'data-date="2026-09-08" data-href="case-tamm-autogov-ai-native-government.html"'
+              repl = 'data-date="2026-09-08" data-updated="2026-09-10" data-href="case-tamm-autogov-ai-native-government.html"'
+              text = text.replace(target, repl, 1)
+
+              marker = 'data-tenx-index-repair="20260910"'
+              if marker not in text:
+                  script = r'''<script data-tenx-index-repair="20260910">
+          (() => {
+            const grid = document.getElementById('article-grid');
+            const sort = document.getElementById('sort-filter');
+            const target = document.querySelector('.article-card[data-href="case-tamm-autogov-ai-native-government.html"]');
+            const count = document.getElementById('article-results-count');
+            const controls = [document.getElementById('article-search'), document.getElementById('topic-filter'), document.getElementById('date-filter'), document.getElementById('read-filter'), sort, document.getElementById('clear-article-filters')].filter(Boolean);
+            const chips = [...document.querySelectorAll('[data-filter]')];
+            const applyRepair = () => {
+              if (grid && target && sort?.value === 'newest' && !target.hidden) grid.prepend(target);
+              if (count && document.documentElement.lang.toLowerCase().startsWith('en')) {
+                const visible = [...document.querySelectorAll('.article-card[data-category]')].filter(card => !card.hidden).length;
+                count.textContent = `${visible} ${visible === 1 ? 'article' : 'articles'}`;
+              }
+            };
+            controls.forEach(control => control.addEventListener(control.id === 'article-search' ? 'input' : 'change', () => setTimeout(applyRepair, 0)));
+            chips.forEach(chip => chip.addEventListener('click', () => setTimeout(applyRepair, 0)));
+            setTimeout(applyRepair, 0);
+          })();
+          </script>'''
+                  text = text.replace('</body>', script + '\n</body>', 1)
+              return text
+
+          en = Path('en/articles.html')
+          text = en.read_text(encoding='utf-8')
+          replacements = {
+              '<label for="topic-filter">Subject</label>': '<label for="topic-filter">Topic</label>',
+              '<option value="today">Today.</option>': '<option value="today">Today</option>',
+              '<option value="week">This week.</option>': '<option value="week">This week</option>',
+              '<option value="month">This month.</option>': '<option value="month">This month</option>',
+              '<option value="year">This year.</option>': '<option value="year">This year</option>',
+              '<label for="read-filter">Duration of Reading</label>': '<label for="read-filter">Reading time</label>',
+              '<option value="all">All the time.</option>': '<option value="all">Any length</option>',
+              '<option value="quick">Fast  up to 3 minutes</option>': '<option value="quick">Quick · up to 3 min</option>',
+              '<option value="medium">Medium  47 minutes</option>': '<option value="medium">Medium · 4–7 min</option>',
+              '<option value="deep">In-depth  8 minutes and more</option>': '<option value="deep">In-depth · 8+ min</option>',
+              '<label for="sort-filter">Sort By</label>': '<label for="sort-filter">Sort by</label>',
+              '<option value="shortest">Luxor Read</option>': '<option value="shortest">Shortest read</option>',
+              'Tawam: How did the redesign of the bariatric surgery trip reduce operating room time and accommodation?': 'Tawam: How did redesigning the bariatric surgery pathway reduce operating-room and length-of-stay time?',
+              'The Tawam Eye Experience reveals how the consolidation of the recovery journey has been associated with a clear reduction in operating room and accommodation time while tracking safety indicators.': 'Tawam’s bariatric pathway shows how standardising the recovery journey was associated with shorter operating-room and hospital-stay time while safety indicators continued to be monitored.',
+              'When Cost Reduction Isn\'t Austerity: How Aravind Redesigned Whitewater Surgery?': 'When Lower Cost Is Not Austerity: How Aravind Redesigned Cataract Surgery',
+          }
+          for a,b in replacements.items():
+              text = text.replace(a,b)
+          text = inject_behavior(text, english=True)
+          en.write_text(text, encoding='utf-8')
+
+          ar = Path('articles.html')
+          text = ar.read_text(encoding='utf-8')
+          text = inject_behavior(text, english=False)
+          ar.write_text(text, encoding='utf-8')
+          PY
+      - name: Commit repair and remove one-time workflow
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm .github/workflows/one-time-fix-articles-index.yml
+          git add articles.html en/articles.html
+          git commit -m "Repair article index visibility and English UI [skip bilingual-sync] [skip ci]"
+          git push
