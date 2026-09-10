@@ -19,6 +19,7 @@ on:
       - 'ARABIC-LANGUAGE-AND-TTS-STANDARD.md'
       - 'BILINGUAL-SITE-PARITY-STANDARD.md'
       - '10X_ENGLISH_EDITORIAL_TRANSLATION_AND_HUMAN_STYLE_STANDARD.md'
+      - 'ENGLISH-BIOGRAPHY-CV-SOURCE-OF-TRUTH.md'
 
 permissions:
   contents: write
@@ -45,6 +46,7 @@ jobs:
           test -s 10X_Agent_AI_Master_Operating_Manual_AR.md
           test -s BILINGUAL-SITE-PARITY-STANDARD.md
           test -s ARABIC-LANGUAGE-AND-TTS-STANDARD.md
+          test -s ENGLISH-BIOGRAPHY-CV-SOURCE-OF-TRUTH.md
           if [[ -f 10X_ENGLISH_EDITORIAL_TRANSLATION_AND_HUMAN_STYLE_STANDARD.md ]]; then
             test -s 10X_ENGLISH_EDITORIAL_TRANSLATION_AND_HUMAN_STYLE_STANDARD.md
           fi
@@ -77,6 +79,12 @@ jobs:
             echo 'mode=changed' >> "$GITHUB_OUTPUT"
           fi
 
+      - name: Preserve CV-backed English biography
+        shell: bash
+        run: |
+          cp en/about.html /tmp/en-about-cv.html
+          echo 'Preserved en/about.html as the author-approved CV-backed English biography.'
+
       - name: Normalize reciprocal page links
         shell: bash
         run: python scripts/normalize_language_pairs.py
@@ -94,6 +102,12 @@ jobs:
             python scripts/bilingual_sync.py --changed
           fi
 
+      - name: Restore CV-backed English biography
+        shell: bash
+        run: |
+          cp /tmp/en-about-cv.html en/about.html
+          echo 'Restored CV-backed en/about.html after generic translation sync.'
+
       - name: Validate structural parity
         shell: bash
         run: |
@@ -102,7 +116,7 @@ jobs:
           from bs4 import BeautifulSoup
           import sys
 
-          excluded = {'contact-madar.html'}
+          excluded = {'contact-madar.html', 'about.html'}
           failures = []
           for ar in sorted(Path('.').glob('*.html')):
               if ar.name in excluded:
@@ -140,7 +154,56 @@ jobs:
           if failures:
               print('\n'.join(failures), file=sys.stderr)
               raise SystemExit(1)
-          print('Structural bilingual parity gate passed for all root public HTML pages.')
+          print('Structural bilingual parity gate passed for all generic root public HTML pages. about.html is governed by the author-approved English CV source.')
+          PY
+
+      - name: Validate CV-backed English biography
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from bs4 import BeautifulSoup
+          import re, sys
+          p = Path('en/about.html')
+          s = BeautifulSoup(p.read_text(encoding='utf-8'), 'html.parser')
+          text = ' '.join(s.stripped_strings)
+          failures = []
+          if not s.html or s.html.get('lang') != 'en' or s.html.get('dir') != 'ltr':
+              failures.append('en/about.html must be English LTR')
+          required = [
+              'Nursing Leader',
+              'Healthcare Quality',
+              '32 quality-improvement projects',
+              'seven hospitals',
+              'more than 500 nurses',
+              'more than 100 process-improvement projects'
+          ]
+          for phrase in required:
+              if phrase.lower() not in text.lower():
+                  failures.append(f'CV-backed phrase missing: {phrase}')
+          forbidden = [
+              '14 hospitals', '50 clinics', '250 improvement projects', '2,500 trainees',
+              'executive leader and expert in corporate excellence, transformation, quality and innovation'
+          ]
+          for phrase in forbidden:
+              if phrase.lower() in text.lower():
+                  failures.append(f'unsupported biography claim present: {phrase}')
+          ar = re.compile(r'[\u0600-\u06FF]')
+          for node in s.find_all(string=True):
+              parent = node.parent
+              if not parent or parent.name in {'script','style','code','pre','svg','noscript'}:
+                  continue
+              t = ' '.join(str(node).split())
+              if not t or not ar.search(t):
+                  continue
+              if parent.name == 'a' and (parent.get('lang') == 'ar' or parent.get('hreflang') == 'ar'):
+                  continue
+              failures.append(f'Arabic visible in en/about.html: {t[:80]}')
+              break
+          if failures:
+              print('\n'.join(failures), file=sys.stderr)
+              raise SystemExit(1)
+          print('CV-backed English biography gate passed.')
           PY
 
       - name: Commit synchronized pages
@@ -179,4 +242,4 @@ jobs:
           echo '## Tamayuz 10X bilingual synchronization' >> "$GITHUB_STEP_SUMMARY"
           echo "Mode: ${{ steps.mode.outputs.mode }}" >> "$GITHUB_STEP_SUMMARY"
           echo "Repository head after run: $(git rev-parse HEAD)" >> "$GITHUB_STEP_SUMMARY"
-          echo 'Arabic and English pages are required to remain structurally paired.' >> "$GITHUB_STEP_SUMMARY"
+          echo 'Generic Arabic and English pages remain structurally paired. The English biography is governed by the author-approved CV source.' >> "$GITHUB_STEP_SUMMARY"
