@@ -1,5 +1,0 @@
-CI: pending
-Pages: pending
-Public Arabic URL: unverified
-Public English URL: unverified
-DONE/LIVE: NO

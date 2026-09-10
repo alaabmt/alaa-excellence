@@ -1,1 +1,0 @@
-STOP: index cards are not yet integrated. This branch must not be merged until articles.html and en/articles.html contain the new cards and CI passes.

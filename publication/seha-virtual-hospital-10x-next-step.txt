@@ -1,1 +1,0 @@
-NEXT: integrate the staged Arabic and English card snippets into articles.html and en/articles.html using a safe non-destructive edit, then run CI. Do not create a one-time workflow for this operation.

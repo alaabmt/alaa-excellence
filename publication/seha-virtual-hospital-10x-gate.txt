@@ -1,4 +1,0 @@
-PRE-PR GATE: PARTIAL PASS
-Content/evidence/metadata/TTS/registry/sitemap: prepared.
-Index integration: pending.
-Merge: prohibited until pending item is resolved.

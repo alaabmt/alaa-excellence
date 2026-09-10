@@ -1,4 +1,0 @@
-Seha Virtual Hospital 10X publication package
-Version 1.0
-Date 2026-09-10
-Branch publish/seha-virtual-hospital-10x

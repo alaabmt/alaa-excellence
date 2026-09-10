@@ -1,1 +1,0 @@
-Publication package preparation completed on branch. Use repository branch head as authoritative SHA; this text file does not hard-code a mutable branch SHA.
