@@ -1,0 +1,101 @@
+name: Fix English header
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/fix-english-header.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Normalize English headers
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          logo = '/assets/images/file_0000000047188210ac6952e999d2eda7.png?v=20260906-seo2'
+          changed = []
+
+          for path in sorted(Path('en').glob('*.html')):
+              text = path.read_text(encoding='utf-8')
+              original = text
+              name = path.name
+              en_href = '/en/' if name == 'index.html' else f'/en/{name}'
+              ar_href = '/' if name == 'index.html' else f'/{name}'
+
+              # Keep exactly the same brand image as the Arabic edition, but use
+              # a root-relative URL so it resolves reliably from every /en/ page.
+              text = re.sub(
+                  r'(<img\b[^>]*\bclass=["\']brand-logo["\'][^>]*\bsrc=["\'])[^"\']+(["\'])',
+                  rf'\1{logo}\2',
+                  text,
+                  count=1,
+                  flags=re.I,
+              )
+              text = re.sub(
+                  r'(<img\b[^>]*\bsrc=["\'])[^"\']+(["\'][^>]*\bclass=["\']brand-logo["\'])',
+                  rf'\1{logo}\2',
+                  text,
+                  count=1,
+                  flags=re.I,
+              )
+
+              switch = (
+                  f'<div class="lang-switch">'
+                  f'<a href="{en_href}" hreflang="en" lang="en" aria-current="page">English</a>'
+                  f'<span>|</span>'
+                  f'<a href="{ar_href}" hreflang="ar" lang="ar">العربية</a>'
+                  f'</div>'
+              )
+              text = re.sub(
+                  r'<div class="lang-switch">.*?</div>',
+                  switch,
+                  text,
+                  count=1,
+                  flags=re.S,
+              )
+
+              if text != original:
+                  path.write_text(text, encoding='utf-8')
+                  changed.append(str(path))
+
+          # Gate the specific failures visible in the mobile screenshot.
+          failures = []
+          for path in sorted(Path('en').glob('*.html')):
+              text = path.read_text(encoding='utf-8')
+              if 'class="brand-logo"' in text and logo not in text:
+                  failures.append(f'logo path not normalized: {path}')
+              if re.search(r'<div class="lang-switch">(?:(?!</div>).)*العربية(?:(?!</div>).)*العربية', text, re.S):
+                  failures.append(f'duplicate Arabic language switch: {path}')
+              if 'class="lang-switch"' in text and '>English<' not in text:
+                  failures.append(f'English current-language label missing: {path}')
+          if failures:
+              raise SystemExit('\n'.join(failures))
+
+          print(f'Updated {len(changed)} English pages.')
+          PY
+
+      - name: Commit fixes
+        shell: bash
+        run: |
+          if [[ -z "$(git status --porcelain en/)" ]]; then
+            echo 'No English header changes required.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add en/*.html
+          git commit -m 'Normalize English logo and language switch'
+          git pull --rebase origin main
+          git push origin HEAD:main
