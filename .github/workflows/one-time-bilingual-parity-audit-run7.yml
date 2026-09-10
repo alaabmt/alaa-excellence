@@ -1,4 +1,5 @@
 name: One-time bilingual parity synchronization audit
+# trigger
 on:
   push:
     paths:
@@ -36,8 +37,6 @@ jobs:
           for n in sorted(rnames-enames): failures.append(f'MISSING English: en/{n}')
           for n in sorted(enames-rnames): failures.append(f'MISSING Arabic: {n}')
 
-          # Recent shared engagement component was added to Arabic copies only.
-          # Propagate the same shared component to the counterpart without touching prose.
           for name in sorted(rnames & enames):
               ap=Path(name); ep=Path('en')/name
               a=ap.read_text(encoding='utf-8'); e=ep.read_text(encoding='utf-8')
@@ -55,9 +54,6 @@ jobs:
                       ap.write_text(a,encoding='utf-8')
                       print('FIX shared engagement ->',ap)
 
-          # Seha Arabic carried a legacy page-specific audio player in addition to the
-          # newer shared bilingual engagement/audio component. Remove only the legacy
-          # duplicate UI/inline player so both languages use the same shared component.
           sp=Path('case-seha-virtual-hospital-expertise-network.html')
           if sp.exists():
               s=sp.read_text(encoding='utf-8')
