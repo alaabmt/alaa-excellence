@@ -1,89 +1,32 @@
-name: Enforce article editorial disclaimer
+name: Validate article editorial disclaimer
 
 on:
   workflow_dispatch:
-  push:
-    paths:
-      - '.github/workflows/add-article-analysis-disclaimer.yml'
-      - 'article-*.html'
-      - 'case-*.html'
-      - 'idea-*.html'
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  update:
+  validate:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Enforce disclaimer on all article pages and master manual
+      - name: Validate disclaimer presence without rewriting content
         run: |
           python3 - <<'PY'
           from pathlib import Path
-          import re
+          import sys
 
-          title = 'تنويه تحريري:'
-          text = 'الآراء والتحليلات الواردة في هذا المقال تمثل رأي الكاتب وتحليله المهني استنادًا إلى المصادر المشار إليها، ولا تمثل بالضرورة المواقف الرسمية للجهات المذكورة. وللاطلاع على المعلومات والمراجع الأصلية والكاملة والأحدث، يُرجى الرجوع مباشرة إلى المصادر الأصلية والوثائق الرسمية الواردة في قائمة المراجع.'
-          block = f'''\n<section class="tenx-analysis-disclaimer" role="note" aria-label="تنويه تحريري" dir="rtl" style="margin:32px 0 24px;padding:18px 20px;border-right:4px solid #b28643;border-radius:14px;background:#faf7f1;text-align:right;line-height:1.9">\n  <p><strong>{title}</strong><br>{text}</p>\n</section>\n'''
-
+          required = 'الآراء والتحليلات الواردة في هذا المقال تمثل رأي الكاتب وتحليله المهني استنادًا إلى المصادر المشار إليها'
           pages = sorted(set(Path('.').glob('article-*.html')) | set(Path('.').glob('case-*.html')) | set(Path('.').glob('idea-*.html')))
-          changed = []
-          disclaimer_re = re.compile(r'\n?<section[^>]+class=["\'][^"\']*tenx-analysis-disclaimer[^"\']*["\'][^>]*>.*?</section>\n?', re.I | re.S)
-
+          missing = []
           for p in pages:
-              s = p.read_text(encoding='utf-8')
-              # Normalize any older disclaimer to the approved wording.
-              if disclaimer_re.search(s):
-                  ns = disclaimer_re.sub('\n' + block.strip() + '\n', s, count=1)
-                  if ns != s:
-                      p.write_text(ns, encoding='utf-8')
-                      changed.append(str(p))
-                  continue
-
-              patterns = [
-                  r'(?=<section[^>]+(?:id|class)=["\'][^"\']*(?:references|sources|refs)[^"\']*["\'])',
-                  r'(?=<h[23][^>]*>\s*(?:المراجع|المصادر|References|Sources)\s*</h[23]>)',
-              ]
-              inserted = False
-              for pat in patterns:
-                  m = re.search(pat, s, flags=re.I)
-                  if m:
-                      s = s[:m.start()] + block + s[m.start():]
-                      inserted = True
-                      break
-
-              if not inserted:
-                  for tag in ('</article>', '</main>'):
-                      i = s.lower().rfind(tag)
-                      if i != -1:
-                          s = s[:i] + block + s[i:]
-                          inserted = True
-                          break
-
-              if inserted:
-                  p.write_text(s, encoding='utf-8')
-                  changed.append(str(p))
-
-          manual = Path('10X_Agent_AI_Master_Operating_Manual_AR.md')
-          if manual.exists():
-              s = manual.read_text(encoding='utf-8')
-              section = f'''\n\n## التنويه التحريري الإلزامي في المقالات\nيوضع التنويه الآتي في نهاية كل صفحة `article-*` أو `case-*` أو `idea-*`، وقبل قائمة المراجع أو المصادر متى وجدت. وجوده شرط للنشر:\n\n**{title}**  \n{text}\n'''
-              if text not in s:
-                  s += section
-                  manual.write_text(s, encoding='utf-8')
-                  changed.append(str(manual))
-
-          print('Updated:', ', '.join(changed) if changed else 'nothing')
+              text = p.read_text(encoding='utf-8')
+              if required not in text:
+                  missing.append(str(p))
+          if missing:
+              print('Missing approved editorial disclaimer:', file=sys.stderr)
+              print('\n'.join(missing), file=sys.stderr)
+              raise SystemExit(1)
+          print(f'Editorial disclaimer present on {len(pages)} article/case/idea pages. No files modified.')
           PY
-      - name: Commit changes
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -- '*.html' 10X_Agent_AI_Master_Operating_Manual_AR.md
-          if git diff --cached --quiet; then
-            echo "No changes"
-            exit 0
-          fi
-          git commit -m "Enforce editorial disclaimer on article pages [skip ci]"
-          git push
