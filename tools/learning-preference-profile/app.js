@@ -42,7 +42,7 @@
     const footerBrand = document.getElementById('lppFooterBrand');
     if (brandName) brandName.textContent = state.lang === 'ar' ? 'التميّز 10X' : 'Tamayuz 10X';
     if (footerBrand) footerBrand.textContent = state.lang === 'ar' ? 'التميّز 10X' : 'Tamayuz 10X';
-    document.title = t('Learning Preference Profile | Tamayuz 10X','ملف تفضيلات التعلّم | التميّز 10X');
+    document.title = t('How You Learn | Learning Style Profile | Tamayuz 10X','كيف تتعلّم؟ | بصمتك في التعلّم | التميّز 10X');
   }
   function pairKey(a,b){ return [a,b].sort((x,y)=>ORDER.indexOf(x)-ORDER.indexOf(y)).join(''); }
   function answeredCount(){ return Object.keys(state.responses).filter(k => state.responses[k] !== null && state.responses[k] !== undefined).length; }
@@ -63,8 +63,8 @@
     root.innerHTML = `
       <div class="lpp-hero">
         <section class="lpp-panel">
-          <span class="lpp-eyebrow">${t('Your Learning Preference Profile','ملف تفضيلات تعلّمك')}</span>
-          <h1>${t('How do you prefer to learn?','كيف تُفَضِّل أن تَتَعَلَّم؟')}</h1>
+          <span class="lpp-eyebrow">${t('Learning Style Profile','بصمتك في التعلّم')}</span>
+          <h1>${t('How You Learn','كيف تتعلّم؟')}</h1>
           <p>${t('Explore how you typically approach learning, training, and developing a new skill. You will receive a four-part profile rather than a fixed learning “type”.','اكتشف كيف تتعامل عادةً مع التعلّم والتدريب واكتساب مهارة جديدة. ستحصل على ملف من أربعة أبعاد بدلًا من تصنيفك في «نمط» ثابت.')}</p>
           <div class="lpp-feature-list">
             <div class="lpp-feature"><i>64</i><div><strong>${t('Behavior-focused statements','عبارة تركز على السلوك')}</strong><br><span>${t('Answer based on what is typically like you.','أجب وفق ما يصفك عادةً.')}</span></div></div>
@@ -161,7 +161,7 @@
     const completionMinutes=state.startedAt&&state.completedAt?Math.max(1,Math.round((state.completedAt-state.startedAt)/60000)):null;
     root.innerHTML=`<div class="lpp-app">
       <section class="lpp-panel">
-        <div class="lpp-results-head"><div><span class="lpp-eyebrow">${t('Your Learning Preference Profile','ملف تفضيلات تعلّمك')}</span><h1 class="lpp-profile-title">${esc(profile.title)}</h1><p class="lpp-profile-sub">${esc(profile.subtitle)}</p></div><div><strong>${t('Profile complete','اكتمل الملف')}</strong>${completionMinutes?`<br><span style="color:var(--muted);font-size:.85rem">${t(`About ${completionMinutes} min`,`نحو ${completionMinutes} دقيقة`)}</span>`:''}</div></div>
+        <div class="lpp-results-head"><div><span class="lpp-eyebrow">${t('Learning Style Profile','بصمتك في التعلّم')}</span><h1 class="lpp-profile-title">${esc(profile.title)}</h1><p class="lpp-profile-sub">${esc(profile.subtitle)}</p></div><div><strong>${t('Profile complete','اكتمل الملف')}</strong>${completionMinutes?`<br><span style="color:var(--muted);font-size:.85rem">${t(`About ${completionMinutes} min`,`نحو ${completionMinutes} دقيقة`)}</span>`:''}</div></div>
         <div class="lpp-score-grid">${c.sorted.map(s=>`<div class="lpp-score-row code-${s.code}"><div class="lpp-score-name"><strong>${esc(state.lang==='ar'?D.constructs[s.code].ar:D.constructs[s.code].en)}</strong><span>${esc(state.lang==='ar'?D.constructs[s.code].blurbAr:D.constructs[s.code].blurbEn)}</span></div><div class="lpp-bar"><span style="width:${s.score}%"></span></div><div class="lpp-score-value">${s.score}%</div></div>`).join('')}</div>
         <div class="lpp-grid-2">
           <div class="lpp-insight"><h3>${t('What your strongest preference may bring','ما الذي قد يضيفه تفضيلك الأقوى')}</h3><p>${esc(t(`Your strongest current emphasis is ${D.constructs[high.code].en}. This can be a useful resource when the learning situation calls for it.`, `أقوى تركيز حالي لديك هو ${D.constructs[high.code].ar}. ويمكن أن يكون نقطة قوة مهمّة عندما يتطلب موقف التعلّم هذا الأسلوب.`))}</p></div>
