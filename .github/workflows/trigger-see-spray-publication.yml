@@ -1,0 +1,15 @@
+name: Trigger See Spray publication
+on:
+  push:
+    paths:
+      - .github/workflows/trigger-see-spray-publication.yml
+permissions:
+  actions: write
+  contents: read
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - run: gh workflow run one-time-publish-see-spray.yml --repo "$GITHUB_REPOSITORY"
+        env:
+          GH_TOKEN: ${{ github.token }}
