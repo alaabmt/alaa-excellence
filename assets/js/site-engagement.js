@@ -7,6 +7,7 @@
   const AUTHOR_NAME = IS_ENGLISH_PAGE ? 'Dr. Alaa Mohammad Ahmed' : 'الدكتور علاء محمد أحمد';
   const AUTHOR_URL = IS_ENGLISH_PAGE ? '/en/about.html' : '/about.html';
   const AUTHOR_IMAGE = '/assets/images/alaa-mohammad-ahmad-profile-hq.webp';
+  const ui = (en, ar) => IS_ENGLISH_PAGE ? en : ar;
   const path = window.location.pathname.toLowerCase();
   const isArticlePage = /\/(case-|idea-|article-)/.test(path);
   const canonical = document.querySelector('link[rel="canonical"]')?.href || window.location.href.split('#')[0];
@@ -30,11 +31,11 @@
     document.head.appendChild(style);
   }
 
-  function formatArabicDate(raw) {
+  function formatArticleDate(raw) {
     if (!raw) return '';
     const date = new Date(raw.length === 10 ? `${raw}T12:00:00` : raw);
     if (Number.isNaN(date.getTime())) return raw;
-    try { return new Intl.DateTimeFormat('ar-AE', { day: 'numeric', month: 'long', year: 'numeric' }).format(date); }
+    try { return new Intl.DateTimeFormat(IS_ENGLISH_PAGE ? 'en-US' : 'ar-AE', { day: 'numeric', month: 'long', year: 'numeric' }).format(date); }
     catch (_) { return raw; }
   }
 
@@ -91,7 +92,7 @@
     if (!article) return;
     const minutes = readingMinutes(getReadingText(article));
     const published = document.querySelector('meta[property="article:published_time"]')?.content || document.querySelector('time[datetime]')?.getAttribute('datetime') || '';
-    const dateLabel = formatArabicDate(published);
+    const dateLabel = formatArticleDate(published);
 
     const bar = document.createElement('div');
     bar.className = 'tenx-author-audio';
@@ -100,14 +101,14 @@
         <img class="tenx-author-avatar" src="${AUTHOR_IMAGE}" alt="${AUTHOR_NAME}" width="42" height="42" loading="lazy" decoding="async">
         <div class="tenx-author-lines">
           <a href="${AUTHOR_URL}">${AUTHOR_NAME}</a>
-          <span class="dot">·</span><span>${minutes} دقائق قراءة</span>
+          <span class="dot">·</span><span>${IS_ENGLISH_PAGE ? `${minutes} min read` : `${minutes} دقائق قراءة`}</span>
           ${dateLabel ? `<span class="dot">·</span><time datetime="${published}">${dateLabel}</time>` : ''}
         </div>
       </div>
-      <div class="tenx-listen-controls" aria-label="الاستماع إلى المقال">
-        <button type="button" class="tenx-listen-btn">استمع إلى المقال</button>
-        <button type="button" class="tenx-stop-btn" disabled>إيقاف</button>
-        <select class="tenx-speed" aria-label="سرعة القراءة">
+      <div class="tenx-listen-controls" aria-label="${ui('Listen to this article', 'الاستماع إلى المقال')}">
+        <button type="button" class="tenx-listen-btn">${ui('Listen to Article', 'استمع إلى المقال')}</button>
+        <button type="button" class="tenx-stop-btn" disabled>${ui('Stop', 'إيقاف')}</button>
+        <select class="tenx-speed" aria-label="${ui('Reading speed', 'سرعة القراءة')}">
           <option value="0.85">0.85×</option><option value="1" selected>1×</option><option value="1.15">1.15×</option><option value="1.3">1.3×</option>
         </select>
       </div>
@@ -128,19 +129,19 @@
     if (!('speechSynthesis' in window) || typeof SpeechSynthesisUtterance === 'undefined') {
       play.disabled = true;
       speed.disabled = true;
-      status.textContent = 'ميزة الاستماع غير مدعومة في هذا المتصفح.';
+      status.textContent = ui('Audio playback is not supported in this browser.', 'ميزة الاستماع غير مدعومة في هذا المتصفح.');
       return;
     }
 
     const floating = document.createElement('div');
     floating.className = 'tenx-floating-audio';
     floating.setAttribute('role', 'region');
-    floating.setAttribute('aria-label', 'التحكم في الاستماع أثناء التمرير');
+    floating.setAttribute('aria-label', ui('Listening controls while scrolling', 'التحكم في الاستماع أثناء التمرير'));
     floating.innerHTML = `
-      <div class="tenx-floating-label">الاستماع إلى المقال</div>
-      <button type="button" class="tenx-floating-btn tenx-floating-pause">إيقاف مؤقت</button>
-      <button type="button" class="tenx-floating-btn tenx-floating-stop">إيقاف</button>
-      <select class="tenx-floating-speed" aria-label="سرعة القراءة أثناء التمرير">
+      <div class="tenx-floating-label">${ui('Listen to Article', 'الاستماع إلى المقال')}</div>
+      <button type="button" class="tenx-floating-btn tenx-floating-pause">${ui('Pause', 'إيقاف مؤقت')}</button>
+      <button type="button" class="tenx-floating-btn tenx-floating-stop">${ui('Stop', 'إيقاف')}</button>
+      <select class="tenx-floating-speed" aria-label="${ui('Reading speed while scrolling', 'سرعة القراءة أثناء التمرير')}">
         <option value="0.85">0.85×</option><option value="1" selected>1×</option><option value="1.15">1.15×</option><option value="1.3">1.3×</option>
       </select>`;
     document.body.appendChild(floating);
@@ -159,7 +160,9 @@
 
     const pickVoice = () => {
       const voices = synth.getVoices();
-      chosenVoice = voices.find((v) => /^ar[-_]AE$/i.test(v.lang)) || voices.find((v) => /^ar[-_]SA$/i.test(v.lang)) || voices.find((v) => /^ar[-_]/i.test(v.lang)) || null;
+      chosenVoice = IS_ENGLISH_PAGE
+        ? (voices.find((v) => /^en[-_]US$/i.test(v.lang)) || voices.find((v) => /^en[-_]GB$/i.test(v.lang)) || voices.find((v) => /^en[-_]/i.test(v.lang)) || null)
+        : (voices.find((v) => /^ar[-_]AE$/i.test(v.lang)) || voices.find((v) => /^ar[-_]SA$/i.test(v.lang)) || voices.find((v) => /^ar[-_]/i.test(v.lang)) || null);
     };
     pickVoice();
     if ('onvoiceschanged' in synth) synth.addEventListener('voiceschanged', pickVoice);
@@ -183,11 +186,11 @@
       index = 0;
       runToken += 1;
       clearHighlight();
-      play.textContent = 'استمع إلى المقال';
+      play.textContent = ui('Listen to Article', 'استمع إلى المقال');
       play.classList.remove('is-paused');
       stop.disabled = true;
       floating.classList.remove('is-active');
-      floatingPause.textContent = 'إيقاف مؤقت';
+      floatingPause.textContent = ui('Pause', 'إيقاف مؤقت');
       status.textContent = '';
     };
 
@@ -196,7 +199,7 @@
       setCurrentHighlight();
       const myToken = runToken;
       const utterance = new SpeechSynthesisUtterance(segments[index].text);
-      utterance.lang = chosenVoice?.lang || 'ar-AE';
+      utterance.lang = chosenVoice?.lang || (IS_ENGLISH_PAGE ? 'en-US' : 'ar-AE');
       if (chosenVoice) utterance.voice = chosenVoice;
       utterance.rate = Number(speed.value || 1);
       utterance.onend = () => {
@@ -206,11 +209,11 @@
       };
       utterance.onerror = (event) => {
         if (event?.error === 'canceled' || myToken !== runToken) return;
-        status.textContent = 'تعذر تشغيل الصوت على هذا الجهاز.';
+        status.textContent = ui('Audio could not be played on this device.', 'تعذر تشغيل الصوت على هذا الجهاز.');
         reset();
       };
       synth.speak(utterance);
-      status.textContent = `الاستماع جارٍ · ${speed.options[speed.selectedIndex].text}`;
+      status.textContent = IS_ENGLISH_PAGE ? `Playing · ${speed.options[speed.selectedIndex].text}` : `الاستماع جارٍ · ${speed.options[speed.selectedIndex].text}`;
     };
 
     const pauseResume = () => {
@@ -218,17 +221,17 @@
       if (!paused) {
         synth.pause();
         paused = true;
-        play.textContent = 'متابعة الاستماع';
+        play.textContent = ui('Resume', 'متابعة الاستماع');
         play.classList.add('is-paused');
-        floatingPause.textContent = 'متابعة';
-        status.textContent = 'تم إيقاف القراءة مؤقتاً.';
+        floatingPause.textContent = ui('Resume', 'متابعة');
+        status.textContent = ui('Playback paused.', 'تم إيقاف القراءة مؤقتاً.');
       } else {
         synth.resume();
         paused = false;
-        play.textContent = 'إيقاف مؤقت';
+        play.textContent = ui('Pause', 'إيقاف مؤقت');
         play.classList.remove('is-paused');
-        floatingPause.textContent = 'إيقاف مؤقت';
-        status.textContent = 'الاستماع جارٍ.';
+        floatingPause.textContent = ui('Pause', 'إيقاف مؤقت');
+        status.textContent = ui('Playing.', 'الاستماع جارٍ.');
       }
     };
 
@@ -236,14 +239,14 @@
       synth.cancel();
       runToken += 1;
       segments = buildSpeechSegments(article);
-      if (!segments.length) { status.textContent = 'لا يوجد نص قابل للقراءة.'; return; }
+      if (!segments.length) { status.textContent = ui('No readable text was found.', 'لا يوجد نص قابل للقراءة.'); return; }
       index = 0;
       speaking = true;
       paused = false;
       stop.disabled = false;
-      play.textContent = 'إيقاف مؤقت';
+      play.textContent = ui('Pause', 'إيقاف مؤقت');
       play.classList.remove('is-paused');
-      floatingPause.textContent = 'إيقاف مؤقت';
+      floatingPause.textContent = ui('Pause', 'إيقاف مؤقت');
       floating.classList.add('is-active');
       speakCurrent();
     };
@@ -264,9 +267,9 @@
       if (wasPaused) {
         speaking = true;
         paused = true;
-        play.textContent = 'متابعة الاستماع';
-        floatingPause.textContent = 'متابعة';
-        status.textContent = `تم تغيير السرعة إلى ${value}×. استأنف عند الجاهزية.`;
+        play.textContent = ui('Resume', 'متابعة الاستماع');
+        floatingPause.textContent = ui('Resume', 'متابعة');
+        status.textContent = IS_ENGLISH_PAGE ? `Speed changed to ${value}×. Resume when ready.` : `تم تغيير السرعة إلى ${value}×. استأنف عند الجاهزية.`;
         return;
       }
       window.setTimeout(speakCurrent, 90);
