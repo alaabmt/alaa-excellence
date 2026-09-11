@@ -1,0 +1,9 @@
+name = "tamayuz10x-assessment-preview"
+main = "src/index.js"
+compatibility_date = "2026-09-11"
+
+# Deploy manually to Cloudflare, then add route:
+# tamayuz10x.com/__preview-10x-auth-7c4e2d91/*
+#
+# Required secret (never commit its value):
+# PREVIEW_PASSWORD
