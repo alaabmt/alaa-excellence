@@ -1,0 +1,42 @@
+name: Assessment auth QA
+
+on:
+  pull_request:
+    paths:
+      - 'account/**'
+      - 'assets/js/auth-config.js'
+      - 'assets/js/assessment-auth-*.js'
+      - 'assets/js/assessment-attempts-client.js'
+      - 'assets/js/assessment-reports-client.js'
+      - 'assets/js/assessment-report-pdf.js'
+      - 'assets/js/assessment-result-sync.js'
+      - 'assets/js/protected-assessment-loader.js'
+      - 'scripts/validate_assessment_auth.py'
+      - '.github/workflows/assessment-auth-qa.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'account/**'
+      - 'assets/js/auth-config.js'
+      - 'assets/js/assessment-auth-*.js'
+      - 'assets/js/assessment-attempts-client.js'
+      - 'assets/js/assessment-reports-client.js'
+      - 'assets/js/assessment-report-pdf.js'
+      - 'assets/js/assessment-result-sync.js'
+      - 'assets/js/protected-assessment-loader.js'
+      - 'scripts/validate_assessment_auth.py'
+      - '.github/workflows/assessment-auth-qa.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate assessment authentication and report wiring
+        run: python scripts/validate_assessment_auth.py
