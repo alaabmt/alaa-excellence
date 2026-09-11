@@ -16,6 +16,13 @@ async function checkViewport(name, viewport) {
     }
   }
 
+  async function expectScriptResolves(path, suffix) {
+    const response = await page.goto(base + path, { waitUntil: 'domcontentloaded' });
+    if (!response || !response.ok()) failures.push(`${path}: HTTP ${response?.status()}`);
+    const scripts = await page.locator('script[src]').evaluateAll(nodes => nodes.map(n => n.src));
+    if (!scripts.some(src => src.endsWith(suffix))) failures.push(`${path}: missing script resolving to ${suffix}`);
+  }
+
   await expectVisible('/account/register.html?lang=ar', [
     'input#name', 'input#email[type="email"]', 'input#password[type="password"]', 'button#submit'
   ]);
@@ -31,8 +38,8 @@ async function checkViewport(name, viewport) {
   }
 
   await expectVisible('/account/index.html?lang=ar', ['#title', '#logout', '#history']);
-  await expectVisible('/tools/learning-preference-profile/index.html', ['script[src="/assets/js/auth-config.js"]']);
-  await expectVisible('/tools/work-approach-assessment/index.html', ['script[src="/assets/js/auth-config.js"]']);
+  await expectScriptResolves('/tools/learning-preference-profile/index.html', '/assets/js/auth-config.js');
+  await expectScriptResolves('/tools/work-approach-assessment/index.html', '/assets/js/auth-config.js');
 
   await page.close();
   if (failures.length) throw new Error(`${name} failures:\n${failures.join('\n')}`);
