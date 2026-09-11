@@ -12,6 +12,7 @@ on:
       - 'assets/js/assessment-result-sync.js'
       - 'assets/js/protected-assessment-loader.js'
       - 'scripts/validate_assessment_auth.py'
+      - 'tests/assessment-auth-browser-smoke.mjs'
       - '.github/workflows/assessment-auth-qa.yml'
   push:
     branches: [main]
@@ -25,6 +26,7 @@ on:
       - 'assets/js/assessment-result-sync.js'
       - 'assets/js/protected-assessment-loader.js'
       - 'scripts/validate_assessment_auth.py'
+      - 'tests/assessment-auth-browser-smoke.mjs'
       - '.github/workflows/assessment-auth-qa.yml'
 
 permissions:
@@ -38,5 +40,16 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
       - name: Validate assessment authentication and report wiring
         run: python scripts/validate_assessment_auth.py
+      - name: Install Playwright browser
+        run: |
+          npm install --no-save playwright@1.55.0
+          npx playwright install --with-deps chromium
+      - name: Start local site
+        run: python -m http.server 8000 --bind 127.0.0.1 > /tmp/tamayuz-http.log 2>&1 &
+      - name: Run desktop and mobile browser smoke tests
+        run: node tests/assessment-auth-browser-smoke.mjs
