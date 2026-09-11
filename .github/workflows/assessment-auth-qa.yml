@@ -11,6 +11,7 @@ on:
       - 'assets/js/assessment-report-pdf.js'
       - 'assets/js/assessment-result-sync.js'
       - 'assets/js/protected-assessment-loader.js'
+      - 'cloudflare/assessment-preview-worker/**'
       - 'scripts/validate_assessment_auth.py'
       - 'scripts/assessment_live_smoke.sh'
       - 'tests/assessment-auth-browser-smoke.mjs'
@@ -26,6 +27,7 @@ on:
       - 'assets/js/assessment-report-pdf.js'
       - 'assets/js/assessment-result-sync.js'
       - 'assets/js/protected-assessment-loader.js'
+      - 'cloudflare/assessment-preview-worker/**'
       - 'scripts/validate_assessment_auth.py'
       - 'scripts/assessment_live_smoke.sh'
       - 'tests/assessment-auth-browser-smoke.mjs'
@@ -47,6 +49,8 @@ jobs:
           node-version: '20'
       - name: Validate assessment authentication and report wiring
         run: python scripts/validate_assessment_auth.py
+      - name: Check preview Worker syntax
+        run: node --check cloudflare/assessment-preview-worker/src/index.js
       - name: Verify live assessment endpoints
         run: bash scripts/assessment_live_smoke.sh
       - name: Install Playwright browser
