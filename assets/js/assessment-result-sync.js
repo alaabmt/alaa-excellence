@@ -1,4 +1,6 @@
 import { completeAssessmentAttempt } from './assessment-attempts-client.js';
+import { createAssessmentReportPdf } from './assessment-report-pdf.js';
+import { listAssessmentReports, uploadAssessmentReport } from './assessment-reports-client.js';
 
 const synced = new Set();
 
@@ -78,6 +80,14 @@ function workResult() {
   };
 }
 
+async function ensurePdfReport(attemptId, assessmentKey, result) {
+  const existing = await listAssessmentReports().catch(() => ({ reports: [] }));
+  if ((existing?.reports || []).some(r => r.attempt_id === attemptId && r.status === 'ready')) return;
+  const pdf = await createAssessmentReportPdf(assessmentKey, result);
+  const suffix = result?.language === 'en' ? 'en' : 'ar';
+  await uploadAssessmentReport(attemptId, pdf, `${assessmentKey}-${suffix}.pdf`);
+}
+
 async function sync(assessmentKey, result) {
   if (!result) return;
   const attempt = currentAttempt(assessmentKey);
@@ -85,11 +95,12 @@ async function sync(assessmentKey, result) {
   synced.add(attempt.id);
   try {
     await completeAssessmentAttempt(attempt.id, result);
+    await ensurePdfReport(attempt.id, assessmentKey, result);
     markCompleted(attempt);
     window.dispatchEvent(new CustomEvent('tamayuz:assessment-result-saved', { detail: { assessmentKey, attemptId: attempt.id } }));
   } catch (error) {
     synced.delete(attempt.id);
-    console.error('Assessment result sync failed:', error);
+    console.error('Assessment result/report sync failed:', error);
   }
 }
 
