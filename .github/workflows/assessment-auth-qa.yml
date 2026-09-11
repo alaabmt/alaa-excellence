@@ -12,6 +12,7 @@ on:
       - 'assets/js/assessment-result-sync.js'
       - 'assets/js/protected-assessment-loader.js'
       - 'scripts/validate_assessment_auth.py'
+      - 'scripts/assessment_live_smoke.sh'
       - 'tests/assessment-auth-browser-smoke.mjs'
       - '.github/workflows/assessment-auth-qa.yml'
   push:
@@ -26,6 +27,7 @@ on:
       - 'assets/js/assessment-result-sync.js'
       - 'assets/js/protected-assessment-loader.js'
       - 'scripts/validate_assessment_auth.py'
+      - 'scripts/assessment_live_smoke.sh'
       - 'tests/assessment-auth-browser-smoke.mjs'
       - '.github/workflows/assessment-auth-qa.yml'
 
@@ -45,6 +47,8 @@ jobs:
           node-version: '20'
       - name: Validate assessment authentication and report wiring
         run: python scripts/validate_assessment_auth.py
+      - name: Verify live assessment endpoints
+        run: bash scripts/assessment_live_smoke.sh
       - name: Install Playwright browser
         run: |
           npm install --no-save playwright@1.55.0
