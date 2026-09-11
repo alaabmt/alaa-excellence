@@ -53,7 +53,7 @@ function canvasToPdfBlob(canvas) {
   let length = 0;
   const pushText = s => { const b = enc.encode(s); parts.push(b); length += b.length; };
   const pushBytes = b => { parts.push(b); length += b.length; };
-  pushText('%PDF-1.4\n%âãÏÓ\n');
+  pushText('%PDF-1.4\n%TAMAYUZ10X\n');
   const obj = (n, body, bytes) => {
     offsets[n] = length;
     pushText(`${n} 0 obj\n${body}`);
