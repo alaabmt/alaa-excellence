@@ -1,0 +1,169 @@
+name: Phase 2 picture preview
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/phase2-picture-preview.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  build-previews:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install Pillow
+        run: python -m pip install --quiet pillow
+
+      - name: Generate branded previews and wire metadata
+        shell: python
+        run: |
+          from pathlib import Path
+          from PIL import Image, ImageDraw, ImageFont
+          import re
+
+          ROOT = Path('.')
+          OUT = ROOT / 'assets' / 'previews'
+          OUT.mkdir(parents=True, exist_ok=True)
+
+          cases = {
+            'case-rwanda-blood-on-demand-aerial-logistics.html': ('Rwanda', 'Blood Supply Operating Model', 'Health Supply Network'),
+            'case-bms-devens-future-ready-manufacturing.html': ('Bristol Myers Squibb', 'Future-Ready Manufacturing', 'Biopharma Operations'),
+            'case-seha-virtual-hospital-expertise-network.html': ('SEHA Virtual Hospital', 'Moving Expertise, Not Patients', 'Virtual Care Network'),
+            'case-john-deere-see-spray-precision-decision.html': ('John Deere', 'See & Spray Precision Decision', 'AI-Enabled Agriculture'),
+            'case-tawam-erabs-bariatric-recovery.html': ('Tawam Hospital', 'Redesigning Bariatric Recovery', 'Clinical Pathway'),
+            'case-aravind-eye-care-high-volume-value.html': ('Aravind Eye Care', 'High Volume, High Value', 'Care Delivery Model'),
+            'case-tamm-autogov-ai-native-government.html': ('TAMM Abu Dhabi', 'AI-Native Government', 'Proactive Public Services'),
+            'case-dewa-hydro-insight-smart-water.html': ('DEWA', 'Hydro Insight', 'Smart Water Operations'),
+            'case-ega-dx-ultra-innovation.html': ('Emirates Global Aluminium', 'DX Ultra Innovation', 'Industrial Capability'),
+            'case-dubai-paperless-10x.html': ('Dubai', 'Paperless by Design', 'Government Operating Model'),
+          }
+
+          def font(size, bold=False):
+            candidates = [
+              '/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf' if bold else '/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf',
+              '/usr/share/fonts/truetype/liberation2/LiberationSans-Bold.ttf' if bold else '/usr/share/fonts/truetype/liberation2/LiberationSans-Regular.ttf',
+            ]
+            for p in candidates:
+              if Path(p).exists():
+                return ImageFont.truetype(p, size=size)
+            return ImageFont.load_default()
+
+          f_brand = font(34, True)
+          f_entity = font(42, True)
+          f_title = font(60, True)
+          f_sector = font(28, False)
+          f_mark = font(160, True)
+
+          def wrap(draw, text, fnt, width):
+            words = text.split()
+            lines, line = [], ''
+            for word in words:
+              test = (line + ' ' + word).strip()
+              if draw.textbbox((0,0), test, font=fnt)[2] <= width:
+                line = test
+              else:
+                if line: lines.append(line)
+                line = word
+            if line: lines.append(line)
+            return lines[:3]
+
+          for filename, (entity, title, sector) in cases.items():
+            slug = filename.removesuffix('.html')
+            img = Image.new('RGB', (1200, 630), '#071a2f')
+            d = ImageDraw.Draw(img)
+            # layered editorial geometry
+            d.rounded_rectangle((48, 48, 1152, 582), radius=38, fill='#0c3155', outline='#315979', width=2)
+            d.ellipse((865, -85, 1275, 325), fill='#123f69')
+            d.ellipse((950, 330, 1270, 650), fill='#0a2948')
+            d.rectangle((48, 48, 64, 582), fill='#d3b56f')
+            d.text((92, 82), 'TAMAYUZ 10X  |  CASE STUDY', font=f_brand, fill='#dbe8f2')
+            d.text((92, 145), entity, font=f_entity, fill='#9dc8e9')
+            y = 220
+            for line in wrap(d, title, f_title, 720):
+              d.text((92, y), line, font=f_title, fill='white')
+              y += 74
+            d.text((94, 510), sector, font=f_sector, fill='#d3b56f')
+            d.text((905, 180), '10X', font=f_mark, fill='#ffffff')
+            img.save(OUT / f'{slug}.png', format='PNG', optimize=True)
+
+          # collection preview
+          img = Image.new('RGB', (1200, 630), '#071a2f')
+          d = ImageDraw.Draw(img)
+          d.rounded_rectangle((48,48,1152,582), radius=38, fill='#0c3155', outline='#315979', width=2)
+          d.rectangle((48,48,64,582), fill='#d3b56f')
+          d.text((92, 90), 'TAMAYUZ 10X', font=font(40, True), fill='#9dc8e9')
+          d.text((92, 185), '10X CASES', font=font(82, True), fill='white')
+          d.text((92, 300), '& APPLIED INSIGHTS', font=font(58, True), fill='white')
+          d.text((92, 455), 'Evidence  •  Operating Models  •  Transferable Lessons', font=font(28), fill='#d3b56f')
+          d.text((900, 145), '10X', font=f_mark, fill='#ffffff')
+          img.save(OUT / 'tenx-cases-collection.png', format='PNG', optimize=True)
+
+          def replace_meta(path, preview_url):
+            text = path.read_text(encoding='utf-8')
+            text = re.sub(r'(<meta[^>]+property=["\']og:image["\'][^>]+content=["\'])[^"\']+(["\'])', rf'\1{preview_url}\2', text, count=1)
+            text = re.sub(r'(<meta[^>]+content=["\'])[^"\']+(["\'][^>]+property=["\']og:image["\'])', rf'\1{preview_url}\2', text, count=1)
+            text = re.sub(r'(<meta[^>]+name=["\']twitter:image["\'][^>]+content=["\'])[^"\']+(["\'])', rf'\1{preview_url}\2', text, count=1)
+            text = re.sub(r'(<meta[^>]+content=["\'])[^"\']+(["\'][^>]+name=["\']twitter:image["\'])', rf'\1{preview_url}\2', text, count=1)
+            # secure_url where present
+            text = re.sub(r'(<meta[^>]+property=["\']og:image:secure_url["\'][^>]+content=["\'])[^"\']+(["\'])', rf'\1{preview_url}\2', text, count=1)
+            text = re.sub(r'(<meta[^>]+content=["\'])[^"\']+(["\'][^>]+property=["\']og:image:secure_url["\'])', rf'\1{preview_url}\2', text, count=1)
+            # add dimensions/type if absent for case pages
+            if 'property="og:image:width"' not in text and "property='og:image:width'" not in text:
+              marker = re.search(r'<meta[^>]+property=["\']og:image["\'][^>]*>', text)
+              if marker:
+                extra = '<meta property="og:image:type" content="image/png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">'
+                text = text[:marker.end()] + extra + text[marker.end():]
+            path.write_text(text, encoding='utf-8')
+
+          for filename in cases:
+            url = f'https://tamayuz10x.com/assets/previews/{filename.removesuffix(".html")}.png?v=20260912-preview1'
+            for path in [ROOT / filename, ROOT / 'en' / filename]:
+              if path.exists():
+                replace_meta(path, url)
+
+          for path in [ROOT / 'articles.html', ROOT / 'en' / 'articles.html']:
+            if path.exists():
+              replace_meta(path, 'https://tamayuz10x.com/assets/previews/tenx-cases-collection.png?v=20260912-preview1')
+
+          # Add card picture previews to collection pages.
+          def add_card_previews(path):
+            text = path.read_text(encoding='utf-8')
+            for filename in cases:
+              slug = filename.removesuffix('.html')
+              if f'data-href="{filename}"' not in text:
+                continue
+              if f'assets/previews/{slug}.png' in text:
+                continue
+              pattern = rf'(<article class="article-card"[^>]*data-href="{re.escape(filename)}"[^>]*>)'
+              preview = f'<a class="article-preview" href="{filename}" aria-label="Open case preview"><img src="/assets/previews/{slug}.png?v=20260912-preview1" alt="" loading="lazy" width="1200" height="630"></a>'
+              text, _ = re.subn(pattern, rf'\1{preview}', text, count=1)
+            path.write_text(text, encoding='utf-8')
+
+          add_card_previews(ROOT / 'articles.html')
+          add_card_previews(ROOT / 'en' / 'articles.html')
+
+          # Shared responsive styling, once.
+          css_path = ROOT / 'assets' / 'css' / 'style.css'
+          css = css_path.read_text(encoding='utf-8')
+          marker = '/* phase2-picture-preview */'
+          if marker not in css:
+            css += '\n' + marker + '\n.article-card{overflow:hidden}.article-card .article-preview{display:block;margin:-24px -24px 18px;border-bottom:1px solid var(--line);background:#0c3155;overflow:hidden}.article-card .article-preview img{width:100%;aspect-ratio:1200/630;object-fit:cover;transition:transform .25s ease}.article-card:hover .article-preview img{transform:scale(1.018)}.article-card .article-preview:focus-visible{outline:3px solid rgba(47,95,159,.35);outline-offset:-3px}@media(max-width:600px){.article-card .article-preview{margin:-22px -22px 17px}}\n'
+            css_path.write_text(css, encoding='utf-8')
+
+      - name: Commit Phase 2 previews
+        run: |
+          if git diff --quiet; then
+            echo "No preview changes needed"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/previews assets/css/style.css '*.html' 'en/*.html'
+          git commit -m "[preview-phase2] Add branded picture previews for 10X cases"
+          git push
