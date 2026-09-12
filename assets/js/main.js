@@ -110,43 +110,33 @@ function applyTenXUnifiedModel() {
 
         <article class="tenx-octet-card"><span class="tenx-num">06</span><div><h4>الابتكار والتجريب لتسريع التحول</h4><strong class="tenx-lead">نختبر أسرع، نتعلم أبكر، ونوسّع ما يصنع الفرق.</strong><p>نحوّل الابتكار من نشاط منفصل إلى قدرة مؤسسية مستمرة؛ نكتشف الفرص، ونطوّر الأفكار، ونختبر الحلول والنماذج الجديدة بسرعة، ونتعلم من النتائج، ثم نوسّع ما يثبت قدرته على صناعة القيمة.</p><em>لا ننتظر الحل المثالي؛ نجرّب، نتعلم، ثم نوسّع الأثر.</em></div></article>
 
-        <article class="tenx-octet-card"><span class="tenx-num">07</span><div><h4>تعظيم الذكاء المؤسسي والتقني</h4><strong class="tenx-lead">نجعل المؤسسة أقدر على الفهم والتنبؤ والقرار والتنفيذ.</strong><p>نحوّل البيانات إلى معرفة، والمعرفة إلى قرار، والقرار إلى فعل؛ ونوظف التحول الرقمي والأتمتة والذكاء الاصطناعي و<strong>Agentic AI</strong> لتعزيز قدرات الإنسان والمؤسسة وإعادة تصور الخدمات والعمليات وطرق العمل.</p><em>التقنية ليست غاية 10X؛ بل قوة تضاعف ذكاء المؤسسة وقدرتها.</em></div></article>
+        <article class="tenx-octet-card"><span class="tenx-num">07</span><div><h4>تعظيم الذكاء المؤسسي والتقني</h4><strong class="tenx-lead">نحوّل البيانات والتقنية إلى ذكاء يضاعف القرار والقدرة.</strong><p>نبني مؤسسات تتعلم من بياناتها وتجاربها وتحوّل المعرفة إلى قرارات أفضل، وتستخدم التحليلات والذكاء الاصطناعي والأتمتة والتقنيات الناشئة لتوسيع القدرة البشرية وتسريع الأداء وتحسين التجربة وفتح إمكانات جديدة.</p><em>التقنية ليست هدفاً؛ الذكاء الذي تصنعه هو القيمة.</em></div></article>
 
-        <article class="tenx-octet-card"><span class="tenx-num">08</span><div><h4>مضاعفة القيمة والأثر المستدام</h4><strong class="tenx-lead">ما لا يتحول إلى قيمة وأثر ليس 10X.</strong><p>نقيس النجاح بما أحدثته المؤسسة من تحول حقيقي: في النتائج والأداء، وتجربة أصحاب المصلحة، وقدرات الموظفين، والكفاءة والابتكار، والقيمة الاقتصادية والاجتماعية، والاستدامة. ولا نتوقف عند تحقيق النتائج؛ بل نبني القدرة على التعلم منها والمحافظة عليها ومضاعفتها عبر الزمن.</p><em>10X لا يُقاس بعدد المبادرات، بل بحجم القيمة والأثر الذي يبقى بعدها.</em></div></article>
+        <article class="tenx-octet-card"><span class="tenx-num">08</span><div><h4>تعظيم القيمة والنتائج المستدامة</h4><strong class="tenx-lead">نقيس ما تغيّر فعلاً، لا ما تم تنفيذه فقط.</strong><p>نربط التحول بالنتائج والقيمة والأثر؛ تجربة أفضل، قرارات أسرع، جودة أعلى، كفاءة أكبر، نمو مستدام، قيمة أوسع لأصحاب المصلحة، وأثر يمكن قياسه ومراجعته وتطويره.</p><em>10X لا يكتمل بالنشاط؛ يكتمل عندما يصبح الأثر واضحاً ومستداماً.</em></div></article>
       </div>
 
-      <div class="tenx-final">8 مرتكزات. فلسفة واحدة. طموح 10X.</div>
-    </div>`;
+      <div class="tenx-final">استشراف المستقبل ← بلورة الطموح ← القيمة ← القيادة ← القدرة ← إعادة الابتكار ← الابتكار ← الذكاء ← النتائج</div>
+    </div>
+  `;
 
   if (pathways) pathways.remove();
 
-  if (!document.getElementById('tenx-unified-style')) {
+  if (!document.getElementById('tenx-system-styles')) {
     const style = document.createElement('style');
-    style.id = 'tenx-unified-style';
+    style.id = 'tenx-system-styles';
     style.textContent = `
-      .tenx-system{padding:82px 0;background:linear-gradient(145deg,#07192d 0%,#0b3155 48%,#102943 100%);color:#fff;overflow:hidden;position:relative}
-      .tenx-system:before{content:'10X';position:absolute;left:-2vw;top:80px;font-size:min(25vw,320px);font-weight:900;line-height:1;color:rgba(255,255,255,.025);letter-spacing:-.08em;pointer-events:none}
-      .tenx-system .eyebrow{color:#9dc8e9;font-weight:800;letter-spacing:.03em}
-      .tenx-system-intro{max-width:980px;position:relative;z-index:1}
-      .tenx-system-intro h2{font-size:clamp(2.25rem,5vw,4rem);line-height:1.35;margin:10px 0 24px;color:#fff;max-width:900px}
+      .tenx-system{padding:86px 0;background:linear-gradient(145deg,#06182b 0%,#0b3155 55%,#123c62 100%);color:#fff;overflow:hidden}
+      .tenx-system .eyebrow{color:#9dc8e9}
+      .tenx-system-intro{max-width:980px}
+      .tenx-system-intro h2{font-size:clamp(2.2rem,5vw,4rem);color:#fff;margin:8px 0 22px;line-height:1.35}
       .tenx-system-intro p{font-size:1.08rem;line-height:2;color:#dce9f4;margin:0 0 16px}
-      .tenx-system-intro .tenx-question{font-size:clamp(1.12rem,2.1vw,1.4rem);color:#fff;padding:20px 24px;border-right:4px solid #e7c86d;background:rgba(255,255,255,.06);border-radius:16px;margin:26px 0}
-      .tenx-system-intro blockquote{margin:30px 0 0;padding:22px 26px;border:1px solid rgba(255,255,255,.18);border-radius:18px;background:rgba(255,255,255,.07);font-size:clamp(1.15rem,2.4vw,1.45rem);font-weight:800;line-height:1.9;color:#fff}
-      .tenx-octet-heading{max-width:900px;margin:68px 0 26px}
-      .tenx-octet-heading h3{font-size:clamp(1.9rem,4vw,3rem);line-height:1.4;color:#fff;margin:8px 0 14px}
-      .tenx-octet-heading p{color:#dce9f4;line-height:1.95;font-size:1.05rem;margin:0}
-      .tenx-signature{display:grid;grid-template-columns:220px 1fr;gap:24px;align-items:stretch;margin:34px 0 36px;padding:24px;border:1px solid rgba(255,255,255,.18);border-radius:26px;background:rgba(255,255,255,.055);box-shadow:0 22px 60px rgba(0,0,0,.16)}
-      .tenx-signature-mark{min-height:190px;border-radius:20px;background:#fff;color:#0b3155;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
-      .tenx-signature-mark span{font-size:5.6rem;font-weight:900;letter-spacing:-.11em;line-height:1}
-      .tenx-signature-mark b{font-size:5.8rem;font-weight:900;line-height:1;margin-right:4px}
-      .tenx-signature-mark small{position:absolute;bottom:17px;right:18px;left:18px;text-align:center;font-weight:800;font-size:.82rem;letter-spacing:.02em}
-      .tenx-signature-track{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;align-content:center;direction:rtl}
-      .tenx-signature-track span{min-height:74px;padding:13px 12px;border-radius:16px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.16);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;font-weight:800;color:#fff;line-height:1.45}
-      .tenx-signature-track span b{display:block;color:#e7c86d;font-size:.78rem;margin-bottom:4px;letter-spacing:.08em}
-      .tenx-signature-track i{display:none}
-      .tenx-octet-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
-      .tenx-octet-card{display:grid;grid-template-columns:58px 1fr;gap:18px;padding:25px 24px;border-radius:22px;background:rgba(255,255,255,.075);border:1px solid rgba(255,255,255,.17);backdrop-filter:blur(6px);transition:transform .2s ease,border-color .2s ease,background .2s ease}
-      .tenx-octet-card:hover{transform:translateY(-3px);border-color:rgba(231,200,109,.55);background:rgba(255,255,255,.1)}
+      .tenx-system-intro .tenx-question{font-size:1.22rem;color:#fff;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:18px;padding:22px 24px;margin-bottom:24px}
+      .tenx-system-intro blockquote{margin:28px 0 0;padding:22px 24px;border-right:4px solid #e7c86d;background:rgba(255,255,255,.08);border-radius:16px;color:#fff;font-size:1.22rem;font-weight:800;line-height:1.85}
+      .tenx-octet-heading{margin:62px 0 26px;max-width:950px}
+      .tenx-octet-heading h3{font-size:clamp(1.8rem,4vw,2.8rem);color:#fff;margin:7px 0 12px}
+      .tenx-octet-heading p{color:#dce9f4;line-height:1.95;font-size:1.03rem;margin:0}
+      .tenx-octet-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+      .tenx-octet-card{display:grid;grid-template-columns:58px 1fr;gap:16px;padding:26px 22px;border-radius:20px;background:rgba(255,255,255,.075);border:1px solid rgba(255,255,255,.16);backdrop-filter:blur(5px)}
       .tenx-num{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#fff;color:#0b3155;font-weight:900;font-size:.95rem;box-shadow:0 8px 20px rgba(0,0,0,.12)}
       .tenx-octet-card h4{font-size:1.28rem;line-height:1.55;color:#fff;margin:2px 0 8px}
       .tenx-lead{display:block;color:#e7c86d;line-height:1.75;margin-bottom:8px;font-size:1rem}
@@ -160,8 +150,80 @@ function applyTenXUnifiedModel() {
   }
 }
 
+function ensureAccountNavStyles() {
+  if (document.getElementById('account-nav-styles')) return;
+  const style = document.createElement('style');
+  style.id = 'account-nav-styles';
+  style.textContent = `
+    .account-switch{display:flex;align-items:center;flex:0 0 auto}
+    .account-switch a{display:inline-flex;align-items:center;justify-content:center;min-height:34px;padding:5px 12px;border:1px solid #cfd9e4;border-radius:999px;background:#fff;color:#1f467c;font-weight:800;line-height:1.2;white-space:nowrap;transition:background .18s,border-color .18s,color .18s}
+    .account-switch a:hover,.account-switch a:focus-visible{background:#eef4fb;border-color:#9fb6d0;color:#173f67;outline:none}
+    .account-switch a[data-auth-state="signed-in"]{background:#1f467c;border-color:#1f467c;color:#fff}
+    @media(max-width:600px){.topbar-inner{gap:10px}.account-switch a{min-height:32px;padding:5px 10px;font-size:.84rem}.lang-switch{font-size:.84rem}}
+  `;
+  document.head.appendChild(style);
+}
+
+function loadAccountAuthConfig() {
+  if (window.TAMAYUZ_AUTH_CONFIG) return Promise.resolve();
+  return new Promise((resolve, reject) => {
+    const existing = document.querySelector('script[src*="/assets/js/auth-config.js"],script[src*="assets/js/auth-config.js"]');
+    if (existing) {
+      if (window.TAMAYUZ_AUTH_CONFIG) return resolve();
+      existing.addEventListener('load', resolve, { once: true });
+      existing.addEventListener('error', reject, { once: true });
+      return;
+    }
+    const script = document.createElement('script');
+    script.src = '/assets/js/auth-config.js?v=20260912-accountnav1';
+    script.async = true;
+    script.onload = resolve;
+    script.onerror = reject;
+    document.head.appendChild(script);
+  });
+}
+
+async function applyAccountNavigation() {
+  const topbar = document.querySelector('.topbar-inner');
+  if (!topbar || topbar.querySelector('.account-switch')) return;
+
+  ensureAccountNavStyles();
+  const lang = isArabicPage ? 'ar' : 'en';
+  const currentPath = `${location.pathname}${location.search}${location.hash}`;
+  const labels = isArabicPage
+    ? { signIn: 'تسجيل الدخول', account: 'حسابي' }
+    : { signIn: 'Sign in', account: 'My account' };
+
+  const wrap = document.createElement('div');
+  wrap.className = 'account-switch';
+  const link = document.createElement('a');
+  link.href = `/account/login.html?lang=${lang}&next=${encodeURIComponent(currentPath)}`;
+  link.textContent = labels.signIn;
+  link.setAttribute('data-auth-state', 'signed-out');
+  link.setAttribute('aria-label', labels.signIn);
+  wrap.appendChild(link);
+
+  const languageSwitch = topbar.querySelector('.lang-switch');
+  if (languageSwitch) topbar.insertBefore(wrap, languageSwitch);
+  else topbar.appendChild(wrap);
+
+  try {
+    await loadAccountAuthConfig();
+    const { currentSession } = await import('/assets/js/assessment-auth-client.js?v=20260912-accountnav1');
+    const { session } = await currentSession();
+    if (!session) return;
+    link.href = `/account/?lang=${lang}`;
+    link.textContent = labels.account;
+    link.setAttribute('data-auth-state', 'signed-in');
+    link.setAttribute('aria-label', labels.account);
+  } catch (error) {
+    console.warn('Account navigation status unavailable:', error);
+  }
+}
+
 applySiteLogo();
 applyTenXUnifiedModel();
+applyAccountNavigation();
 window.addEventListener('resize', applySiteLogo, { passive: true });
 
 const toggle = document.querySelector('.menu-toggle');
@@ -259,45 +321,42 @@ const applyArticleFilters = () => {
   const query = normalizeText(searchInput?.value || '');
   const topic = topicFilter?.value || 'all';
   const dateRange = dateFilter?.value || 'all';
-  const readingRange = readFilter?.value || 'all';
+  const readRange = readFilter?.value || 'all';
   let visibleCount = 0;
   articleCards.forEach((card) => {
-    const categories = (card.dataset.category || '').split(' ');
-    const show = (activeCategory === 'all' || categories.includes(activeCategory))
-      && (topic === 'all' || card.dataset.topic === topic)
-      && (!query || normalizeText(card.textContent).includes(query))
-      && withinDateRange(card, dateRange)
-      && matchesReadingTime(card, readingRange);
-    card.hidden = !show;
-    if (show) visibleCount += 1;
+    const inCategory = activeCategory === 'all' || (card.dataset.category || '').split(' ').includes(activeCategory);
+    const haystack = normalizeText([card.dataset.search, card.dataset.topic, card.textContent].filter(Boolean).join(' '));
+    const matchesQuery = !query || haystack.includes(query);
+    const matchesTopic = topic === 'all' || card.dataset.topic === topic;
+    const visible = inCategory && matchesQuery && matchesTopic && withinDateRange(card, dateRange) && matchesReadingTime(card, readRange);
+    card.hidden = !visible;
+    if (visible) visibleCount += 1;
   });
   sortCards();
-  if (resultsCount) resultsCount.textContent = visibleCount === 1 ? 'مقال واحد' : `${visibleCount} مقالات`;
+  if (resultsCount) resultsCount.textContent = isArabicPage ? `${visibleCount} نتيجة` : `${visibleCount} result${visibleCount === 1 ? '' : 's'}`;
   if (emptyState) emptyState.hidden = visibleCount !== 0;
 };
-
-if (filterButtons.length && articleCards.length) {
-  filterButtons.forEach((button) => button.addEventListener('click', () => {
-    activeCategory = button.dataset.filter || 'all';
-    filterButtons.forEach((item) => {
-      item.classList.remove('active');
-      item.setAttribute('aria-pressed', 'false');
-    });
-    button.classList.add('active');
-    button.setAttribute('aria-pressed', 'true');
-    populateTopics();
-    applyArticleFilters();
-  }));
-}
+filterButtons.forEach((button) => button.addEventListener('click', () => {
+  filterButtons.forEach((btn) => {
+    btn.classList.remove('active');
+    btn.setAttribute('aria-pressed', 'false');
+  });
+  button.classList.add('active');
+  button.setAttribute('aria-pressed', 'true');
+  activeCategory = button.dataset.filter || 'all';
+  populateTopics();
+  applyArticleFilters();
+}));
 [searchInput, topicFilter, dateFilter, readFilter, sortFilter].forEach((control) => {
-  if (control) control.addEventListener(control === searchInput ? 'input' : 'change', applyArticleFilters);
+  if (!control) return;
+  control.addEventListener(control === searchInput ? 'input' : 'change', applyArticleFilters);
 });
 if (clearFiltersButton) clearFiltersButton.addEventListener('click', () => {
   activeCategory = 'all';
-  filterButtons.forEach((button) => {
-    const isAll = button.dataset.filter === 'all';
-    button.classList.toggle('active', isAll);
-    button.setAttribute('aria-pressed', isAll ? 'true' : 'false');
+  filterButtons.forEach((btn) => {
+    const selected = (btn.dataset.filter || '') === 'all';
+    btn.classList.toggle('active', selected);
+    btn.setAttribute('aria-pressed', selected ? 'true' : 'false');
   });
   if (searchInput) searchInput.value = '';
   if (dateFilter) dateFilter.value = 'all';
@@ -307,27 +366,41 @@ if (clearFiltersButton) clearFiltersButton.addEventListener('click', () => {
   if (topicFilter) topicFilter.value = 'all';
   applyArticleFilters();
 });
-populateTopics();
-applyArticleFilters();
-
-document.querySelectorAll('.article-card[data-href]').forEach((card) => {
-  const href = card.dataset.href;
-  if (!href || href === '#') return;
-  card.classList.add('article-card-clickable');
-  card.setAttribute('tabindex', '0');
-  card.setAttribute('role', 'link');
-  const go = () => { window.location.href = href; };
-  card.addEventListener('click', (event) => { if (!event.target.closest('a,button')) go(); });
-  card.addEventListener('keydown', (event) => {
-    if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); go(); }
+if (articleCards.length) {
+  populateTopics();
+  applyArticleFilters();
+  articleCards.forEach((card) => {
+    const primaryLink = card.querySelector('h3 a, .article-action, p a');
+    if (!primaryLink) return;
+    card.classList.add('article-card-clickable');
+    card.tabIndex = 0;
+    card.setAttribute('role', 'link');
+    const openCard = () => { window.location.href = primaryLink.href; };
+    card.addEventListener('click', (event) => {
+      if (event.target.closest('a,button,input,select,textarea,label')) return;
+      openCard();
+    });
+    card.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        openCard();
+      }
+    });
   });
+}
+
+const newsletter = document.getElementById('newsletter-form');
+if (newsletter) newsletter.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const msg = document.getElementById('newsletter-message');
+  if (msg) msg.textContent = 'شكراً لك. سيتم تفعيل الاشتراك البريدي قريباً.';
+  newsletter.reset();
 });
 
-// Load the reusable sharing panel on article and case-study pages.
-if (/\/(case-|idea-|article-)/.test(window.location.pathname)) {
-  const shareScript = document.createElement('script');
-  shareScript.src = 'assets/js/article-share.js?v=20260907-share1';
-  shareScript.defer = true;
-  shareScript.dataset.tenxShareLoader = 'true';
-  document.body.appendChild(shareScript);
-}
+const contact = document.getElementById('contact-form');
+if (contact) contact.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const msg = document.getElementById('form-message');
+  if (msg) msg.textContent = 'تم استلام رسالتك مبدئياً. سيتم ربط النموذج بخدمة الإرسال قريباً.';
+  contact.reset();
+});
