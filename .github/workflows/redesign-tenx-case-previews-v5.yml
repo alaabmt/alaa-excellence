@@ -1,0 +1,127 @@
+name: Redesign Tamayuz 10X case previews v5
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/redesign-tenx-case-previews-v5.yml'
+permissions:
+  contents: write
+jobs:
+  redesign:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Install browser and fonts
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y chromium-browser fonts-noto-core fonts-noto-extra fonts-dejavu-core
+          python -m pip install --upgrade pip
+          pip install playwright
+      - name: Generate bilingual preview cards
+        run: |
+          python <<'PY'
+          from pathlib import Path
+          import json, html, subprocess, textwrap, re, os
+
+          root=Path('.')
+          out=root/'assets/previews'
+          out.mkdir(parents=True,exist_ok=True)
+          work=Path('/tmp/tamayuz-previews'); work.mkdir(exist_ok=True)
+
+          cases=[
+            dict(slug='case-rwanda-blood-on-demand-aerial-logistics', ar_entity='رواندا', ar_title='إعادة تصميم نموذج تشغيل إمداد الدم', ar_teaser='من مخزون محلي محدود إلى إمداد شبكي سريع عند الطلب', en_entity='Rwanda', en_title='Redesigning the Blood-Supply Operating Model', en_teaser='From local stock constraints to rapid network resupply on demand'),
+            dict(slug='case-bms-devens-future-ready-manufacturing', ar_entity='BMS ديفنز', ar_title='بناء مصنع مستعد لما سيأتي', ar_teaser='بناء قدرات اليوم لمستقبل أكثر تعقيدًا في التصنيع الدوائي', en_entity='BMS Devens', en_title='Building a Factory Ready for What Comes Next', en_teaser='Building today’s capabilities for a more complex manufacturing future'),
+            dict(slug='case-seha-virtual-hospital-expertise-network', ar_entity='مستشفى صحة الافتراضي', ar_title='من نقل المريض إلى نقل الخبرة', ar_teaser='إيصال التخصص إلى نقطة الحاجة عبر نموذج رعاية افتراضي', en_entity='SEHA Virtual Hospital', en_title='Moving Expertise Instead of Patients', en_teaser='Bringing specialist expertise to the point of need through virtual care'),
+            dict(slug='case-john-deere-see-spray-precision-decision', ar_entity='John Deere', ar_title='من الرش الشامل إلى القرار الدقيق', ar_teaser='تحويل رؤية النبات إلى قرار استهداف على مستوى النبتة', en_entity='John Deere', en_title='From Blanket Spraying to Precision Decisions', en_teaser='Turning plant-level vision into targeted action in the field'),
+            dict(slug='case-tawam-erabs-bariatric-recovery', ar_entity='مستشفى توام', ar_title='إعادة تصميم رحلة التعافي بعد الجراحة', ar_teaser='مسار رعاية منظم يربط القرار السريري بالتشغيل اليومي', en_entity='Tawam Hospital', en_title='Redesigning the Post-Surgery Recovery Journey', en_teaser='A structured care pathway connecting clinical decisions with daily operations'),
+            dict(slug='case-aravind-eye-care-high-volume-value', ar_entity='Aravind Eye Care', ar_title='قيمة أعلى من نموذج تشغيل مختلف', ar_teaser='توسيع الوصول إلى جراحة العيون عبر تدفق عمل عالي الكفاءة', en_entity='Aravind Eye Care', en_title='Creating More Value Through a Different Operating Model', en_teaser='Expanding access to eye surgery through a high-efficiency care model'),
+            dict(slug='case-tamm-autogov-ai-native-government', ar_entity='أبوظبي · TAMM', ar_title='من الحكومة الرقمية إلى الحكومة الاستباقية', ar_teaser='إعادة تصميم رحلة المتعامل حول الاحتياج لا حول حدود الجهات', en_entity='Abu Dhabi · TAMM', en_title='From Digital Government to Proactive Government', en_teaser='Redesigning citizen journeys around needs rather than agency boundaries'),
+            dict(slug='case-dewa-hydro-insight-smart-water', ar_entity='دبي · DEWA', ar_title='من قراءة الاستهلاك إلى كشف الخلل مبكرًا', ar_teaser='تحويل بيانات الشبكة إلى رؤية تشغيلية وقرار أسرع', en_entity='Dubai · DEWA', en_title='From Meter Reading to Earlier Problem Detection', en_teaser='Turning network data into operational visibility and faster decisions'),
+            dict(slug='case-ega-dx-ultra-innovation', ar_entity='الإمارات العالمية للألمنيوم', ar_title='حين يصبح الابتكار قدرة قابلة للتصدير', ar_teaser='ربط الابتكار الرقمي بمشكلة تشغيلية ثم توسيع قيمته خارج الموقع', en_entity='Emirates Global Aluminium', en_title='When Innovation Becomes an Exportable Capability', en_teaser='Connecting digital innovation to an operating problem, then scaling its value'),
+            dict(slug='case-dubai-paperless-10x', ar_entity='دبي', ar_title='التحول الحقيقي: إلغاء الحاجة إلى الورق', ar_teaser='إعادة تصميم العمل الحكومي بدل تحويل الورق إلى شاشة', en_entity='Dubai', en_title='The Real Transformation: Removing the Need for Paper', en_teaser='Redesigning government work rather than simply digitizing documents'),
+          ]
+
+          css='''
+          *{box-sizing:border-box}html,body{margin:0;width:1200px;height:630px;overflow:hidden}
+          body{font-family:"Noto Sans Arabic","Noto Sans",Arial,sans-serif;background:#082947;color:#fff}
+          .card{position:relative;width:1200px;height:630px;overflow:hidden;background:radial-gradient(circle at 91% 14%,#174b78 0 19%,transparent 19.4%),radial-gradient(circle at 92% 72%,#103d68 0 28%,transparent 28.4%),linear-gradient(135deg,#082846,#082f52)}
+          .goldbar{position:absolute;left:26px;top:20px;bottom:20px;width:12px;background:#f1b53d;border-radius:2px}
+          .content{position:absolute;inset:48px 72px 42px 80px;display:grid;grid-template-columns:760px 1fr;column-gap:34px}
+          .copy{display:flex;flex-direction:column;min-width:0}.identity{display:flex;align-items:center;gap:16px;font-size:27px;font-weight:800;color:#fff;margin-bottom:11px}.entity{color:#f1b53d}.sep{opacity:.7}.eyebrow{color:#cbd9e8;font-size:21px;font-weight:600;margin-bottom:54px}.title{font-size:54px;line-height:1.26;font-weight:900;letter-spacing:-.6px;max-width:760px;margin:0 0 24px}.teaser{font-size:27px;line-height:1.55;color:#c7d5e6;font-weight:500;max-width:745px}.author{margin-top:auto;border-inline-start:5px solid #f1b53d;padding-inline-start:18px;font-size:23px;font-weight:800}.brand{display:flex;align-items:center;justify-content:center;text-align:center;line-height:1.0;font-weight:900;align-self:center}.brand .word{display:block;font-size:54px;margin-bottom:16px}.brand .ten{display:block;font-family:"DejaVu Sans",Arial,sans-serif;font-size:104px;letter-spacing:-6px}.brand .x{color:#f1b53d}.ar{direction:rtl}.ar .content{grid-template-columns:1fr 760px}.ar .copy{grid-column:2;text-align:right}.ar .brand{grid-column:1;grid-row:1;text-align:center}.ar .goldbar{left:26px}.en{direction:ltr}.en .title{font-family:"Noto Sans",Arial,sans-serif;font-size:49px;line-height:1.16;letter-spacing:-1.1px}.en .teaser,.en .identity,.en .eyebrow,.en .author,.en .brand .word{font-family:"Noto Sans",Arial,sans-serif}.en .brand .word{font-size:39px}.en .content{grid-template-columns:760px 1fr}.en .copy{grid-column:1}.en .brand{grid-column:2;grid-row:1}.collection .title{font-size:58px}.collection .teaser{font-size:29px}
+          '''
+
+          def page(lang, entity, title, teaser, collection=False):
+              ar=lang=='ar'
+              cls='ar' if ar else 'en'
+              if collection: cls+=' collection'
+              identity=('حالات وتجارب' if ar else 'Cases & Experiences')
+              eyebrow=('حالة موثقة' if ar else 'Evidence-Based Case') if not collection else ('معرفة تطبيقية موثقة' if ar else 'Evidence-Based Applied Knowledge')
+              author=('الدكتور علاء محمد أحمد' if ar else 'Dr. Alaa Mohammad Ahmed')
+              brandword=('التميّز' if ar else 'Tamayuz')
+              langattr='ar' if ar else 'en'
+              dirattr='rtl' if ar else 'ltr'
+              return f'''<!doctype html><html lang="{langattr}" dir="{dirattr}"><head><meta charset="utf-8"><style>{css}</style></head><body><div class="card {cls}"><div class="goldbar"></div><div class="content"><section class="copy"><div class="identity"><span>{html.escape(identity)}</span><span class="sep">|</span><span class="entity">{html.escape(entity)}</span></div><div class="eyebrow">{html.escape(eyebrow)}</div><h1 class="title">{html.escape(title)}</h1><div class="teaser">{html.escape(teaser)}</div><div class="author">{html.escape(author)}</div></section><aside class="brand"><div><span class="word">{html.escape(brandword)}</span><span class="ten">10<span class="x">X</span></span></div></aside></div></div></body></html>'''
+
+          generated=[]
+          for c in cases:
+              for lang in ('ar','en'):
+                  p=work/f"{c['slug']}-{lang}.html"
+                  p.write_text(page(lang,c[f'{lang}_entity'],c[f'{lang}_title'],c[f'{lang}_teaser']),encoding='utf-8')
+                  generated.append((p,out/f"{c['slug']}-{lang}.png"))
+
+          coll=[
+            ('ar','التميّز 10X','حالات وتجارب 10X','تحولات واقعية موثقة، تُقرأ من زاوية نموذج التشغيل والقيمة والنتائج'),
+            ('en','Tamayuz 10X','10X Cases & Experiences','Evidence-based transformations viewed through operating models, value and results')
+          ]
+          for lang,entity,title,teaser in coll:
+              p=work/f'collection-{lang}.html'
+              p.write_text(page(lang,entity,title,teaser,True),encoding='utf-8')
+              generated.append((p,out/f'tenx-cases-collection-{lang}.png'))
+
+          node=work/'shot.js'
+          node.write_text('''const { chromium } = require("playwright"); const fs=require("fs"); (async()=>{const browser=await chromium.launch({headless:true,executablePath:"/usr/bin/chromium-browser",args:["--no-sandbox"]});for(const [input,output] of JSON.parse(process.argv[2])){const page=await browser.newPage({viewport:{width:1200,height:630},deviceScaleFactor:1});await page.goto("file://"+input,{waitUntil:"load"});await page.screenshot({path:output,type:"png"});await page.close();}await browser.close();})();''')
+          payload=json.dumps([[str(a.resolve()),str(b.resolve())] for a,b in generated])
+          subprocess.run(['node',str(node),payload],check=True)
+
+          # Bump image versions in bilingual case pages and collection only.
+          targets=list(root.glob('case-*.html'))+list((root/'en').glob('case-*.html'))+[root/'articles.html',root/'en/articles.html']
+          for p in targets:
+              if not p.exists(): continue
+              s=p.read_text(encoding='utf-8')
+              s=re.sub(r'20260912-preview\d+', '20260912-preview5', s)
+              p.write_text(s,encoding='utf-8')
+          print('Generated',len(generated),'previews')
+          PY
+      - name: Verify preview set and language mapping
+        run: |
+          python <<'PY'
+          from pathlib import Path
+          cases=list(Path('.').glob('case-*.html'))
+          expected=10
+          ar=list(Path('assets/previews').glob('case-*-ar.png'))
+          en=list(Path('assets/previews').glob('case-*-en.png'))
+          assert len(ar)>=expected, len(ar)
+          assert len(en)>=expected, len(en)
+          assert Path('assets/previews/tenx-cases-collection-ar.png').exists()
+          assert Path('assets/previews/tenx-cases-collection-en.png').exists()
+          for p in cases:
+              s=p.read_text(encoding='utf-8')
+              if 'assets/previews/case-' in s:
+                  assert '-ar.png?v=20260912-preview5' in s, p
+          for p in Path('en').glob('case-*.html'):
+              s=p.read_text(encoding='utf-8')
+              if 'assets/previews/case-' in s:
+                  assert '-en.png?v=20260912-preview5' in s, p
+          assert 'tenx-cases-collection-ar.png?v=20260912-preview5' in Path('articles.html').read_text(encoding='utf-8')
+          assert 'tenx-cases-collection-en.png?v=20260912-preview5' in Path('en/articles.html').read_text(encoding='utf-8')
+          print('Preview QA passed')
+          PY
+      - name: Commit redesigned previews
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add assets/previews '*.html' 'en/*.html'
+          git commit -m '[preview] Apply approved Tamayuz 10X preview identity' || exit 0
+          git push
