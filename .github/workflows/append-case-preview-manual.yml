@@ -1,0 +1,51 @@
+name: Append case preview rule to manual
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/append-case-preview-manual.yml
+permissions:
+  contents: write
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Append manual rule
+        shell: bash
+        run: |
+          if grep -q "## 23. معيار بطاقات معاينة حالات 10X" 10X_Agent_AI_Master_Operating_Manual_AR.md; then
+            exit 0
+          fi
+          cat >> 10X_Agent_AI_Master_Operating_Manual_AR.md <<'EOF'
+
+## 23. معيار بطاقات معاينة حالات 10X — تحديث 12 سبتمبر 2026
+
+المرجع المتخصص الإلزامي: `10X_CASE_SOCIAL_PREVIEW_STANDARD.md`.
+
+هذه القاعدة جزء من حزمة نشر كل حالة 10X جديدة أو محدثة:
+- لكل حالة ثنائية اللغة بطاقتا معاينة اجتماعيتان مستقلتان: عربية وإنجليزية.
+- بطاقة المعاينة ليست غلافاً زخرفياً؛ هي وعد معرفي مصغر يوضح ما الذي تغيّر، ولماذا يهم، وما الدليل.
+- يجب أن تحمل، بقدر يسمح به التصميم: هوية التميّز 10X، توصيف الحالة، عنواناً مختصراً، التحول الجوهري أو الفكرة المركزية، نتيجة موثقة واحدة أو اثنتين عندما تكون قوية، واسم المؤلف الدكتور علاء محمد أحمد / Dr. Alaa Mohammad Ahmed.
+- لا يجوز وضع رقم أو نتيجة في البطاقة إلا إذا كانا موثقين داخل الحالة ويمكن تتبع مصدرهما في Evidence Pack.
+- يجب التمييز بين النتيجة المتحققة والهدف والتقدير والادعاء المؤسسي، وعدم تحويل الارتباط أو المساهمة إلى سببية غير مثبتة.
+- إذا لم توجد نتيجة كمية قوية، استخدم دليلاً تشغيلياً موثقاً أو تغيراً في القدرة أو نموذج التشغيل بدلاً من رقم ضعيف أو مصطنع.
+- النسخة العربية تُكتب كعربية أصلية، والإنجليزية كإنجليزية أصلية، مع تكافؤ دلالي في جوهر التحول والنتيجة وحدود اليقين.
+- يجب ربط كل لغة ببطاقتها عبر `og:image` و`twitter:image`، مع `og:image:alt` و`twitter:image:alt` المناسبين للغة الصفحة.
+- المقاس المرجعي 1200×630، ويجب دعم Arabic shaping وBidi عند رسم العربية داخل الصورة.
+- استخدم cache busting عند استبدال صورة المعاينة دون تغيير canonical الصفحة.
+- قبل Final Quality Gate اختبر البطاقة العربية والإنجليزية على الهاتف، وتحقق من وضوح الاسم والعنوان والأرقام وعدم قص النص أو كسر اتجاه العربية.
+- لا تعتبر حزمة نشر الحالة مكتملة حتى تُراجع بطاقتا المعاينة ضمن Final Quality Gate وتُتحقق دقة كل معلومة ظاهرة عليهما.
+EOF
+      - name: Commit manual update
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add 10X_Agent_AI_Master_Operating_Manual_AR.md
+          if git diff --cached --quiet; then
+            exit 0
+          fi
+          git commit -m "[manual] Add bilingual case preview requirement"
+          git push
