@@ -17,3 +17,4 @@ Updated: 2026-09-12
 ## Notes
 - Historical Git commits can still contain older public assessment content; current route protection does not erase Git history.
 - Old test reports remain stored for rollback/audit during the preview phase; account UI should prefer visual-v3 reports.
+- Preview Worker source is pinned to the validated application snapshot rather than an unpinned branch URL.
