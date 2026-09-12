@@ -24,10 +24,17 @@ async function checkViewport(name, viewport) {
   }
 
   await expectVisible('/account/register.html?lang=ar', [
-    'input#name', 'input#email[type="email"]', 'input#password[type="password"]', 'button#submit'
+    'input#firstName[autocomplete="given-name"]',
+    'input#lastName[autocomplete="family-name"]',
+    'input#email[type="email"]',
+    'input#password[type="password"]',
+    'input#confirmPassword[type="password"]',
+    'button#togglePassword[type="button"]',
+    'button#toggleConfirmPassword[type="button"]',
+    'button#submit'
   ]);
-  if (await page.locator('input#username, label[for="username"], #usernameLabel').count()) {
-    failures.push('/account/register.html: username field is still present');
+  if (await page.locator('input#name, input#username, label[for="username"], #usernameLabel').count()) {
+    failures.push('/account/register.html: legacy name or username field is still present');
   }
 
   await expectVisible('/account/login.html?lang=ar', [
