@@ -6,14 +6,25 @@ function isVisible(el){
   return cs.display!=='none'&&cs.visibility!=='hidden'&&Number(cs.opacity||1)>0&&r.width>300&&Math.max(r.height,el.scrollHeight)>500;
 }
 
-function reportMarkers(text){
+function lppReportMarkers(text){
   return /كيف تقرأ نتيجتك|How to read your result/i.test(text)&&/تفضيلاتك الأربعة|learning preferences/i.test(text);
+}
+
+function reportReady(key,root){
+  if(!root||!isVisible(root))return false;
+  const text=(root.innerText||'').trim();
+  if(key==='learning-preference-profile')return lppReportMarkers(text);
+  if(key==='work-approach-assessment'){
+    const h=Math.max(root.scrollHeight,root.getBoundingClientRect().height);
+    return text.length>500&&h>900;
+  }
+  return text.length>200;
 }
 
 function pickReportRoot(key){
   if(key!=='learning-preference-profile')return document.body;
   const all=[...document.querySelectorAll('#lppApp,.participant-enhanced,main,article,section,div')].filter(isVisible);
-  const marked=all.filter(el=>reportMarkers((el.innerText||'').trim()));
+  const marked=all.filter(el=>lppReportMarkers((el.innerText||'').trim()));
   if(marked.length){
     marked.sort((a,b)=>{
       const ar=a.getBoundingClientRect(),br=b.getBoundingClientRect();
@@ -29,8 +40,8 @@ function pickReportRoot(key){
 
 async function waitForVisualReport(key){
   for(let i=0;i<100;i++){
-    const root=pickReportRoot(key),text=(root?.innerText||'');
-    if(root&&isVisible(root)&&reportMarkers(text)){
+    const root=pickReportRoot(key);
+    if(reportReady(key,root)){
       await new Promise(r=>setTimeout(r,700));
       return root;
     }
