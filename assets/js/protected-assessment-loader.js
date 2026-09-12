@@ -23,13 +23,29 @@ function assessmentKeyFor(asset) {
   return asset === 'lpp' ? 'learning-preference-profile' : 'work-approach-assessment';
 }
 
+function isReportUpgradeRequest() {
+  try {
+    return new URLSearchParams(location.search).get('reportUpgrade') === '1';
+  } catch (_) {
+    return false;
+  }
+}
+
 async function ensureAttempt(asset) {
   const assessmentKey = assessmentKeyFor(asset);
   const storageKey = `tamayuz10x-current-attempt:${assessmentKey}`;
+  const reportUpgrade = isReportUpgradeRequest();
   try {
     const existing = JSON.parse(sessionStorage.getItem(storageKey) || 'null');
-    if (existing?.id && existing?.assessmentKey === assessmentKey && !existing?.completed) return existing;
+    if (existing?.id && existing?.assessmentKey === assessmentKey) {
+      if (!existing?.completed) return existing;
+      if (reportUpgrade) return existing;
+    }
   } catch (_) {}
+
+  // Report-only recovery must never create a new assessment attempt. The
+  // account page seeds the genuine completed attempt before opening this path.
+  if (reportUpgrade) throw new Error('REPORT_UPGRADE_ATTEMPT_MISSING');
 
   const data = await startAssessmentAttempt(assessmentKey);
   const attempt = {
