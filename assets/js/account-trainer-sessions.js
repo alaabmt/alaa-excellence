@@ -4,6 +4,7 @@ const root = document.getElementById('trainerSessions');
 if (root) {
   const lang = document.documentElement.lang === 'en' ? 'en' : 'ar';
   const t = lang === 'ar' ? {
+    title: 'جلساتي التدريبية',
     loading: 'جارٍ تحميل جلساتك التدريبية…',
     empty: 'لا توجد جلسات تدريبية محفوظة في حسابك حتى الآن.',
     failed: 'تعذر تحميل الجلسات التدريبية الآن.',
@@ -17,6 +18,7 @@ if (root) {
     restore: 'إعادة فتحها في الحساب',
     unknown: '—'
   } : {
+    title: 'My trainer sessions',
     loading: 'Loading your trainer sessions…',
     empty: 'No trainer sessions are saved in your account yet.',
     failed: 'Trainer sessions could not be loaded right now.',
@@ -30,8 +32,10 @@ if (root) {
     restore: 'Restore in account',
     unknown: '—'
   };
+  const heading = document.getElementById('trainerSessionsTitle');
+  if (heading) heading.textContent = t.title;
 
-  const esc = (s) => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const esc = (s) => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot',"'":'&#39;'}[c]));
   const dateText = (value) => {
     const d = new Date(value);
     return Number.isNaN(d.getTime()) ? '' : d.toLocaleString(lang === 'ar' ? 'ar-AE' : 'en-AE');
