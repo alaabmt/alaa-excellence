@@ -1,0 +1,45 @@
+name: Fix article preview ratio
+on:
+  push:
+    paths:
+      - '.github/workflows/fix-article-preview-ratio.yml'
+permissions:
+  contents: write
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Force landscape preview cards on article listing
+        run: |
+          python <<'PY'
+          from pathlib import Path
+          import re
+
+          css = Path('assets/css/style.css')
+          s = css.read_text(encoding='utf-8')
+          marker = '/* article-preview-landscape-fix-v1 */'
+          rule = '''\n/* article-preview-landscape-fix-v1 */\n.article-card .article-preview{aspect-ratio:1200/630!important;height:auto!important}\n.article-card .article-preview img{display:block!important;width:100%!important;height:100%!important;aspect-ratio:auto!important;object-fit:cover!important}\n'''
+          if marker not in s:
+              s += rule
+          css.write_text(s, encoding='utf-8')
+
+          for p in [Path('articles.html'), Path('en/articles.html')]:
+              t = p.read_text(encoding='utf-8')
+              t = re.sub(r'assets/css/style\.css\?v=[^"\']+', 'assets/css/style.css?v=20260912-preview-landscape1', t)
+              p.write_text(t, encoding='utf-8')
+          PY
+      - name: QA
+        run: |
+          grep -q 'article-preview-landscape-fix-v1' assets/css/style.css
+          grep -q 'style.css?v=20260912-preview-landscape1' articles.html
+          grep -q 'style.css?v=20260912-preview-landscape1' en/articles.html
+      - name: Commit
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add assets/css/style.css articles.html en/articles.html
+          git commit -m '[ui] Force landscape article preview ratio on mobile' || exit 0
+          git push
