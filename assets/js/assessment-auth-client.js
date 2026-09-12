@@ -20,7 +20,12 @@ async function resolveConfig() {
   return resolvedConfig;
 }
 
-export async function createAuthClient() {
+let clientPromise;
+export function createAuthClient() {
+  if (!clientPromise) clientPromise = buildAuthClient().catch(error => { clientPromise = null; throw error; });
+  return clientPromise;
+}
+async function buildAuthClient() {
   if (!authConfigured()) throw new Error('TAMAYUZ_AUTH_NOT_CONFIGURED');
   const resolved = await resolveConfig();
   const { createClient } = await import('https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm');
