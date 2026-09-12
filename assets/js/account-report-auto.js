@@ -1,6 +1,7 @@
 import { currentSession } from './assessment-auth-client.js';
 import { listAssessmentReports } from './assessment-reports-client.js';
 import { recoverSavedLearningPreferenceReport } from './account-report-recovery.js';
+import './account-trainer-sessions.js';
 
 async function run(){
   try{
