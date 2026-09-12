@@ -1,0 +1,112 @@
+name: Fix Vision Mission Values nav order sitewide
+on:
+  push:
+    paths:
+      - '.github/workflows/fix-vmv-nav-order-sitewide.yml'
+permissions:
+  contents: write
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Normalize VMV navigation position
+        run: |
+          python <<'PY'
+          from pathlib import Path
+          import re
+
+          root = Path('.')
+          skip_parts = {'account','auth','.git','node_modules'}
+          changed = []
+
+          def is_english(path, text):
+              return 'en' in path.parts or bool(re.search(r'<html[^>]+lang=["\']en', text, re.I))
+
+          for p in root.rglob('*.html'):
+              if any(part in skip_parts for part in p.parts):
+                  continue
+              s = p.read_text(encoding='utf-8')
+              if 'class="container nav-links"' not in s:
+                  continue
+
+              en = is_english(p, s)
+              vmv_href = '/en/vision-mission-values.html' if en else '/vision-mission-values.html'
+              vmv_text = 'Vision, Mission & Values' if en else 'الرؤية والرسالة والقيم'
+
+              m = re.search(r'(<div class="container nav-links">)(.*?)(</div>)', s, flags=re.S)
+              if not m:
+                  continue
+              inner = m.group(2)
+
+              # Remove any existing VMV nav item regardless of relative/absolute href.
+              inner = re.sub(
+                  r'<a\b[^>]*href=["\'][^"\']*vision-mission-values\.html["\'][^>]*>.*?</a>',
+                  '', inner, flags=re.S|re.I
+              )
+
+              anchors = list(re.finditer(r'<a\b[^>]*>.*?</a>', inner, flags=re.S|re.I))
+              if not anchors:
+                  continue
+
+              # Home is the first navigation item in the normalized public nav.
+              first = anchors[0]
+              vmv = f'<a href="{vmv_href}">{vmv_text}</a>'
+              inner = inner[:first.end()] + vmv + inner[first.end():]
+
+              new = s[:m.start()] + m.group(1) + inner + m.group(3) + s[m.end():]
+              if new != s:
+                  p.write_text(new, encoding='utf-8')
+                  changed.append(str(p))
+
+          # Remove the old homepage-only JS nav injection that could prepend VMV before Home.
+          hp = root/'assets/js/homepage-philosophy.js'
+          if hp.exists():
+              s = hp.read_text(encoding='utf-8')
+              s2 = re.sub(
+                  r'\n\s*const nav = document\.querySelector\(\'\.main-nav \.nav-links\'\);.*?\n\s*}\n\s*\}\)\(\);',
+                  '\n})();', s, flags=re.S
+              )
+              if s2 != s:
+                  hp.write_text(s2, encoding='utf-8')
+                  changed.append(str(hp))
+
+          print('Changed files:', len(changed))
+          for f in changed[:25]: print(f)
+          PY
+      - name: QA navigation order
+        run: |
+          python <<'PY'
+          from pathlib import Path
+          import re
+          skip_parts={'account','auth','.git','node_modules'}
+          checked=0
+          for p in Path('.').rglob('*.html'):
+              if any(part in skip_parts for part in p.parts): continue
+              s=p.read_text(encoding='utf-8')
+              m=re.search(r'<div class="container nav-links">(.*?)</div>',s,re.S)
+              if not m: continue
+              inner=m.group(1)
+              anchors=re.findall(r'<a\b[^>]*href=["\']([^"\']+)["\'][^>]*>(.*?)</a>',inner,re.S|re.I)
+              if not anchors: continue
+              texts=[re.sub('<.*?>','',x[1]).strip() for x in anchors]
+              en='en' in p.parts or bool(re.search(r'<html[^>]+lang=["\']en',s,re.I))
+              expected='Vision, Mission & Values' if en else 'الرؤية والرسالة والقيم'
+              assert len(texts)>=2, p
+              assert texts[1]==expected, (p,texts[:3])
+              assert texts.count(expected)==1, (p,texts)
+              checked+=1
+          hp=Path('assets/js/homepage-philosophy.js').read_text(encoding='utf-8')
+          assert "vision-mission-values.html" not in hp
+          print('QA passed on',checked,'public pages')
+          PY
+      - name: Commit
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add '*.html' 'en/*.html' assets/js/homepage-philosophy.js
+          git add -- ':!account/**' ':!auth/**'
+          git commit -m '[nav] Place Vision Mission Values after Home sitewide' || exit 0
+          git push
