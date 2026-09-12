@@ -1,0 +1,92 @@
+name: One-time trainer service explainer UX
+on:
+  push:
+    branches: [main]
+permissions:
+  contents: write
+jobs:
+  patch:
+    if: contains(github.event.head_commit.message, '[setup trainer-service-explainer]')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Patch trainer UX
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+
+          js_path = Path('tools/learning-preference-profile/session-ui.js')
+          css_path = Path('tools/learning-preference-profile/session-ui.css')
+          js = js_path.read_text(encoding='utf-8')
+          css = css_path.read_text(encoding='utf-8')
+
+          # 1) Clarify the singular current-session action everywhere.
+          old_label = "${tx('My trainer sessions','جلساتي في حسابي')}"
+          new_label = "${tx('Manage this session','إدارة هذه الجلسة')}"
+          count = js.count(old_label)
+          if count < 2:
+              raise SystemExit(f'Expected at least 2 account-button labels, found {count}')
+          js = js.replace(old_label, new_label)
+
+          # 2) Add a pre-use explanation directly inside the trainer card.
+          trainer_button = "<button class=\"lpp-btn\" id=\"entryTrainer\">${ownActive?tx('Manage current session','إدارة الجلسة الحالية'):tx('Create a group session','أنشئ جلسة للمجموعة')}</button>"
+          trainer_explainer = trainer_button + "<button class=\"lpp-text-link\" id=\"trainerBenefitToggle\" type=\"button\" aria-expanded=\"false\">${tx('What is the value of a group session?','ما فائدة جلسة المجموعة؟')}</button><div class=\"lpp-trainer-value hidden\" id=\"trainerBenefitDetails\"><strong>${tx('A group-level training decision aid','أداة تساعد المدرب على اتخاذ قرار تدريبي للمجموعة')}</strong><p>${tx('Share one assessment with the group, then see aggregated learning-preference patterns that help you balance explanation, practice, reflection, and application. Individual participant reports remain personal by default.','شارك تقييمًا واحدًا مع المجموعة، ثم شاهد أنماط تفضيلات التعلم بصورة جماعية تساعدك على موازنة الشرح والممارسة والتأمل والتطبيق. تبقى تقارير المشاركين الفردية شخصية افتراضيًا.')}</p></div>"
+          if trainer_button not in js:
+              raise SystemExit('Trainer card button pattern not found')
+          js = js.replace(trainer_button, trainer_explainer, 1)
+
+          # 3) Explain the service itself before the operational steps in the active-session view.
+          resume_banner = "      <div class=\"lpp-session-banner\"><b>${tx('Current session','الجلسة الحالية')}:</b> <span dir=\"ltr\">${esc(c)}</span>${name?` <small>${esc(name)}</small>`:''}</div>\n"
+          resume_value = resume_banner + "      <div class=\"lpp-trainer-value lpp-trainer-value-prominent\"><h3>${tx('How does this service help me as a trainer?','كيف تساعدني هذه الخدمة كمدرب؟')}</h3><p>${tx('It converts completed participant assessments into a group-level picture you can use to adjust training design: how much explanation, practice, reflection, and application the group may need. It supports training decisions without exposing individual reports by default.','تحوّل الخدمة تقييمات المشاركين المكتملة إلى صورة جماعية يمكنك استخدامها لتعديل تصميم التدريب: مقدار الشرح والممارسة والتأمل والتطبيق الذي قد تحتاجه المجموعة. وهي تدعم القرار التدريبي دون كشف التقارير الفردية افتراضيًا.')}</p><div class=\"lpp-service-flow\"><span>${tx('Share','شارك')}</span><span>${tx('Collect','استقبل الإكمال')}</span><span>${tx('Understand','افهم الصورة')}</span><span>${tx('Adapt','عدّل التدريب')}</span></div></div>\n"
+          if resume_banner not in js:
+              raise SystemExit('Resume banner pattern not found')
+          js = js.replace(resume_banner, resume_value, 1)
+
+          # 4) Add a plain-language explanation under the account action in the active-session view.
+          resume_created = "      <div class=\"lpp-session-created\"><div class=\"lpp-session-details\"><span>${tx('Session code','رمز الجلسة')}</span><strong dir=\"ltr\">${esc(c)}</strong><label>${tx('Participant link','رابط المشاركين')}<input value=\"${esc(u)}\" readonly></label><div class=\"lpp-actions\"><button class=\"lpp-btn primary\" id=\"copyActiveSession\" type=\"button\">${tx('Copy participant link','نسخ رابط المشاركين')}</button><a class=\"lpp-btn\" href=\"${esc(q)}\" target=\"_blank\" rel=\"noopener\">${tx('Show QR','عرض QR')}</a><a class=\"lpp-btn primary\" href=\"${esc(dashboard)}\">${tx('Open group dashboard','فتح لوحة المجموعة')}</a><a class=\"lpp-btn\" href=\"${esc(u)}\">${tx('Preview participant view','معاينة شاشة المشارك')}</a><a class=\"lpp-btn\" href=\"${esc(accountUrl)}\">${tx('Manage this session','إدارة هذه الجلسة')}</a></div></div></div>\n"
+          resume_created_plus = resume_created + "      <p class=\"lpp-action-note\">${tx('“Manage this session” opens your account so you can return to this session later and follow its saved results.','«إدارة هذه الجلسة» تفتح حسابك لتتمكن من العودة إلى هذه الجلسة لاحقًا ومتابعة نتائجها المحفوظة.')}</p>\n"
+          if resume_created not in js:
+              raise SystemExit('Active session action block not found')
+          js = js.replace(resume_created, resume_created_plus, 1)
+
+          # 5) Add the same service-value explanation immediately after a new session is created.
+          created_step = "      <div class=\"lpp-session-banner\"><b>${tx('Current step','الخطوة الحالية')}:</b> ${tx('Share the assessment with participants, then open the group dashboard as results arrive.','شارك التقييم مع المشاركين، ثم افتح لوحة المجموعة مع وصول النتائج.')}</div>\n"
+          created_value = created_step + "      <div class=\"lpp-trainer-value\"><h3>${tx('Why this matters for the trainer','لماذا هذه الخدمة مهمة للمدرب؟')}</h3><p>${tx('Instead of relying only on impressions, you receive a group-level learning-preference picture and practical recommendations you can use to balance your session design.','بدل الاعتماد على الانطباع وحده، تحصل على صورة جماعية لتفضيلات التعلم وتوصيات عملية تساعدك على موازنة تصميم الجلسة.')}</p></div>\n"
+          if created_step not in js:
+              raise SystemExit('Created-session current-step pattern not found')
+          js = js.replace(created_step, created_value, 1)
+
+          # 6) Wire the explainer as an accessible disclosure.
+          wire_anchor = "    document.getElementById('entryTrainer')?.addEventListener('click',()=>{document.getElementById('trainerCreateBox')?.classList.remove('hidden');document.getElementById('joinSessionBox')?.classList.add('hidden');});\n"
+          wire_extra = wire_anchor + "    document.getElementById('trainerBenefitToggle')?.addEventListener('click',e=>{const d=document.getElementById('trainerBenefitDetails');if(!d)return;const opening=d.classList.contains('hidden');d.classList.toggle('hidden');e.currentTarget.setAttribute('aria-expanded',opening?'true':'false');});\n"
+          if wire_anchor not in js:
+              raise SystemExit('Wire anchor not found')
+          js = js.replace(wire_anchor, wire_extra, 1)
+
+          css_extra = """
+
+/* Trainer service explanation and current-session clarity. */
+.lpp-text-link{display:inline-flex;margin-top:12px;padding:0;border:0;background:transparent;color:var(--navy2);font:inherit;font-weight:800;text-decoration:underline;text-underline-offset:4px;cursor:pointer}.lpp-trainer-value{margin:14px 0;padding:16px 18px;border:1px solid #c9d9ea;border-radius:16px;background:#f7fbff;color:var(--ink)}.lpp-trainer-value h3,.lpp-trainer-value strong{color:var(--navy);margin:0 0 8px}.lpp-trainer-value p{margin:6px 0 0;color:var(--muted);min-height:0}.lpp-trainer-value-prominent{background:linear-gradient(135deg,#f3f8ff,#f8fbf7);border-color:#b9d2ea}.lpp-service-flow{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.lpp-service-flow span{padding:7px 10px;border-radius:999px;background:#fff;border:1px solid var(--line);font-size:.84rem;font-weight:800;color:var(--navy)}.lpp-action-note{margin:10px 2px 0;color:var(--muted);font-size:.84rem;line-height:1.8}
+@media(max-width:520px){.lpp-service-flow{display:grid;grid-template-columns:1fr 1fr}.lpp-text-link{margin-top:14px}.lpp-trainer-value{padding:14px}}
+"""
+          if 'Trainer service explanation and current-session clarity.' not in css:
+              css += css_extra
+
+          js_path.write_text(js, encoding='utf-8')
+          css_path.write_text(css, encoding='utf-8')
+          PY
+
+          git diff --check
+          git diff -- tools/learning-preference-profile/session-ui.js tools/learning-preference-profile/session-ui.css
+      - name: Commit changes
+        shell: bash
+        run: |
+          git config user.name "alaabmt"
+          git config user.email "160816140+alaabmt@users.noreply.github.com"
+          git add tools/learning-preference-profile/session-ui.js tools/learning-preference-profile/session-ui.css
+          git commit -m "[trainer] Explain group-session value and current-session management"
+          git push origin main
