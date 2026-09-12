@@ -63,7 +63,7 @@ export async function loadProtectedAssessment(asset, options = {}) {
     await ensureAttempt(asset);
 
     if (!cfg.protectedContentEndpoint) throw new Error('CONTENT_ENDPOINT_NOT_CONFIGURED');
-    const url = new URL(cfg.protectedContentEndpoint);
+    const url = new URL(cfg.protectedContentEndpoint, location.origin);
     url.searchParams.set('asset', asset);
     const response = await fetch(url, {
       method: 'GET',
