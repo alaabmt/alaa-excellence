@@ -10,7 +10,7 @@
   if(incoming) localStorage.setItem(SESSION_KEY,incoming);
 
   const tx=(en,ar)=>document.documentElement.lang==='ar'?ar:en;
-  const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot',"'":'&#39;'}[c]));
+  const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const baseUrl=()=>`${location.origin}${location.pathname}`;
   const sessionUrl=c=>`${baseUrl()}?session=${encodeURIComponent(c)}`;
   const qrPrimary=u=>`https://quickchart.io/qr?size=260&margin=2&text=${encodeURIComponent(u)}`;
