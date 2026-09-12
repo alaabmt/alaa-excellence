@@ -38,7 +38,10 @@ async function checkViewport(name, viewport) {
   }
 
   await expectVisible('/account/login.html?lang=ar', [
-    'input#email[type="email"]', 'input#password[type="password"]', 'button#submit'
+    'input#email[type="email"]',
+    'input#password[type="password"]',
+    'button#togglePassword[type="button"]',
+    'button#submit'
   ]);
   if (await page.locator('input#username, label[for="username"]').count()) {
     failures.push('/account/login.html: username field is present');
