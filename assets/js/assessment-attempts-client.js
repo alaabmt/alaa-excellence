@@ -11,6 +11,14 @@ async function authHeaders(client) {
   };
 }
 
+async function responseJson(response) {
+  try {
+    return await response.json();
+  } catch (_) {
+    return null;
+  }
+}
+
 export async function startAssessmentAttempt(assessmentKey) {
   const client = await createAuthClient();
   const response = await fetch(endpoint, {
@@ -18,7 +26,17 @@ export async function startAssessmentAttempt(assessmentKey) {
     headers: await authHeaders(client),
     body: JSON.stringify({ assessment_key: assessmentKey })
   });
-  if (!response.ok) throw new Error(`ATTEMPT_START_FAILED_${response.status}`);
+  if (!response.ok) {
+    const body = await responseJson(response);
+    if (response.status === 429 && body?.error === 'monthly_attempt_limit_reached') {
+      const error = new Error('MONTHLY_ATTEMPT_LIMIT_REACHED');
+      error.code = 'MONTHLY_ATTEMPT_LIMIT_REACHED';
+      error.limit = Number(body?.limit) || 2;
+      error.resetAt = String(body?.reset_at || '');
+      throw error;
+    }
+    throw new Error(`ATTEMPT_START_FAILED_${response.status}`);
+  }
   return response.json();
 }
 

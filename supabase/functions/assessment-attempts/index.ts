@@ -3,6 +3,7 @@ import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
 const allowedOrigin = "https://tamayuz10x.com";
 const allowedKeys = new Set(["learning-preference-profile", "work-approach-assessment"]);
+const MONTHLY_ATTEMPT_LIMIT = 2;
 
 function headers() {
   return {
@@ -12,6 +13,21 @@ function headers() {
     "access-control-allow-methods": "GET,POST,PATCH,OPTIONS",
     "vary": "Origin"
   };
+}
+
+function utcMonthWindow(now = new Date()) {
+  const start = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), 1));
+  const reset = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth() + 1, 1));
+  return { start: start.toISOString(), resetAt: reset.toISOString() };
+}
+
+function monthlyLimitResponse(assessmentKey: string, resetAt: string) {
+  return new Response(JSON.stringify({
+    error: "monthly_attempt_limit_reached",
+    assessment_key: assessmentKey,
+    limit: MONTHLY_ATTEMPT_LIMIT,
+    reset_at: resetAt
+  }), { status: 429, headers: headers() });
 }
 
 Deno.serve(async (req: Request) => {
@@ -65,12 +81,31 @@ Deno.serve(async (req: Request) => {
       if (!allowedKeys.has(key)) {
         return new Response(JSON.stringify({ error: "invalid_assessment_key" }), { status: 400, headers: headers() });
       }
+
+      const { start: monthStart, resetAt } = utcMonthWindow();
+      const { count, error: countError } = await supabase
+        .from("assessment_attempts")
+        .select("id", { count: "exact", head: true })
+        .eq("user_id", userId)
+        .eq("assessment_key", key)
+        .gte("created_at", monthStart)
+        .lt("created_at", resetAt);
+      if (countError) throw countError;
+      if ((count || 0) >= MONTHLY_ATTEMPT_LIMIT) {
+        return monthlyLimitResponse(key, resetAt);
+      }
+
       const { data, error } = await supabase
         .from("assessment_attempts")
         .insert({ user_id: userId, assessment_key: key, status: "in_progress" })
         .select("id,assessment_key,started_at,status")
         .single();
-      if (error) throw error;
+      if (error) {
+        if (String(error.message || "").includes("monthly_attempt_limit_reached")) {
+          return monthlyLimitResponse(key, resetAt);
+        }
+        throw error;
+      }
       return new Response(JSON.stringify({ attempt: data }), { status: 201, headers: headers() });
     }
 
