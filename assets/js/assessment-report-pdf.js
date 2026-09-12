@@ -1,3 +1,5 @@
+const PDF_MIME_TYPE='application/pdf';
+
 function isVisible(el){
   if(!el)return false;
   const cs=getComputedStyle(el),r=el.getBoundingClientRect();
@@ -146,7 +148,7 @@ async function canvasesToPdf(canvases){
     pdf.addImage(canvas.toDataURL('image/jpeg',0.92),'JPEG',x,0,w,h,undefined,'FAST');
   });
   const blob=pdf.output('blob');
-  if(!(blob instanceof Blob)||blob.size<5000)throw new Error('VISUAL_REPORT_PDF_INVALID');
+  if(!(blob instanceof Blob)||blob.type!==PDF_MIME_TYPE||blob.size<5000)throw new Error('VISUAL_REPORT_PDF_INVALID');
   return blob;
 }
 
