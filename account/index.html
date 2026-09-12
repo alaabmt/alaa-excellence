@@ -12,8 +12,14 @@
 import { currentSession } from '/assets/js/assessment-auth-client.js';
 const lang=new URLSearchParams(location.search).get('lang')==='en'?'en':'ar';
 document.documentElement.lang=lang;document.documentElement.dir=lang==='ar'?'rtl':'ltr';
+const titleEl=document.getElementById('title');
+const identityEl=document.getElementById('identity');
+const logoutEl=document.getElementById('logout');
+const historyTitleEl=document.getElementById('historyTitle');
+const historyEl=document.getElementById('history');
+const backEl=document.getElementById('back');
 const labels=lang==='ar'?{account:'حسابي',history:'محاولاتي ونتائجي',logout:'تسجيل الخروج',back:'العودة إلى مختبر اكتشاف الذات',none:'لا توجد محاولات محفوظة حتى الآن.',failed:'تعذر تحميل الحساب.',completed:'مكتمل',in_progress:'قيد التنفيذ',abandoned:'غير مكتمل',view:'عرض النتيجة',hide:'إخفاء النتيجة',reportUnavailable:'ملف PDF سيظهر هنا بعد تفعيل خدمة التقارير.'}:{account:'My account',history:'My attempts and results',logout:'Sign out',back:'Back to the Self-Discovery Lab',none:'No saved assessment attempts yet.',failed:'Could not load account.',completed:'Completed',in_progress:'In progress',abandoned:'Incomplete',view:'View result',hide:'Hide result',reportUnavailable:'The PDF report will appear here after the report service is enabled.'};
-if(lang==='en'){document.title='My account | Tamayuz 10X';title.textContent=labels.account;historyTitle.textContent=labels.history;logout.textContent=labels.logout;back.textContent=labels.back;back.href='/en/personality.html';}
+if(lang==='en'){document.title='My account | Tamayuz 10X';titleEl.textContent=labels.account;historyTitleEl.textContent=labels.history;logoutEl.textContent=labels.logout;backEl.textContent=labels.back;backEl.href='/en/personality.html';}
 function assessmentName(key){return key==='learning-preference-profile'?(lang==='ar'?'بصمتك في التعلّم':'Learning Style Profile'):(lang==='ar'?'تقييم أسلوب العمل':'Work Approach Assessment');}
 function statusName(s){return labels[s]||s;}
 function lppMetrics(result){const p=result?.scores?.percent;if(!p)return '';const names=lang==='ar'?{A:'الممارسة',R:'التأمل والمراجعة',T:'التحليل المفاهيمي',P:'التطبيق العملي'}:{A:'Action',R:'Reflection',T:'Conceptual analysis',P:'Practical application'};return `<div class="result-grid">${['A','R','T','P'].map(k=>`<div class="metric"><strong>${p[k]??'—'}%</strong><span>${names[k]}</span></div>`).join('')}</div>`;}
@@ -24,16 +30,16 @@ try{
  if(!session){location.replace(`/account/login.html?lang=${lang}&next=${encodeURIComponent('/account/?lang='+lang)}`);}
  else{
    const {data:profile}=await client.from('profiles').select('full_name').eq('id',session.user.id).maybeSingle();
-   identity.textContent=[profile?.full_name,session.user.email].filter(Boolean).join(' · ');
+   identityEl.textContent=[profile?.full_name,session.user.email].filter(Boolean).join(' · ');
    const {data:attempts,error}=await client.from('assessment_attempts').select('id,assessment_key,status,started_at,completed_at,result_json').order('started_at',{ascending:false}).limit(50);
    if(error) throw error;
-   if(!attempts?.length){history.textContent=labels.none;}
+   if(!attempts?.length){historyEl.textContent=labels.none;}
    else{
-     history.className='';
-     history.innerHTML=attempts.map((a,i)=>`<div class="attempt"><strong>${assessmentName(a.assessment_key)}</strong><br><span class="muted">${statusName(a.status)} · ${new Date(a.started_at).toLocaleString(lang==='ar'?'ar':'en')}</span>${a.status==='completed'?`<div class="attempt-actions"><button class="btn secondary" data-view="r${i}">${labels.view}</button></div><div class="result-box hidden" id="r${i}">${resultHtml(a)}<p class="muted report-note">${labels.reportUnavailable}</p></div>`:''}</div>`).join('');
+     historyEl.className='';
+     historyEl.innerHTML=attempts.map((a,i)=>`<div class="attempt"><strong>${assessmentName(a.assessment_key)}</strong><br><span class="muted">${statusName(a.status)} · ${new Date(a.started_at).toLocaleString(lang==='ar'?'ar':'en')}</span>${a.status==='completed'?`<div class="attempt-actions"><button class="btn secondary" data-view="r${i}">${labels.view}</button></div><div class="result-box hidden" id="r${i}">${resultHtml(a)}<p class="muted report-note">${labels.reportUnavailable}</p></div>`:''}</div>`).join('');
      document.querySelectorAll('[data-view]').forEach(btn=>btn.onclick=()=>{const box=document.getElementById(btn.dataset.view);const show=box.classList.contains('hidden');box.classList.toggle('hidden');btn.textContent=show?labels.hide:labels.view;});
    }
-   logout.onclick=async()=>{await client.auth.signOut();location.replace(lang==='ar'?'/personality.html':'/en/personality.html');};
+   logoutEl.onclick=async()=>{await client.auth.signOut();location.replace(lang==='ar'?'/personality.html':'/en/personality.html');};
  }
-}catch(e){console.error('Account history load failed:',e);identity.textContent=identity.textContent.includes('@')?identity.textContent:labels.failed;history.textContent=labels.failed;}
+}catch(e){console.error('Account history load failed:',e);identityEl.textContent=identityEl.textContent.includes('@')?identityEl.textContent:labels.failed;historyEl.textContent=labels.failed;}
 </script></body></html>
