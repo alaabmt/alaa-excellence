@@ -1,0 +1,7 @@
+{
+  "feature": "saved-lpp-coloured-report-recovery",
+  "released": "2026-09-12",
+  "report_variant": "visual-v3",
+  "source": "saved-assessment-result",
+  "creates_new_attempt": false
+}
