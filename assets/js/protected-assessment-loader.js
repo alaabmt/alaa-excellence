@@ -10,11 +10,13 @@ const WORK_ARCHIVE_PREFIX = 'tamayuz10x-work-state-v1:';
 function message(lang, key) {
   const ar = {
     loading: 'جارٍ فتح التقييم الآمن…',
-    failed: 'تعذر فتح التقييم الآن. حاول مرة أخرى.'
+    failed: 'تعذر فتح التقييم الآن. حاول مرة أخرى.',
+    monthlyLimit: 'لقد وصلت إلى الحد الشهري لهذا التقييم: محاولتان في الشهر. يمكنك بدء محاولة جديدة مع بداية الشهر القادم، وتبقى نتائجك وتقاريرك السابقة متاحة في حسابك.'
   };
   const en = {
     loading: 'Opening the secure assessment…',
-    failed: 'The assessment could not be opened. Please try again.'
+    failed: 'The assessment could not be opened. Please try again.',
+    monthlyLimit: 'You have reached this assessment’s monthly limit of two attempts. You can start a new attempt at the beginning of next month, and your previous results and reports remain available in your account.'
   };
   return (lang === 'ar' ? ar : en)[key];
 }
@@ -248,6 +250,7 @@ export async function loadProtectedAssessment(asset, options = {}) {
     document.close();
   } catch (error) {
     console.error('Protected assessment loader failed:', error);
-    renderStatus(message(lang, 'failed'), lang);
+    const key = error?.code === 'MONTHLY_ATTEMPT_LIMIT_REACHED' ? 'monthlyLimit' : 'failed';
+    renderStatus(message(lang, key), lang);
   }
 }
