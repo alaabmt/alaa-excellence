@@ -1,5 +1,11 @@
 import { currentSession } from './assessment-auth-client.js';
-import { startAssessmentAttempt } from './assessment-attempts-client.js';
+import { listAssessmentAttempts, startAssessmentAttempt } from './assessment-attempts-client.js';
+
+const LPP_STATE_KEY = 'tamayuz10x-lpp-v1';
+const LPP_OWNER_KEY = 'tamayuz10x-lpp-owner-v1';
+const LPP_ARCHIVE_PREFIX = 'tamayuz10x-lpp-state-v2:';
+const WORK_OWNER_KEY = 'tamayuz10x-work-owner-v1';
+const WORK_ARCHIVE_PREFIX = 'tamayuz10x-work-state-v1:';
 
 function message(lang, key) {
   const ar = {
@@ -31,6 +37,128 @@ function isReportUpgradeRequest() {
   }
 }
 
+function readJson(key) {
+  try {
+    return JSON.parse(localStorage.getItem(key) || 'null');
+  } catch (_) {
+    return null;
+  }
+}
+
+function writeJson(key, value) {
+  try {
+    localStorage.setItem(key, JSON.stringify(value));
+  } catch (_) {}
+}
+
+function timestamp(value) {
+  if (typeof value === 'number' && Number.isFinite(value)) return value;
+  const parsed = Date.parse(String(value || ''));
+  return Number.isFinite(parsed) ? parsed : NaN;
+}
+
+function lppArchiveKey(owner) {
+  return `${LPP_ARCHIVE_PREFIX}${owner.userId}:${owner.attemptId}`;
+}
+
+function lppStateCouldBelongToAttempt(state, attempt) {
+  if (!state || typeof state !== 'object') return false;
+  const attemptStarted = timestamp(attempt?.startedAt);
+  if (!Number.isFinite(attemptStarted)) return false;
+  const stateStarted = timestamp(state.startedAt);
+  const stateCompleted = timestamp(state.completedAt);
+  const tolerance = 120000;
+
+  if (Number.isFinite(stateStarted) && stateStarted < attemptStarted - tolerance) return false;
+  if (Number.isFinite(stateCompleted) && stateCompleted < attemptStarted - tolerance) return false;
+
+  const answered = Object.values(state.responses || {}).filter(v => v !== null && v !== undefined).length;
+  if (state.screen === 'results' || state.completedAt) {
+    return Number.isFinite(stateCompleted) && stateCompleted >= attemptStarted - tolerance;
+  }
+  if (answered > 0) {
+    return Number.isFinite(stateStarted) && stateStarted >= attemptStarted - tolerance;
+  }
+  return true;
+}
+
+function prepareLppLocalState(userId, attempt, lang) {
+  const targetOwner = { userId, attemptId: attempt.id };
+  const currentOwner = readJson(LPP_OWNER_KEY);
+  const currentState = readJson(LPP_STATE_KEY);
+
+  if (currentOwner?.userId && currentOwner?.attemptId && currentState) {
+    writeJson(lppArchiveKey(currentOwner), currentState);
+  }
+
+  if (currentOwner?.userId === userId && currentOwner?.attemptId === attempt.id) return;
+
+  let nextState = readJson(lppArchiveKey(targetOwner));
+
+  // Migration path for an assessment already in progress before state ownership
+  // was introduced. Only adopt legacy browser state when its timestamps can
+  // plausibly belong to this exact attempt. This prevents a previous person's
+  // completed result from appearing in a newly registered account on the same device.
+  if (!nextState && !currentOwner && lppStateCouldBelongToAttempt(currentState, attempt)) {
+    nextState = currentState;
+  }
+
+  if (!nextState) {
+    nextState = {
+      lang: lang === 'en' ? 'en' : 'ar',
+      screen: 'start',
+      current: 0,
+      responses: {},
+      startedAt: null,
+      completedAt: null
+    };
+  }
+
+  writeJson(LPP_STATE_KEY, nextState);
+  writeJson(LPP_OWNER_KEY, targetOwner);
+  writeJson(lppArchiveKey(targetOwner), nextState);
+}
+
+function collectWorkLocalState() {
+  const snapshot = {};
+  try {
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+      if (!key || !key.startsWith('wpf_v17_')) continue;
+      snapshot[key] = localStorage.getItem(key);
+    }
+  } catch (_) {}
+  return snapshot;
+}
+
+function clearWorkLocalState() {
+  try {
+    const keys = [];
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+      if (key?.startsWith('wpf_v17_')) keys.push(key);
+    }
+    keys.forEach(key => localStorage.removeItem(key));
+  } catch (_) {}
+}
+
+function prepareWorkLocalState(userId) {
+  const currentOwner = readJson(WORK_OWNER_KEY);
+  if (currentOwner?.userId) {
+    writeJson(`${WORK_ARCHIVE_PREFIX}${currentOwner.userId}`, collectWorkLocalState());
+  }
+  if (currentOwner?.userId === userId) return;
+
+  clearWorkLocalState();
+  const archived = readJson(`${WORK_ARCHIVE_PREFIX}${userId}`) || {};
+  try {
+    Object.entries(archived).forEach(([key, value]) => {
+      if (key.startsWith('wpf_v17_') && typeof value === 'string') localStorage.setItem(key, value);
+    });
+  } catch (_) {}
+  writeJson(WORK_OWNER_KEY, { userId });
+}
+
 async function ensureAttempt(asset) {
   const assessmentKey = assessmentKeyFor(asset);
   const storageKey = `tamayuz10x-current-attempt:${assessmentKey}`;
@@ -46,6 +174,25 @@ async function ensureAttempt(asset) {
   // Report-only recovery must never create a new assessment attempt. The
   // account page seeds the genuine completed attempt before opening this path.
   if (reportUpgrade) throw new Error('REPORT_UPGRADE_ATTEMPT_MISSING');
+
+  // A browser tab/session can be recreated while a genuine attempt is still
+  // in progress. Reuse that database attempt instead of creating duplicates.
+  try {
+    const listed = await listAssessmentAttempts(assessmentKey);
+    const inProgress = (listed?.attempts || []).find(row => row?.id && row?.status === 'in_progress');
+    if (inProgress) {
+      const attempt = {
+        id: inProgress.id,
+        assessmentKey,
+        startedAt: inProgress.started_at || new Date().toISOString(),
+        completed: false
+      };
+      sessionStorage.setItem(storageKey, JSON.stringify(attempt));
+      return attempt;
+    }
+  } catch (error) {
+    console.warn('Could not check for an existing assessment attempt:', error);
+  }
 
   const data = await startAssessmentAttempt(assessmentKey);
   const attempt = {
@@ -76,7 +223,9 @@ export async function loadProtectedAssessment(asset, options = {}) {
       return;
     }
 
-    await ensureAttempt(asset);
+    const attempt = await ensureAttempt(asset);
+    if (asset === 'lpp') prepareLppLocalState(session.user.id, attempt, lang);
+    else prepareWorkLocalState(session.user.id);
 
     if (!cfg.protectedContentEndpoint) throw new Error('CONTENT_ENDPOINT_NOT_CONFIGURED');
     const url = new URL(cfg.protectedContentEndpoint, location.origin);
