@@ -22,13 +22,4 @@
     <p>ويأتي موقع <strong>«التميّز 10X»</strong> ليكون مساحة لبناء هذه الثقافة باللغة العربية، من خلال تحليل الأفكار والممارسات والنماذج والحالات الموثقة التي تكشف كيف يمكن للمؤسسات أن تتحول بصورة حقيقية. والغاية ليست عرض قصص نجاح، بل فهم ما الذي تغيّر فعلاً، ولماذا نجح، وما الذي يمكن الاستفادة منه في سياقات أخرى.</p>
     <p><strong>الطموح هو أن تتطور «ثقافة التميّز 10X» إلى ثقافة عربية ذات حضور عالمي؛ عربية في لغتها وسياقها، عالمية في مستوى طموحها، وعملية في قدرتها على تحويل الأفكار إلى قيمة وأثر.</strong></p>
     <blockquote>التميّز 10X ليس أن نفعل الشيء نفسه عشر مرات أكثر؛ بل أن نوسّع معنى الممكن، ونبني المؤسسة القادرة على الوصول إليه.</blockquote>`;
-
-  const nav = document.querySelector('.main-nav .nav-links');
-  if (nav && !nav.querySelector('a[href="vision-mission-values.html"]')) {
-    const home = nav.querySelector('a[href="index.html"]');
-    const a = document.createElement('a');
-    a.href = 'vision-mission-values.html';
-    a.textContent = 'الرؤية والرسالة والقيم';
-    if (home) home.insertAdjacentElement('afterend', a); else nav.prepend(a);
-  }
 })();
