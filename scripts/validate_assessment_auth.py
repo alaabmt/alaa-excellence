@@ -28,7 +28,7 @@ require('assets/js/account-report-recovery.js', 'recoverSavedLearningPreferenceR
 require('assets/js/account-report-auto.js', 'recoverSavedLearningPreferenceReport', 'assessment_attempts', 'listAssessmentReports')
 require('assets/js/assessment-result-sync.js', 'completeAssessmentAttempt', 'createAssessmentReportPdf', 'uploadAssessmentReport', 'resultBelongsToAttempt', 'tamayuz:assessment-report-ready')
 require('supabase/functions/assessment-attempts/index.ts', 'stale_result', 'duplicate_result', 'result_json->>completedAt', 'MONTHLY_ATTEMPT_LIMIT = 2', 'monthly_attempt_limit_reached', 'reset_at')
-require('supabase/migrations/20260912151600_limit_assessment_attempts_per_month.sql', 'attempt_count >= 2', 'pg_advisory_xact_lock', 'monthly_attempt_limit_reached', 'before insert on public.assessment_attempts')
+require('supabase/migrations/20260912153519_limit_assessment_attempts_per_month.sql', 'attempt_count >= 2', 'pg_advisory_xact_lock', 'monthly_attempt_limit_reached', 'before insert on public.assessment_attempts')
 account = require('account/index.html', 'listAssessmentReports', 'openAssessmentReport', 'recoverableLppState', 'tamayuz10x-colour-report-recovery', 'reportUpgrade=1', 'account-report-auto.js', 'tamayuz10x-lpp-owner-v1', 'Continue assessment', 'متابعة التقييم', 'Start Learning Style Profile', 'ابدأ تقييم بصمتك في التعلّم')
 require('account/login.html', 'signInWithPassword', 'safeNext')
 register = require('account/register.html', 'signUp', 'emailRedirectTo')
