@@ -15,6 +15,8 @@
   const sessionUrl=c=>`${baseUrl()}?session=${encodeURIComponent(c)}`;
   const qrPrimary=u=>`https://quickchart.io/qr?size=260&margin=2&text=${encodeURIComponent(u)}`;
   const qrFallback=u=>`https://api.qrserver.com/v1/create-qr-code/?size=260x260&margin=10&data=${encodeURIComponent(u)}`;
+  const activeSession=()=>incoming||localStorage.getItem(SESSION_KEY)||'';
+  const ownsSession=c=>!!(c&&localStorage.getItem(`tamayuz10x-lpp-trainer-token-${c}`));
 
   function copyText(value,button){
     const done=()=>{const old=button.textContent;button.textContent=tx('Copied','تم النسخ');setTimeout(()=>button.textContent=old,1400);};
@@ -22,18 +24,43 @@
     else window.prompt(tx('Copy this link','انسخ هذا الرابط'),value);
   }
 
+  function newSessionForm(){
+    return `<div class="lpp-session-box" id="trainerCreateBox"><h3>${tx('Create a new trainer session','إنشاء جلسة تدريبية جديدة')}</h3><p class="lpp-help">${tx('Journey: create → share → participants complete → review results → adapt the session.','الرحلة: أنشئ ← شارك ← يكمل المشاركون ← راجع النتائج ← عدّل الجلسة.')}</p><label>${tx('Session name (optional)','اسم الجلسة (اختياري)')}<input id="sessionName" maxlength="80" placeholder="${tx('e.g., Leadership Workshop','مثال: ورشة القيادة')}"></label><button class="lpp-btn primary" id="createSessionBtn" type="button">${tx('Create live session','إنشاء جلسة مباشرة')}</button><div id="sessionCreated"></div></div>`;
+  }
+
+  function trainerResumeMarkup(compact=false){
+    const c=activeSession();
+    const name=localStorage.getItem(SESSION_NAME_KEY)||'';
+    const u=sessionUrl(c);
+    const q=qrPrimary(u);
+    const dashboard=`trainer-dashboard.html?session=${encodeURIComponent(c)}`;
+    const accountUrl=`/account/?lang=${document.documentElement.lang==='ar'?'ar':'en'}`;
+    return `<section class="lpp-entry-hub ${compact?'lpp-entry-modal-card':''}" id="lppEntryHub">
+      ${compact?`<button type="button" class="lpp-session-close" id="closeSessionPanel" aria-label="${tx('Close','إغلاق')}">×</button>`:''}
+      <div class="lpp-entry-title"><span>${tx('Trainer session control','إدارة جلسة المدرب')}</span><h2>${tx('Your current session is ready','جلستك الحالية جاهزة')}</h2></div>
+      <div class="lpp-session-banner"><b>${tx('Current session','الجلسة الحالية')}:</b> <span dir="ltr">${esc(c)}</span>${name?` <small>${esc(name)}</small>`:''}</div>
+      <div class="lpp-section-block"><h3>${tx('What do I do now?','ماذا أفعل الآن؟')}</h3><p class="lpp-help"><strong>1.</strong> ${tx('Share the link or QR','شارك الرابط أو QR')} ← <strong>2.</strong> ${tx('Participants complete the assessment','يكمل المشاركون التقييم')} ← <strong>3.</strong> ${tx('Open the group dashboard','افتح لوحة المجموعة')} ← <strong>4.</strong> ${tx('Use the result to adapt the training','استخدم النتيجة لتعديل التدريب')}</p></div>
+      <div class="lpp-session-created"><div class="lpp-session-details"><span>${tx('Session code','رمز الجلسة')}</span><strong dir="ltr">${esc(c)}</strong><label>${tx('Participant link','رابط المشاركين')}<input value="${esc(u)}" readonly></label><div class="lpp-actions"><button class="lpp-btn primary" id="copyActiveSession" type="button">${tx('Copy participant link','نسخ رابط المشاركين')}</button><a class="lpp-btn" href="${esc(q)}" target="_blank" rel="noopener">${tx('Show QR','عرض QR')}</a><a class="lpp-btn primary" href="${esc(dashboard)}">${tx('Open group dashboard','فتح لوحة المجموعة')}</a><a class="lpp-btn" href="${esc(u)}">${tx('Preview participant view','معاينة شاشة المشارك')}</a><a class="lpp-btn" href="${esc(accountUrl)}">${tx('My trainer sessions','جلساتي في حسابي')}</a></div></div></div>
+      <div class="lpp-section-block"><h3>${tx('What will the dashboard give me?','ماذا سأرى في لوحة المجموعة؟')}</h3><p class="lpp-profile-sub">${tx('Completed-participant count, group averages, preference distribution, a sample-size caution, and practical recommendations for balancing the training design.','عدد من أكملوا التقييم، ومتوسطات المجموعة، وتوزيع التفضيلات، وتنبيه على حجم العينة، وتوصيات عملية لموازنة تصميم التدريب.')}</p></div>
+      <div class="lpp-actions"><button class="lpp-btn" id="createAnotherSession" type="button">${tx('Create another session','إنشاء جلسة جديدة')}</button></div>
+      <div id="newTrainerSessionArea" class="hidden">${newSessionForm()}</div>
+    </section>`;
+  }
+
   function panelsMarkup(compact=false){
-    const active=incoming||localStorage.getItem(SESSION_KEY)||'';
+    const active=activeSession();
+    if(compact&&mode==='trainer'&&ownsSession(active)) return trainerResumeMarkup(true);
+    const ownActive=ownsSession(active);
     return `<section class="lpp-entry-hub ${compact?'lpp-entry-modal-card':''}" id="lppEntryHub">
       ${compact?`<button type="button" class="lpp-session-close" id="closeSessionPanel" aria-label="${tx('Close','إغلاق')}">×</button>`:''}
       <div class="lpp-entry-title"><span>${tx('Choose how you want to use the profile','اختر طريقة استخدام ملف تفضيلات التعلّم')}</span><h2>${tx('Individual, trainer session, or group code','فردي، جلسة للمدرّب، أو رمز للمجموعة')}</h2></div>
-      ${active?`<div class="lpp-session-banner"><b>${tx('Group session','جلسة المجموعة')}:</b> <span dir="ltr">${esc(active)}</span></div>`:''}
+      ${active?`<div class="lpp-session-banner"><b>${ownActive?tx('Your active trainer session','جلسة المدرب النشطة'):tx('Group session','جلسة المجموعة')}:</b> <span dir="ltr">${esc(active)}</span></div>`:''}
       <div class="lpp-entry-grid">
         <article class="lpp-entry-card participant"><div class="lpp-entry-icon">1</div><h3>${tx('Participant','للمشارك')}</h3><p>${tx('Take the assessment and receive your personal learning preference report.','أكمل التقييم واحصل على تقريرك الشخصي لتفضيلات التعلّم.')}</p><button class="lpp-btn primary" id="entryIndividual">${tx('Start my assessment','ابدأ تقييمي')}</button></article>
-        <article class="lpp-entry-card trainer"><div class="lpp-entry-icon">2</div><h3>${tx('Trainer / Facilitator','للمدرّب / الميسّر')}</h3><p>${tx('Create a live group session, share it with participants, then use the group dashboard to adapt your training.','أنشئ جلسة مباشرة، شاركها مع المشاركين، ثم استخدم لوحة المجموعة لتعديل تصميم التدريب.')}</p><button class="lpp-btn" id="entryTrainer">${tx('Create a group session','أنشئ جلسة للمجموعة')}</button></article>
+        <article class="lpp-entry-card trainer"><div class="lpp-entry-icon">2</div><h3>${tx('Trainer / Facilitator','للمدرّب / الميسّر')}</h3><p>${ownActive?tx('Return to your active session, share it, and open the group dashboard.','ارجع إلى جلستك النشطة، وشاركها، وافتح لوحة نتائج المجموعة.'):tx('Create a live group session, share it with participants, then use the group dashboard to adapt your training.','أنشئ جلسة مباشرة، شاركها مع المشاركين، ثم استخدم لوحة المجموعة لتعديل تصميم التدريب.')}</p><button class="lpp-btn" id="entryTrainer">${ownActive?tx('Manage current session','إدارة الجلسة الحالية'):tx('Create a group session','أنشئ جلسة للمجموعة')}</button></article>
         <article class="lpp-entry-card join"><div class="lpp-entry-icon">3</div><h3>${tx('I have a group code','لدي رمز مجموعة')}</h3><p>${tx('Enter the code provided by your trainer.','أدخل الرمز الذي أرسله المدرب.')}</p><button class="lpp-btn" id="entryJoin">${tx('Enter group code','أدخل رمز المجموعة')}</button></article>
       </div>
-      <div class="lpp-session-box hidden" id="trainerCreateBox"><h3>${tx('Create trainer session','إنشاء جلسة للمدرّب')}</h3><p class="lpp-help">${tx('Journey: create → share → participants complete → review results → adapt the session.','الرحلة: أنشئ → شارك → يكمل المشاركون → راجع النتائج → عدّل الجلسة.')}</p><label>${tx('Session name (optional)','اسم الجلسة (اختياري)')}<input id="sessionName" maxlength="80" placeholder="${tx('e.g., Leadership Workshop','مثال: ورشة القيادة')}"></label><button class="lpp-btn primary" id="createSessionBtn" type="button">${tx('Create live session','إنشاء جلسة مباشرة')}</button><div id="sessionCreated"></div></div>
+      <div class="lpp-session-box hidden" id="trainerCreateBox">${ownActive?`<h3>${tx('Current trainer session','جلسة المدرب الحالية')}</h3><p class="lpp-help">${tx('Use “Manage current session” to reopen the trainer control view.','استخدم «إدارة الجلسة الحالية» للعودة إلى شاشة إدارة المدرب.')}</p><a class="lpp-btn primary" href="?mode=trainer">${tx('Manage current session','إدارة الجلسة الحالية')}</a>`:`<h3>${tx('Create trainer session','إنشاء جلسة للمدرّب')}</h3><p class="lpp-help">${tx('Journey: create → share → participants complete → review results → adapt the session.','الرحلة: أنشئ ← شارك ← يكمل المشاركون ← راجع النتائج ← عدّل الجلسة.')}</p><label>${tx('Session name (optional)','اسم الجلسة (اختياري)')}<input id="sessionName" maxlength="80" placeholder="${tx('e.g., Leadership Workshop','مثال: ورشة القيادة')}"></label><button class="lpp-btn primary" id="createSessionBtn" type="button">${tx('Create live session','إنشاء جلسة مباشرة')}</button><div id="sessionCreated"></div>`}</div>
       <div class="lpp-session-box hidden" id="joinSessionBox"><h3>${tx('Join a group session','الانضمام إلى جلسة مجموعة')}</h3><div class="lpp-code-row"><input id="joinCode" maxlength="8" autocomplete="off" placeholder="ABC123"><button class="lpp-btn primary" id="joinCodeBtn" type="button">${tx('Join','انضم')}</button></div><p class="lpp-help">${tx('Letters and numbers only.','حروف وأرقام فقط.')}</p><div id="joinStatus"></div></div>
     </section>`;
   }
@@ -54,7 +81,7 @@
     const q1=qrPrimary(u), q2=qrFallback(u);
     const dashboard=`trainer-dashboard.html?session=${encodeURIComponent(c)}`;
     const accountUrl=`/account/?lang=${document.documentElement.lang==='ar'?'ar':'en'}`;
-    host.innerHTML=`<div class="lpp-section-block"><h3>${tx('Your trainer journey','رحلة المدرب في هذه الجلسة')}</h3><p class="lpp-help"><strong>1.</strong> ${tx('Create','أنشئ')} → <strong>2.</strong> ${tx('Share','شارك')} → <strong>3.</strong> ${tx('Participants complete','يكمل المشاركون')} → <strong>4.</strong> ${tx('Review results','راجع النتائج')} → <strong>5.</strong> ${tx('Adapt training','عدّل التدريب')}</p></div>
+    host.innerHTML=`<div class="lpp-section-block"><h3>${tx('Your trainer journey','رحلة المدرب في هذه الجلسة')}</h3><p class="lpp-help"><strong>1.</strong> ${tx('Create','أنشئ')} ← <strong>2.</strong> ${tx('Share','شارك')} ← <strong>3.</strong> ${tx('Participants complete','يكمل المشاركون')} ← <strong>4.</strong> ${tx('Review results','راجع النتائج')} ← <strong>5.</strong> ${tx('Adapt training','عدّل التدريب')}</p></div>
       <div class="lpp-session-banner"><b>${tx('Current step','الخطوة الحالية')}:</b> ${tx('Share the assessment with participants, then open the group dashboard as results arrive.','شارك التقييم مع المشاركين، ثم افتح لوحة المجموعة مع وصول النتائج.')}</div>
       <div class="lpp-session-created"><div class="lpp-session-details"><span>${tx('Session code','رمز الجلسة')}</span><strong dir="ltr">${c}</strong>${name?`<small>${esc(name)}</small>`:''}<label>${tx('Participant link','رابط المشاركين')}<input value="${esc(u)}" readonly></label><div class="lpp-actions"><button class="lpp-btn" id="copySession" type="button">${tx('Copy link','نسخ الرابط')}</button><a class="lpp-btn primary" href="${esc(u)}">${tx('Open participant link','فتح رابط المشارك')}</a><a class="lpp-btn" id="openQr" href="${esc(q1)}" target="_blank" rel="noopener">${tx('Open QR','فتح QR')}</a><a class="lpp-btn primary" href="${esc(dashboard)}">${tx('Open group dashboard','فتح لوحة المجموعة')}</a><a class="lpp-btn" href="${esc(accountUrl)}">${tx('My trainer sessions','جلساتي في حسابي')}</a></div><p class="lpp-help">${linked?tx('This session is saved to your account and can be opened later from another device after sign-in.','تم حفظ هذه الجلسة في حسابك، ويمكنك فتحها لاحقًا من جهاز آخر بعد تسجيل الدخول.'):tx('The session is active on this device. Account linking could not be confirmed yet; keep this browser available until you verify it in My Account.','الجلسة تعمل على هذا الجهاز. لم يتأكد ربطها بالحساب بعد؛ أبقِ هذا المتصفح متاحًا حتى تتحقق منها في «حسابي».')}</p></div><div class="lpp-qr"><img id="sessionQrImage" src="${esc(q1)}" data-fallback="${esc(q2)}" alt="QR code"><span>${tx('Participants can scan this QR code with their phone camera.','يمكن للمشاركين مسح رمز QR بكاميرا الهاتف.')}</span><small id="qrStatus"></small></div></div>
       <div class="lpp-section-block"><h3>${tx('What does the trainer gain?','ماذا يستفيد المدرب؟')}</h3><p class="lpp-profile-sub">${tx('The dashboard turns completed assessments into a training decision: group averages, preference distribution, sample-size caution, interpretation, and practical recommendations for balancing practice, reflection, conceptual understanding, and application.','تحوّل اللوحة التقييمات المكتملة إلى قرار تدريبي: متوسطات المجموعة، توزيع التفضيلات، تنبيه على حجم العينة، تفسير للنتائج، وتوصيات عملية لموازنة الممارسة والتأمل والفهم المفاهيمي والتطبيق.')}</p></div>`;
@@ -66,6 +93,7 @@
   async function createLiveSession(){
     const btn=document.getElementById('createSessionBtn'); const host=document.getElementById('sessionCreated');
     const name=(document.getElementById('sessionName').value||'').trim();
+    if(!btn||!host)return;
     btn.disabled=true; btn.textContent=tx('Creating…','جارٍ الإنشاء...'); host.innerHTML='';
     try{
       const r=await fetch(`${API}/api/lpp/sessions`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name})});
@@ -109,17 +137,19 @@
   function wire(){
     if(!document.getElementById('lppEntryHub')) return;
     document.getElementById('entryIndividual')?.addEventListener('click',()=>{document.getElementById('lppSessionOverlay')?.remove();document.getElementById('startBtn')?.click();});
-    document.getElementById('entryTrainer').onclick=()=>{document.getElementById('trainerCreateBox').classList.remove('hidden');document.getElementById('joinSessionBox').classList.add('hidden');};
-    document.getElementById('entryJoin').onclick=()=>{document.getElementById('joinSessionBox').classList.remove('hidden');document.getElementById('trainerCreateBox').classList.add('hidden');};
-    document.getElementById('createSessionBtn').onclick=createLiveSession;
-    document.getElementById('joinCodeBtn').onclick=joinSession;
+    document.getElementById('entryTrainer')?.addEventListener('click',()=>{document.getElementById('trainerCreateBox')?.classList.remove('hidden');document.getElementById('joinSessionBox')?.classList.add('hidden');});
+    document.getElementById('entryJoin')?.addEventListener('click',()=>{document.getElementById('joinSessionBox')?.classList.remove('hidden');document.getElementById('trainerCreateBox')?.classList.add('hidden');});
+    document.getElementById('createSessionBtn')?.addEventListener('click',createLiveSession);
+    document.getElementById('joinCodeBtn')?.addEventListener('click',joinSession);
+    document.getElementById('copyActiveSession')?.addEventListener('click',e=>copyText(sessionUrl(activeSession()),e.currentTarget));
+    document.getElementById('createAnotherSession')?.addEventListener('click',()=>{document.getElementById('newTrainerSessionArea')?.classList.remove('hidden');document.getElementById('createAnotherSession')?.classList.add('hidden');});
     document.getElementById('closeSessionPanel')?.addEventListener('click',()=>document.getElementById('lppSessionOverlay')?.remove());
   }
 
   function showModeOverlay(){
     if(!mode||document.getElementById('lppSessionOverlay')) return;
     const overlay=document.createElement('div');overlay.id='lppSessionOverlay';overlay.className='lpp-session-overlay';overlay.innerHTML=panelsMarkup(true);document.body.appendChild(overlay);wire();
-    if(mode==='trainer') document.getElementById('entryTrainer')?.click();
+    if(mode==='trainer'&&!ownsSession(activeSession())) document.getElementById('entryTrainer')?.click();
     if(mode==='join') document.getElementById('entryJoin')?.click();
   }
   function injectStartHub(){if(mode||incoming)return;const hero=document.querySelector('#lppApp .lpp-hero');if(!hero||document.getElementById('lppEntryHub'))return;hero.insertAdjacentHTML('beforebegin',panelsMarkup(false));wire();}
