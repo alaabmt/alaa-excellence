@@ -10,6 +10,7 @@
 <body><main class="account-shell"><div class="card"><div class="row"><div><h1 id="title">حسابي</h1><p class="muted" id="identity">جارٍ تحميل بيانات الحساب…</p></div><button class="btn" id="logout">تسجيل الخروج</button></div></div><div class="card"><h2 id="historyTitle">محاولاتي ونتائجي</h2><div id="history" class="muted">جارٍ التحميل…</div></div><p><a id="back" href="/personality.html">العودة إلى مختبر اكتشاف الذات</a></p></main>
 <script type="module">
 import { currentSession } from '/assets/js/assessment-auth-client.js';
+import { listAssessmentReports, openAssessmentReport } from '/assets/js/assessment-reports-client.js';
 const lang=new URLSearchParams(location.search).get('lang')==='en'?'en':'ar';
 document.documentElement.lang=lang;document.documentElement.dir=lang==='ar'?'rtl':'ltr';
 const titleEl=document.getElementById('title');
@@ -18,7 +19,7 @@ const logoutEl=document.getElementById('logout');
 const historyTitleEl=document.getElementById('historyTitle');
 const historyEl=document.getElementById('history');
 const backEl=document.getElementById('back');
-const labels=lang==='ar'?{account:'حسابي',history:'محاولاتي ونتائجي',logout:'تسجيل الخروج',back:'العودة إلى مختبر اكتشاف الذات',none:'لا توجد محاولات محفوظة حتى الآن.',failed:'تعذر تحميل الحساب.',completed:'مكتمل',in_progress:'قيد التنفيذ',abandoned:'غير مكتمل',view:'عرض النتيجة',hide:'إخفاء النتيجة',reportUnavailable:'ملف PDF سيظهر هنا بعد تفعيل خدمة التقارير.'}:{account:'My account',history:'My attempts and results',logout:'Sign out',back:'Back to the Self-Discovery Lab',none:'No saved assessment attempts yet.',failed:'Could not load account.',completed:'Completed',in_progress:'In progress',abandoned:'Incomplete',view:'View result',hide:'Hide result',reportUnavailable:'The PDF report will appear here after the report service is enabled.'};
+const labels=lang==='ar'?{account:'حسابي',history:'محاولاتي ونتائجي',logout:'تسجيل الخروج',back:'العودة إلى مختبر اكتشاف الذات',none:'لا توجد محاولات محفوظة حتى الآن.',failed:'تعذر تحميل الحساب.',completed:'مكتمل',in_progress:'قيد التنفيذ',abandoned:'غير مكتمل',view:'عرض النتيجة',hide:'إخفاء النتيجة',openPdf:'فتح تقرير PDF',openingPdf:'جارٍ فتح التقرير…',reportUnavailable:'لم يُنشأ ملف PDF لهذه المحاولة بعد.'}:{account:'My account',history:'My attempts and results',logout:'Sign out',back:'Back to the Self-Discovery Lab',none:'No saved assessment attempts yet.',failed:'Could not load account.',completed:'Completed',in_progress:'In progress',abandoned:'Incomplete',view:'View result',hide:'Hide result',openPdf:'Open PDF report',openingPdf:'Opening report…',reportUnavailable:'No PDF report has been created for this attempt yet.'};
 if(lang==='en'){document.title='My account | Tamayuz 10X';titleEl.textContent=labels.account;historyTitleEl.textContent=labels.history;logoutEl.textContent=labels.logout;backEl.textContent=labels.back;backEl.href='/en/personality.html';}
 function assessmentName(key){return key==='learning-preference-profile'?(lang==='ar'?'بصمتك في التعلّم':'Learning Style Profile'):(lang==='ar'?'تقييم أسلوب العمل':'Work Approach Assessment');}
 function statusName(s){return labels[s]||s;}
@@ -31,13 +32,18 @@ try{
  else{
    const {data:profile}=await client.from('profiles').select('full_name').eq('id',session.user.id).maybeSingle();
    identityEl.textContent=[profile?.full_name,session.user.email].filter(Boolean).join(' · ');
-   const {data:attempts,error}=await client.from('assessment_attempts').select('id,assessment_key,status,started_at,completed_at,result_json').order('started_at',{ascending:false}).limit(50);
+   const [{data:attempts,error},reportsPayload]=await Promise.all([
+     client.from('assessment_attempts').select('id,assessment_key,status,started_at,completed_at,result_json').order('started_at',{ascending:false}).limit(50),
+     listAssessmentReports().catch(()=>({reports:[]}))
+   ]);
    if(error) throw error;
+   const reportsByAttempt=new Map((reportsPayload?.reports||[]).filter(r=>r?.status==='ready').map(r=>[r.attempt_id,r]));
    if(!attempts?.length){historyEl.textContent=labels.none;}
    else{
      historyEl.className='';
-     historyEl.innerHTML=attempts.map((a,i)=>`<div class="attempt"><strong>${assessmentName(a.assessment_key)}</strong><br><span class="muted">${statusName(a.status)} · ${new Date(a.started_at).toLocaleString(lang==='ar'?'ar':'en')}</span>${a.status==='completed'?`<div class="attempt-actions"><button class="btn secondary" data-view="r${i}">${labels.view}</button></div><div class="result-box hidden" id="r${i}">${resultHtml(a)}<p class="muted report-note">${labels.reportUnavailable}</p></div>`:''}</div>`).join('');
+     historyEl.innerHTML=attempts.map((a,i)=>{const report=reportsByAttempt.get(a.id);return `<div class="attempt"><strong>${assessmentName(a.assessment_key)}</strong><br><span class="muted">${statusName(a.status)} · ${new Date(a.started_at).toLocaleString(lang==='ar'?'ar':'en')}</span>${a.status==='completed'?`<div class="attempt-actions"><button class="btn secondary" data-view="r${i}">${labels.view}</button>${report?`<button class="btn" data-report-id="${report.id}" data-report-name="${report.file_name||'assessment-report.pdf'}">${labels.openPdf}</button>`:''}</div><div class="result-box hidden" id="r${i}">${resultHtml(a)}<p class="muted report-note">${report?`${lang==='ar'?'تقرير PDF محفوظ بأمان وجاهز للفتح.':'A PDF report is securely stored and ready to open.'}`:labels.reportUnavailable}</p></div>`:''}</div>`}).join('');
      document.querySelectorAll('[data-view]').forEach(btn=>btn.onclick=()=>{const box=document.getElementById(btn.dataset.view);const show=box.classList.contains('hidden');box.classList.toggle('hidden');btn.textContent=show?labels.hide:labels.view;});
+     document.querySelectorAll('[data-report-id]').forEach(btn=>btn.onclick=async()=>{const original=btn.textContent;btn.disabled=true;btn.textContent=labels.openingPdf;try{await openAssessmentReport(btn.dataset.reportId,btn.dataset.reportName||'assessment-report.pdf');}catch(e){console.error('Report open failed:',e);alert(lang==='ar'?'تعذر فتح تقرير PDF الآن. حاول مرة أخرى.':'Could not open the PDF report. Please try again.');}finally{btn.disabled=false;btn.textContent=original;}});
    }
    logoutEl.onclick=async()=>{await client.auth.signOut();location.replace(lang==='ar'?'/personality.html':'/en/personality.html');};
  }
