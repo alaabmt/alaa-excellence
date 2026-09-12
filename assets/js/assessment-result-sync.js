@@ -4,6 +4,7 @@ import { listAssessmentReports, uploadAssessmentReport } from './assessment-repo
 
 const synced = new Set();
 const reportChecked = new Set();
+let recoveryNotified = false;
 
 function currentAttempt(assessmentKey) {
   const storageKey = `tamayuz10x-current-attempt:${assessmentKey}`;
@@ -34,6 +35,36 @@ function resultBelongsToAttempt(attempt, result) {
   const completedAt = Date.parse(result?.completedAt || '');
   if (!Number.isFinite(startedAt) || !Number.isFinite(completedAt)) return true;
   return completedAt >= startedAt;
+}
+
+function reportUpgradeRequest() {
+  try {
+    return new URLSearchParams(location.search).get('reportUpgrade') === '1';
+  } catch (_) {
+    return false;
+  }
+}
+
+function notifyReportUpgrade(ok, attempt, error = '') {
+  if (!reportUpgradeRequest() || recoveryNotified) return;
+  recoveryNotified = true;
+  const type = ok ? 'tamayuz:assessment-report-ready' : 'tamayuz:assessment-report-failed';
+  const detail = {
+    type,
+    attemptId: attempt?.id || '',
+    assessmentKey: attempt?.assessmentKey || '',
+    error: error ? String(error) : ''
+  };
+
+  if (window.parent && window.parent !== window) {
+    window.parent.postMessage(detail, location.origin);
+    return;
+  }
+
+  if (ok) {
+    const returnTo = new URLSearchParams(location.search).get('return') || '';
+    if (returnTo.startsWith('/account/')) location.replace(returnTo);
+  }
 }
 
 function lppResult() {
@@ -115,13 +146,18 @@ async function sync(assessmentKey, result) {
   if (!attempt) return;
 
   // Never attach a previously completed local result to a newly-created attempt.
-  if (!resultBelongsToAttempt(attempt, result)) return;
+  if (!resultBelongsToAttempt(attempt, result)) {
+    notifyReportUpgrade(false, attempt, 'stale_result');
+    return;
+  }
 
   if (attempt.completed) {
     try {
       await ensurePdfReport(attempt.id, assessmentKey, result);
+      notifyReportUpgrade(true, attempt);
     } catch (error) {
       console.error('Visual report upgrade failed:', error);
+      notifyReportUpgrade(false, attempt, error?.message || 'report_upgrade_failed');
     }
     return;
   }
@@ -136,9 +172,11 @@ async function sync(assessmentKey, result) {
         detail: { assessmentKey, attemptId: attempt.id }
       })
     );
+    notifyReportUpgrade(true, attempt);
   } catch (error) {
     synced.delete(attempt.id);
     console.error('Assessment result/report sync failed:', error);
+    notifyReportUpgrade(false, attempt, error?.message || 'result_report_sync_failed');
   }
 }
 
