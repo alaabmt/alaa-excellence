@@ -68,7 +68,7 @@ export async function loadProtectedAssessment(asset, options = {}) {
     const response = await fetch(url, {
       method: 'GET',
       mode: 'cors',
-      credentials: 'omit',
+      credentials: 'same-origin',
       headers: { Authorization: `Bearer ${session.access_token}` }
     });
     if (response.status === 401) {
