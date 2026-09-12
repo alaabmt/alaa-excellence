@@ -17,6 +17,7 @@ def require(path, *needles):
     return text
 
 cfg = require('assets/js/auth-config.js', 'assessment-content', 'assessment-attempts', 'assessment-reports')
+require('assets/js/main.js', 'applyAccountNavigation', 'account-switch', 'signed-in', 'signed-out')
 require('assets/js/assessment-auth-client.js', 'safeNext', 'persistSession', 'autoRefreshToken')
 require('assets/js/protected-assessment-loader.js', 'currentSession', 'startAssessmentAttempt', 'requireWorkConsent')
 require('assets/js/assessment-attempts-client.js', 'completeAssessmentAttempt', 'startAssessmentAttempt')
