@@ -1,0 +1,63 @@
+name: Assessment auth QA
+
+on:
+  pull_request:
+    paths:
+      - 'account/**'
+      - 'assets/js/auth-config.js'
+      - 'assets/js/assessment-auth-*.js'
+      - 'assets/js/assessment-attempts-client.js'
+      - 'assets/js/assessment-reports-client.js'
+      - 'assets/js/assessment-report-pdf.js'
+      - 'assets/js/assessment-result-sync.js'
+      - 'assets/js/protected-assessment-loader.js'
+      - 'cloudflare/assessment-preview-worker/**'
+      - 'scripts/validate_assessment_auth.py'
+      - 'scripts/assessment_live_smoke.sh'
+      - 'tests/assessment-auth-browser-smoke.mjs'
+      - '.github/workflows/assessment-auth-qa.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'account/**'
+      - 'assets/js/auth-config.js'
+      - 'assets/js/assessment-auth-*.js'
+      - 'assets/js/assessment-attempts-client.js'
+      - 'assets/js/assessment-reports-client.js'
+      - 'assets/js/assessment-report-pdf.js'
+      - 'assets/js/assessment-result-sync.js'
+      - 'assets/js/protected-assessment-loader.js'
+      - 'cloudflare/assessment-preview-worker/**'
+      - 'scripts/validate_assessment_auth.py'
+      - 'scripts/assessment_live_smoke.sh'
+      - 'tests/assessment-auth-browser-smoke.mjs'
+      - '.github/workflows/assessment-auth-qa.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Validate assessment authentication and report wiring
+        run: python scripts/validate_assessment_auth.py
+      - name: Check preview Worker syntax
+        run: node --check cloudflare/assessment-preview-worker/src/index.js
+      - name: Verify live assessment endpoints
+        run: bash scripts/assessment_live_smoke.sh
+      - name: Install Playwright browser
+        run: |
+          npm install --no-save playwright@1.55.0
+          npx playwright install --with-deps chromium
+      - name: Start local site
+        run: python -m http.server 8000 --bind 127.0.0.1 > /tmp/tamayuz-http.log 2>&1 &
+      - name: Run desktop and mobile browser smoke tests
+        run: node tests/assessment-auth-browser-smoke.mjs
