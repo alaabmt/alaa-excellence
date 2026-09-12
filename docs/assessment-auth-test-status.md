@@ -5,8 +5,9 @@ Updated: 2026-09-12
 ## Verified
 - Learning Preference Profile real-user flow completed successfully through result persistence, account history, visual-v3 PDF generation, R2 storage, and reopening the saved report.
 - Latest visual-v3 report metadata is ready in Supabase and the PDF is stored privately in Cloudflare R2.
-- Assessment auth QA passes, including static wiring checks, preview Worker syntax, live endpoint checks, and desktop/mobile browser smoke tests.
+- Assessment auth QA passes on the validated report build, including static wiring checks, preview Worker syntax, live endpoint checks, and desktop/mobile browser smoke tests.
 - RLS auth.uid() policies for profiles, assessment_attempts, and assessment_reports were optimized to use init-plan-safe `(select auth.uid())` expressions without changing own-user access semantics.
+- Visual report capture now has assessment-specific readiness logic so Work Approach PDF generation does not wait for Learning Profile-only report markers.
 
 ## Remaining before merge
 - Run the same real-user end-to-end validation for Work Approach Assessment.
@@ -17,4 +18,4 @@ Updated: 2026-09-12
 ## Notes
 - Historical Git commits can still contain older public assessment content; current route protection does not erase Git history.
 - Old test reports remain stored for rollback/audit during the preview phase; account UI should prefer visual-v3 reports.
-- Preview Worker source is pinned to the validated application snapshot rather than an unpinned branch URL.
+- Preview Worker source is pinned to a validated application snapshot rather than an unpinned branch URL.
