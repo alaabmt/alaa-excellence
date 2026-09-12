@@ -48,8 +48,18 @@
     </section>`;
   }
 
+  function joinOnlyMarkup(compact=false){
+    return `<section class="lpp-entry-hub ${compact?'lpp-entry-modal-card':''}" id="lppEntryHub">
+      ${compact?`<button type="button" class="lpp-session-close" id="closeSessionPanel" aria-label="${tx('Close','إغلاق')}">×</button>`:''}
+      <div class="lpp-entry-title"><span>${tx('Participant access','دخول المشارك')}</span><h2>${tx('Join with a session code','الانضمام برمز جلسة')}</h2></div>
+      <p class="lpp-profile-sub">${tx('Enter the code your trainer gave you. After it is verified, you will go directly to the participant assessment for that group.','أدخل الرمز الذي أعطاك إياه المدرب. بعد التحقق منه ستنتقل مباشرة إلى تقييم المشارك المرتبط بهذه المجموعة.')}</p>
+      <div class="lpp-session-box" id="joinSessionBox"><h3>${tx('Session code','رمز الجلسة')}</h3><div class="lpp-code-row"><input id="joinCode" maxlength="8" autocomplete="off" inputmode="text" autocapitalize="characters" placeholder="ABC123" aria-label="${tx('Session code','رمز الجلسة')}"><button class="lpp-btn primary" id="joinCodeBtn" type="button">${tx('Join session','انضم إلى الجلسة')}</button></div><p class="lpp-help">${tx('Use the letters and numbers exactly as provided by your trainer.','استخدم الحروف والأرقام كما أعطاك إياها المدرب.')}</p><div id="joinStatus"></div></div>
+    </section>`;
+  }
+
   function panelsMarkup(compact=false){
     const active=activeSession();
+    if(compact&&mode==='join') return joinOnlyMarkup(true);
     if(compact&&mode==='trainer'&&ownsSession(active)) return trainerResumeMarkup(true);
     const ownActive=ownsSession(active);
     return `<section class="lpp-entry-hub ${compact?'lpp-entry-modal-card':''}" id="lppEntryHub">
@@ -59,7 +69,7 @@
       <div class="lpp-entry-grid">
         <article class="lpp-entry-card participant"><div class="lpp-entry-icon">1</div><h3>${tx('Participant','للمشارك')}</h3><p>${tx('Take the assessment and receive your personal learning preference report.','أكمل التقييم واحصل على تقريرك الشخصي لتفضيلات التعلّم.')}</p><button class="lpp-btn primary" id="entryIndividual">${tx('Start my assessment','ابدأ تقييمي')}</button></article>
         <article class="lpp-entry-card trainer"><div class="lpp-entry-icon">2</div><h3>${tx('Trainer / Facilitator','للمدرّب / الميسّر')}</h3><p>${ownActive?tx('Return to your active session, share it, and open the group dashboard.','ارجع إلى جلستك النشطة، وشاركها، وافتح لوحة نتائج المجموعة.'):tx('Create a live group session, share it with participants, then use the group dashboard to adapt your training.','أنشئ جلسة مباشرة، شاركها مع المشاركين، ثم استخدم لوحة المجموعة لتعديل تصميم التدريب.')}</p><button class="lpp-btn" id="entryTrainer">${ownActive?tx('Manage current session','إدارة الجلسة الحالية'):tx('Create a group session','أنشئ جلسة للمجموعة')}</button><button class="lpp-btn" id="trainerBenefitToggle" type="button" aria-expanded="false">${tx('What is the value of a group session?','ما فائدة جلسة المجموعة؟')}</button><div class="lpp-session-box hidden" id="trainerBenefitDetails"><h3>${tx('A group-level training decision aid','أداة تساعد المدرب على اتخاذ قرار تدريبي للمجموعة')}</h3><p class="lpp-profile-sub">${tx('Share one assessment with the group, then see aggregated learning-preference patterns that help you balance explanation, practice, reflection, and application. Individual participant reports remain personal by default.','شارك تقييمًا واحدًا مع المجموعة، ثم شاهد أنماط تفضيلات التعلم بصورة جماعية تساعدك على موازنة الشرح والممارسة والتأمل والتطبيق. تبقى تقارير المشاركين الفردية شخصية افتراضيًا.')}</p></div></article>
-        <article class="lpp-entry-card join"><div class="lpp-entry-icon">3</div><h3>${tx('I have a group code','لدي رمز مجموعة')}</h3><p>${tx('Enter the code provided by your trainer.','أدخل الرمز الذي أرسله المدرب.')}</p><button class="lpp-btn" id="entryJoin">${tx('Enter group code','أدخل رمز المجموعة')}</button></article>
+        <article class="lpp-entry-card join"><div class="lpp-entry-icon">3</div><h3>${tx('Join with a session code','الانضمام برمز جلسة')}</h3><p>${tx('Use the session code provided by your trainer to join the correct group.','استخدم رمز الجلسة الذي أعطاك إياه المدرب للانضمام إلى المجموعة الصحيحة.')}</p><button class="lpp-btn" id="entryJoin">${tx('Enter session code','أدخل رمز الجلسة')}</button></article>
       </div>
       <div class="lpp-session-box hidden" id="trainerCreateBox">${ownActive?`<h3>${tx('Current trainer session','جلسة المدرب الحالية')}</h3><p class="lpp-help">${tx('Use “Manage current session” to reopen the trainer control view.','استخدم «إدارة الجلسة الحالية» للعودة إلى شاشة إدارة المدرب.')}</p><a class="lpp-btn primary" href="?mode=trainer">${tx('Manage current session','إدارة الجلسة الحالية')}</a>`:`<h3>${tx('Create trainer session','إنشاء جلسة للمدرّب')}</h3><p class="lpp-help">${tx('Journey: create → share → participants complete → review results → adapt the session.','الرحلة: أنشئ ← شارك ← يكمل المشاركون ← راجع النتائج ← عدّل الجلسة.')}</p><label>${tx('Session name (optional)','اسم الجلسة (اختياري)')}<input id="sessionName" maxlength="80" placeholder="${tx('e.g., Leadership Workshop','مثال: ورشة القيادة')}"></label><button class="lpp-btn primary" id="createSessionBtn" type="button">${tx('Create live session','إنشاء جلسة مباشرة')}</button><div id="sessionCreated"></div>`}</div>
       <div class="lpp-session-box hidden" id="joinSessionBox"><h3>${tx('Join a group session','الانضمام إلى جلسة مجموعة')}</h3><div class="lpp-code-row"><input id="joinCode" maxlength="8" autocomplete="off" placeholder="ABC123"><button class="lpp-btn primary" id="joinCodeBtn" type="button">${tx('Join','انضم')}</button></div><p class="lpp-help">${tx('Letters and numbers only.','حروف وأرقام فقط.')}</p><div id="joinStatus"></div></div>
@@ -127,7 +137,7 @@
   async function joinSession(){
     const c=(document.getElementById('joinCode').value||'').toUpperCase().replace(/[^A-Z0-9]/g,'').slice(0,8);
     const status=document.getElementById('joinStatus');
-    if(c.length<4){alert(tx('Please enter a valid group code.','يرجى إدخال رمز مجموعة صحيح.'));return;}
+    if(c.length<4){alert(tx('Please enter a valid session code.','يرجى إدخال رمز جلسة صحيح.'));return;}
     status.textContent=tx('Checking session…','جارٍ التحقق من الجلسة...');
     try{
       const r=await fetch(`${API}/api/lpp/sessions/${encodeURIComponent(c)}`); const d=await r.json();
@@ -153,7 +163,6 @@
     if(!mode||document.getElementById('lppSessionOverlay')) return;
     const overlay=document.createElement('div');overlay.id='lppSessionOverlay';overlay.className='lpp-session-overlay';overlay.innerHTML=panelsMarkup(true);document.body.appendChild(overlay);wire();
     if(mode==='trainer'&&!ownsSession(activeSession())) document.getElementById('entryTrainer')?.click();
-    if(mode==='join') document.getElementById('entryJoin')?.click();
   }
   function injectStartHub(){if(mode||incoming)return;const hero=document.querySelector('#lppApp .lpp-hero');if(!hero||document.getElementById('lppEntryHub'))return;hero.insertAdjacentHTML('beforebegin',panelsMarkup(false));wire();}
   function injectSessionBanner(){if(!incoming)return;const hero=document.querySelector('#lppApp .lpp-hero');if(!hero||document.getElementById('activeSessionBanner'))return;const name=localStorage.getItem(SESSION_NAME_KEY)||'';hero.insertAdjacentHTML('beforebegin',`<div class="lpp-session-banner" id="activeSessionBanner"><b>${tx('Group session','جلسة المجموعة')}:</b> <span dir="ltr">${esc(incoming)}</span>${name?` <small>${esc(name)}</small>`:''}</div>`);}
