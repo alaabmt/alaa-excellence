@@ -5,6 +5,7 @@ window.TAMAYUZ_AUTH_CONFIG = Object.freeze({
   attemptsEndpoint: 'https://dqrsjhcfmpjhcxvtxosy.supabase.co/functions/v1/assessment-attempts',
   reportsEndpoint: 'https://dqrsjhcfmpjhcxvtxosy.supabase.co/functions/v1/assessment-reports',
   trainerSessionsEndpoint: 'https://dqrsjhcfmpjhcxvtxosy.supabase.co/functions/v1/trainer-sessions',
+  workCoachSessionsEndpoint: 'https://dqrsjhcfmpjhcxvtxosy.supabase.co/functions/v1/work-coach-sessions',
   reportEmailEndpoint: '',
   loginPath: '/account/login.html',
   registerPath: '/account/register.html',
