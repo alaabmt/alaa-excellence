@@ -1,0 +1,93 @@
+name: Fix Arabic previews with native RTL
+on:
+  push:
+    paths:
+      - '.github/workflows/fix-arabic-preview-raqm.yml'
+permissions:
+  contents: write
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install fonts
+        run: |
+          python -m pip install --upgrade pip
+          pip install pillow
+          sudo apt-get update -qq
+          sudo apt-get install -y fonts-noto-core
+      - name: Rebuild Arabic cards using Pillow RAQM
+        run: |
+          python <<'PY'
+          from pathlib import Path
+          from PIL import Image, ImageDraw, ImageFont, features
+
+          assert features.check('raqm'), 'Pillow RAQM support is required'
+          root=Path('.')
+          out=root/'assets/previews'
+          W,H=1200,630
+          navy=(11,37,69); navy2=(18,57,94); gold=(198,161,95); white=(248,250,252); muted=(207,218,230); pill=(20,66,106)
+          f_reg=next(Path('/usr/share/fonts').rglob('NotoSansArabic-Regular.ttf'))
+          f_bold=next(Path('/usr/share/fonts').rglob('NotoSansArabic-Bold.ttf'))
+          latin=next(Path('/usr/share/fonts').rglob('DejaVuSans-Bold.ttf'))
+          def F(size,b=False): return ImageFont.truetype(str(f_bold if b else f_reg),size,layout_engine=ImageFont.Layout.RAQM)
+          def width(draw,s,f): return draw.textbbox((0,0),s,font=f,direction='rtl',language='ar')[2]
+          def wrap(draw,text,f,maxw):
+              lines=[]; cur=''
+              for w in text.split():
+                  t=(cur+' '+w).strip()
+                  if not cur or width(draw,t,f)<=maxw: cur=t
+                  else: lines.append(cur); cur=w
+              if cur: lines.append(cur)
+              return lines
+          def ar(draw,x,y,s,f,fill=white,anchor='ra'):
+              draw.text((x,y),s,font=f,fill=fill,anchor=anchor,direction='rtl',language='ar')
+
+          cases={
+          'case-bms-devens-future-ready-manufacturing':('بريستول مايرز سكويب','من المستقبل إلى المصنع الذكي','بناء قدرات اليوم لمستقبل أكثر تعقيدًا في التصنيع الدوائي',['42%+ انخفاض في زمن إدخال المنتجات الجديدة','40%+ زيادة في حجم الإنتاج']),
+          'case-rwanda-blood-on-demand-aerial-logistics':('رواندا','إعادة تصميم نموذج تشغيل إمداد الدم','من المخزون المحلي وحده إلى إمداد هجين سريع عند الطلب',['49.6 دقيقة متوسط زمن التوصيل بالطائرات المسيّرة','67% انخفاض مقدّر في انتهاء الصلاحية بعد 12 شهرًا']),
+          'case-seha-virtual-hospital-expertise-network':('الصحة الافتراضية','شبكة خبرة تتجاوز حدود المكان','إيصال الخبرة التخصصية إلى نقطة الحاجة عبر نموذج تشغيلي افتراضي',['خبرة تخصصية أقرب إلى نقطة الرعاية']),
+          'case-john-deere-see-spray-precision-decision':('John Deere','من الرش الشامل إلى القرار الدقيق','رؤية النبات واتخاذ قرار الرش على مستوى الهدف',['تقليل المدخلات عبر الاستهداف الدقيق']),
+          'case-tawam-erabs-bariatric-recovery':('مستشفى توام','إعادة تصميم التعافي بعد جراحات السمنة','مسار تعافٍ منظم يربط الممارسة السريرية بالتشغيل',['تعافٍ أسرع عبر مسار رعاية موحّد']),
+          'case-aravind-eye-care-high-volume-value':('Aravind Eye Care','قيمة أعلى من خلال نموذج تشغيل عالي الكفاءة','إعادة تصميم تدفق العمل لتوسيع الوصول مع الحفاظ على الجودة',['نموذج عالي الحجم يوسّع الوصول إلى الرعاية']),
+          'case-tamm-autogov-ai-native-government':('TAMM','من الخدمة الرقمية إلى حكومة أكثر استباقية','إعادة تصميم رحلة المتعامل حول الاحتياج بدل حدود الجهات',['خدمات مترابطة حول رحلة المتعامل']),
+          'case-dewa-hydro-insight-smart-water':('هيئة كهرباء ومياه دبي','من البيانات إلى قرار مائي أذكى','تحويل بيانات الشبكة إلى رؤية تشغيلية وتدخل أسرع',['رؤية تشغيلية تدعم اكتشاف المشكلات مبكرًا']),
+          'case-ega-dx-ultra-innovation':('الإمارات العالمية للألمنيوم','الابتكار الرقمي داخل قلب التشغيل','ربط الابتكار الرقمي بالمشكلات التشغيلية ذات القيمة',['تحول رقمي موجّه بالقيمة التشغيلية']),
+          'case-dubai-paperless-10x':('دبي','من رقمنة المعاملة إلى حكومة بلا ورق','إلغاء الاعتماد على الورق عبر إعادة تصميم العمل الحكومي',['نموذج حكومي رقمي بلا ورق']),
+          }
+          for slug,(entity,title,shift,metrics) in cases.items():
+              im=Image.new('RGB',(W,H),navy); d=ImageDraw.Draw(im)
+              d.rectangle((0,0,14,H),fill=gold); d.polygon([(900,0),(1200,0),(1200,H),(1040,H)],fill=navy2)
+              ar(d,1120,68,'التميّز 10X  |  حالة موثقة',F(30,True),muted)
+              ar(d,1120,120,entity,F(25,True),gold)
+              y=195; tf=F(46,True)
+              for line in wrap(d,title,tf,720)[:2]: ar(d,1120,y,line,tf); y+=66
+              sf=F(27)
+              for line in wrap(d,shift,sf,760)[:2]: ar(d,1120,y+4,line,sf,muted); y+=42
+              y=max(y+28,390); mf=F(23,True)
+              for m in metrics[:2]:
+                  d.rounded_rectangle((430,y-10,1120,y+42),14,fill=pill)
+                  ar(d,1092,y+18,m,mf,white,'rm'); y+=62
+              ar(d,1120,580,'الدكتور علاء محمد أحمد',F(23,True),muted)
+              d.text((75,185),'10X',font=ImageFont.truetype(str(latin),92),fill=white)
+              im.save(out/f'{slug}-ar.png','PNG',optimize=True)
+          im=Image.new('RGB',(W,H),navy); d=ImageDraw.Draw(im); d.rectangle((0,0,14,H),fill=gold); d.polygon([(900,0),(1200,0),(1200,H),(1040,H)],fill=navy2)
+          ar(d,1120,85,'التميّز 10X',F(34,True),gold)
+          ar(d,1120,205,'حالات وتجارب 10X',F(58,True),white)
+          ar(d,1120,315,'تحولات موثقة من الواقع',F(31,True),muted)
+          ar(d,1120,375,'التحول الجوهري · الدليل · الأثر',F(28),muted)
+          ar(d,1120,560,'الدكتور علاء محمد أحمد',F(25,True),muted)
+          d.text((75,190),'10X',font=ImageFont.truetype(str(latin),100),fill=white)
+          im.save(out/'tenx-cases-collection-ar.png','PNG',optimize=True)
+          for p in list(root.glob('case-*.html'))+list((root/'en').glob('case-*.html'))+[root/'articles.html',root/'en/articles.html']:
+              if not p.exists(): continue
+              s=p.read_text(encoding='utf-8').replace('20260912-preview3','20260912-preview4')
+              p.write_text(s,encoding='utf-8')
+          PY
+      - name: Commit
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add assets/previews '*.html' 'en/*.html'
+          git commit -m '[preview] Correct Arabic card direction with native RTL' || exit 0
+          git push
