@@ -1,0 +1,119 @@
+name: Fix Arabic RTL social previews
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/fix-arabic-preview-rtl.yml'
+permissions:
+  contents: write
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Install Arabic rendering dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pillow arabic-reshaper python-bidi
+          sudo apt-get update -qq
+          sudo apt-get install -y fonts-noto-core
+      - name: Rebuild Arabic previews and bump cache version
+        run: |
+          python <<'PY'
+          from pathlib import Path
+          import re, textwrap
+          from PIL import Image, ImageDraw, ImageFont
+          import arabic_reshaper
+          from bidi.algorithm import get_display
+
+          root=Path('.')
+          out=root/'assets/previews'
+          W,H=1200,630
+          navy=(11,37,69); navy2=(18,57,94); gold=(198,161,95); white=(248,250,252); muted=(207,218,230)
+          font='/usr/share/fonts/truetype/noto/NotoSansArabic-Regular.ttf'
+          bold='/usr/share/fonts/truetype/noto/NotoSansArabic-Bold.ttf'
+          if not Path(font).exists():
+              candidates=list(Path('/usr/share/fonts').rglob('NotoSansArabic-Regular.ttf'))
+              font=str(candidates[0]); bold=str(list(Path('/usr/share/fonts').rglob('NotoSansArabic-Bold.ttf'))[0])
+          def F(size,b=False): return ImageFont.truetype(bold if b else font,size)
+          def rtl(s): return get_display(arabic_reshaper.reshape(s))
+          def draw_rtl(draw, xy, s, f, fill=white, anchor='ra'):
+              draw.text(xy, rtl(s), font=f, fill=fill, anchor=anchor)
+          def wrap_ar(draw,text,f,maxw):
+              words=text.split(); lines=[]; cur=''
+              for w in words:
+                  test=(cur+' '+w).strip()
+                  if draw.textbbox((0,0),rtl(test),font=f)[2] <= maxw: cur=test
+                  else:
+                      if cur: lines.append(cur)
+                      cur=w
+              if cur: lines.append(cur)
+              return lines
+          cases={
+          'case-bms-devens-future-ready-manufacturing':('بريستول مايرز سكويب','من المستقبل إلى المصنع الذكي','بناء قدرات اليوم لمستقبل أكثر تعقيدًا في التصنيع الدوائي',['42%+ انخفاض في زمن إدخال المنتجات الجديدة','40%+ زيادة في حجم الإنتاج']),
+          'case-rwanda-blood-on-demand-aerial-logistics':('رواندا','إعادة تصميم نموذج تشغيل إمداد الدم','من المخزون المحلي وحده إلى إمداد هجين سريع عند الطلب',['49.6 دقيقة متوسط زمن التوصيل بالطائرات المسيّرة','67% انخفاض مقدّر في انتهاء الصلاحية بعد 12 شهرًا']),
+          'case-seha-virtual-hospital-expertise-network':('الصحة الافتراضية','شبكة خبرة تتجاوز حدود المكان','إيصال الخبرة التخصصية إلى نقطة الحاجة عبر نموذج تشغيلي افتراضي',['خبرة تخصصية أقرب إلى نقطة الرعاية']),
+          'case-john-deere-see-spray-precision-decision':('John Deere','من الرش الشامل إلى القرار الدقيق','رؤية النبات واتخاذ قرار الرش على مستوى الهدف',['تقليل المدخلات عبر الاستهداف الدقيق']),
+          'case-tawam-erabs-bariatric-recovery':('مستشفى توام','إعادة تصميم التعافي بعد جراحات السمنة','مسار تعافٍ منظم يربط الممارسة السريرية بالتشغيل',['تعافٍ أسرع عبر مسار رعاية موحّد']),
+          'case-aravind-eye-care-high-volume-value':('Aravind Eye Care','قيمة أعلى من خلال نموذج تشغيل عالي الكفاءة','إعادة تصميم تدفق العمل لتوسيع الوصول مع الحفاظ على الجودة',['نموذج عالي الحجم يوسّع الوصول إلى الرعاية']),
+          'case-tamm-autogov-ai-native-government':('TAMM','من الخدمة الرقمية إلى حكومة أكثر استباقية','إعادة تصميم رحلة المتعامل حول الاحتياج بدل حدود الجهات',['خدمات مترابطة حول رحلة المتعامل']),
+          'case-dewa-hydro-insight-smart-water':('هيئة كهرباء ومياه دبي','من البيانات إلى قرار مائي أذكى','تحويل بيانات الشبكة إلى رؤية تشغيلية وتدخل أسرع',['رؤية تشغيلية تدعم اكتشاف المشكلات مبكرًا']),
+          'case-ega-dx-ultra-innovation':('الإمارات العالمية للألمنيوم','الابتكار الرقمي داخل قلب التشغيل','ربط الابتكار الرقمي بالمشكلات التشغيلية ذات القيمة',['تحويل رقمي موجّه بالقيمة التشغيلية']),
+          'case-dubai-paperless-10x':('دبي','من رقمنة المعاملة إلى حكومة بلا ورق','إلغاء الاعتماد على الورق عبر إعادة تصميم العمل الحكومي',['نموذج حكومي رقمي بلا ورق']),
+          }
+          for slug,(entity,title,shift,metrics) in cases.items():
+              im=Image.new('RGB',(W,H),navy); d=ImageDraw.Draw(im)
+              d.rectangle((0,0,14,H),fill=gold); d.polygon([(880,0),(1200,0),(1200,630),(1040,630)],fill=navy2)
+              draw_rtl(d,(1125,65),'التميّز 10X  |  حالة موثقة',F(30,True),muted)
+              draw_rtl(d,(1125,115),entity,F(25,True),gold)
+              y=190
+              tf=F(48,True)
+              for line in wrap_ar(d,title,tf,760)[:2]:
+                  draw_rtl(d,(1125,y),line,tf); y+=70
+              sf=F(27)
+              for line in wrap_ar(d,shift,sf,780)[:2]:
+                  draw_rtl(d,(1125,y+8),line,sf,muted); y+=44
+              y=max(y+30,390)
+              mf=F(24,True)
+              for m in metrics[:2]:
+                  d.rounded_rectangle((410,y-8,1125,y+42),14,fill=(20,66,106))
+                  draw_rtl(d,(1095,y+18),m,mf,white,anchor='rm'); y+=62
+              draw_rtl(d,(1125,580),'الدكتور علاء محمد أحمد',F(23,True),muted)
+              d.text((80,170),'10X',font=ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf',92),fill=white)
+              im.save(out/f'{slug}-ar.png','PNG',optimize=True)
+          # collection Arabic preview
+          im=Image.new('RGB',(W,H),navy); d=ImageDraw.Draw(im); d.rectangle((0,0,14,H),fill=gold); d.polygon([(880,0),(1200,0),(1200,630),(1040,630)],fill=navy2)
+          draw_rtl(d,(1125,80),'التميّز 10X',F(34,True),gold)
+          draw_rtl(d,(1125,190),'حالات وتجارب 10X',F(58,True),white)
+          for i,s in enumerate(['تحولات موثقة من الواقع','التحول الجوهري · الدليل · الأثر']): draw_rtl(d,(1125,300+i*55),s,F(30, i==0),muted)
+          draw_rtl(d,(1125,560),'الدكتور علاء محمد أحمد',F(25,True),muted)
+          d.text((80,180),'10X',font=ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf',100),fill=white)
+          im.save(out/'tenx-cases-collection-ar.png','PNG',optimize=True)
+          # cache bust all references to preview2 -> preview3; correct MIME for PNG
+          for p in list(root.glob('case-*.html'))+list((root/'en').glob('case-*.html'))+[root/'articles.html',root/'en/articles.html']:
+              if not p.exists(): continue
+              s=p.read_text(encoding='utf-8')
+              s=s.replace('20260912-preview2','20260912-preview3')
+              if 'assets/previews/' in s: s=s.replace('og:image:type" content="image/jpeg','og:image:type" content="image/png')
+              p.write_text(s,encoding='utf-8')
+          PY
+      - name: Verify Arabic files and references
+        run: |
+          python <<'PY'
+          from pathlib import Path
+          files=list(Path('assets/previews').glob('*-ar.png'))
+          assert len(files)>=11, len(files)
+          s=Path('case-bms-devens-future-ready-manufacturing.html').read_text()
+          assert 'case-bms-devens-future-ready-manufacturing-ar.png?v=20260912-preview3' in s
+          assert 'og:image:type" content="image/png' in s
+          print('Arabic previews:',len(files))
+          PY
+      - name: Commit generated assets
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add assets/previews '*.html' 'en/*.html'
+          git commit -m '[preview] Rebuild Arabic cards with proper RTL rendering' || exit 0
+          git push
