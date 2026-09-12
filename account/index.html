@@ -10,36 +10,31 @@
 <body><main class="account-shell"><div class="card"><div class="row"><div><h1 id="title">حسابي</h1><p class="muted" id="identity">جارٍ تحميل بيانات الحساب…</p></div><button class="btn" id="logout">تسجيل الخروج</button></div></div><div class="card"><h2 id="historyTitle">محاولاتي ونتائجي</h2><div id="history" class="muted">جارٍ التحميل…</div></div><p><a id="back" href="/personality.html">العودة إلى مختبر اكتشاف الذات</a></p></main>
 <script type="module">
 import { currentSession } from '/assets/js/assessment-auth-client.js';
-import { listAssessmentReports, openAssessmentReport } from '/assets/js/assessment-reports-client.js';
+import { listAssessmentAttempts } from '/assets/js/assessment-attempts-client.js';
 const lang=new URLSearchParams(location.search).get('lang')==='en'?'en':'ar';
 document.documentElement.lang=lang;document.documentElement.dir=lang==='ar'?'rtl':'ltr';
-const labels=lang==='ar'?{account:'حسابي',history:'محاولاتي ونتائجي',logout:'تسجيل الخروج',back:'العودة إلى مختبر اكتشاف الذات',none:'لا توجد محاولات محفوظة حتى الآن.',failed:'تعذر تحميل الحساب.',completed:'مكتمل',in_progress:'قيد التنفيذ',abandoned:'غير مكتمل',view:'عرض النتيجة',hide:'إخفاء النتيجة',openPdf:'فتح تقرير PDF',opening:'جارٍ فتح التقرير…',reportUnavailable:'لم يُنشأ ملف PDF لهذه المحاولة بعد.',emailPending:'إرسال التقرير بالبريد سيُفعّل بعد ربط خدمة البريد الإنتاجية.'}:{account:'My account',history:'My attempts and results',logout:'Sign out',back:'Back to the Self-Discovery Lab',none:'No saved assessment attempts yet.',failed:'Could not load account.',completed:'Completed',in_progress:'In progress',abandoned:'Incomplete',view:'View result',hide:'Hide result',openPdf:'Open PDF report',opening:'Opening report…',reportUnavailable:'A PDF report has not been created for this attempt yet.',emailPending:'Email delivery will be enabled after the production mail service is connected.'};
+const labels=lang==='ar'?{account:'حسابي',history:'محاولاتي ونتائجي',logout:'تسجيل الخروج',back:'العودة إلى مختبر اكتشاف الذات',none:'لا توجد محاولات محفوظة حتى الآن.',failed:'تعذر تحميل الحساب.',completed:'مكتمل',in_progress:'قيد التنفيذ',abandoned:'غير مكتمل',view:'عرض النتيجة',hide:'إخفاء النتيجة',reportUnavailable:'ملف PDF سيظهر هنا بعد تفعيل خدمة التقارير.'}:{account:'My account',history:'My attempts and results',logout:'Sign out',back:'Back to the Self-Discovery Lab',none:'No saved assessment attempts yet.',failed:'Could not load account.',completed:'Completed',in_progress:'In progress',abandoned:'Incomplete',view:'View result',hide:'Hide result',reportUnavailable:'The PDF report will appear here after the report service is enabled.'};
 if(lang==='en'){document.title='My account | Tamayuz 10X';title.textContent=labels.account;historyTitle.textContent=labels.history;logout.textContent=labels.logout;back.textContent=labels.back;back.href='/en/personality.html';}
 function assessmentName(key){return key==='learning-preference-profile'?(lang==='ar'?'بصمتك في التعلّم':'Learning Style Profile'):(lang==='ar'?'تقييم أسلوب العمل':'Work Approach Assessment');}
 function statusName(s){return labels[s]||s;}
 function lppMetrics(result){const p=result?.scores?.percent;if(!p)return '';const names=lang==='ar'?{A:'الممارسة',R:'التأمل والمراجعة',T:'التحليل المفاهيمي',P:'التطبيق العملي'}:{A:'Action',R:'Reflection',T:'Conceptual analysis',P:'Practical application'};return `<div class="result-grid">${['A','R','T','P'].map(k=>`<div class="metric"><strong>${p[k]??'—'}%</strong><span>${names[k]}</span></div>`).join('')}</div>`;}
 function workMetrics(result){const s=result?.scores;if(!s)return '';const core=s.core||{};const coreNames=lang==='ar'?{U:'الفهم والتحقق',S:'التنظيم والهيكلة',A:'الفعل والتقدم'}:{U:'Understanding',S:'Structuring',A:'Action'};const coreHtml=Object.keys(coreNames).filter(k=>core[k]).map(k=>`<div class="metric"><strong>${Math.round(core[k].index??0)}%</strong><span>${coreNames[k]}</span></div>`).join('');const social=s.social?.index!=null?`<div class="metric"><strong>${Math.round(s.social.index)}%</strong><span>${lang==='ar'?'إشراك الآخرين':'Involving others'}</span></div>`:'';const flex=s.flex?.shiftCount!=null?`<div class="metric"><strong>${s.flex.shiftCount}/${s.flex.totalPairs??4}</strong><span>${lang==='ar'?'تغيّر الاختيار مع السياق':'Context-dependent shifts'}</span></div>`:'';return `<div class="result-grid">${coreHtml}${social}${flex}</div>`;}
 function resultHtml(a){if(!a.result_json)return `<p class="muted">${lang==='ar'?'لم تُحفظ نتيجة نهائية لهذه المحاولة بعد.':'No final result has been saved for this attempt yet.'}</p>`;return a.assessment_key==='learning-preference-profile'?lppMetrics(a.result_json):workMetrics(a.result_json);}
+function normalizeAttempts(payload){if(Array.isArray(payload))return payload;if(Array.isArray(payload?.attempts))return payload.attempts;if(Array.isArray(payload?.data))return payload.data;return [];}
 try{
  const {client,session}=await currentSession();
  if(!session){location.replace(`/account/login.html?lang=${lang}&next=${encodeURIComponent('/account/?lang='+lang)}`);}
  else{
-   const [{data:profile},{data:attempts,error},reportPayload]=await Promise.all([
-     client.from('profiles').select('full_name').eq('id',session.user.id).maybeSingle(),
-     client.from('assessment_attempts').select('id,assessment_key,status,started_at,completed_at,result_json').order('started_at',{ascending:false}).limit(50),
-     listAssessmentReports().catch(()=>({reports:[]}))
-   ]);
+   const {data:profile}=await client.from('profiles').select('full_name').eq('id',session.user.id).maybeSingle();
    identity.textContent=[profile?.full_name,session.user.email].filter(Boolean).join(' · ');
-   if(error) throw error;
-   const reportsByAttempt=new Map((reportPayload?.reports||[]).filter(r=>r.status==='ready').map(r=>[r.attempt_id,r]));
-   if(!attempts?.length){history.textContent=labels.none;}
+   const attempts=normalizeAttempts(await listAssessmentAttempts());
+   if(!attempts.length){history.textContent=labels.none;}
    else{
      history.className='';
-     history.innerHTML=attempts.map((a,i)=>{const report=reportsByAttempt.get(a.id);return `<div class="attempt"><strong>${assessmentName(a.assessment_key)}</strong><br><span class="muted">${statusName(a.status)} · ${new Date(a.started_at).toLocaleString(lang==='ar'?'ar':'en')}</span>${a.status==='completed'?`<div class="attempt-actions"><button class="btn secondary" data-view="r${i}">${labels.view}</button>${report?`<button class="btn secondary" data-report="${report.id}" data-name="${report.file_name||'assessment-report.pdf'}">${labels.openPdf}</button>`:''}</div><div class="result-box hidden" id="r${i}">${resultHtml(a)}<p class="muted report-note">${report?'':labels.reportUnavailable}</p><p class="muted report-note">${labels.emailPending}</p></div>`:''}</div>`}).join('');
+     history.innerHTML=attempts.map((a,i)=>`<div class="attempt"><strong>${assessmentName(a.assessment_key)}</strong><br><span class="muted">${statusName(a.status)} · ${new Date(a.started_at).toLocaleString(lang==='ar'?'ar':'en')}</span>${a.status==='completed'?`<div class="attempt-actions"><button class="btn secondary" data-view="r${i}">${labels.view}</button></div><div class="result-box hidden" id="r${i}">${resultHtml(a)}<p class="muted report-note">${labels.reportUnavailable}</p></div>`:''}</div>`).join('');
      document.querySelectorAll('[data-view]').forEach(btn=>btn.onclick=()=>{const box=document.getElementById(btn.dataset.view);const show=box.classList.contains('hidden');box.classList.toggle('hidden');btn.textContent=show?labels.hide:labels.view;});
-     document.querySelectorAll('[data-report]').forEach(btn=>btn.onclick=async()=>{const original=btn.textContent;btn.disabled=true;btn.textContent=labels.opening;try{await openAssessmentReport(btn.dataset.report,btn.dataset.name);}catch(e){console.error(e);alert(labels.failed);}finally{btn.disabled=false;btn.textContent=original;}});
    }
    logout.onclick=async()=>{await client.auth.signOut();location.replace(lang==='ar'?'/personality.html':'/en/personality.html');};
  }
-}catch(e){console.error(e);identity.textContent=labels.failed;history.textContent='';}
+}catch(e){console.error('Account history load failed:',e);identity.textContent=identity.textContent.includes('@')?identity.textContent:labels.failed;history.textContent=labels.failed;}
 </script></body></html>
