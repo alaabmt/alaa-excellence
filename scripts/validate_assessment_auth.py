@@ -23,13 +23,16 @@ require('assets/js/protected-assessment-loader.js', 'currentSession', 'startAsse
 require('assets/js/assessment-attempts-client.js', 'completeAssessmentAttempt', 'startAssessmentAttempt')
 require('assets/js/assessment-reports-client.js', 'listAssessmentReports', 'uploadAssessmentReport', 'application/pdf')
 require('assets/js/assessment-report-pdf.js', 'createAssessmentReportPdf', 'application/pdf')
+require('assets/js/saved-lpp-report.js', 'createSavedLearningPreferenceReportPdf', 'pagesToPdf', 'application/pdf', "['A','R','T','P']")
+require('assets/js/account-report-recovery.js', 'recoverSavedLearningPreferenceReport', 'uploadAssessmentReport', '-visual-v3-', 'result_json')
+require('assets/js/account-report-auto.js', 'recoverSavedLearningPreferenceReport', 'assessment_attempts', 'listAssessmentReports')
 require('assets/js/assessment-result-sync.js', 'completeAssessmentAttempt', 'createAssessmentReportPdf', 'uploadAssessmentReport', 'resultBelongsToAttempt', 'tamayuz:assessment-report-ready')
 require('supabase/functions/assessment-attempts/index.ts', 'stale_result', 'duplicate_result', 'result_json->>completedAt')
-account = require('account/index.html', 'listAssessmentReports', 'openAssessmentReport', 'recoverableLppState', 'tamayuz10x-colour-report-recovery', 'reportUpgrade=1')
+account = require('account/index.html', 'listAssessmentReports', 'openAssessmentReport', 'recoverableLppState', 'tamayuz10x-colour-report-recovery', 'reportUpgrade=1', 'account-report-auto.js')
 require('account/login.html', 'signInWithPassword', 'safeNext')
 register = require('account/register.html', 'signUp', 'emailRedirectTo')
 
-for path in ['assets/js/auth-config.js','assets/js/assessment-auth-client.js','assets/js/assessment-attempts-client.js','assets/js/assessment-reports-client.js','assets/js/assessment-result-sync.js','account/index.html','account/login.html','account/register.html']:
+for path in ['assets/js/auth-config.js','assets/js/assessment-auth-client.js','assets/js/assessment-attempts-client.js','assets/js/assessment-reports-client.js','assets/js/assessment-result-sync.js','assets/js/saved-lpp-report.js','assets/js/account-report-recovery.js','assets/js/account-report-auto.js','account/index.html','account/login.html','account/register.html']:
     text = (ROOT/path).read_text(encoding='utf-8') if (ROOT/path).exists() else ''
     lowered = text.lower()
     if 'service_role' in lowered or 'service-role' in lowered:
