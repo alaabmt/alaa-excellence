@@ -1,0 +1,8 @@
+{
+  "feature": "public-account-navigation",
+  "released": "2026-09-12",
+  "signed_out_label_ar": "تسجيل الدخول",
+  "signed_in_label_ar": "حسابي",
+  "signed_out_label_en": "Sign in",
+  "signed_in_label_en": "My account"
+}
