@@ -20,8 +20,8 @@ jobs:
           from pathlib import Path
           p = Path('tools/learning-preference-profile/session-ui.js')
           s = p.read_text(encoding='utf-8')
-          old = "'\\\"':'&quot'"
-          new = "'\\\"':'&quot;'"
+          old = "&quot',"
+          new = "&quot;',"
           if old not in s:
               raise SystemExit('escape pattern not found')
           p.write_text(s.replace(old, new, 1), encoding='utf-8')
