@@ -30,3 +30,4 @@ jobs:
           git add articles.html en/articles.html case-rta-adaptive-traffic-control-utc-ux-fusion.html en/case-rta-adaptive-traffic-control-utc-ux-fusion.html
           git commit -m '[preview] Refresh RTA approved 10X card cache' || exit 0
           git push
+# trigger: rta3
