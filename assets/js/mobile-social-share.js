@@ -87,13 +87,17 @@
     }
   }, true);
 
-  // The homepage philosophy is maintained as a separate layer so it can evolve
-  // without duplicating or disturbing the eight-pillar model that follows it.
+  // Homepage-only enhancement modules.
   const cleanPath = window.location.pathname.replace(/\/+$/, '');
-  if (!cleanPath || /\/index\.html$/i.test(cleanPath)) {
-    const script = document.createElement('script');
-    script.src = 'assets/js/homepage-philosophy.js?v=20260907-philosophy1';
-    script.defer = true;
-    document.head.appendChild(script);
+  if (!cleanPath || cleanPath === '/en' || /\/index\.html$/i.test(cleanPath)) {
+    const philosophyScript = document.createElement('script');
+    philosophyScript.src = '/assets/js/homepage-philosophy.js?v=20260907-philosophy1';
+    philosophyScript.defer = true;
+    document.head.appendChild(philosophyScript);
+
+    const latestCaseScript = document.createElement('script');
+    latestCaseScript.src = '/assets/js/homepage-latest-case.js?v=20260913-latestcase1';
+    latestCaseScript.defer = true;
+    document.head.appendChild(latestCaseScript);
   }
 })();
