@@ -222,7 +222,7 @@ async function applyAccountNavigation() {
 }
 
 applySiteLogo();
-applyTenXUnifiedModel();
+// The homepage philosophy is authored statically in index.html/en/index.html; do not replace the Arabic section at runtime.
 applyAccountNavigation();
 window.addEventListener('resize', applySiteLogo, { passive: true });
 
