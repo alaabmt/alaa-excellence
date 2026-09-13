@@ -1,4 +1,4 @@
-name: Fix Arabic previews with native RTL
+name: Standardize Arabic 10X previews with Noto Kufi Arabic
 on:
   push:
     paths:
@@ -10,25 +10,27 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Install fonts
+      - name: Install Arabic font and renderer
         run: |
           python -m pip install --upgrade pip
           pip install pillow
           sudo apt-get update -qq
           sudo apt-get install -y fonts-noto-core
-      - name: Rebuild Arabic cards using Pillow RAQM
+      - name: Rebuild Arabic 10X cards with one approved template
         run: |
           python <<'PY'
           from pathlib import Path
           from PIL import Image, ImageDraw, ImageFont, features
+          import re
 
           assert features.check('raqm'), 'Pillow RAQM support is required'
           root=Path('.')
           out=root/'assets/previews'
           W,H=1200,630
           navy=(11,37,69); navy2=(18,57,94); gold=(198,161,95); white=(248,250,252); muted=(207,218,230); pill=(20,66,106)
-          f_reg=next(Path('/usr/share/fonts').rglob('NotoSansArabic-Regular.ttf'))
-          f_bold=next(Path('/usr/share/fonts').rglob('NotoSansArabic-Bold.ttf'))
+          fonts=list(Path('/usr/share/fonts').rglob('NotoKufiArabic*.ttf'))
+          f_reg=next((p for p in fonts if 'Regular' in p.name), fonts[0])
+          f_bold=next((p for p in fonts if 'Bold' in p.name), f_reg)
           latin=next(Path('/usr/share/fonts').rglob('DejaVuSans-Bold.ttf'))
           def F(size,b=False): return ImageFont.truetype(str(f_bold if b else f_reg),size,layout_engine=ImageFont.Layout.RAQM)
           def width(draw,s,f): return draw.textbbox((0,0),s,font=f,direction='rtl',language='ar')[2]
@@ -40,10 +42,16 @@ jobs:
                   else: lines.append(cur); cur=w
               if cur: lines.append(cur)
               return lines
+          def fit(draw,text,maxw,maxlines,start=44,minsize=30):
+              for size in range(start,minsize-1,-2):
+                  f=F(size,True); lines=wrap(draw,text,f,maxw)
+                  if len(lines)<=maxlines: return f,lines
+              f=F(minsize,True); return f,wrap(draw,text,f,maxw)[:maxlines]
           def ar(draw,x,y,s,f,fill=white,anchor='ra'):
               draw.text((x,y),s,font=f,fill=fill,anchor=anchor,direction='rtl',language='ar')
 
           cases={
+          'case-rta-adaptive-traffic-control-utc-ux-fusion':('هيئة الطرق والمواصلات – دبي','من الإشارة الثابتة إلى شبكة تتعلم قبل الاختناق','بناء القدرة ← محاكاة ← تجارب تشغيلية ← قياس ← توسع',['16%–37% تحسن معلن في تدفق تقاطعات مختارة']),
           'case-bms-devens-future-ready-manufacturing':('بريستول مايرز سكويب','من المستقبل إلى المصنع الذكي','بناء قدرات اليوم لمستقبل أكثر تعقيدًا في التصنيع الدوائي',['42%+ انخفاض في زمن إدخال المنتجات الجديدة','40%+ زيادة في حجم الإنتاج']),
           'case-rwanda-blood-on-demand-aerial-logistics':('رواندا','إعادة تصميم نموذج تشغيل إمداد الدم','من المخزون المحلي وحده إلى إمداد هجين سريع عند الطلب',['49.6 دقيقة متوسط زمن التوصيل بالطائرات المسيّرة','67% انخفاض مقدّر في انتهاء الصلاحية بعد 12 شهرًا']),
           'case-seha-virtual-hospital-expertise-network':('الصحة الافتراضية','شبكة خبرة تتجاوز حدود المكان','إيصال الخبرة التخصصية إلى نقطة الحاجة عبر نموذج تشغيلي افتراضي',['خبرة تخصصية أقرب إلى نقطة الرعاية']),
@@ -58,36 +66,42 @@ jobs:
           for slug,(entity,title,shift,metrics) in cases.items():
               im=Image.new('RGB',(W,H),navy); d=ImageDraw.Draw(im)
               d.rectangle((0,0,14,H),fill=gold); d.polygon([(900,0),(1200,0),(1200,H),(1040,H)],fill=navy2)
-              ar(d,1120,68,'التميّز 10X  |  حالة موثقة',F(30,True),muted)
-              ar(d,1120,120,entity,F(25,True),gold)
-              y=195; tf=F(46,True)
-              for line in wrap(d,title,tf,720)[:2]: ar(d,1120,y,line,tf); y+=66
-              sf=F(27)
-              for line in wrap(d,shift,sf,760)[:2]: ar(d,1120,y+4,line,sf,muted); y+=42
-              y=max(y+28,390); mf=F(23,True)
+              ar(d,1120,68,'التميّز 10X  |  حالة موثقة',F(27,True),muted)
+              ar(d,1120,116,entity,F(22,True),gold)
+              tf,lines=fit(d,title,700,2,44,30); y=188
+              for line in lines: ar(d,1120,y,line,tf); y+=int(tf.size*1.45)
+              sf,slines=fit(d,shift,730,2,27,21)
+              for line in slines: ar(d,1120,y+6,line,sf,muted); y+=int(sf.size*1.55)
+              y=max(y+22,390); mf=F(20,True)
               for m in metrics[:2]:
-                  d.rounded_rectangle((430,y-10,1120,y+42),14,fill=pill)
-                  ar(d,1092,y+18,m,mf,white,'rm'); y+=62
-              ar(d,1120,580,'الدكتور علاء محمد أحمد',F(23,True),muted)
+                  d.rounded_rectangle((410,y-12,1120,y+42),14,fill=pill)
+                  ar(d,1090,y+17,m,mf,white,'rm'); y+=64
+              ar(d,1120,580,'الدكتور علاء محمد أحمد',F(21,True),muted)
               d.text((75,185),'10X',font=ImageFont.truetype(str(latin),92),fill=white)
               im.save(out/f'{slug}-ar.png','PNG',optimize=True)
+
           im=Image.new('RGB',(W,H),navy); d=ImageDraw.Draw(im); d.rectangle((0,0,14,H),fill=gold); d.polygon([(900,0),(1200,0),(1200,H),(1040,H)],fill=navy2)
-          ar(d,1120,85,'التميّز 10X',F(34,True),gold)
-          ar(d,1120,205,'حالات وتجارب 10X',F(58,True),white)
-          ar(d,1120,315,'تحولات موثقة من الواقع',F(31,True),muted)
-          ar(d,1120,375,'التحول الجوهري · الدليل · الأثر',F(28),muted)
-          ar(d,1120,560,'الدكتور علاء محمد أحمد',F(25,True),muted)
+          ar(d,1120,85,'التميّز 10X',F(31,True),gold)
+          ar(d,1120,205,'حالات وتجارب 10X',F(52,True),white)
+          ar(d,1120,315,'تحولات موثقة من الواقع',F(28,True),muted)
+          ar(d,1120,375,'التحول الجوهري · الدليل · الأثر',F(25),muted)
+          ar(d,1120,560,'الدكتور علاء محمد أحمد',F(22,True),muted)
           d.text((75,190),'10X',font=ImageFont.truetype(str(latin),100),fill=white)
           im.save(out/'tenx-cases-collection-ar.png','PNG',optimize=True)
+
+          # Force one cache version for every regenerated Arabic 10X card wherever referenced.
           for p in list(root.glob('case-*.html'))+list((root/'en').glob('case-*.html'))+[root/'articles.html',root/'en/articles.html']:
               if not p.exists(): continue
-              s=p.read_text(encoding='utf-8').replace('20260912-preview3','20260912-preview4')
+              s=p.read_text(encoding='utf-8')
+              for slug in cases:
+                  s=re.sub(rf'({re.escape(slug)}-ar\.png)\?v=[^\"\']+',r'\1?v=20260913-kufi1',s)
+              s=re.sub(r'(tenx-cases-collection-ar\.png)\?v=[^\"\']+',r'\1?v=20260913-kufi1',s)
               p.write_text(s,encoding='utf-8')
           PY
-      - name: Commit
+      - name: Commit regenerated cards
         run: |
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
           git add assets/previews '*.html' 'en/*.html'
-          git commit -m '[preview] Correct Arabic card direction with native RTL' || exit 0
+          git commit -m '[preview] Standardize Arabic 10X cards with Noto Kufi Arabic' || exit 0
           git push
