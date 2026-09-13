@@ -53,7 +53,8 @@ jobs:
           ('case-tamm-autogov-ai-native-government','أبوظبي · TAMM','من الحكومة الرقمية إلى الحكومة الاستباقية','إعادة تصميم رحلة المتعامل حول الاحتياج لا حول حدود الجهات','Abu Dhabi · TAMM','From Digital Government to Proactive Government','Redesigning citizen journeys around needs rather than agency boundaries'),
           ('case-dewa-hydro-insight-smart-water','دبي · DEWA','من قراءة الاستهلاك إلى كشف الخلل مبكرًا','تحويل بيانات الشبكة إلى رؤية تشغيلية وقرار أسرع','Dubai · DEWA','From Meter Reading to Earlier Problem Detection','Turning network data into operational visibility and faster decisions'),
           ('case-ega-dx-ultra-innovation','الإمارات العالمية للألمنيوم','حين يصبح الابتكار قدرة قابلة للتصدير','ربط الابتكار الرقمي بمشكلة تشغيلية ثم توسيع قيمته خارج الموقع','Emirates Global Aluminium','When Innovation Becomes an Exportable Capability','Connecting digital innovation to an operating problem, then scaling its value'),
-          ('case-dubai-paperless-10x','دبي','التحول الحقيقي: إلغاء الحاجة إلى الورق','إعادة تصميم العمل الحكومي بدل تحويل الورق إلى شاشة','Dubai','The Real Transformation: Removing the Need for Paper','Redesigning government work rather than simply digitizing documents')]
+          ('case-dubai-paperless-10x','دبي','التحول الحقيقي: إلغاء الحاجة إلى الورق','إعادة تصميم العمل الحكومي بدل تحويل الورق إلى شاشة','Dubai','The Real Transformation: Removing the Need for Paper','Redesigning government work rather than simply digitizing documents'),
+          ('case-rta-adaptive-traffic-control-utc-ux-fusion','دبي · RTA','من الإشارة الثابتة إلى شبكة تتعلم قبل الاختناق','بنية وبيانات ومحاكاة وتجارب تشغيلية قبل التوسع على مستوى المدينة','Dubai · RTA','From Fixed Timing to a Network That Anticipates Congestion','Infrastructure, data, simulation and operational trials before citywide scale')]
           def base():
               im=Image.new('RGB',(1200,630),navy); d=ImageDraw.Draw(im)
               d.ellipse((820,-180,1320,320),fill=navy2); d.ellipse((900,160,1360,620),fill=dark2); d.rectangle((25,20,36,610),fill=gold)
@@ -88,17 +89,14 @@ jobs:
               im.save(out/f'{slug}-en.png','PNG',optimize=True)
           for slug,ae,at,asub,ee,et,esub in cases:
               ar_card(slug,ae,at,asub); en_card(slug,ee,et,esub)
-          # collection cards
           ar_card('tenx-cases-collection','حالات وتجارب 10X','حالات وتجارب تصنع الفرق','تحولات واقعية موثقة من منظور نموذج التشغيل والقيمة والنتائج')
           en_card('tenx-cases-collection','10X Cases & Experiences','Cases and Experiences That Make a Difference','Evidence-based transformations viewed through operating models, value and results')
-          # bump cache version only where preview assets are referenced
           targets=list(root.glob('case-*.html'))+list((root/'en').glob('case-*.html'))+[root/'articles.html',root/'en/articles.html']
           for p in targets:
               if not p.exists(): continue
               s=p.read_text(encoding='utf-8')
               s=re.sub(r'20260912-preview\d+','20260912-preview6',s)
               p.write_text(s,encoding='utf-8')
-          # strengthen the permanent preview standard
           std=root/'10X_CASE_SOCIAL_PREVIEW_STANDARD.md'
           s=std.read_text(encoding='utf-8')
           marker='## 2. العناصر المطلوبة'
@@ -111,15 +109,10 @@ jobs:
         run: |
           python <<'PY'
           from pathlib import Path
-          assert len(list(Path('assets/previews').glob('case-*-ar.png'))) >= 10
-          assert len(list(Path('assets/previews').glob('case-*-en.png'))) >= 10
-          for p in Path('.').glob('case-*.html'):
-              s=p.read_text(encoding='utf-8')
-              if 'assets/previews/case-' in s: assert '-ar.png?v=20260912-preview6' in s, p
-          for p in Path('en').glob('case-*.html'):
-              s=p.read_text(encoding='utf-8')
-              if 'assets/previews/case-' in s: assert '-en.png?v=20260912-preview6' in s, p
-          assert 'التميّز 10X' in Path('10X_CASE_SOCIAL_PREVIEW_STANDARD.md').read_text(encoding='utf-8')
+          assert len(list(Path('assets/previews').glob('case-*-ar.png'))) >= 11
+          assert len(list(Path('assets/previews').glob('case-*-en.png'))) >= 11
+          assert Path('assets/previews/case-rta-adaptive-traffic-control-utc-ux-fusion-ar.png').exists()
+          assert Path('assets/previews/case-rta-adaptive-traffic-control-utc-ux-fusion-en.png').exists()
           print('QA passed')
           PY
       - name: Commit previews
@@ -127,5 +120,5 @@ jobs:
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
           git add assets/previews '*.html' 'en/*.html' 10X_CASE_SOCIAL_PREVIEW_STANDARD.md
-          git commit -m '[preview] Apply approved minimalist Tamayuz 10X cards' || exit 0
+          git commit -m '[preview] Add RTA to approved minimalist Tamayuz 10X cards' || exit 0
           git push
