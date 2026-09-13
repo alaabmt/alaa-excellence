@@ -1,0 +1,37 @@
+name: Bump Arabic homepage main.js cache
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/bump-ar-home-mainjs-cache.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Bump Arabic homepage main.js cache key
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path('index.html')
+          s = p.read_text(encoding='utf-8')
+          old = 'assets/js/main.js?v=20260912-accountnav2'
+          new = 'assets/js/main.js?v=20260913-philosophyfix2'
+          if old not in s:
+              raise SystemExit('expected main.js cache key not found')
+          p.write_text(s.replace(old, new, 1), encoding='utf-8')
+          PY
+      - name: Commit cache-busting change
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git commit -m "[fix] Bust Arabic homepage main.js cache"
+          git push
