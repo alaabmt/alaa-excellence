@@ -1,0 +1,175 @@
+name: Publish bilingual Yusuf preview cards
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/publish-yusuf-preview-cards.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install Arabic-safe typography
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq fonts-noto-core fonts-noto-extra fontconfig libraqm0
+          python -m pip install --quiet --upgrade pillow
+
+      - name: Generate Arabic and English 1200x630 cards and wire them into the site
+        shell: python
+        run: |
+          from pathlib import Path
+          from PIL import Image, ImageDraw, ImageFont
+          import subprocess, re
+
+          OUT = Path('assets/previews')
+          OUT.mkdir(parents=True, exist_ok=True)
+
+          def font_path(family):
+              p = subprocess.check_output(['fc-match','-f','%{file}',family], text=True).strip()
+              if not p:
+                  raise SystemExit(f'Font not found: {family}')
+              return p
+
+          AR = font_path('Noto Kufi Arabic')
+          EN = font_path('Noto Sans')
+          EN_B = font_path('Noto Sans Bold')
+
+          NAVY=(8,37,69); NAVY2=(17,58,92); GOLD=(211,177,103); CREAM=(247,243,234)
+          WHITE=(255,255,255); PALE=(226,237,240); TEAL=(39,102,99); MUTED=(190,207,219)
+
+          def gradient_bg():
+              im=Image.new('RGB',(1200,630),NAVY)
+              px=im.load()
+              for y in range(630):
+                  for x in range(1200):
+                      t=(x+y*0.45)/(1200+630*0.45)
+                      px[x,y]=tuple(int(NAVY[i]*(1-t)+NAVY2[i]*t) for i in range(3))
+              return im
+
+          def rounded(draw, box, radius, fill, outline=None, width=1):
+              draw.rounded_rectangle(box, radius=radius, fill=fill, outline=outline, width=width)
+
+          def wrap_words(draw, text, font, max_width, direction=None):
+              words=text.split()
+              lines=[]; cur=''
+              for w in words:
+                  test=(cur+' '+w).strip()
+                  bb=draw.textbbox((0,0),test,font=font,direction=direction)
+                  if bb[2]-bb[0] <= max_width or not cur:
+                      cur=test
+                  else:
+                      lines.append(cur); cur=w
+              if cur: lines.append(cur)
+              return lines
+
+          def draw_ar():
+              im=gradient_bg(); d=ImageDraw.Draw(im)
+              # visual motif: future horizon + seven grain marks
+              d.ellipse((-150,300,480,930), fill=(12,47,76), outline=(51,108,116), width=3)
+              for i in range(7):
+                  x=95+i*43; y=435-(i%2)*18
+                  d.line((x,y,x+12,y-72), fill=GOLD, width=4)
+                  d.ellipse((x+2,y-68,x+24,y-47), fill=GOLD)
+                  d.ellipse((x-6,y-45,x+16,y-24), fill=(181,145,78))
+              rounded(d,(820,58,1128,116),18,(255,255,255,22),outline=GOLD,width=2)
+              brand=ImageFont.truetype(AR,27); badge=ImageFont.truetype(AR,22)
+              title=ImageFont.truetype(AR,54); sub=ImageFont.truetype(AR,38); small=ImageFont.truetype(AR,22)
+              d.text((1095,72),'التميّز 10X',font=brand,fill=WHITE,anchor='ra',direction='rtl')
+              rounded(d,(830,142,1128,194),18,TEAL)
+              d.text((1095,151),'تأملات قرآنية',font=badge,fill=WHITE,anchor='ra',direction='rtl')
+              x=1110; y=242
+              for line in wrap_words(d,'يوسف عليه السلام',title,650,'rtl'):
+                  d.text((x,y),line,font=title,fill=WHITE,anchor='ra',direction='rtl'); y+=76
+              for line in wrap_words(d,'حين يُبنى الغد في زمن السعة',sub,700,'rtl'):
+                  d.text((x,y),line,font=sub,fill=CREAM,anchor='ra',direction='rtl'); y+=58
+              d.line((675,478,1110,478),fill=GOLD,width=3)
+              d.text((1110,500),'استشراف المستقبل  •  حفظ الموارد  •  بناء القدرة قبل الأزمة',font=small,fill=PALE,anchor='ra',direction='rtl')
+              d.text((1110,562),'الدكتور علاء محمد أحمد',font=small,fill=MUTED,anchor='ra',direction='rtl')
+              im.save(OUT/'reflection-yusuf-building-tomorrow-ar.png',optimize=True)
+
+          def draw_en():
+              im=gradient_bg(); d=ImageDraw.Draw(im)
+              d.ellipse((720,300,1350,930), fill=(12,47,76), outline=(51,108,116), width=3)
+              for i in range(7):
+                  x=890+i*43; y=435-(i%2)*18
+                  d.line((x,y,x+12,y-72), fill=GOLD, width=4)
+                  d.ellipse((x+2,y-68,x+24,y-47), fill=GOLD)
+                  d.ellipse((x-6,y-45,x+16,y-24), fill=(181,145,78))
+              rounded(d,(72,58,346,116),18,(255,255,255,22),outline=GOLD,width=2)
+              brand=ImageFont.truetype(EN_B,27); badge=ImageFont.truetype(EN_B,21)
+              title=ImageFont.truetype(EN_B,52); sub=ImageFont.truetype(EN,37); small=ImageFont.truetype(EN,21)
+              d.text((96,73),'Tamayuz 10X',font=brand,fill=WHITE)
+              rounded(d,(72,142,346,194),18,TEAL)
+              d.text((96,154),'Qur’anic Reflections',font=badge,fill=WHITE)
+              y=242
+              for line in wrap_words(d,'Yusuf',title,650):
+                  d.text((78,y),line,font=title,fill=WHITE); y+=70
+              for line in wrap_words(d,'Building Tomorrow in Times of Abundance',sub,700):
+                  d.text((78,y),line,font=sub,fill=CREAM); y+=52
+              d.line((78,478,515,478),fill=GOLD,width=3)
+              d.text((78,500),'Foresight  •  Resource stewardship  •  Capability before crisis',font=small,fill=PALE)
+              d.text((78,562),'Dr. Alaa Mohammad Ahmed',font=small,fill=MUTED)
+              im.save(OUT/'reflection-yusuf-building-tomorrow-en.png',optimize=True)
+
+          draw_ar(); draw_en()
+
+          # Add the preview image to the first Quranic-reflection card in each library.
+          replacements = [
+              (Path('articles.html'),
+               'data-topic="تأملات قرآنية في الاستشراف وبناء القدرة"><div class="article-meta">',
+               'data-topic="تأملات قرآنية في الاستشراف وبناء القدرة"><a class="article-preview" href="/reflection-yusuf-building-tomorrow.html" aria-label="فتح تأمل يوسف عليه السلام"><img src="/assets/previews/reflection-yusuf-building-tomorrow-ar.png?v=20260914-yusuf1" alt="بطاقة تأملات قرآنية: يوسف عليه السلام — حين يُبنى الغد في زمن السعة" loading="lazy" width="1200" height="630"></a><div class="article-meta">'),
+              (Path('en/articles.html'),
+               'data-topic="Qur’anic Reflections on Foresight and Capability Building"><div class="article-meta">',
+               'data-topic="Qur’anic Reflections on Foresight and Capability Building"><a class="article-preview" href="/en/reflection-yusuf-building-tomorrow.html" aria-label="Open Yusuf reflection"><img src="/assets/previews/reflection-yusuf-building-tomorrow-en.png?v=20260914-yusuf1" alt="Qur’anic Reflections: Yusuf — Building Tomorrow in Times of Abundance" loading="lazy" width="1200" height="630"></a><div class="article-meta">')
+          ]
+          for path, old, new in replacements:
+              text=path.read_text(encoding='utf-8')
+              if 'reflection-yusuf-building-tomorrow-ar.png' not in text and path.name=='articles.html':
+                  if old not in text: raise SystemExit(f'Arabic card anchor missing in {path}')
+                  text=text.replace(old,new,1)
+              if 'reflection-yusuf-building-tomorrow-en.png' not in text and str(path).startswith('en/'):
+                  if old not in text: raise SystemExit(f'English card anchor missing in {path}')
+                  text=text.replace(old,new,1)
+              path.write_text(text,encoding='utf-8')
+
+          # Static SEO/social metadata; crawlers do not need JavaScript.
+          meta = {
+            Path('reflection-yusuf-building-tomorrow.html'): '''\n  <link rel="canonical" href="https://tamayuz10x.com/reflection-yusuf-building-tomorrow.html">\n  <link rel="alternate" hreflang="ar" href="https://tamayuz10x.com/reflection-yusuf-building-tomorrow.html">\n  <link rel="alternate" hreflang="en" href="https://tamayuz10x.com/en/reflection-yusuf-building-tomorrow.html">\n  <meta property="og:type" content="article">\n  <meta property="og:locale" content="ar_AR">\n  <meta property="og:site_name" content="التميّز 10X | Tamayuz 10X">\n  <meta property="og:title" content="يوسف عليه السلام: حين يُبنى الغد في زمن السعة">\n  <meta property="og:description" content="تأمل قرآني معاصر في الاستشراف والاستعداد قبل الأزمة وبناء القدرة للمستقبل.">\n  <meta property="og:url" content="https://tamayuz10x.com/reflection-yusuf-building-tomorrow.html">\n  <meta property="og:image" content="https://tamayuz10x.com/assets/previews/reflection-yusuf-building-tomorrow-ar.png?v=20260914-yusuf1">\n  <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:type" content="image/png">\n  <meta property="og:image:alt" content="تأملات قرآنية — يوسف عليه السلام: حين يُبنى الغد في زمن السعة">\n  <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="يوسف عليه السلام: حين يُبنى الغد في زمن السعة"><meta name="twitter:image" content="https://tamayuz10x.com/assets/previews/reflection-yusuf-building-tomorrow-ar.png?v=20260914-yusuf1"><meta name="twitter:image:alt" content="تأملات قرآنية — يوسف عليه السلام: حين يُبنى الغد في زمن السعة">\n''',
+            Path('en/reflection-yusuf-building-tomorrow.html'): '''\n  <link rel="canonical" href="https://tamayuz10x.com/en/reflection-yusuf-building-tomorrow.html">\n  <link rel="alternate" hreflang="ar" href="https://tamayuz10x.com/reflection-yusuf-building-tomorrow.html">\n  <link rel="alternate" hreflang="en" href="https://tamayuz10x.com/en/reflection-yusuf-building-tomorrow.html">\n  <meta property="og:type" content="article">\n  <meta property="og:locale" content="en_US">\n  <meta property="og:site_name" content="Tamayuz 10X">\n  <meta property="og:title" content="Yusuf: Building Tomorrow in Times of Abundance">\n  <meta property="og:description" content="A contemporary Qur’anic reflection on foresight, preparing before crisis, and building future capability.">\n  <meta property="og:url" content="https://tamayuz10x.com/en/reflection-yusuf-building-tomorrow.html">\n  <meta property="og:image" content="https://tamayuz10x.com/assets/previews/reflection-yusuf-building-tomorrow-en.png?v=20260914-yusuf1">\n  <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:type" content="image/png">\n  <meta property="og:image:alt" content="Qur’anic Reflections — Yusuf: Building Tomorrow in Times of Abundance">\n  <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Yusuf: Building Tomorrow in Times of Abundance"><meta name="twitter:image" content="https://tamayuz10x.com/assets/previews/reflection-yusuf-building-tomorrow-en.png?v=20260914-yusuf1"><meta name="twitter:image:alt" content="Qur’anic Reflections — Yusuf: Building Tomorrow in Times of Abundance">\n'''
+          }
+          for path, block in meta.items():
+              text=path.read_text(encoding='utf-8')
+              marker='reflection-yusuf-building-tomorrow-ar.png' if not str(path).startswith('en/') else 'reflection-yusuf-building-tomorrow-en.png'
+              if marker not in text:
+                  anchor='<link rel="stylesheet"'
+                  pos=text.find(anchor)
+                  if pos < 0: raise SystemExit(f'Stylesheet anchor missing in {path}')
+                  text=text[:pos]+block+'  '+text[pos:]
+                  path.write_text(text,encoding='utf-8')
+
+          # Validate image dimensions and key Arabic text presence in source logic.
+          for f in [OUT/'reflection-yusuf-building-tomorrow-ar.png',OUT/'reflection-yusuf-building-tomorrow-en.png']:
+              with Image.open(f) as im:
+                  assert im.size==(1200,630), (f,im.size)
+
+      - name: Commit generated cards and integrations
+        run: |
+          if git diff --quiet; then
+            echo "No changes needed"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/previews/reflection-yusuf-building-tomorrow-ar.png assets/previews/reflection-yusuf-building-tomorrow-en.png articles.html en/articles.html reflection-yusuf-building-tomorrow.html en/reflection-yusuf-building-tomorrow.html
+          git commit -m "Add bilingual Yusuf preview cards"
+          git push
