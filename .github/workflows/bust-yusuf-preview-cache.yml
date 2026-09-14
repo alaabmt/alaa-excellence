@@ -1,0 +1,23 @@
+name: Bust Yusuf social preview cache
+on:
+  push:
+    paths:
+      - .github/workflows/bust-yusuf-preview-cache.yml
+permissions:
+  contents: write
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Update preview version
+        run: |
+          sed -i 's/20260914-yusuf1/20260914-yusuf2/g' reflection-yusuf-building-tomorrow.html
+          sed -i 's/20260914-yusuf1/20260914-yusuf2/g' en/reflection-yusuf-building-tomorrow.html
+      - name: Commit
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add reflection-yusuf-building-tomorrow.html en/reflection-yusuf-building-tomorrow.html
+          git commit -m 'Refresh Yusuf social preview cache key' || exit 0
+          git push
