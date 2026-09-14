@@ -1,0 +1,122 @@
+name: Publish DEWA ASGR 10X case assets
+on:
+  push:
+    paths:
+      - '.github/workflows/publish-dewa-asgr-case.yml'
+permissions:
+  contents: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install preview dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y fonts-noto-core fonts-noto-extra fonts-dejavu-core libraqm0
+          python -m pip install pillow
+      - name: Build previews and publication indexes
+        run: |
+          python <<'PY'
+          from pathlib import Path
+          from PIL import Image, ImageDraw, ImageFont, features
+          import json
+
+          assert features.check('raqm'), 'RAQM required'
+          root=Path('.')
+          out=root/'assets/previews'; out.mkdir(parents=True,exist_ok=True)
+          slug='case-dewa-asgr-self-healing-grid'
+          navy=(6,35,62); navy2=(10,48,82); dark2=(7,43,74); gold=(242,181,61); white=(248,250,252); muted=(199,214,231)
+          ar_fonts=list(Path('/usr/share/fonts').rglob('NotoKufiArabic*.ttf'))
+          ar_reg=next((p for p in ar_fonts if 'Regular' in p.name), ar_fonts[0])
+          ar_bold=next((p for p in ar_fonts if 'Bold' in p.name), ar_reg)
+          lat_reg=next(Path('/usr/share/fonts').rglob('DejaVuSans.ttf'))
+          lat_bold=next(Path('/usr/share/fonts').rglob('DejaVuSans-Bold.ttf'))
+          def F(p,s): return ImageFont.truetype(str(p),s,layout_engine=ImageFont.Layout.RAQM)
+          def base():
+              im=Image.new('RGB',(1200,630),navy); d=ImageDraw.Draw(im)
+              d.ellipse((820,-180,1320,320),fill=navy2); d.ellipse((900,160,1360,620),fill=dark2); d.rectangle((25,20,36,610),fill=gold)
+              return im,d
+          def width(d,s,f,rtl=False):
+              kw={'direction':'rtl','language':'ar'} if rtl else {}
+              b=d.textbbox((0,0),s,font=f,**kw); return b[2]-b[0]
+          def wrap(d,text,f,maxw,rtl=False):
+              lines=[]; cur=''
+              for w in text.split():
+                  t=(cur+' '+w).strip()
+                  if not cur or width(d,t,f,rtl)<=maxw: cur=t
+                  else: lines.append(cur); cur=w
+              if cur: lines.append(cur)
+              return lines
+          def fit(d,text,maxw,maxlines,start,minsize,rtl=False,bold=True):
+              p=ar_bold if rtl and bold else ar_reg if rtl else lat_bold if bold else lat_reg
+              for size in range(start,minsize-1,-2):
+                  f=F(p,size); lines=wrap(d,text,f,maxw,rtl)
+                  if len(lines)<=maxlines: return f,lines
+              f=F(p,minsize); return f,wrap(d,text,f,maxw,rtl)[:maxlines]
+          im,d=base(); x=790
+          d.text((x,55),'حالة موثقة · دبي · DEWA',font=F(ar_bold,25),fill=white,anchor='ra',direction='rtl',language='ar')
+          d.text((x,101),'التميّز 10X',font=F(ar_bold,23),fill=gold,anchor='ra',direction='rtl',language='ar')
+          tf,lines=fit(d,'من التدخل الميداني إلى استعادة التغذية في أقل من دقيقة',700,2,44,30,True); y=190
+          for line in lines: d.text((x,y),line,font=tf,fill=white,anchor='ra',direction='rtl',language='ar'); y+=int(tf.size*1.55)
+          sf,slines=fit(d,'عزل العطل وإعادة تغذية الأجزاء السليمة تلقائياً ضمن شبكة توزيع ذكية',700,2,25,20,True,False); y=max(y+22,390)
+          for line in slines: d.text((x,y),line,font=sf,fill=muted,anchor='ra',direction='rtl',language='ar'); y+=int(sf.size*1.65)
+          d.rectangle((765,520,770,580),fill=gold); d.text((750,535),'الدكتور علاء محمد أحمد',font=F(ar_bold,22),fill=white,anchor='ra',direction='rtl',language='ar')
+          d.text((1095,150),'التميّز',font=F(ar_bold,43),fill=white,anchor='ra',direction='rtl',language='ar'); d.text((1080,225),'10',font=F(lat_bold,104),fill=white,anchor='ra'); d.text((1110,225),'X',font=F(lat_bold,104),fill=gold,anchor='la')
+          im.save(out/f'{slug}-ar.png','PNG',optimize=True)
+
+          im,d=base(); x=82
+          d.text((x,55),'EVIDENCE-BASED CASE · DUBAI · DEWA',font=F(lat_bold,23),fill=white,anchor='la')
+          d.text((x,100),'TAMAYUZ 10X',font=F(lat_bold,22),fill=gold,anchor='la')
+          tf,lines=fit(d,'From Field Intervention to Under-One-Minute Restoration',700,3,46,32,False); y=185
+          for line in lines: d.text((x,y),line,font=tf,fill=white,anchor='la'); y+=int(tf.size*1.25)
+          sf,slines=fit(d,'Automatically isolate the fault and restore healthy grid sections',700,2,26,21,False,False); y=max(y+24,390)
+          for line in slines: d.text((x,y),line,font=sf,fill=muted,anchor='la'); y+=int(sf.size*1.5)
+          d.rectangle((82,520,87,580),fill=gold); d.text((105,535),'Dr. Alaa Mohammad Ahmed',font=F(lat_bold,23),fill=white,anchor='la')
+          d.text((1115,150),'Tamayuz',font=F(lat_bold,39),fill=white,anchor='ra'); d.text((1080,225),'10',font=F(lat_bold,104),fill=white,anchor='ra'); d.text((1110,225),'X',font=F(lat_bold,104),fill=gold,anchor='la')
+          im.save(out/f'{slug}-en.png','PNG',optimize=True)
+
+          ar=root/'articles.html'; s=ar.read_text(encoding='utf-8')
+          if slug not in s:
+              marker='<div class="article-grid" id="article-grid">'
+              card='''\n<article class="article-card" data-category="case management" data-date="2026-09-14" data-href="case-dewa-asgr-self-healing-grid.html" data-read-minutes="10" data-topic="مرونة الشبكات وأتمتة التوزيع"><a class="article-preview" href="case-dewa-asgr-self-healing-grid.html"><img src="/assets/previews/case-dewa-asgr-self-healing-grid-ar.png?v=20260914-asgr1" alt="" loading="lazy" width="1200" height="630"></a><div class="article-meta"><span class="tag">حالة 10X · دبي</span><span>10 دقائق قراءة</span><time datetime="2026-09-14">14 سبتمبر 2026</time></div><h3><a href="case-dewa-asgr-self-healing-grid.html">من انتظار التدخل الميداني إلى استعادة التغذية في أقل من دقيقة: كيف أعادت DEWA تصميم الاستجابة لأعطال الشبكة؟</a></h3><p><a href="case-dewa-asgr-self-healing-grid.html">ماذا يتغير عندما تستطيع الشبكة عزل الجزء المعطّل وإعادة تغذية الأجزاء السليمة تلقائياً، قبل أن يصل فريق الإصلاح إلى موقع الخلل؟</a></p><a class="article-action" href="case-dewa-asgr-self-healing-grid.html">اكتشف كيف تحولت الاستجابة للعطل إلى قدرة ذاتية الاستعادة ←</a></article>\n'''
+              s=s.replace(marker,marker+card,1); ar.write_text(s,encoding='utf-8')
+
+          en=root/'en/articles.html'; s=en.read_text(encoding='utf-8')
+          if slug not in s:
+              marker='<div class="article-grid" id="article-grid">'
+              card='''\n<article class="article-card" data-category="case management" data-date="2026-09-14" data-href="case-dewa-asgr-self-healing-grid.html" data-read-minutes="10" data-topic="Grid resilience and distribution automation"><a class="article-preview" href="case-dewa-asgr-self-healing-grid.html"><img src="/assets/previews/case-dewa-asgr-self-healing-grid-en.png?v=20260914-asgr1" alt="" loading="lazy" width="1200" height="630"></a><div class="article-meta"><span class="tag">10X Case · Dubai</span><span>10 min read</span><time datetime="2026-09-14">14 September 2026</time></div><h3><a href="case-dewa-asgr-self-healing-grid.html">From Waiting for Field Intervention to Restoring Power in Under a Minute: How DEWA Redesigned Distribution Fault Response</a></h3><p><a href="case-dewa-asgr-self-healing-grid.html">What changes when the grid can isolate a fault and restore healthy sections automatically before a repair crew reaches the failed asset?</a></p><a class="article-action" href="case-dewa-asgr-self-healing-grid.html">Explore how fault response became a self-restoring capability →</a></article>\n'''
+              s=s.replace(marker,marker+card,1); en.write_text(s,encoding='utf-8')
+
+          dates=root/'data/article-publication-dates.json'; data=json.loads(dates.read_text(encoding='utf-8'))
+          data[slug+'.html']='2026-09-14'; data['en/'+slug+'.html']='2026-09-14'
+          dates.write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+
+          sm=root/'sitemap.xml'; s=sm.read_text(encoding='utf-8')
+          entries='''  <url>\n    <loc>https://tamayuz10x.com/case-dewa-asgr-self-healing-grid.html</loc>\n    <lastmod>2026-09-14</lastmod>\n  </url>\n  <url>\n    <loc>https://tamayuz10x.com/en/case-dewa-asgr-self-healing-grid.html</loc>\n    <lastmod>2026-09-14</lastmod>\n  </url>\n'''
+          if 'case-dewa-asgr-self-healing-grid.html' not in s: s=s.replace('</urlset>',entries+'</urlset>')
+          s=s.replace('<loc>https://tamayuz10x.com/articles.html</loc>\n    <lastmod>2026-09-13</lastmod>','<loc>https://tamayuz10x.com/articles.html</loc>\n    <lastmod>2026-09-14</lastmod>')
+          s=s.replace('<loc>https://tamayuz10x.com/en/articles.html</loc>\n    <lastmod>2026-09-13</lastmod>','<loc>https://tamayuz10x.com/en/articles.html</loc>\n    <lastmod>2026-09-14</lastmod>')
+          sm.write_text(s,encoding='utf-8')
+          PY
+      - name: QA
+        run: |
+          test -f assets/previews/case-dewa-asgr-self-healing-grid-ar.png
+          test -f assets/previews/case-dewa-asgr-self-healing-grid-en.png
+          grep -q 'case-dewa-asgr-self-healing-grid' articles.html
+          grep -q 'case-dewa-asgr-self-healing-grid' en/articles.html
+          grep -q 'case-dewa-asgr-self-healing-grid' sitemap.xml
+          python - <<'PY'
+          import json
+          d=json.load(open('data/article-publication-dates.json',encoding='utf-8'))
+          assert d['case-dewa-asgr-self-healing-grid.html']=='2026-09-14'
+          assert d['en/case-dewa-asgr-self-healing-grid.html']=='2026-09-14'
+          print('QA passed')
+          PY
+      - name: Commit publication assets
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add assets/previews articles.html en/articles.html sitemap.xml data/article-publication-dates.json
+          git commit -m '[case] Publish DEWA ASGR preview, indexes and sitemap' || exit 0
+          git push
