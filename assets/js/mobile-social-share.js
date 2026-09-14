@@ -87,8 +87,16 @@
     }
   }, true);
 
-  // Homepage-only enhancement modules.
+  // Content-library enhancement: make Quranic Reflections visibly discoverable on both Arabic and English article libraries.
   const cleanPath = window.location.pathname.replace(/\/+$/, '');
+  if (cleanPath === '/articles.html' || cleanPath === '/en/articles.html') {
+    const reflectionsScript = document.createElement('script');
+    reflectionsScript.src = '/assets/js/quranic-reflections-library.js?v=20260914-quran1';
+    reflectionsScript.defer = true;
+    document.head.appendChild(reflectionsScript);
+  }
+
+  // Homepage-only enhancement modules.
   if (!cleanPath || cleanPath === '/en' || /\/index\.html$/i.test(cleanPath)) {
     const philosophyScript = document.createElement('script');
     philosophyScript.src = '/assets/js/homepage-philosophy.js?v=20260907-philosophy1';
