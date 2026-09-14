@@ -1,0 +1,62 @@
+name: Add Quranic Reflections directly to article libraries
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  integrate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Integrate Quranic Reflections in Arabic and English libraries
+        shell: python
+        run: |
+          from pathlib import Path
+
+          pages = [
+            {
+              'path': Path('articles.html'),
+              'filter_anchor': '<button aria-pressed="false" class="chip" data-filter="life" type="button">الحياة والمجتمع</button>',
+              'filter': '<button aria-pressed="false" class="chip" data-filter="quranic" type="button">تأملات قرآنية</button>',
+              'grid': '<div class="article-grid" id="article-grid">',
+              'card': '''<article class="article-card" data-category="quranic life leadership" data-date="2026-09-14" data-href="reflection-yusuf-building-tomorrow.html" data-read-minutes="9" data-topic="تأملات قرآنية في الاستشراف وبناء القدرة"><div class="article-meta"><span class="tag">تأملات قرآنية</span><span>9 دقائق قراءة</span><time datetime="2026-09-14">14 سبتمبر 2026</time></div><h3><a href="/reflection-yusuf-building-tomorrow.html">يوسف عليه السلام: حين يُبنى الغد في زمن السعة</a></h3><p><a href="/reflection-yusuf-building-tomorrow.html">تأمل تدبري في الاستعداد للمستقبل، وبناء القدرة قبل الأزمة، وما الذي يمكن أن نتعلمه اليوم من مشهد يوسف عليه السلام.</a></p><a class="article-action" href="/reflection-yusuf-building-tomorrow.html">اقرأ التأمل ←</a></article>''',
+            },
+            {
+              'path': Path('en/articles.html'),
+              'filter_anchor': '<button aria-pressed="false" class="chip" data-filter="life" type="button">Life and Society</button>',
+              'filter': '<button aria-pressed="false" class="chip" data-filter="quranic" type="button">Qur’anic Reflections</button>',
+              'grid': '<div class="article-grid" id="article-grid">',
+              'card': '''<article class="article-card" data-category="quranic life leadership" data-date="2026-09-14" data-href="reflection-yusuf-building-tomorrow.html" data-read-minutes="9" data-topic="Qur’anic Reflections on Foresight and Capability Building"><div class="article-meta"><span class="tag">Qur’anic Reflection</span><span>9 min read</span><time datetime="2026-09-14">14 September 2026</time></div><h3><a href="/en/reflection-yusuf-building-tomorrow.html">Yusuf: Building Tomorrow in Times of Abundance</a></h3><p><a href="/en/reflection-yusuf-building-tomorrow.html">A contemporary reflection on preparing for the future, building capability before crisis, and the questions the story of Yusuf opens for leadership today.</a></p><a class="article-action" href="/en/reflection-yusuf-building-tomorrow.html">Read the reflection →</a></article>''',
+            },
+          ]
+
+          for item in pages:
+            path = item['path']
+            text = path.read_text(encoding='utf-8')
+            if 'data-filter="quranic"' not in text:
+              if item['filter_anchor'] not in text:
+                raise SystemExit(f'Filter anchor not found in {path}')
+              text = text.replace(item['filter_anchor'], item['filter_anchor'] + item['filter'], 1)
+            if 'data-category="quranic life leadership"' not in text:
+              if item['grid'] not in text:
+                raise SystemExit(f'Article grid not found in {path}')
+              text = text.replace(item['grid'], item['grid'] + '\n' + item['card'] + '\n', 1)
+            path.write_text(text, encoding='utf-8')
+      - name: Commit direct integration
+        run: |
+          if git diff --quiet; then
+            echo "No changes needed"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add articles.html en/articles.html
+          git commit -m "Show Quranic Reflections directly in content libraries"
+          git push
