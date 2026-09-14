@@ -1,0 +1,54 @@
+name: Fix Quranic reflection verse citations
+
+on:
+  push:
+    paths:
+      - '.github/workflows/fix-quranic-reflection-verse-footer.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Replace verse footer elements and style citations
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          files = [
+              Path('reflection-yusuf-building-tomorrow.html'),
+              Path('en/reflection-yusuf-building-tomorrow.html'),
+          ]
+
+          replacements = {
+              '<footer>يوسف: 47–48</footer>': '<div class="verse-ref">يوسف: 47–48</div>',
+              '<footer>يوسف: 48</footer>': '<div class="verse-ref">يوسف: 48</div>',
+              '<footer>يوسف: 49</footer>': '<div class="verse-ref">يوسف: 49</div>',
+              '<footer>Qur’an 12:47–48, Saheeh International</footer>': '<div class="verse-ref">Qur’an 12:47–48, Saheeh International</div>',
+              '<footer>Qur’an 12:48, Saheeh International</footer>': '<div class="verse-ref">Qur’an 12:48, Saheeh International</div>',
+              '<footer>Qur’an 12:49, Saheeh International</footer>': '<div class="verse-ref">Qur’an 12:49, Saheeh International</div>',
+          }
+
+          for path in files:
+              text = path.read_text(encoding='utf-8')
+              for old, new in replacements.items():
+                  text = text.replace(old, new)
+              path.write_text(text, encoding='utf-8')
+
+          css = Path('assets/css/quranic-reflection-article.css')
+          text = css.read_text(encoding='utf-8')
+          text = text.replace('body.quranic-reflection-page blockquote footer{margin-top:14px;color:#d4e2ef;font-size:.9rem;font-weight:700}', 'body.quranic-reflection-page blockquote .verse-ref{margin-top:14px;color:#d4e2ef;font-size:.9rem;font-weight:700}')
+          css.write_text(text, encoding='utf-8')
+          PY
+      - name: Commit fix
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reflection-yusuf-building-tomorrow.html en/reflection-yusuf-building-tomorrow.html assets/css/quranic-reflection-article.css
+          git diff --cached --quiet || git commit -m "Fix share box placement on Quranic reflections"
+          git push
