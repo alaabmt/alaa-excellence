@@ -16,49 +16,67 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: Build lightweight JPEG previews and update Open Graph tags
+      - name: Generate valid lightweight JPEG previews and update metadata
         run: |
           python -m pip install --quiet Pillow
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq fonts-noto-core fonts-noto-extra >/dev/null
           python <<'PY'
-          from PIL import Image
+          from PIL import Image, ImageDraw, ImageFont
           from pathlib import Path
           import re
 
-          pairs = [
-              ('assets/previews/reflection-yusuf-building-tomorrow-ar.png', 'assets/previews/reflection-yusuf-building-tomorrow-ar.jpg'),
-              ('assets/previews/reflection-yusuf-building-tomorrow-en.png', 'assets/previews/reflection-yusuf-building-tomorrow-en.jpg'),
-          ]
-          for src, dst in pairs:
-              im = Image.open(src).convert('RGB')
-              if im.size != (1200, 630):
-                  im = im.resize((1200, 630), Image.Resampling.LANCZOS)
-              im.save(dst, 'JPEG', quality=80, optimize=True, progressive=False)
-              print(dst, Path(dst).stat().st_size)
+          W,H=1200,630
+          navy=(11,37,69); gold=(178,134,67); ink=(20,45,72); muted=(84,101,121); white=(255,255,255); pale=(247,249,252)
+          ar_font='/usr/share/fonts/truetype/noto/NotoSansArabic-Regular.ttf'
+          ar_bold='/usr/share/fonts/truetype/noto/NotoSansArabic-Bold.ttf'
+          en_font='/usr/share/fonts/truetype/noto/NotoSans-Regular.ttf'
+          en_bold='/usr/share/fonts/truetype/noto/NotoSans-Bold.ttf'
 
-          pages = [
-              ('reflection-yusuf-building-tomorrow.html', 'https://tamayuz10x.com/assets/previews/reflection-yusuf-building-tomorrow-ar.jpg?v=20260915-wa2', 'تأملات قرآنية — يوسف عليه السلام: حين يُبنى الغد في زمن السعة'),
-              ('en/reflection-yusuf-building-tomorrow.html', 'https://tamayuz10x.com/assets/previews/reflection-yusuf-building-tomorrow-en.jpg?v=20260915-wa2', 'Qur’anic Reflections — Yusuf: Building Tomorrow in Times of Abundance'),
-          ]
-          for path, image_url, alt in pages:
-              p = Path(path)
-              s = p.read_text(encoding='utf-8')
-              s = re.sub(r'<meta property="og:image" content="[^"]+">', f'<meta property="og:image" content="{image_url}">', s)
-              if 'property="og:image:secure_url"' in s:
-                  s = re.sub(r'<meta property="og:image:secure_url" content="[^"]+">', f'<meta property="og:image:secure_url" content="{image_url}">', s)
+          def f(path,size): return ImageFont.truetype(path,size)
+          def card(path, lang):
+              im=Image.new('RGB',(W,H),white); d=ImageDraw.Draw(im)
+              d.rectangle((0,0,W,18),fill=gold)
+              d.rectangle((0,510,W,H),fill=navy)
+              if lang=='ar':
+                  d.text((1110,70),'تأملات 10X في القرآن',font=f(ar_bold,30),fill=gold,anchor='ra',direction='rtl')
+                  d.text((1110,145),'يوسف عليه السلام',font=f(ar_bold,64),fill=navy,anchor='ra',direction='rtl')
+                  d.text((1110,235),'حين يُبنى الغد في زمن السعة',font=f(ar_bold,58),fill=ink,anchor='ra',direction='rtl')
+                  d.text((1110,345),'الاستعداد للمستقبل يبدأ قبل الحاجة إليه',font=f(ar_font,35),fill=muted,anchor='ra',direction='rtl')
+                  d.text((1110,555),'التميّز 10X  |  د. علاء محمد أحمد',font=f(ar_bold,28),fill=white,anchor='ra',direction='rtl')
               else:
-                  s = s.replace(f'<meta property="og:image" content="{image_url}">', f'<meta property="og:image" content="{image_url}">\n  <meta property="og:image:secure_url" content="{image_url}">')
-              s = re.sub(r'<meta property="og:image:type" content="[^"]+">', '<meta property="og:image:type" content="image/jpeg">', s)
-              s = re.sub(r'<meta name="twitter:image" content="[^"]+">', f'<meta name="twitter:image" content="{image_url}">', s)
-              p.write_text(s, encoding='utf-8')
+                  d.text((90,70),'10X REFLECTIONS FROM THE QUR’AN',font=f(en_bold,27),fill=gold)
+                  d.text((90,145),'Yusuf',font=f(en_bold,68),fill=navy)
+                  d.text((90,235),'Building Tomorrow in Times of Abundance',font=f(en_bold,49),fill=ink)
+                  d.text((90,345),'Preparing for the future begins before the need arrives.',font=f(en_font,32),fill=muted)
+                  d.text((90,555),'Tamayuz 10X  |  Dr. Alaa Mohammad Ahmed',font=f(en_bold,27),fill=white)
+              im.save(path,'JPEG',quality=82,optimize=True,progressive=False)
+              print(path,Path(path).stat().st_size)
+
+          Path('assets/previews').mkdir(parents=True,exist_ok=True)
+          card('assets/previews/reflection-yusuf-building-tomorrow-ar.jpg','ar')
+          card('assets/previews/reflection-yusuf-building-tomorrow-en.jpg','en')
+
+          pages=[
+            ('reflection-yusuf-building-tomorrow.html','https://tamayuz10x.com/assets/previews/reflection-yusuf-building-tomorrow-ar.jpg?v=20260915-wa3'),
+            ('en/reflection-yusuf-building-tomorrow.html','https://tamayuz10x.com/assets/previews/reflection-yusuf-building-tomorrow-en.jpg?v=20260915-wa3')]
+          for path,url in pages:
+              p=Path(path); s=p.read_text(encoding='utf-8')
+              s=re.sub(r'<meta property="og:image" content="[^"]+">',f'<meta property="og:image" content="{url}">',s)
+              if 'property="og:image:secure_url"' in s:
+                  s=re.sub(r'<meta property="og:image:secure_url" content="[^"]+">',f'<meta property="og:image:secure_url" content="{url}">',s)
+              else:
+                  s=s.replace(f'<meta property="og:image" content="{url}">',f'<meta property="og:image" content="{url}">\n  <meta property="og:image:secure_url" content="{url}">')
+              s=re.sub(r'<meta property="og:image:type" content="[^"]+">','<meta property="og:image:type" content="image/jpeg">',s)
+              s=re.sub(r'<meta name="twitter:image" content="[^"]+">',f'<meta name="twitter:image" content="{url}">',s)
+              p.write_text(s,encoding='utf-8')
           PY
-      - name: Commit generated previews
+      - name: Commit repaired previews
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add assets/previews/reflection-yusuf-building-tomorrow-*.jpg reflection-yusuf-building-tomorrow.html en/reflection-yusuf-building-tomorrow.html
-          if git diff --cached --quiet; then
-            echo "No changes"
-          else
-            git commit -m "Serve lightweight JPEG previews for WhatsApp"
+          if ! git diff --cached --quiet; then
+            git commit -m "Regenerate valid Yusuf WhatsApp preview cards"
             git push
           fi
