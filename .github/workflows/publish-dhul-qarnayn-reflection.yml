@@ -1,0 +1,77 @@
+name: Publish Dhul-Qarnayn reflection assets
+on:
+  push:
+    paths:
+      - '.github/workflows/publish-dhul-qarnayn-reflection.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install pillow arabic-reshaper python-bidi
+      - name: Generate valid 1200x630 JPEG WhatsApp cards and update library
+        run: |
+          python - <<'PY'
+          from PIL import Image, ImageDraw, ImageFont
+          import os, arabic_reshaper
+          from bidi.algorithm import get_display
+          os.makedirs('assets/previews', exist_ok=True)
+          W,H=1200,630
+          navy=(16,40,69); gold=(181,145,67); cream=(248,245,238); white=(255,255,255)
+          def font(size,bold=False):
+              p='/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf' if bold else '/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf'
+              return ImageFont.truetype(p,size)
+          def ar(s): return get_display(arabic_reshaper.reshape(s))
+          def card(path, lines, arabic=False):
+              im=Image.new('RGB',(W,H),cream); d=ImageDraw.Draw(im)
+              d.rounded_rectangle((60,55,1140,575),radius=34,fill=navy)
+              d.ellipse((940,-80,1210,190),fill=gold); d.ellipse((-90,470,150,710),fill=(220,207,172))
+              y=105
+              for i,(txt,size,bold) in enumerate(lines):
+                  f=font(size,bold); t=ar(txt) if arabic else txt
+                  box=d.textbbox((0,0),t,font=f); tw=box[2]-box[0]
+                  x=1080-tw if arabic else 120
+                  d.text((x,y),t,font=f,fill=white)
+                  y += size+24
+              im.save(path,'JPEG',quality=90,optimize=True,progressive=False)
+          card('assets/previews/reflection-dhul-qarnayn-building-capability-ar.jpg',[
+            ('التميّز 10X',30,True),('تأملات 10X في القرآن | سورة الكهف',28,False),('ذو القرنين',54,True),('بناء القدرة بدل صناعة الاعتماد',40,True),('من بناء القدرات إلى إعادة هندسة النظام',28,False),('الدكتور علاء محمد أحمد',25,False)],True)
+          card('assets/previews/reflection-dhul-qarnayn-building-capability-en.jpg',[
+            ('Tamayuz 10X',30,True),('10X Reflections from the Qur’an | Surat al-Kahf',27,False),('Dhul-Qarnayn',54,True),('Building Capability Rather Than Dependence',34,True),('From capability building to system redesign',27,False),('Dr. Alaa Mohammad Ahmed',25,False)],False)
+          # Correct an Arabic transcription typo if present.
+          p='reflection-dhul-qarnayn-building-capability.html'
+          s=open(p,encoding='utf-8').read().replace('فَأَتْبَعَ سَبًا','فَأَتْبَعَ سَبَبًا')
+          open(p,'w',encoding='utf-8').write(s)
+          # Add cards to the article libraries, immediately before Yusuf, idempotently.
+          arcard='''<article class="article-card" data-category="quranic life leadership management" data-date="2026-09-15" data-href="reflection-dhul-qarnayn-building-capability.html" data-read-minutes="12" data-topic="تأملات قرآنية في بناء القدرات وإعادة هندسة النظام"><a class="article-preview" href="/reflection-dhul-qarnayn-building-capability.html" aria-label="فتح تأمل ذي القرنين"><img src="/assets/previews/reflection-dhul-qarnayn-building-capability-ar.jpg" alt="تأملات 10X في القرآن: ذو القرنين وبناء القدرات" loading="lazy" width="1200" height="630"></a><div class="article-meta"><span class="tag">تأملات قرآنية</span><span>12 دقيقة قراءة</span><time datetime="2026-09-15">15 سبتمبر 2026</time></div><h3><a href="/reflection-dhul-qarnayn-building-capability.html">ذو القرنين: حين لا يكون الحل أن تفعل عنهم، بل أن تبني القدرة معهم</a></h3><p><a href="/reflection-dhul-qarnayn-building-capability.html">من التمكين والأخذ بالأسباب إلى إشراك الآخرين وبناء القدرة، ثم تغيير بنية التعامل مع المشكلة.</a></p><a class="article-action" href="/reflection-dhul-qarnayn-building-capability.html">اقرأ التأمل ←</a></article>\n'''
+          encard='''<article class="article-card" data-category="quranic life leadership management" data-date="2026-09-15" data-href="reflection-dhul-qarnayn-building-capability.html" data-read-minutes="12" data-topic="Qur’anic Reflections on Capability Building and System Redesign"><a class="article-preview" href="/en/reflection-dhul-qarnayn-building-capability.html" aria-label="Open Dhul-Qarnayn reflection"><img src="/assets/previews/reflection-dhul-qarnayn-building-capability-en.jpg" alt="10X Qur’anic Reflections: Dhul-Qarnayn and Capability Building" loading="lazy" width="1200" height="630"></a><div class="article-meta"><span class="tag">Qur’anic Reflection</span><span>12 min read</span><time datetime="2026-09-15">15 September 2026</time></div><h3><a href="/en/reflection-dhul-qarnayn-building-capability.html">Dhul-Qarnayn: Building Capability Rather Than Dependence</a></h3><p><a href="/en/reflection-dhul-qarnayn-building-capability.html">An original reflection from Surat al-Kahf on means, shared capability, disciplined action, and structural redesign.</a></p><a class="article-action" href="/en/reflection-dhul-qarnayn-building-capability.html">Read the reflection →</a></article>\n'''
+          for path,cardhtml,needle in [('articles.html',arcard,'<article class="article-card" data-category="quranic life leadership" data-date="2026-09-14"'),('en/articles.html',encard,'<article class="article-card" data-category="quranic life leadership" data-date="2026-09-14"')]:
+              t=open(path,encoding='utf-8').read()
+              if 'reflection-dhul-qarnayn-building-capability.html' not in t:
+                  t=t.replace(needle,cardhtml+needle,1)
+                  open(path,'w',encoding='utf-8').write(t)
+          PY
+      - name: Validate JPEGs
+        run: |
+          file assets/previews/reflection-dhul-qarnayn-building-capability-ar.jpg
+          file assets/previews/reflection-dhul-qarnayn-building-capability-en.jpg
+          python - <<'PY'
+          from PIL import Image
+          for p in ['assets/previews/reflection-dhul-qarnayn-building-capability-ar.jpg','assets/previews/reflection-dhul-qarnayn-building-capability-en.jpg']:
+              im=Image.open(p); im.verify()
+              im=Image.open(p); assert im.size==(1200,630) and im.format=='JPEG'
+              print(p, os.path.getsize(p) if False else 'valid 1200x630 JPEG')
+          PY
+      - name: Commit generated assets and library cards
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add assets/previews/reflection-dhul-qarnayn-building-capability-*.jpg reflection-dhul-qarnayn-building-capability.html articles.html en/articles.html
+          git diff --cached --quiet || git commit -m 'Publish Dhul-Qarnayn WhatsApp previews and library cards'
+          git push
