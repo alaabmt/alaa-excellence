@@ -9,9 +9,11 @@
   const path = location.pathname;
   const isDhul = path.includes('reflection-dhul-qarnayn-building-capability.html');
   const isYusuf = path.includes('reflection-yusuf-building-tomorrow.html');
-  const counterpart = isDhul
-    ? (isAr ? '/en/reflection-dhul-qarnayn-building-capability.html' : '/reflection-dhul-qarnayn-building-capability.html')
-    : (isAr ? '/en/reflection-yusuf-building-tomorrow.html' : '/reflection-yusuf-building-tomorrow.html');
+  const isHoopoe = path.includes('reflection-hoopoe-how-do-we-know.html');
+  let counterpart;
+  if (isDhul) counterpart = isAr ? '/en/reflection-dhul-qarnayn-building-capability.html' : '/reflection-dhul-qarnayn-building-capability.html';
+  else if (isHoopoe) counterpart = isAr ? '/en/reflection-hoopoe-how-do-we-know.html' : '/reflection-hoopoe-how-do-we-know.html';
+  else counterpart = isAr ? '/en/reflection-yusuf-building-tomorrow.html' : '/reflection-yusuf-building-tomorrow.html';
 
   const header = document.createElement('header');
   header.className = 'site-header';
@@ -26,7 +28,7 @@
     <nav class="reflection-nav"><div class="container">
       <a href="${isAr ? '/' : '/en/'}">${isAr ? 'الرئيسية' : 'Home'}</a>
       <a href="${isAr ? '/articles.html' : '/en/articles.html'}">${isAr ? 'حالات وتجارب 10X' : '10X Cases & Experiences'}</a>
-      <a class="active" href="${isAr ? '/quranic-reflections.html' : '/en/quranic-reflections.html'}">${isAr ? 'تأملات قرآنية' : 'Qur’anic Reflections'}</a>
+      <a class="active" href="${isAr ? '/articles.html' : '/en/articles.html'}">${isAr ? 'تأملات قرآنية' : 'Qur’anic Reflections'}</a>
       <a href="${isAr ? '/research.html' : '/en/research.html'}">${isAr ? 'الأبحاث والمنشورات' : 'Research & Publications'}</a>
     </div></nav>`;
   document.body.insertBefore(header, main);
@@ -39,8 +41,6 @@
   const method = main.querySelector('article > aside');
   if (method) method.setAttribute('role','note');
 
-  // Social sharing policy: use a fresh, crawler-facing URL when one exists.
-  // This avoids stale WhatsApp/Meta previews while the share page redirects readers to the canonical article.
   let shareUrl = location.href.split('#')[0];
   if (isDhul && isAr) shareUrl = `${location.origin}/share/dhul-qarnayn-capability-ar.html`;
 
