@@ -1,0 +1,57 @@
+name: Publish Hoopoe social previews
+on:
+  push:
+    paths:
+      - '.github/workflows/publish-hoopoe-preview.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install renderer and fonts
+        run: |
+          python -m pip install --upgrade pip
+          pip install pillow
+          sudo apt-get update -qq
+          sudo apt-get install -y fonts-noto-core fonts-noto-extra
+      - name: Render Arabic and English cards and wire metadata
+        run: |
+          python <<'PY'
+          from pathlib import Path
+          from PIL import Image, ImageDraw, ImageFont, features
+          assert features.check('raqm'), 'Pillow RAQM support is required'
+          W,H=1200,630; navy=(11,37,69); navy2=(18,57,94); gold=(198,161,95); white=(248,250,252); muted=(207,218,230)
+          kufi=list(Path('/usr/share/fonts').rglob('NotoKufiArabic*.ttf')); assert kufi
+          reg=next((p for p in kufi if 'Regular' in p.name),kufi[0]); bold=next((p for p in kufi if 'Bold' in p.name),reg)
+          latin=next(Path('/usr/share/fonts').rglob('DejaVuSans.ttf')); latinb=next(Path('/usr/share/fonts').rglob('DejaVuSans-Bold.ttf'))
+          def KF(n,b=False): return ImageFont.truetype(str(bold if b else reg),n,layout_engine=ImageFont.Layout.RAQM)
+          def LF(n,b=False): return ImageFont.truetype(str(latinb if b else latin),n)
+          def base():
+            im=Image.new('RGB',(W,H),navy); d=ImageDraw.Draw(im); d.rectangle((0,0,14,H),fill=gold); d.polygon([(900,0),(1200,0),(1200,H),(1040,H)],fill=navy2); return im,d
+          def ar(d,x,y,t,f,fill=white): d.text((x,y),t,font=f,fill=fill,anchor='ra',direction='rtl',language='ar')
+          im,d=base(); ar(d,1120,70,'التميّز 10X  |  تأملات قرآنية',KF(27,True),muted); ar(d,1120,120,'سورة النمل',KF(23,True),gold); ar(d,1120,205,'الهدهد',KF(54,True)); ar(d,1120,290,'كيف نعرف ما لا نعرف؟',KF(39,True)); ar(d,1120,365,'﴿ أَحَطتُ بِمَا لَمْ تُحِطْ بِهِ ﴾',KF(30),gold); ar(d,1120,425,'من المعرفة الموزعة إلى الذكاء المؤسسي',KF(25),muted); ar(d,1120,555,'الدكتور علاء محمد أحمد',KF(21,True),muted); d.text((75,190),'10X',font=LF(100,True),fill=white)
+          arout=Path('assets/previews/reflection-hoopoe-how-do-we-know-ar-raqm.jpg'); im.save(arout,'JPEG',quality=94,optimize=True); assert Image.open(arout).size==(1200,630)
+          for t in ['التميّز 10X','تأملات قرآنية','سورة النمل','الهدهد','كيف نعرف ما لا نعرف؟','من المعرفة الموزعة إلى الذكاء المؤسسي','الدكتور علاء محمد أحمد']:
+            b=d.textbbox((0,0),t,font=KF(24),direction='rtl',language='ar'); assert b[2]>b[0]
+          im,d=base(); d.text((80,72),'Tamayuz 10X  |  Qur’anic Reflections',font=LF(27,True),fill=muted); d.text((80,122),'Surat An-Naml',font=LF(23,True),fill=gold); d.text((80,205),'The Hoopoe',font=LF(52,True),fill=white); d.text((80,285),'How Do We Know What',font=LF(38,True),fill=white); d.text((80,335),'We Don’t Know?',font=LF(38,True),fill=white); d.text((80,410),'From Distributed Knowledge to',font=LF(25),fill=muted); d.text((80,445),'Organizational Intelligence',font=LF(25),fill=muted); d.text((80,555),'Dr. Alaa Mohammad Ahmed',font=LF(21,True),fill=muted)
+          enout=Path('assets/previews/reflection-hoopoe-how-do-we-know-en.jpg'); im.save(enout,'JPEG',quality=94,optimize=True); assert Image.open(enout).size==(1200,630)
+          def inject(path,url,img,alt):
+            p=Path(path); s=p.read_text(encoding='utf-8')
+            marker='<meta name="twitter:card" content="summary">'
+            tags=f'<meta property="og:image" content="{img}"><meta property="og:image:secure_url" content="{img}"><meta property="og:image:type" content="image/jpeg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="{alt}"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="{img}"><meta name="twitter:image:alt" content="{alt}">'
+            assert marker in s
+            s=s.replace(marker,tags)
+            p.write_text(s,encoding='utf-8')
+          inject('reflection-hoopoe-how-do-we-know.html','https://tamayuz10x.com/reflection-hoopoe-how-do-we-know.html','https://tamayuz10x.com/assets/previews/reflection-hoopoe-how-do-we-know-ar-raqm.jpg?v=20260916-1','تأملات 10X في القرآن — الهدهد: كيف نعرف ما لا نعرف؟')
+          inject('en/reflection-hoopoe-how-do-we-know.html','https://tamayuz10x.com/en/reflection-hoopoe-how-do-we-know.html','https://tamayuz10x.com/assets/previews/reflection-hoopoe-how-do-we-know-en.jpg?v=20260916-1','10X Qur’anic Reflections — The Hoopoe: How Do We Know What We Don’t Know?')
+          PY
+      - name: Commit previews and metadata
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add assets/previews/reflection-hoopoe-how-do-we-know-ar-raqm.jpg assets/previews/reflection-hoopoe-how-do-we-know-en.jpg reflection-hoopoe-how-do-we-know.html en/reflection-hoopoe-how-do-we-know.html
+          git diff --cached --quiet || git commit -m '[preview] Publish Hoopoe Arabic and English social cards'
+          git push
