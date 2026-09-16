@@ -1,0 +1,58 @@
+name: Publish Musa reflection previews and library cards
+on:
+  push:
+    paths:
+      - '.github/workflows/publish-musa-reflection.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install renderer and Arabic fonts
+        run: |
+          python -m pip install --upgrade pip
+          pip install pillow
+          sudo apt-get update -qq
+          sudo apt-get install -y fonts-noto-core fonts-noto-extra
+      - name: Render bilingual social cards and add library entries
+        run: |
+          python <<'PY'
+          from pathlib import Path
+          from PIL import Image, ImageDraw, ImageFont, features
+          assert features.check('raqm'), 'Pillow RAQM support is required for Arabic shaping'
+          W,H=1200,630; navy=(11,37,69); navy2=(18,57,94); gold=(198,161,95); white=(248,250,252); muted=(207,218,230)
+          kufi=list(Path('/usr/share/fonts').rglob('NotoKufiArabic*.ttf')); assert kufi
+          reg=next((p for p in kufi if 'Regular' in p.name),kufi[0]); bold=next((p for p in kufi if 'Bold' in p.name),reg)
+          latin=next(Path('/usr/share/fonts').rglob('DejaVuSans.ttf')); latinb=next(Path('/usr/share/fonts').rglob('DejaVuSans-Bold.ttf'))
+          def KF(n,b=False): return ImageFont.truetype(str(bold if b else reg),n,layout_engine=ImageFont.Layout.RAQM)
+          def LF(n,b=False): return ImageFont.truetype(str(latinb if b else latin),n)
+          def base():
+            im=Image.new('RGB',(W,H),navy); d=ImageDraw.Draw(im); d.rectangle((0,0,14,H),fill=gold); d.polygon([(900,0),(1200,0),(1200,H),(1040,H)],fill=navy2); return im,d
+          def ar(d,x,y,t,f,fill=white): d.text((x,y),t,font=f,fill=fill,anchor='ra',direction='rtl',language='ar')
+          im,d=base(); ar(d,1120,65,'التميّز 10X  |  تأملات قرآنية',KF(27,True),muted); ar(d,1120,115,'سورة الكهف',KF(23,True),gold); ar(d,1120,195,'موسى عليه السلام',KF(46,True)); ar(d,1120,270,'حين لا تكفي المعرفة التي نملكها',KF(34,True)); ar(d,1120,350,'﴿ مَا لَمْ تُحِطْ بِهِ خُبْرًا ﴾',KF(31),gold); ar(d,1120,420,'ماذا نفعل عند حدود ما نعرف؟',KF(25),muted); ar(d,1120,555,'الدكتور علاء محمد أحمد',KF(21,True),muted); d.text((75,190),'10X',font=LF(100,True),fill=white)
+          arout=Path('assets/previews/reflection-musa-limits-of-knowledge-ar-raqm.jpg'); arout.parent.mkdir(parents=True,exist_ok=True); im.save(arout,'JPEG',quality=94,optimize=True); assert Image.open(arout).size==(1200,630)
+          for t in ['التميّز 10X','تأملات قرآنية','سورة الكهف','موسى عليه السلام','حين لا تكفي المعرفة التي نملكها','ماذا نفعل عند حدود ما نعرف؟','الدكتور علاء محمد أحمد']:
+            b=d.textbbox((0,0),t,font=KF(24),direction='rtl',language='ar'); assert b[2]>b[0]
+          im,d=base(); d.text((80,65),'Tamayuz 10X  |  Qur’anic Reflections',font=LF(27,True),fill=muted); d.text((80,115),'Surat Al-Kahf',font=LF(23,True),fill=gold); d.text((80,195),'Musa',font=LF(50,True),fill=white); d.text((80,265),'What Do You Do When What',font=LF(34,True),fill=white); d.text((80,310),'You Know Is Not Enough?',font=LF(34,True),fill=white); d.text((80,385),'Knowledge, Judgment, and',font=LF(25),fill=muted); d.text((80,420),'the Capacity to Learn',font=LF(25),fill=muted); d.text((80,555),'Dr. Alaa Mohammad Ahmed',font=LF(21,True),fill=muted)
+          enout=Path('assets/previews/reflection-musa-limits-of-knowledge-en.jpg'); im.save(enout,'JPEG',quality=94,optimize=True); assert Image.open(enout).size==(1200,630)
+          arpath=Path('articles.html'); s=arpath.read_text(encoding='utf-8')
+          if 'reflection-musa-limits-of-knowledge.html' not in s:
+            marker='<div class="article-grid" id="article-grid">'
+            card='''\n<article class="article-card" data-category="quranic life leadership management" data-date="2026-09-16" data-href="reflection-musa-limits-of-knowledge.html" data-read-minutes="7" data-topic="تأملات قرآنية في حدود المعرفة والتعلم وبناء القدرات"><a class="article-preview" href="/reflection-musa-limits-of-knowledge.html" aria-label="فتح تأمل موسى عليه السلام"><img src="/assets/previews/reflection-musa-limits-of-knowledge-ar-raqm.jpg?v=20260916-1" alt="تأملات 10X في القرآن: موسى عليه السلام وحدود المعرفة" loading="lazy" width="1200" height="630"></a><div class="article-meta"><span class="tag">تأملات قرآنية</span><span>7 دقائق قراءة</span><time datetime="2026-09-16">16 سبتمبر 2026</time></div><h3><a href="/reflection-musa-limits-of-knowledge.html">موسى عليه السلام: حين لا تكفي المعرفة التي نملكها</a></h3><p><a href="/reflection-musa-limits-of-knowledge.html">ماذا نفعل عند حدود ما نعرف؟ من نقص الإحاطة إلى البحث والتعلم والفهم وبناء قدرة جديدة.</a></p><a class="article-action" href="/reflection-musa-limits-of-knowledge.html">اقرأ التأمل ←</a></article>'''
+            assert marker in s; s=s.replace(marker,marker+card,1); arpath.write_text(s,encoding='utf-8')
+          enpath=Path('en/articles.html'); s=enpath.read_text(encoding='utf-8')
+          if 'reflection-musa-limits-of-knowledge.html' not in s:
+            marker='<div class="article-grid" id="article-grid">'
+            card='''\n<article class="article-card" data-category="quranic life leadership management" data-date="2026-09-16" data-href="reflection-musa-limits-of-knowledge.html" data-read-minutes="7" data-topic="Qur’anic Reflections on Knowledge, Learning and Capability Building"><a class="article-preview" href="/en/reflection-musa-limits-of-knowledge.html" aria-label="Open Musa reflection"><img src="/assets/previews/reflection-musa-limits-of-knowledge-en.jpg?v=20260916-1" alt="10X Qur’anic Reflections: Musa and the limits of knowledge" loading="lazy" width="1200" height="630"></a><div class="article-meta"><span class="tag">Qur’anic Reflection</span><span>7 min read</span><time datetime="2026-09-16">16 September 2026</time></div><h3><a href="/en/reflection-musa-limits-of-knowledge.html">Musa: What Do You Do When What You Know Is Not Enough?</a></h3><p><a href="/en/reflection-musa-limits-of-knowledge.html">An original English reflection on the limits of expertise, judgment, learning, and building capabilities for a future we have not yet reached.</a></p><a class="article-action" href="/en/reflection-musa-limits-of-knowledge.html">Read the reflection →</a></article>'''
+            assert marker in s; s=s.replace(marker,marker+card,1); enpath.write_text(s,encoding='utf-8')
+          PY
+      - name: Commit generated cards and library entries
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add assets/previews/reflection-musa-limits-of-knowledge-ar-raqm.jpg assets/previews/reflection-musa-limits-of-knowledge-en.jpg articles.html en/articles.html
+          git diff --cached --quiet || git commit -m '[reflection] Publish Musa cards and bilingual library entries'
+          git push
