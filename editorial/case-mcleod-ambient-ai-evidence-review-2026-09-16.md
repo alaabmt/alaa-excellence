@@ -1,93 +1,59 @@
-# حزمة إعداد ومراجعة حالة 10X — McLeod Health والذكاء الاصطناعي المحيطي للتوثيق السريري
+# McLeod Health Ambient AI — Evidence & Publication Review
 
-**التاريخ:** 16 سبتمبر 2026
-**الحالة:** مقبولة تحريريًا بعد اكتمال المقال ومراجعة الخبير الداخلي؛ بوابة النشر التقني ما تزال منفصلة
-**درجة الثقة التحريرية:** 8.6/10
-
-## القرار
-الحالة تجتاز عتبة الدليل. سلسلة التنفيذ موثقة من مسح السوق والمحاكاة المقارنة إلى تجربة 90 يومًا ثم التوسع. أقوى نتيجة كمية هي انخفاض الوسيط الزمني داخل الملاحظات من 2.8 إلى 2.0 دقيقة لكل موعد (-28.34%، P<.001، n=23). لا يُعامل التصميم قبل/بعد كدليل سببي عشوائي.
+## Decision
+Accepted for publication development. Editorial confidence: **8.6/10**.
 
 ## Evidence Pack
-| الادعاء | الرقم/النتيجة | المصدر | النوع | الثقة | حدود الدليل |
+| Claim | Result | Source | Type | Confidence | Limits |
 |---|---|---|---|---|---|
-| اختبار مقارن قبل الشراء | 4 موردين؛ 15 سيناريو؛ أفضل حلين إلى التكامل | JMIR 2026 | محكم؛ مؤلفون من McLeod | عالية | غير مستقل عن المؤسسة |
-| تجربة قبل التوسع | 90 يومًا من أكتوبر 2024؛ 5 تخصصات | JMIR | محكم | عالية | غير عشوائية |
-| انخفاض زمن الملاحظة | 2.8→2.0 دقيقة؛ -28.34%؛ P<.001؛ n=23 | JMIR | EHR قبل/بعد | عالية للفرق المرصود | بلا ضابط متزامن |
-| انخفاض العمل خارج الساعات | 5.6→3.6 ساعات/4 أسابيع؛ -35.43%؛ P=.054 | JMIR | EHR قبل/بعد | متوسطة | اتجاه غير دال تقليديًا |
-| تحسن تجربة المريض | +8.4 الاستماع؛ +7.5 الثقة؛ +8.8 معرفة ما يفعل عند الأسئلة؛ +10.4 معلومات العلاج؛ P<.001 | JMIR/NRC Health | تجربة مريض | متوسطة-عالية | 21 مقدمًا؛ وسيط الاستجابة 32.7%؛ ليست نتائج سريرية |
-| توسع فعلي | 250 مقدمًا؛ 81% تبنٍ بينهم؛ نحو 150,000 ملاحظة | JMIR | محكم/تشغيلي | عالية | التحليل الكامل بعد التوسع جارٍ |
-| تقدير مالي | $2,629/مقدم/شهر عند جمع تحولات الترميز والحجم | JMIR؛ KLAS للسياق المهني | تقدير تشغيلي/مهني | متوسطة | ليس إيرادًا مدققًا؛ لا سببية مؤكدة؛ موسمية محتملة |
-| مسؤولية بشرية | الطبيب يراجع ويعدل ويعتمد المسودة | McLeod Magazine | أولي رسمي | عالية | وصف مؤسسي |
+| Documentation efficiency | Median time in notes 2.8 → 2.0 min/appointment; −28.34%; n=23; P<.001 | https://medinform.jmir.org/2026/1/e87450 | Peer-reviewed, institution-authored | High | Small selected pilot; before/after |
+| After-hours EHR work | 5.6 → 3.6 h/4 weeks; −35.43%; P=.054 | JMIR paper | Peer-reviewed, institution-authored | Medium | Not conventionally statistically significant |
+| Scale/adoption | 250 onboarded; 81% adoption among onboarded; ~150,000 notes | JMIR paper | Peer-reviewed, institution-authored | High | Not 81% of all providers; post-scale analysis ongoing |
+| Patient experience | +8.4 listening; +7.5 trust; +8.8 questions; +10.4 treatment information; all P<.001 | JMIR paper | Peer-reviewed, institution-authored | Medium-high | n=21 providers; median response 32.7%; not clinical outcomes |
+| Financial signal | Projected US$2,629/provider/month associated with coding + volume | JMIR; KLAS 2026 | Study + professional validation | Medium | Estimate; no concurrent control; seasonality not excluded |
+| Operating mechanism | Clinician reviews/edits/approves generated draft | McLeod Health Spring 2026 magazine | Official primary | High | Institutional description |
+| External validation | McLeod included in Suki ROI validation | KLAS Research 2026 | Professional external | Medium | Commercial product context; not academic replication |
 
-## المصادر
-1. JMIR Medical Informatics 2026: https://medinform.jmir.org/2026/1/e87450
-2. McLeod Health Spring 2026: https://www.mcleodhealth.org/wp-content/uploads/2026/04/McLeod-Mag-Spring-26-Compressed-Active-Links.pdf
-3. KLAS Research 2026: https://klasresearch.com/report/suki-roi-validations-2026-cross-organizational-results-from-suki-s-clinical-intelligence-platform/3869
-4. Healthcare Innovation 2026: https://www.hcinnovationgroup.com/analytics-ai/generative-ai/article/55355613/mcleod-health-cmio-on-choosing-measuring-roi-of-ambient-ai-solution
-5. BMJ Open systematic-review protocol 2026: https://bmjopen.bmj.com/content/16/4/e115562
+## Selected 10X pillars
+1. استشراف المستقبل وبلورة الطموح.
+2. القيادة وثقافة التحول والحوكمة المستقبلية.
+3. مضاعفة القدرات والتمكين.
+4. إعادة ابتكار المؤسسة ونموذج عملها.
+5. الابتكار والتجريب لتسريع التحول.
+6. تعظيم الذكاء المؤسسي والتقني.
 
-## الركائز المدعومة
-1. استشراف المستقبل وبلورة الطموح — توجه مستقبلي موثق، لا منهجية استشراف رسمية.
-2. القيادة وثقافة التحول والحوكمة المستقبلية — تقييم متعدد الوظائف وتقليل الانحياز في الاختيار.
-3. مضاعفة القدرات والتمكين — تحرير وقت من التوثيق، دون ادعاء أثر طويل على الاحتراق الوظيفي.
-4. إعادة ابتكار المؤسسة ونموذج عملها — إعادة تصميم الاختيار والتكامل والإدخال والتسعير والتوسع.
-5. الابتكار والتجريب لتسريع التحول — محاكاة ثم تجربة ثم قياس قبل التوسع.
-6. تعظيم الذكاء المؤسسي والتقني — مقارنة معيارية وقياس من بيانات السجل قبل قرار التوسع.
+The remaining two pillars are not asserted as independent long-term outcomes because public evidence is insufficient.
 
-لا تُفرض الركيزتان المتبقيتان لعدم كفاية الدليل طويل الأجل.
+## Company Insider Critique / نقد الخبير الداخلي
+Performed after completion of the full bilingual drafts from a simulated senior clinical-informatics leadership perspective; this does not claim to represent McLeod Health.
 
-## Company Insider Critique / نقد الخبير الداخلي — المرحلة الإلزامية بعد اكتمال المقال
-**منظور المحاكاة:** قائد رفيع للمعلوماتية السريرية مسؤول عن الاختيار والتطبيق. هذه محاكاة نقدية مبنية على المصادر ولا تمثل رأيًا منشورًا للمؤسسة.
+### Main critique
+- The case is not merely an “AI scribe”; the difficult capability was selection, integration, measurement, adoption and scaling.
+- Preserve the timeline: Feb 2024 design; Mar–Jun evaluation; Oct 2024 pilot; Jan 2025 rollout; Mar 2025 self-onboarding.
+- Do not present the −35.43% after-hours result as statistically established because P=.054.
+- Separate patient-experience improvements from clinical outcomes.
+- Treat US$2,629/provider/month as a projected association, not audited causal revenue.
+- Make clinician review/edit/approval explicit.
+- State that 81% adoption refers to onboarded providers.
+- Include usage-based pricing as an implementation learning.
+- State the new institutional capability: standardized vendor comparison, EHR-based measurement and evidence-led scaling.
 
-### نقاط النقد الرئيسية بعد قراءة المقال الكامل
-1. يجب ألا يبدو أن الإنجاز هو «AI scribe»؛ القيمة المؤسسية في نظام الاختيار والاختبار والقياس والتوسع.
-2. خط الزمن يجب أن يظل ظاهرًا: فبراير 2024 تصميم؛ مارس–يونيو تقييم؛ أكتوبر تجربة؛ يناير 2025 توسع؛ مارس 2025 إدخال ذاتي؛ 2026 نتائج منشورة.
-3. -35.43% في وقت العمل خارج الساعات لا يوصف كأثر مثبت لأن P=.054.
-4. تحسن تجربة المريض لا يساوي تحسنًا سريريًا، والعينة 21 مقدمًا ووسيط الاستجابة 32.7%.
-5. $2,629 تقدير مرتبط بالترميز والحجم، لا إيراد مدقق ولا أثر سببي خالص للأداة؛ لا توجد مجموعة ضابطة والموسمية ممكنة.
-6. يجب أن تبقى المسؤولية البشرية صريحة: الطبيب يراجع ويعدل ويعتمد.
-7. التوسع لم يكن تقنيًا فقط؛ الإدخال الذاتي والتسعير القائم على الاستخدام جزء من آلية التشغيل.
-8. 81% تعني التبني بين 250 مقدمًا جرى إدخالهم، لا 81% من كل أطباء النظام.
-9. أهم قدرة جديدة: مقارنة الموردين تحت سيناريوهات موحدة، ثم رؤية أثر التوثيق من بيانات EHR، واتخاذ قرار التوسع على قياس لا على عرض المورد.
-10. ما لا يجيب عنه الدليل العام يجب أن يبقى فجوة: تكلفة التغيير الكلية، أخطاء الملاحظات بعد التوسع، الاحتفاظ بالأطباء، النتائج السريرية، الأداء حسب التخصص والفئات السكانية.
+### Revisions made
+Both language versions now center the decision-and-scaling system, clarify human accountability, constrain causal language, separate experience from clinical outcomes, define technical terms, state the adoption denominator, disclose evidence limits, and make the future → capabilities → build now → different operating behavior chain explicit.
 
-### التحقق والعودة إلى المصادر
-أعيدت مراجعة ورقة JMIR، والمصدر الرسمي لـMcLeod، والتحقق المهني KLAS، والمقابلة المهنية، وبروتوكول BMJ Open. دعمت المصادر النقاط 1–9 أعلاه. لم توجد أدلة عامة كافية لإغلاق الفجوات في النقطة 10.
+### Remaining unverified gaps
+Full internal change/training/integration cost; long-term burnout/retention; direct clinical outcomes; post-scale note error/correction rates; detailed specialty/demographic performance; full post-scale results.
 
-### التعديلات الناتجة عن النقد
-- ثُبت مركز المقال على «نظام قرار وتجريب وتوسع» بدل «أداة تكتب».
-- أضيفت مراحل التنفيذ وتواريخها في الملخص والتحول.
-- وُصف pajama time كاتجاه غير دال تقليديًا.
-- فُصلت تجربة المريض عن النتائج السريرية.
-- قُيّد تقدير العائد صراحة بعدم وجود ضابط وباحتمال الموسمية.
-- ثُبتت مسؤولية الطبيب في المراجعة والاعتماد.
-- أضيف الإدخال الذاتي ونموذج التسعير إلى تفسير قابلية التوسع.
-- صُحح معنى 81% ليكون بين من جرى إدخالهم.
-- أجيب صراحة عن اختبار «ما الذي أصبح ممكنًا؟» في عدسة الذكاء المؤسسي.
+## Final Quality Gate — editorial
+Accuracy/numbers: PASS. Source strength: PASS with disclosure. Causality: PASS. Pillars: PASS. Future-to-impact logic: PASS. Arabic terminology: PASS. Post-draft Company Insider Critique: PASS.
 
-### فجوات بقيت غير قابلة للتحقق علنًا
-- التكلفة الداخلية الكلية للتغيير والتدريب والتكامل.
-- الأثر طويل الأجل على الاحتراق الوظيفي أو الاحتفاظ بالأطباء.
-- نتائج سريرية مباشرة للمرضى.
-- معدلات الخطأ والتصحيح في الملاحظات بعد التوسع الكامل.
-- الأداء التفصيلي حسب التخصص والفئات السكانية.
-- النتائج الكاملة لتحليل ما بعد التوسع.
+## Publication gate — current status
+- Arabic and English article pages: COMPLETE on branch.
+- Arabic hidden vocalized `data-tenx-speech`: COMPLETE for spoken article content; references excluded.
+- SEO/canonical/Open Graph/Twitter/Schema/Breadcrumbs: COMPLETE in both pages.
+- Publication-date registry: UPDATED to 2026-09-17.
+- 1200×630 Arabic/English social preview PNGs: GENERATED in production workspace but not committed because the current GitHub connector cannot upload local binary file references to repository paths.
+- `articles.html`, `en/articles.html`, `sitemap.xml`: still require repository updates.
+- Browser/TTS QA and exact-head GitHub Pages verification: pending the complete publication commit.
 
-## Final Quality Gate — بعد Company Insider Critique
-- الدقة والأرقام: PASS مع القيود.
-- قوة المصادر: PASS؛ الورقة محكمة لكن مؤلفيها من المؤسسة، وKLAS مهني في سياق تجاري.
-- الفصل بين الهدف والنتيجة: PASS.
-- عدم المبالغة السببية: PASS.
-- الركائز: PASS؛ ست فقط.
-- المستقبل ← القدرات ← البناء اليوم ← طريقة العمل ← الأثر: PASS.
-- تعريف Ambient AI وEHR وE/M عند أول ظهور: PASS.
-- المسؤولية البشرية: PASS.
-- حدود الدليل والفجوات: PASS.
-- Company Insider Critique بعد المقال: PASS ومُوثق أعلاه.
-- النسخة الإنجليزية: أُنشئت على فرع العمل؛ يلزم فحص التكافؤ النهائي مع العربية قبل الدمج.
-- طبقة TTS: العنوان والمقدمة مشكلان في data-tenx-speech؛ **لا تزال التغطية الكاملة لكل جسم المقال غير مكتملة، لذلك لا يجوز إعلان اجتياز معيار الاستماع الكامل**.
-- بطاقتا Open Graph 1200×630: **غير موجودتين بعد**.
-- articles.html / en/articles.html / sitemap.xml / سجل التاريخ: **لم تُحدّث بعد**.
-- GitHub Pages exact-head verification: **غير منطبق قبل الدمج**.
-
-**قرار النشر:** المحتوى اجتاز البوابة التحريرية، لكن بوابة النشر التقني ما تزال مغلقة حتى اكتمال TTS والبطاقات والفهارس والتحقق من Pages.
+**Do not merge or claim publication while any publication-gate item remains open.**
