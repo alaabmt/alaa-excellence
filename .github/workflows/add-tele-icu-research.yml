@@ -1,9 +1,6 @@
 name: Add Tele-ICU research
 
 on:
-  push:
-    paths:
-      - '.github/workflows/add-tele-icu-research.yml'
   workflow_dispatch:
 
 permissions:

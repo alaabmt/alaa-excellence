@@ -1,5 +1,7 @@
 name: Add Tele ICU research v2
-on: [push]
+on:
+  workflow_dispatch:
+
 permissions:
   contents: write
 jobs:

@@ -1,9 +1,6 @@
 name: Fix English logo and mobile header
 
 on:
-  push:
-    paths:
-      - '.github/workflows/fix-english-logo-header-mobile.yml'
   workflow_dispatch:
 
 permissions:

@@ -1,12 +1,6 @@
 name: Install unified site engagement
 
 on:
-  push:
-    branches: [main]
-    paths:
-      - '*.html'
-      - 'assets/js/site-engagement.js'
-      - '.github/workflows/install-site-engagement.yml'
   workflow_dispatch:
 
 permissions:

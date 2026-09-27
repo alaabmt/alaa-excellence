@@ -1,7 +1,6 @@
 name: Clarify Six Sigma trainer role on English About page
 
 on:
-  push:
   workflow_dispatch:
 
 permissions:
