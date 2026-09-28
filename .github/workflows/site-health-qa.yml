@@ -1,0 +1,44 @@
+name: Site health QA
+
+on:
+  pull_request:
+    paths:
+      - '**/*.html'
+      - 'assets/**'
+      - 'account/**'
+      - 'tools/**'
+      - 'robots.txt'
+      - 'CNAME'
+      - 'scripts/site_health_audit.py'
+      - '.github/workflows/site-health-qa.yml'
+  push:
+    branches: [main]
+    paths:
+      - '**/*.html'
+      - 'assets/**'
+      - 'account/**'
+      - 'tools/**'
+      - 'robots.txt'
+      - 'CNAME'
+      - 'scripts/site_health_audit.py'
+      - '.github/workflows/site-health-qa.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: site-health-\${{ github.workflow }}-\${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  audit:
+    name: Validate static-site health
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Check local links, assets, metadata and canonical integrity
+        run: python scripts/site_health_audit.py --json-out /tmp/site-health.json
