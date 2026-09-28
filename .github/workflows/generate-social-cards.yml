@@ -17,6 +17,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: generate-social-cards-main
+  cancel-in-progress: true
+
 jobs:
   build-social-cards:
     if: github.actor != 'github-actions[bot]'
