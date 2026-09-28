@@ -1,0 +1,28 @@
+/* Reading layout for statically rendered, bilingual reflections. */
+.reflection-reading .page-header{margin:0 0 28px;padding:42px 0 28px;background:none;text-align:start}
+.reflection-reading .page-header h1{max-width:900px;font-size:clamp(2rem,4vw,3.2rem);line-height:1.45;text-align:start}
+.reflection-reading .page-header>.article-lead{display:block;margin:16px 0 0}
+.reflection-reading .page-header .eyebrow{max-width:100%;line-height:1.8}
+.reflection-reading .reflection-cover{margin:0 0 42px}
+.reflection-reading .reflection-cover img{display:block;width:100%;height:auto;border-radius:18px}
+.reflection-reading main.container>article{max-width:780px;margin-inline:auto}
+.reflection-reading article{overflow-wrap:break-word;text-align:start}
+.reflection-reading blockquote{font-size:1.25rem;line-height:2}
+.reflection-reading blockquote cite{display:block;font-style:normal}
+.reflection-reading .quran-verse{display:block;font-size:1.4rem;line-height:2;text-align:right;margin-bottom:14px}
+.reflection-reading .verse-meaning{display:block}
+.reflection-reading article h3{font-size:1.4rem;line-height:1.6;color:#0b2545}
+.reflection-reading .citation{white-space:nowrap;font-size:.82em;text-decoration:underline;color:#76531f}
+.reflection-reading .editorial-note{margin-top:42px;padding:20px;background:#f5f8fc;border-inline-start:3px solid #b28643;border-radius:10px}
+.reflection-reading .editorial-note h2{font-size:1.2rem;margin:0 0 12px}
+.reflection-reading .editorial-note p{font-size:.96rem;margin:0}
+.reflection-reading .references{border-top:1px solid #e3e8ee;margin-top:40px}
+.reflection-reading .references li,.reflection-reading .references p{font-size:1rem}
+.reflection-reading .references ol{padding-inline-start:24px}
+.reflection-reading .skip-link{position:absolute;inset-inline-start:16px;top:-100px;background:#fff;color:#0b2545;padding:12px;z-index:10001}
+.reflection-reading .skip-link:focus{top:10px}
+.reflection-reading :focus-visible{outline:3px solid #b28643;outline-offset:4px}
+.reflection-reading .reflection-topbar .container>span{min-width:0}
+.reflection-reading .reflection-topbar a{flex-shrink:0}
+@media(max-width:700px){.reflection-reading .page-header{padding-top:30px}.reflection-reading .page-header h1{font-size:2rem}.reflection-reading .reflection-cover{margin-bottom:30px}.reflection-reading blockquote{font-size:1.1rem}.reflection-reading .quran-verse{font-size:1.2rem}.reflection-reading .reflection-topbar .container{align-items:flex-start;font-size:.78rem}.reflection-reading .tenx-author-meta{align-items:flex-start}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reflection-reading *{transition:none!important}}

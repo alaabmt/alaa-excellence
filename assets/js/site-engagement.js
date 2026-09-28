@@ -9,7 +9,7 @@
   const AUTHOR_IMAGE = '/assets/images/alaa-mohammad-ahmad-profile-hq.webp';
   const ui = (en, ar) => IS_ENGLISH_PAGE ? en : ar;
   const path = window.location.pathname.toLowerCase();
-  const isArticlePage = /\/(case-|idea-|article-)/.test(path);
+  const isArticlePage = /\/(case-|idea-|article-)/.test(path) || !!document.querySelector('[data-tenx-article]');
   const canonical = document.querySelector('link[rel="canonical"]')?.href || window.location.href.split('#')[0];
   const title = document.querySelector('meta[property="og:title"]')?.content || document.querySelector('h1')?.textContent?.trim() || document.title;
 
