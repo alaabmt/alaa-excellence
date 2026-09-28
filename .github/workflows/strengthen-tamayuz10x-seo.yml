@@ -1,10 +1,7 @@
 name: Strengthen Tamayuz 10X SEO
 
 on:
-  push:
-    paths:
-      - 'scripts/strengthen-tamayuz10x-seo.py'
-      - '.github/workflows/strengthen-tamayuz10x-seo.yml'
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -13,8 +10,8 @@ jobs:
   update:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with:
           python-version: '3.x'
       - run: python scripts/strengthen-tamayuz10x-seo.py

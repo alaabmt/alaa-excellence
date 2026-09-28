@@ -1,10 +1,6 @@
 name: Apply neutral site wording
 
 on:
-  push:
-    paths:
-      - 'scripts/neutralize_labels.py'
-      - '.github/workflows/apply-neutral-site-wording.yml'
   workflow_dispatch:
 
 permissions:
@@ -14,7 +10,7 @@ jobs:
   update:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Update wording
         run: python3 scripts/neutralize_labels.py
       - name: Commit changes
