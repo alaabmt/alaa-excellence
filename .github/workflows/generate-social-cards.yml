@@ -12,6 +12,8 @@ on:
       - 'assets/images/alaa-mohammad-ahmad-profile-hq.webp'
       - 'assets/images/file_0000000047188210ac6952e999d2eda7.png'
       - '.github/workflows/generate-social-cards.yml'
+      - 'reflection-musa-strong-trustworthy.html'
+      - 'en/reflection-musa-strong-trustworthy.html'
   workflow_dispatch:
 
 permissions:
@@ -50,7 +52,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/social/*.png case-dubai-paperless-10x.html case-ega-dx-ultra-innovation.html
+          git add assets/social/*.png assets/previews/reflection-musa-strong-trustworthy-ar.jpg assets/previews/reflection-musa-strong-trustworthy-en.jpg case-dubai-paperless-10x.html case-ega-dx-ultra-innovation.html
           if git diff --cached --quiet; then
             echo "No social-card changes to commit."
           else

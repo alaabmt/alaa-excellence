@@ -106,8 +106,98 @@ def ensure_social_meta(cfg):
     path.write_text(html, encoding="utf-8")
 
 
+
+PREVIEW_OUT = ROOT / "assets" / "previews"
+PREVIEW_OUT.mkdir(parents=True, exist_ok=True)
+MUSA_PREVIEW_LIMIT = 117000
+
+
+def _find_font(name):
+    hits = list(Path("/usr/share/fonts").rglob(name))
+    if not hits:
+        raise FileNotFoundError(name)
+    return str(hits[0])
+
+
+def _musa_background(rtl=True):
+    W, H = 1200, 630
+    gradient = Image.linear_gradient("L").resize((W, H))
+    canvas = ImageOps.colorize(gradient, "#ece7d8", "#d3ded5").convert("RGB")
+    draw = ImageDraw.Draw(canvas)
+    if rtl:
+        draw.rounded_rectangle((535, 46, 1150, 584), radius=28, fill="#10343a")
+        cx = 275
+    else:
+        draw.rounded_rectangle((50, 46, 665, 584), radius=28, fill="#10343a")
+        cx = 925
+    gy = 455
+    draw.ellipse((cx - 160, gy - 22, cx + 160, gy + 24), fill="#c4b08a")
+    draw.rounded_rectangle((cx - 95, gy - 112, cx + 95, gy), radius=16, fill="#847052")
+    draw.ellipse((cx - 95, gy - 130, cx + 95, gy - 83), fill="#a28b64")
+    draw.ellipse((cx - 70, gy - 120, cx + 70, gy - 91), fill="#22494b")
+    draw.line((cx, gy - 145, cx, gy - 105), fill="#5d4b35", width=5)
+    draw.arc((cx - 42, gy - 178, cx + 42, gy - 105), 180, 360, fill="#5d4b35", width=5)
+    draw.line((cx - 260, 520, cx - 60, 470), fill="#b39a6f", width=6)
+    draw.line((cx + 260, 520, cx + 60, 470), fill="#b39a6f", width=6)
+    return canvas
+
+
+def _save_musa_jpeg(canvas, path):
+    for quality in range(86, 39, -2):
+        canvas.save(path, "JPEG", quality=quality, optimize=True, progressive=True, subsampling=2)
+        if path.stat().st_size < MUSA_PREVIEW_LIMIT:
+            print(f"{path.name}: {path.stat().st_size} bytes at quality {quality}")
+            return
+    raise RuntimeError(f"{path.name} exceeds {MUSA_PREVIEW_LIMIT} bytes")
+
+
+def make_musa_reflection_cards():
+    ar_bold = ImageFont.truetype(_find_font("NotoSansArabic-Bold.ttf"), 59)
+    ar_regular = ImageFont.truetype(_find_font("NotoSansArabic-Regular.ttf"), 31)
+    ar_small = ImageFont.truetype(_find_font("NotoSansArabic-Regular.ttf"), 23)
+    ar_author = ImageFont.truetype(_find_font("NotoSansArabic-Regular.ttf"), 22)
+    ar_brand = ImageFont.truetype(_find_font("NotoSansArabic-Bold.ttf"), 30)
+    latin_bold = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 28)
+
+    canvas = _musa_background(True)
+    draw = ImageDraw.Draw(canvas)
+    x = 1105
+    draw.text((x, 92), "التميّز", font=ar_brand, fill="#ebcb89", anchor="ra", direction="rtl", language="ar")
+    bbox = draw.textbbox((0, 0), "التميّز", font=ar_brand, direction="rtl", language="ar")
+    aw = bbox[2] - bbox[0]
+    draw.text((x - aw - 15, 91), "10X", font=latin_bold, fill="#ebcb89", anchor="ra")
+    draw.text((x, 145), "تأملات قرآنية", font=ar_small, fill="#dce7e4", anchor="ra", direction="rtl", language="ar")
+    draw.text((x, 180), "سورة القصص", font=ar_small, fill="#dce7e4", anchor="ra", direction="rtl", language="ar")
+    draw.text((x, 270), "كيف نعرف الناس", font=ar_bold, fill="white", anchor="ra", direction="rtl", language="ar")
+    draw.text((x, 343), "حقاً؟", font=ar_bold, fill="white", anchor="ra", direction="rtl", language="ar")
+    draw.text((x, 425), "القوي الأمين", font=ar_regular, fill="#ebcb89", anchor="ra", direction="rtl", language="ar")
+    draw.text((x, 468), "حين تتكلم الأفعال قبل أن تُمنح المسؤولية", font=ar_regular, fill="#ebcb89", anchor="ra", direction="rtl", language="ar")
+    draw.text((x, 540), "الدكتور علاء محمد أحمد", font=ar_author, fill="#dce7e4", anchor="ra", direction="rtl", language="ar")
+    _save_musa_jpeg(canvas, PREVIEW_OUT / "reflection-musa-strong-trustworthy-ar.jpg")
+
+    en_bold = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 48)
+    en_regular = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 27)
+    en_small = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 21)
+    en_brand = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 29)
+    en_author = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 20)
+
+    canvas = _musa_background(False)
+    draw = ImageDraw.Draw(canvas)
+    x = 95
+    draw.text((x, 92), "Tamayuz 10X", font=en_brand, fill="#ebcb89", anchor="la")
+    draw.text((x, 142), "Qur’anic Reflection", font=en_small, fill="#dce7e4", anchor="la")
+    draw.text((x, 173), "Surah Al-Qasas", font=en_small, fill="#dce7e4", anchor="la")
+    draw.text((x, 242), "How Do We Really", font=en_bold, fill="white", anchor="la")
+    draw.text((x, 302), "Know People?", font=en_bold, fill="white", anchor="la")
+    draw.text((x, 382), "The strong and trustworthy:", font=en_regular, fill="#ebcb89", anchor="la")
+    draw.text((x, 424), "when actions speak before", font=en_regular, fill="#ebcb89", anchor="la")
+    draw.text((x, 466), "responsibility", font=en_regular, fill="#ebcb89", anchor="la")
+    draw.text((x, 540), "Dr. Alaa Mohammad Ahmed", font=en_author, fill="#dce7e4", anchor="la")
+    _save_musa_jpeg(canvas, PREVIEW_OUT / "reflection-musa-strong-trustworthy-en.jpg")
+
 if __name__ == "__main__":
     for cfg in CARDS:
         make_card(cfg)
         ensure_social_meta(cfg)
-    print("Generated social cards using raster brand identity without rendered Arabic copy.")
+    make_musa_reflection_cards()
+    print("Generated social cards, including Musa reflection previews under the strict byte cap.")
