@@ -13,7 +13,8 @@ from bs4 import BeautifulSoup, NavigableString
 
 SITE = "https://tamayuz10x.com"
 CACHE_PATH = Path(".bilingual-translation-cache.json")
-ROOT_EXCLUDE = {"contact-madar.html"}
+# Legal pages carry an authored English section; machine translation would duplicate it.
+ROOT_EXCLUDE = {"contact-madar.html", "privacy-data-use.html", "terms-of-use.html"}
 AR_RE = re.compile(r"[\u0600-\u06FF]")
 EN_RE = re.compile(r"[A-Za-z]{2,}")
 SKIP_TAGS = {"style", "code", "pre", "kbd", "samp", "svg", "math", "noscript"}
@@ -283,6 +284,9 @@ def translate_jsonld(obj, tr: LocalTranslator, source_url: str, target_url: str)
     if isinstance(obj, dict):
         out = {}
         for key, value in obj.items():
+            if key == "inLanguage" and isinstance(value, str):
+                out[key] = tr.dst
+                continue
             if isinstance(value, str):
                 if source_url in value:
                     value = value.replace(source_url, target_url)
@@ -378,6 +382,8 @@ def transform(source: Path, target_lang: str, cache: dict[str, str]) -> str:
             key = (tag.get("name") or tag.get("property") or "").lower()
             if key in META_KEYS and needs_translation(str(tag["content"]), src_lang):
                 tag["content"] = tr.text(str(tag["content"]))
+            elif key == "og:site_name":
+                tag["content"] = "Tamayuz 10X" if target_lang == "en" else "التميّز 10X | Tamayuz 10X"
             elif key == "og:locale":
                 tag["content"] = "en_US" if target_lang == "en" else "ar_AR"
             elif key == "og:url":
@@ -401,6 +407,11 @@ def transform(source: Path, target_lang: str, cache: dict[str, str]) -> str:
     add_language_metadata(soup, name, target_lang)
     fix_language_switch(soup, name, target_lang)
     result = str(soup)
+    if target_lang == "en":
+        # The Arabic footer pairs both brand names; in English they collapse into a repeat.
+        result = result.replace('Tamayuz 10X <span dir="ltr">Tamayuz 10X</span>', "Tamayuz 10X")
+        result = result.replace('aria-label="Tamayuz 10XTamayuz 10X"', 'aria-label="Tamayuz 10X"')
+        result = result.replace("Dr. Alaa Mohammad Ahmed  All Rights Reserved.", "Dr. Alaa Mohammad Ahmed. All rights reserved.")
     if target_lang == "en":
         # Only relative paths: never touch "/assets/" in root-relative or absolute URLs.
         result = re.sub(r"(?<![\w./-])assets/", "../assets/", result)
@@ -442,7 +453,7 @@ def main() -> int:
     elif args.changed:
         paths = [x.strip() for x in os.getenv("BILINGUAL_CHANGED_FILES", "").splitlines() if x.strip()]
         ar_changed = [Path(x) for x in paths if "/" not in x and x.endswith(".html") and x not in ROOT_EXCLUDE]
-        en_changed = [Path(x) for x in paths if x.startswith("en/") and x.endswith(".html")]
+        en_changed = [Path(x) for x in paths if x.startswith("en/") and x.endswith(".html") and Path(x).name not in ROOT_EXCLUDE]
         if ar_changed and en_changed:
             print("Bilingual conflict: both language editions changed in one commit; human review required.", file=sys.stderr)
             return 2
