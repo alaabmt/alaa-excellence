@@ -60,13 +60,14 @@ Status: **Done** = rewritten in this review · **Authored** = already editorial 
 | en/editorial-policy-disclaimer.html | policy | 99% | Done (batch 1) — **human review** | §2 missing verb and leaked code; §11 "percentage"→attribution; §13 "disclaimer or disclaimer". Meaning restored to match the Arabic; no policy change intended |
 | en/training.html | section | 94% | Done (batch 2) | Competency/capacity/capability distinction restored ("capacity and capacity"); "Son."→Build, "Note and hope"→Reflective observation; standard Kolb, Kirkpatrick and Bloom terms |
 | en/research.html | section | 83% | Done (batch 2) | Title fixed; 11 paper summaries rebuilt in full (MT had dropped sentences and inverted meaning, e.g. "mental health along with tertiary education"); "Search Published"→Published research; co-author names restored |
-| en/case-ega-dx-ultra-innovation.html | case | 92% | Queued (batch 3) | Needs evidence check |
-| en/case-dewa-hydro-insight-smart-water.html | case | 91% | Queued (batch 3) | "early flaw detection" wording |
-| en/case-aravind-eye-care-high-volume-value.html | case | 89% | Queued (batch 3) | "Whitewater Surgery" (cataract surgery) |
-| en/case-tawam-erabs-bariatric-recovery.html | case | 88% | Queued (batch 3) | |
-| en/case-dubai-paperless-10x.html | case | 87% | Queued (batch 3) | |
+| en/case-ega-dx-ultra-innovation.html | case | 92% | Done (batch 3) | MT had garbled the technology name ("DX Ultra", "DXYZ Ultra") → DX+ Ultra; "Cash Note"→Critical note; missing leader question restored; standard headings |
+| en/case-dewa-hydro-insight-smart-water.html | case | 91% | Done (batch 3) | "bugs/flaws"→faults; SCADA/RTU/AI/ML term spans rebuilt; two dropped leader questions and missing [2]/[3] citations restored |
+| en/case-aravind-eye-care-high-volume-value.html | case | 89% | Done (batch 3) | "Whitewater Surgery"→cataract surgery; "Foreign visit"→outpatient visits; missing [6] citation restored |
+| en/case-tawam-erabs-bariatric-recovery.html | case | 88% | Done (batch 3) | "Twins"→Tawam; "accommodation"→hospital stay; "re-entry"→readmission; "trial study"→peer-reviewed (retrospective) study; card arrows fixed |
+| en/case-dubai-paperless-10x.html | case | 87% | Done (batch 3) | Doubled bilingual headings removed; "Commander"→For leaders, "Elite/Cancellation"→Eliminate; "45 Directions"→45 entities; missing [1] citation restored |
 | en/idea-*.html (3 pages) | idea | 80–87% | Queued (batch 4) | |
 | en/article-ahsanu-amala.html | article | 91% | Queued (batch 4) | |
 | en/personality.html, books, news, videos, life-society | noindex | 60–97% | Queued (batch 5) | Life & Society: leaked code fixed only |
 | en/case-govuk-one-login-shared-government-capability.html | redirect stub | 71% | Queued (batch 5) | "State transferred", "Moving to the new state" |
+| Batch 3 note | — | — | — | `article:author` meta on these pages was Arabic; set to Dr. Alaa Mohammad Ahmed |
 | All other English pages (34) | various | 0–25% | Authored | Protected by the editorial marker |
