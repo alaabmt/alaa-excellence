@@ -21,6 +21,7 @@ SKIP_TAGS = {"style", "code", "pre", "kbd", "samp", "svg", "math", "noscript"}
 TEXT_ATTRS = ("title", "alt", "aria-label", "placeholder")
 META_KEYS = {"description", "og:title", "og:description", "og:image:alt", "twitter:title", "twitter:description", "twitter:image:alt"}
 TITLE_SEP = " | "
+EDITORIAL_MARKER = '<meta name="tamayuz:edition" content="editorial">'
 PROTECTED_AR_EN = {
     "التميّز 10X": "Tamayuz 10X",
     "الدكتور علاء محمد أحمد": "Dr. Alaa Mohammad Ahmed",
@@ -101,7 +102,9 @@ class LocalTranslator:
     @staticmethod
     def _unmask(text: str, tokens: dict[str, str]) -> str:
         for token, replacement in tokens.items():
-            text = re.sub(re.escape(token), replacement, text, flags=re.I)
+            # The model sometimes rewrites the token (e.g. ZXQPROTED2QXZ); match by index.
+            index = re.search(r"\d+", token).group(0)
+            text = re.sub(rf"ZXQ\s*PROT[A-Z]*\s*{index}\s*QXZ", replacement, text, flags=re.I)
         return text
 
     @staticmethod
@@ -428,6 +431,10 @@ def root_pages() -> list[Path]:
 
 def sync(source: Path, target_lang: str, cache: dict[str, str]) -> bool:
     target = counterpart(source, target_lang)
+    # Editorially written pages are never overwritten by machine translation.
+    if target.exists() and EDITORIAL_MARKER in target.read_text(encoding="utf-8"):
+        print(f"SKIP {target} (editorial edition)", flush=True)
+        return False
     target.parent.mkdir(parents=True, exist_ok=True)
     new = transform(source, target_lang, cache)
     old = target.read_text(encoding="utf-8") if target.exists() else None
