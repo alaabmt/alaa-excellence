@@ -57,3 +57,14 @@ Accuracy/numbers: PASS. Source strength: PASS with disclosure. Causality: PASS. 
 - Browser/TTS QA and exact-head GitHub Pages verification: pending the complete publication commit.
 
 **Do not merge or claim publication while any publication-gate item remains open.**
+
+## Social preview cards — replaced (2026-09-29)
+
+The committed PNG cards were placeholders (1,708 and 1,373 bytes) and showed almost nothing when shared. They were replaced by new cards built to `10X_CASE_SOCIAL_PREVIEW_STANDARD.md`:
+
+| Card | File | Size | Figure shown | Traceable to |
+|---|---|---|---|---|
+| English | `assets/previews/case-mcleod-ambient-ai-clinical-documentation-en.jpg` | 78,042 bytes, 1200×630 | Median note time 2.8 → 2.0 min per visit, labeled "Pilot of 23 providers; before-and-after, peer-reviewed (2026)" | JMIR Med Inform 2026 (Evidence Pack row 1) |
+| Arabic | `assets/previews/case-mcleod-ambient-ai-clinical-documentation-ar.jpg` | 70,164 bytes, 1200×630 | وسيط زمن التوثيق من 2.8 إلى 2.0 دقيقة للزيارة، مع وصف «تجربة على 23 مقدّم رعاية؛ قبل وبعد؛ دراسة محكّمة» | Same |
+
+Only the statistically significant documentation-time result is on the cards. The after-hours result (P=.054) and the financial projection stay in the article with their limits. Both pages now also carry `og:image:alt`, `og:image:type` and `twitter:image:alt`. The article listings in `articles.html` and `en/articles.html` point to the new cards.
