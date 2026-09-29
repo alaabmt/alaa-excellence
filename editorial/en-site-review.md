@@ -35,6 +35,7 @@ Every English page written or reviewed by an editor carries this marker. A full 
 | الادعاء | claim | Not "prosecution". |
 | الروايات (الملهمة) | (inspiring) stories | Not "novels". |
 | نسبة (معلومة إلى جهة) | attribution | Not "percentage". |
+| الإحسان | ihsan (doing work with excellence and care) | Not "philanthropy" or "charity". |
 | الجهة | organization | Or agency, authority, body, by context. |
 | المستفيد | the people served; patient; customer | By context. |
 | أصحاب المصلحة | stakeholders | |
@@ -65,9 +66,10 @@ Status: **Done** = rewritten in this review · **Authored** = already editorial 
 | en/case-aravind-eye-care-high-volume-value.html | case | 89% | Done (batch 3) | "Whitewater Surgery"→cataract surgery; "Foreign visit"→outpatient visits; missing [6] citation restored |
 | en/case-tawam-erabs-bariatric-recovery.html | case | 88% | Done (batch 3) | "Twins"→Tawam; "accommodation"→hospital stay; "re-entry"→readmission; "trial study"→peer-reviewed (retrospective) study; card arrows fixed |
 | en/case-dubai-paperless-10x.html | case | 87% | Done (batch 3) | Doubled bilingual headings removed; "Commander"→For leaders, "Elite/Cancellation"→Eliminate; "45 Directions"→45 entities; missing [1] citation restored |
-| en/idea-*.html (3 pages) | idea | 80–87% | Queued (batch 4) | |
-| en/article-ahsanu-amala.html | article | 91% | Queued (batch 4) | |
+| en/idea-*.html (3 pages) | idea | 80–87% | Done (batch 4) | "Preoccupation"→busyness; dropped sentences restored ("If the answer is unclear…", leader questions); titles and listing summaries aligned |
+| en/article-ahsanu-amala.html | article | 91% | Done (batch 4) | الإحسان was "philanthropy/charity"→ihsan (excellence and care in work); verse translated (Qur’an 67:2); "Good job"/"More work"→best in deed / most in deed |
 | en/personality.html, books, news, videos, life-society | noindex | 60–97% | Queued (batch 5) | Life & Society: leaked code fixed only |
 | en/case-govuk-one-login-shared-government-capability.html | redirect stub | 71% | Queued (batch 5) | "State transferred", "Moving to the new state" |
+| Batch 4 note | — | — | — | Back-link container and disclaimer box on 9 English pages were `direction:rtl`/`dir="rtl"` (copied from Arabic); set to LTR. Listing titles in en/articles.html and en/index.html updated |
 | Batch 3 note | — | — | — | `article:author` meta on these pages was Arabic; set to Dr. Alaa Mohammad Ahmed |
 | All other English pages (34) | various | 0–25% | Authored | Protected by the editorial marker |
