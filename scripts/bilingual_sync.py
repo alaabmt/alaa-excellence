@@ -18,7 +18,8 @@ AR_RE = re.compile(r"[\u0600-\u06FF]")
 EN_RE = re.compile(r"[A-Za-z]{2,}")
 SKIP_TAGS = {"style", "code", "pre", "kbd", "samp", "svg", "math", "noscript"}
 TEXT_ATTRS = ("title", "alt", "aria-label", "placeholder")
-META_KEYS = {"description", "og:title", "og:description", "og:image:alt", "twitter:title", "twitter:description"}
+META_KEYS = {"description", "og:title", "og:description", "og:image:alt", "twitter:title", "twitter:description", "twitter:image:alt"}
+TITLE_SEP = " | "
 PROTECTED_AR_EN = {
     "التميّز 10X": "Tamayuz 10X",
     "الدكتور علاء محمد أحمد": "Dr. Alaa Mohammad Ahmed",
@@ -144,6 +145,8 @@ class LocalTranslator:
     def prefill(self, texts: list[str]) -> None:
         work: list[tuple[str, dict[str, str], list[str]]] = []
         seen: set[str] = set()
+        # Title segments are translated one by one; the model drops the " | " separator.
+        texts = [seg for text in texts for seg in text.split(TITLE_SEP)]
         for text in texts:
             if not needs_translation(text, self.src):
                 continue
@@ -184,12 +187,19 @@ class LocalTranslator:
         raw = text.strip()
         if not raw:
             return text
+        lead = text[: len(text) - len(text.lstrip())]
+        tail = text[len(text.rstrip()):]
+        if TITLE_SEP in raw:
+            parts: list[str] = []
+            for segment in raw.split(TITLE_SEP):
+                out = self.text(segment).strip()
+                if out and (not parts or parts[-1] != out):
+                    parts.append(out)
+            return lead + TITLE_SEP.join(parts) + tail
         key = f"{self.src}>{self.dst}|{raw}"
         if key not in self.cache:
             self.prefill([raw])
         translated = self.cache.get(key, raw)
-        lead = text[: len(text) - len(text.lstrip())]
-        tail = text[len(text.rstrip()):]
         return lead + translated + tail
 
 
@@ -392,7 +402,8 @@ def transform(source: Path, target_lang: str, cache: dict[str, str]) -> str:
     fix_language_switch(soup, name, target_lang)
     result = str(soup)
     if target_lang == "en":
-        result = re.sub(r"(?<!\.)\bassets/", "../assets/", result).replace("../../assets/", "../assets/")
+        # Only relative paths: never touch "/assets/" in root-relative or absolute URLs.
+        result = re.sub(r"(?<![\w./-])assets/", "../assets/", result)
     else:
         result = result.replace("../assets/", "assets/")
     if original.lstrip().lower().startswith("<!doctype") and not result.lstrip().lower().startswith("<!doctype"):
