@@ -23,6 +23,8 @@ Every English page written or reviewed by an editor carries this marker. A full 
 | التميّز المؤسسي | organizational excellence | Not "institutional" or "corporate" excellence. |
 | الذكاء المؤسسي | organizational intelligence | |
 | بناء القدرات | capability building | Matches the "Capability Building" navigation label. |
+| الكفاءة / السعة / القدرة | competency / capacity / capability | Training page: capacity = resources available; capability = what the organization can reliably achieve. |
+| القدرة المتجددة | renewing capability | Dynamic capability (Teece). |
 | القدرة / القدرات | capability / capabilities | Not "ability" or "capacity" unless the meaning is volume. |
 | هندسة التحول | transformation engineering | Concept name; keep. |
 | نموذج العمل | operating model | "Business model" only for commercial models. |
@@ -56,8 +58,8 @@ Status: **Done** = rewritten in this review · **Authored** = already editorial 
 | en/healthcare-excellence.html | section | 78% | Done (batch 1) | Leaked mask code in descriptions; wording |
 | en/leadership-excellence.html | section | 78% | Done (batch 1) | "Corporate" → organizational; wording |
 | en/editorial-policy-disclaimer.html | policy | 99% | Done (batch 1) — **human review** | §2 missing verb and leaked code; §11 "percentage"→attribution; §13 "disclaimer or disclaimer". Meaning restored to match the Arabic; no policy change intended |
-| en/training.html | section | 94% | Queued (batch 2) | Leaked code fixed only |
-| en/research.html | section | 83% | Queued (batch 2) | Title reads "Dr. Alaa Mohammad Ahmed Tamayuz 10X Tamayuz 10X Research…" |
+| en/training.html | section | 94% | Done (batch 2) | Competency/capacity/capability distinction restored ("capacity and capacity"); "Son."→Build, "Note and hope"→Reflective observation; standard Kolb, Kirkpatrick and Bloom terms |
+| en/research.html | section | 83% | Done (batch 2) | Title fixed; 11 paper summaries rebuilt in full (MT had dropped sentences and inverted meaning, e.g. "mental health along with tertiary education"); "Search Published"→Published research; co-author names restored |
 | en/case-ega-dx-ultra-innovation.html | case | 92% | Queued (batch 3) | Needs evidence check |
 | en/case-dewa-hydro-insight-smart-water.html | case | 91% | Queued (batch 3) | "early flaw detection" wording |
 | en/case-aravind-eye-care-high-volume-value.html | case | 89% | Queued (batch 3) | "Whitewater Surgery" (cataract surgery) |
