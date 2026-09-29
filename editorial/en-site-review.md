@@ -68,8 +68,9 @@ Status: **Done** = rewritten in this review · **Authored** = already editorial 
 | en/case-dubai-paperless-10x.html | case | 87% | Done (batch 3) | Doubled bilingual headings removed; "Commander"→For leaders, "Elite/Cancellation"→Eliminate; "45 Directions"→45 entities; missing [1] citation restored |
 | en/idea-*.html (3 pages) | idea | 80–87% | Done (batch 4) | "Preoccupation"→busyness; dropped sentences restored ("If the answer is unclear…", leader questions); titles and listing summaries aligned |
 | en/article-ahsanu-amala.html | article | 91% | Done (batch 4) | الإحسان was "philanthropy/charity"→ihsan (excellence and care in work); verse translated (Qur’an 67:2); "Good job"/"More work"→best in deed / most in deed |
-| en/personality.html, books, news, videos, life-society | noindex | 60–97% | Queued (batch 5) | Life & Society: leaked code fixed only |
-| en/case-govuk-one-login-shared-government-capability.html | redirect stub | 71% | Queued (batch 5) | "State transferred", "Moving to the new state" |
+| en/personality.html, books, news, videos, life-society | noindex | 60–97% | Done (batch 5) | Self-Discovery Lab rebuilt in full ("Mares"→Practice, "Director"→For managers, "Theory of Experimental Learning"→Experiential Learning Theory, "Per capita"→Individuals); placeholder pages cleaned; personality.html now carries the editorial marker |
+| en/case-govuk-one-login-shared-government-capability.html | redirect stub | 71% | Done (batch 5) | "State transferred"→Case moved; "Moving to the new state"→Go to the new case |
+| Batch 5 note | — | — | — | Shared footer on English pages: "corporate/institutional excellence"→organizational excellence; "Capacity-building"→Capability Building |
 | Batch 4 note | — | — | — | Back-link container and disclaimer box on 9 English pages were `direction:rtl`/`dir="rtl"` (copied from Arabic); set to LTR. Listing titles in en/articles.html and en/index.html updated |
 | Batch 3 note | — | — | — | `article:author` meta on these pages was Arabic; set to Dr. Alaa Mohammad Ahmed |
 | All other English pages (34) | various | 0–25% | Authored | Protected by the editorial marker |
