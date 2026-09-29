@@ -1,6 +1,24 @@
 name: Validate article editorial disclaimer
 
 on:
+  pull_request:
+    paths:
+      - 'article-*.html'
+      - 'case-*.html'
+      - 'idea-*.html'
+      - 'en/article-*.html'
+      - 'en/case-*.html'
+      - 'en/idea-*.html'
+      - '.github/workflows/add-article-analysis-disclaimer.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'article-*.html'
+      - 'case-*.html'
+      - 'idea-*.html'
+      - 'en/article-*.html'
+      - 'en/case-*.html'
+      - 'en/idea-*.html'
   workflow_dispatch:
 
 permissions:
@@ -15,18 +33,32 @@ jobs:
         run: |
           python3 - <<'PY'
           from pathlib import Path
+          import re
           import sys
 
-          required = 'الآراء والتحليلات الواردة في هذا المقال تمثل رأي الكاتب وتحليله المهني استنادًا إلى المصادر المشار إليها'
-          pages = sorted(set(Path('.').glob('article-*.html')) | set(Path('.').glob('case-*.html')) | set(Path('.').glob('idea-*.html')))
-          missing = []
-          for p in pages:
-              text = p.read_text(encoding='utf-8')
-              if required not in text:
-                  missing.append(str(p))
+          required = {
+              'ar': 'الآراء والتحليلات الواردة في هذا المقال تمثل رأي الكاتب وتحليله المهني استنادًا إلى المصادر المشار إليها',
+              'en': 'do not necessarily represent the official positions',
+          }
+          patterns = ('article-*.html', 'case-*.html', 'idea-*.html')
+          groups = {
+              'ar': sorted({p for pat in patterns for p in Path('.').glob(pat)}),
+              'en': sorted({p for pat in patterns for p in Path('en').glob(pat)}),
+          }
+          # Redirect stubs and unpublished drafts carry noindex and no article body.
+          noindex = re.compile(r'<meta(?=[^>]*robots)(?=[^>]*noindex)[^>]*>', re.I)
+          missing, checked = [], 0
+          for lang, pages in groups.items():
+              for p in pages:
+                  text = p.read_text(encoding='utf-8')
+                  if noindex.search(text):
+                      continue
+                  checked += 1
+                  if required[lang] not in text:
+                      missing.append(str(p))
           if missing:
               print('Missing approved editorial disclaimer:', file=sys.stderr)
               print('\n'.join(missing), file=sys.stderr)
               raise SystemExit(1)
-          print(f'Editorial disclaimer present on {len(pages)} article/case/idea pages. No files modified.')
+          print(f'Editorial disclaimer present on {checked} indexable article/case/idea pages. No files modified.')
           PY
