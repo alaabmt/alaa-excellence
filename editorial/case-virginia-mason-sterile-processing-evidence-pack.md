@@ -50,3 +50,8 @@ This is an evidence-based critical simulation from the view of a senior member o
 ## Other change
 
 The Arabic page had no editorial disclaimer, which the master operating manual makes mandatory for every `case-*` page. The standard Arabic disclaimer was added before the references, and the English page carries the English equivalent.
+
+## Verification follow-up (2026-09-29)
+
+- **Link to the surgical setup page:** search results show both `/blog/surgical-setup-reduction-improves-patient-outcomes` and `/resource/surgical-setup-reduction-improves-patient-outcomes/` as live URLs, and both carry the 58,728 instruments and $500,000 figures. The existing link can stay.
+- **"Pens and paper clips" as examples in the study:** still not confirmed. Search summaries of the study report foreign-object errors falling from 0.17 to 0.02 per hundred cases, but do not list the objects. The Arabic sentence "ذكرت الدراسة" stays flagged until someone checks the full paper; the English page attributes the examples to accounts of the case.
