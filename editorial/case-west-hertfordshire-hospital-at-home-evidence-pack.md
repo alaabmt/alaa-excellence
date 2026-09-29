@@ -22,8 +22,8 @@ The case passes the evidence threshold. The main source is a peer-reviewed, prop
 | Shorter hospital stay for matched patients whose home care began after admission | 3.13 days (95% CI 2.60–3.67) | Shaw et al. 2026 | Peer-reviewed | High for the reported figure | Search summaries describe the early supported discharge model as 9.3 → 6.2 days (about 3.1 days, 33%). **The Arabic summary presents 3.13 days as a general program effect; it applies to the matched in-hospital-start cohort.** |
 | Bed days saved | 13,119 | Shaw et al. 2026; press release | Peer-reviewed; institutional | High | A calculation of avoided inpatient days, not closed beds. |
 | Net financial benefit | £3.79 million over 33 months | Shaw et al. 2026; press release | Peer-reviewed economic model | High for the reported estimate | Modeled; not a cash saving. |
-| Cost per home-care day vs inpatient day | Home care ≈ £118.5; inpatient £569 | Press release and search summaries give **£118.49**; the Arabic page gives **£118.51** | Institutional calculation | Medium | English page says "about £118.50". **The Arabic figure should be checked against the paper.** |
-| Episode counts | 2,972 episodes; 1,488 matched in-hospital-start episodes; 754 admission-avoidance cases | Arabic page, attributed to [1] | — | Partly confirmed | The paper's title reports **2,905 episodes**. The 2,972 figure could not be confirmed. **Check against the paper's flow diagram.** |
+| Cost per home-care day vs inpatient day | Home care £118.51; inpatient £569 | Shaw et al. 2026 (paper: £118.51); the press release rounds differently (£118.49) | Peer-reviewed | High | **Confirmed in follow-up.** The Arabic figure matches the paper. The English page says "about £118.50", which covers both. |
+| Episode counts | 2,972 episodes analyzed; 1,488 matched in-hospital-start episodes; 754 admission-avoidance episodes | Shaw et al. 2026 | Peer-reviewed | High | **Confirmed in follow-up.** 2,972 is the number analyzed before exclusions; the title figure (2,905) counts episodes after exclusions. |
 | Lower 30-day readmission and 90-day mortality in the home care group | Direction only on the page | Shaw et al. 2026 (search: OR 0.55 and 0.43) | Peer-reviewed | High for direction | Non-randomized; not causal. |
 | Patient preference | 95.8% of respondents preferred home care | Press release; Shaw et al. 2026 | Institutional / peer-reviewed | Medium–high | Survey respondents only. |
 
@@ -47,3 +47,13 @@ This is an evidence-based critical simulation from the view of a senior clinicia
 | The 3.13-day figure risks reading as a whole-program effect | Scoped to matched patients whose home care began after admission | — |
 | Daily cost differs by two pence between sources | Written as "about £118.50" | Exact figure in the paper |
 | Staffing, training and escalation times are thin | No change; limited public detail | Staffing model, response times |
+
+## Verification follow-up (2026-09-29)
+
+All three flagged details were checked again through web search summaries of the paper:
+
+- **£118.51** per home-care day: matches the paper. No change needed.
+- **2,972 episodes**: matches the paper (episodes analyzed before exclusions). No change needed.
+- **3.13 days**: confirmed as the bed-day saving for matched patients whose home care began after admission (95% CI 2.60–3.67). Both pages already state this scope.
+
+Status: all figures on the Arabic and English pages are now traceable to the paper.

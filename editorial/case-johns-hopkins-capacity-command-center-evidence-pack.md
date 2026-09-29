@@ -24,7 +24,7 @@ The case passes the evidence threshold. The design is documented in a peer-revie
 | Fewer delays moving patients out of the operating rooms after a procedure | −83% | Johns Hopkins Medicine, 2021 | Primary institutional | Medium–high | Organization-reported. |
 | More complex patient transfers accepted from other hospitals | +46% | Johns Hopkins Medicine, 2021 | Primary institutional | Medium–high | Organization-reported. Wording in sources: "46% increase in complex transfers". |
 | Early figures reported in 2018 | ED boarding −20%; operating room holds −80% | https://www.advisory.com/daily-briefing/2018/06/11/command-center | Independent professional outlet | Medium | Based on statements by hospital leaders, not an independent evaluation. Other 2018 reports give different early figures (for example, bed assignment 30% faster, operating room delays −70%), which reflects different dates and definitions. |
-| Displays combine data from "seven different systems" (Arabic page) | 7 systems | Attributed to Kane et al. 2019 on the Arabic page | — | **Not confirmed** | Could not be confirmed. Other public descriptions cite 14 or 15 IT systems, possibly at a later date. The English page says "several separate hospital information systems". **The Arabic figure needs review.** |
+| Displays combine data from several hospital information systems | Several systems | Descriptions of the center | — | Medium | **Corrected in follow-up.** The Arabic page said "seven systems"; this could not be confirmed, and public descriptions cite 14 or 15 IT systems. The Arabic page now says "أنظمة معلومات متعددة" (several information systems), matching the English page. |
 | Before the center, flow was managed through scattered calls, messages and one-off decisions | Prior operating state | Attributed to Kane et al. 2019 on the Arabic page | — | Not independently checked | Kept in the English page for parity with the Arabic page. Verify against the full paper. |
 
 ## Social preview cards
@@ -48,3 +48,7 @@ This is an evidence-based critical simulation from the view of a senior member o
 | The page did not say who decides | Added that forecasts support staff; decisions stay with teams and the chain of command | Exact decision rights and escalation thresholds are not public |
 | Human capability building (training, roles) is barely covered | No change; public sources give little detail | Staffing model and training approach |
 | Baselines and periods for the five-year figures | Figures kept as organization-reported | Baseline years and denominators |
+
+## Verification follow-up (2026-09-29)
+
+- **"Seven systems"**: not found in any source checked. Public descriptions of the center cite 15 IT systems (other reports cite 14, possibly at a different date). Because the sources disagree with the Arabic figure, the Arabic page now uses "several information systems" instead of a number. No figure on the share cards was affected.
