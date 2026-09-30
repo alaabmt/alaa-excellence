@@ -748,6 +748,29 @@
         "subtitle": "Prepare for the future in times of abundance.",
         "alt": "Navy and gold editorial cover: Wheat and grain storage jars, without depicting Yusuf."
       }
+    },
+    {
+      "slug": "reflection-ibrahim-building-before-ready",
+      "background": "assets/previews/story-backgrounds/reflection-musa-strong-trustworthy.jpg",
+      "category": "reflection",
+      "ar": {
+        "title": [
+          "إبراهيم عليه السلام",
+          "حين يبدأ المستقبل",
+          "قبل اكتمال مقوماته"
+        ],
+        "subtitle": "لا تجعل ما ينقصك اليوم يحدّد ما يمكن أن تصبح عليه غدًا",
+        "alt": "غلاف تأمل إبراهيم عليه السلام بالكحلي والذهبي: مشهد صحراوي رمزي دون تجسيد، بعنوان «حين يبدأ المستقبل قبل اكتمال مقوماته»."
+      },
+      "en": {
+        "title": [
+          "Ibrahim:",
+          "Before Everything",
+          "Is in Place"
+        ],
+        "subtitle": "Do not let what is missing today define what tomorrow can become.",
+        "alt": "Navy and gold editorial cover for the Ibrahim reflection, using a symbolic desert scene without depicting Ibrahim."
+      }
     }
   ]
 }
