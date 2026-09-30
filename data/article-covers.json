@@ -275,6 +275,27 @@
       }
     },
     {
+      "slug": "case-liverpool-heart-failure-virtual-ward",
+      "background": "assets/previews/story-backgrounds/case-nhs-southeast-virtual-wards-home-hospital.jpg",
+      "category": "case",
+      "ar": {
+        "title": [
+          "حين يغادر السرير",
+          "المستشفى"
+        ],
+        "subtitle": "ليفربول: القدرة السريرية تتبع المريض إلى المنزل",
+        "alt": "غلاف توضيحي بالكحلي والذهبي لأجهزة متابعة صحية منزلية، بعنوان «حين يغادر السرير المستشفى»."
+      },
+      "en": {
+        "title": [
+          "When the Bed",
+          "Leaves the Hospital"
+        ],
+        "subtitle": "Liverpool: clinical capability follows the patient home.",
+        "alt": "Navy and gold editorial cover with home health-monitoring devices, titled “When the Bed Leaves the Hospital”."
+      }
+    },
+    {
       "slug": "case-nhs-southeast-virtual-wards-home-hospital",
       "background": "assets/previews/story-backgrounds/case-nhs-southeast-virtual-wards-home-hospital.jpg",
       "category": "case",
