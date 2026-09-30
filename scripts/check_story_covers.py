@@ -54,6 +54,10 @@ def main():
             if size >= SPEC['maxBytes']: errors.append(f'Cover exceeds byte limit: {relative}: {size}')
 
             page = ROOT / ('en' if lang == 'en' else '') / (slug + '.html')
+            # Validate page metadata only for languages that are actually published.
+            # Generated companion-language assets may exist before the page does.
+            if not page.exists():
+                continue
             source = page.read_text()
             tags = Tags(source)
             url = f'https://tamayuz10x.com/{relative}?v={SPEC["version"]}'
