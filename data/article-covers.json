@@ -1,0 +1,732 @@
+{
+  "version": "20260929-story-v1",
+  "width": 1200,
+  "height": 630,
+  "maxBytes": 170000,
+  "cards": [
+    {
+      "slug": "article-agentic-ai-clinical-selective-autonomy",
+      "background": "assets/previews/story-backgrounds/article-agentic-ai-clinical-selective-autonomy.jpg",
+      "category": "article",
+      "ar": {
+        "title": [
+          "الوكيل الذكي في الطب",
+          "متى يجب أن يتوقف؟"
+        ],
+        "subtitle": "استقلالية تعرف حدودها وتُبقي القرار البشري",
+        "alt": "غلاف توضيحي بالكحلي والذهبي: سماعة طبية ولوح رقمي في عيادة، بعنوان «الوكيل الذكي في الطب متى يجب أن يتوقف؟»."
+      },
+      "en": {
+        "title": [
+          "Clinical AI:",
+          "When Should It Stop?"
+        ],
+        "subtitle": "Selective autonomy keeps human judgment in view.",
+        "alt": "Navy and gold editorial cover: A stethoscope and digital tablet in a clinical setting."
+      }
+    },
+    {
+      "slug": "article-agentic-ai-knowledge-work-autonomy",
+      "background": "assets/previews/story-backgrounds/article-agentic-ai-knowledge-work-autonomy.jpg",
+      "category": "article",
+      "ar": {
+        "title": [
+          "من الإجابة",
+          "إلى إنجاز المهمة"
+        ],
+        "subtitle": "كيف تغيّر وكلاء الذكاء الاصطناعي طريقة العمل؟",
+        "alt": "غلاف توضيحي بالكحلي والذهبي: حاسوب وملفات عمل على مكتب، بعنوان «من الإجابة إلى إنجاز المهمة»."
+      },
+      "en": {
+        "title": [
+          "From Answers",
+          "to Completed Work"
+        ],
+        "subtitle": "How AI agents change the workflow.",
+        "alt": "Navy and gold editorial cover: A laptop and work folders on a warmly lit desk."
+      }
+    },
+    {
+      "slug": "article-ahsanu-amala",
+      "background": "assets/previews/story-backgrounds/article-ahsanu-amala.jpg",
+      "category": "article",
+      "ar": {
+        "title": [
+          "أحسن عملاً",
+          "كيف نعيش التميّز؟"
+        ],
+        "subtitle": "جودة الفعل، ووعي الغاية، ومسؤولية الأثر",
+        "alt": "غلاف توضيحي بالكحلي والذهبي: حرفي يصقل قطعة خشبية بعناية، بعنوان «أحسن عملاً كيف نعيش التميّز؟»."
+      },
+      "en": {
+        "title": [
+          "Doing Our Best Work"
+        ],
+        "subtitle": "Excellence begins with purpose, care and impact.",
+        "alt": "Navy and gold editorial cover: A craftsperson carefully finishing a wooden object."
+      }
+    },
+    {
+      "slug": "case-aravind-eye-care-high-volume-value",
+      "background": "assets/previews/story-backgrounds/case-aravind-eye-care-high-volume-value.jpg",
+      "category": "case",
+      "ar": {
+        "title": [
+          "أرافيند",
+          "هل خفض التكلفة تقشّف؟"
+        ],
+        "subtitle": "إعادة تصميم جراحة المياه البيضاء حول القيمة",
+        "alt": "غلاف توضيحي بالكحلي والذهبي: جهاز فحص عيون في عيادة، بعنوان «أرافيند هل خفض التكلفة تقشّف؟»."
+      },
+      "en": {
+        "title": [
+          "Aravind:",
+          "Lower Cost,",
+          "Greater Value"
+        ],
+        "subtitle": "Rethinking the delivery of cataract surgery.",
+        "alt": "Navy and gold editorial cover: An eye examination lamp in a quiet clinic."
+      }
+    },
+    {
+      "slug": "case-bms-devens-future-ready-manufacturing",
+      "background": "assets/previews/story-backgrounds/case-bms-devens-future-ready-manufacturing.jpg",
+      "category": "case",
+      "ar": {
+        "title": [
+          "مصنع الغد",
+          "ما الذي نبنيه اليوم؟"
+        ],
+        "subtitle": "ديفنز: قدرات تتشكل استعدادًا لما سيأتي",
+        "alt": "غلاف توضيحي بالكحلي والذهبي: معدات تصنيع دوائي حديثة، بعنوان «مصنع الغد ما الذي نبنيه اليوم؟»."
+      },
+      "en": {
+        "title": [
+          "Building the Factory",
+          "for What Comes Next"
+        ],
+        "subtitle": "Devens: building capability ahead of demand.",
+        "alt": "Navy and gold editorial cover: Stainless steel equipment in a modern biopharmaceutical facility."
+      }
+    },
+    {
+      "slug": "case-canada-process-mining-security-screening",
+      "background": "assets/previews/story-backgrounds/case-canada-process-mining-security-screening.jpg",
+      "category": "case",
+      "ar": {
+        "title": [
+          "أين يضيع الوقت؟",
+          "البيانات تكشف المسار"
+        ],
+        "subtitle": "كندا: إعادة تصميم الفحص الأمني للموظفين",
+        "alt": "غلاف توضيحي بالكحلي والذهبي: ملفات وساعة رملية في مكتب، بعنوان «أين يضيع الوقت؟ البيانات تكشف المسار»."
+      },
+      "en": {
+        "title": [
+          "Where Does",
+          "the Time Go?"
+        ],
+        "subtitle": "Using process data to rethink security screening.",
+        "alt": "Navy and gold editorial cover: Folders and an hourglass represent delays in security screening."
+      }
+    },
+    {
+      "slug": "case-dewa-asgr-self-healing-grid",
+      "background": "assets/previews/story-backgrounds/case-dewa-asgr-self-healing-grid.jpg",
+      "category": "case",
+      "ar": {
+        "title": [
+          "حين تستعيد الشبكة",
+          "قدرتها بنفسها"
+        ],
+        "subtitle": "ديوا: إعادة تصميم الاستجابة لأعطال الكهرباء",
+        "alt": "غلاف توضيحي بالكحلي والذهبي: محطة كهرباء وأفق مدينة عند الغروب، بعنوان «حين تستعيد الشبكة قدرتها بنفسها»."
+      },
+      "en": {
+        "title": [
+          "A Grid That",
+          "Restores Itself"
+        ],
+        "subtitle": "DEWA rethinks the response to power faults.",
+        "alt": "Navy and gold editorial cover: An electricity substation and a city skyline at sunset."
+      }
+    },
+    {
+      "slug": "case-dewa-hydro-insight-smart-water",
+      "background": "assets/previews/story-backgrounds/case-dewa-hydro-insight-smart-water.jpg",
+      "category": "case",
+      "ar": {
+        "title": [
+          "من قراءة العداد",
+          "إلى اكتشاف الخلل"
+        ],
+        "subtitle": "دبي: بيانات المياه تتحول إلى قدرة على الاستباق",
+        "alt": "غلاف توضيحي بالكحلي والذهبي: عداد مياه وأنابيب مع أفق مدينة، بعنوان «من قراءة العداد إلى اكتشاف الخلل»."
+      },
+      "en": {
+        "title": [
+          "Beyond the Meter"
+        ],
+        "subtitle": "Dubai turns water data into earlier warning.",
+        "alt": "Navy and gold editorial cover: A water meter and pipes beside a city waterfront."
+      }
+    },
+    {
+      "slug": "case-dubai-paperless-10x",
+      "background": "assets/previews/story-backgrounds/case-dubai-paperless-10x.jpg",
+      "category": "case",
+      "ar": {
+        "title": [
+          "دبي بلا ورق",
+          "لماذا نحتاج المعاملة أصلاً؟"
+        ],
+        "subtitle": "التحول يبدأ بإعادة التفكير في طريقة العمل",
+        "alt": "غلاف توضيحي بالكحلي والذهبي: مكتب بلا أوراق يطل على أفق دبي، بعنوان «دبي بلا ورق لماذا نحتاج المعاملة أصلاً؟»."
+      },
+      "en": {
+        "title": [
+          "Dubai Goes Paperless"
+        ],
+        "subtitle": "Redesigning the need for paperwork itself.",
+        "alt": "Navy and gold editorial cover: A clear office desk overlooking a Dubai-inspired skyline."
+      }
+    },
+    {
+      "slug": "case-ega-dx-ultra-innovation",
+      "background": "assets/previews/story-backgrounds/case-ega-dx-ultra-innovation.jpg",
+      "category": "case",
+      "ar": {
+        "title": [
+          "متى يصبح الابتكار",
+          "قدرة قابلة للتصدير؟"
+        ],
+        "subtitle": "من المعرفة في الإمارات إلى التشغيل في البحرين",
+        "alt": "غلاف توضيحي بالكحلي والذهبي: مشهد صناعي رمزي لصهر الألمنيوم، بعنوان «متى يصبح الابتكار قدرة قابلة للتصدير؟»."
+      },
+      "en": {
+        "title": [
+          "When Innovation",
+          "Becomes Exportable"
+        ],
+        "subtitle": "From know-how in the UAE to operation in Bahrain.",
+        "alt": "Navy and gold editorial cover: A conceptual aluminium production hall."
+      }
+    },
+    {
+      "slug": "case-john-deere-see-spray-precision-decision",
+      "background": "assets/previews/story-backgrounds/case-john-deere-see-spray-precision-decision.jpg",
+      "category": "case",
+      "ar": {
+        "title": [
+          "لماذا نرشّ الحقل كله؟"
+        ],
+        "subtitle": "جون دير: القرار ينتقل إلى موضع الحاجة",
+        "alt": "غلاف توضيحي بالكحلي والذهبي: آلة رش دقيقة فوق صفوف المحاصيل، بعنوان «لماذا نرشّ الحقل كله؟»."
+      },
+      "en": {
+        "title": [
+          "Why Spray",
+          "the Whole Field?"
+        ],
+        "subtitle": "John Deere moves the decision to the individual weed.",
+        "alt": "Navy and gold editorial cover: A precision sprayer above rows of crops."
+      }
+    },
+    {
+      "slug": "case-johns-hopkins-capacity-command-center-patient-flow",
+      "background": "assets/previews/story-backgrounds/case-johns-hopkins-capacity-command-center-patient-flow.jpg",
+      "category": "case",
+      "ar": {
+        "title": [
+          "كيف نرى المستشفى",
+          "كمنظومة واحدة؟"
+        ],
+        "subtitle": "جونز هوبكنز: من الأسرّة إلى تدفق المرضى",
+        "alt": "غلاف توضيحي بالكحلي والذهبي: غرفة تنسيق وممر داخل مستشفى، بعنوان «كيف نرى المستشفى كمنظومة واحدة؟»."
+      },
+      "en": {
+        "title": [
+          "Seeing the",
+          "Whole Hospital"
+        ],
+        "subtitle": "Johns Hopkins shifts the focus to patient flow.",
+        "alt": "Navy and gold editorial cover: A hospital coordination room beside a clinical corridor."
+      }
+    },
+    {
+      "slug": "case-mcleod-ambient-ai-clinical-documentation",
+      "background": "assets/previews/story-backgrounds/case-mcleod-ambient-ai-clinical-documentation.jpg",
+      "category": "case",
+      "ar": {
+        "title": [
+          "وقتٌ للمريض",
+          "بدلاً من الشاشة"
+        ],
+        "subtitle": "ماكلاود: التوثيق الذكي كقدرة مؤسسية",
+        "alt": "غلاف توضيحي بالكحلي والذهبي: مشهد توضيحي لحوار بين طبيبة ومريضة، بعنوان «وقتٌ للمريض بدلاً من الشاشة»."
+      },
+      "en": {
+        "title": [
+          "More Attention",
+          "for the Patient"
+        ],
+        "subtitle": "McLeod builds a capability in ambient documentation.",
+        "alt": "Navy and gold editorial cover: An illustrative consultation between a clinician and patient."
+      }
+    },
+    {
+      "slug": "case-nhs-southeast-virtual-wards-home-hospital",
+      "background": "assets/previews/story-backgrounds/case-nhs-southeast-virtual-wards-home-hospital.jpg",
+      "category": "case",
+      "ar": {
+        "title": [
+          "من السرير",
+          "إلى المنزل"
+        ],
+        "subtitle": "أجنحة الرعاية الافتراضية تعيد رسم حدود المستشفى",
+        "alt": "غلاف توضيحي بالكحلي والذهبي: أجهزة متابعة صحية في منزل، بعنوان «من السرير إلى المنزل»."
+      },
+      "en": {
+        "title": [
+          "From Bed to Home"
+        ],
+        "subtitle": "NHS virtual wards rethink where acute care happens.",
+        "alt": "Navy and gold editorial cover: Medical monitoring devices in a home."
+      }
+    },
+    {
+      "slug": "case-portugal-empresa-na-hora-one-stop-company",
+      "background": "assets/previews/story-backgrounds/case-portugal-empresa-na-hora-one-stop-company.jpg",
+      "category": "case",
+      "ar": {
+        "title": [
+          "تأسيس شركة",
+          "عند نافذة واحدة"
+        ],
+        "subtitle": "البرتغال: إعادة تصميم المسار قبل رقمنته",
+        "alt": "غلاف توضيحي بالكحلي والذهبي: نافذة خدمة وملف تسجيل شركة، بعنوان «تأسيس شركة عند نافذة واحدة»."
+      },
+      "en": {
+        "title": [
+          "A Company at",
+          "One Service Desk"
+        ],
+        "subtitle": "Portugal redesigns the registration journey.",
+        "alt": "Navy and gold editorial cover: A company registration folder and key at a service counter."
+      }
+    },
+    {
+      "slug": "case-rta-adaptive-traffic-control-utc-ux-fusion",
+      "background": "assets/previews/story-backgrounds/case-rta-adaptive-traffic-control-utc-ux-fusion.jpg",
+      "category": "case",
+      "ar": {
+        "title": [
+          "هل تتعلم الإشارة",
+          "قبل أن تختنق الطرق؟"
+        ],
+        "subtitle": "دبي: من التوقيت الثابت إلى التحكم المتكيّف",
+        "alt": "غلاف توضيحي بالكحلي والذهبي: تقاطع مروري وأضواء حركة عند الغروب، بعنوان «هل تتعلم الإشارة قبل أن تختنق الطرق؟»."
+      },
+      "en": {
+        "title": [
+          "Can Traffic Signals",
+          "Anticipate Congestion?"
+        ],
+        "subtitle": "Dubai moves beyond fixed timing.",
+        "alt": "Navy and gold editorial cover: Roads and flowing traffic in a Dubai-inspired city at dusk."
+      }
+    },
+    {
+      "slug": "case-rwanda-blood-on-demand-aerial-logistics",
+      "background": "assets/previews/story-backgrounds/case-rwanda-blood-on-demand-aerial-logistics.jpg",
+      "category": "case",
+      "ar": {
+        "title": [
+          "حين لا تحدد المسافة",
+          "سرعة وصول الدم"
+        ],
+        "subtitle": "رواندا: إعادة تصميم الإمداد الصحي عند الطلب",
+        "alt": "غلاف توضيحي بالكحلي والذهبي: طائرة إمداد طبي فوق تلال خضراء، بعنوان «حين لا تحدد المسافة سرعة وصول الدم»."
+      },
+      "en": {
+        "title": [
+          "Blood Supply",
+          "Beyond Distance"
+        ],
+        "subtitle": "Rwanda redesigns delivery around demand.",
+        "alt": "Navy and gold editorial cover: A medical delivery drone above green hills."
+      }
+    },
+    {
+      "slug": "case-seha-virtual-hospital-expertise-network",
+      "background": "assets/previews/story-backgrounds/case-seha-virtual-hospital-expertise-network.jpg",
+      "category": "case",
+      "ar": {
+        "title": [
+          "لماذا ننقل المريض",
+          "إذا أمكن نقل الخبرة؟"
+        ],
+        "subtitle": "صحة الافتراضي: التخصص يصبح قدرة موزّعة",
+        "alt": "غلاف توضيحي بالكحلي والذهبي: محطة استشارة طبية عن بُعد، بعنوان «لماذا ننقل المريض إذا أمكن نقل الخبرة؟»."
+      },
+      "en": {
+        "title": [
+          "Move the Expertise,",
+          "Not the Patient"
+        ],
+        "subtitle": "Seha Virtual Hospital rethinks access to specialists.",
+        "alt": "Navy and gold editorial cover: A remote medical consultation workstation."
+      }
+    },
+    {
+      "slug": "case-taif-home-health-transition-care",
+      "background": "assets/previews/story-backgrounds/case-taif-home-health-transition-care.jpg",
+      "category": "case",
+      "ar": {
+        "title": [
+          "الخروج من المستشفى",
+          "ليس نهاية الرعاية"
+        ],
+        "subtitle": "الطائف: انتقال إلى المنزل يحفظ الاستمرارية",
+        "alt": "غلاف توضيحي بالكحلي والذهبي: تسليم خطة رعاية عند باب منزل، بعنوان «الخروج من المستشفى ليس نهاية الرعاية»."
+      },
+      "en": {
+        "title": [
+          "Discharge Is Not",
+          "the End of Care"
+        ],
+        "subtitle": "Taif builds continuity into the journey home.",
+        "alt": "Navy and gold editorial cover: A care folder handed over at a home doorway."
+      }
+    },
+    {
+      "slug": "case-tamm-autogov-ai-native-government",
+      "background": "assets/previews/story-backgrounds/case-tamm-autogov-ai-native-government.jpg",
+      "category": "case",
+      "ar": {
+        "title": [
+          "ماذا لو سبقت الخدمة",
+          "طلبَك لها؟"
+        ],
+        "subtitle": "أبوظبي: بناء قدرات الحكومة الاستباقية",
+        "alt": "غلاف توضيحي بالكحلي والذهبي: هاتف وأفق عمراني مستلهم من أبوظبي، بعنوان «ماذا لو سبقت الخدمة طلبَك لها؟»."
+      },
+      "en": {
+        "title": [
+          "What If Services",
+          "Anticipated Your Needs?"
+        ],
+        "subtitle": "Abu Dhabi builds toward anticipatory government.",
+        "alt": "Navy and gold editorial cover: A smartphone connected by light to an Abu Dhabi-inspired skyline."
+      }
+    },
+    {
+      "slug": "case-tanzania-safer-births-learning-system",
+      "background": "assets/previews/story-backgrounds/case-tanzania-safer-births-learning-system.jpg",
+      "category": "case",
+      "ar": {
+        "title": [
+          "جاهزية تُبنى",
+          "عند كل ولادة"
+        ],
+        "subtitle": "تنزانيا: من التدريب إلى نظام يتعلّم",
+        "alt": "غلاف توضيحي بالكحلي والذهبي: دمية تدريب وتجهيزات محاكاة طبية، بعنوان «جاهزية تُبنى عند كل ولادة»."
+      },
+      "en": {
+        "title": [
+          "Ready for Every Birth"
+        ],
+        "subtitle": "Tanzania turns training into a learning system.",
+        "alt": "Navy and gold editorial cover: A training mannequin and medical simulation equipment."
+      }
+    },
+    {
+      "slug": "case-tawam-erabs-bariatric-recovery",
+      "background": "assets/previews/story-backgrounds/case-tawam-erabs-bariatric-recovery.jpg",
+      "category": "case",
+      "ar": {
+        "title": [
+          "التعافي يبدأ",
+          "بتصميم الرحلة"
+        ],
+        "subtitle": "توام: إعادة التفكير في مسار جراحات السمنة",
+        "alt": "غلاف توضيحي بالكحلي والذهبي: ممر علاجي وتجهيزات مساعدة على التعافي، بعنوان «التعافي يبدأ بتصميم الرحلة»."
+      },
+      "en": {
+        "title": [
+          "Recovery Starts",
+          "with the Journey"
+        ],
+        "subtitle": "Tawam redesigns the bariatric surgery pathway.",
+        "alt": "Navy and gold editorial cover: A clinical corridor leading toward a recovery room."
+      }
+    },
+    {
+      "slug": "case-uae-aani-instant-payments",
+      "background": "assets/previews/story-backgrounds/case-uae-aani-instant-payments.jpg",
+      "category": "case",
+      "ar": {
+        "title": [
+          "آني",
+          "حين يكفي رقم الهاتف"
+        ],
+        "subtitle": "كيف تعيد المدفوعات الفورية تشكيل التجربة؟",
+        "alt": "غلاف توضيحي بالكحلي والذهبي: هاتفان ومسار ضوئي يرمز لتحويل الأموال، بعنوان «آني حين يكفي رقم الهاتف»."
+      },
+      "en": {
+        "title": [
+          "Aani:",
+          "Just a Phone Number"
+        ],
+        "subtitle": "What instant payments change for the user.",
+        "alt": "Navy and gold editorial cover: Two smartphones linked by a light trail representing a payment."
+      }
+    },
+    {
+      "slug": "case-virginia-mason-sterile-processing-lean-quality",
+      "background": "assets/previews/story-backgrounds/case-virginia-mason-sterile-processing-lean-quality.jpg",
+      "category": "case",
+      "ar": {
+        "title": [
+          "قبل أن تصل الأدوات",
+          "إلى غرفة العمليات"
+        ],
+        "subtitle": "فيرجينيا ميسون: تصميم العمل لمنع أخطاء التجهيز",
+        "alt": "غلاف توضيحي بالكحلي والذهبي: أدوات جراحية مرتبة في صينية تعقيم، بعنوان «قبل أن تصل الأدوات إلى غرفة العمليات»."
+      },
+      "en": {
+        "title": [
+          "Before Instruments",
+          "Reach the Theatre"
+        ],
+        "subtitle": "Virginia Mason redesigns work to prevent errors.",
+        "alt": "Navy and gold editorial cover: Surgical instruments arranged in a sterilization tray."
+      }
+    },
+    {
+      "slug": "case-west-hertfordshire-hospital-at-home",
+      "background": "assets/previews/story-backgrounds/case-west-hertfordshire-hospital-at-home.jpg",
+      "category": "case",
+      "ar": {
+        "title": [
+          "علاج المستشفى",
+          "في منزل المريض"
+        ],
+        "subtitle": "غرب هيرتفوردشاير: الرعاية تنتقل إلى مكان الحياة",
+        "alt": "غلاف توضيحي بالكحلي والذهبي: حقيبة وأجهزة طبية في غرفة منزلية، بعنوان «علاج المستشفى في منزل المريض»."
+      },
+      "en": {
+        "title": [
+          "Hospital Care,",
+          "at Home"
+        ],
+        "subtitle": "West Hertfordshire brings care into everyday life.",
+        "alt": "Navy and gold editorial cover: A medical bag and monitoring equipment in a home."
+      }
+    },
+    {
+      "slug": "idea-busy-or-progress",
+      "background": "assets/previews/story-backgrounds/idea-busy-or-progress.jpg",
+      "category": "idea",
+      "ar": {
+        "title": [
+          "هل أنت مشغول…",
+          "أم تتقدّم؟"
+        ],
+        "subtitle": "القيمة تُقاس بما تغيّر، لا بعدد المهام",
+        "alt": "غلاف توضيحي بالكحلي والذهبي: بوصلة ومسار نحو الأفق، بعنوان «هل أنت مشغول… أم تتقدّم؟»."
+      },
+      "en": {
+        "title": [
+          "Busy…",
+          "or Making Progress?"
+        ],
+        "subtitle": "Measure the difference, not the number of tasks.",
+        "alt": "Navy and gold editorial cover: A compass and a path toward a distant horizon."
+      }
+    },
+    {
+      "slug": "idea-dont-solve-everything-yourself",
+      "background": "assets/previews/story-backgrounds/idea-dont-solve-everything-yourself.jpg",
+      "category": "idea",
+      "ar": {
+        "title": [
+          "لا تحلّ كل مشكلة",
+          "بنفسك"
+        ],
+        "subtitle": "القيادة التي تمنح الفريق قدرة أكبر",
+        "alt": "غلاف توضيحي بالكحلي والذهبي: أيدٍ تتعاون في بناء نموذج جسر، بعنوان «لا تحلّ كل مشكلة بنفسك»."
+      },
+      "en": {
+        "title": [
+          "Don't Solve",
+          "Every Problem Yourself"
+        ],
+        "subtitle": "Leadership that builds a stronger team.",
+        "alt": "Navy and gold editorial cover: Hands working together to build a bridge model."
+      }
+    },
+    {
+      "slug": "idea-measure-before-improve",
+      "background": "assets/previews/story-backgrounds/idea-measure-before-improve.jpg",
+      "category": "idea",
+      "ar": {
+        "title": [
+          "قبل أن تُحسّن…",
+          "ماذا تقيس؟"
+        ],
+        "subtitle": "اختر ما يكشف القيمة، لا ما يسهل عدّه",
+        "alt": "غلاف توضيحي بالكحلي والذهبي: أدوات قياس دقيقة على طاولة عمل، بعنوان «قبل أن تُحسّن… ماذا تقيس؟»."
+      },
+      "en": {
+        "title": [
+          "Before You Improve,",
+          "What Do You Measure?"
+        ],
+        "subtitle": "Choose what reveals value, not what is easy to count.",
+        "alt": "Navy and gold editorial cover: Precision measuring tools on a workbench."
+      }
+    },
+    {
+      "slug": "reflection-dhul-qarnayn-building-capability",
+      "background": "assets/previews/story-backgrounds/reflection-dhul-qarnayn-building-capability.jpg",
+      "category": "reflection",
+      "ar": {
+        "title": [
+          "ذو القرنين",
+          "حين نبني القدرة معًا"
+        ],
+        "subtitle": "التمكين يبدأ بإشراك الناس في صنع الحل",
+        "alt": "غلاف توضيحي بالكحلي والذهبي: حاجز رمزي بين جبلين دون تجسيد ذي القرنين، بعنوان «ذو القرنين حين نبني القدرة معًا»."
+      },
+      "en": {
+        "title": [
+          "Dhul-Qarnayn:",
+          "Building Capability"
+        ],
+        "subtitle": "Helping people take part in building the solution.",
+        "alt": "Navy and gold editorial cover: A symbolic barrier between mountains, without depicting Dhul-Qarnayn."
+      }
+    },
+    {
+      "slug": "reflection-hoopoe-how-do-we-know",
+      "background": "assets/previews/story-backgrounds/reflection-hoopoe-how-do-we-know.jpg",
+      "category": "reflection",
+      "ar": {
+        "title": [
+          "الهدهد",
+          "كيف نعرف ما لا نعرف؟"
+        ],
+        "subtitle": "التثبت قبل الحكم، والمعرفة قبل القرار",
+        "alt": "غلاف توضيحي بالكحلي والذهبي: هدهد على غصن يطل على مدينة بعيدة، بعنوان «الهدهد كيف نعرف ما لا نعرف؟»."
+      },
+      "en": {
+        "title": [
+          "The Hoopoe:",
+          "What Don't We Know?"
+        ],
+        "subtitle": "Verify before judging. Understand before deciding.",
+        "alt": "Navy and gold editorial cover: A hoopoe perched on a branch above a distant city."
+      }
+    },
+    {
+      "slug": "reflection-maryam-why-shake-the-palm",
+      "category": "reflection",
+      "reference": true,
+      "ar": {
+        "source": "assets/previews/reflection-maryam-why-shake-the-palm-ar-v1.jpg",
+        "alt": "غلاف قصة مريم: نخلة وماء عند الغروب، وعنوان «مريم عليها السلام: لماذا تهزّ النخلة؟» بالكحلي والذهبي."
+      },
+      "en": {
+        "source": "assets/previews/reflection-maryam-why-shake-the-palm-en-v1.jpg",
+        "alt": "Maryam cover: a date palm and water at sunset beside the title “Maryam: Why Shake the Palm Tree?” in navy and gold."
+      }
+    },
+    {
+      "slug": "reflection-musa-limits-of-knowledge",
+      "background": "assets/previews/story-backgrounds/reflection-musa-limits-of-knowledge.jpg",
+      "category": "reflection",
+      "ar": {
+        "title": [
+          "موسى عليه السلام",
+          "حين لا تكفي معرفتنا"
+        ],
+        "subtitle": "ما الذي يتغيّر حين ندرك حدود ما نعرف؟",
+        "alt": "غلاف توضيحي بالكحلي والذهبي: قارب عند شاطئ وأفق مفتوح دون تجسيد موسى، بعنوان «موسى عليه السلام حين لا تكفي معرفتنا»."
+      },
+      "en": {
+        "title": [
+          "Musa:",
+          "When Knowledge",
+          "Is Not Enough"
+        ],
+        "subtitle": "Learning begins by recognizing what we cannot see.",
+        "alt": "Navy and gold editorial cover: A boat beside an open sea horizon, without depicting Musa."
+      }
+    },
+    {
+      "slug": "reflection-musa-strong-trustworthy",
+      "background": "assets/previews/story-backgrounds/reflection-musa-strong-trustworthy.jpg",
+      "category": "reflection",
+      "ar": {
+        "title": [
+          "القوي الأمين",
+          "كيف نعرف الناس حقًا؟"
+        ],
+        "subtitle": "الثقة تُختبر في الموقف، لا في الانطباع",
+        "alt": "غلاف توضيحي بالكحلي والذهبي: بئر ودلو وحبل في مشهد صحراوي رمزي، بعنوان «القوي الأمين كيف نعرف الناس حقًا؟»."
+      },
+      "en": {
+        "title": [
+          "Strong and Trustworthy:",
+          "How Do We Know?"
+        ],
+        "subtitle": "Trust is tested in action, not first impressions.",
+        "alt": "Navy and gold editorial cover: A symbolic desert well, rope and bucket."
+      }
+    },
+    {
+      "slug": "reflection-queen-of-sheba-reconsidering-decisions",
+      "background": "assets/previews/story-backgrounds/reflection-queen-of-sheba-reconsidering-decisions.jpg",
+      "category": "reflection",
+      "ar": {
+        "title": [
+          "ملكة سبأ",
+          "شجاعة إعادة النظر"
+        ],
+        "subtitle": "حين تكون مراجعة القرار علامة قوة",
+        "alt": "غلاف توضيحي بالكحلي والذهبي: قاعة حكم فارغة ورسالة مختومة رمزية، بعنوان «ملكة سبأ شجاعة إعادة النظر»."
+      },
+      "en": {
+        "title": [
+          "The Queen of Sheba:",
+          "The Courage",
+          "to Reconsider"
+        ],
+        "subtitle": "Revisiting a decision can be a sign of strength.",
+        "alt": "Navy and gold editorial cover: An empty throne room and a sealed symbolic scroll."
+      }
+    },
+    {
+      "slug": "reflection-yusuf-building-tomorrow",
+      "background": "assets/previews/story-backgrounds/reflection-yusuf-building-tomorrow.jpg",
+      "category": "reflection",
+      "ar": {
+        "title": [
+          "يوسف عليه السلام",
+          "حين يُبنى الغد اليوم"
+        ],
+        "subtitle": "الاستعداد للمستقبل يبدأ في زمن السعة",
+        "alt": "غلاف توضيحي بالكحلي والذهبي: سنابل وأوعية تخزين حبوب دون تجسيد يوسف، بعنوان «يوسف عليه السلام حين يُبنى الغد اليوم»."
+      },
+      "en": {
+        "title": [
+          "Yusuf:",
+          "Building Tomorrow Today"
+        ],
+        "subtitle": "Prepare for the future in times of abundance.",
+        "alt": "Navy and gold editorial cover: Wheat and grain storage jars, without depicting Yusuf."
+      }
+    }
+  ]
+}

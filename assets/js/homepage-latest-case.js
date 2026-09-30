@@ -17,7 +17,7 @@
     title: 'عندما لا يعود موقع المستشفى هو الذي يحدد سرعة وصول الدم: كيف أعادت رواندا تصميم الإمداد الصحي؟',
     summary: 'ماذا يتغير عندما يصبح بالإمكان استدعاء منتج دم حرج من شبكة أوسع بدل تخزينه احتياطيًا في كل موقع؟ تكشف رواندا كيف ارتبط الإمداد الجوي عند الطلب بوصول أسرع وهدر أقل، مع حدود واضحة لما تثبته الأدلة.',
     cta: 'اكتشف كيف تغيّرت معادلة المخزون والزمن ←',
-    image: '/assets/previews/case-rwanda-blood-on-demand-aerial-logistics-ar.png?v=20260912-preview6',
+    image: '/assets/previews/story/case-rwanda-blood-on-demand-aerial-logistics-ar.jpg?v=20260929-story-v1',
     imageAlt: 'معاينة أحدث حالة تميّز 10X'
   } : {
     source: '/en/articles.html',
@@ -28,7 +28,7 @@
     title: "When Hospital Location No Longer Determines How Fast Blood Arrives: Rwanda's Supply Redesign",
     summary: 'What changes when a critical blood product can be called from a wider network instead of being held in reserve at every site? Rwanda shows how on-demand aerial supply was associated with faster access and less expiry, while the evidence still has clear limits.',
     cta: 'See how the inventory-time equation changed →',
-    image: '/assets/previews/case-rwanda-blood-on-demand-aerial-logistics-en.png?v=20260912-preview6',
+    image: '/assets/previews/story/case-rwanda-blood-on-demand-aerial-logistics-en.jpg?v=20260929-story-v1',
     imageAlt: 'Latest Tamayuz 10X case preview'
   };
 

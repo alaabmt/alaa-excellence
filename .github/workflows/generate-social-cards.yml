@@ -4,20 +4,20 @@ on:
   push:
     branches: [main]
     paths:
-      - 'scripts/generate_social_cards.py'
-      - 'scripts/generate_social_cards_v2.py'
-      - 'case-dubai-paperless-10x.html'
-      - 'case-ega-dx-ultra-innovation.html'
-      - 'articles.html'
-      - 'assets/images/alaa-mohammad-ahmad-profile-hq.webp'
-      - 'assets/images/file_0000000047188210ac6952e999d2eda7.png'
+      - 'scripts/generate_story_covers.py'
+      - 'scripts/sync_story_covers.py'
+      - 'scripts/check_story_covers.py'
+      - 'data/article-covers.json'
+      - 'assets/previews/story-backgrounds/**'
+      - 'assets/fonts/**'
+      - '*.html'
+      - 'en/*.html'
       - '.github/workflows/generate-social-cards.yml'
-      - 'reflection-musa-strong-trustworthy.html'
-      - 'en/reflection-musa-strong-trustworthy.html'
   workflow_dispatch:
 
 permissions:
   contents: write
+  pages: write
 
 concurrency:
   group: generate-social-cards-main
@@ -41,25 +41,31 @@ jobs:
       - name: Install Arabic fonts and image dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y fonts-noto-core libraqm0
-          pip install pillow
+          sudo apt-get install -y libraqm0
+          pip install pillow==12.3.0
 
       - name: Generate cards with native Arabic shaping
-        run: python scripts/generate_social_cards_v2.py
+        run: |
+          python scripts/generate_story_covers.py
+          python scripts/sync_story_covers.py
+          python scripts/check_story_covers.py
+          python scripts/check_article_dates.py
 
       - name: Commit generated social assets
+        id: commit
         shell: bash
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/social/*.png assets/previews/reflection-musa-strong-trustworthy-ar.jpg assets/previews/reflection-musa-strong-trustworthy-en.jpg case-dubai-paperless-10x.html case-ega-dx-ultra-innovation.html
+          git add assets/previews/story/*.jpg '*.html' en/*.html
           if git diff --cached --quiet; then
             echo "No social-card changes to commit."
           else
-            git commit -m "Regenerate social cards with clear Arabic text [skip ci]"
+            git commit -m "Sync unified bilingual story covers [skip ci]"
             for attempt in 1 2 3; do
               git pull --rebase origin main
               if git push origin main; then
+                echo "changed=true" >> "$GITHUB_OUTPUT"
                 exit 0
               fi
               echo "Push raced with another update; retrying..."
@@ -68,3 +74,13 @@ jobs:
             echo "Unable to push generated cards after 3 attempts." >&2
             exit 1
           fi
+
+      - name: Request Pages build after an asset synchronization commit
+        if: steps.commit.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          curl --fail-with-body -L -X POST \
+            -H 'Accept: application/vnd.github+json' \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            "https://api.github.com/repos/${GITHUB_REPOSITORY}/pages/builds"
