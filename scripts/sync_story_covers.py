@@ -138,7 +138,10 @@ def main():
     for slug in CARDS:
         for lang in ('ar', 'en'):
             path = ROOT / ('en' if lang == 'en' else '') / (slug + '.html')
-            sync_page(path, slug, lang)
+            # A reflection may launch in one language first. Sync only published pages;
+            # the missing companion language must not block the reviewed cover.
+            if path.exists():
+                sync_page(path, slug, lang)
 
     indexes = {}
     for lang in ('ar', 'en'):
