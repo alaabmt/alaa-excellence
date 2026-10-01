@@ -771,6 +771,27 @@
         "subtitle": "Do not let what is missing today define what tomorrow can become.",
         "alt": "Navy and gold editorial cover for the Ibrahim reflection, using a symbolic desert scene without depicting Ibrahim."
       }
+    },
+    {
+      "slug": "case-la-general-safer-at-home-acute-virtual-care",
+      "background": "assets/previews/story-backgrounds/case-liverpool-heart-failure-virtual-ward.jpg",
+      "category": "case",
+      "ar": {
+        "title": [
+          "المستشفى",
+          "لا يعني السرير"
+        ],
+        "subtitle": "LA General: الرعاية الحادة تتبع المريض",
+        "alt": "غلاف توضيحي بالكحلي والذهبي لأجهزة متابعة صحية منزلية، بعنوان «ماذا لو احتاج المريض إلى المستشفى… لا إلى سريره؟»."
+      },
+      "en": {
+        "title": [
+          "The Hospital",
+          "Beyond the Bed"
+        ],
+        "subtitle": "LA General: acute care follows the patient.",
+        "alt": "Navy and gold editorial cover: Home vital-sign monitoring equipment beside a clinical care setup."
+      }
     }
   ]
 }
