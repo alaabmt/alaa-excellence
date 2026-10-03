@@ -1,9 +1,30 @@
 {
-  "version": "20261003-prevention-v3",
+  "version": "20261003-prevention-v4",
   "width": 1200,
   "height": 630,
   "maxBytes": 170000,
   "cards": [
+    {
+      "slug": "article-preventive-engineering-fuzzy-flisr-fmea",
+      "background": "assets/previews/story-backgrounds/case-dewa-asgr-self-healing-grid.jpg",
+      "category": "prevention",
+      "ar": {
+        "title": [
+          "حين تتساوى الأرقام",
+          "وتختلف المخاطر"
+        ],
+        "subtitle": "المنطق الضبابي يعيد قراءة الأولوية في منهجية هندسة الوقاية (FMEA)",
+        "alt": "غلاف سلسلة منهجية هندسة الوقاية (FMEA) بالكحلي والذهبي بعنوان «حين تتساوى الأرقام وتختلف المخاطر»، عن المنطق الضبابي وأعطال FLISR."
+      },
+      "en": {
+        "title": [
+          "When Equal RPNs",
+          "Hide Different Risks"
+        ],
+        "subtitle": "Fuzzy logic re-reads priority in FMEA.",
+        "alt": "Navy and gold FMEA · Failure Mode & Effects Analysis cover titled “When Equal RPNs Hide Different Risks,” focused on fuzzy FLISR risk prioritization."
+      }
+    },
     {
       "slug": "article-preventive-engineering-aerospace-inverter-fmea",
       "background": "assets/previews/story-backgrounds/case-dewa-asgr-self-healing-grid.jpg",
@@ -22,7 +43,7 @@
           "to Risk Priority"
         ],
         "subtitle": "A 1 MVA aerospace inverter through FMEA.",
-        "alt": "Navy and gold FMEA · Failure Mode & Effects Analysis cover titled “From System Architecture to Risk Priority,” focused on a 1 MW aerospace inverter."
+        "alt": "Navy and gold FMEA · Failure Mode & Effects Analysis cover titled “From System Architecture to Risk Priority,” focused on a 1 MVA aerospace inverter."
       }
     },
     {
