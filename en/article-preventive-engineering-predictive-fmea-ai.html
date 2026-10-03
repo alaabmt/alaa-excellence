@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>When Static FMEA Is Not Enough: From Periodic Review to Early Warning | Preventive Engineering | Tamayuz 10X</title>
-<meta name="description" content="A practical Preventive Engineering analysis of how predictive quality analytics and explainable AI can trigger earlier FMEA reassessment, with a nine-stage application framework and explicit evidence limits.">
+<meta name="description" content="A practical Preventive Engineering guide to linking predictive analytics with FMEA, reassessing severity, occurrence and detection without automating judgment, and applying the method through a before/after worked example and pilot plan.">
 <meta name="author" content="Dr. Alaa Mohammad Ahmed">
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
 <link rel="canonical" href="https://tamayuz10x.com/en/article-preventive-engineering-predictive-fmea-ai.html">
@@ -44,7 +44,7 @@
 <body>
 <header class="site-header"><div class="topbar"><div class="container topbar-inner"><div class="social">LinkedIn · YouTube · X</div><div class="lang-switch"><span>English</span><span>|</span><a href="/article-preventive-engineering-predictive-fmea-ai.html" hreflang="ar" lang="ar">العربية</a></div></div></div><div class="container brand-row"><a class="brand" href="/en/"><img alt="Tamayuz 10X logo" class="brand-logo" src="/assets/images/file_0000000047188210ac6952e999d2eda7.png?v=20260910-logo4"></a><button aria-label="Open Menu" class="menu-toggle">☰</button></div><nav class="main-nav"><div class="container nav-links"><a href="/en/">Home</a><a href="/en/vision-mission-values.html">Vision, Mission & Values</a><a href="/en/about.html">About Dr. Alaa Mohammad Ahmed</a><a href="/en/#tenx-10x">Tamayuz 10X</a><a class="active" href="/en/articles.html">10X Cases & Experiences</a><a href="/en/agentic-ai-10x.html">Agentic AI 10X</a><a href="/en/research.html">Research & Publications</a><a href="/en/personality.html">Self-Discovery Lab</a><a href="/en/training.html">Capability Building</a></div></nav></header>
 <main>
-<section class="pe-hero"><div class="container"><p class="pe-kicker">Preventive Engineering · Applied research analysis</p><h1>When Static FMEA Is Not Enough: From Periodic Review to Early Warning</h1><p class="pe-lead">The idea is not to let AI make supplier-quality decisions for the engineer. It is to help the organization detect weak signals, explain them, and bring them back into failure-mode reasoning before a defect reaches production or the customer.</p><noscript><p><a href="/en/about.html">Dr. Alaa Mohammad Ahmed</a> · <time datetime="2026-10-03">3 October 2026</time> · 18 min read</p></noscript></div></section>
+<section class="pe-hero"><div class="container"><p class="pe-kicker">Preventive Engineering · Applied research analysis</p><h1>When Static FMEA Is Not Enough: From Periodic Review to Early Warning</h1><p class="pe-lead">The idea is not to let AI make supplier-quality decisions for the engineer. It is to help the organization detect weak signals, explain them, and bring them back into failure-mode reasoning before a defect reaches production or the customer.</p><noscript><p><a href="/en/about.html">Dr. Alaa Mohammad Ahmed</a> · <time datetime="2026-10-03">3 October 2026</time> · 32 min read</p></noscript></div></section>
 <figure class="story-cover"><img src="/assets/previews/story/article-preventive-engineering-predictive-fmea-ai-en.jpg?v=20261003-prevention-v1" alt="Navy and gold FMEA cover for the Preventive Engineering series, showing a smart manufacturing scene and the fixed label “FMEA · Failure Mode &amp; Effects Analysis” with the title “From Periodic Review to Early Warning.”" width="1200" height="630" decoding="async" fetchpriority="high"><figcaption class="story-cover-note" data-no-speech="true">Illustrative image</figcaption></figure>
 <article class="pe-article" data-tenx-article="true" aria-label="When Static FMEA Is Not Enough">
 <section>
@@ -65,9 +65,28 @@
 <section>
 <h2>What was tested — and what was not</h2>
 <p>The authors performed a simulation-based test on synthetic supplier-quality data. The dataset represented variables such as recent defect counts, 8D closure delays, recurrence, inspection escapes, process drift, audit findings and control-plan weakness. A Random Forest classifier was used as an illustrative predictive model. <a href="#ref-1" class="citation">[1]</a></p>
-<div class="stats" aria-label="Simulation results"><div><strong>240</strong>synthetic supplier-lot records</div><div><strong>70% / 30%</strong>training and test split</div><div><strong>0.91</strong>AUC in the synthetic test</div><div><strong>0.78</strong>F1 score in the synthetic test</div></div>
+<div class="stats" aria-label="Simulation results"><div><strong>240</strong>synthetic supplier-lot records</div><div><strong>70% / 30%</strong>training and test split</div><div><strong>0.88</strong>Accuracy</div><div><strong>0.84</strong>Precision</div><div><strong>0.73</strong>Recall</div><div><strong>0.78</strong>F1 score</div><div><strong>0.91</strong>AUC</div></div>
+<div class="table-wrap"><table class="pe-table"><thead><tr><th>Metric</th><th>Simulation result</th><th>What it means here</th></tr></thead><tbody>
+<tr><td>Accuracy</td><td>0.88</td><td>The overall share of correct classifications in the synthetic test set. It should not be read alone when class balance matters.</td></tr>
+<tr><td>Precision</td><td>0.84</td><td>Among records flagged as high risk, a high share matched the synthetic reference label. This helps frame the cost of unnecessary alerts.</td></tr>
+<tr><td>Recall</td><td>0.73</td><td>The model's ability to capture records labelled high risk. A recall of 0.73 also makes clear that this is not a system that can safely replace expert review.</td></tr>
+<tr><td>F1 score</td><td>0.78</td><td>A balance between precision and recall when both false alarms and missed high-risk cases matter.</td></tr>
+<tr><td>AUC</td><td>0.91</td><td>The model's ability to discriminate between higher- and lower-risk classes across thresholds in this synthetic experiment.</td></tr>
+</tbody></table></div>
 <p>Those values are not evidence that the same model would perform that way in a real plant. The paper itself frames the exercise as an initial functional test of the decision logic rather than proof of industrial performance. The distinction matters: <strong>the simulation shows that the pathway can be constructed; it does not demonstrate that supplier quality improved in practice.</strong></p>
-<aside class="evidence-note" role="note"><strong>Evidence limit:</strong> the paper's main contribution is conceptual. It does not report a real-factory before-and-after evaluation showing lower defect rates, quality cost or customer complaints because of the proposed framework.</aside>
+<h3>Which variables drove the simulated signal?</h3>
+<p>The authors extracted feature importance from the Random Forest. These values show which variables contributed most to classification inside the simulation. They do <strong>not</strong> prove that a variable is the engineering cause of a failure.</p>
+<div class="table-wrap"><table class="pe-table"><thead><tr><th>Synthetic input variable</th><th>Approx. feature importance</th><th>How it may enter FMEA review</th></tr></thead><tbody>
+<tr><td>Recent defect count</td><td>0.21</td><td>May trigger an occurrence review if the events belong to the same failure mode.</td></tr>
+<tr><td>Process drift indicator</td><td>0.15</td><td>May point toward a potential cause or mechanism, but only after technical validation.</td></tr>
+<tr><td>Supplier performance score</td><td>0.15</td><td>A contextual signal that still needs decomposition before it can support an engineering conclusion.</td></tr>
+<tr><td>Recurrence indicator</td><td>0.11</td><td>May support reassessing occurrence when recurrence concerns the same failure mode and process.</td></tr>
+<tr><td>Inspection escape history</td><td>0.11</td><td>May support reassessing detectability and current detection controls.</td></tr>
+<tr><td>Control-plan weakness</td><td>0.11</td><td>May trigger review of prevention and detection controls for the relevant failure mode.</td></tr>
+<tr><td>8D closure delay</td><td>0.10</td><td>May indicate weak corrective-action sustainability or problem-solving discipline rather than a technical cause by itself.</td></tr>
+<tr><td>Audit findings</td><td>0.06</td><td>Contextual evidence that can guide investigation but requires direct process relevance.</td></tr>
+</tbody></table></div>
+<aside class="evidence-note" role="note"><strong>Evidence limit:</strong> the paper's main contribution is conceptual. It does not report a real-factory before-and-after evaluation showing lower defect rates, quality cost or customer complaints because of the proposed framework. Feature importance also describes contribution to prediction, not causality.</aside>
 </section>
 
 <section>
@@ -101,7 +120,15 @@
 
 <div class="stage"><div class="stage-head"><span class="stage-num">5</span><div><h3>Assess the risk triad: severity, occurrence and detectability</h3><p>Do not start with numbers. Start with the logical chain. A precise-looking score built on a weak description of function, failure mode, effect, cause and current controls does not become reliable merely because it is quantified.</p></div></div>
 <div class="risk-grid"><div><h4>Severity</h4><p>Severity belongs to the failure effect. The paper notes that it is relatively stable unless product use, customer impact or safety relevance changes. A model should not increase severity merely because recurrence is rising.</p></div><div><h4>Occurrence</h4><p>This is where new evidence can matter directly. Repeated similar defects, supplier instability or process drift can justify reopening the occurrence assessment — not changing it automatically.</p></div><div><h4>Detectability</h4><p>Inspection escapes and weak control-plan history can show that detection is poorer than assumed. The question is whether the current control can actually find this failure mode before its effect propagates.</p></div></div>
-<p>If the organization uses numeric rating scales, they should follow its approved definitions and the applicable FMEA method. There is no universal number in this paper that can simply be copied into another factory's analysis.</p></div>
+<h3>Did the researchers calculate a new risk triad?</h3>
+<p><strong>No.</strong> The paper does not publish a rule that converts model output directly into new Severity, Occurrence and Detection ratings. It does not say, for example, that a predicted probability of a certain percentage equals a particular occurrence rating. Instead, it provides <strong>evidence that can justify reopening the assessment</strong>: recurrence, supplier instability and process drift can trigger occurrence review; escape history and weak controls can trigger detection review. Severity remains tied to the failure effect and is relatively stable unless product use, customer impact or safety relevance changes.</p>
+<div class="table-wrap"><table class="pe-table"><thead><tr><th>Risk dimension</th><th>What may justify review?</th><th>What should not be done?</th></tr></thead><tbody>
+<tr><td>Severity</td><td>A changed failure effect, product application, customer consequence or safety relevance.</td><td>Raise severity merely because recurrence increased or the model produced a higher probability.</td></tr>
+<tr><td>Occurrence</td><td>Confirmed recurrence of the same failure mode, supplier/process instability, or evidence that the previous estimate understated actual frequency.</td><td>Convert model probability directly into an occurrence rating without the approved scale and engineering validation.</td></tr>
+<tr><td>Detection</td><td>Inspection escapes, weak control-plan evidence, or proof that the current control does not reliably detect the failure mode.</td><td>Convert an escape count directly into a detection rating without testing control capability and applying the approved scale.</td></tr>
+</tbody></table></div>
+<aside class="method-note" role="note"><strong>Three boundaries matter:</strong> probability is not occurrence; feature importance is not cause; escape history is not a detection rating. Data opens an engineering question. The FMEA team decides whether the rating should change.</aside>
+<p>If the organization uses numeric rating scales, they should follow its approved definitions and the applicable FMEA method. There is no universal number in this paper that can simply be copied into another factory's analysis. If the organization uses Action Priority, RPN or another prioritization method, that approved method should remain the decision framework rather than a new formula derived from AI output.</p></div>
 
 <div class="stage"><div class="stage-head"><span class="stage-num">6</span><div><h3>Prioritize treatment: what should be addressed first?</h3><p>A predictive score does not become a priority simply because it is high. Priority comes from evidence interpreted in the context of risk: a severe effect, rising recurrence, a detection control with documented escapes, or a corrective action followed by renewed failure.</p><p>The paper connects these signals to familiar supplier-quality decisions — control-plan review, focused audits, additional process verification, corrective-action follow-up and supplier escalation. The key is that the action follows validated technical meaning rather than an unexplained algorithmic score.</p></div></div></div>
 
@@ -117,6 +144,96 @@
 <div class="stage"><div class="stage-head"><span class="stage-num">9</span><div><h3>Review and update continuously: how do we keep the methodology alive?</h3><p>The paper's most important operational idea is that FMEA need not wait for an audit or a major quality event to be reopened. Review can be triggered when the data, process, supplier or predictive model changes.</p><p>Useful triggers include recurrence after corrective action, sustained process drift, a sub-supplier or material change, a new model version, degraded data quality, a newly observed failure mode, or evidence that a detection control is weaker in practice than it appeared on paper.</p><p>The proposed feedback loop returns action outcomes to the next round of analysis. That turns a one-way chain — <strong>data → prediction → decision</strong> — into a learning system: <strong>data → interpretation → decision → outcome → learning → reassessment</strong>.</p></div></div></div>
 </section>
 
+<section id="data-to-fmea">
+<h2>How does a data signal become an FMEA question?</h2>
+<p>This is the point at which predictive analytics either remains an interesting model or becomes useful Preventive Engineering. The paper gives a practical mapping from the signal, to the FMEA element, to the expert question that must be answered before action.</p>
+<div class="table-wrap"><table class="pe-table"><thead><tr><th>Predictive signal</th><th>Interpretation</th><th>Related FMEA element</th><th>Expert validation question</th><th>Possible decision after validation</th></tr></thead><tbody>
+<tr><td>Higher recurrence likelihood</td><td>Similar defects appear across recent lots</td><td>Occurrence</td><td>Do the events share the same failure mode and mechanism?</td><td>Reassess occurrence and request supplier analysis</td></tr>
+<tr><td>Weak detection signal</td><td>Similar defects were not consistently caught by current controls</td><td>Detection / current controls</td><td>Can the existing controls actually detect this failure mode?</td><td>Review the control plan and strengthen detection</td></tr>
+<tr><td>Supplier instability pattern</td><td>Delayed 8D closure and recurrence after corrective-action closure</td><td>Cause / current controls</td><td>Are the corrective actions effective and sustainable?</td><td>Launch a focused supplier review or audit</td></tr>
+<tr><td>Process drift indicator</td><td>A process variable changes before defect occurrence</td><td>Potential cause / process mechanism</td><td>Is the parameter technically linked to the failure mode?</td><td>Request process-capability review and containment evidence</td></tr>
+<tr><td>High-severity exposure</td><td>The defect affects a special or function-relevant characteristic</td><td>Effect / severity</td><td>Could the defect affect product function or customer protection?</td><td>Prioritize preventive action and management escalation as appropriate</td></tr>
+<tr><td>Low-confidence explanation</td><td>The model signals risk but the data are incomplete or inconsistent</td><td>FMEA review status</td><td>Is there enough evidence for a formal update?</td><td>Open an investigation rather than updating FMEA automatically</td></tr>
+</tbody></table></div>
+<p>The operating rule is straightforward: <strong>predictive analytics should not modify FMEA; it should tell the team where a better engineering question needs to be asked.</strong></p>
+</section>
+
+<section id="worked-example">
+<h2>A complete worked example: from data signal to FMEA reassessment</h2>
+<aside class="method-note" role="note"><strong>Author-developed teaching example:</strong> the example below is not a field case reported in the paper. It is included to show the mechanics of implementation. It assumes an illustrative 1–10 scale in which higher numbers indicate greater risk or poorer detectability. A real organization must use its approved rating definitions instead.</aside>
+<h3>Before the new signal</h3>
+<p>Assume an electromechanical component supplied to an assembly operation. Its required function is to maintain a stable electrical connection within specified operating limits. One <strong>failure mode</strong> is intermittent connection during operation. The possible effect is loss of function, assembly disruption or a field failure. The team has identified instability in a supplier fastening process as a potential cause. Process-setting limits act as a prevention control, while an end-of-line test acts as the current detection control.</p>
+<div class="table-wrap"><table class="pe-table"><thead><tr><th>Required function</th><th>Failure mode</th><th>Effect</th><th>Potential cause</th><th>Current prevention</th><th>Current detection</th><th>S</th><th>O</th><th>D</th></tr></thead><tbody>
+<tr><td>Maintain stable electrical connection</td><td>Intermittent connection in operation</td><td>Loss of component function or disruption at assembly/customer</td><td>Supplier fastening-process instability</td><td>Defined process settings and limits</td><td>End-of-line test</td><td>8</td><td>3</td><td>4</td></tr>
+</tbody></table></div>
+<h3>Then the data changes</h3>
+<p>In this teaching scenario, the same defect begins to recur across recent lots, a process variable drifts before some events, and similar defects have escaped the end-of-line test. The predictive layer raises risk; its explanation points to recurrence, process drift and escape history.</p>
+<p>The team still does not jump to new ratings. It first asks whether the events involve the <strong>same failure mode</strong>, the same process and plausible mechanism, whether lot traceability is reliable, and whether the current test was actually challenged against this failure mode. Only then is the rating review opened.</p>
+<h3>Before and after — what changed, and why?</h3>
+<div class="table-wrap"><table class="pe-table"><thead><tr><th>Element</th><th>Before</th><th>New evidence</th><th>Illustrative reassessment</th><th>Reasoning</th></tr></thead><tbody>
+<tr><td>Severity S</td><td>8</td><td>The consequence to component function has not changed</td><td>8</td><td>Higher recurrence does not alter severity when the effect itself is unchanged</td></tr>
+<tr><td>Occurrence O</td><td>3</td><td>Confirmed recurrence of the same failure mode plus technically relevant process drift</td><td>6</td><td>The previous estimate is no longer consistent with the evidence in this teaching example</td></tr>
+<tr><td>Detection D</td><td>4</td><td>Comparable defects have escaped the end-of-line test</td><td>7</td><td>The control appears less capable than the team had assumed</td></tr>
+<tr><td>Priority</td><td>Routine monitoring</td><td>Higher occurrence + weaker detection against an already severe effect</td><td>Priority treatment</td><td>The priority follows engineering meaning and evidence, not the predictive score alone</td></tr>
+</tbody></table></div>
+<p>The AI did not say “change O from 3 to 6 and D from 4 to 7.” Those numbers come from the <strong>teaching scale assumed for this example</strong> after expert review. In a real FMEA, the team's approved criteria control the rating decision.</p>
+<h3>Treatment and effectiveness</h3>
+<div class="table-wrap"><table class="pe-table"><thead><tr><th>Treatment objective</th><th>Illustrative action</th><th>Implementation evidence</th><th>Effectiveness evidence</th></tr></thead><tbody>
+<tr><td>Reduce creation of the failure mode</td><td>Strengthen process limits and verify process capability at the supplier</td><td>Approved settings and capability evidence</td><td>Lower recurrence over a defined number of lots and observation period</td></tr>
+<tr><td>Strengthen detection</td><td>Redesign the test so it actively challenges the specific failure mode</td><td>Updated test protocol and validation results</td><td>Fewer escapes plus evidence that the test can detect the defect</td></tr>
+<tr><td>Prevent recurrence</td><td>Reopen the 8D and connect the action to a verified cause rather than containment alone</td><td>Technically closed cause/action record</td><td>No recurrence of the same pattern within the agreed follow-up window</td></tr>
+</tbody></table></div>
+<p>After the new evidence is collected, occurrence and detection are reassessed again. Closure is not the endpoint; demonstrable risk reduction is.</p>
+</section>
+
+<section id="institutional-pilot">
+<h2>How to start in your organization without building a large AI program</h2>
+<p>Start small: one process or component family with an existing FMEA and enough historical data to make comparison meaningful. The opening question should not be “How do we deploy AI?” It should be: <strong>which FMEA assumptions may change faster than our current review cycle, and which data could reveal that change?</strong></p>
+<div class="table-wrap"><table class="pe-table"><thead><tr><th>Pilot step</th><th>What to do</th><th>Required output</th></tr></thead><tbody>
+<tr><td>1. Choose scope</td><td>One process, one component family and a limited number of failure modes with traceable data</td><td>Clear boundaries</td></tr>
+<tr><td>2. Build the decision team</td><td>Process owner, FMEA/quality engineer, technical expert, data owner and supplier-quality representative where relevant</td><td>Clear authority for interpretation, approval and action</td></tr>
+<tr><td>3. Prepare the data</td><td>Defect history, inspection results, supplier performance, 8D records, audits, control-plan data and relevant process variables</td><td>Data linked to lot, component, process and failure mode where possible</td></tr>
+<tr><td>4. Generate a signal</td><td>Use trend analysis, statistics or machine learning appropriate to data maturity</td><td>An explainable risk signal, not an automated decision</td></tr>
+<tr><td>5. Map it to FMEA</td><td>Identify the affected line and element: failure mode, cause, occurrence, detection or current control</td><td>A specific engineering question</td></tr>
+<tr><td>6. Apply the validation gate</td><td>Check failure-mode match, mechanism plausibility, context, data quality and control capability</td><td>Decision to update, investigate further or make no change</td></tr>
+<tr><td>7. Treat and verify</td><td>Implement a defined change and compare pre/post evidence</td><td>Evidence of reduced occurrence, better detection or both</td></tr>
+<tr><td>8. Close the learning loop</td><td>Feed action outcomes back into the data and FMEA</td><td>A living review system rather than a static document</td></tr>
+</tbody></table></div>
+<h3>The minimum useful data set</h3>
+<div class="table-wrap"><table class="pe-table"><thead><tr><th>Data type</th><th>Question it can help answer</th></tr></thead><tbody>
+<tr><td>Defects and nonconformities</td><td>Is the same failure mode recurring, and against what denominator?</td></tr>
+<tr><td>Inspection results and escapes</td><td>Are current detection controls actually working?</td></tr>
+<tr><td>Process variables and capability</td><td>Does drift appear before the defect, and is it technically meaningful?</td></tr>
+<tr><td>8D / corrective actions</td><td>Was the cause treated, or did the problem recur after closure?</td></tr>
+<tr><td>Audit and control-plan information</td><td>Are controls designed and implemented for this failure mode?</td></tr>
+<tr><td>FMEA history</td><td>Which assumptions and ratings may now be stale?</td></tr>
+</tbody></table></div>
+</section>
+
+<section id="copy-template">
+<h2>A reusable template for the first FMEA review</h2>
+<p>Use this as a decision record, not just a scoring table. Every rating change should carry its evidence, rationale, approver and effectiveness plan.</p>
+<div class="table-wrap"><table class="pe-table"><thead><tr><th>Field</th><th>What to capture</th></tr></thead><tbody>
+<tr><td>Scope and required function</td><td>Process/component boundary and what must succeed</td></tr>
+<tr><td>Failure mode</td><td>The specific way the required function is not achieved</td></tr>
+<tr><td>Effect</td><td>What happens if the failure mode occurs</td></tr>
+<tr><td>Cause / mechanism</td><td>Why and how the failure may develop, once technically supported</td></tr>
+<tr><td>Current prevention controls</td><td>What prevents the cause or failure mode from developing</td></tr>
+<tr><td>Current detection controls</td><td>What detects the failure mode before the effect propagates</td></tr>
+<tr><td>Current S / O / D</td><td>Ratings using the approved scale and reference criteria</td></tr>
+<tr><td>New signal</td><td>Recurrence, drift, escape, weak control or another pattern</td></tr>
+<tr><td>Data source and quality</td><td>System, period, denominator, completeness and limitations</td></tr>
+<tr><td>Signal explanation</td><td>Drivers of the signal while keeping association separate from causality</td></tr>
+<tr><td>Expert validation</td><td>Does it concern the same failure mode, mechanism and process? What supports that conclusion?</td></tr>
+<tr><td>Reassessed S / O / D</td><td>What changed, what did not, and why</td></tr>
+<tr><td>Priority</td><td>Apply the organization's approved prioritization method</td></tr>
+<tr><td>Treatment</td><td>What will change in design, process or control</td></tr>
+<tr><td>Owner and due date</td><td>Accountability for implementation</td></tr>
+<tr><td>Effectiveness evidence</td><td>Baseline, metric, observation period and success criterion</td></tr>
+</tbody></table></div>
+<p>If the team can populate this record with evidence rather than impressions, predictive analytics becomes a way to see change earlier while FMEA remains the structure that turns that change into an auditable preventive decision.</p>
+</section>
+
 <section>
 <h2>What actually changes in AI's role?</h2>
 <p>The strongest idea in the paper is not that AI can “do FMEA.” Its proposed role is narrower and more useful: use data to surface early signals, explain the evidence behind them, and feed that evidence into engineering reasoning that experts can review.</p>
@@ -128,6 +245,12 @@
 <h2>The evidence limits that must stay visible</h2>
 <p>First, the proposed framework is <strong>conceptual</strong>; the paper does not validate it on real supplier-quality data. Second, the simulation used 240 synthetic records, so the reported 0.88 accuracy or 0.91 AUC should not be presented as expected performance in another plant. Third, explainability supports interpretation but does not prove causality. Fourth, the approach depends heavily on data quality, consistent defect classification, and traceability across components, processes and historical records. Fifth, adoption requires organizational integration across data, quality, engineering, purchasing and supplier-management routines. A predictive model built in isolation is unlikely to become a preventive operating system.</p>
 <p>A sensible first implementation would therefore be deliberately narrow: one component or process with sufficient historical data, a defined baseline, explicit human decision rights, and a plan to test whether the resulting treatment actually reduces risk.</p>
+</section>
+
+<section>
+<h2>What should a reader be able to do after this article?</h2>
+<p>The practical takeaway is not “use AI to update FMEA.” It is to make <strong>reassessment evidence-triggered rather than calendar-triggered</strong>. A team can start now with one FMEA line, connect it to defect, detection and process data, define which signals justify review, document why occurrence or detection changed — or why they did not — and then measure whether treatment actually reduced risk.</p>
+<p>Once that loop is disciplined — <strong>data → signal → explanation → FMEA question → expert validation → reassessment → treatment → effectiveness verification</strong> — FMEA stops behaving like a periodic document and starts behaving like a preventive learning system.</p>
 </section>
 
 <section class="question">
