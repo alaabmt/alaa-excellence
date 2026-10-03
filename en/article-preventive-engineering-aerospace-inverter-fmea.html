@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>From System Architecture to Risk Priority: FMEA in a 1 MW Aerospace Inverter | Preventive Engineering | Tamayuz 10X</title>
+<meta name="description" content="A practical Preventive Engineering guide to how a 1 MW aerospace inverter study moved from system functions and failure modes to severity, occurrence, detection and RPN-based reliability priorities.">
+<meta name="author" content="Dr. Alaa Mohammad Ahmed">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<link rel="canonical" href="https://tamayuz10x.com/en/article-preventive-engineering-aerospace-inverter-fmea.html">
+<link rel="alternate" hreflang="ar" href="https://tamayuz10x.com/article-preventive-engineering-aerospace-inverter-fmea.html">
+<link rel="alternate" hreflang="en" href="https://tamayuz10x.com/en/article-preventive-engineering-aerospace-inverter-fmea.html">
+<link rel="alternate" hreflang="x-default" href="https://tamayuz10x.com/article-preventive-engineering-aerospace-inverter-fmea.html">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="ar_AR">
+<meta property="og:site_name" content="Tamayuz 10X">
+<meta property="og:title" content="From System Architecture to Risk Priority: FMEA in a 1 MW Aerospace Inverter">
+<meta property="og:description" content="How does system architecture become a quantified FMEA? Follow a 1 MW aerospace inverter from functions and failure modes to S/O/D, RPN and reliability action.">
+<meta property="og:url" content="https://tamayuz10x.com/en/article-preventive-engineering-aerospace-inverter-fmea.html">
+<meta property="og:image" content="https://tamayuz10x.com/assets/previews/story/article-preventive-engineering-aerospace-inverter-fmea-en.jpg?v=20261003-prevention-v2">
+<meta property="og:image:secure_url" content="https://tamayuz10x.com/assets/previews/story/article-preventive-engineering-aerospace-inverter-fmea-en.jpg?v=20261003-prevention-v2">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="FMEA · Failure Mode & Effects Analysis cover titled From System Architecture to Risk Priority, focused on a 1 MW aerospace inverter.">
+<meta property="article:published_time" content="2026-10-03">
+<meta property="article:modified_time" content="2026-10-03">
+<meta property="article:author" content="https://tamayuz10x.com/en/about.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="From System Architecture to Risk Priority: FMEA in a 1 MW Aerospace Inverter">
+<meta name="twitter:description" content="From functions and failure modes to S/O/D and RPN: a practical FMEA analysis of a 1 MW aerospace inverter.">
+<meta name="twitter:image" content="https://tamayuz10x.com/assets/previews/story/article-preventive-engineering-aerospace-inverter-fmea-en.jpg?v=20261003-prevention-v2">
+<meta name="twitter:image:alt" content="FMEA cover about moving from aerospace inverter architecture to risk priority.">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "@id": "https://tamayuz10x.com/en/article-preventive-engineering-aerospace-inverter-fmea.html#article", "headline": "From System Architecture to Risk Priority: FMEA in a 1 MW Aerospace Inverter", "description": "A practical Preventive Engineering analysis of predictive quality analytics, explainable AI and FMEA, with a nine-stage application framework and explicit evidence limits.", "url": "https://tamayuz10x.com/en/article-preventive-engineering-aerospace-inverter-fmea.html", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://tamayuz10x.com/en/article-preventive-engineering-aerospace-inverter-fmea.html"}, "inLanguage": "en", "image": {"@type": "ImageObject", "url": "https://tamayuz10x.com/assets/previews/story/article-preventive-engineering-aerospace-inverter-fmea-en.jpg?v=20261003-prevention-v2", "width": 1200, "height": 630, "caption": "Navy and gold FMEA cover for the Preventive Engineering series, showing a smart manufacturing scene and the fixed label “FMEA · Failure Mode & Effects Analysis” with the title “From Periodic Review to Early Warning.”"}, "datePublished": "2026-10-03", "dateModified": "2026-10-03", "author": {"@type": "Person", "name": "Dr. Alaa Mohammad Ahmed", "url": "https://tamayuz10x.com/en/about.html"}, "publisher": {"@type": "Organization", "name": "Tamayuz 10X", "url": "https://tamayuz10x.com/"}, "articleSection": "Preventive Engineering", "citation": ["https://doi.org/10.1109/ECAI69016.2026.11613567"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://tamayuz10x.com/en/"},{"@type":"ListItem","position":2,"name":"Articles","item":"https://tamayuz10x.com/en/articles.html"},{"@type":"ListItem","position":3,"name":"Preventive Engineering","item":"https://tamayuz10x.com/en/articles.html"},{"@type":"ListItem","position":4,"name":"From System Architecture to Risk Priority","item":"https://tamayuz10x.com/en/article-preventive-engineering-aerospace-inverter-fmea.html"}]}</script>
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/style-en.css?v=20260910-header4">
+<link rel="stylesheet" href="/assets/css/story-cards.css?v=20261003-prevention-v2">
+<style>
+html,body{width:100%;max-width:100%;overflow-x:hidden}
+body{position:relative}
+.site-header,main,.pe-hero{width:100%;max-width:100%}
+.pe-hero{padding:64px 20px 34px;background:linear-gradient(180deg,#f7fafc,#fff);border-bottom:1px solid #e7edf2}.pe-hero .container{width:min(calc(100% - 32px),980px);max-width:980px;margin-inline:auto}.pe-kicker{color:#8a6429;font-weight:800;letter-spacing:.02em}.pe-hero h1{color:#08283f;font-size:clamp(2.1rem,5vw,3.7rem);line-height:1.2;margin:.4em 0 .3em}.pe-lead{font-size:1.23rem;line-height:1.8;color:#526271;max-width:900px}.pe-article{width:min(calc(100% - 32px),960px);max-width:960px;margin-inline:auto;padding:34px 22px 80px}.pe-article h2{margin:44px 0 16px;color:#0b3a5b;font-size:clamp(1.55rem,3vw,2rem);line-height:1.35}.pe-article h3{margin:30px 0 10px;color:#134d70;font-size:1.25rem}.pe-article p,.pe-article li{font-size:1.08rem;line-height:1.82;color:#334155}.pe-article strong{color:#0a314d}.evidence-note,.method-note{margin:24px 0;padding:20px 22px;border-radius:16px;background:#f8fafc;border:1px solid #dbe4ea}.method-note{background:#fff9ed;border-color:#ead7b1}.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(175px,100%),1fr));gap:14px;margin:24px 0;min-width:0;max-width:100%}.stats div{padding:20px;border:1px solid #dce5eb;border-radius:16px;background:#fff}.stats strong{display:block;font-size:1.75rem;color:#0b4e78}.pe-flow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:20px 0;padding:18px;border-radius:16px;background:#08283f;color:white}.pe-flow span{padding:8px 10px;background:rgba(255,255,255,.1);border-radius:10px}.pe-flow b{color:#e6bb70}.stage{margin:30px 0;padding:24px;border:1px solid #dce5eb;border-radius:18px;background:#fff;box-shadow:0 8px 25px rgb(5 34 59 / 4%)}.stage-head{display:flex;gap:14px;align-items:flex-start;min-width:0;max-width:100%}.stage-head>div{min-width:0;max-width:100%}.stage-num{flex:none;width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:#0b4e78;color:#fff;font-weight:900}.stage h3{margin:0 0 8px}.stage-purpose,.visual-intro{background:#f3f7fa;border-left:4px solid #0b4e78;padding:12px 14px;border-radius:10px}.visual-takeaway{background:#f8fafc;padding:12px 14px;border-radius:10px}.stage-output{margin-top:16px;padding:13px 15px;border-radius:12px;background:#edf7f2;border:1px solid #cfe8dc;color:#244a3a}.stage-error{margin-top:14px;color:#5b4a32}.pe-table caption{caption-side:top;text-align:left;padding:12px 14px;font-weight:800;color:#0b3a5b;background:#f8fafc;border-bottom:1px solid #e5ebef}.table-wrap{width:100%;max-width:100%;overflow-x:auto;overscroll-behavior-inline:contain;-webkit-overflow-scrolling:touch;margin:20px 0;border:1px solid #dce5eb;border-radius:16px}.pe-table{width:100%;border-collapse:collapse;min-width:760px;background:white}.pe-table th,.pe-table td{padding:14px 15px;border-bottom:1px solid #e5ebef;text-align:left;vertical-align:top;line-height:1.65}.pe-table th{background:#eef5f9;color:#0b3a5b}.pe-table tr:last-child td{border-bottom:0}.risk-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:20px 0;min-width:0;max-width:100%}.risk-grid div{padding:20px;border-radius:16px;background:#f7fafc;border:1px solid #dce5eb}.risk-grid h4{margin:0 0 8px;color:#0b4e78}.limits{border-left:5px solid #b78a43;background:#fff9ed;padding:20px 22px;border-radius:14px}.question{margin:38px 0;padding:26px;border-radius:18px;background:#08283f;color:#fff}.question h2,.question p,.question strong{color:#fff}.refs{border-top:1px solid #dbe4ea;padding-top:22px}.refs li{overflow-wrap:anywhere}.refs a{word-break:break-word}@media(max-width:720px){.pe-hero{padding:38px 0 26px}.pe-hero .container{width:calc(100% - 32px);max-width:none;margin-inline:auto}.pe-hero h1{font-size:clamp(1.8rem,8vw,2.55rem);overflow-wrap:anywhere}.pe-lead{font-size:1.05rem;line-height:1.9}.risk-grid{grid-template-columns:1fr}.pe-article{width:100%;max-width:100%;margin:0;padding:24px 16px 64px}.stage,.question,.limits,.evidence-note,.method-note{max-width:100%}.pe-flow{display:block;max-width:100%}.pe-flow span{display:block;margin:7px 0}.pe-flow b{display:block;text-align:center}.stage{padding:18px}.pe-table{min-width:700px}}
+</style>
+</head>
+<body>
+<header class="site-header"><div class="topbar"><div class="container topbar-inner"><div class="social">LinkedIn · YouTube · X</div><div class="lang-switch"><span>English</span><span>|</span><a href="/article-preventive-engineering-aerospace-inverter-fmea.html" hreflang="ar" lang="ar">العربية</a></div></div></div><div class="container brand-row"><a class="brand" href="/en/"><img alt="Tamayuz 10X logo" class="brand-logo" src="/assets/images/file_0000000047188210ac6952e999d2eda7.png?v=20260910-logo4"></a><button aria-label="Open Menu" class="menu-toggle">☰</button></div><nav class="main-nav"><div class="container nav-links"><a href="/en/">Home</a><a href="/en/vision-mission-values.html">Vision, Mission & Values</a><a href="/en/about.html">About Dr. Alaa Mohammad Ahmed</a><a href="/en/#tenx-10x">Tamayuz 10X</a><a class="active" href="/en/articles.html">10X Cases & Experiences</a><a href="/en/agentic-ai-10x.html">Agentic AI 10X</a><a href="/en/research.html">Research & Publications</a><a href="/en/personality.html">Self-Discovery Lab</a><a href="/en/training.html">Capability Building</a></div></nav></header>
+<main>
+<section class="pe-hero"><div class="container"><p class="pe-kicker">Preventive Engineering · Applied FMEA for reliability engineering</p><h1>From System Architecture to Risk Priority: FMEA in a 1 MW Aerospace Inverter</h1><p class="pe-lead">In a safety-critical system, knowing that a component can fail is not enough. The useful questions are how it can fail, what the system consequence is, how often it may occur, and whether the failure can be detected before function is lost. A published 1 MW aerospace inverter study provides a unusually concrete example of that full chain.</p><noscript><p><a href="/en/about.html">Dr. Alaa Mohammad Ahmed</a> · <time datetime="2026-10-03">3 October 2026</time> · 28 min read</p></noscript></div></section>
+<figure class="story-cover"><img src="/assets/previews/story/article-preventive-engineering-aerospace-inverter-fmea-en.jpg?v=20261003-prevention-v2" alt="FMEA · Failure Mode & Effects Analysis cover titled From System Architecture to Risk Priority, focused on a 1 MW aerospace inverter." width="1200" height="630" decoding="async" fetchpriority="high"><figcaption class="story-cover-note" data-no-speech="true">Illustrative cover</figcaption></figure>
+<article class="pe-article" data-tenx-article="true" aria-label="From System Architecture to Risk Priority: FMEA in a 1 MW Aerospace Inverter">
+<section>
+<h2>Reliability has to enter the design before the failure does</h2>
+<p>An aircraft inverter is not merely a box of power electronics. It sits inside the propulsion and electrical-power chain, so a weakness in control, conversion or sensing can propagate from one component to system-level loss of function. The study begins with a practical engineering question: <strong>which parts of the inverter contribute the most risk, and where should reliability improvement begin?</strong></p>
+<p>The authors analyse a 1 MVA, three-level ANPC — Active Neutral-Point Clamped — aerospace inverter. They develop a system-architecture diagram and function tree, conduct FMEA in line with IEC 60812, use MIL-HDBK-217F to estimate random failure occurrence, define explicit Severity, Occurrence and Detectability criteria, and calculate RPN values to identify vulnerable areas. <a href="#ref-1" class="citation">[1]</a></p>
+<aside class="evidence-note" role="note"><strong>Evidence limit:</strong> the paper provides a detailed reliability assessment and identifies improvement priorities. It does not report a completed treatment program followed by post-intervention FMEA results. The treatment, effectiveness-verification and review stages below are therefore presented as a clearly marked Preventive Engineering extension, not as study findings.</aside>
+</section>
+
+<section>
+<h2>Before scoring, the study mapped the system and its functions</h2>
+<p>The most important analytical move happens before any rating is assigned. The authors identify inverter components, interactions and required functions, then build a functional breakdown across control, power conversion and thermal management. Highly integrated units such as the controller and gate driver are assessed at module level rather than being decomposed into every internal sub-component.</p>
+<p>The scope is also explicit. Mechanical failures such as bolt loosening and enclosure breakage are excluded because the paper is focused on reliability-oriented electrical design. The resulting FMEA is therefore not a complete statement of every possible inverter hazard; it is a structured analysis inside a defined electrical boundary. <a href="#ref-1" class="citation">[1]</a></p>
+<p class="visual-intro"><strong>Look at the table below.</strong> It shows how the study moves from component and required function to failure mode and effect. The capacitor example is particularly useful because one component can have several failure modes with very different consequences.</p>
+<div class="table-wrap"><table class="pe-table"><caption>Examples of function → failure mode → effect logic in the study</caption><thead><tr><th>Component</th><th>Required function</th><th>Failure mode</th><th>Effect</th></tr></thead><tbody>
+<tr><td>Film capacitor</td><td>Support the DC link and maintain required capacitance</td><td>Open circuit</td><td>Increased neutral-point voltage imbalance</td></tr>
+<tr><td>Film capacitor</td><td>Same required function</td><td>Capacitance degradation</td><td>Increased neutral-point voltage imbalance</td></tr>
+<tr><td>Film capacitor</td><td>Same required function</td><td>Short circuit</td><td>Full DC-link voltage may be imposed on one capacitor side, potentially causing catastrophic system failure</td></tr>
+<tr><td>MOSFET</td><td>Power conversion</td><td>Short circuit</td><td>System failure</td></tr>
+<tr><td>Gate Driver</td><td>Gate-signal generation</td><td>Abnormal output</td><td>Can lead to system failure</td></tr>
+</tbody></table></div>
+<p class="visual-takeaway"><strong>What should stand out?</strong> Risk is not a property of the component name alone. The failure mode changes the consequence. A capacitor short circuit is not equivalent to capacitance degradation even though both belong to the same component family.</p>
+</section>
+
+<section>
+<h2>This paper actually calculates the risk triad</h2>
+<p>Unlike studies that mention FMEA only at a conceptual level, this one defines five-level scales for Severity (S), Occurrence (O) and Detectability (D), then calculates:</p>
+<div class="pe-flow" aria-label="RPN equation"><span>Severity S</span><b>×</b><span>Occurrence O</span><b>×</b><span>Detectability D</span><b>=</b><span>RPN</span></div>
+<p>A higher score means greater risk on the study's scale. For detectability, a higher number means poorer detection capability, not better monitoring.</p>
+<p class="visual-intro"><strong>Read the next table row by row.</strong> It is the key to interpreting every RPN that follows because the number only makes sense if the rules behind S, O and D are visible.</p>
+<div class="table-wrap"><table class="pe-table"><caption>The study's Severity, Occurrence and Detectability criteria</caption><thead><tr><th>Rank</th><th>Severity S</th><th>Occurrence O by FIT</th><th>Detectability D</th></tr></thead><tbody>
+<tr><td>1</td><td>Insignificant; hardly any impact</td><td>Rare: below 10³ FIT</td><td>Easy: directly detected during operation</td></tr>
+<tr><td>2</td><td>Low; minor impact within acceptable normal operation</td><td>Low: 10³ to 10⁴ FIT</td><td>Reasonable: algorithmically detected during operation</td></tr>
+<tr><td>3</td><td>Moderate; degraded operation can continue for an extended period</td><td>Moderate: 10⁴ to 10⁵ FIT</td><td>Difficult: requires periodic functional checks</td></tr>
+<tr><td>4</td><td>High; degraded operation possible only for a short period</td><td>High: 10⁵ to 10⁶ FIT</td><td>Very difficult: detected only during abnormal operation</td></tr>
+<tr><td>5</td><td>Hazardous; direct damage and loss of system functionality</td><td>Very high: above 10⁶ FIT</td><td>Impossible under current design: cannot be detected</td></tr>
+</tbody></table></div>
+<p class="visual-takeaway"><strong>The important distinction:</strong> Severity comes from the effect, Occurrence is tied to reliability evidence through FIT, and Detectability is tied to the actual monitoring and protection design. Two failure modes in the same component can therefore receive very different ratings.</p>
+</section>
+
+<section>
+<h2>How Occurrence was derived from reliability evidence</h2>
+<p>The study uses MIL-HDBK-217F to estimate random component failure rates. For capacitors, the calculation incorporates a base failure rate plus capacitance, quality and environmental factors. Because the inverter contains 54 capacitors, the authors aggregate the rate across the bank and report <strong>531,878 FIT</strong>. They attribute the high value mainly to the large capacitor count and the use of commercial-grade film capacitors, and note that military-grade capacitors could be considered to improve reliability. <a href="#ref-1" class="citation">[1]</a></p>
+<p>Under the study's own occurrence scale, 531,878 FIT falls inside Rank 4. Yet the same paper notes that having many parallel capacitors can reduce the severity of some individual capacitor failure modes. That is a useful reminder that <strong>high occurrence evidence does not automatically create the highest overall priority</strong>.</p>
+<p>The MOSFET analysis goes further. Random failure rate is estimated for the 18 switches, while thermo-mechanical fatigue is assessed from an aircraft mission profile, thermal simulation, rainflow counting and a proprietary lifetime model. The study reports about <strong>151,000 operating cycles</strong> at 90% reliability and a fatigue-related rate of <strong>558.2 FIT</strong> for one MOSFET. The total random failure rate for the 18-switch population is <strong>602,316 FIT</strong>; the authors therefore identify random failure as dominant and assign occurrence Rank 4 in the analysed scenario. <a href="#ref-1" class="citation">[1]</a></p>
+</section>
+
+<section>
+<h2>Detectability belongs to the failure mode and the barrier, not to the component name</h2>
+<p>The paper's MOSFET example makes this especially clear. The gate driver's DESAT protection monitors drain-source voltage and can trip when the protection threshold is exceeded, but it does not see every failure mode in the same way.</p>
+<p class="visual-intro"><strong>Compare the two rows below.</strong> The component is identical; the failure mode changes how effectively the current protection can detect it.</p>
+<div class="table-wrap"><table class="pe-table"><caption>One component, different failure modes, different detectability</caption><thead><tr><th>Component</th><th>Failure mode</th><th>Current detection behaviour</th><th>D</th></tr></thead><tbody>
+<tr><td>MOSFET</td><td>Short circuit</td><td>DESAT does not trigger immediately in the described scenario; detection occurs only under a later abnormal switching condition</td><td>4</td></tr>
+<tr><td>MOSFET</td><td>Open circuit</td><td>DESAT can detect the condition promptly after it occurs</td><td>1</td></tr>
+</tbody></table></div>
+<p class="visual-takeaway"><strong>The lesson:</strong> there is no single “MOSFET detection rating.” Detectability is specific to the failure mode, the current barrier and the operating scenario in which that barrier has a chance to see the failure.</p>
+</section>
+
+<section>
+<h2>Which vulnerabilities rose to the top?</h2>
+<p>The final published FMEA table includes entries with RPN above 30. Read the table from top to bottom: each row is not merely a “bad component”; it is a specific combination of function, failure mode, effect, cause and current detection capability.</p>
+<div class="table-wrap"><table class="pe-table"><caption>Study entries with RPN greater than 30</caption><thead><tr><th>Component</th><th>Failure mode</th><th>Effect</th><th>S</th><th>Cause</th><th>O</th><th>Current detection</th><th>D</th><th>RPN</th></tr></thead><tbody>
+<tr><td>Gate Driver</td><td>Abnormal output: loss, constant high/low output or interlock failure</td><td>System failure</td><td>5</td><td>Control-board damage</td><td>5</td><td>None currently available</td><td>5</td><td>125</td></tr>
+<tr><td>Gate Driver</td><td>Abnormal output-voltage amplitude</td><td>Thermal runaway and output-voltage distortion</td><td>4</td><td>Control-board ageing or damage</td><td>5</td><td>None currently available</td><td>5</td><td>100</td></tr>
+<tr><td>MOSFET</td><td>Short circuit</td><td>System failure</td><td>5</td><td>Cosmic rays / ageing / functional abnormalities</td><td>4</td><td>DESAT circuit</td><td>4</td><td>80</td></tr>
+<tr><td>Voltage sensor</td><td>Isolation failure between high- and low-voltage circuits</td><td>High voltage damages the control system, causing system failure</td><td>5</td><td>Packaging and insulation ageing</td><td>3</td><td>None currently available</td><td>5</td><td>75</td></tr>
+<tr><td>Controller</td><td>Loss of output</td><td>System failure</td><td>5</td><td>Chip damage / software failure</td><td>2</td><td>None currently available</td><td>5</td><td>50</td></tr>
+<tr><td>Current sensor</td><td>Current-feedback inaccuracy</td><td>Control malfunction</td><td>3</td><td>Temperature drift</td><td>3</td><td>Digital filtering</td><td>4</td><td>36</td></tr>
+<tr><td>MOSFET</td><td>Increased conduction resistance</td><td>Increased power loss</td><td>2</td><td>Device ageing</td><td>4</td><td>Rds-on / thermal-performance monitoring</td><td>4</td><td>32</td></tr>
+</tbody></table></div>
+<p class="visual-takeaway"><strong>What does the ranking reveal?</strong> The two Gate Driver cases rise because high occurrence and very poor detectability combine with serious consequences. Controller loss of output is also severe at S=5, but lower occurrence keeps its RPN at 50. The number helps expose the combination; it should not erase the meaning of the effect.</p>
+<aside class="method-note" role="note"><strong>Important RPN limit:</strong> the product is useful for prioritisation inside the method used by this paper, but it should not make a hazardous effect look acceptable simply because occurrence is lower. Where an organisation uses Action Priority or another approved prioritisation method, that method remains authoritative.</aside>
+</section>
+
+<section>
+<h2>The nine-stage Preventive Engineering journey: follow the highest-risk case</h2>
+<aside class="method-note" role="note"><strong>Continuous case:</strong> the highest published row is the Gate Driver. Its function is gate-signal generation. Its failure mode is abnormal output, including output loss, constant high/low output or interlock failure. The effect is system failure, the listed cause is control-board damage, and S=5, O=5, D=5, producing RPN=125. Stages 1–6 below are directly grounded in the paper. Treatment, effectiveness verification and post-action review are an educational extension because the paper did not implement a completed improvement program.</aside>
+
+<div class="stage"><div class="stage-head"><span class="stage-num">1</span><div><h3>Define scope: what is inside the analysis?</h3><p class="stage-purpose"><strong>What are we doing here?</strong> We define what the FMEA actually covers before interpreting the ratings.</p><p><strong>In this case:</strong> the scope is electrical reliability of a 1 MVA aerospace inverter. Mechanical failures such as bolt loosening and enclosure breakage are outside the study.</p><p class="stage-error"><strong>Common mistake:</strong> treating the results as a complete hazard statement for the whole inverter.</p><div class="stage-output"><strong>Stage output:</strong> a bounded electrical FMEA, not a universal risk model for every failure class.</div></div></div></div>
+
+<div class="stage"><div class="stage-head"><span class="stage-num">2</span><div><h3>Required function: what must succeed?</h3><p class="stage-purpose"><strong>What are we doing here?</strong> We anchor the failure mode in the job the component must perform.</p><p><strong>In this case:</strong> the Gate Driver must generate correct gate signals for the power switches. Incorrect state, timing or interlock behaviour threatens the conversion process itself.</p><p class="stage-error"><strong>Common mistake:</strong> starting from a fault name without stating the function that failed.</p><div class="stage-output"><strong>Stage output:</strong> required function = generate correct, safe and coordinated gate signals.</div></div></div></div>
+
+<div class="stage"><div class="stage-head"><span class="stage-num">3</span><div><h3>Failure mode, effect and cause: where does the chain break?</h3><p class="stage-purpose"><strong>What are we doing here?</strong> We separate how the function fails, what happens because of it, and why it may fail.</p><p><strong>In this case:</strong> failure mode = abnormal output; effect = system failure; listed cause = control-board damage.</p><p class="stage-error"><strong>Common mistake:</strong> writing “system failure” as the failure mode when it is the system-level effect.</p><div class="stage-output"><strong>Stage output:</strong> gate-signal generation → abnormal output → system failure, with control-board damage as the listed cause.</div></div></div></div>
+
+<div class="stage"><div class="stage-head"><span class="stage-num">4</span><div><h3>Current prevention and detection: what barriers exist now?</h3><p class="stage-purpose"><strong>What are we doing here?</strong> We record the controls that actually exist, not those we hope to add later.</p><p><strong>In this case:</strong> the study table records no current detection method for this failure mode. That directly supports D=5. The paper also does not specify a detailed prevention control for this row, so one should not be invented.</p><p class="stage-error"><strong>Common mistake:</strong> assuming sophisticated hardware automatically implies diagnostic coverage.</p><div class="stage-output"><strong>Stage output:</strong> a clear detection gap that has to be addressed if D is to fall.</div></div></div></div>
+
+<div class="stage"><div class="stage-head"><span class="stage-num">5</span><div><h3>Risk triad: how does the row reach 125?</h3><p class="stage-purpose"><strong>What are we doing here?</strong> We apply the study's rating criteria rather than assigning intuitive numbers.</p><p><strong>In this case:</strong> system failure gives S=5. The study assigns occurrence O=5. No current detection gives D=5. Therefore <strong>5 × 5 × 5 = 125</strong>.</p><p class="stage-error"><strong>Common mistake:</strong> treating 125 as a detached score rather than the combined result of hazardous consequence, high occurrence and absent detection.</p><div class="stage-output"><strong>Stage output:</strong> a risk profile showing which dimensions treatment should attempt to change.</div></div></div></div>
+
+<div class="stage"><div class="stage-head"><span class="stage-num">6</span><div><h3>Priority: why does attention start here?</h3><p class="stage-purpose"><strong>What are we doing here?</strong> We turn the rating into an ordered improvement decision without reducing the decision to multiplication alone.</p><p><strong>In this case:</strong> this is the highest RPN among the published critical rows, severity is already at the maximum level, and detection is unavailable. That makes the failure mode a strong candidate for reliability-design review.</p><p class="stage-error"><strong>Common mistake:</strong> calling the Gate Driver “the worst component” in general; the conclusion belongs to this specific failure mode within this specific scope.</p><div class="stage-output"><strong>Stage output:</strong> a treatment priority tied to a defined Gate Driver failure mode.</div></div></div></div>
+
+<div class="stage"><div class="stage-head"><span class="stage-num">7</span><div><h3>Design treatment: which risk dimension should change?</h3><p class="stage-purpose"><strong>What are we doing here?</strong> This is where the educational extension begins. The paper did not implement a treatment for this row, so there is no published post-action rating.</p><p><strong>Treatment logic:</strong> lowering O requires addressing the causes of control-board failure and the reliability of its design/components. Lowering D requires diagnostic or monitoring capability able to detect abnormal Gate Driver output before it becomes system failure. Plausibility checks, independent monitoring or fault-tolerant architecture are examples of design directions, not study findings.</p><p class="stage-error"><strong>Common mistake:</strong> writing “add monitoring” without defining what condition is detected, under which failure scenario and within what time.</p><div class="stage-output"><strong>Stage output:</strong> a prevention action aimed at the cause plus a detection action aimed at the failure mode, each with a verification requirement.</div></div></div></div>
+
+<div class="stage"><div class="stage-head"><span class="stage-num">8</span><div><h3>Verify effectiveness: when can O or D legitimately change?</h3><p class="stage-purpose"><strong>What are we doing here?</strong> We do not lower ratings when a design change is issued; we lower them after evidence exists.</p><p><strong>In this case:</strong> a new detection scheme should be challenged through injected or simulated abnormal-output conditions to prove detection within the required time. If control-board quality or components are changed, reliability should be recalculated or supported by test/field evidence. Only then should O or D be reassessed.</p><p class="stage-error"><strong>Common mistake:</strong> treating “action implemented” as equivalent to “risk reduced.”</p><div class="stage-output"><strong>Stage output:</strong> test or reliability evidence that justifies any new rating.</div></div></div></div>
+
+<div class="stage"><div class="stage-head"><span class="stage-num">9</span><div><h3>Continuous review: when should FMEA reopen?</h3><p class="stage-purpose"><strong>What are we doing here?</strong> We define triggers that can make the old assessment stale.</p><p><strong>In this case:</strong> a new control board, gate-drive algorithm, power-device set, mission profile, supplier or detection architecture can all invalidate previous assumptions. New field-failure evidence should also reopen occurrence assessment.</p><p class="stage-error"><strong>Common mistake:</strong> keeping S/O/D unchanged for years while design and operating conditions evolve.</p><div class="stage-output"><strong>Stage output:</strong> explicit review triggers that keep FMEA connected to design changes and evidence.</div></div></div></div>
+</section>
+
+<section>
+<h2>What does “before and after” look like without inventing numbers?</h2>
+<p>The study gives a baseline but no post-treatment rating. It would therefore be misleading to assume that D becomes 2 or O becomes 3 without test evidence.</p>
+<p class="visual-intro"><strong>Look at the table below.</strong> The final column deliberately says “determine after validation.” That is the difference between an improvement plan and a claimed result.</p>
+<div class="table-wrap"><table class="pe-table"><caption>Gate Driver baseline and evidence required before reassessment</caption><thead><tr><th>Element</th><th>Study baseline</th><th>Treatment objective</th><th>Required evidence</th><th>Post-treatment</th></tr></thead><tbody>
+<tr><td>Severity S</td><td>5</td><td>Changes only if the effect or system architecture changes</td><td>New effect analysis proving consequence is no longer at the same level</td><td>Determine after validation</td></tr>
+<tr><td>Occurrence O</td><td>5</td><td>Reduce failure rate associated with control-board design/components</td><td>Updated reliability calculation or test/field evidence</td><td>Determine after validation</td></tr>
+<tr><td>Detectability D</td><td>5</td><td>Add reliable abnormal-output detection</td><td>Fault-injection test proving detection under the relevant scenario and timing requirement</td><td>Determine after validation</td></tr>
+<tr><td>RPN</td><td>125</td><td>Recalculate only after S/O/D are evidence-based</td><td>Updated FMEA record and multidisciplinary review</td><td>Do not calculate before validation</td></tr>
+</tbody></table></div>
+<p class="visual-takeaway"><strong>The point:</strong> FMEA is not a spreadsheet whose numbers are lowered after a project. It is a decision record that must show the evidence supporting every rating change.</p>
+</section>
+
+<section>
+<h2>What can another organisation apply directly?</h2>
+<p>The method is not limited to aerospace power electronics. The same structure can transfer to any complex system if the sequence remains disciplined:</p>
+<div class="pe-flow" aria-label="Application journey"><span>System boundary</span><b>→</b><span>Functions</span><b>→</b><span>Failure modes</span><b>→</b><span>Effects & causes</span><b>→</b><span>Current controls</span><b>→</b><span>S/O/D</span><b>→</b><span>Priority</span><b>→</b><span>Treatment</span><b>→</b><span>Verification</span></div>
+<p class="visual-takeaway"><strong>What should stand out?</strong> The study is particularly strong through prioritisation. Preventive Engineering completes the loop by requiring treatment to return to the cause or detection barrier and by demanding evidence that risk actually fell.</p>
+
+<p class="visual-intro"><strong>Use the table below as a start-up checklist.</strong> If one of these fields cannot be populated with evidence, that is the gap to resolve before trying to make the ratings more precise.</p>
+<div class="table-wrap"><table class="pe-table"><caption>A transferable FMEA starting template inspired by the study</caption><thead><tr><th>Field</th><th>Practical question</th></tr></thead><tbody>
+<tr><td>Scope</td><td>What is included and what has been explicitly excluded?</td></tr>
+<tr><td>Component / step</td><td>Which part performs the function?</td></tr>
+<tr><td>Required function</td><td>What must succeed?</td></tr>
+<tr><td>Failure mode</td><td>In what specific way is the function not achieved?</td></tr>
+<tr><td>Effect</td><td>What happens to the component, system or user?</td></tr>
+<tr><td>Potential cause</td><td>Why could the failure mode occur?</td></tr>
+<tr><td>Current prevention</td><td>What prevents the cause from developing?</td></tr>
+<tr><td>Current detection</td><td>How is the failure found before its effect propagates?</td></tr>
+<tr><td>S</td><td>What is the effect under an approved severity scale?</td></tr>
+<tr><td>O</td><td>What quantitative or operational evidence supports occurrence?</td></tr>
+<tr><td>D</td><td>What evidence supports the claimed detection capability?</td></tr>
+<tr><td>Priority</td><td>How does the organisation's approved method determine what is treated first?</td></tr>
+<tr><td>Treatment</td><td>Does the action target cause, prevention, detection or more than one?</td></tr>
+<tr><td>Effectiveness</td><td>What test or data will demonstrate that risk fell?</td></tr>
+</tbody></table></div>
+</section>
+
+<section class="limits">
+<h2>Limits that should remain visible behind the numbers</h2>
+<p>First, mechanical failures are outside the study scope, so the results do not represent every inverter hazard. Second, some integrated units are assessed at module level, which can hide variation among internal sub-components. Third, occurrence ratings depend on MIL-HDBK-217F inputs and assumptions about quality, environment and temperature; those inputs need to match the real context. Fourth, the paper uses RPN and publishes only rows above 30, which is useful for internal ranking but does not remove the need to look independently at hazardous severity. Fifth, the paper does not report a completed treatment-and-reassessment cycle.</p>
+</section>
+
+<section>
+<h2>Why this paper matters for Preventive Engineering</h2>
+<p>It provides an auditable chain. It starts from a real system architecture, defines function, separates failure modes, ties effect to severity, ties occurrence to reliability modelling, ties detection to actual diagnostic design, and then calculates priority. That prevents FMEA from becoming a meeting in which numbers are negotiated without evidence.</p>
+<p>The next step for any organisation is not to stop at RPN. When FMEA produces 125 for a Gate Driver case or 80 for a MOSFET short circuit, the real work begins: <strong>which cause can be reduced, which barrier can be strengthened, and what test will prove that the new rating deserves to be lower?</strong></p>
+</section>
+
+<section class="question">
+<h2>The Preventive Engineering question</h2>
+<p>For the most critical system in your organisation, if someone asked for the evidence behind every S, O and D rating today, would the team find clear criteria, data and tests — or inherited numbers from an older FMEA that no one can still explain?</p>
+</section>
+
+<section class="tenx-disclaimer"><h2>Editorial Disclaimer</h2><p>This article reports the study's published system structure, S/O/D criteria, FIT estimates, RPN values and critical cases as source findings. Treatment and effectiveness verification after prioritisation are presented as an educational Preventive Engineering extension and are not claimed as interventions implemented by the authors. The article does not replace IEC 60812, reliability standards, safety requirements or engineering validation in the actual application.</p></section>
+
+<section class="refs" data-no-speech="true"><h2>References</h2><ol>
+<li id="ref-1">An J, Wang Y, Alcalde R, Zhou L, Wang D, Abdalmagid M, et al. <em>Reliability Assessment of a Megawatt-Scale Three-Level ANPC Inverter for Aerospace Applications Using FMEA.</em> 2026 IEEE Transportation Electrification Conference &amp; Expo and Electric Aircraft Technologies Symposium (ITEC+EATS). DOI: <a href="https://doi.org/10.1109/ITECEATS66641.2026.11592843" target="_blank" rel="noopener">10.1109/ITECEATS66641.2026.11592843</a>. Primary source for this article; includes system architecture, S/O/D criteria, FIT-based occurrence assessment and the published FMEA results.</li>
+</ol></section>
+</article>
+</main>
+<footer class="site-footer"><div class="container footer-grid"><div><strong><a href="/en/" style="color:inherit;text-decoration:none">Tamayuz 10X</a></strong><p>Knowledge and perspectives on institutional excellence, transformation engineering, leadership and innovation.</p></div><div><strong>Quick links</strong><p><a href="/en/articles.html">10X Cases & Articles</a> · <a href="/en/training.html">Capability Building</a> · <a href="/en/services.html">Professional Expertise</a> · <a href="/en/editorial-policy-disclaimer.html">Editorial Policy & Disclaimer</a></p></div></div><div class="container copyright">© <span id="year"></span> Dr. Alaa Mohammad Ahmed — All rights reserved.</div></footer>
+<script src="/assets/js/main.js"></script>
+<script src="/assets/js/site-engagement.js"></script>
+<script src="/assets/js/mobile-social-share.js"></script>
+</body>
+</html>
