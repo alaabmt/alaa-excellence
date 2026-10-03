@@ -5,6 +5,27 @@
   "maxBytes": 170000,
   "cards": [
     {
+      "slug": "article-preventive-engineering-predictive-fmea-ai",
+      "background": "assets/previews/story-backgrounds/case-bms-devens-future-ready-manufacturing.jpg",
+      "category": "article",
+      "ar": {
+        "title": [
+          "من المراجعة الدورية",
+          "إلى الإنذار المبكر"
+        ],
+        "subtitle": "البيانات والذكاء الاصطناعي يعيدان فتح تحليل أوجه الفشل",
+        "alt": "غلاف توضيحي بالكحلي والذهبي لمشهد مصنع ذكي وبيانات تشغيلية، بعنوان «من المراجعة الدورية إلى الإنذار المبكر»."
+      },
+      "en": {
+        "title": [
+          "From Periodic Review",
+          "to Early Warning"
+        ],
+        "subtitle": "Making FMEA responsive to predictive risk signals.",
+        "alt": "Navy and gold editorial cover: A smart manufacturing scene and operational data beside the title “From Periodic Review to Early Warning.”"
+      }
+    },
+    {
       "slug": "article-agentic-ai-clinical-selective-autonomy",
       "background": "assets/previews/story-backgrounds/article-agentic-ai-clinical-selective-autonomy.jpg",
       "category": "article",
