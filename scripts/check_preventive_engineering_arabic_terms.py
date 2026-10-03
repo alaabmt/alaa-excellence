@@ -14,8 +14,9 @@ def check_text(label: str, text: str) -> None:
         count = remainder.count("FMEA")
         errors.append(f"{label}: {count} bare FMEA occurrence(s); use {FULL}")
     risk_remainder = text.replace(RISK_TRIAD, "")
-    if "ثلاثية تقييم الخطر" in risk_remainder:
-        errors.append(f"{label}: forbidden phrase 'ثلاثية تقييم الخطر'; use {RISK_TRIAD}")
+    for old_phrase in ("ثالوث الخطر", "ثلاثية تحديد الخطر"):
+        if old_phrase in risk_remainder:
+            errors.append(f"{label}: forbidden phrase '{old_phrase}'; use 'ثلاثية تقييم الخطر'")
     if "S/O/D" in risk_remainder or "S / O / D" in risk_remainder:
         errors.append(f"{label}: collective S/O/D must be written as {RISK_TRIAD}")
 
