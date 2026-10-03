@@ -1,9 +1,30 @@
 {
-  "version": "20261003-prevention-v1",
+  "version": "20261003-prevention-v2",
   "width": 1200,
   "height": 630,
   "maxBytes": 170000,
   "cards": [
+    {
+      "slug": "article-preventive-engineering-aerospace-inverter-fmea",
+      "background": "assets/previews/story-backgrounds/case-dewa-asgr-self-healing-grid.jpg",
+      "category": "prevention",
+      "ar": {
+        "title": [
+          "من بنية النظام",
+          "إلى أولوية الخطر"
+        ],
+        "subtitle": "عاكس طيران 1 ميجاواط تحت عدسة FMEA",
+        "alt": "غلاف سلسلة هندسة الوقاية · FMEA بالكحلي والذهبي بعنوان «من بنية النظام إلى أولوية الخطر»، عن تقييم عاكس طيران بقدرة 1 ميجاواط."
+      },
+      "en": {
+        "title": [
+          "From System Architecture",
+          "to Risk Priority"
+        ],
+        "subtitle": "A 1 MW aerospace inverter through FMEA.",
+        "alt": "Navy and gold FMEA · Failure Mode & Effects Analysis cover titled “From System Architecture to Risk Priority,” focused on a 1 MW aerospace inverter."
+      }
+    },
     {
       "slug": "article-preventive-engineering-predictive-fmea-ai",
       "background": "assets/previews/story-backgrounds/case-bms-devens-future-ready-manufacturing.jpg",
