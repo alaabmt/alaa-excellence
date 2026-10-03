@@ -1,0 +1,28 @@
+name: Preventive Engineering terminology
+
+on:
+  push:
+    paths:
+      - 'article-preventive-engineering-*.html'
+      - 'articles.html'
+      - 'data/article-covers.json'
+      - 'scripts/check_preventive_engineering_arabic_terms.py'
+      - 'PREVENTIVE_ENGINEERING_ARTICLE_STANDARD.md'
+  pull_request:
+    paths:
+      - 'article-preventive-engineering-*.html'
+      - 'articles.html'
+      - 'data/article-covers.json'
+      - 'scripts/check_preventive_engineering_arabic_terms.py'
+      - 'PREVENTIVE_ENGINEERING_ARTICLE_STANDARD.md'
+
+jobs:
+  terminology:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Enforce Arabic Preventive Engineering naming
+        run: python scripts/check_preventive_engineering_arabic_terms.py
