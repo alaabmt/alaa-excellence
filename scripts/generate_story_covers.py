@@ -18,8 +18,8 @@ OUT = ROOT / 'assets/previews/story'
 GOLD = '#e5bc78'
 CREAM = '#fff0c7'
 LABELS = {
-    'ar': {'case': 'حالات وتجارب', 'reflection': 'تأملات قرآنية', 'idea': 'أفكار للتميّز', 'article': 'مقالات ورؤى'},
-    'en': {'case': 'Cases & Insights', 'reflection': 'Quranic Reflections', 'idea': 'Ideas for Excellence', 'article': 'Ideas & Insights'},
+    'ar': {'case': 'حالات وتجارب', 'reflection': 'تأملات قرآنية', 'idea': 'أفكار للتميّز', 'article': 'مقالات ورؤى', 'prevention': 'هندسة الوقاية · FMEA'},
+    'en': {'case': 'Cases & Insights', 'reflection': 'Quranic Reflections', 'idea': 'Ideas for Excellence', 'article': 'Ideas & Insights', 'prevention': 'FMEA · Failure Mode & Effects Analysis'},
 }
 
 
