@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>من بنية النظام إلى أولوية الخطر: FMEA في عاكس طيران بقدرة 1 ميجاواط | هندسة الوقاية | التميّز 10X</title>
+<meta name="description" content="دليل تطبيقي في هندسة الوقاية يشرح كيف حوّلت دراسة عاكس طيران بقدرة 1 ميجاواط بنية النظام ووظائفه وأوجه الفشل إلى درجات شدة وحدوث واكتشاف ثم إلى RPN وأولويات اعتمادية قابلة للمعالجة والتحقق.">
+<meta name="author" content="الدكتور علاء محمد أحمد">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<link rel="canonical" href="https://tamayuz10x.com/article-preventive-engineering-aerospace-inverter-fmea.html">
+<link rel="alternate" hreflang="ar" href="https://tamayuz10x.com/article-preventive-engineering-aerospace-inverter-fmea.html">
+<link rel="alternate" hreflang="en" href="https://tamayuz10x.com/en/article-preventive-engineering-aerospace-inverter-fmea.html">
+<link rel="alternate" hreflang="x-default" href="https://tamayuz10x.com/article-preventive-engineering-aerospace-inverter-fmea.html">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ar_AR">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:site_name" content="التميّز 10X | Tamayuz 10X">
+<meta property="og:title" content="من بنية النظام إلى أولوية الخطر: FMEA في عاكس طيران بقدرة 1 ميجاواط">
+<meta property="og:description" content="كيف تتحول بنية نظام طيران كهربائي إلى FMEA رقمية؟ من المهمة وأوجه الفشل إلى S/O/D وRPN ثم إلى قرار تحسين اعتمادية يمكن التحقق منه.">
+<meta property="og:url" content="https://tamayuz10x.com/article-preventive-engineering-aerospace-inverter-fmea.html">
+<meta property="og:image" content="https://tamayuz10x.com/assets/previews/story/article-preventive-engineering-aerospace-inverter-fmea-ar.jpg?v=20261003-prevention-v2">
+<meta property="og:image:secure_url" content="https://tamayuz10x.com/assets/previews/story/article-preventive-engineering-aerospace-inverter-fmea-ar.jpg?v=20261003-prevention-v2">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="غلاف سلسلة هندسة الوقاية · FMEA بعنوان من بنية النظام إلى أولوية الخطر، عن تقييم اعتمادية عاكس طيران بقدرة 1 ميجاواط.">
+<meta property="article:published_time" content="2026-10-03">
+<meta property="article:modified_time" content="2026-10-03">
+<meta property="article:author" content="https://tamayuz10x.com/about.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="من بنية النظام إلى أولوية الخطر: FMEA في عاكس طيران بقدرة 1 ميجاواط">
+<meta name="twitter:description" content="من بنية النظام ووظائفه إلى أوجه الفشل وثالوث الخطر وRPN: تطبيق FMEA على عاكس طيران بقدرة 1 ميجاواط.">
+<meta name="twitter:image" content="https://tamayuz10x.com/assets/previews/story/article-preventive-engineering-aerospace-inverter-fmea-ar.jpg?v=20261003-prevention-v2">
+<meta name="twitter:image:alt" content="غلاف هندسة الوقاية · FMEA عن الانتقال من بنية عاكس طيران إلى أولوية الخطر.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","@id":"https://tamayuz10x.com/article-preventive-engineering-aerospace-inverter-fmea.html#article","headline":"من بنية النظام إلى أولوية الخطر: FMEA في عاكس طيران بقدرة 1 ميجاواط","description":"دليل تطبيقي في هندسة الوقاية يشرح كيف استُخدمت FMEA لتقييم اعتمادية عاكس طيران بقدرة 1 ميجاواط عبر شدة الأثر والحدوث والاكتشاف وRPN.","url":"https://tamayuz10x.com/article-preventive-engineering-aerospace-inverter-fmea.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://tamayuz10x.com/article-preventive-engineering-aerospace-inverter-fmea.html"},"inLanguage":"ar","image":{"@type":"ImageObject","url":"https://tamayuz10x.com/assets/previews/story/article-preventive-engineering-aerospace-inverter-fmea-ar.jpg?v=20261003-prevention-v2","width":1200,"height":630},"datePublished":"2026-10-03","dateModified":"2026-10-03","author":{"@type":"Person","name":"الدكتور علاء محمد أحمد","url":"https://tamayuz10x.com/about.html"},"publisher":{"@type":"Organization","name":"التميّز 10X","url":"https://tamayuz10x.com/"},"articleSection":"هندسة الوقاية","citation":["https://doi.org/10.1109/ITECEATS66641.2026.11592843"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"الرئيسية","item":"https://tamayuz10x.com/"},{"@type":"ListItem","position":2,"name":"المقالات","item":"https://tamayuz10x.com/articles.html"},{"@type":"ListItem","position":3,"name":"هندسة الوقاية","item":"https://tamayuz10x.com/articles.html"},{"@type":"ListItem","position":4,"name":"من بنية النظام إلى أولوية الخطر","item":"https://tamayuz10x.com/article-preventive-engineering-aerospace-inverter-fmea.html"}]}</script>
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/story-cards.css?v=20261003-prevention-v2">
+<style>
+html,body{width:100%;max-width:100%;overflow-x:hidden}
+body{position:relative}
+.site-header,main,.pe-hero{width:100%;max-width:100%}
+.pe-hero{padding:64px 20px 34px;background:linear-gradient(180deg,#f7fafc,#fff);border-bottom:1px solid #e7edf2}.pe-hero .container{width:min(calc(100% - 32px),980px);max-width:980px;margin-inline:auto}.pe-kicker{color:#8a6429;font-weight:800;letter-spacing:.02em}.pe-hero h1{color:#08283f;font-size:clamp(2.1rem,5vw,3.7rem);line-height:1.45;margin:.4em 0 .25em}.pe-lead{font-size:1.25rem;line-height:2;color:#526271;max-width:900px}.pe-article{width:min(calc(100% - 32px),960px);max-width:960px;margin-inline:auto;padding:34px 22px 80px}.pe-article h2{margin:44px 0 16px;color:#0b3a5b;font-size:clamp(1.55rem,3vw,2rem);line-height:1.55}.pe-article h3{margin:30px 0 10px;color:#134d70;font-size:1.25rem}.pe-article p,.pe-article li{font-size:1.08rem;line-height:2;color:#334155}.pe-article strong{color:#0a314d}.evidence-note,.method-note{margin:24px 0;padding:20px 22px;border-radius:16px;background:#f8fafc;border:1px solid #dbe4ea}.method-note{background:#fff9ed;border-color:#ead7b1}.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(175px,100%),1fr));gap:14px;margin:24px 0;min-width:0;max-width:100%}.stats div{padding:20px;border:1px solid #dce5eb;border-radius:16px;background:#fff}.stats strong{display:block;font-size:1.75rem;color:#0b4e78}.pe-flow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:20px 0;padding:18px;border-radius:16px;background:#08283f;color:white}.pe-flow span{padding:8px 10px;background:rgba(255,255,255,.1);border-radius:10px}.pe-flow b{color:#e6bb70}.stage{margin:30px 0;padding:24px;border:1px solid #dce5eb;border-radius:18px;background:#fff;box-shadow:0 8px 25px rgb(5 34 59 / 4%)}.stage-head{display:flex;gap:14px;align-items:flex-start;min-width:0;max-width:100%}.stage-head>div{min-width:0;max-width:100%}.stage-num{flex:none;width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:#0b4e78;color:#fff;font-weight:900}.stage h3{margin:0 0 8px}.stage-purpose,.visual-intro{background:#f3f7fa;border-right:4px solid #0b4e78;padding:12px 14px;border-radius:10px}.visual-takeaway{background:#f8fafc;padding:12px 14px;border-radius:10px}.stage-output{margin-top:16px;padding:13px 15px;border-radius:12px;background:#edf7f2;border:1px solid #cfe8dc;color:#244a3a}.stage-error{margin-top:14px;color:#5b4a32}.pe-table caption{caption-side:top;text-align:right;padding:12px 14px;font-weight:800;color:#0b3a5b;background:#f8fafc;border-bottom:1px solid #e5ebef}.table-wrap{width:100%;max-width:100%;overflow-x:auto;overscroll-behavior-inline:contain;-webkit-overflow-scrolling:touch;margin:20px 0;border:1px solid #dce5eb;border-radius:16px}.pe-table{width:100%;border-collapse:collapse;min-width:760px;background:white}.pe-table th,.pe-table td{padding:14px 15px;border-bottom:1px solid #e5ebef;text-align:right;vertical-align:top;line-height:1.8}.pe-table th{background:#eef5f9;color:#0b3a5b}.pe-table tr:last-child td{border-bottom:0}.risk-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:20px 0;min-width:0;max-width:100%}.risk-grid div{padding:20px;border-radius:16px;background:#f7fafc;border:1px solid #dce5eb}.risk-grid h4{margin:0 0 8px;color:#0b4e78}.limits{border-right:5px solid #b78a43;background:#fff9ed;padding:20px 22px;border-radius:14px}.question{margin:38px 0;padding:26px;border-radius:18px;background:#08283f;color:#fff}.question h2,.question p,.question strong{color:#fff}.refs{border-top:1px solid #dbe4ea;padding-top:22px}.refs li{overflow-wrap:anywhere}.refs a{word-break:break-word}@media(max-width:720px){.pe-hero{padding:38px 0 26px}.pe-hero .container{width:calc(100% - 32px);max-width:none;margin-inline:auto}.pe-hero h1{font-size:clamp(1.8rem,8vw,2.55rem);overflow-wrap:anywhere}.pe-lead{font-size:1.05rem;line-height:1.9}.risk-grid{grid-template-columns:1fr}.pe-article{width:100%;max-width:100%;margin:0;padding:24px 16px 64px}.stage,.question,.limits,.evidence-note,.method-note{max-width:100%}.pe-flow{display:block;max-width:100%}.pe-flow span{display:block;margin:7px 0}.pe-flow b{display:block;text-align:center}.stage{padding:18px}.pe-table{min-width:700px}}
+</style>
+</head>
+<body>
+<header class="site-header"><div class="topbar"><div class="container topbar-inner"><div class="social">LinkedIn · YouTube · X</div><div class="lang-switch"><span>العربية</span><span>|</span><a href="/en/article-preventive-engineering-aerospace-inverter-fmea.html" hreflang="en" lang="en">English</a></div></div></div><div class="container brand-row"><a class="brand" href="/"><img alt="شعار التميّز 10X" class="brand-logo" src="/assets/images/file_0000000047188210ac6952e999d2eda7.png?v=20260910-logo4"></a><button aria-label="فتح القائمة" class="menu-toggle">☰</button></div><nav class="main-nav"><div class="container nav-links"><a href="/">الرئيسية</a><a href="/vision-mission-values.html">الرؤية والرسالة والقيم</a><a href="/about.html">عن الدكتور علاء محمد أحمد</a><a href="/#tenx-10x">التميّز 10X</a><a class="active" href="/articles.html">حالات وتجارب 10X</a><a href="/agentic-ai-10x.html">Agentic AI 10X</a><a href="/research.html">الأبحاث والمنشورات</a><a href="/personality.html">مختبر اكتشاف الذات</a><a href="/training.html">بناء القدرات</a></div></nav></header>
+<main>
+<section class="pe-hero"><div class="container"><p class="pe-kicker">هندسة الوقاية · FMEA تطبيقية في هندسة الاعتمادية</p><h1>من بنية النظام إلى أولوية الخطر: FMEA في عاكس طيران بقدرة 1 ميجاواط</h1><p class="pe-lead">في الأنظمة الحرجة لا يكفي أن نعرف أن المكوّن قد يفشل. المطلوب أن نعرف كيف يفشل، وما الذي يحدث للنظام، وكم يتكرر، وهل يمكن اكتشافه قبل أن يتحول إلى فقد وظيفة. دراسة عاكس طيران كهربائي بقدرة 1 ميجاواط تقدم مثالًا نادرًا يجمع هذه الأسئلة في FMEA رقمية واضحة.</p><noscript><p><a href="/about.html">الدكتور علاء محمد أحمد</a> · <time datetime="2026-10-03">3 أكتوبر 2026</time> · 30 دقيقة قراءة</p></noscript></div></section>
+<figure class="story-cover"><img src="/assets/previews/story/article-preventive-engineering-aerospace-inverter-fmea-ar.jpg?v=20261003-prevention-v2" alt="غلاف سلسلة هندسة الوقاية · FMEA بعنوان من بنية النظام إلى أولوية الخطر، عن تقييم اعتمادية عاكس طيران بقدرة 1 ميجاواط." width="1200" height="630" decoding="async" fetchpriority="high"><figcaption class="story-cover-note" data-no-speech="true">صورة توضيحية</figcaption></figure>
+<article class="pe-article" data-tenx-article="true" aria-label="من بنية النظام إلى أولوية الخطر: FMEA في عاكس طيران بقدرة 1 ميجاواط">
+<section>
+<h2>حين تصبح الاعتمادية جزءًا من التصميم لا فحصًا بعده</h2>
+<p>العاكس الكهربائي في الطائرة ليس مجرد صندوق إلكترونيات. هو جزء مركزي في منظومة القدرة؛ وأي ضعف في التحكم أو التحويل أو القياس قد ينتقل بسرعة من مكوّن صغير إلى فقد وظيفة على مستوى النظام. لهذا بدأت الدراسة من سؤال هندسي مباشر: <strong>أي مكوّنات العاكس تحمل أكبر مساهمة في الخطر، وأين يجب أن يبدأ تحسين الاعتمادية؟</strong></p>
+<p>حلل الباحثون عاكسًا للطيران بقدرة 1 MVA وبطوبولوجيا ثلاثية المستويات من نوع ANPC — Active Neutral-Point Clamped. بنوا مخطط بنية للنظام وشجرة للوظائف، ثم طبقوا FMEA وفق IEC 60812 واستخدموا MIL-HDBK-217F لتقدير معدلات الفشل العشوائي. بعد ذلك وضعوا معايير صريحة لشدة الأثر واحتمال الحدوث وقابلية الاكتشاف، وحسبوا RPN لكل حالة فشل لتحديد المناطق الأكثر هشاشة. <a href="#ref-1" class="citation">[1]</a></p>
+<aside class="evidence-note" role="note"><strong>حدود الدليل:</strong> الورقة تقدم تقييم اعتمادية وFMEA تفصيلية لعاكس محدد، وتحدد أولويات التحسين. لكنها لا تعرض برنامج معالجة منفذًا ثم قياسًا بعديًا يثبت انخفاض RPN أو تحسن الاعتمادية بعد التدخل. المراحل المتعلقة بالمعالجة والتحقق في هذا المقال تُبنى بوصفها امتدادًا تطبيقيًا واضحًا، لا نتيجة منشورة في الدراسة.</aside>
+</section>
+
+<section>
+<h2>قبل الأرقام: الباحثون بدأوا ببنية النظام ووظائفه</h2>
+<p>الخطوة التي تجعل FMEA ذات معنى جاءت قبل أي درجة. حددت الدراسة مكونات العاكس وعلاقاتها ووظائفها، ثم بنت شجرة وظيفية تشمل التحكم، وتحويل القدرة، والإدارة الحرارية. كما عوملت المكونات عالية التكامل مثل المتحكم وGate Driver كوحدات تحليل مستقلة بدل تفكيكها إلى كل مكوّن فرعي.</p>
+<p>النطاق لم يكن شاملًا لكل أنواع الفشل. الدراسة استبعدت الأعطال الميكانيكية مثل ارتخاء البراغي أو كسر الغلاف لأنها ركزت على ما يفيد التصميم الكهربائي الموجه للاعتمادية. هذا الاستبعاد مهم؛ لأن نتيجة FMEA لا تصف «كل مخاطر العاكس»، بل المخاطر الواقعة داخل النطاق الذي اختاره الباحثون. <a href="#ref-1" class="citation">[1]</a></p>
+<p class="visual-intro"><strong>انظر إلى الجدول التالي.</strong> يوضح كيف انتقلت الدراسة من المكوّن إلى المهمة المطلوبة ثم إلى وجه الفشل والأثر. المثال الخاص بالمكثف يبين أن المكوّن نفسه قد يملك أوجه فشل متعددة، ولكل منها أثر مختلف.</p>
+<div class="table-wrap"><table class="pe-table"><caption>أمثلة منطق المهمة → وجه الفشل → الأثر في الدراسة</caption><thead><tr><th>المكوّن</th><th>المهمة المطلوبة</th><th>وجه الفشل</th><th>الأثر</th></tr></thead><tbody>
+<tr><td>المكثف الفيلمي</td><td>دعم وصلة DC والحفاظ على السعة المطلوبة</td><td>دائرة مفتوحة</td><td>زيادة عدم اتزان جهد النقطة المتعادلة</td></tr>
+<tr><td>المكثف الفيلمي</td><td>المهمة نفسها</td><td>تدهور السعة</td><td>زيادة عدم اتزان جهد النقطة المتعادلة</td></tr>
+<tr><td>المكثف الفيلمي</td><td>المهمة نفسها</td><td>قصر كهربائي</td><td>تعريض مكثفات أحد الجانبين لجهد وصلة DC الكامل واحتمال فشل كارثي للنظام</td></tr>
+<tr><td>MOSFET</td><td>تحويل القدرة</td><td>قصر كهربائي</td><td>فشل النظام</td></tr>
+<tr><td>Gate Driver</td><td>توليد إشارة البوابة</td><td>خرج غير طبيعي</td><td>قد يصل إلى فشل النظام</td></tr>
+</tbody></table></div>
+<p class="visual-takeaway"><strong>ما الذي يجب أن تلاحظه؟</strong> المكوّن وحده لا يحدد الخطورة. وجه الفشل هو الذي يغير الأثر. قصر المكثف ليس مثل تدهور السعة، رغم أنهما يحدثان في المكوّن نفسه.</p>
+</section>
+
+<section>
+<h2>هنا حُسب ثالوث الخطر فعليًا</h2>
+<p>هذه الدراسة تختلف عن كثير من الأوراق التي تكتفي بالحديث عن FMEA بصورة عامة. الباحثون عرّفوا ثلاثة سلالم من خمس درجات لشدة الأثر S، واحتمال الحدوث O، وقابلية الاكتشاف D، ثم استخدموا المعادلة:</p>
+<div class="pe-flow" aria-label="معادلة RPN"><span>شدة الأثر S</span><b>×</b><span>احتمال الحدوث O</span><b>×</b><span>قابلية الاكتشاف D</span><b>=</b><span>RPN</span></div>
+<p>كلما ارتفعت الدرجة في أي بُعد زاد الخطر وفق سلم الدراسة. في قابلية الاكتشاف تحديدًا، الدرجة الأعلى تعني أن الفشل أصعب في الاكتشاف، وليست «قدرة كشف أفضل».</p>
+
+<p class="visual-intro"><strong>انظر إلى الجدول التالي صفًا صفًا.</strong> هذا هو المفتاح لفهم الأرقام اللاحقة؛ فلا معنى لـRPN من دون معرفة القواعد التي حوّلت الأثر ومعدل الفشل وطريقة الكشف إلى درجات.</p>
+<div class="table-wrap"><table class="pe-table"><caption>معايير الدراسة لشدة الأثر والحدوث وقابلية الاكتشاف</caption><thead><tr><th>الرتبة</th><th>شدة الأثر S</th><th>احتمال الحدوث O حسب FIT</th><th>قابلية الاكتشاف D</th></tr></thead><tbody>
+<tr><td>1</td><td>غير مؤثر تقريبًا؛ لا يسبب أثرًا يُذكر</td><td>نادر: أقل من 10³ FIT</td><td>سهل: يُكتشف مباشرة أثناء التشغيل</td></tr>
+<tr><td>2</td><td>منخفض؛ أثر بسيط ضمن نطاق التشغيل المقبول</td><td>منخفض: من 10³ إلى 10⁴ FIT</td><td>معقول: يُكتشف خوارزميًا أثناء التشغيل</td></tr>
+<tr><td>3</td><td>متوسط؛ تدهور يسمح باستمرار التشغيل فترة ممتدة</td><td>متوسط: من 10⁴ إلى 10⁵ FIT</td><td>صعب: يحتاج فحصًا وظيفيًا دوريًا</td></tr>
+<tr><td>4</td><td>مرتفع؛ تشغيل متدهور ممكن لفترة قصيرة فقط</td><td>مرتفع: من 10⁵ إلى 10⁶ FIT</td><td>صعب جدًا: يظهر فقط عند تشغيل غير طبيعي</td></tr>
+<tr><td>5</td><td>خطر؛ ضرر مباشر وفقد وظيفة النظام</td><td>مرتفع جدًا: أكثر من 10⁶ FIT</td><td>مستحيل وفق التصميم الحالي: لا توجد وسيلة كشف</td></tr>
+</tbody></table></div>
+<p class="visual-takeaway"><strong>الخلاصة من الجدول:</strong> الشدة مشتقة من أثر الفشل، والحدوث مربوط بمعدل FIT، أما الاكتشاف فمربوط بما يملكه النظام فعليًا من مراقبة وتشخيص. لذلك يمكن لوجهين من أوجه الفشل في المكوّن نفسه أن يأخذا درجات مختلفة تمامًا.</p>
+</section>
+
+<section>
+<h2>كيف حسبوا الحدوث؟ من تقدير الاعتمادية إلى درجة O</h2>
+<p>استخدمت الدراسة MIL-HDBK-217F لتقدير معدل الفشل العشوائي للمكونات. في المكثفات، يدخل في الحساب معدل الفشل الأساسي وعوامل السعة والجودة والبيئة. ولأن العاكس يحتوي 54 مكثفًا، جمع الباحثون معدل الفشل عبر المجموعة، فبلغ المعدل الكلي <strong>531,878 FIT</strong>. وأرجعوا ارتفاعه أساسًا إلى العدد الكبير من المكثفات واستخدام مكثفات فيلمية تجارية ترفع عامل الجودة في نموذج الحساب. واقترحوا النظر في مكثفات عسكرية الدرجة لتحسين الاعتمادية. <a href="#ref-1" class="citation">[1]</a></p>
+<p>وفق سلم الحدوث الذي عرّفته الدراسة، يقع 531,878 FIT داخل نطاق الرتبة 4. لكن المثير هنا أن العدد الكبير من المكثفات يخفف شدة فشل مكثف واحد في بعض الأوجه؛ أي أن <strong>حدوثًا مرتفعًا نسبيًا لا يعني تلقائيًا أعلى أولوية</strong>.</p>
+<p>أما MOSFET، فلم تكتف الدراسة بمعدل الفشل العشوائي. استخدمت ملف مهمة للطائرة ومحاكاة حرارية ودورة حرارية ثم نموذج عمر خاص بالمصنّع لتقدير إجهاد التعب. بلغ العمر المتوقع قرابة <strong>151 ألف دورة</strong> عند موثوقية 90%، وقدر معدل FIT المرتبط بالتعب لمفتاح واحد بـ <strong>558.2 FIT</strong>. وفي المقابل بلغ معدل الفشل العشوائي للمجموعة ذات 18 مفتاحًا <strong>602,316 FIT</strong>؛ ولذلك اعتبر الباحثون الفشل العشوائي هو المساهم المهيمن وأسندوا لموسفت رتبة حدوث 4 في السيناريو المدروس. <a href="#ref-1" class="citation">[1]</a></p>
+</section>
+
+<section>
+<h2>قابلية الاكتشاف ليست صفة للمكوّن؛ هي صفة لوجه الفشل والحاجز</h2>
+<p>أوضح مثال في الورقة هو MOSFET. دائرة DESAT في Gate Driver تراقب جهد المصرف إلى المصدر وتصدر إشارة خطأ عند تجاوز العتبة. لكنها لا ترى كل أوجه الفشل بالطريقة نفسها.</p>
+<p class="visual-intro"><strong>انظر إلى المقارنة التالية.</strong> المكوّن واحد، لكن وجه الفشل يغيّر قدرة النظام على اكتشافه، ولذلك تتغير D.</p>
+<div class="table-wrap"><table class="pe-table"><caption>مثال الدراسة على اختلاف قابلية الاكتشاف داخل المكوّن نفسه</caption><thead><tr><th>المكوّن</th><th>وجه الفشل</th><th>سلوك وسيلة الكشف</th><th>D</th></tr></thead><tbody>
+<tr><td>MOSFET</td><td>قصر كهربائي</td><td>حماية DESAT لا تُفعّل فورًا في السيناريو الموصوف؛ يظهر الكشف فقط في حالة تشغيل لاحقة غير طبيعية</td><td>4</td></tr>
+<tr><td>MOSFET</td><td>دائرة مفتوحة</td><td>حماية DESAT تستطيع اكتشاف الحالة سريعًا عند وقوعها</td><td>1</td></tr>
+</tbody></table></div>
+<p class="visual-takeaway"><strong>المغزى:</strong> لا يمكن منح «الموسفت» درجة كشف واحدة. التقييم مرتبط بوجه الفشل وبالحاجز الموجود وبسيناريو التشغيل الذي يسمح للحاجز برؤية الفشل.</p>
+</section>
+
+<section>
+<h2>أي نقاط الضعف ظهرت أولًا؟</h2>
+<p>عرضت الورقة في جدولها النهائي الحالات التي تجاوز فيها RPN قيمة 30 فقط، باعتبارها مناطق حرجة للتحسين. انظر إلى الجدول التالي من الأعلى إلى الأسفل: الأعلى ليس مجرد «المكوّن الأسوأ»، بل تركيبة محددة من وجه الفشل والأثر والسبب والضابط الحالي.</p>
+<div class="table-wrap"><table class="pe-table"><caption>الحالات التي نشرتها الدراسة بقيمة RPN أكبر من 30</caption><thead><tr><th>المكوّن</th><th>وجه الفشل</th><th>الأثر</th><th>S</th><th>السبب</th><th>O</th><th>الكشف الحالي</th><th>D</th><th>RPN</th></tr></thead><tbody>
+<tr><td>Gate Driver</td><td>خرج غير طبيعي: فقد خرج، ثبات مرتفع/منخفض، أو فشل interlock</td><td>فشل النظام</td><td>5</td><td>تلف لوحة التحكم</td><td>5</td><td>لا توجد وسيلة حالية</td><td>5</td><td>125</td></tr>
+<tr><td>Gate Driver</td><td>سعة جهد خرج غير طبيعية</td><td>هروب حراري وتشوه جهد الخرج</td><td>4</td><td>تقادم أو تلف لوحة التحكم</td><td>5</td><td>لا توجد وسيلة حالية</td><td>5</td><td>100</td></tr>
+<tr><td>MOSFET</td><td>قصر كهربائي</td><td>فشل النظام</td><td>5</td><td>أشعة كونية/تقادم/خلل وظيفي</td><td>4</td><td>دائرة DESAT</td><td>4</td><td>80</td></tr>
+<tr><td>حساس الجهد</td><td>فشل العزل بين دوائر الجهد العالي والمنخفض</td><td>تلف نظام التحكم بسبب الجهد العالي ثم فشل النظام</td><td>5</td><td>تقادم التغليف والعزل</td><td>3</td><td>لا توجد وسيلة حالية</td><td>5</td><td>75</td></tr>
+<tr><td>المتحكم</td><td>فقد الخرج</td><td>فشل النظام</td><td>5</td><td>تلف الشريحة/فشل برمجي</td><td>2</td><td>لا توجد وسيلة حالية</td><td>5</td><td>50</td></tr>
+<tr><td>حساس التيار</td><td>عدم دقة التغذية الراجعة للتيار</td><td>خلل في التحكم</td><td>3</td><td>انجراف حراري</td><td>3</td><td>ترشيح رقمي</td><td>4</td><td>36</td></tr>
+<tr><td>MOSFET</td><td>زيادة مقاومة التوصيل</td><td>زيادة فقد القدرة</td><td>2</td><td>تقادم الجهاز</td><td>4</td><td>مراقبة Rds-on/الأداء الحراري</td><td>4</td><td>32</td></tr>
+</tbody></table></div>
+<p class="visual-takeaway"><strong>ماذا تكشف القائمة؟</strong> أول حالتين في Gate Driver لا ترتفعان بسبب الشدة وحدها؛ ترتفعان لأن الحدوث مرتفع والكشف غير متاح أيضًا. وفي المقابل، فقد خرج المتحكم شديد الأثر S=5 لكنه أقل حدوثًا O=2، فهبط RPN إلى 50. الأرقام لا تلغي معنى الأثر، بل تجبر الفريق على رؤية تركيبة الخطر كاملة.</p>
+<aside class="method-note" role="note"><strong>حد مهم في قراءة RPN:</strong> حاصل الضرب مفيد لترتيب الحالات داخل المنهج الذي استخدمته الدراسة، لكنه لا ينبغي أن يجعل حالة ذات شدة خطرة تبدو «مقبولة» لمجرد انخفاض الحدوث. إذا كانت المؤسسة تستخدم Action Priority أو منهج أولوية آخر، يبقى معيارها المعتمد هو الحاكم.</aside>
+</section>
+
+<section>
+<h2>رحلة هندسة الوقاية: نتابع أعلى حالة خطورة من البداية إلى القرار</h2>
+<aside class="method-note" role="note"><strong>الحالة المستمرة:</strong> الصف الأعلى في الدراسة هو Gate Driver، مهمته توليد إشارة البوابة، ووجه الفشل هو خرج غير طبيعي قد يشمل فقد الخرج أو ثباته مرتفعًا أو منخفضًا أو فشل interlock. أثره فشل النظام، وسببه المذكور تلف لوحة التحكم، ودرجاته S=5 وO=5 وD=5، ولذلك RPN=125. المراحل الست الأولى مدعومة مباشرة بنتائج الدراسة؛ أما المعالجة والتحقق والمراجعة بعد التدخل فهي امتداد تطبيقي لأن الورقة لم تنفذ برنامج تحسين بعد FMEA.</aside>
+
+<div class="stage"><div class="stage-head"><span class="stage-num">1</span><div><h3>تحديد النطاق: ما الذي يقع داخل التحليل؟</h3><p class="stage-purpose"><strong>ماذا نفعل هنا؟</strong> نحدد النظام والحدود التي يصفها FMEA قبل تفسير أي رقم.</p><p><strong>في الحالة:</strong> النطاق هو الاعتمادية الكهربائية لعاكس طيران 1 MVA. الأعطال الميكانيكية مثل ارتخاء البراغي وكسر الغلاف خارج الدراسة.</p><p class="stage-error"><strong>الخطأ الشائع:</strong> قراءة النتائج كأنها حكم شامل على كل مخاطر العاكس رغم استبعاد فئات كاملة من الفشل.</p><div class="stage-output"><strong>مخرج المرحلة:</strong> FMEA كهربائية محددة النطاق، لا تقييم شامل لكل أشكال فشل النظام.</div></div></div></div>
+
+<div class="stage"><div class="stage-head"><span class="stage-num">2</span><div><h3>المهمة المطلوبة: ما الذي يجب أن ينجح؟</h3><p class="stage-purpose"><strong>ماذا نفعل هنا؟</strong> نثبت وظيفة المكوّن قبل وصف فشله.</p><p><strong>في الحالة:</strong> Gate Driver مسؤول عن توليد إشارات البوابة التي تتحكم في مفاتيح القدرة. إذا لم تكن الإشارة صحيحة وفي التوقيت والحالة المناسبين، تتأثر عملية التحويل نفسها.</p><p class="stage-error"><strong>الخطأ الشائع:</strong> بدء التحليل من اسم العطل من دون ربطه بالمهمة التي كان يجب أن تتحقق.</p><div class="stage-output"><strong>مخرج المرحلة:</strong> المهمة = توليد إشارة بوابة صحيحة وآمنة ومتسقة مع منطق التحكم.</div></div></div></div>
+
+<div class="stage"><div class="stage-head"><span class="stage-num">3</span><div><h3>وجه الفشل والأثر والسبب: أين تنكسر السلسلة؟</h3><p class="stage-purpose"><strong>ماذا نفعل هنا؟</strong> نفصل بين كيفية عدم تحقق المهمة، وما ينتج عن ذلك، ولماذا يمكن أن يحدث.</p><p><strong>في الحالة:</strong> وجه الفشل هو خرج غير طبيعي؛ الأثر هو فشل النظام؛ والسبب المدرج في الورقة تلف لوحة التحكم.</p><p class="stage-error"><strong>الخطأ الشائع:</strong> كتابة «فشل النظام» كوجه فشل، مع أنه أثر على مستوى النظام، أو كتابة «تلف اللوحة» بوصفه أثرًا وهو سبب محتمل.</p><div class="stage-output"><strong>مخرج المرحلة:</strong> مهمة توليد الإشارة → خرج غير طبيعي → فشل النظام ← تلف لوحة التحكم.</div></div></div></div>
+
+<div class="stage"><div class="stage-head"><span class="stage-num">4</span><div><h3>الوقاية والكشف الحاليان: ما الذي يمنع أو يرى الفشل؟</h3><p class="stage-purpose"><strong>ماذا نفعل هنا؟</strong> نبحث عن الحواجز الحالية، لا عن الإجراءات التي نتمنى إضافتها لاحقًا.</p><p><strong>في الحالة:</strong> جدول الدراسة يسجل أنه لا توجد وسيلة كشف حالية لهذه الحالة. هذا هو السبب المباشر في D=5. الورقة لا تصف كذلك حاجز وقاية تفصيليًا لهذا الصف؛ ولذلك لا ينبغي اختراع وسيلة موجودة.</p><p class="stage-error"><strong>الخطأ الشائع:</strong> افتراض وجود تشخيص لمجرد أن النظام متقدم تقنيًا.</p><div class="stage-output"><strong>مخرج المرحلة:</strong> فجوة واضحة في الكشف الحالي، تحتاج معالجة تصميمية إذا أريد خفض D.</div></div></div></div>
+
+<div class="stage"><div class="stage-head"><span class="stage-num">5</span><div><h3>تقييم ثالوث الخطر: كيف وصل الصف إلى 125؟</h3><p class="stage-purpose"><strong>ماذا نفعل هنا؟</strong> نطبق سلالم الدراسة على الأثر والحدوث والكشف بدل إعطاء درجات حدسية.</p><p><strong>في الحالة:</strong> فشل النظام يعطي S=5. سبب الفشل يقع في نطاق حدوث الرتبة 5 وفق تقدير الدراسة. عدم وجود وسيلة كشف يعطي D=5. لذلك: <strong>5 × 5 × 5 = 125</strong>.</p><p class="stage-error"><strong>الخطأ الشائع:</strong> التعامل مع 125 كرقم منفصل عن معناه؛ القيمة العالية نتجت من اجتماع أثر خطير، وحدوث مرتفع، وكشف غير متاح.</p><div class="stage-output"><strong>مخرج المرحلة:</strong> ملف خطر واضح يبين أي أبعاد يجب أن تحاول المعالجة تغييرها.</div></div></div></div>
+
+<div class="stage"><div class="stage-head"><span class="stage-num">6</span><div><h3>الأولوية: لماذا يبدأ الانتباه هنا؟</h3><p class="stage-purpose"><strong>ماذا نفعل هنا؟</strong> نحول التقييم إلى قرار ترتيب، مع عدم اختزال القرار في حاصل الضرب وحده.</p><p><strong>في الحالة:</strong> هذا أعلى RPN ضمن الحالات المنشورة في الدراسة، كما أن الشدة نفسها في المستوى الأعلى والكشف غير متاح. لذلك هو مرشح واضح لمراجعة تصميم الاعتمادية.</p><p class="stage-error"><strong>الخطأ الشائع:</strong> اعتبار الأعلى رقمًا «المكوّن الأسوأ» على نحو مطلق؛ التحليل يخص وجه فشل محددًا داخل نطاق محدد.</p><div class="stage-output"><strong>مخرج المرحلة:</strong> أولوية معالجة مرتبطة بوجه فشل Gate Driver المحدد، لا حكم عام على المكوّن كله.</div></div></div></div>
+
+<div class="stage"><div class="stage-head"><span class="stage-num">7</span><div><h3>تصميم المعالجة: أي بُعد نريد أن نخفضه؟</h3><p class="stage-purpose"><strong>ماذا نفعل هنا؟</strong> هذه بداية الامتداد التطبيقي. الورقة لم تنفذ معالجة لهذا الصف، لذلك لا توجد درجة «بعد» منشورة.</p><p><strong>منطق المعالجة:</strong> خفض O يتطلب معالجة أسباب تلف لوحة التحكم واعتمادية تصميمها أو مكوناتها. خفض D يتطلب وسيلة تشخيص أو مراقبة تستطيع اكتشاف خرج Gate Driver غير الطبيعي قبل أن يصبح أثره فشلًا للنظام. قد يشمل التصميم اختبارات معقولية للإشارة أو مراقبة مستقلة أو بنية تحمّل أعطال، لكن الاختيار التفصيلي يجب أن يخرج من تصميم النظام الفعلي.</p><p class="stage-error"><strong>الخطأ الشائع:</strong> كتابة «إضافة مراقبة» كإجراء مكتمل من دون تحديد ما ستكتشفه، وفي أي زمن، وتحت أي سيناريو فشل.</p><div class="stage-output"><strong>مخرج المرحلة:</strong> إجراء وقاية يستهدف السبب + إجراء كشف يستهدف وجه الفشل، مع متطلبات تحقق لكل منهما.</div></div></div></div>
+
+<div class="stage"><div class="stage-head"><span class="stage-num">8</span><div><h3>التحقق من الفاعلية: متى يجوز تغيير O أو D؟</h3><p class="stage-purpose"><strong>ماذا نفعل هنا؟</strong> لا نخفض الدرجات عند إصدار الرسم الهندسي؛ نخفضها بعد وجود دليل.</p><p><strong>في الحالة:</strong> إذا أضيفت وسيلة كشف، يجب حقن أو محاكاة حالات الخرج غير الطبيعي والتحقق من اكتشافها في الزمن المطلوب. وإذا تغيرت درجة أو جودة مكونات لوحة التحكم، يعاد حساب معدل الفشل أو اختباره وفق منهج الاعتمادية المعتمد. بعد ذلك فقط يعاد تقييم O وD.</p><p class="stage-error"><strong>الخطأ الشائع:</strong> اعتبار «تم تنفيذ الإجراء» مساويًا لـ«انخفض الخطر».</p><div class="stage-output"><strong>مخرج المرحلة:</strong> دليل اختبار/اعتمادية يبرر الدرجة الجديدة بدل افتراضها.</div></div></div></div>
+
+<div class="stage"><div class="stage-head"><span class="stage-num">9</span><div><h3>المراجعة المستمرة: متى نعيد فتح FMEA؟</h3><p class="stage-purpose"><strong>ماذا نفعل هنا؟</strong> نحدد المحفزات التي تجعل التقييم القديم غير صالح.</p><p><strong>في الحالة:</strong> تغير لوحة التحكم، أو خوارزمية القيادة، أو مكونات القدرة، أو ملف المهمة الحراري، أو المورد، أو وسيلة الكشف كلها أسباب لإعادة فتح الصفوف المتأثرة. كذلك ظهور بيانات فشل ميدانية جديدة يجب أن يراجع افتراضات O.</p><p class="stage-error"><strong>الخطأ الشائع:</strong> تثبيت S/O/D لسنوات رغم تغير التصميم أو التشغيل.</p><div class="stage-output"><strong>مخرج المرحلة:</strong> قواعد مراجعة تجعل FMEA وثيقة حية مرتبطة بتغير التصميم والدليل.</div></div></div></div>
+</section>
+
+<section>
+<h2>كيف يبدو «قبل وبعد» من دون اختراع أرقام؟</h2>
+<p>الدراسة تعطينا خط الأساس، لكنها لا تنشر درجات بعد المعالجة. لذلك لا توجد قيمة علمية في افتراض أن D ستصبح 2 أو O ستصبح 3 من دون اختبار.</p>
+<p class="visual-intro"><strong>انظر إلى الجدول التالي.</strong> العمود الأخير متعمد أن يبقى «يحدد بعد التحقق». هذا هو الفرق بين خطة تحسين وبين ادعاء نتيجة.</p>
+<div class="table-wrap"><table class="pe-table"><caption>سطر Gate Driver قبل المعالجة وما يلزم قبل إعادة التقييم</caption><thead><tr><th>العنصر</th><th>خط الأساس في الدراسة</th><th>هدف المعالجة</th><th>الدليل المطلوب</th><th>بعد المعالجة</th></tr></thead><tbody>
+<tr><td>شدة الأثر S</td><td>5</td><td>لا تتغير إلا إذا تغير أثر الفشل أو بنية النظام</td><td>تحليل أثر جديد يثبت أن فقد الوظيفة لم يعد على المستوى نفسه</td><td>يحدد بعد التحقق</td></tr>
+<tr><td>احتمال الحدوث O</td><td>5</td><td>خفض معدل الفشل المرتبط بلوحة التحكم/المكوّنات</td><td>حساب اعتمادية محدث أو بيانات اختبار/ميدان</td><td>يحدد بعد التحقق</td></tr>
+<tr><td>قابلية الاكتشاف D</td><td>5</td><td>إضافة كشف موثوق لخرج Gate Driver غير الطبيعي</td><td>اختبار حقن أعطال يثبت الاكتشاف في السيناريو والزمن المطلوبين</td><td>يحدد بعد التحقق</td></tr>
+<tr><td>RPN</td><td>125</td><td>إعادة الحساب بعد تثبيت S/O/D الجديدة بالدليل</td><td>سجل FMEA محدث ومراجعة فريق متعددة التخصصات</td><td>لا يحسب قبل التحقق</td></tr>
+</tbody></table></div>
+<p class="visual-takeaway"><strong>المغزى:</strong> FMEA ليست جدولًا نخفض أرقامه بعد تنفيذ مشروع. هي سجل قرار يجب أن يوضح ما الدليل الذي سمح بتغيير كل درجة.</p>
+</section>
+
+<section>
+<h2>ما الذي يمكن تطبيقه مباشرة في مؤسسة أخرى؟</h2>
+<p>قيمة هذه الدراسة ليست محصورة في الطيران أو إلكترونيات القدرة. البناء نفسه يمكن نقله إلى أي نظام معقد إذا ظل التسلسل منضبطًا:</p>
+<div class="pe-flow" aria-label="رحلة التطبيق"><span>حدود النظام</span><b>←</b><span>المهام</span><b>←</b><span>أوجه الفشل</span><b>←</b><span>الآثار والأسباب</span><b>←</b><span>الضوابط الحالية</span><b>←</b><span>S/O/D</span><b>←</b><span>الأولوية</span><b>←</b><span>المعالجة</span><b>←</b><span>التحقق</span></div>
+<p class="visual-takeaway"><strong>ما الذي يجب أن تلاحظه؟</strong> الدراسة قدمت مثالًا قويًا على المراحل حتى تحديد الأولوية. هندسة الوقاية تكمل الحلقة بإجبار المعالجة على العودة إلى السبب أو الكشف ثم التحقق من أن الخطر انخفض فعلًا.</p>
+
+<p class="visual-intro"><strong>انظر إلى قائمة البدء التالية.</strong> إذا لم تستطع مؤسستك ملء أحد الحقول بدليل، فهذا هو المكان الذي يحتاج عملًا قبل إعطاء درجات أدق.</p>
+<div class="table-wrap"><table class="pe-table"><caption>قالب بدء FMEA مستوحى من الدراسة وقابل للنقل</caption><thead><tr><th>الحقل</th><th>السؤال العملي</th></tr></thead><tbody>
+<tr><td>النطاق</td><td>ما الذي يدخل في التحليل وما الذي استُبعد صراحة؟</td></tr>
+<tr><td>المكوّن/الخطوة</td><td>ما الجزء الذي يؤدي المهمة؟</td></tr>
+<tr><td>المهمة المطلوبة</td><td>ما الذي يجب أن ينجح؟</td></tr>
+<tr><td>وجه الفشل</td><td>بأي صورة لا تتحقق المهمة؟</td></tr>
+<tr><td>الأثر</td><td>ماذا يحدث للمكوّن أو النظام أو المستخدم؟</td></tr>
+<tr><td>السبب المحتمل</td><td>لماذا يمكن أن يحدث وجه الفشل؟</td></tr>
+<tr><td>الوقاية الحالية</td><td>ما الذي يمنع السبب من التطور؟</td></tr>
+<tr><td>الكشف الحالي</td><td>كيف نعرف أن الفشل بدأ قبل وصول أثره؟</td></tr>
+<tr><td>S</td><td>ما أثر الفشل وفق سلم شدة معتمد؟</td></tr>
+<tr><td>O</td><td>ما الدليل الكمي أو التشغيلي على الحدوث؟</td></tr>
+<tr><td>D</td><td>ما الدليل على قدرة وسيلة الكشف؟</td></tr>
+<tr><td>الأولوية</td><td>كيف يحدد منهج المؤسسة ما يحتاج معالجة أولًا؟</td></tr>
+<tr><td>المعالجة</td><td>هل نستهدف السبب أم الوقاية أم الكشف أم أكثر من واحد؟</td></tr>
+<tr><td>الفاعلية</td><td>ما الاختبار أو البيانات التي ستثبت أن الخطر انخفض؟</td></tr>
+</tbody></table></div>
+</section>
+
+<section class="limits">
+<h2>حدود يجب ألا تختفي خلف الأرقام</h2>
+<p>أولًا، الدراسة استبعدت الأعطال الميكانيكية؛ لذلك لا تمثل نتائجها كل مصادر خطر العاكس. ثانيًا، بعض الوحدات المتكاملة حُللت على مستوى الوحدة، ما قد يخفي فروقًا بين المكونات الفرعية. ثالثًا، تقديرات الحدوث تعتمد على MIL-HDBK-217F وافتراضات الجودة والبيئة والحرارة، وهي مدخلات يجب أن تطابق السياق الفعلي. رابعًا، الدراسة استخدمت RPN وحددت الجدول النهائي بالحالات التي تجاوزت 30؛ وهذا مفيد لترتيب داخلي لكنه لا يلغي الحاجة إلى النظر المستقل إلى شدة الأثر. خامسًا، الورقة لم تنفذ برنامج تحسين ثم تعيد FMEA بعد المعالجة.</p>
+</section>
+
+<section>
+<h2>ما الذي يجعل هذه الورقة مفيدة لهندسة الوقاية؟</h2>
+<p>لأنها تعرض سلسلة يمكن تدقيقها. تبدأ من بنية نظام حقيقية، وتحدد المهمة، وتفرق بين أوجه الفشل، وتربط الأثر بالشدة، وتربط الحدوث بنموذج اعتمادية، وتربط الاكتشاف بوسائل تشخيص موجودة فعلًا، ثم تحسب الأولوية. هذا يمنع FMEA من أن تتحول إلى اجتماع آراء حول أرقام.</p>
+<p>والخطوة التالية لأي مؤسسة هي ألا تتوقف عند RPN. عندما تشير FMEA إلى Gate Driver بقيمة 125 أو MOSFET بقيمة 80، يبدأ العمل الحقيقي: <strong>ما السبب الذي يمكن خفضه؟ ما الحاجز الذي يمكن تقويته؟ وما الاختبار الذي سيثبت أن الدرجة الجديدة تستحق أن تكون أقل؟</strong></p>
+</section>
+
+<section class="question">
+<h2>سؤال هندسة الوقاية</h2>
+<p>في أكثر نظام حرج لديك، إذا طلبت اليوم الدليل الذي بُنيت عليه كل درجة S وO وD، فهل ستجد تعريفًا واضحًا وبيانات أو اختبارًا يدعمانها؟ أم ستجد أرقامًا متوارثة من نسخة سابقة من FMEA لم يعد أحد يعرف لماذا اختيرت؟</p>
+</section>
+
+<section class="tenx-disclaimer"><h2>تنويه تحريري</h2><p>يعرض هذا المقال نتائج الدراسة المنشورة كما وردت في المصدر، بما في ذلك سلالم S/O/D ودرجات RPN والحالات الحرجة. أما مراحل المعالجة والتحقق من الفاعلية بعد تحديد الأولويات فهي امتداد تعليمي ضمن إطار هندسة الوقاية وليست نتائج تدخل نفذه الباحثون. لا يغني المحتوى عن IEC 60812 أو معايير الاعتمادية أو متطلبات السلامة والهندسة المعتمدة في التطبيق الفعلي.</p></section>
+
+<section class="refs" data-no-speech="true"><h2>المراجع</h2><ol>
+<li id="ref-1">An J, Wang Y, Alcalde R, Zhou L, Wang D, Abdalmagid M, et al. <em>Reliability Assessment of a Megawatt-Scale Three-Level ANPC Inverter for Aerospace Applications Using FMEA.</em> 2026 IEEE Transportation Electrification Conference &amp; Expo and Electric Aircraft Technologies Symposium (ITEC+EATS). DOI: <a href="https://doi.org/10.1109/ITECEATS66641.2026.11592843" target="_blank" rel="noopener">10.1109/ITECEATS66641.2026.11592843</a>. المصدر الرئيس للمقال؛ يتضمن بنية النظام، سلالم S/O/D، تقديرات FIT، وتحليل FMEA النهائي.</li>
+</ol></section>
+</article>
+</main>
+<footer class="site-footer"><div class="container footer-grid"><div><strong><a href="/" style="color:inherit;text-decoration:none">التميّز 10X | <span dir="ltr">Tamayuz 10X</span></a></strong><p>معرفة ورؤى في التميّز المؤسسي وهندسة التحول والقيادة والابتكار.</p></div><div><strong>روابط سريعة</strong><p><a href="/articles.html">حالات 10X والمقالات</a> · <a href="/training.html">بناء القدرات</a> · <a href="/services.html">الخبرة المهنية</a> · <a href="/editorial-policy-disclaimer.html">السياسة التحريرية وإخلاء المسؤولية</a></p></div></div><div class="container copyright">© <span id="year"></span> الدكتور علاء محمد أحمد — جميع الحقوق محفوظة.</div></footer>
+<script src="/assets/js/main.js"></script>
+<script src="/assets/js/arabic-tts-standard.js"></script>
+<script src="/assets/js/site-engagement.js"></script>
+<script src="/assets/js/mobile-social-share.js"></script>
+</body>
+</html>
