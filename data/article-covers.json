@@ -1,5 +1,5 @@
 {
-  "version": "20260929-story-v1",
+  "version": "20261003-prevention-v1",
   "width": 1200,
   "height": 630,
   "maxBytes": 170000,
@@ -7,14 +7,14 @@
     {
       "slug": "article-preventive-engineering-predictive-fmea-ai",
       "background": "assets/previews/story-backgrounds/case-bms-devens-future-ready-manufacturing.jpg",
-      "category": "article",
+      "category": "prevention",
       "ar": {
         "title": [
           "من المراجعة الدورية",
           "إلى الإنذار المبكر"
         ],
         "subtitle": "البيانات والذكاء الاصطناعي يعيدان فتح تحليل أوجه الفشل",
-        "alt": "غلاف توضيحي بالكحلي والذهبي لمشهد مصنع ذكي وبيانات تشغيلية، بعنوان «من المراجعة الدورية إلى الإنذار المبكر»."
+        "alt": "غلاف سلسلة هندسة الوقاية بالكحلي والذهبي لمشهد مصنع ذكي وبيانات تشغيلية، ويحمل هوية «هندسة الوقاية · FMEA» وعنوان «من المراجعة الدورية إلى الإنذار المبكر»."
       },
       "en": {
         "title": [
@@ -22,7 +22,7 @@
           "to Early Warning"
         ],
         "subtitle": "Making FMEA responsive to predictive risk signals.",
-        "alt": "Navy and gold editorial cover: A smart manufacturing scene and operational data beside the title “From Periodic Review to Early Warning.”"
+        "alt": "Navy and gold FMEA cover for the Preventive Engineering series, showing a smart manufacturing scene and the fixed label “FMEA · Failure Mode & Effects Analysis” with the title “From Periodic Review to Early Warning.”"
       }
     },
     {
