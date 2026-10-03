@@ -2,6 +2,7 @@
 """Fail when reader-facing Arabic Preventive Engineering content uses bare FMEA."""
 from pathlib import Path
 import json
+import re
 import sys
 
 FULL = "منهجية هندسة الوقاية (FMEA)"
