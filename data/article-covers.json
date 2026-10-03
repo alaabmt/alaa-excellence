@@ -1,9 +1,72 @@
 {
-  "version": "20261003-prevention-v5",
+  "version": "20261003-prevention-v6",
   "width": 1200,
   "height": 630,
   "maxBytes": 170000,
   "cards": [
+    {
+      "slug": "article-preventive-engineering-fmea-afmea-fta",
+      "background": "assets/previews/story-backgrounds/case-dewa-asgr-self-healing-grid.jpg",
+      "category": "prevention",
+      "ar": {
+        "title": [
+          "حين لا تكفي",
+          "زاوية واحدة للفشل"
+        ],
+        "subtitle": "منهجية هندسة الوقاية (FMEA) مع AFMEA وFTA في نظام واحد",
+        "alt": "غلاف منهجية هندسة الوقاية (FMEA) بالكحلي والذهبي بعنوان «حين لا تكفي زاوية واحدة للفشل»، عن التكامل مع AFMEA وFTA."
+      },
+      "en": {
+        "title": [
+          "When One View",
+          "Is Not Enough"
+        ],
+        "subtitle": "Connecting FMEA, AFMEA and fault-tree logic.",
+        "alt": "Navy and gold FMEA · Failure Mode & Effects Analysis cover titled “When One View Is Not Enough,” focused on FMEA, AFMEA and Fault Tree Analysis."
+      }
+    },
+    {
+      "slug": "article-preventive-engineering-ai-human-hybrid-fmea",
+      "background": "assets/previews/story-backgrounds/article-agentic-ai-knowledge-work-autonomy.jpg",
+      "category": "prevention",
+      "ar": {
+        "title": [
+          "الذكاء الاصطناعي يقترح",
+          "والخبير يقرر"
+        ],
+        "subtitle": "حوكمة التعاون بين ChatGPT ومنهجية هندسة الوقاية (FMEA)",
+        "alt": "غلاف منهجية هندسة الوقاية (FMEA) بالكحلي والذهبي بعنوان «الذكاء الاصطناعي يقترح والخبير يقرر»، عن التعاون بين ChatGPT والخبير."
+      },
+      "en": {
+        "title": [
+          "AI Proposes,",
+          "Experts Decide"
+        ],
+        "subtitle": "A human–AI operating model for FMEA.",
+        "alt": "Navy and gold FMEA · Failure Mode & Effects Analysis cover titled “AI Proposes, Experts Decide,” focused on human–AI hybrid FMEA."
+      }
+    },
+    {
+      "slug": "article-preventive-engineering-mcdm-fmea-risk-prioritization",
+      "background": "assets/previews/story-backgrounds/idea-measure-before-improve.jpg",
+      "category": "prevention",
+      "ar": {
+        "title": [
+          "عندما لا يكفي RPN",
+          "لفهم الأولوية"
+        ],
+        "subtitle": "اتخاذ القرار متعدد المعايير داخل منهجية هندسة الوقاية (FMEA)",
+        "alt": "غلاف منهجية هندسة الوقاية (FMEA) بالكحلي والذهبي بعنوان «عندما لا يكفي RPN لفهم الأولوية»، عن اتخاذ القرار متعدد المعايير."
+      },
+      "en": {
+        "title": [
+          "When RPN",
+          "Is Not Enough"
+        ],
+        "subtitle": "Multi-criteria risk prioritization in FMEA.",
+        "alt": "Navy and gold FMEA · Failure Mode & Effects Analysis cover titled “When RPN Is Not Enough,” focused on multi-criteria risk prioritization."
+      }
+    },
     {
       "slug": "article-preventive-engineering-healthcare-accreditation-fmea",
       "background": "assets/previews/story-backgrounds/case-johns-hopkins-capacity-command-center-patient-flow.jpg",
