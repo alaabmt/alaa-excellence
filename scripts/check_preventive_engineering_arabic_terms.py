@@ -5,6 +5,7 @@ import json
 import sys
 
 FULL = "منهجية هندسة الوقاية (FMEA)"
+RISK_TRIAD = "ثلاثية تحديد الخطر (Severity, Occurrence, Detection — S/O/D)"
 errors = []
 
 def check_text(label: str, text: str) -> None:
@@ -12,6 +13,11 @@ def check_text(label: str, text: str) -> None:
     if "FMEA" in remainder:
         count = remainder.count("FMEA")
         errors.append(f"{label}: {count} bare FMEA occurrence(s); use {FULL}")
+    risk_remainder = text.replace(RISK_TRIAD, "")
+    if "ثالوث الخطر" in risk_remainder:
+        errors.append(f"{label}: forbidden phrase 'ثالوث الخطر'; use {RISK_TRIAD}")
+    if "S/O/D" in risk_remainder or "S / O / D" in risk_remainder:
+        errors.append(f"{label}: collective S/O/D must be written as {RISK_TRIAD}")
 
 for path in sorted(Path(".").glob("article-preventive-engineering-*.html")):
     check_text(str(path), path.read_text(encoding="utf-8"))
@@ -38,4 +44,4 @@ if errors:
     print("\n".join(errors), file=sys.stderr)
     raise SystemExit(1)
 
-print(f"Arabic Preventive Engineering terminology gate: PASS — every FMEA occurrence uses {FULL}.")
+print(f"Arabic Preventive Engineering terminology gate: PASS — FMEA and risk-triad terminology are canonical.")
