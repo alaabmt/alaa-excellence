@@ -1,9 +1,30 @@
 {
-  "version": "20261003-prevention-v4",
+  "version": "20261003-prevention-v5",
   "width": 1200,
   "height": 630,
   "maxBytes": 170000,
   "cards": [
+    {
+      "slug": "article-preventive-engineering-healthcare-accreditation-fmea",
+      "background": "assets/previews/story-backgrounds/case-johns-hopkins-capacity-command-center-patient-flow.jpg",
+      "category": "prevention",
+      "ar": {
+        "title": [
+          "من عدم المطابقة",
+          "إلى الوقاية"
+        ],
+        "subtitle": "سلامة المرضى واستدامة الاعتماد عبر منهجية هندسة الوقاية (FMEA)",
+        "alt": "غلاف سلسلة منهجية هندسة الوقاية (FMEA) بالكحلي والذهبي بعنوان «من عدم المطابقة إلى الوقاية»، عن استدامة اعتماد المستشفيات وسلامة المرضى."
+      },
+      "en": {
+        "title": [
+          "From Non-Compliance",
+          "to Prevention"
+        ],
+        "subtitle": "Hospital accreditation through FMEA.",
+        "alt": "Navy and gold FMEA · Failure Mode & Effects Analysis cover titled “From Non-Compliance to Prevention,” focused on hospital accreditation and patient safety."
+      }
+    },
     {
       "slug": "article-preventive-engineering-fuzzy-flisr-fmea",
       "background": "assets/previews/story-backgrounds/case-dewa-asgr-self-healing-grid.jpg",
