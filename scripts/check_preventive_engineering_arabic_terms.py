@@ -11,9 +11,11 @@ errors = []
 
 def check_text(label: str, text: str) -> None:
     remainder = text.replace(FULL, "")
-    if "FMEA" in remainder:
-        count = remainder.count("FMEA")
-        errors.append(f"{label}: {count} bare FMEA occurrence(s); use {FULL}")
+    # Match the acronym as its own token. AFMEA is a distinct acronym and must
+    # not be misclassified as a bare FMEA occurrence.
+    bare_fmea = re.findall(r"(?<![A-Za-z0-9])FMEA(?![A-Za-z0-9])", remainder)
+    if bare_fmea:
+        errors.append(f"{label}: {len(bare_fmea)} bare FMEA occurrence(s); use {FULL}")
     risk_remainder = text.replace(RISK_TRIAD, "")
     for old_phrase in LEGACY_RISK_TERMS:
         if old_phrase in risk_remainder:
