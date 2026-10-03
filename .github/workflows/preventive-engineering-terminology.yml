@@ -8,6 +8,7 @@ on:
       - 'data/article-covers.json'
       - 'scripts/check_preventive_engineering_arabic_terms.py'
       - 'PREVENTIVE_ENGINEERING_ARTICLE_STANDARD.md'
+      - '.github/workflows/preventive-engineering-terminology.yml'
   pull_request:
     paths:
       - 'article-preventive-engineering-*.html'
@@ -15,6 +16,7 @@ on:
       - 'data/article-covers.json'
       - 'scripts/check_preventive_engineering_arabic_terms.py'
       - 'PREVENTIVE_ENGINEERING_ARTICLE_STANDARD.md'
+      - '.github/workflows/preventive-engineering-terminology.yml'
 
 jobs:
   terminology:
