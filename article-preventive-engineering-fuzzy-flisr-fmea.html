@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>حين تتساوى أرقام الخطر وتختلف الأولويات: منهجية هندسة الوقاية (FMEA) الضبابية في أنظمة FLISR | التميّز 10X</title>
+<meta name="description" content="دليل تطبيقي يشرح كيف دمجت دراسة ميدانية منهجية هندسة الوقاية (FMEA) مع المنطق الضبابي لترتيب 25 وجه فشل في نظام FLISR، ومقارنة النتيجة مع RPN التقليدي وربط الأولويات بمحاكاة الاعتمادية.">
+<meta name="author" content="الدكتور علاء محمد أحمد">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<link rel="canonical" href="https://tamayuz10x.com/article-preventive-engineering-fuzzy-flisr-fmea.html">
+<link rel="alternate" hreflang="ar" href="https://tamayuz10x.com/article-preventive-engineering-fuzzy-flisr-fmea.html">
+<link rel="alternate" hreflang="en" href="https://tamayuz10x.com/en/article-preventive-engineering-fuzzy-flisr-fmea.html">
+<link rel="alternate" hreflang="x-default" href="https://tamayuz10x.com/article-preventive-engineering-fuzzy-flisr-fmea.html">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ar_AR">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:site_name" content="التميّز 10X | Tamayuz 10X">
+<meta property="og:title" content="حين تتساوى أرقام الخطر وتختلف الأولويات: منهجية هندسة الوقاية (FMEA) الضبابية في أنظمة FLISR">
+<meta property="og:description" content="لماذا قد يخفي RPN التقليدي فروقًا مهمة بين المخاطر؟ دراسة FLISR تقارن الترتيب التقليدي بمنهج ضبابي وتربط الأولوية بنتائج اعتمادية على الشبكة.">
+<meta property="og:url" content="https://tamayuz10x.com/article-preventive-engineering-fuzzy-flisr-fmea.html">
+<meta property="og:image" content="https://tamayuz10x.com/assets/previews/story/article-preventive-engineering-fuzzy-flisr-fmea-ar.jpg?v=20261003-prevention-v4">
+<meta property="og:image:secure_url" content="https://tamayuz10x.com/assets/previews/story/article-preventive-engineering-fuzzy-flisr-fmea-ar.jpg?v=20261003-prevention-v4">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="غلاف سلسلة منهجية هندسة الوقاية (FMEA) بعنوان حين تتساوى أرقام الخطر وتختلف الأولويات، عن استخدام المنطق الضبابي في نظام FLISR.">
+<meta property="article:published_time" content="2026-10-03">
+<meta property="article:modified_time" content="2026-10-03">
+<meta property="article:author" content="https://tamayuz10x.com/about.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="حين تتساوى أرقام الخطر وتختلف الأولويات: منهجية هندسة الوقاية (FMEA) الضبابية في أنظمة FLISR">
+<meta name="twitter:description" content="من 25 وجه فشل إلى أولويات صيانة: كيف أضاف المنطق الضبابي طبقة تفسير فوق RPN التقليدي في نظام FLISR.">
+<meta name="twitter:image" content="https://tamayuz10x.com/assets/previews/story/article-preventive-engineering-fuzzy-flisr-fmea-ar.jpg?v=20261003-prevention-v4">
+<meta name="twitter:image:alt" content="غلاف منهجية هندسة الوقاية (FMEA) عن المنطق الضبابي وتحديد أولويات أعطال FLISR.">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "@id": "https://tamayuz10x.com/article-preventive-engineering-fuzzy-flisr-fmea.html#article", "headline": "من بنية النظام إلى أولوية الخطر: منهجية هندسة الوقاية (FMEA) في عاكس طيران بقدرة ظاهرية 1 ميغافولت-أمبير", "description": "دليل تطبيقي في هندسة الوقاية يشرح كيف استُخدمت منهجية هندسة الوقاية (FMEA) لتقييم اعتمادية عاكس طيران بقدرة ظاهرية 1 ميغافولت-أمبير عبر شدة الأثر والحدوث والاكتشاف وRPN.", "url": "https://tamayuz10x.com/article-preventive-engineering-fuzzy-flisr-fmea.html", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://tamayuz10x.com/article-preventive-engineering-fuzzy-flisr-fmea.html"}, "inLanguage": "ar", "image": {"@type": "ImageObject", "url": "https://tamayuz10x.com/assets/previews/story/article-preventive-engineering-fuzzy-flisr-fmea-ar.jpg?v=20261003-prevention-v4", "width": 1200, "height": 630, "caption": "غلاف سلسلة منهجية هندسة الوقاية (FMEA) بالكحلي والذهبي بعنوان «من بنية النظام إلى أولوية الخطر»، عن تقييم عاكس طيران بقدرة ظاهرية 1 ميغافولت-أمبير."}, "datePublished": "2026-10-03", "dateModified": "2026-10-03", "author": {"@type": "Person", "name": "الدكتور علاء محمد أحمد", "url": "https://tamayuz10x.com/about.html"}, "publisher": {"@type": "Organization", "name": "التميّز 10X", "url": "https://tamayuz10x.com/"}, "articleSection": "هندسة الوقاية", "citation": ["https://doi.org/10.1109/ITECEATS66641.2026.11592843"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"الرئيسية","item":"https://tamayuz10x.com/"},{"@type":"ListItem","position":2,"name":"المقالات","item":"https://tamayuz10x.com/articles.html"},{"@type":"ListItem","position":3,"name":"هندسة الوقاية","item":"https://tamayuz10x.com/articles.html"},{"@type":"ListItem","position":4,"name":"حين تتساوى أرقام الخطر وتختلف الأولويات","item":"https://tamayuz10x.com/article-preventive-engineering-fuzzy-flisr-fmea.html"}]}</script>
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/story-cards.css?v=20261003-prevention-v4">
+<style>
+html,body{width:100%;max-width:100%;overflow-x:hidden}
+body{position:relative}
+.site-header,main,.pe-hero{width:100%;max-width:100%}
+.pe-hero{padding:64px 20px 34px;background:linear-gradient(180deg,#f7fafc,#fff);border-bottom:1px solid #e7edf2}.pe-hero .container{width:min(calc(100% - 32px),980px);max-width:980px;margin-inline:auto}.pe-kicker{color:#8a6429;font-weight:800;letter-spacing:.02em}.pe-hero h1{color:#08283f;font-size:clamp(2.1rem,5vw,3.7rem);line-height:1.45;margin:.4em 0 .25em}.pe-lead{font-size:1.25rem;line-height:2;color:#526271;max-width:900px}.pe-article{width:min(calc(100% - 32px),960px);max-width:960px;margin-inline:auto;padding:34px 22px 80px}.pe-article h2{margin:44px 0 16px;color:#0b3a5b;font-size:clamp(1.55rem,3vw,2rem);line-height:1.55}.pe-article h3{margin:30px 0 10px;color:#134d70;font-size:1.25rem}.pe-article p,.pe-article li{font-size:1.08rem;line-height:2;color:#334155}.pe-article strong{color:#0a314d}.evidence-note,.method-note{margin:24px 0;padding:20px 22px;border-radius:16px;background:#f8fafc;border:1px solid #dbe4ea}.method-note{background:#fff9ed;border-color:#ead7b1}.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(175px,100%),1fr));gap:14px;margin:24px 0;min-width:0;max-width:100%}.stats div{padding:20px;border:1px solid #dce5eb;border-radius:16px;background:#fff}.stats strong{display:block;font-size:1.75rem;color:#0b4e78}.pe-flow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:20px 0;padding:18px;border-radius:16px;background:#08283f;color:white}.pe-flow span{padding:8px 10px;background:rgba(255,255,255,.1);border-radius:10px}.pe-flow b{color:#e6bb70}.stage{margin:30px 0;padding:24px;border:1px solid #dce5eb;border-radius:18px;background:#fff;box-shadow:0 8px 25px rgb(5 34 59 / 4%)}.stage-head{display:flex;gap:14px;align-items:flex-start;min-width:0;max-width:100%}.stage-head>div{min-width:0;max-width:100%}.stage-num{flex:none;width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:#0b4e78;color:#fff;font-weight:900}.stage h3{margin:0 0 8px}.stage-purpose,.visual-intro{background:#f3f7fa;border-right:4px solid #0b4e78;padding:12px 14px;border-radius:10px}.visual-takeaway{background:#f8fafc;padding:12px 14px;border-radius:10px}.stage-output{margin-top:16px;padding:13px 15px;border-radius:12px;background:#edf7f2;border:1px solid #cfe8dc;color:#244a3a}.stage-error{margin-top:14px;color:#5b4a32}.pe-table caption{caption-side:top;text-align:right;padding:12px 14px;font-weight:800;color:#0b3a5b;background:#f8fafc;border-bottom:1px solid #e5ebef}.table-wrap{width:100%;max-width:100%;overflow-x:auto;overscroll-behavior-inline:contain;-webkit-overflow-scrolling:touch;margin:20px 0;border:1px solid #dce5eb;border-radius:16px}.pe-table{width:100%;border-collapse:collapse;min-width:760px;background:white}.pe-table th,.pe-table td{padding:14px 15px;border-bottom:1px solid #e5ebef;text-align:right;vertical-align:top;line-height:1.8}.pe-table th{background:#eef5f9;color:#0b3a5b}.pe-table tr:last-child td{border-bottom:0}.risk-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:20px 0;min-width:0;max-width:100%}.risk-grid div{padding:20px;border-radius:16px;background:#f7fafc;border:1px solid #dce5eb}.risk-grid h4{margin:0 0 8px;color:#0b4e78}.limits{border-right:5px solid #b78a43;background:#fff9ed;padding:20px 22px;border-radius:14px}.question{margin:38px 0;padding:26px;border-radius:18px;background:#08283f;color:#fff}.question h2,.question p,.question strong{color:#fff}.refs{border-top:1px solid #dbe4ea;padding-top:22px}.refs li{overflow-wrap:anywhere}.refs a{word-break:break-word}@media(max-width:720px){.pe-hero{padding:38px 0 26px}.pe-hero .container{width:calc(100% - 32px);max-width:none;margin-inline:auto}.pe-hero h1{font-size:clamp(1.8rem,8vw,2.55rem);overflow-wrap:anywhere}.pe-lead{font-size:1.05rem;line-height:1.9}.risk-grid{grid-template-columns:1fr}.pe-article{width:100%;max-width:100%;margin:0;padding:24px 16px 64px}.stage,.question,.limits,.evidence-note,.method-note{max-width:100%}.pe-flow{display:block;max-width:100%}.pe-flow span{display:block;margin:7px 0}.pe-flow b{display:block;text-align:center}.stage{padding:18px}.pe-table{min-width:700px}}
+</style>
+</head>
+<body>
+<header class="site-header"><div class="topbar"><div class="container topbar-inner"><div class="social">LinkedIn · YouTube · X</div><div class="lang-switch"><span>العربية</span><span>|</span><a href="/en/article-preventive-engineering-fuzzy-flisr-fmea.html" hreflang="en" lang="en">English</a></div></div></div><div class="container brand-row"><a class="brand" href="/"><img alt="شعار التميّز 10X" class="brand-logo" src="/assets/images/file_0000000047188210ac6952e999d2eda7.png?v=20260910-logo4"></a><button aria-label="فتح القائمة" class="menu-toggle">☰</button></div><nav class="main-nav"><div class="container nav-links"><a href="/">الرئيسية</a><a href="/vision-mission-values.html">الرؤية والرسالة والقيم</a><a href="/about.html">عن الدكتور علاء محمد أحمد</a><a href="/#tenx-10x">التميّز 10X</a><a class="active" href="/articles.html">حالات وتجارب 10X</a><a href="/agentic-ai-10x.html">Agentic AI 10X</a><a href="/research.html">الأبحاث والمنشورات</a><a href="/personality.html">مختبر اكتشاف الذات</a><a href="/training.html">بناء القدرات</a></div></nav></header>
+<main>
+<section class="pe-hero"><div class="container"><p class="pe-kicker">منهجية هندسة الوقاية (FMEA) · المنطق الضبابي · اعتمادية شبكات التوزيع</p><h1>حين تتساوى أرقام الخطر وتختلف الأولويات: منهجية هندسة الوقاية (FMEA) الضبابية في أنظمة FLISR</h1><p class="pe-lead">رقم أولوية الخطر قد يبدو دقيقًا، لكنه يستطيع أن يخفي فروقًا مهمة بين حالتين لهما الناتج نفسه تقريبًا. دراسة ميدانية على شبكة توزيع 20 كيلوفولت في جاوة الغربية اختبرت طريقة أخرى: تحويل تقييمات الشدة والحدوث والاكتشاف إلى قواعد لغوية ضبابية، ثم ربط الأولوية بصيانة موجهة ومحاكاة أثرها على زمن الانقطاع.</p><noscript><p><a href="/about.html">الدكتور علاء محمد أحمد</a> · <time datetime="2026-10-03">3 أكتوبر 2026</time> · 34 دقيقة قراءة</p></noscript></div></section>
+<figure class="story-cover"><img src="/assets/previews/story/article-preventive-engineering-fuzzy-flisr-fmea-ar.jpg?v=20261003-prevention-v4" alt="غلاف سلسلة منهجية هندسة الوقاية (FMEA) بعنوان حين تتساوى أرقام الخطر وتختلف الأولويات، عن استخدام المنطق الضبابي في نظام FLISR." width="1200" height="630" decoding="async" fetchpriority="high"><figcaption class="story-cover-note" data-no-speech="true">صورة توضيحية</figcaption></figure>
+
+<article class="pe-article" data-tenx-article="true" aria-label="حين تتساوى أرقام الخطر وتختلف الأولويات: منهجية هندسة الوقاية (FMEA) الضبابية في أنظمة FLISR">
+<section>
+<h2>المشكلة ليست دائمًا في الحساب؛ أحيانًا في ما يخفيه الحساب</h2>
+<p>في <strong>منهجية هندسة الوقاية (FMEA)</strong> التقليدية، تُضرب ثلاث درجات معًا: <strong>شدة الأثر</strong>، و<strong>احتمال وقوع السبب أو الفشل</strong>، و<strong>قابلية الاكتشاف</strong>. النتيجة تسمى <strong>RPN — Risk Priority Number — رقم أولوية الخطر</strong>. الفكرة سهلة، لكن الدراسة تنطلق من مشكلة معروفة: تركيبات مختلفة جدًا من الدرجات قد تنتج رقمًا متقاربًا، فيبدو خطر شديد لكنه سهل الاكتشاف قريبًا من خطر أقل شدة لكنه شبه غير قابل للكشف.</p>
+<p>الباحثون اختبروا هذه المشكلة في سياق عملي: <strong>FLISR — Fault Location, Isolation, and Service Restoration — تحديد موقع العطل وعزله واستعادة الخدمة</strong>. وهو تسلسل آلي في شبكات التوزيع يحدد موقع العطل، يعزل الجزء المتأثر، ثم يعيد التغذية إلى الأجزاء السليمة. التطبيق كان في شبكة 20 كيلوفولت تابعة لـPLN UP2D Jawa Barat في إندونيسيا، حيث يعتمد FLISR على <strong>ADMS — Advanced Distribution Management System — نظام إدارة التوزيع المتقدم</strong> من SurvalentONE. <a href="#ref-1" class="citation">[1]</a></p>
+<p>من بيانات 2022–2024 سجلت الدراسة <strong>141 حالة فشل في FLISR</strong>، وكانت خسارة الإشارة مسؤولة عن 37.6% من الحالات، وأعطال المشغلات الآلية عن 31.9%، مع معدل نجاح أساسي قدره 70%. وتذكر الدراسة أن تنفيذ التسلسل الآلي يستغرق نحو 23.65 ثانية، بينما قد يمتد التحويل اليدوي إلى نحو 90 دقيقة عند فشل السلسلة الآلية. <a href="#ref-1" class="citation">[1]</a></p>
+<aside class="evidence-note" role="note"><strong>حد مهم منذ البداية:</strong> الورقة تجمع بين بيانات تاريخية حقيقية، تقييم خبراء، نموذج منطق ضبابي، ثم محاكاة في DIgSILENT PowerFactory. نتائج ما بعد المعالجة هي في الأساس <strong>إسقاطات ومحاكاة</strong> وليست قياسات ميدانية بعد تنفيذ برنامج صيانة كامل. كما توجد داخل الورقة فروق في طريقة عرض معدل نجاح السيناريو المتوسط سنعود إليها بوضوح.</aside>
+</section>
+
+<section>
+<h2>قبل المنطق الضبابي: كيف يعمل التسلسل الذي نحاول حمايته؟</h2>
+<p>حتى يفهم القارئ الخطر، يحتاج أولًا أن يفهم المهمة. يعمل FLISR في الحالة المدروسة عبر ثلاث وظائف مترابطة: تحديد موقع العطل من بيانات الميدان، عزل الجزء المتأثر بأوامر إلى المفاتيح الآلية، ثم إغلاق نقطة ربط لإعادة التغذية إلى المناطق السليمة.</p>
+<p>يعتمد التنفيذ على ثلاثة أنظمة ميدانية رئيسية: المشغلات الآلية للمفاتيح، ووحدة الاتصال/التحكم البعيد، والبطارية الاحتياطية. <strong>RTU — Remote Terminal Unit — وحدة طرفية بعيدة</strong> هي جهاز يجمع القياسات والحالات من الموقع ويرسلها إلى مركز التحكم وينفذ الأوامر. أما <strong>Recloser — قاطع إعادة الإغلاق</strong> فهو مفتاح حماية يستطيع الفصل ثم محاولة إعادة التوصيل تلقائيًا. و<strong>LBS — Load Break Switch — مفتاح فصل تحت الحمل</strong> يستخدم لتحويل مسار التغذية ضمن شروط التشغيل المسموح بها.</p>
+<p class="visual-intro"><strong>اقرأ المسار التالي من اليمين إلى اليسار.</strong> الهدف أن ترى أين يمكن لفشل جهاز صغير أن يوقف المهمة كلها.</p>
+<div class="pe-flow" aria-label="تسلسل FLISR"><span>بيانات RTU والاتصال</span><b>←</b><span>تحديد موقع العطل</span><b>←</b><span>أوامر العزل للمفاتيح</span><b>←</b><span>تأكيد الحالة</span><b>←</b><span>استعادة الخدمة للأجزاء السليمة</span></div>
+<p class="visual-takeaway"><strong>ما الذي يجب أن تلاحظه؟</strong> الخوارزمية المركزية قد تكون صحيحة، ومع ذلك يفشل التسلسل إذا نفدت البطارية، أو انقطع الاتصال، أو تعطل المشغل الآلي، أو أصبحت بيانات RTU غير موثوقة. لذلك فإن تحليل الخطر يجب أن يشمل السلسلة الميدانية كاملة، لا منطق البرنامج وحده.</p>
+</section>
+
+<section>
+<h2>ما الذي أضافه المنطق الضبابي إلى منهجية هندسة الوقاية (FMEA)؟</h2>
+<p><strong>Fuzzy Logic — المنطق الضبابي</strong> هو طريقة حسابية تسمح بتمثيل الأحكام التي لا تكون «منخفضة أو مرتفعة» بصورة حادة، بل بدرجات انتماء متداخلة. فدرجة 7 مثلًا قد تحمل بعض معنى «متوسط» وبعض معنى «مرتفع»، بدل وضعها في صندوق واحد فقط.</p>
+<p>استخدم الباحثون <strong>Mamdani FIS — Mamdani Fuzzy Inference System — نظام استدلال ضبابي من نوع ممداني</strong>. يأخذ النظام ثلاث مدخلات هي S وO وD، ويحوّل كلًا منها إلى خمس مستويات لغوية: منخفض جدًا، منخفض، متوسط، مرتفع، مرتفع جدًا. ثم يطبق <strong>125 قاعدة IF-THEN</strong> لأن لدينا 5 × 5 × 5 تركيبات ممكنة.</p>
+<p><strong>Membership Function — دالة الانتماء</strong> هي المنحنى الذي يحدد إلى أي مدى تنتمي قيمة رقمية إلى وصف لغوي مثل «مرتفع». وبعد تطبيق القواعد، يستخدم النظام <strong>Defuzzification — إزالة الضبابية</strong> لتحويل النتيجة اللغوية إلى رقم واحد. الدراسة استخدمت <strong>Centroid Method — طريقة مركز المساحة</strong> لإنتاج درجة خطر نهائية تسمى <strong>TR*</strong> على مقياس من 0 إلى 100. <a href="#ref-1" class="citation">[1]</a></p>
+
+<p class="visual-intro"><strong>انظر إلى الجدول التالي.</strong> لا تقرأ الحدود كفئات منفصلة تمامًا؛ التداخل مقصود، وهو الذي يسمح للمنطق الضبابي بتمثيل عدم اليقين في تقييمات الخبراء.</p>
+<div class="table-wrap"><table class="pe-table"><caption>حدود المستويات اللغوية التي استخدمتها الدراسة</caption><thead><tr><th>المتغير</th><th>المستوى</th><th>النطاق الرقمي</th><th>قمة دالة الانتماء</th></tr></thead><tbody>
+<tr><td>S / O / D</td><td>منخفض جدًا</td><td>0–2.5</td><td>0</td></tr>
+<tr><td>S / O / D</td><td>منخفض</td><td>1.5–4.0</td><td>2.5</td></tr>
+<tr><td>S / O / D</td><td>متوسط</td><td>3.0–6.5</td><td>5.0</td></tr>
+<tr><td>S / O / D</td><td>مرتفع</td><td>5.5–8.5</td><td>7.5</td></tr>
+<tr><td>S / O / D</td><td>مرتفع جدًا</td><td>7.5–10</td><td>10</td></tr>
+<tr><td>TR*</td><td>منخفض جدًا</td><td>0–20</td><td>0</td></tr>
+<tr><td>TR*</td><td>منخفض</td><td>10–35</td><td>20</td></tr>
+<tr><td>TR*</td><td>متوسط</td><td>25–60</td><td>45</td></tr>
+<tr><td>TR*</td><td>مرتفع</td><td>50–80</td><td>70</td></tr>
+<tr><td>TR*</td><td>مرتفع جدًا</td><td>70–100</td><td>100</td></tr>
+</tbody></table></div>
+<p class="visual-takeaway"><strong>المغزى:</strong> الدرجة 7 لا تضطر إلى أن تكون «متوسطة» أو «مرتفعة» فقط؛ يمكن أن تحمل انتماءً إلى المستويين بدرجات مختلفة. هذا هو الجزء الذي يحاول تقليل القفزات الحادة في ترتيب المخاطر.</p>
+</section>
+
+<section>
+<h2>كيف حُسب الخطر بالطريقتين؟</h2>
+<p>في المسار التقليدي استخدمت الدراسة درجات من 1 إلى 10 لكل من: <strong>S — Severity — شدة الأثر</strong>، أي حجم الضرر إذا وقع وجه الفشل؛ و<strong>O — Occurrence — احتمال وقوع السبب أو الفشل</strong>؛ و<strong>D — Detection — قابلية الاكتشاف</strong>، أي مدى صعوبة اكتشاف الفشل بالوسائل الحالية قبل انتقال أثره. ثم حسبت:</p>
+<div class="pe-flow" aria-label="معادلة RPN"><span>S</span><b>×</b><span>O</span><b>×</b><span>D</span><b>=</b><span>RPN</span></div>
+<p>أما في المسار الضبابي، فلا تُضرب القيم فقط. تمر الدرجات عبر دوال الانتماء، ثم قواعد IF-THEN، ثم إزالة الضبابية لإنتاج TR*. وتصف الورقة القواعد بأنها تبدأ من خط أساس S×O ثم تعدّل مستوى الخطر بحسب قابلية الاكتشاف. <a href="#ref-1" class="citation">[1]</a></p>
+
+<p class="visual-intro"><strong>انظر إلى المثال التالي.</strong> الغرض ليس حفظ القواعد، بل فهم أن قابلية الاكتشاف يمكن أن ترفع أو تخفض الأولوية بدل أن تكون مجرد رقم يضرب في الناتج.</p>
+<div class="table-wrap"><table class="pe-table"><caption>أمثلة مبسطة من قاعدة القواعد الضبابية المنشورة</caption><thead><tr><th>شدة الأثر</th><th>الحدوث</th><th>الاكتشاف</th><th>خط أساس S×O</th><th>التعديل</th><th>الخطر الناتج</th></tr></thead><tbody>
+<tr><td>مرتفع جدًا</td><td>مرتفع جدًا</td><td>صعب جدًا</td><td>مرتفع جدًا</td><td>+1</td><td>مرتفع جدًا</td></tr>
+<tr><td>مرتفع جدًا</td><td>مرتفع</td><td>سهل جدًا</td><td>مرتفع</td><td>-1</td><td>متوسط</td></tr>
+<tr><td>مرتفع</td><td>مرتفع</td><td>صعب</td><td>مرتفع</td><td>+1</td><td>مرتفع جدًا</td></tr>
+<tr><td>متوسط</td><td>متوسط</td><td>سهل</td><td>متوسط</td><td>-1</td><td>منخفض</td></tr>
+</tbody></table></div>
+<p class="visual-takeaway"><strong>ماذا نستفيد؟</strong> النظام لا يقول إن الاكتشاف أهم من الشدة أو الحدوث؛ لكنه يجعل أثره على القرار أكثر تفسيرًا. الخطر الشديد والمتكرر الذي يصعب اكتشافه يرتفع، بينما يمكن أن يهدأ ترتيب حالة يمكن اكتشافها بسهولة.</p>
+</section>
+
+<section>
+<h2>ماذا وجدت الدراسة في 25 وجه فشل؟</h2>
+<p>حددت الدراسة <strong>25 وجه فشل</strong> في خمس مجموعات: المشغلات الآلية (6)، الاتصال/الإشارة (5)، البطاريات الاحتياطية (5)، RTU والوحدات البعيدة (4)، ومنطق FLISR داخل ADMS (5). وباستخدام RPN التقليدي صنفت 17 حالة على أنها حرجة بقيم أعلى من 200، و8 حالات على أنها مرتفعة بين 100 و200. <a href="#ref-1" class="citation">[1]</a></p>
+
+<p class="visual-intro"><strong>انظر إلى أعلى عشر حالات في الجدول التالي.</strong> اقرأ كل صف من وجه الفشل ثم S وO وD وصولًا إلى RPN. ستلاحظ أن البطارية والمشغلات الآلية تهيمن على القائمة.</p>
+<div class="table-wrap"><table class="pe-table"><caption>أعلى عشرة أوجه فشل وفق RPN التقليدي في الدراسة</caption><thead><tr><th>الترتيب</th><th>الرمز</th><th>وجه الفشل</th><th>S</th><th>O</th><th>D</th><th>RPN</th></tr></thead><tbody>
+<tr><td>1</td><td>BAT-01</td><td>نفاد/انخفاض شديد في سعة البطارية</td><td>9</td><td>8</td><td>8</td><td>576</td></tr>
+<tr><td>2</td><td>MTR-01</td><td>تعطل مشغل قاطع إعادة الإغلاق في وضع عالق</td><td>8</td><td>8</td><td>7</td><td>448</td></tr>
+<tr><td>3</td><td>BAT-02</td><td>فشل شاحن البطارية</td><td>9</td><td>5</td><td>9</td><td>405</td></tr>
+<tr><td>4</td><td>MTR-04</td><td>فشل تغذية لوحة التحكم للمشغل الآلي</td><td>7</td><td>7</td><td>8</td><td>392</td></tr>
+<tr><td>5</td><td>MTR-03</td><td>فشل كونتاكتور وحدة التحكم بالمحرك</td><td>8</td><td>6</td><td>8</td><td>384</td></tr>
+<tr><td>6</td><td>MTR-02</td><td>تعطل مشغل LBS في وضع متوسط</td><td>7</td><td>7</td><td>7</td><td>343</td></tr>
+<tr><td>7</td><td>BAT-05</td><td>سعة بطارية غير كافية للحمل</td><td>8</td><td>6</td><td>7</td><td>336</td></tr>
+<tr><td>8</td><td>MTR-06</td><td>عدم دقة إشارة موضع مفتاح النهاية</td><td>7</td><td>6</td><td>8</td><td>336</td></tr>
+<tr><td>9</td><td>MTR-06</td><td>تلف الختم/دخول الماء</td><td>5</td><td>8</td><td>7</td><td>280</td></tr>
+<tr><td>10</td><td>BAT-03</td><td>خلل نظام إدارة البطارية</td><td>7</td><td>5</td><td>8</td><td>280</td></tr>
+</tbody></table></div>
+<p class="visual-takeaway"><strong>ما الذي تكشفه القائمة؟</strong> أعلى ست حالات تمثل نحو 38% من RPN التراكمي بحسب الدراسة. لكنها لا تخبرنا وحدها كيف سيتغير الترتيب عندما نعطي «صعوبة الاكتشاف» وزنًا لغويًا مرنًا بدل معامل ضرب ثابت.</p>
+</section>
+
+<section>
+<h2>ماذا تغير عندما استخدم الباحثون التقييم الضبابي؟</h2>
+<p>أعطى النموذج الضبابي أعلى درجة خطر لكل من <strong>نفاد سعة البطارية</strong> و<strong>فشل شاحن البطارية</strong>: <strong>TR*=91.7</strong> لكل منهما. وتذكر الدراسة أن حالات ضعيفة الاكتشاف، مثل BAT-02 وMTR-03، ارتفعت نسبيًا مقارنة بترتيب RPN، بينما تراجعت بعض الحالات الأفضل اكتشافًا. <a href="#ref-1" class="citation">[1]</a></p>
+<p>هذه هي الفكرة العملية الأساسية: المنهج الضبابي لا يلغي S/O/D؛ بل يعيد تفسير العلاقة بينها. وقد يفيد ذلك عندما يكون الهدف هو اتخاذ قرار صيانة أو استثمار، لا مجرد ترتيب حاصل ضرب.</p>
+<aside class="method-note" role="note"><strong>لكن لا نستنتج أكثر مما نشرته الورقة:</strong> النص يعطي TR*=91.7 صراحة للحالتين الأعلى، ويصف اتجاهات بقية الحالات. الرسم في الصفحة الخامسة يقارن TR* مع RPN/10 لأعلى عشر حالات، لكن الورقة لا تنشر في النص جدولًا كاملًا بالقيم الرقمية الدقيقة لكل أعمدة TR*. لذلك لا نختلق أرقامًا غير منشورة.</aside>
+</section>
+
+<section>
+<h2>من درجة الخطر إلى أثر متوقع على الاعتمادية</h2>
+<p>بعد ترتيب المخاطر، اقترحت الدراسة أربع مجموعات معالجة: إدارة البطارية، وصيانة المفاتيح الآلية، وتعزيز الاتصال، وتحسين منطق ADMS. ثم عرّفت <strong>η — معامل فاعلية المعالجة</strong>، وهو رقم بين 0 و1 يستخدم لتقدير مقدار خفض معدل الفشل بعد المعالجة.</p>
+<p>في الصيغة الأساسية ربطت الورقة TR* بـη خطيًا: η = TR*/100. لكنها تعترف بأن هذا الربط قد يكون متفائلًا، ولذلك أجرت تحليل حساسية بثلاثة سيناريوهات. <strong>Sensitivity Analysis — تحليل الحساسية</strong> هو اختبار كيف تتغير النتيجة عندما نغير افتراضًا رئيسيًا بدل معاملته كحقيقة ثابتة.</p>
+
+<p class="visual-intro"><strong>انظر إلى السيناريوهات التالية.</strong> هذه ليست نتائج ميدانية بعد التنفيذ؛ هي إسقاطات تستخدم افتراضات مختلفة عن فاعلية المعالجة.</p>
+<div class="table-wrap"><table class="pe-table"><caption>سيناريوهات فاعلية المعالجة كما وردت في الدراسة</caption><thead><tr><th>السيناريو</th><th>نطاق η</th><th>تفسير الدراسة</th><th>معدل نجاح FLISR المتوقع</th><th>SAIDI المتوقع</th></tr></thead><tbody>
+<tr><td>متفائل</td><td>0.85–0.95</td><td>فاعلية معالجة كاملة تقريبًا</td><td>≈95%</td><td>≈1.21 ساعة/عميل/سنة</td></tr>
+<tr><td>متوسط/موصى به</td><td>0.65–0.75</td><td>فاعلية واقعية مع قيود التشغيل</td><td>≈92.5%</td><td>≈1.32</td></tr>
+<tr><td>محافظ</td><td>0.45–0.55</td><td>فاعلية محدودة بسبب تحديات التنفيذ</td><td>≈85%</td><td>≈1.50</td></tr>
+</tbody></table></div>
+<p class="visual-takeaway"><strong>المهم:</strong> الورقة نفسها لا تتعامل مع η كحقيقة تجريبية؛ بل كافتراض يحتاج اختبار حساسية. وهذا يجعل السيناريو المحافظ والمتوسط أدوات تخطيط، لا وعودًا بنتيجة.</p>
+</section>
+
+<section>
+<h2>هناك تناقض داخلي في أرقام «السيناريو المتوسط» يجب ألا نخفيه</h2>
+<p>عند التدقيق في الورقة تظهر نقطة مهمة. في القسم IV.E تحسب المعادلة معدل نجاح بعد المعالجة قدره <strong>0.85075 ≈ 85%</strong> باستخدام η=0.7 للبطارية والمشغلات والاتصال وη=0.55 لـRTU وADMS، ثم تقول إن هذا الرقم المحافظ استُخدم أساسًا لمحاكاة DIgSILENT لتجنب التفاؤل. والقسم IV.F يصف سيناريو المحاكاة الثاني كذلك بمعدل نجاح 85%.</p>
+<p>لكن جدول تحليل الحساسية، ثم قسم النتائج والخلاصة، يقدمان السيناريو المتوسط η≈0.7 على أنه يصل إلى <strong>92.5%</strong> ويخفض SAIDI إلى 1.32 ساعة/عميل/سنة. هذه الصياغات لا تتطابق تمامًا داخل الورقة نفسها. <a href="#ref-1" class="citation">[1]</a></p>
+<aside class="evidence-note" role="note"><strong>كيف نتعامل مع ذلك؟</strong> لا نختار رقمًا ونخفي الآخر. نعرض كلاهما، ونعتبر 85% نتيجة الحساب الصريح في قسم المنهجية، بينما 92.5% هو الرقم الذي تعرضه الورقة لاحقًا للسيناريو المتوسط. أي تطبيق مؤسسي يحتاج إلى إعادة حساب السلسلة من مدخلات η والأوزان الفعلية والتأكد أن مدخلات المحاكاة تطابق النتيجة المعلنة.</aside>
+</section>
+
+<section>
+<h2>ماذا فعلت محاكاة DIgSILENT فعلًا؟</h2>
+<p><strong>DIgSILENT PowerFactory</strong> هو برنامج محاكاة وتحليل لأنظمة القدرة الكهربائية. بنت الدراسة نموذجًا لشبكة 20 كيلوفولت في GI Malangbong، ثم أدخلت تغييرات في معدلات الفشل لتمثيل أثر استراتيجيات الصيانة المقترحة.</p>
+<p><strong>SAIDI — System Average Interruption Duration Index — متوسط مدة الانقطاع لكل عميل</strong> يقيس الساعات التي ينقطع فيها التيار عن العميل في المتوسط خلال سنة. أما <strong>SAIFI — System Average Interruption Frequency Index — متوسط تكرار الانقطاع لكل عميل</strong> فيقيس عدد مرات الانقطاع في المتوسط.</p>
+<p>تذكر الدراسة أن SAIDI ينخفض من <strong>1.69 إلى 1.32 ساعة/عميل/سنة</strong>، أي 21.9%، بينما يبقى SAIFI عند 0.55 انقطاع/عميل/سنة. وفي السيناريو المتفائل ينخفض SAIDI إلى 1.21، أي 28.4%. <a href="#ref-1" class="citation">[1]</a></p>
+<p class="visual-intro"><strong>انظر إلى المقارنة التالية.</strong> العمود الأخير يوضح ما إذا كنا أمام قياس ميداني أم نتيجة نموذجية.</p>
+<div class="table-wrap"><table class="pe-table"><caption>من خط الأساس إلى النتائج التي تعرضها الدراسة</caption><thead><tr><th>المؤشر</th><th>خط الأساس</th><th>السيناريو المتوسط المنشور في النتائج</th><th>طبيعة الدليل</th></tr></thead><tbody>
+<tr><td>نجاح FLISR</td><td>70%</td><td>92.5% في قسم النتائج؛ مع حساب منهجي آخر يعطي ≈85%</td><td>إسقاط رياضي/محاكاة، مع عدم اتساق داخلي في العرض</td></tr>
+<tr><td>SAIDI</td><td>1.69</td><td>1.32 ساعة/عميل/سنة</td><td>محاكاة DIgSILENT</td></tr>
+<tr><td>SAIFI</td><td>0.55</td><td>0.55 انقطاع/عميل/سنة</td><td>محاكاة؛ لم يتغير في السيناريو المعلن</td></tr>
+</tbody></table></div>
+<p class="visual-takeaway"><strong>ما الذي يجب أن تلاحظه؟</strong> DIgSILENT لا يثبت أن نموذج المنطق الضبابي «صحيح». الورقة نفسها تقول إن المحاكاة تترجم مكاسب اعتمادية مفترضة على مستوى المكونات إلى مؤشرات على مستوى النظام؛ أي أنها تختبر اتساق الأثر المتوقع على الشبكة، لا صلاحية قواعد المنطق الضبابي بصورة مستقلة.</p>
+</section>
+
+<section>
+<h2>تطبيق الدراسة عبر رحلة هندسة الوقاية ذات المراحل التسع</h2>
+<aside class="method-note" role="note"><strong>الحالة المستمرة:</strong> سنستخدم BAT-01، أي «نفاد/انخفاض شديد في سعة البطارية»، لأنه يحتل المرتبة الأولى في RPN التقليدي بقيمة 576، ويبقى من أعلى الأولويات في التقييم الضبابي بدرجة TR*=91.7. المراحل 1–7 مدعومة مباشرة ببيانات ومنهج الدراسة؛ أما التحقق الميداني بعد تنفيذ المعالجة والمراجعة المستمرة فهما امتداد تطبيقي لأن الورقة تعتمد على المحاكاة والإسقاط لا قياس ما بعد التنفيذ في الميدان.</aside>
+
+<div class="stage"><div class="stage-head"><span class="stage-num">1</span><div><h3>تحديد نطاق التحليل: ما الذي نحلله؟</h3>
+<p class="stage-purpose"><strong>ماذا نفعل هنا؟</strong> نحدد النظام وحدوده قبل تقييم الخطر.</p>
+<p><strong>في حالتنا:</strong> النطاق هو سلسلة FLISR المركزية في GI Malangbong على شبكة 20 كيلوفولت، من بيانات الميدان إلى العزل وإعادة الخدمة، مع التركيز على الأجهزة الميدانية والاتصال والبطارية ومنطق ADMS.</p>
+<p class="stage-error"><strong>الخطأ الشائع:</strong> اعتبار «اعتمادية الشبكة» موضوعًا واحدًا من دون فصل الاعتمادية العامة عن وظيفة FLISR نفسها.</p>
+<div class="stage-output"><strong>مخرج المرحلة:</strong> سلسلة تنفيذ محددة ومجموعات مكونات معروفة يمكن ربط أوجه الفشل بها.</div></div></div></div>
+
+<div class="stage"><div class="stage-head"><span class="stage-num">2</span><div><h3>المهمة المطلوبة: ما الذي يجب أن تنجح فيه البطارية؟</h3>
+<p class="stage-purpose"><strong>ماذا نفعل هنا؟</strong> نربط المكوّن بالوظيفة التي يحميها.</p>
+<p><strong>في حالتنا:</strong> البطارية الاحتياطية يجب أن تبقي أجهزة الميدان والاتصال والتحكم قادرة على تنفيذ أوامر FLISR عندما تكون التغذية الأساسية غير متاحة أثناء العطل.</p>
+<p class="stage-error"><strong>الخطأ الشائع:</strong> كتابة «البطارية» كموضوع التحليل من دون تحديد المهمة التي يجب أن تستمر أثناء الاضطراب.</p>
+<div class="stage-output"><strong>مخرج المرحلة:</strong> مهمة قابلة للفشل: توفير طاقة احتياطية كافية طوال نافذة تنفيذ العزل والاستعادة.</div></div></div></div>
+
+<div class="stage"><div class="stage-head"><span class="stage-num">3</span><div><h3>وجه الفشل والأثر: ماذا يحدث عند نفاد السعة؟</h3>
+<p class="stage-purpose"><strong>ماذا نفعل هنا؟</strong> نصف كيفية عدم تحقق المهمة، ثم نربطها بالأثر على السلسلة.</p>
+<p><strong>في حالتنا:</strong> وجه الفشل BAT-01 هو نفاد أو انخفاض شديد في سعة البطارية. وتوضح الدراسة أن فشل البطارية أو الاتصال أو المشغل في أي مرحلة قد يوقف FLISR ويدفع التشغيل إلى التحويل اليدوي، ما يطيل زمن الانقطاع.</p>
+<p class="stage-error"><strong>الخطأ الشائع:</strong> القفز إلى «SAIDI مرتفع» بوصفه وجه الفشل؛ SAIDI مؤشر أثر على مستوى الشبكة، لا وجه الفشل في البطارية.</p>
+<div class="stage-output"><strong>مخرج المرحلة:</strong> بطارية غير قادرة على دعم المهمة → توقف سلسلة FLISR → لجوء إلى التحويل اليدوي → زيادة مدة الانقطاع.</div></div></div></div>
+
+<div class="stage"><div class="stage-head"><span class="stage-num">4</span><div><h3>الوقاية والكشف الحاليان: ماذا نعرف فعلًا؟</h3>
+<p class="stage-purpose"><strong>ماذا نفعل هنا؟</strong> نميز بين ما هو منشور في الدراسة وما قد نرغب بإضافته.</p>
+<p><strong>في حالتنا:</strong> الورقة تنشر D=8 لـBAT-01، ما يعكس صعوبة نسبية في الاكتشاف وفق تقييم الخبراء، لكنها لا تعرض في جدول النتائج آلية كشف تفصيلية لهذا الصف. أما «معايرة BMS» وجداول الاستبدال فظهرت لاحقًا كاستراتيجيات معالجة مقترحة، لا كضوابط حالية مؤكدة.</p>
+<p><strong>BMS — Battery Management System — نظام إدارة البطارية</strong> هو نظام يراقب حالات مثل الجهد والتيار ودرجة الحرارة وحالة الشحن لحماية البطارية ودعم قرارات الصيانة.</p>
+<p class="stage-error"><strong>الخطأ الشائع:</strong> تحويل الاستراتيجية المقترحة إلى «ضابط حالي» في سجل منهجية هندسة الوقاية (FMEA).</p>
+<div class="stage-output"><strong>مخرج المرحلة:</strong> درجة اكتشاف مرتفعة نسبيًا مع فجوة في تفاصيل الضابط الحالي المنشور، ما يستدعي توثيق وسيلة القياس في التطبيق الحقيقي.</div></div></div></div>
+
+<div class="stage"><div class="stage-head"><span class="stage-num">5</span><div><h3>ثالوث الخطر: كيف وصل BAT-01 إلى RPN=576؟</h3>
+<p class="stage-purpose"><strong>ماذا نفعل هنا؟</strong> نطبق درجات الدراسة كما هي، لا أرقامًا من عندنا.</p>
+<p><strong>في حالتنا:</strong> S=9 وO=8 وD=8، ولذلك <strong>9 × 8 × 8 = 576</strong>. هذا أعلى RPN تقليدي في الجدول المنشور.</p>
+<p class="stage-error"><strong>الخطأ الشائع:</strong> اعتبار 576 «حقيقة مطلقة» خارج سلم الخبراء والسياق المحلي الذي بنيت عليه الدرجات.</p>
+<div class="stage-output"><strong>مخرج المرحلة:</strong> ملف خطر تقليدي يضع BAT-01 في مقدمة المعالجة.</div></div></div></div>
+
+<div class="stage"><div class="stage-head"><span class="stage-num">6</span><div><h3>إعادة قراءة الأولوية بالمنطق الضبابي</h3>
+<p class="stage-purpose"><strong>ماذا نفعل هنا؟</strong> نسأل هل يبقى الخطر مرتفعًا عندما نعالج S/O/D كقيم لغوية متداخلة بدل حاصل ضرب فقط.</p>
+<p><strong>في حالتنا:</strong> BAT-01 يحصل على TR*=91.7 ويبقى من أعلى الأولويات. النتيجة هنا لا «تصحح» RPN بقدر ما تعطي الفريق تأكيدًا أن الحالة خطرة أيضًا تحت منطق قواعد مختلف.</p>
+<p class="stage-error"><strong>الخطأ الشائع:</strong> اعتبار TR* بديلًا عالميًا صالحًا لكل مؤسسة. القواعد ودوال الانتماء جزء من التصميم ويجب مراجعتها مع الخبراء.</p>
+<div class="stage-output"><strong>مخرج المرحلة:</strong> أولوية مرتفعة متسقة في الطريقتين، مع تفسير ضبابي أكثر مرونة للعلاقة بين الأبعاد.</div></div></div></div>
+
+<div class="stage"><div class="stage-head"><span class="stage-num">7</span><div><h3>تصميم المعالجة: ماذا اقترحت الدراسة؟</h3>
+<p class="stage-purpose"><strong>ماذا نفعل هنا؟</strong> نحول الأولوية إلى إجراء مرتبط بالمكوّن.</p>
+<p><strong>في حالتنا:</strong> تضع الدراسة BAT-01 وBAT-02 ضمن مجموعة «إدارة البطارية»، وتقترح جداول استبدال ومعايرة BMS. وفي الإسقاط الرياضي تستخدم η≈0.7 لهذه المجموعة في السيناريو المتوسط.</p>
+<p class="stage-error"><strong>الخطأ الشائع:</strong> افتراض أن η=0.7 دليل على أن الإجراء سيخفض الفشل 70% في الواقع؛ هو افتراض نمذجة يجب إثباته لاحقًا.</p>
+<div class="stage-output"><strong>مخرج المرحلة:</strong> إجراءات محددة للبطارية + فرضية قابلة للاختبار حول مقدار خفض الفشل.</div></div></div></div>
+
+<div class="stage"><div class="stage-head"><span class="stage-num">8</span><div><h3>التحقق من الفاعلية: ماذا نحتاج خارج المحاكاة؟</h3>
+<p class="stage-purpose"><strong>ماذا نفعل هنا؟</strong> نحول «المشروع المتوقع» إلى اختبار ميداني.</p>
+<p><strong>في حالتنا:</strong> بعد تطبيق جدول الاستبدال ومعايرة BMS، نحتاج إلى مقارنة معدل فشل البطاريات، وعدد مرات فشل FLISR بسبب الطاقة الاحتياطية، ونجاح التسلسل، وSAIDI قبل/بعد على فترة كافية. كما يجب فحص ما إذا كانت D انخفضت فعلًا لأن المراقبة أصبحت أسبق وأكثر موثوقية.</p>
+<p class="stage-error"><strong>الخطأ الشائع:</strong> استخدام انخفاض SAIDI في المحاكاة كبديل عن قياس الفاعلية التشغيلية.</p>
+<div class="stage-output"><strong>مخرج المرحلة:</strong> دليل ميداني يثبت أو يرفض افتراض η ويبرر أي إعادة تقييم لـO أوD.</div></div></div></div>
+
+<div class="stage"><div class="stage-head"><span class="stage-num">9</span><div><h3>المراجعة المستمرة: كيف تبقى القواعد صالحة؟</h3>
+<p class="stage-purpose"><strong>ماذا نفعل هنا؟</strong> نراجع النموذج عندما يتغير الواقع.</p>
+<p><strong>في حالتنا:</strong> يجب إعادة فتح التحليل عند تغير نوع البطارية، أو شاحنها، أو BMS، أو استراتيجية الصيانة، أو شبكة الاتصال، أو نمط الأعطال التاريخي. كما ينبغي إعادة معايرة دوال الانتماء وقواعد المنطق الضبابي عندما تتراكم بيانات ميدانية جديدة.</p>
+<p class="stage-error"><strong>الخطأ الشائع:</strong> تثبيت قاعدة 125 قاعدة لسنوات وكأن معرفة الخبراء وبيانات التشغيل لا تتغير.</p>
+<div class="stage-output"><strong>مخرج المرحلة:</strong> نموذج خطر حي يتعلم من السجل الميداني بدل أن يبقى نسخة ثابتة من ورشة واحدة.</div></div></div></div>
+</section>
+
+<section>
+<h2>كيف تطبق الفكرة في مؤسستك دون أن تبدأ بنظام ضبابي معقد؟</h2>
+<p>يمكن البدء على مرحلتين: أولًا تشغيل منهجية هندسة الوقاية (FMEA) التقليدية بصورة منضبطة مع توثيق أسباب S/O/D، ثم استخدام المنطق الضبابي كطبقة مقارنة على مجموعة محدودة من أوجه الفشل لمعرفة هل يتغير ترتيب الأولويات بصورة مفيدة وقابلة للتفسير.</p>
+<p class="visual-intro"><strong>انظر إلى خطة التطبيق التالية.</strong> الفكرة أن تبني طبقة الضبابية بعد أن تصبح بيانات ومنطق منهجية هندسة الوقاية (FMEA) نفسها جيدة، لا لتعويض تحليل أساسي ضعيف.</p>
+<div class="table-wrap"><table class="pe-table"><caption>خطة تجربة تطبيقية محدودة للمنطق الضبابي</caption><thead><tr><th>الخطوة</th><th>ما الذي تنفذه؟</th><th>المخرج</th></tr></thead><tbody>
+<tr><td>1</td><td>اختر عملية أو نظامًا فيه 15–30 وجه فشل مع بيانات تاريخية وخبراء تشغيل</td><td>نطاق قابل للمقارنة</td></tr>
+<tr><td>2</td><td>راجع تعريفات S/O/D وأسباب كل درجة</td><td>خط أساس تقليدي موثق</td></tr>
+<tr><td>3</td><td>عرّف 3–5 مستويات لغوية ودوال انتماء مناسبة للسياق</td><td>تحويل مفهوم من الرقم إلى الوصف</td></tr>
+<tr><td>4</td><td>ابن قاعدة القواعد مع فريق متعدد التخصصات</td><td>منطق قرار يمكن مراجعته وتدقيقه</td></tr>
+<tr><td>5</td><td>احسب RPN ودرجة ضبابية جنبًا إلى جنب</td><td>قائمة بالحالات التي تغير ترتيبها</td></tr>
+<tr><td>6</td><td>افحص لماذا تغير الترتيب، خصوصًا الحالات ضعيفة الاكتشاف</td><td>قرار إن كان المنهج يضيف قيمة</td></tr>
+<tr><td>7</td><td>اربط المعالجة بمؤشرات فاعلية ميدانية، لا بدرجة الخطر وحدها</td><td>خطة تحقق قبل/بعد</td></tr>
+<tr><td>8</td><td>أعد معايرة القواعد بعد البيانات الجديدة</td><td>نظام تعلم مستمر</td></tr>
+</tbody></table></div>
+<p class="visual-takeaway"><strong>الخلاصة:</strong> لا تبدأ بالـ125 قاعدة. ابدأ بجودة تعريف المهمة ووجه الفشل والأثر والسبب والضوابط، ثم اسأل هل المنطق الضبابي يحل مشكلة حقيقية في ترتيب الأولويات.</p>
+</section>
+
+<section>
+<h2>قالب قابل للنسخ لمقارنة RPN مع التقييم الضبابي</h2>
+<p class="visual-intro"><strong>استخدم الجدول التالي كسجل قرار.</strong> يجب أن يستطيع الفريق تفسير كل فرق في الترتيب، لا مجرد إعلان أن الخوارزمية الجديدة «أفضل».</p>
+<div class="table-wrap"><table class="pe-table"><caption>قالب مقارنة يمكن نقله إلى أول تجربة مؤسسية</caption><thead><tr><th>الحقل</th><th>ما الذي تسجله؟</th></tr></thead><tbody>
+<tr><td>المهمة المطلوبة</td><td>ما الذي يجب أن ينجح؟</td></tr>
+<tr><td>وجه الفشل</td><td>كيف لا تتحقق المهمة؟</td></tr>
+<tr><td>الأثر</td><td>ما نتيجة الفشل على النظام أو العميل؟</td></tr>
+<tr><td>السبب المحتمل</td><td>لماذا قد يحدث؟</td></tr>
+<tr><td>الوقاية الحالية</td><td>ما الذي يمنع السبب؟</td></tr>
+<tr><td>وسيلة اكتشاف الفشل الحالية</td><td>كيف نعرف أن الفشل بدأ؟</td></tr>
+<tr><td>S / O / D</td><td>الدرجات مع تعريف السلم والدليل</td></tr>
+<tr><td>RPN</td><td>الحاصل التقليدي S×O×D</td></tr>
+<tr><td>المستويات اللغوية</td><td>كيف تحولت الدرجات إلى منخفض/متوسط/مرتفع؟</td></tr>
+<tr><td>قاعدة الاستدلال</td><td>أي قاعدة IF-THEN أثرت في الحالة؟</td></tr>
+<tr><td>درجة الخطر الضبابية</td><td>القيمة النهائية بعد إزالة الضبابية</td></tr>
+<tr><td>فرق الترتيب</td><td>هل ارتفعت أو انخفضت الأولوية؟ ولماذا؟</td></tr>
+<tr><td>المعالجة</td><td>ما الإجراء الذي يستهدف السبب أو الكشف؟</td></tr>
+<tr><td>دليل الفاعلية</td><td>ما المؤشر الميداني الذي سيبرهن خفض الخطر؟</td></tr>
+</tbody></table></div>
+<p class="visual-takeaway"><strong>ما الذي يجب أن تلاحظه؟</strong> العمود الأهم ليس «الدرجة الضبابية» وحده؛ بل تفسير لماذا تغير ترتيب الحالة وما الإجراء الذي أصبح أكثر منطقية نتيجة ذلك.</p>
+</section>
+
+<section class="limits">
+<h2>حدود الدراسة التي يجب أن تبقى مرئية</h2>
+<p>الدراسة قوية لأنها تجمع بيانات فعلية وخبراء ونموذجًا حسابيًا ومحاكاة شبكة، لكنها لا تقدم تجربة ميدانية قبل/بعد تثبت أن الاستراتيجيات حققت فعليًا نسب الخفض المفترضة. كما أن ربط TR* بـη خطيًا هو افتراض نمذجة اعترف الباحثون بأنه قد يكون متفائلًا، ولذلك أجروا تحليل حساسية. إضافة إلى ذلك، يوجد عدم اتساق داخلي بين الحساب الصريح لمعدل نجاح ≈85% وبين عرض 92.5% لاحقًا للسيناريو المتوسط. وأخيرًا، دوال الانتماء والقواعد الـ125 تعتمد على تصميم خبراء وسياق محلي؛ لا ينبغي نسخها آليًا إلى مؤسسة أخرى.</p>
+</section>
+
+<section>
+<h2>ماذا يستفيد القارئ من هذه الدراسة؟</h2>
+<p>القيمة ليست أن «المنطق الضبابي أفضل دائمًا من RPN». القيمة هي إدراك أن رقم أولوية واحد قد يضغط ثلاث معلومات مختلفة في حاصل ضرب واحد، وأن المؤسسات تستطيع اختبار طريقة أكثر مرونة عندما يكون عدم اليقين واختلاف قدرة الكشف مؤثرين في القرار.</p>
+<p>إذا أردت تطبيق الفكرة، فابدأ بسؤال بسيط: <strong>هل توجد حالات في منهجية هندسة الوقاية (FMEA) الحالية لدينا تبدو متقاربة في RPN، لكننا نعرف مهنيًا أن إحداها أخطر بسبب صعوبة اكتشافها أو شدة أثرها؟</strong> إذا كانت الإجابة نعم، فهذه منطقة مناسبة لاختبار منطق ضبابي قابل للتفسير — بشرط ألا يتحول إلى صندوق أسود جديد.</p>
+</section>
+
+<section class="question">
+<h2>سؤال هندسة الوقاية</h2>
+<p>لو أعطاك جدول المخاطر غدًا حالتين لهما RPN متقارب، هل تستطيع أن تشرح لفريقك لماذا يجب معالجة إحداهما قبل الأخرى؟ وإذا لم تستطع، فهل المشكلة في الخطر نفسه أم في الطريقة التي اختصرته بها إلى رقم واحد؟</p>
+</section>
+
+<section class="tenx-disclaimer"><h2 data-tenx-speech="تَنْوِيهٌ تَحْرِيرِيٌّ">تنويه تحريري</h2><p data-tenx-speech="الْآرَاءُ وَالتَّحْلِيلَاتُ الْوَارِدَةُ فِي هَذَا الْمَقَالِ تُمَثِّلُ رَأْيَ الْكَاتِبِ وَتَحْلِيلَهُ الْمِهْنِيَّ اسْتِنَادًا إِلَى الْمَصَادِرِ الْمُشَارِ إِلَيْهَا، وَلَا تُمَثِّلُ بِالضَّرُورَةِ الْمَوَاقِفَ الرَّسْمِيَّةَ لِلْجِهَاتِ الْمَذْكُورَةِ. وَلِلِاطِّلَاعِ عَلَى الْمَعْلُومَاتِ وَالْمَرَاجِعِ الْأَصْلِيَّةِ وَالْكَامِلَةِ وَالْأَحْدَثِ، يُرْجَى الرُّجُوعُ مُبَاشَرَةً إِلَى الْمَصَادِرِ الْأَصْلِيَّةِ وَالْوَثَائِقِ الرَّسْمِيَّةِ الْوَارِدَةِ فِي قَائِمَةِ الْمَرَاجِعِ.">الآراء والتحليلات الواردة في هذا المقال تمثل رأي الكاتب وتحليله المهني استنادًا إلى المصادر المشار إليها، ولا تمثل بالضرورة المواقف الرسمية للجهات المذكورة. وللاطلاع على المعلومات والمراجع الأصلية والكاملة والأحدث، يُرجى الرجوع مباشرة إلى المصادر الأصلية والوثائق الرسمية الواردة في قائمة المراجع.</p></section>
+
+<section class="refs" data-no-speech="true"><h2>المراجع</h2><ol>
+<li id="ref-1">Setiawan I, Hernanda IGNS, Irfansyah AN. <em>Fuzzy Failure Mode and Effects Analysis for Risk-Based FLISR Reliability Enhancement: Comparison with Conventional RPN and Case Study of PLN UP2D Jawa Barat.</em> 2026 International Seminar on Intelligent Technology and Its Applications (ISITIA). المعرّف الرقمي للوثيقة <strong>DOI — Digital Object Identifier</strong>: <a href="https://doi.org/10.1109/ISITIA71267.2026.11642348" target="_blank" rel="noopener">10.1109/ISITIA71267.2026.11642348</a>. المصدر الرئيس للمقال؛ يتضمن بيانات الفشل التاريخية، التقييم التقليدي، نظام ممداني الضبابي، وتحليل السيناريوهات والمحاكاة.</li>
+<li>IEEE Std 1366-2012. <em>Guide for Electric Power Distribution Reliability Indices.</em> DOI: <a href="https://doi.org/10.1109/IEEESTD.2012.6209381" target="_blank" rel="noopener">10.1109/IEEESTD.2012.6209381</a>. المرجع الذي تستند إليه الورقة في تعريف مؤشرات اعتمادية التوزيع.</li>
+</ol></section>
+</article>
+</main>
+<footer class="site-footer"><div class="container footer-grid"><div><strong><a href="/" style="color:inherit;text-decoration:none">التميّز 10X | <span dir="ltr">Tamayuz 10X</span></a></strong><p>معرفة ورؤى في التميّز المؤسسي وهندسة التحول والقيادة والابتكار.</p></div><div><strong>روابط سريعة</strong><p><a href="/articles.html">حالات 10X والمقالات</a> · <a href="/training.html">بناء القدرات</a> · <a href="/services.html">الخبرة المهنية</a> · <a href="/editorial-policy-disclaimer.html">السياسة التحريرية وإخلاء المسؤولية</a></p></div></div><div class="container copyright">© <span id="year"></span> الدكتور علاء محمد أحمد — جميع الحقوق محفوظة.</div></footer>
+<script src="/assets/js/main.js"></script>
+<script src="/assets/js/arabic-tts-standard.js"></script>
+<script src="/assets/js/site-engagement.js"></script>
+<script src="/assets/js/mobile-social-share.js"></script>
+</body>
+</html>
