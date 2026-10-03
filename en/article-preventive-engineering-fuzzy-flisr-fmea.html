@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>When Equal RPNs Hide Different Risks: Fuzzy FMEA for FLISR Reliability | Preventive Engineering | Tamayuz 10X</title>
+<meta name="description" content="A practical Preventive Engineering guide to fuzzy FMEA for FLISR reliability: comparing conventional RPN with a Mamdani fuzzy system, interpreting field data, and connecting priorities to simulated reliability outcomes.">
+<meta name="author" content="Dr. Alaa Mohammad Ahmed">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<link rel="canonical" href="https://tamayuz10x.com/en/article-preventive-engineering-fuzzy-flisr-fmea.html">
+<link rel="alternate" hreflang="ar" href="https://tamayuz10x.com/article-preventive-engineering-fuzzy-flisr-fmea.html">
+<link rel="alternate" hreflang="en" href="https://tamayuz10x.com/en/article-preventive-engineering-fuzzy-flisr-fmea.html">
+<link rel="alternate" hreflang="x-default" href="https://tamayuz10x.com/article-preventive-engineering-fuzzy-flisr-fmea.html">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="ar_AR">
+<meta property="og:site_name" content="Tamayuz 10X">
+<meta property="og:title" content="When Equal RPNs Hide Different Risks: Fuzzy FMEA for FLISR Reliability">
+<meta property="og:description" content="Why can conventional RPN hide important differences between risks? A West Java FLISR case compares RPN with Mamdani fuzzy logic and links priorities to reliability simulation.">
+<meta property="og:url" content="https://tamayuz10x.com/en/article-preventive-engineering-fuzzy-flisr-fmea.html">
+<meta property="og:image" content="https://tamayuz10x.com/assets/previews/story/article-preventive-engineering-fuzzy-flisr-fmea-en.jpg?v=20261003-prevention-v4">
+<meta property="og:image:secure_url" content="https://tamayuz10x.com/assets/previews/story/article-preventive-engineering-fuzzy-flisr-fmea-en.jpg?v=20261003-prevention-v4">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="FMEA · Failure Mode & Effects Analysis cover titled When Equal RPNs Hide Different Risks, focused on fuzzy FLISR reliability assessment.">
+<meta property="article:published_time" content="2026-10-03">
+<meta property="article:modified_time" content="2026-10-03">
+<meta property="article:author" content="https://tamayuz10x.com/en/about.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="When Equal RPNs Hide Different Risks: Fuzzy FMEA for FLISR Reliability">
+<meta name="twitter:description" content="From 25 failure modes to maintenance priorities: how fuzzy logic changes the interpretation of S/O/D beyond conventional RPN.">
+<meta name="twitter:image" content="https://tamayuz10x.com/assets/previews/story/article-preventive-engineering-fuzzy-flisr-fmea-en.jpg?v=20261003-prevention-v4">
+<meta name="twitter:image:alt" content="FMEA · Failure Mode & Effects Analysis cover about fuzzy logic and FLISR risk prioritization.">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "@id": "https://tamayuz10x.com/en/article-preventive-engineering-fuzzy-flisr-fmea.html#article", "headline": "From System Architecture to Risk Priority: FMEA in a 1 MVA Aerospace Inverter", "description": "A practical Preventive Engineering analysis of predictive quality analytics, explainable AI and FMEA, with a nine-stage application framework and explicit evidence limits.", "url": "https://tamayuz10x.com/en/article-preventive-engineering-fuzzy-flisr-fmea.html", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://tamayuz10x.com/en/article-preventive-engineering-fuzzy-flisr-fmea.html"}, "inLanguage": "en", "image": {"@type": "ImageObject", "url": "https://tamayuz10x.com/assets/previews/story/article-preventive-engineering-fuzzy-flisr-fmea-en.jpg?v=20261003-prevention-v4", "width": 1200, "height": 630, "caption": "Navy and gold FMEA · Failure Mode & Effects Analysis cover titled “From System Architecture to Risk Priority,” focused on a 1 MW aerospace inverter."}, "datePublished": "2026-10-03", "dateModified": "2026-10-03", "author": {"@type": "Person", "name": "Dr. Alaa Mohammad Ahmed", "url": "https://tamayuz10x.com/en/about.html"}, "publisher": {"@type": "Organization", "name": "Tamayuz 10X", "url": "https://tamayuz10x.com/"}, "articleSection": "Preventive Engineering", "citation": ["https://doi.org/10.1109/ECAI69016.2026.11613567"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://tamayuz10x.com/en/"},{"@type":"ListItem","position":2,"name":"Articles","item":"https://tamayuz10x.com/en/articles.html"},{"@type":"ListItem","position":3,"name":"Preventive Engineering","item":"https://tamayuz10x.com/en/articles.html"},{"@type":"ListItem","position":4,"name":"When Equal RPNs Hide Different Risks","item":"https://tamayuz10x.com/en/article-preventive-engineering-fuzzy-flisr-fmea.html"}]}</script>
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/style-en.css?v=20260910-header4">
+<link rel="stylesheet" href="/assets/css/story-cards.css?v=20261003-prevention-v4">
+<style>
+html,body{width:100%;max-width:100%;overflow-x:hidden}
+body{position:relative}
+.site-header,main,.pe-hero{width:100%;max-width:100%}
+.pe-hero{padding:64px 20px 34px;background:linear-gradient(180deg,#f7fafc,#fff);border-bottom:1px solid #e7edf2}.pe-hero .container{width:min(calc(100% - 32px),980px);max-width:980px;margin-inline:auto}.pe-kicker{color:#8a6429;font-weight:800;letter-spacing:.02em}.pe-hero h1{color:#08283f;font-size:clamp(2.1rem,5vw,3.7rem);line-height:1.2;margin:.4em 0 .3em}.pe-lead{font-size:1.23rem;line-height:1.8;color:#526271;max-width:900px}.pe-article{width:min(calc(100% - 32px),960px);max-width:960px;margin-inline:auto;padding:34px 22px 80px}.pe-article h2{margin:44px 0 16px;color:#0b3a5b;font-size:clamp(1.55rem,3vw,2rem);line-height:1.35}.pe-article h3{margin:30px 0 10px;color:#134d70;font-size:1.25rem}.pe-article p,.pe-article li{font-size:1.08rem;line-height:1.82;color:#334155}.pe-article strong{color:#0a314d}.evidence-note,.method-note{margin:24px 0;padding:20px 22px;border-radius:16px;background:#f8fafc;border:1px solid #dbe4ea}.method-note{background:#fff9ed;border-color:#ead7b1}.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(175px,100%),1fr));gap:14px;margin:24px 0;min-width:0;max-width:100%}.stats div{padding:20px;border:1px solid #dce5eb;border-radius:16px;background:#fff}.stats strong{display:block;font-size:1.75rem;color:#0b4e78}.pe-flow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:20px 0;padding:18px;border-radius:16px;background:#08283f;color:white}.pe-flow span{padding:8px 10px;background:rgba(255,255,255,.1);border-radius:10px}.pe-flow b{color:#e6bb70}.stage{margin:30px 0;padding:24px;border:1px solid #dce5eb;border-radius:18px;background:#fff;box-shadow:0 8px 25px rgb(5 34 59 / 4%)}.stage-head{display:flex;gap:14px;align-items:flex-start;min-width:0;max-width:100%}.stage-head>div{min-width:0;max-width:100%}.stage-num{flex:none;width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:#0b4e78;color:#fff;font-weight:900}.stage h3{margin:0 0 8px}.stage-purpose,.visual-intro{background:#f3f7fa;border-left:4px solid #0b4e78;padding:12px 14px;border-radius:10px}.visual-takeaway{background:#f8fafc;padding:12px 14px;border-radius:10px}.stage-output{margin-top:16px;padding:13px 15px;border-radius:12px;background:#edf7f2;border:1px solid #cfe8dc;color:#244a3a}.stage-error{margin-top:14px;color:#5b4a32}.pe-table caption{caption-side:top;text-align:left;padding:12px 14px;font-weight:800;color:#0b3a5b;background:#f8fafc;border-bottom:1px solid #e5ebef}.table-wrap{width:100%;max-width:100%;overflow-x:auto;overscroll-behavior-inline:contain;-webkit-overflow-scrolling:touch;margin:20px 0;border:1px solid #dce5eb;border-radius:16px}.pe-table{width:100%;border-collapse:collapse;min-width:760px;background:white}.pe-table th,.pe-table td{padding:14px 15px;border-bottom:1px solid #e5ebef;text-align:left;vertical-align:top;line-height:1.65}.pe-table th{background:#eef5f9;color:#0b3a5b}.pe-table tr:last-child td{border-bottom:0}.risk-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:20px 0;min-width:0;max-width:100%}.risk-grid div{padding:20px;border-radius:16px;background:#f7fafc;border:1px solid #dce5eb}.risk-grid h4{margin:0 0 8px;color:#0b4e78}.limits{border-left:5px solid #b78a43;background:#fff9ed;padding:20px 22px;border-radius:14px}.question{margin:38px 0;padding:26px;border-radius:18px;background:#08283f;color:#fff}.question h2,.question p,.question strong{color:#fff}.refs{border-top:1px solid #dbe4ea;padding-top:22px}.refs li{overflow-wrap:anywhere}.refs a{word-break:break-word}@media(max-width:720px){.pe-hero{padding:38px 0 26px}.pe-hero .container{width:calc(100% - 32px);max-width:none;margin-inline:auto}.pe-hero h1{font-size:clamp(1.8rem,8vw,2.55rem);overflow-wrap:anywhere}.pe-lead{font-size:1.05rem;line-height:1.9}.risk-grid{grid-template-columns:1fr}.pe-article{width:100%;max-width:100%;margin:0;padding:24px 16px 64px}.stage,.question,.limits,.evidence-note,.method-note{max-width:100%}.pe-flow{display:block;max-width:100%}.pe-flow span{display:block;margin:7px 0}.pe-flow b{display:block;text-align:center}.stage{padding:18px}.pe-table{min-width:700px}}
+</style>
+</head>
+<body>
+<header class="site-header"><div class="topbar"><div class="container topbar-inner"><div class="social">LinkedIn · YouTube · X</div><div class="lang-switch"><span>English</span><span>|</span><a href="/article-preventive-engineering-fuzzy-flisr-fmea.html" hreflang="ar" lang="ar">العربية</a></div></div></div><div class="container brand-row"><a class="brand" href="/en/"><img alt="Tamayuz 10X logo" class="brand-logo" src="/assets/images/file_0000000047188210ac6952e999d2eda7.png?v=20260910-logo4"></a><button aria-label="Open Menu" class="menu-toggle">☰</button></div><nav class="main-nav"><div class="container nav-links"><a href="/en/">Home</a><a href="/en/vision-mission-values.html">Vision, Mission & Values</a><a href="/en/about.html">About Dr. Alaa Mohammad Ahmed</a><a href="/en/#tenx-10x">Tamayuz 10X</a><a class="active" href="/en/articles.html">10X Cases & Experiences</a><a href="/en/agentic-ai-10x.html">Agentic AI 10X</a><a href="/en/research.html">Research & Publications</a><a href="/en/personality.html">Self-Discovery Lab</a><a href="/en/training.html">Capability Building</a></div></nav></header>
+<main>
+<section class="pe-hero"><div class="container"><p class="pe-kicker">FMEA · Failure Mode &amp; Effects Analysis · Fuzzy Logic · Distribution Reliability</p><h1>When Equal RPNs Hide Different Risks: Fuzzy FMEA for FLISR Reliability</h1><p class="pe-lead">A Risk Priority Number looks precise, but equal or similar products can hide very different combinations of severity, occurrence and detectability. A field-based study on a 20 kV distribution network in West Java tested a different approach: use fuzzy linguistic rules to reinterpret S/O/D, then connect the priority ranking to maintenance strategies and simulated outage performance.</p><noscript><p><a href="/en/about.html">Dr. Alaa Mohammad Ahmed</a> · <time datetime="2026-10-03">3 October 2026</time> · 31 min read</p></noscript></div></section>
+<figure class="story-cover"><img src="/assets/previews/story/article-preventive-engineering-fuzzy-flisr-fmea-en.jpg?v=20261003-prevention-v4" alt="FMEA · Failure Mode & Effects Analysis cover titled When Equal RPNs Hide Different Risks, focused on fuzzy FLISR reliability assessment." width="1200" height="630" decoding="async" fetchpriority="high"><figcaption class="story-cover-note" data-no-speech="true">Illustrative cover</figcaption></figure>
+
+<article class="pe-article" data-tenx-article="true" aria-label="When Equal RPNs Hide Different Risks: Fuzzy FMEA for FLISR Reliability">
+<section>
+<h2>The problem is not always the arithmetic; sometimes it is what the arithmetic hides</h2>
+<p>Conventional <strong>Failure Mode and Effects Analysis (FMEA)</strong> often prioritizes risk using <strong>RPN — Risk Priority Number</strong>, calculated as Severity × Occurrence × Detection. It is transparent and easy to reproduce, but different S/O/D combinations can generate similar products even when their engineering meaning differs. A very severe failure that is easy to detect can sit numerically close to a less severe failure that is exceptionally difficult to detect.</p>
+<p>The paper tests that problem in a real operational setting: <strong>FLISR — Fault Location, Isolation, and Service Restoration</strong>, an automated sequence that locates a distribution fault, isolates the affected section and restores power to healthy sections. The case is a 20 kV PLN UP2D Jawa Barat network in Indonesia using SurvalentONE <strong>ADMS — Advanced Distribution Management System</strong>. <a href="#ref-1" class="citation">[1]</a></p>
+<p>Historical records from 2022–2024 contain <strong>141 FLISR failure events</strong>. Signal loss accounts for 37.6%, motorized-device failures for 31.9%, and the baseline FLISR success rate is 70%. The paper reports an automated restoration sequence of roughly 23.65 seconds, versus about 90 minutes when the process falls back to manual switching. <a href="#ref-1" class="citation">[1]</a></p>
+<aside class="evidence-note" role="note"><strong>Evidence boundary:</strong> the study combines real historical logs and expert assessment with a fuzzy risk model and DIgSILENT PowerFactory simulation. The post-mitigation results are principally projections and simulations, not a measured field before/after evaluation. The paper also contains an internal inconsistency in how the “moderate” FLISR success rate is reported; this article surfaces that rather than silently choosing one number.</aside>
+</section>
+
+<section>
+<h2>Before fuzzy logic, understand the process that is being protected</h2>
+<p>FLISR in the case operates through three linked functions: fault location from field telemetry, fault isolation through commands to motorized switching devices, and service restoration by closing a normally open point to resupply healthy sections.</p>
+<p>The field chain depends on motorized switching devices, communications/remote control and backup batteries. An <strong>RTU — Remote Terminal Unit</strong> collects field status and measurements, sends them to the control center and executes remote commands. A <strong>recloser</strong> is a protection switch that can trip and automatically attempt to reclose. An <strong>LBS — Load Break Switch</strong> is a switch used to transfer or interrupt load under approved operating conditions.</p>
+<p class="visual-intro"><strong>Read the following path from field data to restoration.</strong> The purpose is to see how a small device failure can abort the whole automated sequence.</p>
+<div class="pe-flow" aria-label="FLISR execution path"><span>RTU &amp; communication data</span><b>→</b><span>Fault location</span><b>→</b><span>Isolation commands</span><b>→</b><span>State confirmation</span><b>→</b><span>Restore healthy sections</span></div>
+<p class="visual-takeaway"><strong>What should stand out?</strong> The central ADMS logic can be correct while FLISR still fails because the battery is depleted, communications are lost, a motorized actuator does not move or RTU data are unreliable. The risk model therefore has to cover the field execution chain, not software logic alone.</p>
+</section>
+
+<section>
+<h2>What does fuzzy logic add to conventional FMEA?</h2>
+<p><strong>Fuzzy Logic</strong> represents uncertain expert judgments with overlapping linguistic categories rather than forcing every score into one hard bucket. A value of 7, for example, can partly belong to “Medium” and partly to “High,” depending on the membership functions.</p>
+<p>The authors use a <strong>Mamdani FIS — Mamdani Fuzzy Inference System</strong>. It accepts S, O and D as inputs, maps each input to five linguistic sets from Very Low to Very High, and evaluates <strong>125 IF-THEN rules</strong> because 5 × 5 × 5 combinations are possible.</p>
+<p>A <strong>membership function</strong> defines how strongly a numeric input belongs to a linguistic set. After the rules are evaluated, <strong>defuzzification</strong> converts the fuzzy output back into one numeric score. The study uses the <strong>Centroid method</strong> to produce a crisp risk score called <strong>TR*</strong> on a 0–100 scale. <a href="#ref-1" class="citation">[1]</a></p>
+
+<p class="visual-intro"><strong>Look at the table below.</strong> The ranges overlap deliberately; that overlap is the mechanism used to represent uncertainty in expert ratings.</p>
+<div class="table-wrap"><table class="pe-table"><caption>Linguistic membership ranges used in the study</caption><thead><tr><th>Variable</th><th>Linguistic level</th><th>Crisp range</th><th>Membership peak</th></tr></thead><tbody>
+<tr><td>S / O / D</td><td>Very Low</td><td>0–2.5</td><td>0</td></tr>
+<tr><td>S / O / D</td><td>Low</td><td>1.5–4.0</td><td>2.5</td></tr>
+<tr><td>S / O / D</td><td>Medium</td><td>3.0–6.5</td><td>5.0</td></tr>
+<tr><td>S / O / D</td><td>High</td><td>5.5–8.5</td><td>7.5</td></tr>
+<tr><td>S / O / D</td><td>Very High</td><td>7.5–10</td><td>10</td></tr>
+<tr><td>TR*</td><td>Very Low</td><td>0–20</td><td>0</td></tr>
+<tr><td>TR*</td><td>Low</td><td>10–35</td><td>20</td></tr>
+<tr><td>TR*</td><td>Medium</td><td>25–60</td><td>45</td></tr>
+<tr><td>TR*</td><td>High</td><td>50–80</td><td>70</td></tr>
+<tr><td>TR*</td><td>Very High</td><td>70–100</td><td>100</td></tr>
+</tbody></table></div>
+<p class="visual-takeaway"><strong>The practical meaning:</strong> a score does not abruptly change meaning at one boundary. That makes the ranking less sensitive to hard cutoffs and gives experts a more interpretable way to represent “partly high” or “partly medium” judgments.</p>
+</section>
+
+<section>
+<h2>How are risks calculated in the two methods?</h2>
+<p>The conventional path uses 1–10 ratings for <strong>S — Severity</strong>, the consequence if the failure occurs; <strong>O — Occurrence</strong>, the estimated likelihood/frequency; and <strong>D — Detection</strong>, the difficulty of detecting the failure with current controls before the effect propagates. Then:</p>
+<div class="pe-flow" aria-label="RPN equation"><span>S</span><b>×</b><span>O</span><b>×</b><span>D</span><b>=</b><span>RPN</span></div>
+<p>The fuzzy path does not simply multiply those ratings. It maps them through membership functions, applies the IF-THEN rule base, and defuzzifies the output into TR*. The paper describes the rule base as starting from a baseline S×O risk and then modifying the level according to Detection. <a href="#ref-1" class="citation">[1]</a></p>
+
+<p class="visual-intro"><strong>Look at the representative rules below.</strong> The point is not to memorize them. It is to see that Detection can explicitly raise or reduce the output risk category rather than acting only as a multiplicative factor.</p>
+<div class="table-wrap"><table class="pe-table"><caption>Representative fuzzy rules reported in the paper</caption><thead><tr><th>Severity</th><th>Occurrence</th><th>Detection</th><th>Baseline S×O</th><th>Adjustment</th><th>Output risk</th></tr></thead><tbody>
+<tr><td>Very High</td><td>Very High</td><td>Very Hard</td><td>Very High</td><td>+1</td><td>Very High</td></tr>
+<tr><td>Very High</td><td>High</td><td>Very Easy</td><td>High</td><td>-1</td><td>Medium</td></tr>
+<tr><td>High</td><td>High</td><td>Hard</td><td>High</td><td>+1</td><td>Very High</td></tr>
+<tr><td>Medium</td><td>Medium</td><td>Easy</td><td>Medium</td><td>-1</td><td>Low</td></tr>
+</tbody></table></div>
+<p class="visual-takeaway"><strong>What does this add?</strong> The fuzzy model does not declare Detection more important than Severity or Occurrence. It makes the effect of detectability on priority more explicit and easier to explain in the rule base.</p>
+</section>
+
+<section>
+<h2>What did the 25-failure-mode assessment find?</h2>
+<p>The study identifies <strong>25 failure modes</strong> across five groups: motorized devices (6), communication/signal systems (5), backup batteries (5), RTU/remote units (4), and FLISR logic within ADMS (5). Under conventional RPN, 17 are classified Critical above 200 and 8 High between 100 and 200. <a href="#ref-1" class="citation">[1]</a></p>
+
+<p class="visual-intro"><strong>Read the top-ten table from failure mode through S/O/D to RPN.</strong> Battery and motorized-device failures dominate the conventional ranking.</p>
+<div class="table-wrap"><table class="pe-table"><caption>Top ten failure modes by conventional RPN</caption><thead><tr><th>Rank</th><th>Code</th><th>Failure mode</th><th>S</th><th>O</th><th>D</th><th>RPN</th></tr></thead><tbody>
+<tr><td>1</td><td>BAT-01</td><td>Battery capacity depleted / very low</td><td>9</td><td>8</td><td>8</td><td>576</td></tr>
+<tr><td>2</td><td>MTR-01</td><td>Motorized recloser actuator stuck</td><td>8</td><td>8</td><td>7</td><td>448</td></tr>
+<tr><td>3</td><td>BAT-02</td><td>Battery charger failed</td><td>9</td><td>5</td><td>9</td><td>405</td></tr>
+<tr><td>4</td><td>MTR-04</td><td>Motorized control-panel power supply failed</td><td>7</td><td>7</td><td>8</td><td>392</td></tr>
+<tr><td>5</td><td>MTR-03</td><td>Motor-control-unit contactor failed</td><td>8</td><td>6</td><td>8</td><td>384</td></tr>
+<tr><td>6</td><td>MTR-02</td><td>LBS actuator stuck in middle position</td><td>7</td><td>7</td><td>7</td><td>343</td></tr>
+<tr><td>7</td><td>BAT-05</td><td>Insufficient battery capacity for load</td><td>8</td><td>6</td><td>7</td><td>336</td></tr>
+<tr><td>8</td><td>MTR-06</td><td>Limit-switch position inaccurate</td><td>7</td><td>6</td><td>8</td><td>336</td></tr>
+<tr><td>9</td><td>MTR-06</td><td>Seal broken / water ingress</td><td>5</td><td>8</td><td>7</td><td>280</td></tr>
+<tr><td>10</td><td>BAT-03</td><td>BMS malfunction</td><td>7</td><td>5</td><td>8</td><td>280</td></tr>
+</tbody></table></div>
+<p class="visual-takeaway"><strong>What does the table tell us?</strong> The top six modes account for about 38% of cumulative RPN according to the paper. But the table alone does not tell us whether poor detectability should move some cases higher once risk is interpreted with fuzzy rules.</p>
+</section>
+
+<section>
+<h2>What changed under fuzzy assessment?</h2>
+<p>The fuzzy model assigns the highest reported score to <strong>battery capacity depletion</strong> and <strong>battery charger failure</strong>, both at <strong>TR*=91.7</strong>. The paper states that poorly detectable modes such as BAT-02 and MTR-03 are elevated relative to conventional RPN, while better-detected failures such as KOM-01 are moderated. <a href="#ref-1" class="citation">[1]</a></p>
+<p>That is the central practical contribution: fuzzy assessment does not discard S/O/D. It changes how their interaction is interpreted, which can matter when the output is a maintenance decision rather than just a ranked spreadsheet.</p>
+<aside class="method-note" role="note"><strong>Do not over-read the figure:</strong> the text explicitly reports TR*=91.7 for the two highest-priority battery modes and describes directional changes for other cases. The paper does not provide a complete numeric TR* table in the text for every top-ten mode, so this article does not invent values from a chart.</aside>
+</section>
+
+<section>
+<h2>From fuzzy risk score to projected reliability improvement</h2>
+<p>After prioritization, the paper groups treatments into battery management, motorized-switch maintenance, communication reinforcement and ADMS-logic optimization. It then defines <strong>η — mitigation effectiveness factor</strong>, a 0–1 value used to model how much the component failure rate might be reduced after treatment.</p>
+<p>The initial formulation maps TR* linearly to η through η = TR*/100. The authors explicitly acknowledge that a strict 1:1 link may be optimistic, so they perform a <strong>sensitivity analysis</strong>: testing how the result changes when the assumed mitigation effectiveness changes.</p>
+
+<p class="visual-intro"><strong>Look at the three scenarios below.</strong> These are projected outcomes under different assumptions, not field measurements after implementation.</p>
+<div class="table-wrap"><table class="pe-table"><caption>Mitigation-effectiveness scenarios reported in the study</caption><thead><tr><th>Scenario</th><th>η range</th><th>Study interpretation</th><th>Projected FLISR success</th><th>Projected SAIDI</th></tr></thead><tbody>
+<tr><td>Optimistic</td><td>0.85–0.95</td><td>Near-full mitigation effectiveness</td><td>≈95%</td><td>≈1.21 h/customer/year</td></tr>
+<tr><td>Moderate / recommended</td><td>0.65–0.75</td><td>Realistic effectiveness under operational constraints</td><td>≈92.5%</td><td>≈1.32</td></tr>
+<tr><td>Conservative</td><td>0.45–0.55</td><td>Limited effectiveness under implementation challenges</td><td>≈85%</td><td>≈1.50</td></tr>
+</tbody></table></div>
+<p class="visual-takeaway"><strong>The important distinction:</strong> η is a modelling assumption to be tested, not an observed effectiveness rate. Sensitivity analysis is what keeps the projected reliability benefit from being presented as a single guaranteed number.</p>
+</section>
+
+<section>
+<h2>The paper contains an internal inconsistency in the “moderate” success rate</h2>
+<p>Section IV.E explicitly calculates a post-mitigation FLISR success rate of <strong>0.85075 ≈ 85%</strong> using η=0.7 for battery, motorized and communication modes and η=0.55 for RTU and ADMS. It then says that the conservative 85% figure is used as the DIgSILENT simulation basis to avoid overly optimistic claims. Section IV.F likewise describes Scenario 2 with an 85% success rate.</p>
+<p>However, the sensitivity table, the Results section and the Conclusion later present the moderate η≈0.7 scenario as reaching <strong>92.5%</strong> and SAIDI=1.32 h/customer/year. Those statements are not fully consistent with the explicit earlier calculation. <a href="#ref-1" class="citation">[1]</a></p>
+<aside class="evidence-note" role="note"><strong>How should a practitioner treat this?</strong> Do not select the more attractive number. Recalculate the chain from the actual η values and failure-mode weights, verify which success rate is fed into the network simulation, and preserve the discrepancy in the review record until it is reconciled.</aside>
+</section>
+
+<section>
+<h2>What does the DIgSILENT simulation actually validate?</h2>
+<p><strong>DIgSILENT PowerFactory</strong> is an electrical power-system analysis and simulation platform. The authors build a representative 20 kV model of the GI Malangbong network and translate assumed component-level reliability improvements into system-level outage indices.</p>
+<p><strong>SAIDI — System Average Interruption Duration Index</strong> measures average annual outage duration per customer. <strong>SAIFI — System Average Interruption Frequency Index</strong> measures average annual interruption frequency per customer.</p>
+<p>The paper reports SAIDI falling from <strong>1.69 to 1.32 h/customer/year</strong>, a 21.9% reduction, while SAIFI remains at 0.55 interruptions/customer/year. Under the optimistic assumption, SAIDI reaches 1.21, a 28.4% reduction. <a href="#ref-1" class="citation">[1]</a></p>
+<p class="visual-intro"><strong>Use the comparison below to separate baseline data from modeled outcomes.</strong></p>
+<div class="table-wrap"><table class="pe-table"><caption>Baseline versus the reported projected outcomes</caption><thead><tr><th>Indicator</th><th>Baseline</th><th>Moderate result as reported later in the paper</th><th>Evidence type</th></tr></thead><tbody>
+<tr><td>FLISR success</td><td>70%</td><td>92.5% in Results; an earlier methodology calculation gives ≈85%</td><td>Mathematical projection / simulation with internal reporting inconsistency</td></tr>
+<tr><td>SAIDI</td><td>1.69</td><td>1.32 h/customer/year</td><td>DIgSILENT simulation</td></tr>
+<tr><td>SAIFI</td><td>0.55</td><td>0.55 interruptions/customer/year</td><td>Simulation; unchanged in the reported case</td></tr>
+</tbody></table></div>
+<p class="visual-takeaway"><strong>What does this mean?</strong> The paper itself states that DIgSILENT does not independently validate the fuzzy-logic model. It translates assumed component reliability gains into network reliability indices. That supports internal consistency of the system-level effect, not independent proof of the fuzzy rules.</p>
+</section>
+
+<section>
+<h2>The nine-stage Preventive Engineering journey: follow BAT-01 from failure mode to action</h2>
+<aside class="method-note" role="note"><strong>Continuous case:</strong> BAT-01 — battery capacity depleted / very low — ranks first under conventional RPN at 576 and remains among the highest fuzzy priorities at TR*=91.7. Stages 1–7 are directly grounded in the study. Field verification after actual treatment and continuous re-calibration are a Preventive Engineering extension because the paper models and simulates post-treatment performance rather than reporting a completed field intervention.</aside>
+
+<div class="stage"><div class="stage-head"><span class="stage-num">1</span><div><h3>Define scope: what exactly are we analysing?</h3>
+<p class="stage-purpose"><strong>What are we doing here?</strong> We set the system boundary before assigning any risk score.</p>
+<p><strong>In this case:</strong> the scope is centralized FLISR at GI Malangbong on a 20 kV distribution network, covering field devices, communication, backup battery, RTU and ADMS logic across fault location, isolation and restoration.</p>
+<p class="stage-error"><strong>Common mistake:</strong> treating “distribution reliability” as one undifferentiated problem instead of separating FLISR execution reliability from the rest of the network.</p>
+<div class="stage-output"><strong>Stage output:</strong> a bounded execution chain and known component groups.</div></div></div></div>
+
+<div class="stage"><div class="stage-head"><span class="stage-num">2</span><div><h3>Required function: what must the battery accomplish?</h3>
+<p class="stage-purpose"><strong>What are we doing here?</strong> We anchor the component in the function it protects.</p>
+<p><strong>In this case:</strong> backup power must keep field switching, control and communication available during the disturbance long enough for isolation and restoration to complete.</p>
+<p class="stage-error"><strong>Common mistake:</strong> analysing “the battery” without specifying the operational function and required duration.</p>
+<div class="stage-output"><strong>Stage output:</strong> a testable function — provide sufficient backup power throughout the FLISR execution window.</div></div></div></div>
+
+<div class="stage"><div class="stage-head"><span class="stage-num">3</span><div><h3>Failure mode and effect: what happens when capacity is depleted?</h3>
+<p class="stage-purpose"><strong>What are we doing here?</strong> We describe how the function fails and what that does to the system.</p>
+<p><strong>In this case:</strong> BAT-01 is depleted / very low battery capacity. The paper explains that battery, communication or actuator failures can abort FLISR and force fallback to manual switching, extending outage duration.</p>
+<p class="stage-error"><strong>Common mistake:</strong> writing “high SAIDI” as the failure mode. SAIDI is a system-level consequence indicator, not the battery failure mode.</p>
+<div class="stage-output"><strong>Stage output:</strong> insufficient battery support → FLISR abort → manual fallback → longer interruption duration.</div></div></div></div>
+
+<div class="stage"><div class="stage-head"><span class="stage-num">4</span><div><h3>Current prevention and detection: what is actually documented?</h3>
+<p class="stage-purpose"><strong>What are we doing here?</strong> We distinguish existing controls from proposed treatments.</p>
+<p><strong>In this case:</strong> the paper reports D=8 for BAT-01, indicating relatively difficult detection under the expert scoring, but the published top-ten table does not provide a detailed existing detection mechanism for that row. Battery replacement schedules and BMS calibration appear later as proposed strategies, not confirmed existing controls.</p>
+<p><strong>BMS — Battery Management System</strong> monitors battery conditions such as voltage, current, temperature and state of charge to protect the battery and support maintenance decisions.</p>
+<p class="stage-error"><strong>Common mistake:</strong> recording the proposed strategy as if it were already a current control in the FMEA.</p>
+<div class="stage-output"><strong>Stage output:</strong> a high detection-difficulty score with an evidence gap that should be resolved in the real local FMEA record.</div></div></div></div>
+
+<div class="stage"><div class="stage-head"><span class="stage-num">5</span><div><h3>Risk triad: how does BAT-01 reach RPN=576?</h3>
+<p class="stage-purpose"><strong>What are we doing here?</strong> We use the study's published ratings, not invented values.</p>
+<p><strong>In this case:</strong> S=9, O=8 and D=8, therefore <strong>9 × 8 × 8 = 576</strong>, the highest conventional RPN in the published table.</p>
+<p class="stage-error"><strong>Common mistake:</strong> treating 576 as universally transferable outside the expert scales and operational context that generated it.</p>
+<div class="stage-output"><strong>Stage output:</strong> a conventional risk profile that places BAT-01 at the front of the treatment queue.</div></div></div></div>
+
+<div class="stage"><div class="stage-head"><span class="stage-num">6</span><div><h3>Re-read priority with fuzzy logic</h3>
+<p class="stage-purpose"><strong>What are we doing here?</strong> We test whether the priority remains high when S/O/D are interpreted through overlapping linguistic rules rather than only multiplication.</p>
+<p><strong>In this case:</strong> BAT-01 receives TR*=91.7 and remains a top priority. The fuzzy model therefore reinforces, rather than reverses, the conventional conclusion for this failure mode.</p>
+<p class="stage-error"><strong>Common mistake:</strong> treating TR* as a universal risk scale that can be copied to another organization without rebuilding the membership functions and rule base.</p>
+<div class="stage-output"><strong>Stage output:</strong> a high priority supported by two different prioritization logics.</div></div></div></div>
+
+<div class="stage"><div class="stage-head"><span class="stage-num">7</span><div><h3>Design treatment: what did the paper propose?</h3>
+<p class="stage-purpose"><strong>What are we doing here?</strong> We convert priority into a component-specific action.</p>
+<p><strong>In this case:</strong> BAT-01 and BAT-02 are grouped under battery management, with replacement schedules and BMS calibration. The modelling uses η≈0.7 for these modes in the moderate scenario.</p>
+<p class="stage-error"><strong>Common mistake:</strong> interpreting η=0.7 as observed evidence that the intervention will reduce failures by 70%. It is a modelling assumption to be validated.</p>
+<div class="stage-output"><strong>Stage output:</strong> defined battery actions plus a testable effectiveness hypothesis.</div></div></div></div>
+
+<div class="stage"><div class="stage-head"><span class="stage-num">8</span><div><h3>Verify effectiveness: what must happen outside the simulation?</h3>
+<p class="stage-purpose"><strong>What are we doing here?</strong> We turn projected benefit into field evidence.</p>
+<p><strong>In this case:</strong> after implementing replacement scheduling and BMS calibration, the organization would need to compare battery-related failure rate, FLISR failures caused by backup-power loss, sequence success and SAIDI over a sufficient before/after period. Detection should also be reassessed if earlier warning becomes available.</p>
+<p class="stage-error"><strong>Common mistake:</strong> treating a simulated SAIDI reduction as proof of operational effectiveness.</p>
+<div class="stage-output"><strong>Stage output:</strong> field evidence that confirms or rejects the assumed η and supports any new O or D rating.</div></div></div></div>
+
+<div class="stage"><div class="stage-head"><span class="stage-num">9</span><div><h3>Review continuously: how do the fuzzy rules remain valid?</h3>
+<p class="stage-purpose"><strong>What are we doing here?</strong> We re-open the model when the operating system changes.</p>
+<p><strong>In this case:</strong> battery type, charger, BMS, maintenance strategy, communication architecture or failure history can all change the rating logic. Membership functions and the 125-rule base should be recalibrated when new field data accumulate.</p>
+<p class="stage-error"><strong>Common mistake:</strong> treating a rule base created in one workshop as permanent knowledge.</p>
+<div class="stage-output"><strong>Stage output:</strong> a living risk model linked to field learning rather than a fixed expert snapshot.</div></div></div></div>
+</section>
+
+<section>
+<h2>How can an organization test the idea without starting with a complex fuzzy system?</h2>
+<p>A practical path is two-stage: first make the conventional FMEA defensible by documenting the rationale behind S/O/D, then run fuzzy prioritization in parallel on a limited group of failure modes to see whether the ranking changes in a useful and explainable way.</p>
+<p class="visual-intro"><strong>Use the table below as a small-pilot plan.</strong> The fuzzy layer should be added after the failure logic is credible, not used to compensate for weak FMEA fundamentals.</p>
+<div class="table-wrap"><table class="pe-table"><caption>A small fuzzy-risk pilot plan</caption><thead><tr><th>Step</th><th>What to do</th><th>Output</th></tr></thead><tbody>
+<tr><td>1</td><td>Select one system/process with 15–30 failure modes, usable history and active subject-matter experts</td><td>Bounded comparison scope</td></tr>
+<tr><td>2</td><td>Review S/O/D definitions and the evidence behind each rating</td><td>Documented conventional baseline</td></tr>
+<tr><td>3</td><td>Define 3–5 linguistic levels and context-appropriate membership functions</td><td>Transparent numeric-to-linguistic mapping</td></tr>
+<tr><td>4</td><td>Build the rule base with a multidisciplinary team</td><td>Auditable decision logic</td></tr>
+<tr><td>5</td><td>Calculate conventional RPN and fuzzy score in parallel</td><td>List of re-ranked failure modes</td></tr>
+<tr><td>6</td><td>Review why the ranking changed, especially for poorly detectable modes</td><td>Decision on whether fuzzy logic adds practical value</td></tr>
+<tr><td>7</td><td>Link actions to field effectiveness measures, not the risk score alone</td><td>Before/after verification plan</td></tr>
+<tr><td>8</td><td>Recalibrate after new evidence accumulates</td><td>Learning risk model</td></tr>
+</tbody></table></div>
+<p class="visual-takeaway"><strong>The key:</strong> do not start with 125 rules. Start with clear functions, failure modes, effects, causes and controls, then ask whether fuzzy logic solves a real prioritization problem.</p>
+</section>
+
+<section>
+<h2>A reusable record for comparing RPN and fuzzy prioritization</h2>
+<p class="visual-intro"><strong>Use this table as a decision record.</strong> The team should be able to explain every ranking change rather than simply declaring the newer algorithm “better.”</p>
+<div class="table-wrap"><table class="pe-table"><caption>A reusable comparison template</caption><thead><tr><th>Field</th><th>What to record</th></tr></thead><tbody>
+<tr><td>Required function</td><td>What must succeed?</td></tr>
+<tr><td>Failure mode</td><td>How is the function not achieved?</td></tr>
+<tr><td>Effect</td><td>What happens to the system or customer?</td></tr>
+<tr><td>Potential cause</td><td>Why might the failure occur?</td></tr>
+<tr><td>Current prevention</td><td>What prevents the cause?</td></tr>
+<tr><td>Current detection</td><td>How is the failure detected before the effect propagates?</td></tr>
+<tr><td>S / O / D</td><td>Ratings, scale definitions and evidence</td></tr>
+<tr><td>RPN</td><td>Conventional S×O×D product</td></tr>
+<tr><td>Linguistic memberships</td><td>How do the ratings map to Low/Medium/High sets?</td></tr>
+<tr><td>Inference rule</td><td>Which IF-THEN rule affects this case?</td></tr>
+<tr><td>Fuzzy risk score</td><td>Defuzzified output</td></tr>
+<tr><td>Ranking change</td><td>Did priority rise or fall, and why?</td></tr>
+<tr><td>Treatment</td><td>What action targets the cause or detection gap?</td></tr>
+<tr><td>Effectiveness evidence</td><td>What field measure will prove risk reduction?</td></tr>
+</tbody></table></div>
+<p class="visual-takeaway"><strong>What matters most?</strong> Not the fuzzy score alone, but the explanation for why the ranking changed and whether that change leads to a better preventive action.</p>
+</section>
+
+<section class="limits">
+<h2>Limits that should remain visible</h2>
+<p>The study is strong in combining operational history, experts, an interpretable rule-based model and network simulation. But it does not report a completed field before/after intervention that empirically verifies the assumed mitigation reductions. The linear TR*→η mapping is a modelling choice the authors themselves identify as potentially optimistic, which is why sensitivity analysis is necessary. The paper also contains an internal inconsistency between an explicit ≈85% success calculation and later reporting of 92.5% for the moderate case. Finally, the membership functions and 125 rules embed local expert design and should not be copied unchanged into another utility.</p>
+</section>
+
+<section>
+<h2>What should the reader take away?</h2>
+<p>The lesson is not that fuzzy logic is always superior to conventional RPN. The useful insight is that a single product can compress three different risk dimensions in ways that hide engineering differences. An organization can test a more flexible prioritization layer when uncertainty and detectability materially affect decisions.</p>
+<p>A practical starting question is: <strong>do we have failure modes with similar RPN values that experienced engineers still judge very differently because one is harder to detect or has a more serious consequence?</strong> If yes, that is a credible place to test an interpretable fuzzy layer — without replacing FMEA fundamentals.</p>
+</section>
+
+<section class="question">
+<h2>The Preventive Engineering question</h2>
+<p>If tomorrow two failure modes have similar RPN values, can your team explain why one should be treated first? If not, is the problem in the risks themselves — or in how three different dimensions were compressed into one number?</p>
+</section>
+
+<section class="tenx-disclaimer"><h2>Editorial Disclaimer</h2><p>The views and analyses presented in this article represent the author’s professional interpretation based on the cited sources and do not necessarily represent the official positions of the organizations mentioned. For the original, complete and most current information, please consult the primary sources and official documents listed in the references.</p></section>
+
+<section class="refs" data-no-speech="true"><h2>References</h2><ol>
+<li id="ref-1">Setiawan I, Hernanda IGNS, Irfansyah AN. <em>Fuzzy FMEA for Risk-Based FLISR Reliability Enhancement: Comparison with Conventional RPN and Case Study of PLN UP2D Jawa Barat.</em> 2026 International Seminar on Intelligent Technology and Its Applications (ISITIA). DOI: <a href="https://doi.org/10.1109/ISITIA71267.2026.11642348" target="_blank" rel="noopener">10.1109/ISITIA71267.2026.11642348</a>. Primary source for the historical failure data, conventional ranking, Mamdani fuzzy model, mitigation scenarios and DIgSILENT simulation.</li>
+<li>IEEE Std 1366-2012. <em>Guide for Electric Power Distribution Reliability Indices.</em> DOI: <a href="https://doi.org/10.1109/IEEESTD.2012.6209381" target="_blank" rel="noopener">10.1109/IEEESTD.2012.6209381</a>. Reference used by the paper for distribution reliability indices.</li>
+</ol></section>
+</article>
+</main>
+<footer class="site-footer"><div class="container footer-grid"><div><strong><a href="/en/" style="color:inherit;text-decoration:none">Tamayuz 10X</a></strong><p>Knowledge and perspectives on institutional excellence, transformation engineering, leadership and innovation.</p></div><div><strong>Quick links</strong><p><a href="/en/articles.html">10X Cases & Articles</a> · <a href="/en/training.html">Capability Building</a> · <a href="/en/services.html">Professional Expertise</a> · <a href="/en/editorial-policy-disclaimer.html">Editorial Policy & Disclaimer</a></p></div></div><div class="container copyright">© <span id="year"></span> Dr. Alaa Mohammad Ahmed — All rights reserved.</div></footer>
+<script src="/assets/js/main.js"></script>
+<script src="/assets/js/site-engagement.js"></script>
+<script src="/assets/js/mobile-social-share.js"></script>
+</body>
+</html>
