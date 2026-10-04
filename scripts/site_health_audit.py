@@ -34,6 +34,8 @@ class PageParser(HTMLParser):
         self.ids: list[tuple[str, int]] = []
         self.refs: list[tuple[str, str, str, int]] = []
         self.images_without_alt: list[int] = []
+        self.visible_literal_escapes: list[tuple[int, str]] = []
+        self._text_ignored_depth = 0
 
     def handle_starttag(self, tag: str, attrs) -> None:
         self._handle_tag(tag, attrs)
@@ -51,6 +53,8 @@ class PageParser(HTMLParser):
 
         if tag == "title":
             self._in_title = True
+        if tag in {"script", "style"}:
+            self._text_ignored_depth += 1
 
         if data.get("id"):
             self.ids.append((data["id"], line))
@@ -81,12 +85,19 @@ class PageParser(HTMLParser):
                 self.hreflangs[data["hreflang"].lower()] = href
 
     def handle_endtag(self, tag: str) -> None:
-        if tag.lower() == "title":
+        tag = tag.lower()
+        if tag == "title":
             self._in_title = False
+        if tag in {"script", "style"} and self._text_ignored_depth:
+            self._text_ignored_depth -= 1
 
     def handle_data(self, data: str) -> None:
         if self._in_title:
             self.title_parts.append(data)
+        if not self._text_ignored_depth and ("\\n" in data or "\\r" in data):
+            line, _ = self.getpos()
+            snippet = " ".join(data.strip().split())[:120]
+            self.visible_literal_escapes.append((line, snippet))
 
     @property
     def title(self) -> str:
@@ -261,6 +272,9 @@ def audit() -> tuple[list[str], list[str], dict[str, int]]:
 
         for line in parsed.images_without_alt:
             warnings.append(f"{rel}:{line}: <img> is missing alt attribute")
+
+        for line, snippet in parsed.visible_literal_escapes:
+            errors.append(f"{rel}:{line}: visible literal escape sequence in page text: {snippet}")
 
         for tag, attr, raw, line in parsed.refs:
             ref_count += 1
