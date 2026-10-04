@@ -5,6 +5,7 @@ import argparse
 import html
 import json
 import os
+import re
 import sys
 from collections import Counter, defaultdict
 from html.parser import HTMLParser
@@ -28,6 +29,7 @@ class PageParser(HTMLParser):
         self.description = ""
         self.robots = ""
         self.canonical = ""
+        self.refresh = ""
         self.hreflangs: dict[str, str] = {}
         self.ids: list[tuple[str, int]] = []
         self.refs: list[tuple[str, str, str, int]] = []
@@ -67,6 +69,8 @@ class PageParser(HTMLParser):
                 self.description = data.get("content", "").strip()
             elif name == "robots":
                 self.robots = data.get("content", "").lower()
+            if data.get("http-equiv", "").lower() == "refresh":
+                self.refresh = data.get("content", "").strip()
 
         if tag == "link":
             rel_tokens = {x.lower() for x in data.get("rel", "").split()}
@@ -230,6 +234,25 @@ def audit() -> tuple[list[str], list[str], dict[str, int]]:
                     errors.append(f"{rel}: canonical escapes repository: {canonical}")
                 elif target is not None and not target.exists():
                     errors.append(f"{rel}: canonical points to missing local page: {canonical}")
+
+        if parsed.refresh:
+            match = re.search(r"(?:^|;)\\s*url\\s*=\\s*['\\\"]?([^'\\\";]+)", parsed.refresh, re.I)
+            if not match:
+                errors.append(f"{rel}: invalid meta refresh directive: {parsed.refresh}")
+            else:
+                refresh_url = html.unescape(match.group(1).strip())
+                refresh_target = local_target(path, refresh_url)
+                canonical_target = local_target(path, parsed.canonical) if parsed.canonical else None
+                if refresh_target is None or refresh_target.name == "__OUTSIDE_REPOSITORY__":
+                    errors.append(f"{rel}: meta refresh target is invalid: {refresh_url}")
+                elif not refresh_target.exists():
+                    errors.append(f"{rel}: meta refresh points to missing local page: {refresh_url}")
+                elif not parsed.canonical:
+                    errors.append(f"{rel}: meta refresh page is missing canonical destination")
+                elif canonical_target != refresh_target:
+                    errors.append(
+                        f"{rel}: meta refresh target and canonical disagree: {refresh_url} vs {parsed.canonical}"
+                    )
 
         id_counts = Counter(value for value, _ in parsed.ids)
         for value, count in sorted(id_counts.items()):
