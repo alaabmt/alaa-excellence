@@ -18,6 +18,13 @@ on:
       - 'PREVENTIVE_ENGINEERING_ARTICLE_STANDARD.md'
       - '.github/workflows/preventive-engineering-terminology.yml'
 
+permissions:
+  contents: read
+
+concurrency:
+  group: preventive-engineering-terminology-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   terminology:
     runs-on: ubuntu-latest
