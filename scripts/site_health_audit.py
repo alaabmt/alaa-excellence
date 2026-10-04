@@ -236,7 +236,7 @@ def audit() -> tuple[list[str], list[str], dict[str, int]]:
                     errors.append(f"{rel}: canonical points to missing local page: {canonical}")
 
         if parsed.refresh:
-            match = re.search(r"(?:^|;)\\s*url\\s*=\\s*['\\\"]?([^'\\\";]+)", parsed.refresh, re.I)
+            match = re.search(r"""(?:^|;)\s*url\s*=\s*['"]?([^'";]+)""", parsed.refresh, re.I)
             if not match:
                 errors.append(f"{rel}: invalid meta refresh directive: {parsed.refresh}")
             else:
