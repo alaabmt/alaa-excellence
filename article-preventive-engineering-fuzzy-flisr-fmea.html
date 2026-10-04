@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>حين تتساوى أرقام الخطر وتختلف الأولويات: منهجية هندسة الوقاية (FMEA) الضبابية في أنظمة FLISR | التميّز 10X</title>
-<meta name="description" content="دليل تطبيقي يشرح كيف دمجت دراسة ميدانية منهجية هندسة الوقاية (FMEA) مع المنطق الضبابي لترتيب 25 وجه فشل في نظام FLISR، ومقارنة النتيجة مع RPN التقليدي وربط الأولويات بمحاكاة الاعتمادية.">
+<meta name="description" content="دليل تطبيقي يشرح كيف دمجت دراسة ميدانية منهجية هندسة الوقاية (FMEA) مع المنطق الضبابي لترتيب 25 وجه فشل في نظام FLISR، ومقارنة النتيجة مع مؤشر أولوية الخطر (RPN) التقليدي وربط الأولويات بمحاكاة الاعتمادية.">
 <meta name="author" content="الدكتور علاء محمد أحمد">
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
 <link rel="canonical" href="https://tamayuz10x.com/article-preventive-engineering-fuzzy-flisr-fmea.html">
@@ -16,7 +16,7 @@
 <meta property="og:locale:alternate" content="en_US">
 <meta property="og:site_name" content="التميّز 10X | Tamayuz 10X">
 <meta property="og:title" content="حين تتساوى أرقام الخطر وتختلف الأولويات: منهجية هندسة الوقاية (FMEA) الضبابية في أنظمة FLISR">
-<meta property="og:description" content="لماذا قد يخفي RPN التقليدي فروقًا مهمة بين المخاطر؟ دراسة FLISR تقارن الترتيب التقليدي بمنهج ضبابي وتربط الأولوية بنتائج اعتمادية على الشبكة.">
+<meta property="og:description" content="لماذا قد يخفي مؤشر أولوية الخطر (RPN) التقليدي فروقًا مهمة بين المخاطر؟ دراسة FLISR تقارن الترتيب التقليدي بمنهج ضبابي وتربط الأولوية بنتائج اعتمادية على الشبكة.">
 <meta property="og:url" content="https://tamayuz10x.com/article-preventive-engineering-fuzzy-flisr-fmea.html">
 <meta property="og:image" content="https://tamayuz10x.com/assets/previews/story/article-preventive-engineering-fuzzy-flisr-fmea-ar.jpg?v=20261003-prevention-v6">
 <meta property="og:image:secure_url" content="https://tamayuz10x.com/assets/previews/story/article-preventive-engineering-fuzzy-flisr-fmea-ar.jpg?v=20261003-prevention-v6">
@@ -29,10 +29,10 @@
 <meta property="article:author" content="https://tamayuz10x.com/about.html">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="حين تتساوى أرقام الخطر وتختلف الأولويات: منهجية هندسة الوقاية (FMEA) الضبابية في أنظمة FLISR">
-<meta name="twitter:description" content="من 25 وجه فشل إلى أولويات صيانة: كيف أضاف المنطق الضبابي طبقة تفسير فوق RPN التقليدي في نظام FLISR.">
+<meta name="twitter:description" content="من 25 وجه فشل إلى أولويات صيانة: كيف أضاف المنطق الضبابي طبقة تفسير فوق مؤشر أولوية الخطر (RPN) التقليدي في نظام FLISR.">
 <meta name="twitter:image" content="https://tamayuz10x.com/assets/previews/story/article-preventive-engineering-fuzzy-flisr-fmea-ar.jpg?v=20261003-prevention-v6">
 <meta name="twitter:image:alt" content="غلاف سلسلة منهجية هندسة الوقاية (FMEA) بالكحلي والذهبي بعنوان «حين تتساوى الأرقام وتختلف المخاطر»، عن المنطق الضبابي وأعطال FLISR.">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "@id": "https://tamayuz10x.com/article-preventive-engineering-fuzzy-flisr-fmea.html#article", "headline": "من بنية النظام إلى أولوية الخطر: منهجية هندسة الوقاية (FMEA) في عاكس طيران بقدرة ظاهرية 1 ميغافولت-أمبير", "description": "دليل تطبيقي في هندسة الوقاية يشرح كيف استُخدمت منهجية هندسة الوقاية (FMEA) لتقييم اعتمادية عاكس طيران بقدرة ظاهرية 1 ميغافولت-أمبير عبر شدة الأثر والحدوث والاكتشاف وRPN.", "url": "https://tamayuz10x.com/article-preventive-engineering-fuzzy-flisr-fmea.html", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://tamayuz10x.com/article-preventive-engineering-fuzzy-flisr-fmea.html"}, "inLanguage": "ar", "image": {"@type": "ImageObject", "url": "https://tamayuz10x.com/assets/previews/story/article-preventive-engineering-fuzzy-flisr-fmea-ar.jpg?v=20261003-prevention-v6", "width": 1200, "height": 630, "caption": "غلاف سلسلة منهجية هندسة الوقاية (FMEA) بالكحلي والذهبي بعنوان «حين تتساوى الأرقام وتختلف المخاطر»، عن المنطق الضبابي وأعطال FLISR."}, "datePublished": "2026-10-03", "dateModified": "2026-10-03", "author": {"@type": "Person", "name": "الدكتور علاء محمد أحمد", "url": "https://tamayuz10x.com/about.html"}, "publisher": {"@type": "Organization", "name": "التميّز 10X", "url": "https://tamayuz10x.com/"}, "articleSection": "هندسة الوقاية", "citation": ["https://doi.org/10.1109/ITECEATS66641.2026.11592843"]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "@id": "https://tamayuz10x.com/article-preventive-engineering-fuzzy-flisr-fmea.html#article", "headline": "من بنية النظام إلى أولوية الخطر: منهجية هندسة الوقاية (FMEA) في عاكس طيران بقدرة ظاهرية 1 ميغافولت-أمبير", "description": "دليل تطبيقي في هندسة الوقاية يشرح كيف استُخدمت منهجية هندسة الوقاية (FMEA) لتقييم اعتمادية عاكس طيران بقدرة ظاهرية 1 ميغافولت-أمبير عبر شدة الأثر والحدوث والاكتشاف ومؤشر أولوية الخطر (RPN).", "url": "https://tamayuz10x.com/article-preventive-engineering-fuzzy-flisr-fmea.html", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://tamayuz10x.com/article-preventive-engineering-fuzzy-flisr-fmea.html"}, "inLanguage": "ar", "image": {"@type": "ImageObject", "url": "https://tamayuz10x.com/assets/previews/story/article-preventive-engineering-fuzzy-flisr-fmea-ar.jpg?v=20261003-prevention-v6", "width": 1200, "height": 630, "caption": "غلاف سلسلة منهجية هندسة الوقاية (FMEA) بالكحلي والذهبي بعنوان «حين تتساوى الأرقام وتختلف المخاطر»، عن المنطق الضبابي وأعطال FLISR."}, "datePublished": "2026-10-03", "dateModified": "2026-10-03", "author": {"@type": "Person", "name": "الدكتور علاء محمد أحمد", "url": "https://tamayuz10x.com/about.html"}, "publisher": {"@type": "Organization", "name": "التميّز 10X", "url": "https://tamayuz10x.com/"}, "articleSection": "هندسة الوقاية", "citation": ["https://doi.org/10.1109/ITECEATS66641.2026.11592843"]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"الرئيسية","item":"https://tamayuz10x.com/"},{"@type":"ListItem","position":2,"name":"المقالات","item":"https://tamayuz10x.com/articles.html"},{"@type":"ListItem","position":3,"name":"هندسة الوقاية","item":"https://tamayuz10x.com/articles.html"},{"@type":"ListItem","position":4,"name":"حين تتساوى أرقام الخطر وتختلف الأولويات","item":"https://tamayuz10x.com/article-preventive-engineering-fuzzy-flisr-fmea.html"}]}</script>
 <link rel="stylesheet" href="/assets/css/style.css">
 <link rel="stylesheet" href="/assets/css/story-cards.css?v=20261003-prevention-v6">
@@ -46,13 +46,13 @@ body{position:relative}
 <body>
 <header class="site-header"><div class="topbar"><div class="container topbar-inner"><div class="social">LinkedIn · YouTube · X</div><div class="lang-switch"><span>العربية</span><span>|</span><a href="/en/article-preventive-engineering-fuzzy-flisr-fmea.html" hreflang="en" lang="en">English</a></div></div></div><div class="container brand-row"><a class="brand" href="/"><img alt="شعار التميّز 10X" class="brand-logo" src="/assets/images/file_0000000047188210ac6952e999d2eda7.png?v=20260910-logo4"></a><button aria-label="فتح القائمة" class="menu-toggle">☰</button></div><nav class="main-nav"><div class="container nav-links"><a href="/">الرئيسية</a><a href="/vision-mission-values.html">الرؤية والرسالة والقيم</a><a href="/about.html">عن الدكتور علاء محمد أحمد</a><a href="/#tenx-10x">التميّز 10X</a><a class="active" href="/articles.html">حالات وتجارب 10X</a><a href="/agentic-ai-10x.html">Agentic AI 10X</a><a href="/research.html">الأبحاث والمنشورات</a><a href="/personality.html">مختبر اكتشاف الذات</a><a href="/training.html">بناء القدرات</a></div></nav></header>
 <main>
-<section class="pe-hero"><div class="container"><p class="pe-kicker">منهجية هندسة الوقاية (FMEA) · المنطق الضبابي · اعتمادية شبكات التوزيع</p><h1>حين تتساوى أرقام الخطر وتختلف الأولويات: منهجية هندسة الوقاية (FMEA) الضبابية في أنظمة FLISR</h1><p class="pe-lead">رقم أولوية الخطر قد يبدو دقيقًا، لكنه يستطيع أن يخفي فروقًا مهمة بين حالتين لهما الناتج نفسه تقريبًا. دراسة ميدانية على شبكة توزيع 20 كيلوفولت في جاوة الغربية اختبرت طريقة أخرى: تحويل تقييمات الشدة والحدوث والاكتشاف إلى قواعد لغوية ضبابية، ثم ربط الأولوية بصيانة موجهة ومحاكاة أثرها على زمن الانقطاع.</p><noscript><p><a href="/about.html">الدكتور علاء محمد أحمد</a> · <time datetime="2026-10-03">3 أكتوبر 2026</time> · 34 دقيقة قراءة</p></noscript></div></section>
+<section class="pe-hero"><div class="container"><p class="pe-kicker">منهجية هندسة الوقاية (FMEA) · المنطق الضبابي · اعتمادية شبكات التوزيع</p><h1>حين تتساوى أرقام الخطر وتختلف الأولويات: منهجية هندسة الوقاية (FMEA) الضبابية في أنظمة FLISR</h1><p class="pe-lead">مؤشر أولوية الخطر قد يبدو دقيقًا، لكنه يستطيع أن يخفي فروقًا مهمة بين حالتين لهما الناتج نفسه تقريبًا. دراسة ميدانية على شبكة توزيع 20 كيلوفولت في جاوة الغربية اختبرت طريقة أخرى: تحويل تقييمات الشدة والحدوث والاكتشاف إلى قواعد لغوية ضبابية، ثم ربط الأولوية بصيانة موجهة ومحاكاة أثرها على زمن الانقطاع.</p><noscript><p><a href="/about.html">الدكتور علاء محمد أحمد</a> · <time datetime="2026-10-03">3 أكتوبر 2026</time> · 34 دقيقة قراءة</p></noscript></div></section>
 <figure class="story-cover"><img src="/assets/previews/story/article-preventive-engineering-fuzzy-flisr-fmea-ar.jpg?v=20261003-prevention-v6" alt="غلاف سلسلة منهجية هندسة الوقاية (FMEA) بالكحلي والذهبي بعنوان «حين تتساوى الأرقام وتختلف المخاطر»، عن المنطق الضبابي وأعطال FLISR." width="1200" height="630" decoding="async" fetchpriority="high"><figcaption class="story-cover-note" data-no-speech="true">صورة توضيحية</figcaption></figure>
 
 <article class="pe-article" data-tenx-article="true" aria-label="حين تتساوى أرقام الخطر وتختلف الأولويات: منهجية هندسة الوقاية (FMEA) الضبابية في أنظمة FLISR">
 <section>
 <h2>المشكلة ليست دائمًا في الحساب؛ أحيانًا في ما يخفيه الحساب</h2>
-<p>في <strong>منهجية هندسة الوقاية (FMEA)</strong> التقليدية، تُضرب ثلاث درجات معًا: <strong>شدة الأثر</strong>، و<strong>احتمال وقوع السبب أو الفشل</strong>، و<strong>قابلية الاكتشاف</strong>. النتيجة تسمى <strong>RPN — Risk Priority Number — رقم أولوية الخطر</strong>. الفكرة سهلة، لكن الدراسة تنطلق من مشكلة معروفة: تركيبات مختلفة جدًا من الدرجات قد تنتج رقمًا متقاربًا، فيبدو خطر شديد لكنه سهل الاكتشاف قريبًا من خطر أقل شدة لكنه شبه غير قابل للكشف.</p>
+<p>في <strong>منهجية هندسة الوقاية (FMEA)</strong> التقليدية، تُضرب ثلاث درجات معًا: <strong>شدة الأثر</strong>، و<strong>احتمال وقوع السبب أو الفشل</strong>، و<strong>قابلية الاكتشاف</strong>. النتيجة تسمى <strong>مؤشر أولوية الخطر (RPN)</strong>. الفكرة سهلة، لكن الدراسة تنطلق من مشكلة معروفة: تركيبات مختلفة جدًا من الدرجات قد تنتج رقمًا متقاربًا، فيبدو خطر شديد لكنه سهل الاكتشاف قريبًا من خطر أقل شدة لكنه شبه غير قابل للكشف.</p>
 <p>الباحثون اختبروا هذه المشكلة في سياق عملي: <strong>FLISR — Fault Location, Isolation, and Service Restoration — تحديد موقع العطل وعزله واستعادة الخدمة</strong>. وهو تسلسل آلي في شبكات التوزيع يحدد موقع العطل، يعزل الجزء المتأثر، ثم يعيد التغذية إلى الأجزاء السليمة. التطبيق كان في شبكة 20 كيلوفولت تابعة لـPLN UP2D Jawa Barat في إندونيسيا، حيث يعتمد FLISR على <strong>ADMS — Advanced Distribution Management System — نظام إدارة التوزيع المتقدم</strong> من SurvalentONE. <a href="#ref-1" class="citation">[1]</a></p>
 <p>من بيانات 2022–2024 سجلت الدراسة <strong>141 حالة فشل في FLISR</strong>، وكانت خسارة الإشارة مسؤولة عن 37.6% من الحالات، وأعطال المشغلات الآلية عن 31.9%، مع معدل نجاح أساسي قدره 70%. وتذكر الدراسة أن تنفيذ التسلسل الآلي يستغرق نحو 23.65 ثانية، بينما قد يمتد التحويل اليدوي إلى نحو 90 دقيقة عند فشل السلسلة الآلية. <a href="#ref-1" class="citation">[1]</a></p>
 <aside class="evidence-note" role="note"><strong>حد مهم منذ البداية:</strong> الورقة تجمع بين بيانات تاريخية حقيقية، تقييم خبراء، نموذج منطق ضبابي، ثم محاكاة في DIgSILENT PowerFactory. نتائج ما بعد المعالجة هي في الأساس <strong>إسقاطات ومحاكاة</strong> وليست قياسات ميدانية بعد تنفيذ برنامج صيانة كامل. كما توجد داخل الورقة فروق في طريقة عرض معدل نجاح السيناريو المتوسط سنعود إليها بوضوح.</aside>
@@ -92,7 +92,7 @@ body{position:relative}
 <section>
 <h2>كيف حُسب الخطر بالطريقتين؟</h2>
 <p>في المسار التقليدي استخدمت الدراسة درجات من 1 إلى 10 لكل من: <strong>S — Severity — شدة الأثر</strong>، أي حجم الضرر إذا وقع وجه الفشل؛ و<strong>O — Occurrence — احتمال وقوع السبب أو الفشل</strong>؛ و<strong>D — Detection — قابلية الاكتشاف</strong>، أي مدى صعوبة اكتشاف الفشل بالوسائل الحالية قبل انتقال أثره. ثم حسبت:</p>
-<div class="pe-flow" aria-label="معادلة RPN"><span>S</span><b>×</b><span>O</span><b>×</b><span>D</span><b>=</b><span>RPN</span></div>
+<div class="pe-flow" aria-label="معادلة مؤشر أولوية الخطر (RPN)"><span>S</span><b>×</b><span>O</span><b>×</b><span>D</span><b>=</b><span>مؤشر أولوية الخطر (RPN)</span></div>
 <p>أما في المسار الضبابي، فلا تُضرب القيم فقط. تمر الدرجات عبر دوال الانتماء، ثم قواعد IF-THEN، ثم إزالة الضبابية لإنتاج TR*. وتصف الورقة القواعد بأنها تبدأ من خط أساس S×O ثم تعدّل مستوى الخطر بحسب قابلية الاكتشاف. <a href="#ref-1" class="citation">[1]</a></p>
 
 <p class="visual-intro"><strong>انظر إلى المثال التالي.</strong> الغرض ليس حفظ القواعد، بل فهم أن قابلية الاكتشاف يمكن أن ترفع أو تخفض الأولوية بدل أن تكون مجرد رقم يضرب في الناتج.</p>
@@ -107,10 +107,10 @@ body{position:relative}
 
 <section>
 <h2>ماذا وجدت الدراسة في 25 وجه فشل؟</h2>
-<p>حددت الدراسة <strong>25 وجه فشل</strong> في خمس مجموعات: المشغلات الآلية (6)، الاتصال/الإشارة (5)، البطاريات الاحتياطية (5)، RTU والوحدات البعيدة (4)، ومنطق FLISR داخل ADMS (5). وباستخدام RPN التقليدي صنفت 17 حالة على أنها حرجة بقيم أعلى من 200، و8 حالات على أنها مرتفعة بين 100 و200. <a href="#ref-1" class="citation">[1]</a></p>
+<p>حددت الدراسة <strong>25 وجه فشل</strong> في خمس مجموعات: المشغلات الآلية (6)، الاتصال/الإشارة (5)، البطاريات الاحتياطية (5)، RTU والوحدات البعيدة (4)، ومنطق FLISR داخل ADMS (5). وباستخدام مؤشر أولوية الخطر (RPN) التقليدي صنفت 17 حالة على أنها حرجة بقيم أعلى من 200، و8 حالات على أنها مرتفعة بين 100 و200. <a href="#ref-1" class="citation">[1]</a></p>
 
-<p class="visual-intro"><strong>انظر إلى أعلى عشر حالات في الجدول التالي.</strong> اقرأ كل صف من وجه الفشل ثم S وO وD وصولًا إلى RPN. ستلاحظ أن البطارية والمشغلات الآلية تهيمن على القائمة.</p>
-<div class="table-wrap"><table class="pe-table"><caption>أعلى عشرة أوجه فشل وفق RPN التقليدي في الدراسة</caption><thead><tr><th>الترتيب</th><th>الرمز</th><th>وجه الفشل</th><th>S</th><th>O</th><th>D</th><th>RPN</th></tr></thead><tbody>
+<p class="visual-intro"><strong>انظر إلى أعلى عشر حالات في الجدول التالي.</strong> اقرأ كل صف من وجه الفشل ثم S وO وD وصولًا إلى مؤشر أولوية الخطر (RPN). ستلاحظ أن البطارية والمشغلات الآلية تهيمن على القائمة.</p>
+<div class="table-wrap"><table class="pe-table"><caption>أعلى عشرة أوجه فشل وفق مؤشر أولوية الخطر (RPN) التقليدي في الدراسة</caption><thead><tr><th>الترتيب</th><th>الرمز</th><th>وجه الفشل</th><th>S</th><th>O</th><th>D</th><th>مؤشر أولوية الخطر (RPN)</th></tr></thead><tbody>
 <tr><td>1</td><td>BAT-01</td><td>نفاد/انخفاض شديد في سعة البطارية</td><td>9</td><td>8</td><td>8</td><td>576</td></tr>
 <tr><td>2</td><td>MTR-01</td><td>تعطل مشغل قاطع إعادة الإغلاق في وضع عالق</td><td>8</td><td>8</td><td>7</td><td>448</td></tr>
 <tr><td>3</td><td>BAT-02</td><td>فشل شاحن البطارية</td><td>9</td><td>5</td><td>9</td><td>405</td></tr>
@@ -122,14 +122,14 @@ body{position:relative}
 <tr><td>9</td><td>MTR-06</td><td>تلف الختم/دخول الماء</td><td>5</td><td>8</td><td>7</td><td>280</td></tr>
 <tr><td>10</td><td>BAT-03</td><td>خلل نظام إدارة البطارية</td><td>7</td><td>5</td><td>8</td><td>280</td></tr>
 </tbody></table></div>
-<p class="visual-takeaway"><strong>ما الذي تكشفه القائمة؟</strong> أعلى ست حالات تمثل نحو 38% من RPN التراكمي بحسب الدراسة. لكنها لا تخبرنا وحدها كيف سيتغير الترتيب عندما نعطي «صعوبة الاكتشاف» وزنًا لغويًا مرنًا بدل معامل ضرب ثابت.</p>
+<p class="visual-takeaway"><strong>ما الذي تكشفه القائمة؟</strong> أعلى ست حالات تمثل نحو 38% من مؤشر أولوية الخطر (RPN) التراكمي بحسب الدراسة. لكنها لا تخبرنا وحدها كيف سيتغير الترتيب عندما نعطي «صعوبة الاكتشاف» وزنًا لغويًا مرنًا بدل معامل ضرب ثابت.</p>
 </section>
 
 <section>
 <h2>ماذا تغير عندما استخدم الباحثون التقييم الضبابي؟</h2>
-<p>أعطى النموذج الضبابي أعلى درجة خطر لكل من <strong>نفاد سعة البطارية</strong> و<strong>فشل شاحن البطارية</strong>: <strong>TR*=91.7</strong> لكل منهما. وتذكر الدراسة أن حالات ضعيفة الاكتشاف، مثل BAT-02 وMTR-03، ارتفعت نسبيًا مقارنة بترتيب RPN، بينما تراجعت بعض الحالات الأفضل اكتشافًا. <a href="#ref-1" class="citation">[1]</a></p>
+<p>أعطى النموذج الضبابي أعلى درجة خطر لكل من <strong>نفاد سعة البطارية</strong> و<strong>فشل شاحن البطارية</strong>: <strong>TR*=91.7</strong> لكل منهما. وتذكر الدراسة أن حالات ضعيفة الاكتشاف، مثل BAT-02 وMTR-03، ارتفعت نسبيًا مقارنة بترتيب مؤشر أولوية الخطر (RPN)، بينما تراجعت بعض الحالات الأفضل اكتشافًا. <a href="#ref-1" class="citation">[1]</a></p>
 <p>هذه هي الفكرة العملية الأساسية: المنهج الضبابي لا يلغي ثلاثية تقييم الخطر (Severity, Occurrence, Detection — S/O/D)؛ بل يعيد تفسير العلاقة بينها. وقد يفيد ذلك عندما يكون الهدف هو اتخاذ قرار صيانة أو استثمار، لا مجرد ترتيب حاصل ضرب.</p>
-<aside class="method-note" role="note"><strong>لكن لا نستنتج أكثر مما نشرته الورقة:</strong> النص يعطي TR*=91.7 صراحة للحالتين الأعلى، ويصف اتجاهات بقية الحالات. الرسم في الصفحة الخامسة يقارن TR* مع RPN/10 لأعلى عشر حالات، لكن الورقة لا تنشر في النص جدولًا كاملًا بالقيم الرقمية الدقيقة لكل أعمدة TR*. لذلك لا نختلق أرقامًا غير منشورة.</aside>
+<aside class="method-note" role="note"><strong>لكن لا نستنتج أكثر مما نشرته الورقة:</strong> النص يعطي TR*=91.7 صراحة للحالتين الأعلى، ويصف اتجاهات بقية الحالات. الرسم في الصفحة الخامسة يقارن TR* مع مؤشر أولوية الخطر (RPN)/10 لأعلى عشر حالات، لكن الورقة لا تنشر في النص جدولًا كاملًا بالقيم الرقمية الدقيقة لكل أعمدة TR*. لذلك لا نختلق أرقامًا غير منشورة.</aside>
 </section>
 
 <section>
@@ -169,7 +169,7 @@ body{position:relative}
 
 <section>
 <h2>تطبيق الدراسة عبر رحلة هندسة الوقاية ذات المراحل التسع</h2>
-<aside class="method-note" role="note"><strong>الحالة المستمرة:</strong> سنستخدم BAT-01، أي «نفاد/انخفاض شديد في سعة البطارية»، لأنه يحتل المرتبة الأولى في RPN التقليدي بقيمة 576، ويبقى من أعلى الأولويات في التقييم الضبابي بدرجة TR*=91.7. المراحل 1–7 مدعومة مباشرة ببيانات ومنهج الدراسة؛ أما التحقق الميداني بعد تنفيذ المعالجة والمراجعة المستمرة فهما امتداد تطبيقي لأن الورقة تعتمد على المحاكاة والإسقاط لا قياس ما بعد التنفيذ في الميدان.</aside>
+<aside class="method-note" role="note"><strong>الحالة المستمرة:</strong> سنستخدم BAT-01، أي «نفاد/انخفاض شديد في سعة البطارية»، لأنه يحتل المرتبة الأولى في مؤشر أولوية الخطر (RPN) التقليدي بقيمة 576، ويبقى من أعلى الأولويات في التقييم الضبابي بدرجة TR*=91.7. المراحل 1–7 مدعومة مباشرة ببيانات ومنهج الدراسة؛ أما التحقق الميداني بعد تنفيذ المعالجة والمراجعة المستمرة فهما امتداد تطبيقي لأن الورقة تعتمد على المحاكاة والإسقاط لا قياس ما بعد التنفيذ في الميدان.</aside>
 
 <div class="stage"><div class="stage-head"><span class="stage-num">1</span><div><h3>تحديد نطاق التحليل: ما الذي نحلله؟</h3>
 <p class="stage-purpose"><strong>ماذا نفعل هنا؟</strong> نحدد النظام وحدوده قبل تقييم الخطر.</p>
@@ -196,15 +196,15 @@ body{position:relative}
 <p class="stage-error"><strong>الخطأ الشائع:</strong> تحويل الاستراتيجية المقترحة إلى «ضابط حالي» في سجل منهجية هندسة الوقاية (FMEA).</p>
 <div class="stage-output"><strong>مخرج المرحلة:</strong> درجة اكتشاف مرتفعة نسبيًا مع فجوة في تفاصيل الضابط الحالي المنشور، ما يستدعي توثيق وسيلة القياس في التطبيق الحقيقي.</div></div></div></div>
 
-<div class="stage"><div class="stage-head"><span class="stage-num">5</span><div><h3>ثلاثية تقييم الخطر (Severity, Occurrence, Detection — S/O/D): كيف وصل BAT-01 إلى RPN=576؟</h3>
+<div class="stage"><div class="stage-head"><span class="stage-num">5</span><div><h3>ثلاثية تقييم الخطر (Severity, Occurrence, Detection — S/O/D): كيف وصل BAT-01 إلى مؤشر أولوية الخطر (RPN)=576؟</h3>
 <p class="stage-purpose"><strong>ماذا نفعل هنا؟</strong> نطبق درجات الدراسة كما هي، لا أرقامًا من عندنا.</p>
-<p><strong>في حالتنا:</strong> S=9 وO=8 وD=8، ولذلك <strong>9 × 8 × 8 = 576</strong>. هذا أعلى RPN تقليدي في الجدول المنشور.</p>
+<p><strong>في حالتنا:</strong> S=9 وO=8 وD=8، ولذلك <strong>9 × 8 × 8 = 576</strong>. هذا أعلى مؤشر أولوية الخطر (RPN) تقليدي في الجدول المنشور.</p>
 <p class="stage-error"><strong>الخطأ الشائع:</strong> اعتبار 576 «حقيقة مطلقة» خارج سلم الخبراء والسياق المحلي الذي بنيت عليه الدرجات.</p>
 <div class="stage-output"><strong>مخرج المرحلة:</strong> ملف خطر تقليدي يضع BAT-01 في مقدمة المعالجة.</div></div></div></div>
 
 <div class="stage"><div class="stage-head"><span class="stage-num">6</span><div><h3>إعادة قراءة الأولوية بالمنطق الضبابي</h3>
 <p class="stage-purpose"><strong>ماذا نفعل هنا؟</strong> نسأل هل يبقى الخطر مرتفعًا عندما نعالج ثلاثية تقييم الخطر (Severity, Occurrence, Detection — S/O/D) كقيم لغوية متداخلة بدل حاصل ضرب فقط.</p>
-<p><strong>في حالتنا:</strong> BAT-01 يحصل على TR*=91.7 ويبقى من أعلى الأولويات. النتيجة هنا لا «تصحح» RPN بقدر ما تعطي الفريق تأكيدًا أن الحالة خطرة أيضًا تحت منطق قواعد مختلف.</p>
+<p><strong>في حالتنا:</strong> BAT-01 يحصل على TR*=91.7 ويبقى من أعلى الأولويات. النتيجة هنا لا «تصحح» مؤشر أولوية الخطر (RPN) بقدر ما تعطي الفريق تأكيدًا أن الحالة خطرة أيضًا تحت منطق قواعد مختلف.</p>
 <p class="stage-error"><strong>الخطأ الشائع:</strong> اعتبار TR* بديلًا عالميًا صالحًا لكل مؤسسة. القواعد ودوال الانتماء جزء من التصميم ويجب مراجعتها مع الخبراء.</p>
 <div class="stage-output"><strong>مخرج المرحلة:</strong> أولوية مرتفعة متسقة في الطريقتين، مع تفسير ضبابي أكثر مرونة للعلاقة بين الأبعاد.</div></div></div></div>
 
@@ -236,7 +236,7 @@ body{position:relative}
 <tr><td>2</td><td>راجع تعريفات ثلاثية تقييم الخطر (Severity, Occurrence, Detection — S/O/D) وأسباب كل درجة</td><td>خط أساس تقليدي موثق</td></tr>
 <tr><td>3</td><td>عرّف 3–5 مستويات لغوية ودوال انتماء مناسبة للسياق</td><td>تحويل مفهوم من الرقم إلى الوصف</td></tr>
 <tr><td>4</td><td>ابن قاعدة القواعد مع فريق متعدد التخصصات</td><td>منطق قرار يمكن مراجعته وتدقيقه</td></tr>
-<tr><td>5</td><td>احسب RPN ودرجة ضبابية جنبًا إلى جنب</td><td>قائمة بالحالات التي تغير ترتيبها</td></tr>
+<tr><td>5</td><td>احسب مؤشر أولوية الخطر (RPN) ودرجة ضبابية جنبًا إلى جنب</td><td>قائمة بالحالات التي تغير ترتيبها</td></tr>
 <tr><td>6</td><td>افحص لماذا تغير الترتيب، خصوصًا الحالات ضعيفة الاكتشاف</td><td>قرار إن كان المنهج يضيف قيمة</td></tr>
 <tr><td>7</td><td>اربط المعالجة بمؤشرات فاعلية ميدانية، لا بدرجة الخطر وحدها</td><td>خطة تحقق قبل/بعد</td></tr>
 <tr><td>8</td><td>أعد معايرة القواعد بعد البيانات الجديدة</td><td>نظام تعلم مستمر</td></tr>
@@ -245,7 +245,7 @@ body{position:relative}
 </section>
 
 <section>
-<h2>قالب قابل للنسخ لمقارنة RPN مع التقييم الضبابي</h2>
+<h2>قالب قابل للنسخ لمقارنة مؤشر أولوية الخطر (RPN) مع التقييم الضبابي</h2>
 <p class="visual-intro"><strong>استخدم الجدول التالي كسجل قرار.</strong> يجب أن يستطيع الفريق تفسير كل فرق في الترتيب، لا مجرد إعلان أن الخوارزمية الجديدة «أفضل».</p>
 <div class="table-wrap"><table class="pe-table"><caption>قالب مقارنة يمكن نقله إلى أول تجربة مؤسسية</caption><thead><tr><th>الحقل</th><th>ما الذي تسجله؟</th></tr></thead><tbody>
 <tr><td>المهمة المطلوبة</td><td>ما الذي يجب أن ينجح؟</td></tr>
@@ -255,7 +255,7 @@ body{position:relative}
 <tr><td>الوقاية الحالية</td><td>ما الذي يمنع السبب؟</td></tr>
 <tr><td>وسيلة اكتشاف الفشل الحالية</td><td>كيف نعرف أن الفشل بدأ؟</td></tr>
 <tr><td>ثلاثية تقييم الخطر (Severity, Occurrence, Detection — S/O/D)</td><td>الدرجات مع تعريف السلم والدليل</td></tr>
-<tr><td>RPN</td><td>الحاصل التقليدي S×O×D</td></tr>
+<tr><td>مؤشر أولوية الخطر (RPN)</td><td>الحاصل التقليدي S×O×D</td></tr>
 <tr><td>المستويات اللغوية</td><td>كيف تحولت الدرجات إلى منخفض/متوسط/مرتفع؟</td></tr>
 <tr><td>قاعدة الاستدلال</td><td>أي قاعدة IF-THEN أثرت في الحالة؟</td></tr>
 <tr><td>درجة الخطر الضبابية</td><td>القيمة النهائية بعد إزالة الضبابية</td></tr>
@@ -273,13 +273,13 @@ body{position:relative}
 
 <section>
 <h2>ماذا يستفيد القارئ من هذه الدراسة؟</h2>
-<p>القيمة ليست أن «المنطق الضبابي أفضل دائمًا من RPN». القيمة هي إدراك أن رقم أولوية واحد قد يضغط ثلاث معلومات مختلفة في حاصل ضرب واحد، وأن المؤسسات تستطيع اختبار طريقة أكثر مرونة عندما يكون عدم اليقين واختلاف قدرة الكشف مؤثرين في القرار.</p>
-<p>إذا أردت تطبيق الفكرة، فابدأ بسؤال بسيط: <strong>هل توجد حالات في منهجية هندسة الوقاية (FMEA) الحالية لدينا تبدو متقاربة في RPN، لكننا نعرف مهنيًا أن إحداها أخطر بسبب صعوبة اكتشافها أو شدة أثرها؟</strong> إذا كانت الإجابة نعم، فهذه منطقة مناسبة لاختبار منطق ضبابي قابل للتفسير — بشرط ألا يتحول إلى صندوق أسود جديد.</p>
+<p>القيمة ليست أن «المنطق الضبابي أفضل دائمًا من مؤشر أولوية الخطر (RPN)». القيمة هي إدراك أن رقم أولوية واحد قد يضغط ثلاث معلومات مختلفة في حاصل ضرب واحد، وأن المؤسسات تستطيع اختبار طريقة أكثر مرونة عندما يكون عدم اليقين واختلاف قدرة الكشف مؤثرين في القرار.</p>
+<p>إذا أردت تطبيق الفكرة، فابدأ بسؤال بسيط: <strong>هل توجد حالات في منهجية هندسة الوقاية (FMEA) الحالية لدينا تبدو متقاربة في مؤشر أولوية الخطر (RPN)، لكننا نعرف مهنيًا أن إحداها أخطر بسبب صعوبة اكتشافها أو شدة أثرها؟</strong> إذا كانت الإجابة نعم، فهذه منطقة مناسبة لاختبار منطق ضبابي قابل للتفسير — بشرط ألا يتحول إلى صندوق أسود جديد.</p>
 </section>
 
 <section class="question">
 <h2>سؤال هندسة الوقاية</h2>
-<p>لو أعطاك جدول المخاطر غدًا حالتين لهما RPN متقارب، هل تستطيع أن تشرح لفريقك لماذا يجب معالجة إحداهما قبل الأخرى؟ وإذا لم تستطع، فهل المشكلة في الخطر نفسه أم في الطريقة التي اختصرته بها إلى رقم واحد؟</p>
+<p>لو أعطاك جدول المخاطر غدًا حالتين لهما مؤشر أولوية الخطر (RPN) متقارب، هل تستطيع أن تشرح لفريقك لماذا يجب معالجة إحداهما قبل الأخرى؟ وإذا لم تستطع، فهل المشكلة في الخطر نفسه أم في الطريقة التي اختصرته بها إلى رقم واحد؟</p>
 </section>
 
 <section class="tenx-disclaimer"><h2 data-tenx-speech="تَنْوِيهٌ تَحْرِيرِيٌّ">تنويه تحريري</h2><p data-tenx-speech="الْآرَاءُ وَالتَّحْلِيلَاتُ الْوَارِدَةُ فِي هَذَا الْمَقَالِ تُمَثِّلُ رَأْيَ الْكَاتِبِ وَتَحْلِيلَهُ الْمِهْنِيَّ اسْتِنَادًا إِلَى الْمَصَادِرِ الْمُشَارِ إِلَيْهَا، وَلَا تُمَثِّلُ بِالضَّرُورَةِ الْمَوَاقِفَ الرَّسْمِيَّةَ لِلْجِهَاتِ الْمَذْكُورَةِ. وَلِلِاطِّلَاعِ عَلَى الْمَعْلُومَاتِ وَالْمَرَاجِعِ الْأَصْلِيَّةِ وَالْكَامِلَةِ وَالْأَحْدَثِ، يُرْجَى الرُّجُوعُ مُبَاشَرَةً إِلَى الْمَصَادِرِ الْأَصْلِيَّةِ وَالْوَثَائِقِ الرَّسْمِيَّةِ الْوَارِدَةِ فِي قَائِمَةِ الْمَرَاجِعِ.">الآراء والتحليلات الواردة في هذا المقال تمثل رأي الكاتب وتحليله المهني استنادًا إلى المصادر المشار إليها، ولا تمثل بالضرورة المواقف الرسمية للجهات المذكورة. وللاطلاع على المعلومات والمراجع الأصلية والكاملة والأحدث، يُرجى الرجوع مباشرة إلى المصادر الأصلية والوثائق الرسمية الواردة في قائمة المراجع.</p></section>
