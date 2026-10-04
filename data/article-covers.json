@@ -5,6 +5,27 @@
   "maxBytes": 170000,
   "cards": [
     {
+      "slug": "case-abu-dhabi-effortless-customer-experience",
+      "background": "assets/previews/story-backgrounds/case-tamm-autogov-ai-native-government.jpg",
+      "category": "case",
+      "ar": {
+        "title": [
+          "حين تختفي المعاملة",
+          "قبل أن تبدأ؟"
+        ],
+        "subtitle": "أبوظبي تعيد تصميم الخدمة حول الجهد الذي يختفي",
+        "alt": "غلاف توضيحي بالكحلي والذهبي مستلهم من أبوظبي بعنوان «حين تختفي المعاملة قبل أن تبدأ؟»."
+      },
+      "en": {
+        "title": [
+          "When the Transaction",
+          "Disappears"
+        ],
+        "subtitle": "Abu Dhabi redesigns government services around effort removed.",
+        "alt": "Navy and gold Abu Dhabi-inspired editorial cover titled “When the Transaction Disappears”."
+      }
+    },
+    {
       "slug": "article-preventive-engineering-fmea-afmea-fta",
       "background": "assets/previews/story-backgrounds/case-dewa-asgr-self-healing-grid.jpg",
       "category": "prevention",
