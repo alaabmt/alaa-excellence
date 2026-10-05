@@ -960,6 +960,27 @@
         "subtitle": "LA General: acute care follows the patient.",
         "alt": "Navy and gold editorial cover: Home vital-sign monitoring equipment beside a clinical care setup."
       }
+    },
+    {
+      "slug": "case-concern-early-warning-nursing-intelligence",
+      "background": "assets/previews/story-backgrounds/case-mcleod-ambient-ai-clinical-documentation.jpg",
+      "category": "case",
+      "ar": {
+        "title": [
+          "حين يصبح القلق",
+          "إشارة يراها الفريق"
+        ],
+        "subtitle": "CONCERN: من المراقبة التمريضية إلى إنذار مبكر مشترك",
+        "alt": "غلاف توضيحي بالكحلي والذهبي لحالة CONCERN عن تحويل أنماط المراقبة التمريضية إلى إشارة إنذار مبكر مشتركة."
+      },
+      "en": {
+        "title": [
+          "When Concern Becomes",
+          "a Shared Signal"
+        ],
+        "subtitle": "CONCERN: from nursing surveillance to shared early warning.",
+        "alt": "Navy and gold editorial cover for the CONCERN case, showing nursing surveillance becoming a shared early-warning signal."
+      }
     }
   ]
 }
