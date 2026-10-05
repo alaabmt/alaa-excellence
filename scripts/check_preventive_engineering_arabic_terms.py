@@ -6,8 +6,8 @@ import re
 import sys
 
 FULL = "منهجية هندسة الوقاية (FMEA)"
-RISK_TRIAD = "ثلاثية تقييم الخطر (Severity, Occurrence, Detection — S/O/D)"
-LEGACY_RISK_TERMS = ("ثالوث" + " الخطر", "ثلاثية " + "تحديد الخطر")
+RISK_TRIAD = "ثلاثية تحديد الخطر (Severity, Occurrence, Detection — S/O/D)"
+LEGACY_RISK_TERMS = ("ثالوث" + " الخطر", "ثلاثية " + "تقييم الخطر")
 errors = []
 
 def check_text(label: str, text: str) -> None:
@@ -20,7 +20,7 @@ def check_text(label: str, text: str) -> None:
     risk_remainder = text.replace(RISK_TRIAD, "")
     for old_phrase in LEGACY_RISK_TERMS:
         if old_phrase in risk_remainder:
-            errors.append(f"{label}: legacy risk-triad phrase is forbidden; use 'ثلاثية تقييم الخطر'")
+            errors.append(f"{label}: legacy risk-triad phrase is forbidden; use 'ثلاثية تحديد الخطر'")
     if "S/O/D" in risk_remainder or "S / O / D" in risk_remainder:
         errors.append(f"{label}: collective S/O/D must be written as {RISK_TRIAD}")
 
