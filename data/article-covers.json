@@ -1,9 +1,30 @@
 {
-  "version": "20261003-prevention-v6",
+  "version": "20261005-prevention-v7",
   "width": 1200,
   "height": 630,
   "maxBytes": 170000,
   "cards": [
+    {
+      "slug": "article-preventive-engineering-financial-failure-prediction-fmea",
+      "background": "assets/previews/story-backgrounds/case-uae-aani-instant-payments.jpg",
+      "category": "prevention",
+      "ar": {
+        "title": [
+          "من المؤشرات المالية",
+          "إلى الإنذار المبكر"
+        ],
+        "subtitle": "التنبؤ بالفشل المؤسسي عبر منهجية هندسة الوقاية (FMEA)",
+        "alt": "غلاف منهجية هندسة الوقاية (FMEA) بالكحلي والذهبي بعنوان «من المؤشرات المالية إلى الإنذار المبكر»، عن التنبؤ بالفشل المؤسسي ومخاطر التدقيق."
+      },
+      "en": {
+        "title": [
+          "From Financial Signals",
+          "to Early Warning"
+        ],
+        "subtitle": "Corporate failure prediction through FMEA.",
+        "alt": "Navy and gold FMEA · Failure Mode & Effects Analysis cover titled “From Financial Signals to Early Warning,” focused on corporate failure prediction and audit risk."
+      }
+    },
     {
       "slug": "case-abu-dhabi-effortless-customer-experience",
       "background": "assets/previews/story-backgrounds/case-tamm-autogov-ai-native-government.jpg",
