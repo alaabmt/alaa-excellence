@@ -404,3 +404,24 @@ if (contact) contact.addEventListener('submit', (e) => {
   if (msg) msg.textContent = 'تم استلام رسالتك مبدئياً. سيتم ربط النموذج بخدمة الإرسال قريباً.';
   contact.reset();
 });
+
+
+
+// Keep the books collection discoverable throughout both site editions.
+function ensureBooksNavigation() {
+  const links = document.querySelector('.main-nav .nav-links');
+  if (!links) return;
+  const prefix = isArabicPage ? '/' : '/en/';
+  const existing = Array.from(links.querySelectorAll('a')).find(link =>
+    new URL(link.href, location.href).pathname === prefix + 'books.html');
+  const link = existing || document.createElement('a');
+  if (!existing) {
+    link.href = prefix + 'books.html';
+    link.textContent = isArabicPage ? 'الكتب' : 'Books';
+    const research = links.querySelector('a[href="' + prefix + 'research.html"]');
+    links.insertBefore(link, research);
+    link.addEventListener('click', () => nav && nav.classList.remove('open'));
+  }
+  if (location.pathname === prefix + 'books.html') link.setAttribute('aria-current', 'page');
+}
+ensureBooksNavigation();
