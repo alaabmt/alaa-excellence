@@ -1002,6 +1002,27 @@
         "subtitle": "CONCERN: from nursing surveillance to shared early warning.",
         "alt": "Navy and gold editorial cover for the CONCERN case, showing nursing surveillance becoming a shared early-warning signal."
       }
+    },
+    {
+      "slug": "case-cumberland-intelligent-automation-capability",
+      "background": "assets/previews/story-backgrounds/case-portugal-empresa-na-hora-one-stop-company.jpg",
+      "category": "case",
+      "ar": {
+        "title": [
+          "حين لا تكون الأتمتة",
+          "هي الإجابة دائمًا"
+        ],
+        "subtitle": "Cumberland: بناء قدرة تعيد تصميم العمل",
+        "alt": "غلاف توضيحي بالكحلي والذهبي لحالة Cumberland عن الأتمتة الذكية وإعادة تصميم العمل."
+      },
+      "en": {
+        "title": [
+          "When Automation",
+          "Is Not Always the Answer"
+        ],
+        "subtitle": "Cumberland builds a capability to redesign work.",
+        "alt": "Navy and gold editorial cover for the Cumberland intelligent automation and work redesign case."
+      }
     }
   ]
 }
