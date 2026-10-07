@@ -65,11 +65,21 @@ function applySiteLogo() {
     logo.setAttribute('alt', siteLogoAlt);
   });
 
+  // Page-specific social images take priority over the site-logo fallback.
   document.querySelectorAll('meta[property="og:image"], meta[name="twitter:image"]').forEach((meta) => {
-    meta.setAttribute('content', siteLogoAbsolute);
+    if (!(meta.getAttribute('content') || '').trim()) {
+      meta.setAttribute('content', siteLogoAbsolute);
+    }
   });
-  document.querySelectorAll('meta[property="og:image:alt"]').forEach((meta) => {
-    meta.setAttribute('content', siteLogoAlt);
+  document.querySelectorAll('meta[property="og:image:alt"], meta[name="twitter:image:alt"]').forEach((meta) => {
+    const imageSelector = meta.getAttribute('property') === 'og:image:alt'
+      ? 'meta[property="og:image"]'
+      : 'meta[name="twitter:image"]';
+    const image = document.querySelector(imageSelector);
+    if (!(meta.getAttribute('content') || '').trim() &&
+        image && image.getAttribute('content') === siteLogoAbsolute) {
+      meta.setAttribute('content', siteLogoAlt);
+    }
   });
 }
 
