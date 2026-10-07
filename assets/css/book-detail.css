@@ -5,3 +5,7 @@
 @media(max-width:760px){.book-detail-hero-grid{grid-template-columns:1fr}.book-detail-hero h1{font-size:clamp(2.3rem,9vw,3.5rem)}.book-front{max-width:240px}.book-detail-hero{padding-bottom:36px}.book-topics{grid-template-columns:1fr}.book-topics li:last-child{grid-column:auto}.book-breadcrumbs{margin-bottom:24px}.book-detail-page .actions .btn{max-width:100%}}
 
 .book-detail-hero h1[lang="ar"]{font-family:inherit;font-size:clamp(2rem,4.2vw,3.7rem);line-height:1.5}.book-detail-subtitle[lang="ar"]{font-family:inherit;line-height:1.8}.book-original-title{color:#c7d2dd;font-size:1rem;margin:8px 0 18px}
+
+/* Arabic title hierarchy and book introduction */
+.book-detail-hero h1[lang="ar"]{margin:10px 0 18px;font-size:clamp(2.2rem,4.6vw,4rem);line-height:1.45;font-weight:800}.book-detail-hero h1[lang="ar"] span{display:block}.book-detail-hero .book-title-journey{font-size:.76em;color:#e4c79b;margin-top:6px}.book-detail-promise{font-size:1.05rem;line-height:1.9;max-width:660px;color:#d5dfe8;margin:0 0 24px}.book-detail-lead{margin-bottom:10px}.book-detail-hero-grid>div{min-width:0}.book-detail-hero h1{scroll-margin-top:20px}
+@media(max-width:760px){html[lang="ar"] .book-detail-hero{padding-top:18px}html[lang="ar"] .book-breadcrumbs{margin-bottom:18px;font-size:.78rem}.book-detail-hero h1[lang="ar"]{font-size:clamp(2rem,8.5vw,3.2rem);line-height:1.5}.book-detail-hero .book-title-journey{font-size:.8em}.book-detail-subtitle[lang="ar"]{font-size:1.08rem}.book-detail-promise{font-size:1rem}}

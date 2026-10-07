@@ -19,7 +19,7 @@
   function prepareLinks(data) {
     const value = key => String(data.get(key) || '').trim();
     const lines = ar ? [
-      'طلب نسخة مطبوعة: Mastering Case Mix Index',
+      'طلب نسخة مطبوعة: مؤشر حدة المرض: من الممارسة إلى الإتقان',
       'مرجع الطلب: ' + reference,
       'الكمية: نسخة واحدة باللغة الإنجليزية',
       'الإجمالي: 100 درهم شامل التوصيل داخل الإمارات وجميع الرسوم',
