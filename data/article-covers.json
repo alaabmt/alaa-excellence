@@ -1023,6 +1023,28 @@
         "subtitle": "Cumberland builds a capability to redesign work.",
         "alt": "Navy and gold editorial cover for the Cumberland intelligent automation and work redesign case."
       }
+    },
+    {
+      "slug": "reflection-nuh-building-before-need",
+      "background": "assets/previews/story-backgrounds/reflection-musa-limits-of-knowledge.jpg",
+      "category": "reflection",
+      "ar": {
+        "title": [
+          "نوح عليه السلام",
+          "بناء ما سيحتاجه الغد"
+        ],
+        "subtitle": "ما نحتاجه غدًا قد يستغرق سنوات حتى نبنيه",
+        "alt": "غلاف توضيحي بالكحلي والذهبي: سفينة عند الماء وأفق مفتوح دون تجسيد نوح عليه السلام، بعنوان «نوح عليه السلام: بناء ما سيحتاجه الغد»."
+      },
+      "en": {
+        "title": [
+          "Nuh:",
+          "Build Before",
+          "the Need Is Obvious"
+        ],
+        "subtitle": "What tomorrow needs may take years to build.",
+        "alt": "Navy and gold editorial cover: a ship by open water and a distant horizon, without depicting Nuh."
+      }
     }
   ]
 }
