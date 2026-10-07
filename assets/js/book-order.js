@@ -27,7 +27,7 @@
       'الهاتف: ' + value('phone'), 'الإمارة: ' + value('emirate'),
       'المدينة / المنطقة: ' + value('city_area'), 'العنوان: ' + value('delivery_address'),
       'ملاحظات التوصيل: ' + (value('delivery_notes') || 'لا توجد'),
-      'لم يتم الدفع. يرجى إرسال رابط زينة إلى البريد الإلكتروني بعد قبول الطلب.'
+      'حالة الدفع: لم يُتحقق منها بعد. سأرفق إيصال زينة بعد الدفع لربطه بمرجع الطلب.'
     ] : [
       'Printed book request: Mastering Case Mix Index',
       'Request reference: ' + reference,
@@ -37,7 +37,7 @@
       'Phone: ' + value('phone'), 'Emirate: ' + value('emirate'),
       'City / area: ' + value('city_area'), 'Address: ' + value('delivery_address'),
       'Delivery notes: ' + (value('delivery_notes') || 'None'),
-      'Unpaid request. Please email the Ziina payment link after accepting the order.'
+      'Payment status: not yet verified. I will attach my Ziina receipt after paying so it can be matched to this order reference.'
     ];
     const message = lines.join('\n');
     document.querySelectorAll('[data-order-whatsapp]').forEach(link => {
