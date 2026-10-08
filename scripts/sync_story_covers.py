@@ -22,9 +22,7 @@ def attrs(tag):
 
 
 def image_path(slug, lang):
-    # Use a fresh URL after first publication to bypass cached pre-generation 404s.
-    version = '20261008-masdar-v2' if slug == 'case-masdar-city-building-sustainability-capability' else REV
-    return f'/assets/previews/story/{slug}-{lang}.jpg?v={version}'
+    return f'/assets/previews/story/{slug}-{lang}.jpg?v={REV}'
 
 
 def set_meta(source, key, value):
