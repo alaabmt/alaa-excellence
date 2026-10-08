@@ -1045,6 +1045,27 @@
         "subtitle": "What tomorrow needs may take years to build.",
         "alt": "Navy and gold editorial cover: a ship by open water and a distant horizon, without depicting Nuh."
       }
+    },
+    {
+      "slug": "case-masdar-city-building-sustainability-capability",
+      "background": "assets/previews/story-backgrounds/case-uae-aani-instant-payments.jpg",
+      "category": "case",
+      "ar": {
+        "title": [
+          "مدينة مصدر",
+          "بناء قدرات الاستدامة"
+        ],
+        "subtitle": "كيف بنت أبوظبي المعرفة والتجريب والتشغيل؟",
+        "alt": "غلاف دراسة مدينة مصدر عن بناء القدرات والابتكار والاستدامة في أبوظبي."
+      },
+      "en": {
+        "title": [
+          "Masdar City",
+          "Beyond Green Buildings"
+        ],
+        "subtitle": "How Abu Dhabi built sustainability capabilities",
+        "alt": "Masdar City cover on sustainability, capability building and innovation in Abu Dhabi."
+      }
     }
   ]
 }
