@@ -16,6 +16,17 @@
     return 'CMI-' + Array.from(bytes, n => n.toString(16).padStart(8, '0')).join('').toUpperCase();
   }
 
+  const copyButton = document.querySelector('[data-order-copy]');
+  copyButton.addEventListener('click', async function () {
+    const status = document.querySelector('[data-copy-status]');
+    try {
+      await navigator.clipboard.writeText(reference);
+      status.textContent = ar ? 'تم نسخ رقم الطلب.' : 'Order reference copied.';
+    } catch (_) {
+      status.textContent = ar ? 'تعذّر النسخ التلقائي. حدّد رقم الطلب أعلاه وانسخه يدويًا.' : 'Select the reference above and copy it manually.';
+    }
+  });
+
   function prepareLinks(data) {
     const value = key => String(data.get(key) || '').trim();
     const lines = ar ? [
@@ -27,7 +38,7 @@
       'الهاتف: ' + value('phone'), 'الإمارة: ' + value('emirate'),
       'المدينة / المنطقة: ' + value('city_area'), 'العنوان: ' + value('delivery_address'),
       'ملاحظات التوصيل: ' + (value('delivery_notes') || 'لا توجد'),
-      'حالة الدفع: لم يُتحقق منها بعد. سأرفق إيصال زينة بعد الدفع لربطه بمرجع الطلب.'
+      'أرجو إرسال رابط زينة بإجمالي 100 درهم شامل التوصيل وجميع الرسوم. حالة الدفع: بانتظار الدفع والتحقق اليدوي. إذا سبق أن دفعت فسأرفق الإيصال مع رقم الطلب.'
     ] : [
       'Printed book request: Mastering Case Mix Index',
       'Request reference: ' + reference,
@@ -37,7 +48,7 @@
       'Phone: ' + value('phone'), 'Emirate: ' + value('emirate'),
       'City / area: ' + value('city_area'), 'Address: ' + value('delivery_address'),
       'Delivery notes: ' + (value('delivery_notes') || 'None'),
-      'Payment status: not yet verified. I will attach my Ziina receipt after paying so it can be matched to this order reference.'
+      'Please send a Ziina link for a total of AED 100 including delivery and all charges. Payment is pending and requires manual verification. If I have already paid, I will attach my receipt with this reference.'
     ];
     const message = lines.join('\n');
     document.querySelectorAll('[data-order-whatsapp]').forEach(link => {
@@ -84,8 +95,14 @@
       });
       const result = await response.json();
       if (!response.ok || result.ok === false) throw new Error('Submission not confirmed');
-      document.querySelector('[data-order-reference]').textContent =
-        (ar ? 'مرجع الطلب: ' : 'Request reference: ') + reference;
+      document.querySelector('[data-order-reference]').textContent = reference;
+      document.querySelector('[data-order-review]').textContent =
+        ['name', 'phone', 'email', 'emirate', 'city_area', 'delivery_address', 'delivery_notes']
+          .map(key => String(data.get(key) || '').trim()).filter(Boolean).join('\n');
+      document.querySelectorAll('[data-order-step]').forEach(step => {
+        if (step.dataset.orderStep === '2') step.setAttribute('aria-current', 'step');
+        else step.removeAttribute('aria-current');
+      });
       form.hidden = true;
       success.hidden = false;
       success.focus();

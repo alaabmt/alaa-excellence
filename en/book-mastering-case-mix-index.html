@@ -35,7 +35,7 @@
 <link href="/assets/css/books.css?v=20261007-books1" rel="stylesheet"/>
 <link href="/assets/css/book-detail.css?v=20261007-bookstory3" rel="stylesheet"/>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://tamayuz10x.com/en/book-mastering-case-mix-index.html#page","name":"Mastering Case Mix Index | Dr. Alaa Mohammad Ahmed","url":"https://tamayuz10x.com/en/book-mastering-case-mix-index.html","inLanguage":"en","mainEntity":{"@id":"https://tamayuz10x.com/book-mastering-case-mix-index.html#book"},"description":"Mastering Case Mix Index by Dr. Alaa Mohammad Ahmed: a practical guide to clinical documentation, the DEFENSIBLE Framework and healthcare performance.","breadcrumb":{"@id":"https://tamayuz10x.com/en/book-mastering-case-mix-index.html#breadcrumb"}},{"@type":"Book","@id":"https://tamayuz10x.com/book-mastering-case-mix-index.html#book","name":"Mastering Case Mix Index","alternateName":"Mastering Case Mix Index: A Practical Guide for Healthcare Professionals","author":{"@type":"Person","name":"Alaa Mohammad Ahmed","url":"https://tamayuz10x.com/en/about.html"},"isbn":"9789948520078","inLanguage":"en","numberOfPages":288,"datePublished":"2026-09-25","image":"https://tamayuz10x.com/assets/images/books/mastering-case-mix-index.jpg","url":"https://tamayuz10x.com/book-mastering-case-mix-index.html","sameAs":"https://www.amazon.ae/dp/9948520076","description":"A practical guide to clinical documentation, patient complexity and healthcare performance, introducing the DEFENSIBLE Framework."},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://tamayuz10x.com/en/"},{"@type":"ListItem","position":2,"name":"Books","item":"https://tamayuz10x.com/en/books.html"},{"@type":"ListItem","position":3,"name":"Mastering Case Mix Index","item":"https://tamayuz10x.com/en/book-mastering-case-mix-index.html"}],"@id":"https://tamayuz10x.com/en/book-mastering-case-mix-index.html#breadcrumb"}]}</script>
-<link href="/assets/css/book-order.css?v=20261007-order1" rel="stylesheet"/>
+<link href="/assets/css/book-order.css?v=20261008-checkout1" rel="stylesheet"/>
 </head>
 <body>
 <header class="site-header">
@@ -138,7 +138,7 @@
    <p class="book-order-included">One copy. Delivery and all charges included.</p>
    <p class="book-order-notice"><strong>Amazon comparison price: AED 200.</strong> Price supplied by the author on 7 October 2026; Amazon’s current price and delivery charges may vary. <a href="https://www.amazon.ae/dp/9948520076" target="_blank" rel="noopener noreferrer">Check Amazon UAE</a>.</p>
    <p>Mastering Case Mix Index · English edition · 288 pages</p>
-   <ol class="book-order-steps"><li>Complete the delivery details below.</li><li>After submitting your details, choose “Pay AED 100 with Ziina”.</li><li>Send your order reference and Ziina receipt on WhatsApp. The book is dispatched after payment is verified.</li></ol>
+   <ol class="book-order-steps"><li>Complete the delivery details below.</li><li>Send the prepared WhatsApp message to request a Ziina link with an AED 100 total.</li><li>Send your order reference and Ziina receipt on WhatsApp. The book is dispatched after payment is verified.</li></ol>
    <p class="book-order-delivery">Estimated delivery: two business days after payment confirmation. We will confirm your order and delivery date after checking your payment.</p>
    <div class="book-order-contact"><h3>Order enquiries</h3>
     <p><a href="mailto:info@tamayuz10x.com" dir="ltr">info@tamayuz10x.com</a></p>
@@ -146,15 +146,23 @@
    </div>
   </div>
   <div class="book-order-card">
+   <div class="book-order-summary" aria-labelledby="order-summary-heading">
+    <h3 id="order-summary-heading">Your order at a glance</h3>
+    <p>Mastering Case Mix Index</p>
+    <dl><div><dt>Edition</dt><dd>1 printed copy · English</dd></div><div><dt>UAE delivery</dt><dd>Included</dd></div><div class="book-order-total"><dt>Total including all charges</dt><dd>AED 100</dd></div></dl>
+    <p class="book-order-notice">Estimated delivery: two business days after payment confirmation.</p>
+   </div>
+   <ol class="book-order-progress" aria-label="Order steps"><li data-order-step="1" aria-current="step"><span>1</span> Delivery details</li><li data-order-step="2"><span>2</span> Payment link</li><li data-order-step="3"><span>3</span> Confirmation</li></ol>
+
    <form id="book-order-form" action="https://formspree.io/f/xrpgabye" method="POST" data-language="en" aria-labelledby="order-form-heading">
-    <h3 id="order-form-heading">1. Send your order request</h3><p>Complete your delivery details first. The next step opens Ziina for payment. All fields are required except delivery notes.</p>
+    <h3 id="order-form-heading">1. Delivery details</h3><p>Complete your delivery details first. Next, request your payment link on WhatsApp. All fields are required except delivery notes.</p>
     <input type="hidden" name="_subject" value="Book order request | Mastering Case Mix Index | AED 100"/>
     <input type="hidden" name="book" value="Mastering Case Mix Index — printed English edition"/>
     <input type="hidden" name="quantity" value="1"/>
     <input type="hidden" name="total_aed" value="100"/>
     <input type="hidden" name="shipping" value="UAE delivery and all charges included"/>
     <input type="hidden" name="country" value="United Arab Emirates"/>
-    <input type="hidden" name="payment_status" value="Payment pending — customer continues to Ziina; receipt must be verified manually"/>
+    <input type="hidden" name="payment_status" value="Awaiting payment link — AED 100 total; payment must be verified manually"/>
     <input type="hidden" name="language" value="en"/>
     <div class="book-order-fields">
      <label for="order-name">Full name<input id="order-name" name="name" autocomplete="name" required maxlength="100" pattern=".*\S.*"/></label>
@@ -167,15 +175,19 @@
     </div>
     <label class="book-order-consent"><input type="checkbox" name="order_consent" value="Agreed to order processing and courier delivery" required/><span>I agree that my details may be used to process this order, contact me about payment and delivery, and arrange delivery with the courier.</span></label>
     <input type="text" name="_gotcha" class="book-order-trap" tabindex="-1" autocomplete="off" aria-hidden="true"/>
-    <button type="submit" class="btn primary book-order-submit">Submit details &amp; continue to payment</button>
+    <button type="submit" class="btn primary book-order-submit">Submit details &amp; continue</button>
     <p class="book-order-notice">Submitting this form does not take payment. Your order is confirmed after we verify your Ziina payment.</p>
     <noscript><p>You can submit this form without JavaScript. Then contact us on WhatsApp using the number beside the form to receive the payment link.</p></noscript>
    </form>
-   <div id="book-order-success" class="book-order-result" hidden tabindex="-1" role="status">
-    <h3>Delivery details submitted</h3><p>Your details have been submitted through our email form. Complete payment through Ziina below. Payment has not yet been verified.</p>
-    <p class="book-order-reference" data-order-reference></p>
-    <h3>2. Pay AED 100 with Ziina</h3><p>One printed copy, including UAE delivery and all charges. Check that Ziina shows AED 100 before paying.</p><p><a class="btn primary" data-order-payment href="https://pay.ziina.com/tamayuz10x22/mICI4YZrRi?source=app" target="_blank" rel="noopener noreferrer">Pay AED 100 with Ziina <span aria-hidden="true">↗</span><span class="book-sr-only"> (opens in a new tab)</span></a></p><p>Keep your Ziina receipt. Opening the payment link does not confirm payment.</p><h3>3. Send your order and receipt on WhatsApp</h3><p>Open the prepared message, review the details and tap Send. Attach your Ziina receipt so we can match your payment to this order. Payment is checked manually.</p>
-    <a class="btn primary" data-order-whatsapp target="_blank" rel="noopener noreferrer">Send order &amp; receipt on WhatsApp</a>
+   <div id="book-order-success" class="book-order-result" hidden tabindex="-1" aria-labelledby="order-success-heading">
+    <h3 id="order-success-heading">Your details have been submitted</h3>
+    <p>Next, request your payment link on WhatsApp. Your order is awaiting payment and manual verification.</p>
+    <div class="book-order-reference-box"><p>Your order reference — keep it for enquiries</p><p class="book-order-reference" data-order-reference dir="ltr"></p><button type="button" class="book-order-copy" data-order-copy>Copy order reference</button><p class="book-order-copy-status" data-copy-status role="status" aria-live="polite"></p></div>
+    <div class="book-order-review"><h4>Delivery details submitted</h4><p data-order-review></p><p class="book-order-notice">Need to correct something? Send the change and your order reference on WhatsApp. You do not need to submit another order.</p></div>
+    <h3>2. Get your payment link</h3><p>We are updating direct checkout to keep your total at <strong>AED 100, including delivery and all charges</strong>. Use the button below, then send the prepared WhatsApp message to request a Ziina link for this amount. We will reply manually.</p>
+    <a class="btn primary" data-order-whatsapp target="_blank" rel="noopener noreferrer">Request an AED 100 payment link on WhatsApp <span aria-hidden="true">↗</span><span class="book-sr-only"> (opens in a new tab)</span></a>
+    <h3>3. Pay and send your receipt</h3><p>Check that the Ziina total is <strong>AED 100</strong> before paying. Then send the receipt in the same WhatsApp conversation with your order reference. We will confirm your order and delivery date once we have verified the payment.</p>
+    <p class="book-order-notice">Already paid? Send your receipt and order reference instead of paying again. Opening WhatsApp or Ziina does not automatically confirm payment.</p>
    </div>
    <div id="book-order-error" class="book-order-error" hidden tabindex="-1" role="alert">
     <p>We could not confirm your email submission. Your details are still in the form. You can send the request using WhatsApp or your email app below.</p><p>Open the prepared message, review the details and tap Send in WhatsApp. This step is not automatic.</p>
@@ -189,7 +201,7 @@
 <footer class="site-footer"><div class="container footer-grid"><div><strong><a aria-label="Tamayuz 10X" href="/en/" style="color:inherit;text-decoration:none">Tamayuz 10X</a></strong><p>Knowledge and consultancy in organizational excellence, transformation, quality and innovation.</p></div><div><strong>Quick Links</strong><p><a href="/en/articles.html">Articles</a> · <a href="/en/training.html">Capability Building</a> · <a href="/en/services.html">Professional experience</a> · <a href="/en/editorial-policy-disclaimer.html">Editorial Policy and Disclaimer</a></p></div><div><strong>Dr. Alaa Mohammad Ahmed</strong><p>Expert and consultant in organizational excellence, transformation, quality and innovation.</p></div></div><div class="container copyright">© <span id="year"></span> Dr. Alaa Mohammad Ahmed. All rights reserved.</div></footer>
 <script src="/assets/js/main.js?v=20261007-bookseo1"></script>
 <script src="../assets/js/site-engagement.js?v=20260907-engage2"></script><script src="../assets/js/mobile-social-share.js?v=20260907-shareapp3"></script>
-<script src="/assets/js/book-order.js?v=20261007-arhero2" defer></script>
+<script src="/assets/js/book-order.js?v=20261008-checkout1" defer></script>
 </body>
 </html>
 
