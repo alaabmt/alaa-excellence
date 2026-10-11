@@ -7,12 +7,26 @@
 | الجهة | الملف | الحالة |
 |---|---|---|
 | اليمنى — يعالج السبب (شماغ أحمر وأبيض) | `reference-right-shemagh.jpg` | متوفرة (250×446 بكسل — دقة منخفضة) |
-| اليسرى — يعالج الأعراض (غترة بيضاء) | — | لم تصل بعد؛ البرومبت مبني على الوصف النصي فقط |
+| اليسرى — يعالج الأعراض (غترة بيضاء) | `reference-left-ghutra.png` | غير متوفرة؛ تُولَّد أولًا بالبرومبت أدناه |
 
 ملاحظات على الصورة اليمنى:
 - الشخصية في الصورة تحمل جهازًا لوحيًا. البرومبت يطلب يدين فارغتين لأنها تحتاج يدها لتدوير المحبس.
 - الخلفية الرمادية في الصورة تناسب المشهد، لذلك اعتمدنا نفس درجتها للجدار في الجهتين.
-- الدقة منخفضة؛ استخدام النسخة الأصلية عالية الدقة يحسّن ثبات الملامح.
+- الدقة منخفضة، ولا توجد نسخة أعلى. لذلك أضفنا نسخة مكبّرة `reference-right-shemagh-1000w.jpg` (1000×1784). التكبير لا يضيف تفاصيل جديدة، لكنه يتجاوز الحد الأدنى للأبعاد في بعض الأدوات التي ترفض الصور الصغيرة. ارفع النسخة المكبّرة إلى أداة التوليد.
+
+### توليد صورة مرجعية للشخصية اليسرى
+
+لا توجد صورة للشخصية اليسرى. نولّدها أولًا بأداة صور، مع إرفاق صورة الشخصية اليمنى كمرجع للأسلوب فقط، حتى تكون الشخصيتان من «عالم» واحد. بعد ذلك نستخدم الصورة الناتجة مرجعًا في مقطع الجهة اليسرى.
+
+```text
+Full-body character design, same 3D Pixar-like style, lighting, proportions and plain soft-grey studio background as the attached reference image, but a DIFFERENT man.
+A Gulf Arab (Emirati) man standing, front view, neutral relaxed pose, hands empty at his sides.
+Large head and slim body (head about one quarter of his height). Warm tan skin, big round expressive dark-brown eyes, very thick bushy dark eyebrows, short dark beard and moustache, slightly tired but friendly expression, clearly a different face from the reference.
+Plain white ghutra (no pattern) with a black agal, the ghutra ends hanging over his shoulders. Long white Emirati kandura with a collarless neckline and a short tassel (tarboosh) hanging from the neck, brown sandals.
+No props, no text, no logo, no watermark.
+```
+
+راجع الصورة الناتجة قبل استخدامها. يجب أن تكون: غترة بيضاء دون نقش، ووجه مختلف بوضوح عن الشخصية اليمنى، ويدان فارغتان. احفظها باسم `reference-left-ghutra.png`.
 
 ## لماذا نولّد كل جهة في مقطع مستقل
 
@@ -41,7 +55,7 @@
 ```text
 3D animated cartoon, cinematic Pixar-like quality, vertical 9:16, 10 seconds, static locked-off camera, no cuts.
 Scene: plain soft-grey studio wall with a gentle gradient, simple grey floor. A horizontal metal water pipe is mounted on the wall at chest height. A blue round valve handle sits on top of the pipe on the left part of it (upstream). To the right of the valve, a small crack in the pipe leaks a steady stream of water onto the floor.
-Character (keep identical to the reference image for the whole clip): a Gulf Arab man, white kandura, white ghutra, black agal, thick dark eyebrows, dark beard, expressive caricature face.
+Character (use reference-left-ghutra.png as the character reference; keep him identical for the whole clip): a stylized 3D Pixar-like Gulf Arab man with a large head and slim body, very thick bushy dark eyebrows, short dark beard, plain white ghutra with black agal, white Emirati kandura with a short neck tassel, brown sandals. Same art style and proportions as the other clip's character, but a clearly different face.
 0-2s: water leaks steadily, a small puddle is on the floor. He holds a floor mop.
 2-5s: he mops fast and repeatedly, looking stressed and tired; the leak continues and the puddle grows.
 5-7s: water keeps leaking at the same rate; the puddle keeps growing despite his effort.
@@ -92,7 +106,7 @@ text, letters, subtitles, logo, watermark, UI, tablet, phone,  split screen, sec
 ```text
 3D animated cartoon, cinematic Pixar-like quality, vertical 9:16, 10 seconds, static locked-off camera, no cuts.
 The frame is split vertically into two equal halves by a thin dark line. The two halves are two separate rooms with identical layout, lighting and scale. Each half has its own separate horizontal metal water pipe mounted on the wall (the pipes do NOT connect across the line), a blue valve on top of the pipe upstream, a small crack downstream leaking water, and a simple grey floor.
-LEFT half: Gulf Arab man in white kandura, white ghutra, black agal, thick eyebrows, dark beard. He mops the floor fast and repeatedly, stressed and tired. His leak never stops and the puddle grows bigger all the time. At 7s he pauses, looks at the big puddle in frustration, then mops again without success.
+LEFT half: the character from reference-left-ghutra.png — stylized 3D Gulf Arab man, large head, very thick bushy eyebrows, short dark beard, plain white ghutra with black agal, white kandura with neck tassel. He mops the floor fast and repeatedly, stressed and tired. His leak never stops and the puddle grows bigger all the time. At 7s he pauses, looks at the big puddle in frustration, then mops again without success.
 RIGHT half: the character from reference-right-shemagh.jpg — stylized 3D Gulf Arab man, large head, big round dark-brown eyes, thick arched eyebrows, full black beard, wide toothy smile, red-and-white checked shemagh with thick black agal, long white thobe, black loafers, hands empty (no tablet). At 0-2s he looks at the leak, then up at the valve. At 2-5s he grips the blue valve and clearly turns it several times. At 5-7s the water stops completely; he smiles with confidence. At 7-10s he stands calmly; the floor under him is dry and clean.
 Final frame: big puddle on the left, dry floor on the right. Keep both faces identical to the reference images. No text, no logos, no watermark, no extra people.
 ```
