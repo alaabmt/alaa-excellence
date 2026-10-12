@@ -1066,6 +1066,29 @@
         "subtitle": "How Abu Dhabi built sustainability capabilities",
         "alt": "Masdar City cover on sustainability, capability building and innovation in Abu Dhabi."
       }
+    },
+    {
+      "slug": "reflection-sulayman-rethinking-possible",
+      "background": "assets/previews/story-backgrounds/reflection-queen-of-sheba-reconsidering-decisions.jpg",
+      "category": "reflection",
+      "ar": {
+        "title": [
+          "سليمان عليه السلام",
+          "عندما يتغير",
+          "تصورنا للممكن"
+        ],
+        "subtitle": "إعادة ابتكار الطريقة والتواضع عند الإنجاز",
+        "alt": "غلاف رمزي بالكحلي والذهبي: عرش فارغ وضوء وأفق مفتوح دون تجسيد سليمان عليه السلام."
+      },
+      "en": {
+        "title": [
+          "Sulayman:",
+          "Rethinking",
+          "What Is Possible"
+        ],
+        "subtitle": "Reinvent the method. Remain grateful.",
+        "alt": "Navy and gold symbolic cover: an empty throne, light and an open horizon, without depicting Sulayman."
+      }
     }
   ]
 }
