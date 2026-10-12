@@ -435,3 +435,21 @@ function ensureBooksNavigation() {
   if (location.pathname === prefix + 'books.html') link.setAttribute('aria-current', 'page');
 }
 ensureBooksNavigation();
+
+// Ensure the latest bilingual Share Studio is loaded across pages using the main site bundle.
+(function(){
+  if (window.__tenxShareStudioBootstrap) return;
+  window.__tenxShareStudioBootstrap = true;
+  function loadStudio(){
+    if (document.querySelector('.tenx-open-studio')) return;
+    var old = document.querySelector('.tenx-share-box');
+    if (old) old.remove();
+    window.__tenxEngagementLoaded = false;
+    var script = document.createElement('script');
+    script.src = '/assets/js/site-engagement.js?v=20261012-share-studio3';
+    script.defer = true;
+    document.body.appendChild(script);
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded',loadStudio);
+  else loadStudio();
+})();
