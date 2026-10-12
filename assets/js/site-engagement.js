@@ -28,6 +28,7 @@
       .tenx-share-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}.tenx-share-btn{appearance:none;border:1px solid #d8e1ea;background:#fff;color:#0b2545;border-radius:999px;padding:11px 16px;font:inherit;font-size:.9rem;font-weight:850;line-height:1;cursor:pointer;text-decoration:none!important;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}.tenx-share-btn:hover{transform:translateY(-2px);border-color:#9fb1c5;box-shadow:0 8px 18px rgba(11,37,69,.08)}.tenx-share-primary{background:#0b2545;color:#fff!important;border-color:#0b2545}.tenx-share-note{margin-top:13px;color:#7a8798;font-size:.78rem;line-height:1.65}.tenx-share-btn.is-copied{background:#edf7f0;border-color:#b8d9c1;color:#215c34}
       @media(max-width:640px){.tenx-author-audio{align-items:flex-start}.tenx-listen-controls{width:100%}.tenx-listen-btn{flex:1}.tenx-floating-audio{bottom:9px;flex-wrap:wrap}.tenx-floating-label{flex-basis:100%;order:-1}.tenx-floating-pause{flex:1}.tenx-share-box{padding:22px 18px;border-radius:20px}.tenx-share-actions{display:grid;grid-template-columns:1fr 1fr}.tenx-share-btn{text-align:center;padding:13px 10px}.tenx-share-primary{grid-column:1/-1}.tenx-share-shell{padding:0 14px}}
     `;
+    style.textContent += "\n/* Share Studio */\n.tenx-studio-overlay{position:fixed;inset:0;z-index:99999;background:rgba(3,18,28,.78);display:flex;justify-content:center;align-items:center;padding:16px;overflow:auto}.tenx-studio{box-sizing:border-box;background:#102f3b;color:#fff;width:min(640px,100%);max-height:calc(100dvh - 32px);overflow:auto;border:1px solid #4b7580;border-radius:24px;padding:24px;box-shadow:0 22px 80px #0006}.tenx-studio-head{display:flex;align-items:center;justify-content:space-between;gap:12px}.tenx-studio-head h2{color:#fff!important;font-size:1.6rem;margin:0 0 16px}.tenx-studio-close{background:none;border:0;color:#fff;font-size:2rem;cursor:pointer}.tenx-studio-preview{background:#fff;border-radius:15px;overflow:hidden;margin:8px 0 18px}.tenx-studio-preview img{display:block;width:100%;height:auto;aspect-ratio:1200/630;object-fit:contain}.tenx-studio-fallback{color:#0b2545;padding:30px;font-weight:bold}.tenx-studio label{display:block;margin-bottom:8px;font-weight:700}.tenx-studio textarea{box-sizing:border-box;width:100%;background:#071e27;border:1px solid #54727c;color:#fff;padding:14px;border-radius:12px;font:inherit;line-height:1.6;resize:vertical}.tenx-studio-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:18px}.tenx-studio-grid button{background:#153b49;color:#fff;border:1px solid #466976;border-radius:14px;min-height:62px;padding:10px 6px;font:inherit;cursor:pointer}.tenx-studio-grid button:hover,.tenx-studio-grid button:focus-visible{border-color:#d4ac56;background:#205064}.tenx-studio-grid button:first-child{background:#cba64e;color:#071e27;font-weight:800}.tenx-studio-note{color:#c4d0d4;font-size:.85rem;line-height:1.6}@media(max-width:480px){.tenx-studio{padding:18px;border-radius:18px}.tenx-studio-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}\n";
     document.head.appendChild(style);
   }
 
@@ -326,6 +327,97 @@
       else document.body.appendChild(shell);
     }
 
+    // Tamayuz 10X Share Studio: progressive enhancement of the existing share panel.
+    const studioButton = document.createElement('button');
+    studioButton.type = 'button';
+    studioButton.className = 'tenx-share-btn tenx-share-primary tenx-open-studio';
+    studioButton.textContent = ui('Share Studio · Preview Card', 'استوديو المشاركة · معاينة البطاقة');
+    box.querySelector('.tenx-share-actions').prepend(studioButton);
+    let studio = null;
+    let previousFocus = null;
+    const esc = (v) => String(v || '').replace(/[&<>"']/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    const getCover = () => document.querySelector('meta[property="og:image"]')?.content || document.querySelector('main article img')?.src || '';
+    const getDescription = () => document.querySelector('meta[property="og:description"]')?.content || document.querySelector('meta[name="description"]')?.content || '';
+    const defaultPost = () => [title, getDescription(), canonical].filter(Boolean).join('\n\n');
+    const copyText = async (value, button) => {
+      try {
+        await navigator.clipboard.writeText(value);
+        const old = button.textContent;
+        button.textContent = ui('Copied', 'تم النسخ');
+        setTimeout(() => { button.textContent = old; }, 1600);
+      } catch (_) { window.prompt(ui('Copy text:', 'انسخ النص:'), value); }
+    };
+    const closeStudio = () => {
+      if (!studio) return;
+      studio.remove(); studio = null;
+      document.body.style.overflow = '';
+      previousFocus?.focus();
+    };
+    const openStudio = () => {
+      if (studio) return;
+      previousFocus = document.activeElement;
+      const cover = getCover();
+      studio = document.createElement('div');
+      studio.className = 'tenx-studio-overlay';
+      studio.innerHTML = `<div class="tenx-studio" role="dialog" aria-modal="true" aria-label="${ui('Share this page', 'مشاركة الصفحة')}" dir="${IS_ENGLISH_PAGE ? 'ltr' : 'rtl'}">
+        <div class="tenx-studio-head"><h2>${ui('Share this page', 'شارك هذه الصفحة')}</h2><button type="button" class="tenx-studio-close" aria-label="${ui('Close', 'إغلاق')}">×</button></div>
+        <div class="tenx-studio-preview">${cover ? `<img src="${esc(cover)}" alt="${esc(title)}" loading="lazy">` : `<div class="tenx-studio-fallback">${esc(title)}</div>`}</div>
+        <label for="tenx-studio-post">${ui('Ready post (you can edit it)', 'منشور جاهز (يمكنك تعديله)')}</label>
+        <textarea id="tenx-studio-post" rows="5"></textarea>
+        <div class="tenx-studio-grid">
+          <button type="button" data-action="copy-post">${ui('Copy post', 'نسخ المنشور')}</button>
+          <button type="button" data-action="copy-link">${ui('Copy link', 'نسخ الرابط')}</button>
+          <button type="button" data-action="whatsapp">WhatsApp</button>
+          <button type="button" data-action="linkedin">LinkedIn</button>
+          <button type="button" data-action="facebook">Facebook</button>
+          <button type="button" data-action="x">X</button>
+          <button type="button" data-action="telegram">Telegram</button>
+          <button type="button" data-action="instagram">Instagram</button>
+          <button type="button" data-action="share-card">${ui('Share the card', 'مشاركة البطاقة')}</button>
+        </div>
+        <p class="tenx-studio-note">${ui('Some platforms do not accept prefilled post text. Copy your edited post before opening them. Image sharing depends on your device.', 'بعض المنصات لا تسمح بملء نص المنشور تلقائيًا. انسخ النص المعدّل قبل فتحها. مشاركة الصورة تعتمد على دعم جهازك.')}</p>
+      </div>`;
+      document.body.appendChild(studio);
+      document.body.style.overflow = 'hidden';
+      const textarea = studio.querySelector('textarea');
+      textarea.value = defaultPost();
+      studio.querySelector('.tenx-studio-close').addEventListener('click', closeStudio);
+      studio.addEventListener('click', (event) => { if (event.target === studio) closeStudio(); });
+      const open = (url) => window.open(url, '_blank', 'noopener,noreferrer');
+      studio.querySelectorAll('[data-action]').forEach((button) => button.addEventListener('click', async () => {
+        const action = button.dataset.action;
+        const post = textarea.value;
+        if (action === 'copy-post') return copyText(post, button);
+        if (action === 'copy-link') return copyText(canonical, button);
+        if (action === 'linkedin') return open('https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(canonical));
+        if (action === 'facebook') return open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(canonical));
+        if (action === 'x') return open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(post));
+        if (action === 'telegram') return open('https://t.me/share/url?url=' + encodeURIComponent(canonical) + '&text=' + encodeURIComponent(post));
+        if (action === 'whatsapp') return open('https://api.whatsapp.com/send?text=' + encodeURIComponent(post));
+        if (action === 'instagram') {
+          if (navigator.share) { try { await navigator.share({title, text:post, url:canonical}); } catch (_) {} }
+          else await copyText(post, button);
+          return;
+        }
+        if (action === 'share-card') {
+          if (!cover) return copyText(canonical, button);
+          try {
+            const response = await fetch(cover, {mode:'cors'});
+            if (!response.ok) throw new Error('image unavailable');
+            const blob = await response.blob();
+            const file = new File([blob], 'tamayuz10x-card.jpg', {type:blob.type || 'image/jpeg'});
+            if (navigator.canShare?.({files:[file]}) && navigator.share) await navigator.share({files:[file],title,text:post});
+            else {
+              const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = file.name; a.click();
+              setTimeout(() => URL.revokeObjectURL(a.href), 5000);
+            }
+          } catch (_) { await copyText(canonical, button); }
+        }
+      }));
+      studio.querySelector('.tenx-studio-close').focus();
+    };
+    studioButton.addEventListener('click', openStudio);
+    document.addEventListener('keydown', (event) => { if (!studio) return; if (event.key === 'Escape') closeStudio(); if (event.key === 'Tab') { const focusable = Array.from(studio.querySelectorAll('button,textarea')); const first = focusable[0], last = focusable[focusable.length - 1]; if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); } else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); } } });
     const copyButton = box.querySelector('.tenx-copy-link');
     copyButton.addEventListener('click', async () => {
       try {
