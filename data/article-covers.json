@@ -1089,6 +1089,27 @@
         "subtitle": "Reinvent the method. Remain grateful.",
         "alt": "Navy and gold symbolic cover: an empty throne, light and an open horizon, without depicting Sulayman."
       }
+    },
+    {
+      "slug": "case-siemens-masdar-sustainable-construction",
+      "background": "assets/previews/story-backgrounds/case-uae-aani-instant-payments.jpg",
+      "category": "case",
+      "ar": {
+        "title": [
+          "مقر سيمنس",
+          "الاستدامة بالتصميم"
+        ],
+        "subtitle": "دروس من البناء المستدام في مدينة مصدر",
+        "alt": "غلاف دراسة مقر سيمنس في مدينة مصدر عن التصميم المتكامل وكفاءة الموارد."
+      },
+      "en": {
+        "title": [
+          "Siemens at Masdar",
+          "Sustainability by Design"
+        ],
+        "subtitle": "Construction and resource efficiency in Abu Dhabi",
+        "alt": "Siemens Masdar City case study cover about integrated sustainable construction."
+      }
     }
   ]
 }
