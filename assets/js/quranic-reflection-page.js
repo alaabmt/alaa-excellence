@@ -7,20 +7,22 @@
   if (!main) return;
 
   const path = location.pathname;
-  const isDhul = path.includes('reflection-dhul-qarnayn-building-capability.html');
-  const isYusuf = path.includes('reflection-yusuf-building-tomorrow.html');
-  const isHoopoe = path.includes('reflection-hoopoe-how-do-we-know.html');
-  let counterpart;
-  if (isDhul) counterpart = isAr ? '/en/reflection-dhul-qarnayn-building-capability.html' : '/reflection-dhul-qarnayn-building-capability.html';
-  else if (isHoopoe) counterpart = isAr ? '/en/reflection-hoopoe-how-do-we-know.html' : '/reflection-hoopoe-how-do-we-know.html';
-  else counterpart = isAr ? '/en/reflection-yusuf-building-tomorrow.html' : '/reflection-yusuf-building-tomorrow.html';
+  const slug = path.split('/').pop();
+  const isDhul = slug === 'reflection-dhul-qarnayn-building-capability.html';
+  // Never send the visitor to a different article when a translated edition is missing.
+  const englishEditionUnavailable = new Set(['reflection-ibrahim-building-before-ready.html']);
+  const hasCounterpart = !englishEditionUnavailable.has(slug);
+  const counterpart = isAr ? '/en/' + slug : '/' + slug;
+  const languageLink = hasCounterpart
+    ? `<a href="${counterpart}" hreflang="${isAr ? 'en' : 'ar'}">${isAr ? 'English' : 'العربية'}</a>`
+    : '';
 
   const header = document.createElement('header');
   header.className = 'site-header';
   header.innerHTML = `
     <div class="reflection-topbar"><div class="container">
       <span>${isAr ? 'تأملات 10X في القرآن' : '10X Reflections from the Qur’an'}</span>
-      <a href="${counterpart}" hreflang="${isAr ? 'en' : 'ar'}">${isAr ? 'English' : 'العربية'}</a>
+      ${languageLink}
     </div></div>
     <div class="reflection-brand-row">
       <a href="${isAr ? '/' : '/en/'}"><img src="/assets/images/file_0000000047188210ac6952e999d2eda7.png?v=20260910-logo4" alt="${isAr ? 'شعار التميّز 10X' : 'Tamayuz 10X logo'}"></a>
@@ -28,7 +30,7 @@
     <nav class="reflection-nav"><div class="container">
       <a href="${isAr ? '/' : '/en/'}">${isAr ? 'الرئيسية' : 'Home'}</a>
       <a href="${isAr ? '/articles.html' : '/en/articles.html'}">${isAr ? 'حالات وتجارب 10X' : '10X Cases & Experiences'}</a>
-      <a class="active" href="${isAr ? '/articles.html' : '/en/articles.html'}">${isAr ? 'تأملات قرآنية' : 'Qur’anic Reflections'}</a>
+      <a class="active" href="${isAr ? '/quranic-reflections.html' : '/en/quranic-reflections.html'}">${isAr ? 'تأملات قرآنية' : 'Qur’anic Reflections'}</a>
       <a href="${isAr ? '/research.html' : '/en/research.html'}">${isAr ? 'الأبحاث والمنشورات' : 'Research & Publications'}</a>
     </div></nav>`;
   document.body.insertBefore(header, main);
@@ -60,5 +62,13 @@
       }
       location.href = `https://wa.me/?text=${encodeURIComponent(data.text + '\n' + shareUrl)}`;
     });
+  }
+  // Use the shared article listening interface and social controls for reflections too.
+  // Loading after the reflection header has been added ensures a consistent layout.
+  if (!document.querySelector('script[src*="site-engagement.js"]')) {
+    const engagement = document.createElement('script');
+    engagement.src = '/assets/js/site-engagement.js?v=20261013-reflection-parity1';
+    engagement.defer = true;
+    document.body.appendChild(engagement);
   }
 })();
