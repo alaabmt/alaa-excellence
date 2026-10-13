@@ -10,6 +10,7 @@ on:
       - 'robots.txt'
       - 'CNAME'
       - 'scripts/site_health_audit.py'
+      - 'scripts/check_editorial_collections.py'
       - 'scripts/enforce_language_runtime_isolation.py'
       - '.github/workflows/site-health-qa.yml'
   push:
@@ -22,6 +23,7 @@ on:
       - 'robots.txt'
       - 'CNAME'
       - 'scripts/site_health_audit.py'
+      - 'scripts/check_editorial_collections.py'
       - 'scripts/enforce_language_runtime_isolation.py'
       - '.github/workflows/site-health-qa.yml'
   workflow_dispatch:
@@ -44,6 +46,8 @@ jobs:
           python-version: '3.12'
       - name: Check local links, assets, metadata and canonical integrity
         run: python scripts/site_health_audit.py --json-out /tmp/site-health.json
+      - name: Check Qur’anic reflection collections match article indexes
+        run: python scripts/check_editorial_collections.py
       - name: Check English pages load no Arabic-only scripts and show no stray Arabic
         run: |
           python -m pip install --quiet beautifulsoup4
