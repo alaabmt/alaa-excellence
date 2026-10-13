@@ -1,5 +1,5 @@
 {
-  "version": "20261008-masdar-v2",
+  "version": "20261013-ega-10x",
   "width": 1200,
   "height": 630,
   "maxBytes": 170000,
@@ -1109,6 +1109,27 @@
         ],
         "subtitle": "Construction and resource efficiency in Abu Dhabi",
         "alt": "Siemens Masdar City case study cover about integrated sustainable construction."
+      }
+    },
+    {
+      "slug": "case-ega-al-taweelah-recycling-10x",
+      "background": "assets/previews/story-backgrounds/case-uae-aani-instant-payments.jpg",
+      "category": "case",
+      "ar": {
+        "title": [
+          "الألمنيوم الإماراتي",
+          "من الخردة إلى القيمة"
+        ],
+        "subtitle": "هل يعيد مصنع الطويلة تصميم المنظومة بمنطق 10X؟",
+        "alt": "غلاف تحليلي كحلي وذهبي لمصنع الطويلة وإعادة تصميم القيمة الصناعية."
+      },
+      "en": {
+        "title": [
+          "EGA Recycling",
+          "Beyond Factory Capacity"
+        ],
+        "subtitle": "Can Al Taweelah redesign industrial value through 10X?",
+        "alt": "Navy and gold editorial cover on EGA recycling and the 10X value system."
       }
     }
   ]
