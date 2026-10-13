@@ -9,7 +9,7 @@
   const AUTHOR_IMAGE = '/assets/images/alaa-mohammad-ahmad-profile-hq.webp';
   const ui = (en, ar) => IS_ENGLISH_PAGE ? en : ar;
   const path = window.location.pathname.toLowerCase();
-  const isArticlePage = /\/(case-|idea-|article-)/.test(path) || !!document.querySelector('[data-tenx-article]');
+  const isArticlePage = /\/(case-|idea-|article-|reflection-)/.test(path) || !!document.querySelector('[data-tenx-article]');
   const canonical = document.querySelector('link[rel="canonical"]')?.href || window.location.href.split('#')[0];
   const title = document.querySelector('meta[property="og:title"]')?.content || document.querySelector('h1')?.textContent?.trim() || document.title;
 
@@ -66,13 +66,17 @@
     };
 
     add(document.querySelector('.case-hero h1, .article-hero h1, .idea-hero h1, main h1'));
-    add(document.querySelector('.case-lead, .article-lead, .idea-lead, .article-hero p, .idea-hero p'));
+    add(document.querySelector('.case-lead, .article-lead, .idea-lead, .article-hero p, .idea-hero p, main article header.page-header h1 + p'));
 
     const selector = 'h2,h3,h4,p,li,blockquote,.plain,.note,.move,.metric,.lens,.use-card,.transfer-card,.reflection';
+    const reflectionPage = /\/reflection-/.test(path);
+    let afterReflectionText = false;
     article.querySelectorAll(selector).forEach((el) => {
+      if (reflectionPage && el.matches('h2') && /^(المراجع|المصادر|تنويه تحريري|أسرار المشاركة|References|Editorial Disclaimer|Sharing Notes)/i.test(cleanText(el.textContent))) afterReflectionText = true;
+      if (reflectionPage && (afterReflectionText || el.closest('.page-header .eyebrow'))) return;
       if (el.matches('.refs *, .references *, .tenx-share-box *, .tenx-author-audio *, .back')) return;
       const nested = Array.from(el.querySelectorAll(selector)).some((child) => child !== el && cleanText(child.textContent));
-      if (nested && !el.matches('h2,h3,h4,p,li,blockquote')) return;
+      if (nested && !el.matches('h2,h3,h4,p,li')) return;
       add(el);
     });
     return result;
@@ -115,7 +119,7 @@
       </div>
       <div class="tenx-audio-status" aria-live="polite"></div>`;
 
-    const lead = document.querySelector('.case-lead, .article-lead, .idea-lead, .article-hero p, .idea-hero p');
+    const lead = document.querySelector('.case-lead, .article-lead, .idea-lead, .article-hero p, .idea-hero p, main article header.page-header h1 + p');
     if (lead) lead.insertAdjacentElement('afterend', bar);
     else article.insertAdjacentElement('afterbegin', bar);
 
@@ -286,7 +290,7 @@
   }
 
   function addGlobalShare() {
-    if (document.querySelector('.tenx-share-box')) return;
+    if (document.querySelector('.tenx-share-box, .reflection-share')) return;
     const encodedUrl = encodeURIComponent(canonical);
     const isEnglish = (document.documentElement.lang || '').toLowerCase().startsWith('en');
     const shareText = isEnglish ? `${title} — Tamayuz 10X` : `${title} — التميّز 10X`;
