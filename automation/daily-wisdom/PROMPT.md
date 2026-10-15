@@ -31,6 +31,7 @@ Content rules:
 - No talk about the reader or the writing ("in this article", "you will learn"…). No clichés such as «في عالم سريع التغير».
 - Arabic: modern, natural فصحى that reads as written in Arabic from the start (Executive Analytical Arabic — Tamayuz 10X style). Use correct spelling and hamzas.
 - English: an original editorial line in US spelling. It is not a translation of the Arabic. It keeps the same idea and the same level of certainty. Apply this test: would a native English editor guess it was translated? If yes, rewrite it.
+- The Arabic term for Failure Mode is always «أوجه الفشل», never «وجوه الفشل».
 - Preventive engineering focus: it is better to avoid technical terms. If FMEA is mentioned in Arabic, write exactly «منهجية هندسة الوقاية (FMEA)». If the three risk dimensions are named together in Arabic, write exactly «ثلاثية تحديد الخطر (Severity, Occurrence, Detection — S/O/D)». Never use «ثلاثية تقييم الخطر» or «ثالوث الخطر».
 - Quranic reflections focus: do not quote or paraphrase verses on the card. Give the leadership lesson as the article states it. Do not give any verse a meaning that the article does not give it.
 - The wisdom must not repeat or closely paraphrase any earlier wisdom in `log.jsonl`.
