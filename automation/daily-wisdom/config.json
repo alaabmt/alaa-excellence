@@ -1,9 +1,9 @@
 {
   "timezone": "Asia/Dubai",
   "card_style": "signature",
-  "card_style_by_slot": { "09:00": "portrait", "15:00": "signature", "21:00": "signature" },
-  "slots": ["09:00", "15:00", "21:00"],
-  "linkedin": { "enabled": false, "slots": ["09:00"], "api_version": "202609", "visibility": "PUBLIC" },
+  "card_style_by_slot": { "09:00": "portrait" },
+  "slots": ["09:00"],
+  "linkedin": { "enabled": true, "mode": "owner_approval_each_post", "slots": ["09:00"], "api_version": "202609", "visibility": "PUBLIC" },
   "default_focus": "preventive-engineering",
   "months": {
     "2026-10": "preventive-engineering",

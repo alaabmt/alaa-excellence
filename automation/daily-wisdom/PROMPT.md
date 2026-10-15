@@ -1,6 +1,6 @@
 # Daily Wisdom Card — run instructions
 
-Each run produces **one wisdom** taken from **one** Tamayuz 10X article, rendered as two separate cards (Arabic and English), and sends them to the owner. The owner reviews them and publishes them manually. Never post anything to a website, social network or external service.
+Each run (once a day, 09:00 Dubai) produces **one wisdom** taken from **one** Tamayuz 10X article, rendered as two cards (Arabic and English), and sends them to the owner with the ready LinkedIn post text. The owner then approves or rejects the post. A post goes to LinkedIn **only after the owner's explicit approval in this session** (step 7). Never post anything to any other website, social network or external service.
 
 - Repository: `alaabmt/alaa-excellence`
 - State branch (config, renderer, log): `ccr-87550695-nqef73`. The owner allows pushes to this branch **only** for appending to `automation/daily-wisdom/log.jsonl`.
@@ -65,7 +65,16 @@ Before rendering, check every item: one idea? Supported by the article? Word cou
 Send both PNGs with `SendUserFile`, using `status: "proactive"` and `display: "render"`. The caption is the Arabic wisdom, then the English wisdom, then the article links: `https://tamayuz10x.com/<file>` and `https://tamayuz10x.com/en/<file>`.
 End the run with a short final message that has the same two texts, ready to copy as post captions, plus the links.
 
+End the delivery message with this question, in Arabic: «هل توافق على نشر هذا المنشور على حسابك في لينكدإن؟ اكتب: نعم، انشر على لينكدإن — أو: لا — أو اطلب تعديلًا.» Then stop and wait for the owner's reply.
+
 ## 6. Log
-1. Append one JSON line to `automation/daily-wisdom/log.jsonl`: `{"slug","focus","article","ar","en","created_at"}`. `created_at` is in ISO 8601 format with the +04:00 offset.
+1. Right after delivery, append one JSON line to `automation/daily-wisdom/log.jsonl`: `{"slug","focus","article","ar","en","created_at","linkedin":"pending"}`. `created_at` is in ISO 8601 format with the +04:00 offset.
 2. Commit only that file with the message `Daily wisdom log: <slug>`. Push with `git push -u origin ccr-87550695-nqef73`. If the push is rejected because another run pushed first, run `git pull --rebase origin ccr-87550695-nqef73` and push again. Retry up to 4 times on network errors (2s, 4s, 8s, 16s).
 3. Do not change any other file. Do not open a pull request.
+
+## 7. Owner decision (later turn in the same session)
+- **Explicit approval** (for example «نعم، انشر على لينكدإن»): run `python3 -I automation/daily-wisdom/post_linkedin.py post --spec <spec.json> --article <file>`, using the same spec and cards the owner saw. Never post different text or images. Then send the owner the post link, and update this run's log line to `"linkedin": "<post id>"`. Commit and push as in step 6.
+- **Rejection** («لا»): post nothing. Update the log line to `"linkedin": "rejected"`, then commit and push.
+- **Edit request**: change only what the owner asked, follow sections 3 and 4 again, send the new cards, and ask the same approval question again. The approval must be for the final version.
+- An unclear reply is not approval. Ask again.
+- If posting fails (for example, the token expired, error 401), report the exact error. Do not retry with other credentials. The token is renewed about every 60 days through the LinkedIn token generator and saved in the environment's Network secrets.
