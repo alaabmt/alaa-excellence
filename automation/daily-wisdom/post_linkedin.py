@@ -4,7 +4,9 @@ Usage:
   python3 -I post_linkedin.py check
   python3 -I post_linkedin.py post --spec <spec.json> --article <file.html> [--dry-run]
 
-The access token is read from the LINKEDIN_ACCESS_TOKEN environment variable and is never printed.
+Authentication: the preferred setup is a Claude "network secret" for api.linkedin.com and www.linkedin.com,
+which adds the Authorization header outside the session, so the token is never visible here.
+If LINKEDIN_ACCESS_TOKEN is set instead, it is used directly. The token is never printed.
 API references (Marketing versioned APIs): Images API (initializeUpload), Posts API (multiImage), little text format.
 """
 import argparse
@@ -24,15 +26,13 @@ RESERVED = set("\\|{}@[]()<>#*_~")
 
 
 def token():
-    t = os.environ.get("LINKEDIN_ACCESS_TOKEN", "").strip()
-    if not t:
-        sys.exit("LINKEDIN_ACCESS_TOKEN is not set in this environment.")
-    return t
+    """Token from the environment, or None when a network secret adds the header instead."""
+    return os.environ.get("LINKEDIN_ACCESS_TOKEN", "").strip() or None
 
 
 def call(method, url, body=None, data=None, headers=None, auth=True):
     h = {"X-Restli-Protocol-Version": "2.0.0", "LinkedIn-Version": CONFIG["api_version"]}
-    if auth:
+    if auth and token():
         h["Authorization"] = "Bearer " + token()
     if body is not None:
         data = json.dumps(body, ensure_ascii=False).encode("utf-8")
@@ -45,7 +45,8 @@ def call(method, url, body=None, data=None, headers=None, auth=True):
             return r.status, dict(r.headers), (json.loads(raw) if raw.strip().startswith(b"{") else raw)
     except urllib.error.HTTPError as e:
         detail = e.read().decode("utf-8", "replace")[:500]
-        sys.exit(f"LinkedIn API error {e.code} on {method} {url.split('?')[0]}: {detail}")
+        hint = " (no token reached LinkedIn: check the network secret or LINKEDIN_ACCESS_TOKEN)" if e.code == 401 else ""
+        sys.exit(f"LinkedIn API error {e.code} on {method} {url.split('?')[0]}: {detail}{hint}")
 
 
 def person_urn():
