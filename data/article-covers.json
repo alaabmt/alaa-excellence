@@ -5,6 +5,27 @@
   "maxBytes": 170000,
   "cards": [
     {
+      "slug": "case-buurtzorg-self-managing-nurse-teams",
+      "background": "assets/previews/story-backgrounds/case-buurtzorg-self-managing-nurse-teams.jpg",
+      "category": "case",
+      "ar": {
+        "title": [
+          "حين تُدير الممرضات",
+          "أنفسهن"
+        ],
+        "subtitle": "بورتزورخ: فرق بلا مديرين، وما يثبته الدليل",
+        "alt": "غلاف توضيحي بالكحلي والذهبي لحالة بورتزورخ عن فرق التمريض المنزلي التي تدير نفسها."
+      },
+      "en": {
+        "title": [
+          "Nurses",
+          "Without Managers"
+        ],
+        "subtitle": "Buurtzorg: what self-managing teams prove.",
+        "alt": "Navy and gold editorial cover for the Buurtzorg case on self-managing home-care nurse teams."
+      }
+    },
+    {
       "slug": "case-orsted-fossil-to-offshore-wind-transformation",
       "background": "assets/previews/story-backgrounds/case-orsted-fossil-to-offshore-wind-transformation.jpg",
       "category": "case",
