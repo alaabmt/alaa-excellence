@@ -11,7 +11,9 @@ const logo = resolve(here, '../../assets/images/file_0000000047188210ac6952e999d
 const photo = resolve(here, 'author.jpg');
 const spec = JSON.parse(readFileSync(process.argv[2], 'utf8'));
 const config = JSON.parse(readFileSync(resolve(here, 'config.json'), 'utf8'));
-const style = spec.style || config.card_style || 'plain'; // plain | signature | portrait
+// Style: plain | signature | portrait. Per-slot choice comes from the slug's HHMM (e.g. ...-0900 -> "09:00").
+const hhmm = (spec.slug.match(/(\d{2})(\d{2})$/) || []).slice(1).join(':');
+const style = spec.style || (config.card_style_by_slot || {})[hhmm] || config.card_style || 'plain';
 const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
 function page(lang, d) {
