@@ -116,7 +116,8 @@ def main():
         "isReshareDisabledByAuthor": False,
     }
     status, headers, _ = call("POST", API + "/rest/posts", body=body)
-    post_id = headers.get("x-restli-id") or headers.get("X-RestLi-Id")
+    lower = {k.lower(): v for k, v in headers.items()}
+    post_id = lower.get("x-restli-id") or lower.get("x-linkedin-id")
     print(json.dumps({"ok": status == 201, "post_id": post_id,
                       "url": f"https://www.linkedin.com/feed/update/{post_id}/" if post_id else None}))
 
