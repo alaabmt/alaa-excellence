@@ -44,6 +44,8 @@ Arabic:
 - Use direct, analytical, smooth modern فصحى. Balance short and medium sentences. The idea comes before decoration.
 - Use correct grammar, hamzas, ة and ى, and Arabic punctuation (، ؛ ؟). Use diacritics only to prevent ambiguity.
 - Do not make the wisdom stronger than the source claim. Keep fact, interpretation and conclusion separate.
+- Clarity comes first: any reader must understand the sentence on the first reading. Avoid unusual verbs and abstract metaphors (rejected examples: «قد تعبر بالمستشفى هذه الزيارة»، «أن تعود كل ملاحظة إلى أصلها»).
+- Example approved by the owner: «إغلاق الملاحظات على عجل قبل زيارة المقيّمين قد يساعد المستشفى على اجتياز الزيارة، لكنه لا يحافظ على الاعتماد. يدوم الاعتماد حين نبحث عن السبب الحقيقي وراء كل ملاحظة، ونعالجه حتى لا تتكرر.»
 
 English (Publication Translation mode):
 - Workflow: Arabic → understand → rebuild in English → edit. Never replace Arabic phrases one by one. The English may use a different sentence order and a different image, but it keeps the same idea and the same level of certainty.
