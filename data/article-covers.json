@@ -5,6 +5,27 @@
   "maxBytes": 170000,
   "cards": [
     {
+      "slug": "case-orsted-fossil-to-offshore-wind-transformation",
+      "background": "assets/previews/story-backgrounds/case-orsted-fossil-to-offshore-wind-transformation.jpg",
+      "category": "case",
+      "ar": {
+        "title": [
+          "أن تترك عملك الأساسي",
+          "قبل أن يتجاوزك المستقبل"
+        ],
+        "subtitle": "أورستد: من الفحم إلى رياح البحر، وثمن الطريق",
+        "alt": "غلاف توضيحي بالكحلي والذهبي لحالة أورستد عن الانتقال من الوقود الأحفوري إلى رياح البحر."
+      },
+      "en": {
+        "title": [
+          "Leaving the Core",
+          "Before the Future Leaves You"
+        ],
+        "subtitle": "Ørsted: from coal to offshore wind, at a price.",
+        "alt": "Navy and gold editorial cover for the Ørsted case on the shift from fossil fuels to offshore wind."
+      }
+    },
+    {
       "slug": "article-preventive-engineering-financial-failure-prediction-fmea",
       "background": "assets/previews/story-backgrounds/case-uae-aani-instant-payments.jpg",
       "category": "prevention",
