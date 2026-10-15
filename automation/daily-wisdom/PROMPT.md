@@ -1,0 +1,52 @@
+# Daily Wisdom Card — run instructions
+
+Each run produces **one wisdom** taken from **one** Tamayuz 10X article, rendered as two separate cards (Arabic and English), and sends them to the owner. The owner reviews them and publishes them manually. Never post anything to a website, social network or external service.
+
+- Repository: `alaabmt/alaa-excellence`
+- State branch (config, renderer, log): `ccr-87550695-nqef73`. The owner allows pushes to this branch **only** for appending to `automation/daily-wisdom/log.jsonl`.
+- Folder: `automation/daily-wisdom/`
+
+## 1. Prepare
+1. Use the existing clone at `/home/user/alaa-excellence`. If it does not exist, clone the repository there. Then `git fetch origin ccr-87550695-nqef73 && git checkout -B ccr-87550695-nqef73 origin/ccr-87550695-nqef73`.
+2. Read `10X_Agent_AI_Master_Operating_Manual_AR.md`, sections 3–6 (philosophy, voice, editorial rule, terms). If the focus is `preventive-engineering`, also read `AGENTS.md`, item 2.
+3. Get the current date and time in `Asia/Dubai` (`TZ=Asia/Dubai date`). The slot is the nearest entry in `config.json → slots`. Slug = `YYYY-MM-DD-HHMM` of that slot, for example `2026-10-16-0900`.
+4. If `log.jsonl` already has a line with this slug, stop. That slot is already done.
+
+## 2. Choose the article
+1. Focus = `config.json → months["YYYY-MM"]`. If that key is missing, use `default_focus`. Expand the `files` globs for that focus in the repository root. These are the Arabic pages. The English page has the same file name under `en/`.
+2. Among those files, choose the article with the **fewest** log entries for this focus. On a tie, choose the one used least recently. Never choose the same article as the previous log line, unless the focus has only one article.
+3. Extract the text: `python3 -I automation/daily-wisdom/extract_text.py <file>`. Do this for the Arabic page and, when it exists, the English page. Use the article title from the page `<h1>` (the first heading line), not the `<title>` suffixes.
+4. Read every earlier log entry for this article. The new wisdom must express a **different idea**.
+
+## 3. Write the wisdom
+A wisdom is **one idea**, stated as a lesson that also holds outside the article. It is not a summary of the article.
+
+Length: not short and not long.
+- Arabic: 18–35 words, in one or two sentences.
+- English: 20–38 words, in one or two sentences.
+
+Content rules:
+- The idea must come clearly from the article's own argument. Do not add claims, numbers, percentages, organization names or results. Do not state or imply that anything was proven unless the article says so.
+- No statistics at all. A wisdom carries an idea, not data.
+- No talk about the reader or the writing ("in this article", "you will learn"…). No clichés such as «في عالم سريع التغير».
+- Arabic: modern, natural فصحى that reads as written in Arabic from the start (Executive Analytical Arabic — Tamayuz 10X style). Use correct spelling and hamzas.
+- English: an original editorial line in US spelling. It is not a translation of the Arabic. It keeps the same idea and the same level of certainty. Apply this test: would a native English editor guess it was translated? If yes, rewrite it.
+- Preventive engineering focus: it is better to avoid technical terms. If FMEA is mentioned in Arabic, write exactly «منهجية هندسة الوقاية (FMEA)». If the three risk dimensions are named together in Arabic, write exactly «ثلاثية تحديد الخطر (Severity, Occurrence, Detection — S/O/D)». Never use «ثلاثية تقييم الخطر» or «ثالوث الخطر».
+- Quranic reflections focus: do not quote or paraphrase verses on the card. Give the leadership lesson as the article states it. Do not give any verse a meaning that the article does not give it.
+- The wisdom must not repeat or closely paraphrase any earlier wisdom in `log.jsonl`.
+
+Before rendering, check every item: one idea? Supported by the article? Word counts in range? No numbers? English reads as natively written? Different from the log? If any check fails, rewrite.
+
+## 4. Render
+1. Write `spec.json` in your scratchpad: `{"out_dir": "<scratchpad dir>", "slug": "<slug>", "ar": {"wisdom": "...", "title": "<Arabic H1>", "series": "<label_ar>"}, "en": {"wisdom": "...", "title": "<English H1>", "series": "<label_en>"}}`. If the English page does not exist, write an English title that faithfully renders the Arabic title.
+2. Run `node automation/daily-wisdom/render.mjs <spec.json>`.
+3. Each output line must show `"tajawal_loaded": true` and `font_px` ≥ 40. Open both PNGs and look at them. Check that nothing is clipped, the Arabic is shaped right-to-left, and there are no mixed-direction errors. Fix the problem and render again if needed.
+
+## 5. Deliver
+Send both PNGs with `SendUserFile`, using `status: "proactive"` and `display: "render"`. The caption is the Arabic wisdom, then the English wisdom, then the article links: `https://tamayuz10x.com/<file>` and `https://tamayuz10x.com/en/<file>`.
+End the run with a short final message that has the same two texts, ready to copy as post captions, plus the links.
+
+## 6. Log
+1. Append one JSON line to `automation/daily-wisdom/log.jsonl`: `{"slug","focus","article","ar","en","created_at"}`. `created_at` is in ISO 8601 format with the +04:00 offset.
+2. Commit only that file with the message `Daily wisdom log: <slug>`. Push with `git push -u origin ccr-87550695-nqef73`. If the push is rejected because another run pushed first, run `git pull --rebase origin ccr-87550695-nqef73` and push again. Retry up to 4 times on network errors (2s, 4s, 8s, 16s).
+3. Do not change any other file. Do not open a pull request.

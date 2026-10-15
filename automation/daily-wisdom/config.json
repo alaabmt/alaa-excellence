@@ -1,0 +1,41 @@
+{
+  "timezone": "Asia/Dubai",
+  "slots": ["09:00", "15:00", "21:00"],
+  "default_focus": "preventive-engineering",
+  "months": {
+    "2026-10": "preventive-engineering",
+    "2026-11": "preventive-engineering"
+  },
+  "focuses": {
+    "preventive-engineering": {
+      "label_ar": "سلسلة هندسة الوقاية",
+      "label_en": "Preventive Engineering Series",
+      "files": ["article-preventive-engineering-*.html"]
+    },
+    "cases": {
+      "label_ar": "حالات وتجارب 10X",
+      "label_en": "10X Cases",
+      "files": ["case-*.html"]
+    },
+    "quranic-reflections": {
+      "label_ar": "تأملات قرآنية في القيادة",
+      "label_en": "Quranic Reflections on Leadership",
+      "files": ["reflection-*.html"]
+    },
+    "ideas": {
+      "label_ar": "أفكار 10X",
+      "label_en": "10X Ideas",
+      "files": ["idea-*.html", "article-ahsanu-amala.html"]
+    },
+    "agentic-ai": {
+      "label_ar": "Agentic AI 10X",
+      "label_en": "Agentic AI 10X",
+      "files": ["article-agentic-ai-*.html", "agentic-ai-10x.html"]
+    },
+    "all": {
+      "label_ar": "التميّز 10X",
+      "label_en": "Tamayuz 10X",
+      "files": ["case-*.html", "article-*.html", "idea-*.html", "reflection-*.html"]
+    }
+  }
+}
