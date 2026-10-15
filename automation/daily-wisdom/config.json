@@ -1,5 +1,6 @@
 {
   "timezone": "Asia/Dubai",
+  "card_style": "plain",
   "slots": ["09:00", "15:00", "21:00"],
   "default_focus": "preventive-engineering",
   "months": {
