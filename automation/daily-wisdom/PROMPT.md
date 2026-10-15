@@ -36,6 +36,22 @@ Content rules:
 - Quranic reflections focus: do not quote or paraphrase verses on the card. Give the leadership lesson as the article states it. Do not give any verse a meaning that the article does not give it.
 - The wisdom must not repeat or closely paraphrase any earlier wisdom in `log.jsonl`.
 
+### Editorial standards (summary of the owner's Google Drive standards)
+The full standards are in the owner's Google Drive: `10X_ENGLISH_EDITORIAL_TRANSLATION_AND_HUMAN_STYLE_STANDARD.md` and `Arabic_Editorial_and_Publishing_Agent.md`. If this session can read Google Drive, read both before writing. If it cannot, apply this summary strictly.
+
+Arabic:
+- Write as if the text were written in Arabic first: no literal translation, no filler, no repeated words or roots in the same sentence (for example «لا يُستدام… يُستدام»).
+- Use direct, analytical, smooth modern فصحى. Balance short and medium sentences. The idea comes before decoration.
+- Use correct grammar, hamzas, ة and ى, and Arabic punctuation (، ؛ ؟). Use diacritics only to prevent ambiguity.
+- Do not make the wisdom stronger than the source claim. Keep fact, interpretation and conclusion separate.
+
+English (Publication Translation mode):
+- Workflow: Arabic → understand → rebuild in English → edit. Never replace Arabic phrases one by one. The English may use a different sentence order and a different image, but it keeps the same idea and the same level of certainty.
+- Write plain, precise contemporary American English, with concrete nouns, strong verbs and familiar words. No slang or casual idioms (for example "cleanup sprint"). Avoid contractions in the card text.
+- Avoid formulaic patterns: "It is not X; it is Y", "doesn't X… it Y", generic openings, inflated words (transformative, game-changing…), motivational clichés.
+- Use the term that fits the context (for example, accreditation "assessment" outside the United States, not "survey").
+- Read-aloud test: if the sentence is hard to say naturally, rewrite it. Ask: if the Arabic disappeared, would this read as an original English line by a senior editor? If not, rewrite.
+
 Before rendering, check every item: one idea? Supported by the article? Word counts in range? No numbers? English reads as natively written? Different from the log? If any check fails, rewrite.
 
 ## 4. Render
