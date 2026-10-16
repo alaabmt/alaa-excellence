@@ -37,3 +37,9 @@ Every number on the slides traces to one of these sources:
 ```
 node render.js <this-folder>   # Playwright + Chromium; fonts load from Google Fonts
 ```
+
+## Publication record
+
+- **Published:** 2026-10-16, via LinkedIn API, visibility PUBLIC
+- **Post:** `urn:li:ugcPost:7516923334178107392` — https://www.linkedin.com/feed/update/urn:li:ugcPost:7516923334178107392/
+- **Document:** `urn:li:document:D4D10AQEcZ1ti46jAQQ` (carousel-ar.pdf), title «لماذا يتلاشى التحسين؟»
