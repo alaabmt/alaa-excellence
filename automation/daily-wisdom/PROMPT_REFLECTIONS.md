@@ -22,8 +22,16 @@ Each run (once a day, 21:00 Dubai) produces **one Arabic card** from **one** art
 - The articles state that they are contemporary reflections (تأملات تدبرية), not a new tafsir. The lesson must keep that position: present it as a lesson drawn from the scene. Never present a management idea as the meaning of the verse, and never attribute to the verse a meaning that the article does not give it.
 - No sensational claims, no numbers, no fatwa-style language, no comparisons between prophets or between people.
 
+### Post caption (teaser) — required
+The post text is a small promise of knowledge that invites the reader to open the article (master manual §10), not a copy of the card. Write `ar.teaser` (Arabic, 45–90 words):
+1. Open with the scene, tension, paradox or question that makes the article worth reading, drawn from the article itself.
+2. One or two questions the article answers, without giving the full answer.
+3. One short line on why it matters to a leader or an organization.
+4. End with a call to read that is tied to the idea: «📖 اقرأ … كاملًا: «<article title>»». The script adds the link.
+Do not use internal labels (The 10X Move, عدسة 10X, دليل الأثر), clichés, exaggeration, numbers or claims that are not in the article. The approved model is the Dhul-Qarnayn reflection caption of 16 October 2026: «عرض القوم على ذي القرنين المال ليحلّ مشكلتهم عنهم، فطلب منهم شيئًا آخر: أن يعينوه بقوتهم. لماذا لم يكتفِ بأن يحلّها وحده؟ …».
+
 ## 4. Render
-1. Spec in your scratchpad: `{"out_dir": "...", "slug": "<slug>", "theme": "<theme from config.json → reflection_theme>", "ar": {"verse": "...", "verse_ref": "...", "wisdom": "...", "title": "<article H1>", "series": "تأملات قرآنية في القيادة"}}`. There is no English card and no author photo.
+1. Spec in your scratchpad: `{"out_dir": "...", "slug": "<slug>", "theme": "<theme from config.json → reflection_theme>", "ar": {"verse": "...", "verse_ref": "...", "wisdom": "...", "teaser": "...", "title": "<article H1>", "series": "تأملات قرآنية في القيادة"}}`. There is no English card and no author photo.
 2. `node automation/daily-wisdom/render_reflection.mjs <spec.json>`. Check `tajawal_loaded: true`, then open the PNG and look at it. The verse must be fully visible, the diacritics clear, and the reference digits in the right order.
 
 ## 5. Deliver and ask

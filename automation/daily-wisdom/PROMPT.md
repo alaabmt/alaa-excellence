@@ -55,10 +55,18 @@ English (Publication Translation mode):
 - Use the term that fits the context (for example, accreditation "assessment" outside the United States, not "survey").
 - Read-aloud test: if the sentence is hard to say naturally, rewrite it. Ask: if the Arabic disappeared, would this read as an original English line by a senior editor? If not, rewrite.
 
+### Post caption (teaser) — required
+The post text is a small promise of knowledge that invites the reader to open the article (master manual §10), not a copy of the card. Write `ar.teaser` (Arabic, 45–90 words) and `en.teaser` (English, 45–90 words, original editorial English under the same rules, ending with "Read the full article: <English title>"):
+1. Open with the scene, tension, paradox or question that makes the article worth reading, drawn from the article itself.
+2. One or two questions the article answers, without giving the full answer.
+3. One short line on why it matters to a leader or an organization.
+4. End with a call to read that is tied to the idea: «📖 اقرأ … كاملًا: «<article title>»». The script adds the link.
+Do not use internal labels (The 10X Move, عدسة 10X, دليل الأثر), clichés, exaggeration, numbers or claims that are not in the article. The approved model is the Dhul-Qarnayn reflection caption of 16 October 2026: «عرض القوم على ذي القرنين المال ليحلّ مشكلتهم عنهم، فطلب منهم شيئًا آخر: أن يعينوه بقوتهم. لماذا لم يكتفِ بأن يحلّها وحده؟ …».
+
 Before rendering, check every item: one idea? Supported by the article? Word counts in range? No numbers? English reads as natively written? Different from the log? If any check fails, rewrite.
 
 ## 4. Render
-1. Write `spec.json` in your scratchpad: `{"out_dir": "<scratchpad dir>", "slug": "<slug>", "ar": {"wisdom": "...", "title": "<Arabic H1>", "series": "<label_ar>"}, "en": {"wisdom": "...", "title": "<English H1>", "series": "<label_en>"}}`. If the English page does not exist, write an English title that faithfully renders the Arabic title.
+1. Write `spec.json` in your scratchpad: `{"out_dir": "<scratchpad dir>", "slug": "<slug>", "ar": {"wisdom": "...", "teaser": "...", "title": "<Arabic H1>", "series": "<label_ar>"}, "en": {"wisdom": "...", "teaser": "...", "title": "<English H1>", "series": "<label_en>"}}`. If the English page does not exist, write an English title that faithfully renders the Arabic title.
 2. Run `node automation/daily-wisdom/render.mjs <spec.json>`.
 3. Each output line must show `"tajawal_loaded": true` and `font_px` ≥ 40. Open both PNGs and look at them. Check that nothing is clipped, the Arabic is shaped right-to-left, and there are no mixed-direction errors. Fix the problem and render again if needed.
 

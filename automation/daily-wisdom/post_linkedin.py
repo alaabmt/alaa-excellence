@@ -60,6 +60,8 @@ def escape(text):
 
 def commentary(spec, article):
     ar, en = spec["ar"], spec["en"]
+    if ar.get("teaser") and en.get("teaser"):
+        return escape("\n".join([ar["teaser"], f"{SITE}/{article}", "", en["teaser"], f"{SITE}/en/{article}"]))
     lines = [
         ar["wisdom"], "",
         en["wisdom"], "",

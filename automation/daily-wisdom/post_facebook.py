@@ -12,8 +12,10 @@ Facebook apps cannot post to personal profiles; this posts to the Page that owns
 import argparse
 import json
 import os
+import re
 import sys
 import urllib.error
+import urllib.parse
 import urllib.request
 import uuid
 from pathlib import Path
@@ -45,7 +47,11 @@ def page():
 
 def caption(spec, article):
     ar = spec["ar"]
-    verse = f"﴿{ar['verse']}﴾\n{ar.get('verse_ref', '')}\n\n" if ar.get("verse") else ""
+    # Keep digit ranges such as 94–95 in reading order inside Arabic text (LRI … PDI).
+    ref = re.sub(r"[0-9٠-٩]+(?:\s*[–-]\s*[0-9٠-٩]+)?", lambda m: "\u2066" + m.group(0) + "\u2069", ar.get("verse_ref", ""))
+    verse = f"﴿{ar['verse']}﴾ — {ref}\n\n" if ar.get("verse") else ""
+    if ar.get("teaser"):
+        return f"{verse}{ar['teaser']}\n\n{SITE}/{article}"
     return f"{verse}{ar['wisdom']}\n\nمن مقال: {ar['title']}\n{SITE}/{article}"
 
 
@@ -70,7 +76,18 @@ def main():
     p.add_argument("--spec", required=True)
     p.add_argument("--article", required=True, help="file name of the article, e.g. article-x.html")
     p.add_argument("--dry-run", action="store_true")
+    e = sub.add_parser("edit-caption", help="replace the caption of an existing Page post")
+    e.add_argument("--post-id", required=True)
+    e.add_argument("--spec", required=True)
+    e.add_argument("--article", required=True)
     a = ap.parse_args()
+
+    if a.cmd == "edit-caption":
+        spec = json.loads(Path(a.spec).read_text(encoding="utf-8"))
+        body = urllib.parse.urlencode({"message": caption(spec, a.article)}).encode()
+        res = call("POST", f"/{a.post_id}", data=body, headers={"Content-Type": "application/x-www-form-urlencoded"})
+        print(json.dumps({"ok": bool(res.get("success", res)), "post_id": a.post_id}))
+        return
 
     if a.cmd == "check":
         pid, name = page()
