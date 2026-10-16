@@ -39,7 +39,8 @@ body:before{content:"";position:absolute;inset:0;background-image:${pattern};bac
 .verse{font-family:'AmiriQ',serif;color:${t.verse};font-size:76px;line-height:2.05;margin:18px 0 4px}
 .ref{color:${t.soft};font-size:26px;margin-bottom:26px}
 .lesson{font-weight:700;font-size:42px;line-height:1.75;margin-top:30px;max-width:820px}
-.src{margin-top:34px;font-size:22px;color:${t.soft};line-height:1.6;max-width:780px}
+.name{margin-top:30px;font-weight:800;font-size:30px;color:${t.gold}}
+.src{margin-top:10px;font-size:22px;color:${t.soft};line-height:1.6;max-width:780px}
 .src b{color:${t.ink};font-weight:700}
 .foot{position:relative;background:#fff;border-top:5px solid #c9a24a;height:130px;display:flex;align-items:center;justify-content:space-between;padding:0 56px 0 80px}
 .foot .t{font-size:26px;color:#42586c;font-weight:700}
@@ -54,6 +55,7 @@ body:before{content:"";position:absolute;inset:0;background-image:${pattern};bac
   <p class="ref">${ref}</p>
   ${orn}
   <p class="lesson" id="w">${esc(d.wisdom)}</p>
+  <p class="name">د. علاء محمد أحمد</p>
   <p class="src">من مقال: <b>${esc(d.title)}</b></p>
 </div>
 <div class="foot"><span class="t"><bdi><b>التميّز 10X</b></bdi> · <bdi dir="ltr">tamayuz10x.com</bdi></span><img src="file://${logo}" alt=""></div>
