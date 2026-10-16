@@ -23,8 +23,8 @@ Each run (once a day, 21:00 Dubai) produces **one Arabic card** from **one** art
 - No sensational claims, no numbers, no fatwa-style language, no comparisons between prophets or between people.
 
 ## 4. Render
-1. Spec in your scratchpad: `{"out_dir": "...", "slug": "<slug>", "style": "signature", "ar": {"verse": "...", "verse_ref": "...", "wisdom": "...", "title": "<article H1>", "series": "تأملات قرآنية في القيادة"}}`. There is no English card.
-2. `node automation/daily-wisdom/render.mjs <spec.json>`. Check `tajawal_loaded: true`, then open the PNG and look at it. The verse must be fully visible, the diacritics clear, and the reference digits in the right order.
+1. Spec in your scratchpad: `{"out_dir": "...", "slug": "<slug>", "theme": "<theme from config.json → reflection_theme>", "ar": {"verse": "...", "verse_ref": "...", "wisdom": "...", "title": "<article H1>", "series": "تأملات قرآنية في القيادة"}}`. There is no English card and no author photo.
+2. `node automation/daily-wisdom/render_reflection.mjs <spec.json>`. Check `tajawal_loaded: true`, then open the PNG and look at it. The verse must be fully visible, the diacritics clear, and the reference digits in the right order.
 
 ## 5. Deliver and ask
 Send the PNG with `SendUserFile` (`status: "proactive"`, `display: "render"`). Show the Facebook caption from `python3 -I automation/daily-wisdom/post_facebook.py post --spec <spec.json> --article <file> --dry-run`. Then ask, in Arabic: «هل توافق على نشر بطاقة التأمل على صفحة فيسبوك؟ اكتب: نعم، انشر التأمل — أو: لا — أو اطلب تعديلًا.» Stop and wait.

@@ -1,5 +1,6 @@
 {
   "timezone": "Asia/Dubai",
+  "reflection_theme": "night",
   "card_style": "signature",
   "card_style_by_slot": { "09:00": "portrait" },
   "slots": ["09:00"],
