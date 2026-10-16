@@ -1,14 +1,14 @@
 # LinkedIn Post 001 — Why Improvements Fade
 
 **Format:** LinkedIn document (carousel) post, 8 slides, 1080×1350.
-**Languages:** Arabic and English, posted separately.
+**Language:** Arabic only.
 **Publishing:** manual, by the account owner.
 
 | File | Purpose |
 |---|---|
-| `carousel-ar.pdf` / `carousel-en.pdf` | Upload as a LinkedIn Document |
-| `post-text-ar.md` / `post-text-en.md` | Post caption |
-| `slides-ar.html` / `slides-en.html` + `slides.css` | Editable source |
+| `carousel-ar.pdf` | Upload as a LinkedIn Document |
+| `post-text-ar.md` | Post caption |
+| `slides-ar.html` + `slides.css` | Editable source |
 | `preview/` | PNG of each slide, for review |
 | `../brand/` | Tamayuz 10X logo and wordmark: color (light bg), ondark (navy bg), navy (amber bg) |
 

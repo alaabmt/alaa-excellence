@@ -3,7 +3,7 @@ const path=require('path');
 (async()=>{
  const dir=process.argv[2];
  const b=await chromium.launch({executablePath:'/opt/pw-browsers/chromium'}).catch(()=>chromium.launch());
- for (const lang of ['en','ar']){
+ for (const lang of ['ar']){
   const p=await b.newPage({viewport:{width:1080,height:1350}});
   await p.goto('file://'+path.join(dir,`slides-${lang}.html`),{waitUntil:'networkidle'});
   await p.evaluate(()=>document.fonts.ready);

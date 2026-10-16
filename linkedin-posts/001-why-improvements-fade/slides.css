@@ -46,5 +46,5 @@ ul.clean li{padding:22px 0;border-bottom:2px solid rgba(0,0,0,.12)}
 .footer .brand .logo{height:46px;width:auto}
 .cover-logo .logo{height:190px;width:auto;margin-bottom:40px}
 .end-logo{margin-top:auto;margin-bottom:30px;display:flex;align-items:center;gap:28px}
-.end-logo .logo{height:150px;width:auto}
+.end-logo .logo{height:120px;width:auto}
 .end-logo span{font-family:var(--sans);font-size:28px;color:var(--muted)}
