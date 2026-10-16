@@ -39,3 +39,12 @@ ul.clean li{padding:22px 0;border-bottom:2px solid rgba(0,0,0,.12)}
 .box{margin-top:44px;padding:36px 40px;background:#fff;border-radius:10px}
 .rule{width:140px;height:8px;background:var(--amber);margin-top:44px}
 .ltr{direction:ltr;unicode-bidi:isolate}
+/* Tamayuz 10X brand */
+.logo{display:none}
+.slide:not(.dark):not(.amber) .logo.color,.dark .logo.ondark,.amber .logo.navy{display:block}
+.footer .brand{display:flex;align-items:center;gap:18px}
+.footer .brand .logo{height:46px;width:auto}
+.cover-logo .logo{height:190px;width:auto;margin-bottom:40px}
+.end-logo{margin-top:auto;margin-bottom:30px;display:flex;align-items:center;gap:28px}
+.end-logo .logo{height:150px;width:auto}
+.end-logo span{font-family:var(--sans);font-size:28px;color:var(--muted)}

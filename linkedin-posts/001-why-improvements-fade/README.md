@@ -10,6 +10,7 @@
 | `post-text-ar.md` / `post-text-en.md` | Post caption |
 | `slides-ar.html` / `slides-en.html` + `slides.css` | Editable source |
 | `preview/` | PNG of each slide, for review |
+| `../brand/` | Tamayuz 10X logo and wordmark: color (light bg), ondark (navy bg), navy (amber bg) |
 
 ## Evidence pack
 
