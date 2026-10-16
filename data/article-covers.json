@@ -5,6 +5,26 @@
   "maxBytes": 170000,
   "cards": [
     {
+      "slug": "case-estonia-x-road-data-exchange",
+      "background": "assets/previews/story-backgrounds/case-estonia-x-road-data-exchange.jpg",
+      "category": "case",
+      "ar": {
+        "title": [
+          "دولة بلا طوابير؟"
+        ],
+        "subtitle": "إستونيا: ربط الدولة دون مركز يجمع بياناتها",
+        "alt": "غلاف توضيحي بالكحلي والذهبي لحالة إستونيا عن طبقة تبادل البيانات الحكومية."
+      },
+      "en": {
+        "title": [
+          "A State",
+          "Without Queues?"
+        ],
+        "subtitle": "Estonia links its data without a central store.",
+        "alt": "Navy and gold editorial cover for the Estonia case on government data exchange."
+      }
+    },
+    {
       "slug": "case-buurtzorg-self-managing-nurse-teams",
       "background": "assets/previews/story-backgrounds/case-buurtzorg-self-managing-nurse-teams.jpg",
       "category": "case",
