@@ -5,6 +5,28 @@
   "maxBytes": 170000,
   "cards": [
     {
+      "slug": "reflection-shuayb-fair-measure",
+      "background": "assets/previews/story-backgrounds/reflection-shuayb-fair-measure.jpg",
+      "category": "reflection",
+      "ar": {
+        "title": [
+          "شعيب عليه السلام",
+          "ماذا نبخس دون أن ننتبه؟"
+        ],
+        "subtitle": "الميزان العادل لا يتغير بين الأخذ والعطاء",
+        "alt": "غلاف تأمل شعيب: ميزان ذهبي متوازن فوق خلفية كحلية، وعنوان «شعيب عليه السلام: ماذا نبخس دون أن ننتبه؟»."
+      },
+      "en": {
+        "title": [
+          "Shu'ayb:",
+          "What Are We",
+          "Shortchanging?"
+        ],
+        "subtitle": "A fair scale does not change between taking and giving.",
+        "alt": "Shu'ayb reflection cover: a balanced golden scale on a navy background, with the title “Shu'ayb: What Are We Shortchanging Without Noticing?”"
+      }
+    },
+    {
       "slug": "case-kenya-mpesa-mobile-money-inclusion",
       "background": "assets/previews/story-backgrounds/case-kenya-mpesa-mobile-money-inclusion.jpg",
       "category": "case",
