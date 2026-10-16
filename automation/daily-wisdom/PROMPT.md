@@ -45,7 +45,8 @@ Arabic:
 - Use correct grammar, hamzas, ة and ى, and Arabic punctuation (، ؛ ؟). Use diacritics only to prevent ambiguity.
 - Do not make the wisdom stronger than the source claim. Keep fact, interpretation and conclusion separate.
 - Clarity comes first: any reader must understand the sentence on the first reading. Avoid unusual verbs and abstract metaphors (rejected examples: «قد تعبر بالمستشفى هذه الزيارة»، «أن تعود كل ملاحظة إلى أصلها»).
-- Example approved by the owner: «إغلاق الملاحظات على عجل قبل زيارة المقيّمين قد يساعد المستشفى على اجتياز الزيارة، لكنه لا يحافظ على الاعتماد. يدوم الاعتماد حين نبحث عن السبب الحقيقي وراء كل ملاحظة، ونعالجه حتى لا تتكرر.»
+- Example approved by the owner (preferred style, 16 October 2026): «اعتمادية الجودة والتميز تعهّدٌ بأن يلتزم المستشفى بمعاييره كل يوم، لا يوم الزيارة وحده. وإغلاق الملاحظات على عجل لا يفي بهذا التعهّد؛ ما يفي به هو معالجة السبب الحقيقي وراء كل ملاحظة.» Its approved English: «Accreditation is a promise that a hospital meets its standards every day, not only on the day of the visit. Closing findings in a rush cannot keep that promise; fixing the root cause of each finding can.» Pattern: first state the role or purpose of the concept, then the common mistake, then what actually works.
+- Earlier example approved by the owner: «إغلاق الملاحظات على عجل قبل زيارة المقيّمين قد يساعد المستشفى على اجتياز الزيارة، لكنه لا يحافظ على الاعتماد. يدوم الاعتماد حين نبحث عن السبب الحقيقي وراء كل ملاحظة، ونعالجه حتى لا تتكرر.»
 
 English (Publication Translation mode):
 - Workflow: Arabic → understand → rebuild in English → edit. Never replace Arabic phrases one by one. The English may use a different sentence order and a different image, but it keeps the same idea and the same level of certainty.
