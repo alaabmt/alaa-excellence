@@ -33,3 +33,9 @@
 - الإعداد في `config.json` تحت `linkedin`. النشر **متوقف** (`"enabled": false`) حتى يُفعَّل صراحة.
 - الرمز (Token) يُحفظ في **Network secrets** في إعدادات البيئة (للموقعين api.linkedin.com و www.linkedin.com)، فلا يظهر لأي جلسة، ولا يُكتب في المستودع ولا في المحادثة. صلاحيته نحو 60 يومًا، ثم يجب تجديده.
 - للتحقق من الرمز: `python3 -I automation/daily-wisdom/post_linkedin.py check`
+
+## النشر على صفحة فيسبوك
+- السكربت: `post_facebook.py`. ينشر **البطاقة العربية فقط** على صفحة فيسبوك (فيسبوك لا يسمح للتطبيقات بالنشر على الحساب الشخصي)، مع نص الحكمة العربي ورابط المقال العربي.
+- موافقة واحدة كل صباح تكفي للنشر على لينكدإن وفيسبوك معًا، ويمكن الموافقة على منصة واحدة فقط.
+- رمز الصفحة (Page token) يُحفظ في **Network secrets** للموقع graph.facebook.com.
+- للتحقق: `python3 -I automation/daily-wisdom/post_facebook.py check`

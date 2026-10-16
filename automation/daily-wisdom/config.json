@@ -4,6 +4,7 @@
   "card_style_by_slot": { "09:00": "portrait" },
   "slots": ["09:00"],
   "linkedin": { "enabled": true, "mode": "owner_approval_each_post", "slots": ["09:00"], "api_version": "202609", "visibility": "PUBLIC" },
+  "facebook": { "enabled": true, "mode": "owner_approval_each_post", "card": "ar", "api_version": "v26.0" },
   "default_focus": "preventive-engineering",
   "months": {
     "2026-10": "preventive-engineering",
