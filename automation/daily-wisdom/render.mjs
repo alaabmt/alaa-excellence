@@ -1,6 +1,7 @@
 // Usage: node render.mjs spec.json
 // spec: {"out_dir": "...", "slug": "2026-10-16-0900", "style" (optional, defaults to config.card_style), "ar": {...}, "en": {...}}
-// each language: {"wisdom": "...", "title": "article title", "series": "series label"}
+// each language: {"wisdom": "...", "title": "article title", "series": "series label",
+//                 "verse" (optional, Arabic only): exact verse text without ﴿﴾, "verse_ref" (optional)}
 import { readFileSync, writeFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -9,6 +10,7 @@ import { chromium } from '/opt/node-tools/node_modules/playwright/index.mjs';
 const here = dirname(fileURLToPath(import.meta.url));
 const logo = resolve(here, '../../assets/images/file_0000000047188210ac6952e999d2eda7.png');
 const photo = resolve(here, 'author.jpg');
+const amiri = resolve(here, '../../assets/fonts/Amiri-Bold.ttf');
 const spec = JSON.parse(readFileSync(process.argv[2], 'utf8'));
 const config = JSON.parse(readFileSync(resolve(here, 'config.json'), 'utf8'));
 // Style: plain | signature | portrait. Per-slot choice comes from the slug's HHMM (e.g. ...-0900 -> "09:00").
@@ -34,6 +36,9 @@ body{font-family:'Tajawal',sans-serif;background:linear-gradient(160deg,#071a2f 
 .q{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:center;padding:10px 80px 40px;overflow:hidden;${portrait ? 'width:640px;padding-inline-end:20px' : 'flex:1'}}
 .mark{font-family:Georgia,serif;color:#c9a24a;font-size:150px;line-height:.8;height:90px}
 .w{font-weight:${rtl ? 800 : 700};line-height:${rtl ? 1.75 : 1.45};font-size:${portrait ? 54 : 64}px}
+@font-face{font-family:'AmiriQ';src:url('file://${amiri}')}
+.verse{font-family:'AmiriQ',serif;color:#f3d98f;font-size:${portrait ? 40 : 46}px;line-height:1.9;margin:0 0 6px}
+.vref{font-size:22px;color:#b9cde0;margin-bottom:26px}
 .rule{width:120px;height:5px;background:#c9a24a;border-radius:3px;margin:36px 0 22px}
 .src{font-size:24px;line-height:1.6;color:#b9cde0}
 .src b{color:#fff;font-weight:700}
@@ -48,7 +53,12 @@ body{font-family:'Tajawal',sans-serif;background:linear-gradient(160deg,#071a2f 
 .foot .t{font-size:26px;color:#42586c;font-weight:700}
 .foot .t b{color:#0c3155;font-weight:900}
 .foot img{height:112px}`;
-  const quote = `<div class="mark">${t.mark}</div><p class="w" id="w">${esc(d.wisdom)}</p>`;
+  const verse = d.verse
+    ? `<p class="verse">﴿${esc(d.verse)}﴾</p>${d.verse_ref ? `<p class="vref">${esc(d.verse_ref).replace(/[0-9٠-٩]+(?:\s*[–-]\s*[0-9٠-٩]+)?/g, m => `<bdi dir="ltr">${m}</bdi>`)}</p>` : ''}`
+    : '';
+  const quote = verse
+    ? `${verse}<p class="w" id="w">${esc(d.wisdom)}</p>`
+    : `<div class="mark">${t.mark}</div><p class="w" id="w">${esc(d.wisdom)}</p>`;
   const credit = style === 'plain'
     ? `<div class="rule"></div><p class="src">${t.from}: <b>${esc(d.title)}</b></p>`
     : portrait

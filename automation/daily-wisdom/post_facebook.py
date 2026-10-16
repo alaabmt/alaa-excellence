@@ -45,7 +45,8 @@ def page():
 
 def caption(spec, article):
     ar = spec["ar"]
-    return f"{ar['wisdom']}\n\nمن مقال: {ar['title']}\n{SITE}/{article}"
+    verse = f"﴿{ar['verse']}﴾\n{ar.get('verse_ref', '')}\n\n" if ar.get("verse") else ""
+    return f"{verse}{ar['wisdom']}\n\nمن مقال: {ar['title']}\n{SITE}/{article}"
 
 
 def multipart(fields, file_field, file_path):
