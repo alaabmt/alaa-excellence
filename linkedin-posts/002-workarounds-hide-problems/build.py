@@ -5,72 +5,67 @@ SRC='<span class="ltr">Tucker &amp; Edmondson, CMR, 2003</span>'
 NAME='<span>د. علاء محمد أحمد</span>'
 def footer(label,i): return f'<div class="footer"><span class="brand">{imgs("wordmark")}{label}</span><span class="ltr">{i} / 8</span></div>'
 S=[]
-S.append(('dark',f'''<div class="cover-logo">{imgs("logo")}</div>
-  <div class="kicker">التميّز التشغيلي · ماذا تقول الأدلة؟</div>
-  <h1 style="font-size:78px">في <span class="hl ltr">93%</span> من المشكلات، تجاوزها طاقم التمريض وأكمل العمل.</h1>
-  <h1 class="dim" style="margin-top:12px;font-size:70px;line-height:1.45">ولم يُبلغ بها أحدًا.</h1>
-  <p class="lead">دراسة ميدانية في مستشفيات معروفة بتميّز التمريض: لماذا لا تتعلّم المؤسسات من مشكلاتها اليومية؟</p>
-  <div class="swipe">← اسحب للمتابعة</div>''',NAME))
-S.append(('',f'''<div class="kicker">الدراسة</div>
-  <h2>239 ساعة من الملاحظة في الميدان</h2>
-  <p class="lead">لاحظت الباحثتان أنيتا تاكر وإيمي إدموندسون عمل <b>26 من أفراد طاقم التمريض في 9 مستشفيات أمريكية</b>، اختير معظمها لسمعته في تميّز التمريض.</p>
+S.append(('dark',f"""<div class="cover-logo">{imgs("logo")}</div>
+  <div class="kicker">التميّز التشغيلي · من الدراسات العلمية</div>
+  <h1 style="font-size:76px">يحلّ الموظف المشكلة بنفسه، فتعود إليه في اليوم التالي.</h1>
+  <h1 class="dim" style="margin-top:12px;font-size:66px;line-height:1.45">وفي <span class="ltr">93%</span> من الحالات لم يعلم بها أحد.</h1>
+  <p class="lead">راقبت باحثتان طواقم التمريض في تسعة مستشفيات أمريكية، فوجدتا أن الإخلاص في العمل قد يكون هو نفسه ما يمنع المؤسسة من التعلّم.</p>
+  <div class="swipe">← اسحب للمتابعة</div>""",NAME))
+S.append(('',f"""<div class="kicker">الدراسة</div>
+  <h2>ما الذي رأته الباحثتان؟</h2>
+  <p class="lead">أمضت الباحثتان أنيتا تاكر وإيمي إدموندسون 239 ساعة تراقبان عمل 26 ممرضًا وممرضة في تسعة مستشفيات أمريكية، اختير أكثرها لأنه معروف بجودة التمريض.</p>
   <div class="box">
-    <p>رصدتا <b>194 خللًا</b> في سير العمل، معظمها مشكلات بسيطة ومتكررة:</p>
-    <p style="margin-top:12px">دواء ناقص، وجهاز معطّل، وانتظار، ومستلزمات غير متوافرة، ووجبة عادية تصل إلى مريض سكري.</p>
+    <p>ورصدتا خلال ذلك 194 خللًا في العمل اليومي، أغلبها مشكلات مألوفة: دواء لم يصل، أو جهاز معطّل، أو مستلزمات نفدت، أو وجبة عادية قُدّمت لمريض سكري.</p>
   </div>
-  <p class="lead" style="font-size:32px">لم تكن المشكلات معقدة أو صعبة الحل تقنيًا. كانت جزءًا من العمل اليومي.</p>''',SRC))
-S.append(('',f'''<div class="kicker">طريقتان للتعامل مع المشكلة</div>
-  <h2>أن تُكمل العمل، أو أن تمنع تكرار المشكلة</h2>
-  <ul class="clean" style="margin-top:28px">
-    <li><b><span class="ltr">First-order problem solving</span> — حلّ المشكلة من الدرجة الأولى:</b> تتجاوز العائق لتُكمل المهمة، دون معالجة سببه.</li>
-    <li><b><span class="ltr">Second-order problem solving</span> — حلّ المشكلة من الدرجة الثانية:</b> تُكمل المهمة، ثم تُبلغ الجهة المسؤولة أو المدير حتى يُعالَج السبب.</li>
-  </ul>
-  <p class="lead" style="font-size:32px"><b>مثال من الدراسة:</b> نفدت الأغطية النظيفة في نوبة ليلية، فأحضرت الممرضة أغطية من وحدة أخرى، وانتهى الأمر عند هذا الحد.</p>''',SRC))
-S.append(('',f'''<div class="kicker">ما الذي حدث فعلًا؟</div>
-  <h2>المشكلة تُحلّ اليوم… لتعود غدًا</h2>
+  <p class="lead" style="font-size:34px">لم تكن مشكلات معقدة، ولم يكن حلّها يحتاج إلى خبرة نادرة.</p>""",SRC))
+S.append(('',f"""<div class="kicker">مثال من الدراسة</div>
+  <h2>حلٌّ يُنهي الموقف، وحلٌّ يُنهي المشكلة</h2>
+  <p class="lead">نفدت الأغطية النظيفة في نوبة ليلية، فأخذت الممرضة ما تحتاج إليه من قسم آخر وأكملت عملها. انتهى الموقف، لكن شيئًا لم يمنع تكرار المشكلة في الليلة التالية.</p>
+  <p class="lead">والحل الآخر أن تُكمل عملها، ثم تُبلغ القسم المسؤول عن الأغطية أو مديرها، حتى يُعالَج السبب.</p>
+  <p class="small" style="margin-top:36px">تسمّي الدراسة الأول <span class="ltr">First-order problem solving</span>، أي معالجة المشكلة في لحظتها، والثاني <span class="ltr">Second-order problem solving</span>، أي معالجة سببها حتى لا تتكرر.</p>""",SRC))
+S.append(('',f"""<div class="kicker">النتائج</div>
+  <h2>أغلب المشكلات عولجت في لحظتها، ثم نُسيت</h2>
   <div style="margin-top:30px">
-    <div class="stat"><span class="n">93%</span><p>من المشكلات: اكتفى طاقم التمريض بما يلزم لإكمال العمل، ولم يُبلغ بها أحدًا</p></div>
-    <div class="stat"><span class="n">7%</span><p>فقط نُبِّه فيها من يستطيع معالجة السبب، مع أن الباحثتين اعتمدتا معيارًا متساهلًا</p></div>
-    <div class="stat"><span class="n">33</span><p>دقيقة ضاعت في المتوسط من كل نوبة عمل مدتها 8 ساعات، في التعامل مع أعطال كان يمكن إزالتها</p></div>
-  </div>''',SRC))
-S.append(('amber',f'''<div class="kicker">المفارقة</div>
-  <h2 style="margin-top:20px">لم تكن المشكلة في ضعف الالتزام</h2>
-  <ul class="clean" style="margin-top:36px">
-    <li>9 من كل 10 ممرضين لوحظ عملهم طوال نوبة كاملة بقوا بعد انتهائها 45 دقيقة في المتوسط، دون أجر إضافي، لإكمال رعاية المرضى.</li>
-    <li>7 من 9 ممرضين قابلتهم الباحثتان قالوا إنهم يشعرون بالرضا حين يجدون طريقة لتجاوز العائق.</li>
-  </ul>
-  <p class="lead" style="font-size:36px;margin-top:36px"><b>هذا الرضا نفسه جزء من المشكلة:</b> كل تجاوز ناجح يُخفي الخلل عمّن يستطيع إصلاحه.</p>''',SRC))
-S.append(('dark',f'''<div class="kicker">لماذا لا تتعلّم المؤسسة؟</div>
-  <h2>ثلاث ممارسات تبدو إيجابية، وتمنع التعلّم</h2>
+    <div class="stat"><span class="n">93%</span><p>من المشكلات اكتفى فيها الطاقم بما يُمكّنه من إكمال العمل، دون أن يُبلغ أحدًا.</p></div>
+    <div class="stat"><span class="n">7%</span><p>فقط من الحالات نُبِّه فيها من يملك إصلاح السبب، مع أن الباحثتين لم تتشددا في الحكم.</p></div>
+    <div class="stat"><span class="n">33</span><p>دقيقة تضيع في المتوسط من كل نوبة مدتها ثماني ساعات، في معالجة أعطال كان يمكن التخلص منها.</p></div>
+  </div>""",SRC))
+S.append(('amber',f"""<div class="kicker">ولم يكن السبب تقصيرًا</div>
+  <h2 style="margin-top:20px">الممرضون كانوا يبذلون أكثر مما يُطلب منهم</h2>
+  <p class="lead" style="font-size:34px">تسعة من كل عشرة ممرضين راقبتهم الباحثتان طوال النوبة بقوا بعد انتهائها 45 دقيقة في المتوسط، بلا أجر إضافي، ليُكملوا رعاية مرضاهم.</p>
+  <p class="lead" style="font-size:34px">وقال سبعة من تسعة ممن قابلتهم الباحثتان إنهم يشعرون بالرضا حين يجدون طريقة يتجاوزون بها العائق.</p>
+  <p class="lead" style="font-size:36px;margin-top:40px"><b>وهنا المفارقة: كلما نجح الموظف في التعامل مع المشكلة وحده، بقيت مخفية عمّن يستطيع إصلاحها.</b></p>""",SRC))
+S.append(('dark',f"""<div class="kicker">لماذا لا تتعلّم المؤسسة؟</div>
+  <h2 style="font-size:60px">ثلاث ممارسات حسنة في ظاهرها، تعطّل التعلّم في الواقع</h2>
   <ul class="clean">
-    <li><span class="num">1</span><b>ثقافة اليقظة الفردية:</b> كل شخص يحلّ مشكلته بنفسه، فلا يتغيّر النظام.</li>
-    <li><span class="num">2</span><b>الكفاءة بلا هامش:</b> عدد الطاقم يكفي للعمل بالكاد، فلا وقت لتتبّع السبب.</li>
-    <li><span class="num">3</span><b>التمكين بلا حضور إداري:</b> يُترك الفريق وحده أمام مشكلات مصدرها أقسام أخرى.</li>
+    <li><span class="num">1</span>يُربّى الممرضون على أن يتحمّل كلٌّ منهم مسؤولية ما يواجهه ويحلّه بنفسه، فيعالج كلٌّ موقفه، ولا يتغيّر النظام.</li>
+    <li><span class="num">2</span>ويُحسب عدد الطاقم بحيث يكفي للعمل بالكاد، فلا يبقى وقت لتتبّع أسباب المشكلات.</li>
+    <li><span class="num">3</span>ومنحُ الفريق استقلاليته أبعد المديرين عن الميدان، فبقي الممرضون وحدهم أمام مشكلات مصدرها أقسام أخرى.</li>
   </ul>
-  <p class="lead" style="font-size:32px">وقال 70% ممن قابلتهم الباحثتان إن مديريهم يتوقعون منهم تجاوز العوائق اليومية وحدهم.</p>''',SRC))
-S.append(('dark',f'''<div class="kicker">ما توصي به الدراسة للقادة</div>
-  <h2 style="font-size:60px">الحل الصامت يريح الموظف اليوم، ويكلّف المؤسسة كل يوم</h2>
+  <p class="lead" style="font-size:30px">وقال 70% ممن قابلتهم الباحثتان إن مديريهم ينتظرون منهم أن يتدبّروا هذه العوائق وحدهم.</p>""",SRC))
+S.append(('dark',f"""<div class="kicker">توصيات الدراسة</div>
+  <h2>ما الذي يستطيع القائد فعله؟</h2>
   <ul class="clean">
-    <li><span class="num">1</span>احضر إلى الميدان في جزء من كل نوبة، حتى تصلك المشكلات الصغيرة.</li>
-    <li><span class="num">2</span>اجعل الإبلاغ عن المشكلة آمنًا، لا علامة على قلة الكفاءة.</li>
-    <li><span class="num">3</span>استجب لكل بلاغ بإجراء يراه الفريق، وإلا توقف الناس عن الإبلاغ.</li>
+    <li><span class="num">1</span>أن يحضر إلى موقع العمل في كل نوبة ولو وقتًا قصيرًا، فتصله المشكلات الصغيرة قبل أن تتراكم.</li>
+    <li><span class="num">2</span>أن يجعل الإبلاغ عن المشكلة أمرًا آمنًا، لا يُفهم منه أن صاحبه عاجز عن عمله.</li>
+    <li><span class="num">3</span>أن يستجيب لكل بلاغ بإجراء يراه الفريق؛ فالناس يكفّون عن الإبلاغ حين يرون أن أحدًا لا يُصغي.</li>
   </ul>
-  <div class="q" style="font-size:42px;margin-top:32px;padding:28px 36px">كم مشكلة تجاوزها فريقك اليوم بصمت، وستعود غدًا؟</div>''',NAME))
-S.append(('',f'''<div class="kicker">المصدر وحدود الدليل</div>
-  <h2 style="font-size:54px">ما الذي يثبته هذا الدليل، وما الذي لا يثبته</h2>
+  <div class="q" style="font-size:42px;margin-top:32px;padding:28px 36px">كم مشكلة حلّها فريقك اليوم بنفسه، وستعود إليه غدًا؟</div>""",NAME))
+S.append(('',f"""<div class="kicker">المصدر وحدود الدليل</div>
+  <h2 style="font-size:54px">حدود هذه الدراسة</h2>
   <ul class="clean" style="margin-top:20px">
-    <li style="font-size:28px">دراسة نوعية قائمة على الملاحظة والمقابلات، لا تجربة عشوائية.</li>
-    <li style="font-size:28px">العيّنة صغيرة (26 من طاقم التمريض) في مستشفيات أمريكية، ونُشرت عام 2003.</li>
-    <li style="font-size:28px">النسب تخص المشكلات التي رُصدت أثناء الملاحظة، لا كل ما يحدث في المستشفيات.</li>
+    <li style="font-size:28px">اعتمدت على الملاحظة والمقابلات، ولم تكن تجربة تقارن بين مجموعتين.</li>
+    <li style="font-size:28px">شملت 26 ممرضًا وممرضة في مستشفيات أمريكية، ونُشرت عام 2003، فلا تمثّل كل المستشفيات ولا كل القطاعات.</li>
+    <li style="font-size:28px">تخصّ نسبها المشكلات التي شهدتها الباحثتان أثناء المراقبة فقط.</li>
   </ul>
   <p class="small" style="margin-top:22px;font-size:24px;line-height:1.6"><b>تنويه تحريري:</b> الآراء والتحليلات الواردة في هذا المقال تمثل رأي الكاتب وتحليله المهني استنادًا إلى المصادر المشار إليها، ولا تمثل بالضرورة المواقف الرسمية للجهات المذكورة. وللاطلاع على المعلومات والمراجع الأصلية والكاملة والأحدث، يُرجى الرجوع مباشرة إلى المصادر الأصلية والوثائق الرسمية الواردة في قائمة المراجع.</p>
   <p class="ref ltr" style="font-size:21px;margin-top:14px"><b>[1]</b> Tucker, A. L., &amp; Edmondson, A. C. (2003). Why Hospitals Don't Learn from Failures: Organizational and Psychological Dynamics That Inhibit System Change. <i>California Management Review</i>, 45(2), 55–72.</p>
-  <div class="end-logo">{imgs("logo")}<span class="ltr">tamayuz10x.com</span></div>''','<span>د. علاء محمد أحمد · التميّز التشغيلي</span>'))
+  <div class="end-logo">{imgs("logo")}<span class="ltr">tamayuz10x.com</span></div>""",'<span>د. علاء محمد أحمد · التميّز التشغيلي</span>'))
 head='''<!doctype html>
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="utf-8">
-<title>الحل الصامت</title>
+<title>حين يحلّ الموظف المشكلة وحده</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=IBM+Plex+Sans+Arabic:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="slides.css">

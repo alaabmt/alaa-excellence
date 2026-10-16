@@ -1,4 +1,4 @@
-# LinkedIn Post 002 — الحل الصامت (Workarounds hide problems)
+# LinkedIn Post 002 — حين يحلّ الموظف المشكلة وحده (Workarounds hide problems)
 
 **Format:** LinkedIn document (carousel), 8 slides, 1080×1350. **Language:** Arabic only.
 **Arabic editorial review:** `Arabic_Editorial_and_Publishing_Agent.md` (Google Drive, modified 2026-09-11).
