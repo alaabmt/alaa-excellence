@@ -5,6 +5,26 @@
   "maxBytes": 170000,
   "cards": [
     {
+      "slug": "case-kenya-mpesa-mobile-money-inclusion",
+      "background": "assets/previews/story-backgrounds/case-kenya-mpesa-mobile-money-inclusion.jpg",
+      "category": "case",
+      "ar": {
+        "title": [
+          "بنك بلا فروع؟"
+        ],
+        "subtitle": "كينيا: حين صار المتجر الصغير فرعًا ماليًا",
+        "alt": "غلاف توضيحي بالكحلي والذهبي لحالة كينيا عن خدمة المال عبر الهاتف إم-بيسا."
+      },
+      "en": {
+        "title": [
+          "A Bank",
+          "Without Branches?"
+        ],
+        "subtitle": "Kenya turns phones and shops into a money network.",
+        "alt": "Navy and gold editorial cover for the Kenya case on M-Pesa mobile money."
+      }
+    },
+    {
       "slug": "case-estonia-x-road-data-exchange",
       "background": "assets/previews/story-backgrounds/case-estonia-x-road-data-exchange.jpg",
       "category": "case",
