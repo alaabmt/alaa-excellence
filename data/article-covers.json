@@ -5,6 +5,28 @@
   "maxBytes": 170000,
   "cards": [
     {
+      "slug": "reflection-garden-owners-left-out",
+      "background": "assets/previews/story-backgrounds/reflection-garden-owners-left-out.jpg",
+      "category": "reflection",
+      "ar": {
+        "title": [
+          "ماذا ترك أصحاب البستان",
+          "خارج خطتهم؟"
+        ],
+        "subtitle": "أحكموا تفاصيل الخطة ونسوا مشيئة الله والمساكين",
+        "alt": "غلاف توضيحي بالكحلي والذهبي لتأمل أصحاب البستان في سورة القلم، تظهر فيه أشجار بستان خلف سور وبوابة مغلقة عند الفجر."
+      },
+      "en": {
+        "title": [
+          "What Did the Garden",
+          "Owners Leave Out",
+          "of Their Plan?"
+        ],
+        "subtitle": "They perfected every detail and forgot the will of Allah and the poor.",
+        "alt": "Navy and gold illustrative cover for the reflection on the garden owners in Surah Al-Qalam, showing garden trees behind a wall and a closed gate at dawn."
+      }
+    },
+    {
       "slug": "article-agentic-ai-replit-excessive-agency",
       "background": "assets/previews/story-backgrounds/article-agentic-ai-replit-excessive-agency.jpg",
       "category": "article",
