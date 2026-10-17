@@ -5,6 +5,27 @@
   "maxBytes": 170000,
   "cards": [
     {
+      "slug": "case-nummi-same-workers-new-system",
+      "background": "assets/previews/story-backgrounds/case-nummi-same-workers-new-system.jpg",
+      "category": "case",
+      "ar": {
+        "title": [
+          "العمال أنفسهم",
+          "ونتائج مختلفة"
+        ],
+        "subtitle": "في نومي تغيّر نظام العمل وبقي الناس",
+        "alt": "غلاف توضيحي بالكحلي والذهبي لحالة مصنع نومي في كاليفورنيا عن نظام العمل وخط الإنتاج."
+      },
+      "en": {
+        "title": [
+          "Same Workers,",
+          "Different Results"
+        ],
+        "subtitle": "NUMMI changed the system, not the people.",
+        "alt": "Navy and gold editorial cover for the NUMMI case on how a California car plant changed its way of working."
+      }
+    },
+    {
       "slug": "reflection-shuayb-fair-measure",
       "background": "assets/previews/story-backgrounds/reflection-shuayb-fair-measure.jpg",
       "category": "reflection",
