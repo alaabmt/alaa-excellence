@@ -1,0 +1,34 @@
+name: CPHQ free learning QA
+on:
+  push:
+    branches: [feature/cphq-learning-center]
+    paths: ['cphq*.html', 'assets/js/cphq*', 'assets/css/cphq*', 'account/login.html', 'supabase/**', 'tests/cphq*', '.github/workflows/cphq-free-qa.yml']
+  pull_request:
+    paths: ['cphq*.html', 'assets/js/cphq*', 'assets/css/cphq*', 'supabase/**', 'tests/cphq*']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  free-release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Install pinned browser test tooling
+        run: npm install --no-save --package-lock=false playwright@1.51.1
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+      - name: Edge request validation
+        run: node --test tests/cphq-edge.test.mjs
+      - name: Existing assessment auth regression
+        run: python scripts/validate_assessment_auth.py
+      - name: CPHQ browser journey and mobile layouts
+        run: node tests/cphq-browser.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cphq-browser-screenshots
+          path: test-results/cphq/
