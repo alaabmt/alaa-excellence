@@ -114,6 +114,11 @@ async function next() {
           $('feedback').append(block);
         });
         $('feedback').append(node('h3', 'Key learning'), node('p', answer.lesson));
+        const continueButton = node('button', 'Next question', 'continue-button');
+        continueButton.type = 'button';
+        continueButton.disabled = !answer.remaining;
+        continueButton.onclick = () => { $('feedback').replaceChildren(); void next(); };
+        $('feedback').append(continueButton);
         current = null; allowance(answer);
         say(answer.remaining ? 'Answer saved. Review the explanations, then choose your next question.' : messages.daily_limit);
         $('feedback').focus();
