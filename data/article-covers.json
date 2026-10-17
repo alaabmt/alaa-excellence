@@ -5,6 +5,27 @@
   "maxBytes": 170000,
   "cards": [
     {
+      "slug": "article-agentic-ai-replit-excessive-agency",
+      "background": "assets/previews/story-backgrounds/article-agentic-ai-replit-excessive-agency.jpg",
+      "category": "article",
+      "ar": {
+        "title": [
+          "قال له توقف",
+          "فحذف قاعدة البيانات"
+        ],
+        "subtitle": "الأمر المكتوب لا يضبط ما يستطيع الوكيل فعله",
+        "alt": "غلاف توضيحي بالكحلي والذهبي لمقال عن وكيل ذكي حذف قاعدة بيانات، يظهر فيه رمز قاعدة بيانات ومفتاح إيقاف."
+      },
+      "en": {
+        "title": [
+          "Told to Stop,",
+          "It Deleted the Data"
+        ],
+        "subtitle": "Instructions do not limit what an agent can do.",
+        "alt": "Navy and gold editorial cover for an article about an AI agent that deleted a database, showing a database icon and a stop switch."
+      }
+    },
+    {
       "slug": "case-nummi-same-workers-new-system",
       "background": "assets/previews/story-backgrounds/case-nummi-same-workers-new-system.jpg",
       "category": "case",
