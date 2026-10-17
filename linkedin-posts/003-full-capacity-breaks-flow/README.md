@@ -12,19 +12,22 @@
 
 ## Evidence pack
 
+Rebuilt on 17 Oct 2026 on recent evidence, after the owner noted that the first draft relied on a 1999 study.
+
 | Claim | Source |
 |---|---|
-| Simulation model of an acute hospital taking emergency admissions; BMJ 1999 | [1] Methods, abstract |
-| Risks minimal below ~85% mean occupancy | [1] Results: "Risks are minimal so long as the mean bed occupancy remains below about 85%" |
-| At 85%, short of beds on about four days a year | [1] "at 85%, a hospital can expect to be short of beds for admissions on four days in a year" |
-| Up to eight weeks of disruption in total | [1] "a hospital that runs out of beds for four days in a year may be disrupted for up to eight weeks in total" |
-| ≥90% regular bed crises | [1] Abstract and key messages |
-| Year-on-year evaluation at one hospital swamped by random variation | [1] Key messages |
-| 2.65 million admissions to Danish medical departments, 1995–2012 | [2] Abstract |
-| High occupancy associated with 9% increase in in-hospital and 30-day mortality vs low occupancy | [2] Abstract |
-| Queueing statement (slide 6) | General queueing theory; labeled on the slide as an inference, not a finding of the two studies |
+| 5,249,891 patients admitted from every type 1 ED in England, Apr 2016–Mar 2018; published 2022 | [1] Abstract (PubMed 35042695) |
+| Linear rise in 30-day mortality from 5 h after arrival up to 12 h | [1] Results |
+| Largest change in 30-day SMR: +8%, in patients waiting more than 6 to 8 h | [1] Results |
+| One extra death per 82 admitted patients delayed beyond 6–8 h | [1] Conclusions |
+| Adjusted for sex, age, deprivation, comorbidities, time, prior attendances, crowding | [1] Methods |
+| 25,905,347 ED visits, Korea NEDIS 2018–2022; published 2026 | [2] Abstract (PubMed 41935246) |
+| ED occupancy ≥100%: aOR 1.121 (Level 1 EDs), 1.209 (Level 2 EDs) for in-hospital mortality; risk rose with occupancy | [2] Results |
+| Stockholm: hospital bed occupancy not associated with 30-day or in-hospital mortality | [3] Abstract (read via Consensus database) |
+| Queueing statement (slide 6) | General queueing theory; labeled on the slide as an inference, not a finding |
 
-[1] Bagust A, Place M, Posnett JW. Dynamics of bed use in accommodating emergency admissions: stochastic simulation model. *BMJ* 1999;319(7203):155–158. https://pmc.ncbi.nlm.nih.gov/articles/PMC28163/
-[2] Madsen F, Ladelund S, Linneberg A. High levels of bed occupancy associated with increased inpatient and thirty-day hospital mortality in Denmark. *Health Affairs* 2014;33(7):1236–1244. https://research.regionh.dk/da/publications/high-levels-of-bed-occupancy-associated-with-increased-inpatient-/
+[1] Jones S, Moulton C, Swift S, et al. Association between delays to patient admission from the emergency department and all-cause 30-day mortality. *Emerg Med J* 2022;39(3):168–173. doi:10.1136/emermed-2021-211572
+[2] Kim M, Lee JH, Choi M, et al. Association between emergency department crowding and mortality: a nationwide analysis stratified by emergency department levels. *BMC Emerg Med* 2026;26(1):153. doi:10.1186/s12873-026-01568-x
+[3] af Ugglas B, et al. Association between hospital bed occupancy and outcomes in emergency care: a cohort study in Stockholm Region, Sweden, 2012 to 2016. *Annals of Emergency Medicine*, 2020. (Volume and pages not verified.)
 
-**Evidence limits:** [1] is a simulation of a hypothetical hospital (1999); its 85% figure is model-specific. [2] is observational (association, not cause), medical departments in one country; the abstract does not state the exact cut-offs for "high" and "low" occupancy, so the slides do not state them.
+**Evidence limits:** both main studies are observational (association, not cause); [1] uses the word "cause" in its conclusion, but the slides do not. [3] and other Swedish studies found weak or no association, so the effect may vary by system. "12%" and "21%" on slide 5 are adjusted odds ratios rounded from 1.121 and 1.209. No Arab health systems were studied.

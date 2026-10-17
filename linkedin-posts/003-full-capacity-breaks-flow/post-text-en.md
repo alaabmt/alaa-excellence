@@ -4,13 +4,13 @@
 
 ---
 
-The fuller a hospital runs, the less room it has for the next emergency. And the trouble starts well before it is full.
+When there is no bed upstairs, patients wait in the emergency department. That wait has a cost.
 
-British researchers built a simulation of a hospital that takes emergency admissions. Below 85% average bed occupancy, risk stayed low. At 85%, the model expected bed shortages on about four days a year, enough to disrupt the hospital for up to eight weeks in total. At 90% and above, bed crises became routine.
+In England, researchers analyzed 5.2 million patients admitted from emergency departments. After five hours from arrival, 30-day mortality rose the longer patients waited. The study estimated one extra death for every 82 patients whose move to a bed was delayed beyond six to eight hours.
 
-In Denmark, a study of 2.65 million admissions found that high occupancy was linked to 9% higher mortality. That is an association, not proof of cause.
+In South Korea, a 2026 study of about 26 million emergency visits found that the odds of death rose when emergency department occupancy reached 100% or more.
 
-The lesson reaches beyond hospitals. Any system with uneven demand needs spare capacity. That margin is part of the design, not waste.
+Both studies are observational, and a Stockholm study found no such link. Still, the operational lesson is clear. A system that runs close to full capacity pays for it in waiting. Spare capacity is part of the design, not waste.
 
 My question for you:
 If your team is busy all the time, where will tomorrow's urgent work go?
