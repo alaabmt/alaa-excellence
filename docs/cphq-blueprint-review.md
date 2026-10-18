@@ -1,4 +1,4 @@
-# CPHQ starter collection: blueprint review
+# CPHQ original 13-item collection: blueprint review
 
 Reviewed 17 October 2026 against NAHQ's current linked detailed content outline (2024 R2b, outline last updated March 2023) and the indexed 2026 candidate handbook/preparation guidance. A 2026 exam date does not imply a newly revised outline.
 
@@ -41,3 +41,7 @@ The outline PDF was retrieved in full. The 2026 handbook was discoverable throug
 All 13 items have four options, one indexed answer, four substantive rationales and a learning point. Stems and explanations were reviewed; no content edits were needed for this introductory collection. Each explanation supports its selected task. The denominator item standardizes exposure but should not be interpreted as adjusting for case mix or infection-specific surveillance definitions.
 
 The collection is heavily weighted toward leadership and is too small to reproduce the official distribution or support a readiness score. Domains 2–7 each have one item. The website discloses these limits and does not offer a full simulation. The approved bank has 13 unique questions; 20 is a daily ceiling, not a promise of 20 available questions. Additional original questions need editorial approval before publication.
+
+## Later inventory change
+
+On 18 October 2026 the live database contained 154 published questions after additions outside this implementation. All original IDs 1–13 remained published. The table and editorial assessment above describe only those original 13 items; they are not a review or endorsement of the other 141 items. The website now obtains current counts from the protected service status response.

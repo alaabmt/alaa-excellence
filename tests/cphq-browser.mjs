@@ -59,6 +59,8 @@ try{
   await page.goto(base+'/cphq.html');await page.getByRole('link',{name:'Open the free learning center'}).click();
   await page.waitForURL('**/cphq-free.html');await overflow();
   assert.equal(await page.locator('table tbody tr').count(),7);
+  await page.waitForFunction(()=>document.querySelector('#bank-availability').textContent.startsWith('49 practice questions'));
+  assert.deepEqual(await page.locator('[data-domain-count]').allTextContents(),Array(7).fill('7'));
   await page.screenshot({path:`test-results/cphq/${name}-landing.png`,fullPage:true});
   await page.getByRole('link',{name:'Start guest practice'}).click();
   await page.waitForFunction(()=>document.querySelector('#progress').textContent.includes('5 of 5'));
