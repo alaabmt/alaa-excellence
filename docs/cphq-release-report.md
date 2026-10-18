@@ -2,7 +2,9 @@
 
 Original implementation tested at `c5523b931dc0e0aecc9e40cbdcad79458ca65c7d`. The current development code, including live availability and the preserved mobile fix, is `06cb180bb7df5c0504bcf2b516beedaadcc4a1bf`. Verification ran on 17 October 2026 UTC (18 October UAE); final QA cleanup verified on 18 October 2026.
 
-**Release state:** the original tested implementation was subsequently merged outside this work as [PR #65](https://github.com/alaabmt/alaa-excellence/pull/65) on 17 October 2026 at 21:08 UTC. Main then received a mobile-navigation fix. This continuation preserves that fix and keeps the new live-availability update on `feature/cphq-learning-center`; no additional merge or public deployment was performed by this agent. The authorized question publication, database hardening and two Edge Function updates are applied to `dqrsjhcfmpjhcxvtxosy`.
+**Publication authorization (18 October 2026 UAE):** Alaa confirmed that editorial review of the additional 141 questions is complete and instructed publication. Together with the original 13 reviewed items, all 154 published items have completed editorial review. The additional review is owner-confirmed; this agent did not independently repeat it.
+
+**Release state before this publication:** the original tested implementation was subsequently merged outside this work as [PR #65](https://github.com/alaabmt/alaa-excellence/pull/65) on 17 October 2026 at 21:08 UTC. Main then received a mobile-navigation fix. This continuation preserves that fix and keeps the new live-availability update on `feature/cphq-learning-center`; no additional merge or public deployment was performed by this agent. The authorized question publication, database hardening and two Edge Function updates are applied to `dqrsjhcfmpjhcxvtxosy`.
 
 ## Completed
 
@@ -13,7 +15,7 @@ Original implementation tested at `c5523b931dc0e0aecc9e40cbdcad79458ca65c7d`. Th
 - Added shared practice UI, readable mobile layouts, keyboard controls, pending-question recovery and clear availability/error messages.
 - Made delivery atomic and quota-consuming: five new guest questions or 20 registered questions per UTC day, one pending question, no duplicate daily question, safe retries.
 - Required a matching delivered question before returning an answer; blocked changed answers, malformed choices, direct bank reads and unauthorized guest RPC calls.
-- Reviewed every question and explanation against the seven-domain outline. See `cphq-blueprint-review.md` for ID/task mapping and evidence limits.
+- Reviewed the original 13 questions and explanations against the seven-domain outline; the owner confirmed completion of editorial review for the additional 141 on 18 October 2026. See `cphq-blueprint-review.md` for ID/task mapping and evidence limits.
 
 ## Verification evidence
 
@@ -43,13 +45,13 @@ Browser tests use synthetic question and auth-transport fixtures. Real authentic
 
 ## Remaining release considerations
 
-1. **Later content additions:** the bank grew from 13 to 154 published items outside this work. Current domain counts at inspection were 64 / 34 / 4 / 29 / 18 / 3 / 2. Only the original 13 items received the documented editorial/blueprint review here. The added content was preserved; its quality, source rights and detailed alignment were not independently re-reviewed. The website uses live counts and does not claim a full mock exam or readiness assessment.
+1. **Content review complete:** the owner confirmed editorial review of the additional 141 items on 18 October 2026. All 154 published items are therefore editorially reviewed, with the original 13 independently mapped in this repository and the additional review owner-confirmed. Current domain counts at inspection were 64 / 34 / 4 / 29 / 18 / 3 / 2. This uneven coverage does not constitute a representative full mock exam or readiness assessment; the website uses live counts.
 2. **Guest identity:** five/day is enforced per random browser token. Clearing storage or changing browsers can obtain another allowance. No CAPTCHA or unique-person claim is made. Account quotas persist across devices.
 3. **Historical exposure:** earlier Git commits contained this starter bank and its keys. Current files are cleaned, but history/caches have not been rewritten. Treat these 13 items as previously public; keep all future private content out of repository history.
 4. **Email verification:** existing registration/password-reset services are preserved; actual inbox delivery and clicking a confirmation link were not exercised. No email was sent during testing.
 5. **Auth setting:** Supabase reports leaked-password protection disabled. This existing project-wide setting was not changed. [Supabase password-security guidance](https://supabase.com/docs/guides/auth/password-security#password-strength-and-leaked-password-protection).
 6. **Intentional advisor findings:** no direct table policies on private CPHQ tables, and authenticated `SECURITY DEFINER` RPC wrappers, are deliberate. Wrappers validate identity and scope access; private tables have no frontend grants. [Advisor explanation](https://supabase.com/docs/guides/database/database-linter?lint=0029_authenticated_security_definer_function_executable).
-7. **Publication:** the original release was merged separately as PR #65. The latest live-availability changes remain on the development branch; merge/deploy those changes when ready, then smoke-test public pages. This report does not claim a verified public deployment of the latest branch.
+7. **Publication:** the original release was merged separately as PR #65. The owner has now authorized publication of the latest live-availability changes. The publication pull request must pass checks before merge, followed by a successful GitHub Pages run for the latest main commit and a public-page smoke test. Deployment evidence belongs in the publication handover; this pre-merge report does not claim a deployment before it occurs.
 
 ## Key changed files
 
