@@ -91,6 +91,13 @@
     return Math.max(1, Math.ceil(words / 180));
   }
 
+  function arabicReadingLabel(n) {
+    if (n === 1) return 'دقيقة قراءة';
+    if (n === 2) return 'دقيقتا قراءة';
+    if (n >= 3 && n <= 10) return `${n} دقائق قراءة`;
+    return `${n} دقيقة قراءة`;
+  }
+
   function addArticleMetaAndAudio() {
     if (!isArticlePage || document.querySelector('.tenx-author-audio')) return;
     const article = getArticleContainer();
@@ -106,7 +113,7 @@
         <img class="tenx-author-avatar" src="${AUTHOR_IMAGE}" alt="${AUTHOR_NAME}" width="42" height="42" loading="lazy" decoding="async">
         <div class="tenx-author-lines">
           <a href="${AUTHOR_URL}">${AUTHOR_NAME}</a>
-          <span class="dot">·</span><span>${IS_ENGLISH_PAGE ? `${minutes} min read` : `${minutes} دقائق قراءة`}</span>
+          <span class="dot">·</span><span>${IS_ENGLISH_PAGE ? `${minutes} min read` : arabicReadingLabel(minutes)}</span>
           ${dateLabel ? `<span class="dot">·</span><time datetime="${published}">${dateLabel}</time>` : ''}
         </div>
       </div>
