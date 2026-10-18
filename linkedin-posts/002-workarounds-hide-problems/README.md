@@ -39,4 +39,4 @@ Source: Tucker, A. L., & Edmondson, A. C. (2003). Why Hospitals Don't Learn from
 |---|---|---|
 | Website article (AR + EN) | Live 2026-10-18 (PR #69, squash merge 2e59028) | https://tamayuz10x.com/article-oe-evidence-workarounds-hide-problems.html · https://tamayuz10x.com/en/article-oe-evidence-workarounds-hide-problems.html |
 | LinkedIn Arabic carousel | Published 2026-10-18, `urn:li:ugcPost:7517492937744687105` | https://www.linkedin.com/feed/update/urn:li:ugcPost:7517492937744687105/ |
-| LinkedIn English carousel | Scheduled ~2026-10-18 09:54 UTC (13:54 Dubai) | — |
+| LinkedIn English carousel | Published 2026-10-18, `urn:li:ugcPost:7517523544642220032` | https://www.linkedin.com/feed/update/urn:li:ugcPost:7517523544642220032/ |
