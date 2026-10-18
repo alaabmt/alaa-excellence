@@ -31,3 +31,10 @@ Rebuilt on 17 Oct 2026 on recent evidence, after the owner noted that the first 
 [3] af Ugglas B, et al. Association between hospital bed occupancy and outcomes in emergency care: a cohort study in Stockholm Region, Sweden, 2012 to 2016. *Annals of Emergency Medicine*, 2020. (Volume and pages not verified.)
 
 **Evidence limits:** both main studies are observational (association, not cause); [1] uses the word "cause" in its conclusion, but the slides do not. [3] and other Swedish studies found weak or no association, so the effect may vary by system. "12%" and "21%" on slide 5 are adjusted odds ratios rounded from 1.121 and 1.209. No Arab health systems were studied.
+
+## Publication record
+
+| Language | Published | Post | Document |
+|---|---|---|---|
+| Arabic | 2026-10-18, 09:00 Dubai, PUBLIC | `urn:li:ugcPost:7517450136562880512` — https://www.linkedin.com/feed/update/urn:li:ugcPost:7517450136562880512/ | `urn:li:document:D4D10AQGrP5Oz7K7XxA`, title «حين يمتلئ النظام» |
+| English | scheduled 2026-10-18, 11:00 Dubai | | |
