@@ -1,6 +1,6 @@
 # LinkedIn Post 002 — حين يحلّ الموظف المشكلة وحده (Workarounds hide problems)
 
-**Format:** LinkedIn document (carousel), 8 slides, 1080×1350. **Language:** Arabic only.
+**Format:** LinkedIn document (carousel), 8 slides, 1080×1350. **Languages:** Arabic and English (separate posts). **Website article:** https://tamayuz10x.com/article-oe-evidence-workarounds-hide-problems.html and https://tamayuz10x.com/en/article-oe-evidence-workarounds-hide-problems.html (PR #69).
 **Arabic editorial review:** `Arabic_Editorial_and_Publishing_Agent.md` (Google Drive, modified 2026-09-11).
 
 | File | Purpose |
@@ -11,6 +11,9 @@
 | `preview/` | PNG of each slide |
 
 ## Evidence pack
+
+Updated 18 Oct 2026: slide 6 now uses Vanbelleghem S, De Regge M, Van Nieuwenhove Y, Gemmel P. *J Adv Nurs* 2026 (PMID 42504057): 80 nurses in simulation, failures detected 96.2%, second-order problem solving 21.9%, an emotive narrative did not increase escalation. The former slide 6 (three practices) moved to the website article.
+
 
 Source: Tucker, A. L., & Edmondson, A. C. (2003). Why Hospitals Don't Learn from Failures: Organizational and Psychological Dynamics That Inhibit System Change. *California Management Review*, 45(2), 55–72. PDF: https://www.utsouthwestern.edu/employees/leadership-programs/leadership-foundations/why-hospitals-dont-learn.pdf
 
