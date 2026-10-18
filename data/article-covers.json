@@ -5,6 +5,27 @@
   "maxBytes": 170000,
   "cards": [
     {
+      "slug": "case-uruguay-renewable-electricity-consensus",
+      "background": "assets/previews/story-backgrounds/case-uruguay-renewable-electricity-consensus.jpg",
+      "category": "case",
+      "ar": {
+        "title": [
+          "اتفقت الأحزاب أولًا",
+          "ثم دارت التوربينات"
+        ],
+        "subtitle": "صارت نحو 98% من كهرباء أوروغواي متجددة",
+        "alt": "غلاف توضيحي بالكحلي والذهبي لحالة أوروغواي يُظهر توربينات رياح فوق مراعٍ وسدًّا مائيًّا وخط نقل كهرباء."
+      },
+      "en": {
+        "title": [
+          "Agreement First,",
+          "Turbines Second"
+        ],
+        "subtitle": "Uruguay now gets about 98% of its electricity from renewables.",
+        "alt": "Navy and gold editorial cover for the Uruguay case, showing wind turbines over grassland, a hydroelectric dam, and a power line."
+      }
+    },
+    {
       "slug": "reflection-garden-owners-left-out",
       "background": "assets/previews/story-backgrounds/reflection-garden-owners-left-out.jpg",
       "category": "reflection",
