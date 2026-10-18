@@ -1320,6 +1320,27 @@
         "subtitle": "Can Al Taweelah redesign industrial value through 10X?",
         "alt": "Navy and gold editorial cover on EGA recycling and the 10X value system."
       }
+    },
+    {
+      "slug": "article-oe-evidence-workarounds-hide-problems",
+      "background": "assets/previews/story-backgrounds/article-oe-evidence-workarounds-hide-problems.jpg",
+      "category": "article",
+      "ar": {
+        "title": [
+          "يحلّون المشكلة كل يوم",
+          "ولا تختفي"
+        ],
+        "subtitle": "إخلاص الأفراد لا يكفي ليتعلّم النظام",
+        "alt": "غلاف توضيحي بالكحلي والذهبي لمقال عن تجاوز المشكلات اليومية، يظهر فيه طريق مسدود وسهم يلتف حول العائق."
+      },
+      "en": {
+        "title": [
+          "They Fix It Every Day,",
+          "Yet It Never Goes Away"
+        ],
+        "subtitle": "Dedication alone does not make a system learn.",
+        "alt": "Navy and gold editorial cover for an article about working around everyday problems, showing a blocked path and an arrow that curves around the obstacle."
+      }
     }
   ]
 }
