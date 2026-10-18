@@ -26,6 +26,28 @@
       }
     },
     {
+      "slug": "reflection-musa-prayer-before-mission",
+      "background": "assets/previews/story-backgrounds/reflection-musa-prayer-before-mission.jpg",
+      "category": "reflection",
+      "ar": {
+        "title": [
+          "ماذا طلب موسى عليه السلام",
+          "قبل أن يذهب إلى فرعون؟"
+        ],
+        "subtitle": "سأل ربه سعة الصدر وتيسير الأمر وأخًا يشدّ به أزره، ليسبّحا الله ويذكراه كثيرًا.",
+        "alt": "غلاف توضيحي بالكحلي والذهبي لتأمل دعاء موسى عليه السلام في سورة طه، تظهر فيه نار صغيرة على سفح جبل في الليل، وطريق يصعد إليها، وفانوسان متجاوران عند أوله."
+      },
+      "en": {
+        "title": [
+          "What Did Moses Ask For",
+          "Before He Went",
+          "to Pharaoh?"
+        ],
+        "subtitle": "He asked for an open heart, an easier task and a brother to share it, so they could remember Allah much.",
+        "alt": "Navy and gold illustrative cover for the reflection on the prayer of Moses in Surah Ta-Ha, showing a small fire on a mountain slope at night, a path climbing toward it, and two lanterns side by side at its start."
+      }
+    },
+    {
       "slug": "reflection-garden-owners-left-out",
       "background": "assets/previews/story-backgrounds/reflection-garden-owners-left-out.jpg",
       "category": "reflection",
