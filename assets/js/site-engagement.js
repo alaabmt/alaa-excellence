@@ -88,7 +88,8 @@
 
   function readingMinutes(text) {
     const words = text ? text.split(/\s+/).filter(Boolean).length : 0;
-    return Math.max(1, Math.ceil(words / 180));
+    // Same rates as the article cards: about 150 words a minute in Arabic, 170 in English.
+    return Math.max(1, Math.ceil(words / (IS_ENGLISH_PAGE ? 170 : 150)));
   }
 
   function arabicReadingLabel(n) {
