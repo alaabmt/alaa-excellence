@@ -32,3 +32,11 @@ Source: Tucker, A. L., & Edmondson, A. C. (2003). Why Hospitals Don't Learn from
 | Levers: manager presence each shift, psychological safety, organizational responsiveness | p. 66–67 |
 
 **Evidence limits:** qualitative observational study; small sample (26 nurses), US hospitals, 2003; non-representative sample by design; percentages refer to observed problems. The paper reports interviews with 12 nurses but cites "7 of 9" for gratification; both figures are reproduced as published.
+
+## Publication
+
+| Item | Status | Link |
+|---|---|---|
+| Website article (AR + EN) | Live 2026-10-18 (PR #69, squash merge 2e59028) | https://tamayuz10x.com/article-oe-evidence-workarounds-hide-problems.html · https://tamayuz10x.com/en/article-oe-evidence-workarounds-hide-problems.html |
+| LinkedIn Arabic carousel | Published 2026-10-18, `urn:li:ugcPost:7517492937744687105` | https://www.linkedin.com/feed/update/urn:li:ugcPost:7517492937744687105/ |
+| LinkedIn English carousel | Scheduled ~2026-10-18 09:54 UTC (13:54 Dubai) | — |
