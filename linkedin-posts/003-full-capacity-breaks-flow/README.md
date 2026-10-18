@@ -37,4 +37,4 @@ Rebuilt on 17 Oct 2026 on recent evidence, after the owner noted that the first 
 | Language | Published | Post | Document |
 |---|---|---|---|
 | Arabic | 2026-10-18, 09:00 Dubai, PUBLIC | `urn:li:ugcPost:7517450136562880512` — https://www.linkedin.com/feed/update/urn:li:ugcPost:7517450136562880512/ | `urn:li:document:D4D10AQGrP5Oz7K7XxA`, title «حين يمتلئ النظام» |
-| English | scheduled 2026-10-18, 11:00 Dubai | | |
+| English | 2026-10-18, 11:00 Dubai, PUBLIC | `urn:li:ugcPost:7517479747401064448` — https://www.linkedin.com/feed/update/urn:li:ugcPost:7517479747401064448/ | `urn:li:document:D4D10AQG7Gv11e1xqIA`, title "When the system is full" |
