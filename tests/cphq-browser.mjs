@@ -59,6 +59,8 @@ try{
   await page.goto(base+'/cphq.html');await page.getByRole('link',{name:'Open the free learning center'}).click();
   await page.waitForURL('**/cphq-free.html');await overflow();
   assert.equal(await page.locator('table tbody tr').count(),7);
+  await page.waitForFunction(()=>document.querySelector('#bank-availability').textContent.startsWith('49 practice questions'));
+  assert.deepEqual(await page.locator('[data-domain-count]').allTextContents(),Array(7).fill('7'));
   await page.screenshot({path:`test-results/cphq/${name}-landing.png`,fullPage:true});
   await page.getByRole('link',{name:'Start guest practice'}).click();
   await page.waitForFunction(()=>document.querySelector('#progress').textContent.includes('5 of 5'));
@@ -66,11 +68,11 @@ try{
   assert.equal(await page.locator('#feedback').textContent(),'');assert(await page.locator('#next').isDisabled());assert(await page.locator('#domain').isDisabled());
   await overflow();await page.reload();await page.locator('legend').waitFor();assert.equal(records.length,1);
   for(let i=0;i<5;i++){
-   if(i){await page.locator('#next').click();await page.locator('legend').waitFor();}
+   if(i){await page.locator('.continue-button').click();await page.locator('legend').waitFor();}
    await page.locator('input[name="answer"]').first().check();await page.getByRole('button',{name:'Submit answer',exact:true}).click();
    await page.getByRole('heading',{name:'Key learning'}).waitFor();assert.equal(await page.locator('.explain').count(),4);await overflow();
   }
-  assert.equal(submitCalls,5);assert.equal(records.length,5);
+  assert.equal(submitCalls,5);assert.equal(records.length,5);assert(await page.locator('.continue-button').isDisabled());
   await page.screenshot({path:`test-results/cphq/${name}-feedback.png`,fullPage:true});
   await page.locator('#next').click();await page.waitForFunction(()=>document.querySelector('#status').textContent.includes('allowance is complete'));
   await page.reload();await page.waitForFunction(()=>document.querySelector('#status').textContent.includes('allowance is complete'));

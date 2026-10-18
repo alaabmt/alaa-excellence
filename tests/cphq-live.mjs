@@ -43,14 +43,20 @@ for(const auth of [null,session.access_token]){
  const rpc=await fetch(url+'/rest/v1/rpc/cphq_guest_next',{method:'POST',headers:{...headers,'Content-Type':'application/json'},body:JSON.stringify({p_digest:'a'.repeat(64),p_domain:1})});assert([401,403,404].includes(rpc.status));
 }pass('Anonymous and learner REST access to bank and guest RPC denied');
 let delivered=0;
-for(const [domain,count] of [[1,7],[2,1],[3,1],[4,1],[5,1],[6,1],[7,1]]){
- for(let i=0;i<count;i++){
-  const next=await call('registered',{action:'next',domain});assert.equal(next.code,200);
+const initial=(await call('registered',{action:'status'})).value;
+const domains=initial.domains.map(d=>({...d}));
+const target=Math.min(20,domains.reduce((n,d)=>n+d.available,0));
+while(delivered<target){
+ for(const domain of domains){
+  if(!domain.available||delivered>=target)continue;
+  const next=await call('registered',{action:'next',domain:domain.domain});assert.equal(next.code,200);assert(next.value.id);
   assert(!('correct_index'in next.value||'rationales'in next.value||'lesson'in next.value));
   const a=await call('registered',{action:'submit',question_id:next.value.id,selected_index:0});assert.equal(a.code,200);assert.equal(a.value.rationales.length,4);assert(a.value.lesson);
-  delivered++;
+  delivered++;domain.available--;
  }
- const empty=await call('registered',{action:'next',domain});assert.equal(empty.value.error,'domain_completed_today');
 }
-assert.equal(delivered,13);r=await call('registered',{action:'status'});assert.equal(r.value.delivered,13);assert.equal(r.value.answered,13);assert.equal(r.value.remaining,7);pass('All 13 approved questions across seven domains, explanations, exhaustion and remaining allowance');
+r=await call('registered',{action:'status'});assert.equal(r.value.delivered,target);assert.equal(r.value.answered,target);assert.equal(r.value.remaining,20-target);
+if(target===20){r=await call('registered',{action:'next',domain:1});assert.equal(r.code,429);assert.equal(r.value.error,'daily_limit');pass('Live registered 20-question limit and 21st request blocked');}
+else for(const domain of domains){const empty=await call('registered',{action:'next',domain:domain.domain});assert.equal(empty.value.error,'domain_completed_today');}
+pass('Published questions across seven domains: safe delivery, explanations and persisted allowance');
 writeFileSync(process.env.CPHQ_QA_RESULT_FILE,JSON.stringify({checks,passed:checks.length,registeredDelivered:delivered},null,2));

@@ -1,18 +1,17 @@
-# CPHQ Learning Center roadmap
+# CPHQ free release
 
-The development page at /cphq.html contains 13 original educational practice questions, seven domains, and detailed explanations for each answer choice.
+Implemented on `feature/cphq-learning-center`:
 
-Source review: a 2010 Management and Leadership practice document in the connected Drive contains 42 questions with answer keys and historical domain mappings. It is reference material for drafting new scenarios, not an up-to-date exam blueprint. The new content must be checked against the 2026 CPHQ examination outline.
+- A shared free landing page linked from both Capacity Building language editions.
+- Guest and registered practice with original approved questions served by Supabase.
+- Five guest / 20 registered new questions per UTC day; one pending delivery; idempotent answer submission.
+- Existing Tamayuz account sign-in, registration and password-reset links.
+- Explanations only after submission, secure database access, CORS, strict request validation and concurrency protection.
+- Seven-domain mapping and transparent starter-bank limitations.
+- Automated database, Edge request, live API and browser/mobile tests.
 
-Production requirements:
+No payments, premium checkout, unlimited access or full mock exam are included in this phase.
 
-- Private question bank and one-question-at-a-time server delivery.
-- Guest: five questions per day, with best-effort anti-abuse controls.
-- Registered learner: twenty questions per day, enforced on the server.
-- Premium: unlimited practice and full exam simulation, after verified payment.
-- Show correct answers and all four explanations only after submission.
-- Store attempts and learner progress securely.
-- Full exam simulation: 125 scored plus 15 unscored questions, aligned to official domain weights.
-- Review content rights, privacy, accessibility, payments, and website security before publishing.
+This task published and reviewed the original 13-question set. Subsequent external additions brought the live bank to 154 published questions at final verification. On 18 October 2026, Alaa confirmed that editorial review of those additional 141 items is complete. All 154 published items are editorially reviewed; the additional review is owner-confirmed rather than independently repeated by this agent. The landing page uses live availability counts. A larger item count alone does not establish a representative exam simulation. Keep question content out of public repositories, including seeds, test fixtures and generated JavaScript.
 
-The current browser-based guest counter is for demonstration only and is not a secure daily limit. No registration, payment or premium entitlement system is connected yet.
+See `cphq-api-integration.md`, `cphq-blueprint-review.md` and `cphq-release-report.md` for the exact contract, coverage and verification results. The initial release was merged separately as PR #65. The owner authorized publication of the latest live-availability updates on 18 October 2026. The release preserves the subsequent mobile-navigation fix from main and proceeds through pull-request checks and GitHub Pages verification. Database publication and Edge Function updates were applied under the user's authorization.
