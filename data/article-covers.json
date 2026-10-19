@@ -5,6 +5,27 @@
   "maxBytes": 170000,
   "cards": [
     {
+      "slug": "article-agentic-ai-workplace-tasks",
+      "background": "assets/previews/story-backgrounds/article-agentic-ai-workplace-tasks.jpg",
+      "category": "article",
+      "ar": {
+        "title": [
+          "كم من العمل ينجزه",
+          "الوكيل الذكي وحده؟"
+        ],
+        "subtitle": "أنجز أفضل وكيل نحو ثلث المهام في شركة محاكاة",
+        "alt": "غلاف توضيحي بالكحلي والذهبي لدراسة عن وكلاء الذكاء الاصطناعي، يظهر فيه مبنى شركة أُضيء ثلث نوافذه ووكيل ذكي وقائمة نقاط تحقق."
+      },
+      "en": {
+        "title": [
+          "How Much Work Can",
+          "an AI Agent Do Alone?"
+        ],
+        "subtitle": "In a simulated company, the best agent finished about a third of the tasks.",
+        "alt": "Navy and gold illustrative cover for a study of AI agents, showing a company building with a third of its windows lit, an agent icon, and a checklist of checkpoints."
+      }
+    },
+    {
       "slug": "case-finland-housing-first-homelessness",
       "background": "assets/previews/story-backgrounds/case-finland-housing-first-homelessness.jpg",
       "category": "case",
