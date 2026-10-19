@@ -72,7 +72,8 @@
 2. **لا أرقام** ولا نسب ولا أسماء مؤسسات.
 3. لا تحوّل الارتباط إلى سببية، ولا تجعل الحكمة أقوى من اليقين الذي في المقال. إن كان المقال دراسة محدودة، فصِغ بـ «قد»، «غالبًا»، «يمكن».
 4. لا تبدأ بالحكمة بمعلومة لم يعرّفها المقال. المصطلح الفني الغريب لا يدخل البطاقة، وإن دخل فبالصيغة المعتمدة (مثل «منهجية هندسة الوقاية (FMEA)»).
-5. Truth outranks style. If a sharper line needs a stronger claim than the article makes, use the weaker line.
+5. **سمِّ المرجع / Name the referent:** لا تكتب «الرقم» أو «النتيجة» أو «المؤشر» أو "the number" وحدها؛ قل ماذا يقيس: «درجة الخطر»، "the risk score". القارئ لم يقرأ المقال ولا يعرف عمّا يتحدث الرقم. A reader who has not seen the article must know what every noun stands for.
+6. Truth outranks style. If a sharper line needs a stronger claim than the article makes, use the weaker line.
 
 ---
 
@@ -101,6 +102,7 @@
 10. هل تختلف في **الفكرة والخطّاف** عن حكمة الأمس وكل حكمة في السجل؟ · Different from the log?
 11. هل يُقال بسهولة بصوت مرتفع؟ · Easy to say aloud?
 12. الإنجليزية: هل تبدو **مكتوبة بالإنجليزية أصلًا**؟ · Does the English read as written in English?
+13. هل **كل اسم يحيل إلى شيء** يعرفه القارئ (لا «الرقم» ولا «ذلك» بلا بيان)؟ · Does every noun name what it refers to?
 
 ---
 
