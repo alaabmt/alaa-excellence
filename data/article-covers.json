@@ -68,6 +68,28 @@
       }
     },
     {
+      "slug": "reflection-yaqub-do-not-despair",
+      "background": "assets/previews/story-backgrounds/reflection-yaqub-do-not-despair.jpg",
+      "category": "reflection",
+      "ar": {
+        "title": [
+          "لماذا أرسل يعقوب عليه السلام",
+          "أبناءه يبحثون بعد أن يئسوا؟"
+        ],
+        "subtitle": "حزن ولم يشكُ إلا إلى الله، ثم أرسل أبناءه يتحسسون ونهاهم عن اليأس من روح الله.",
+        "alt": "غلاف توضيحي بالكحلي والذهبي لتأمل وصية يعقوب عليه السلام لأبنائه في سورة يوسف، يظهر فيه طريق ممتد نحو مدينة بعيدة عند الفجر، وآثار خطوات على الطريق، وفانوس مضاء عند أوله."
+      },
+      "en": {
+        "title": [
+          "Why Did Jacob Send",
+          "His Sons to Search",
+          "After They Had Given Up?"
+        ],
+        "subtitle": "He grieved and complained only to Allah, then sent his sons to search and told them not to despair of His relief.",
+        "alt": "Navy and gold illustrative cover for the reflection on Jacob’s instruction to his sons in Surah Yusuf, showing a road running toward a distant city at dawn, footprints along it, and a lit lantern where it begins."
+      }
+    },
+    {
       "slug": "reflection-musa-prayer-before-mission",
       "background": "assets/previews/story-backgrounds/reflection-musa-prayer-before-mission.jpg",
       "category": "reflection",
