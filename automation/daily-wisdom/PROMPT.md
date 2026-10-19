@@ -19,6 +19,7 @@ Each run (once a day, 09:00 Dubai) produces **one wisdom** taken from **one** Ta
 4. Read every earlier log entry for this article. The new wisdom must express a **different idea**.
 
 ## 3. Write the wisdom
+**First read `automation/daily-wisdom/WISDOM_WRITING_SKILL.md` and apply it.** Write three candidates with three different hooks, test them with its checklist, keep the best one, and record the hook type in the log as `"hook"` (paradox / correction / image / scene / question / warning). Never use the same hook type as the previous log entry. The rest of this section lists the fixed rules.
 A wisdom is **one idea**, stated as a lesson that also holds outside the article. It is not a summary of the article.
 
 Length: not short and not long.
@@ -77,7 +78,7 @@ End the run with a short final message that has the same two texts, ready to cop
 End the delivery message with this question, in Arabic: «هل توافق على النشر في لينكدإن وصفحة فيسبوك؟ اكتب: نعم، انشر — أو: لا — أو اطلب تعديلًا.» Before the question, show both post texts: run `post_linkedin.py post ... --dry-run` and `post_facebook.py post ... --dry-run` and paste their text. Then stop and wait for the owner's reply.
 
 ## 6. Log
-1. Right after delivery, append one JSON line to `automation/daily-wisdom/log.jsonl`: `{"slug","focus","article","ar","en","created_at","linkedin":"pending","facebook":"pending"}`. `created_at` is in ISO 8601 format with the +04:00 offset.
+1. Right after delivery, append one JSON line to `automation/daily-wisdom/log.jsonl`: `{"slug","focus","article","hook","ar","en","created_at","linkedin":"pending","facebook":"pending"}`. `created_at` is in ISO 8601 format with the +04:00 offset.
 2. Commit only that file with the message `Daily wisdom log: <slug>`. Push with `git push -u origin ccr-87550695-nqef73`. If the push is rejected because another run pushed first, run `git pull --rebase origin ccr-87550695-nqef73` and push again. Retry up to 4 times on network errors (2s, 4s, 8s, 16s).
 3. Do not change any other file. Do not open a pull request.
 
