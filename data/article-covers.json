@@ -5,6 +5,27 @@
   "maxBytes": 170000,
   "cards": [
     {
+      "slug": "case-finland-housing-first-homelessness",
+      "background": "assets/previews/story-backgrounds/case-finland-housing-first-homelessness.jpg",
+      "category": "case",
+      "ar": {
+        "title": [
+          "أعطت فنلندا البيت أولًا",
+          "ثم جاء الدعم"
+        ],
+        "subtitle": "انخفض التشرد الطويل الأمد نحو 70% بين 2008 و2023 ثم عاد يرتفع",
+        "alt": "غلاف توضيحي بالكحلي والذهبي لحالة فنلندا يُظهر عمارة سكنية بنوافذ مضيئة وبابًا مفتوحًا ومفتاحًا وطريقًا يصل بينهما."
+      },
+      "en": {
+        "title": [
+          "The Home Came First,",
+          "Then the Support"
+        ],
+        "subtitle": "Long-term homelessness fell about 70% from 2008 to 2023, then began rising again.",
+        "alt": "Navy and gold illustrative cover for the Finland case, showing an apartment building with lit windows, an open door, and a key with a path leading to it."
+      }
+    },
+    {
       "slug": "case-uruguay-renewable-electricity-consensus",
       "background": "assets/previews/story-backgrounds/case-uruguay-renewable-electricity-consensus.jpg",
       "category": "case",
