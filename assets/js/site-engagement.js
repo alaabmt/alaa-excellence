@@ -49,7 +49,15 @@
   }
 
   function getVisibleSpeechText(el) {
-    return cleanText(el?.getAttribute?.('data-tenx-speech') || el?.innerText || el?.textContent || '');
+    const spoken = el?.getAttribute?.('data-tenx-speech');
+    if (spoken) return cleanText(spoken);
+    // Inline parts marked data-no-speech (such as evidence labels) stay visible but are not read aloud.
+    if (el?.querySelector?.('[data-no-speech]')) {
+      const copy = el.cloneNode(true);
+      copy.querySelectorAll('[data-no-speech]').forEach((node) => node.remove());
+      return cleanText(copy.textContent || '');
+    }
+    return cleanText(el?.innerText || el?.textContent || '');
   }
 
   function buildSpeechSegments(article) {
