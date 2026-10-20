@@ -1,0 +1,135 @@
+{
+  "schema_version": 1,
+  "project": "Tamayuz 10X Qur’anic Reflections",
+  "repository": "alaabmt/alaa-excellence",
+  "branch": "main",
+  "website": "https://tamayuz10x.com",
+  "timezone": "Asia/Dubai",
+  "updated_at": "2026-10-20T13:42:00+04:00",
+  "workflow_status": "idle",
+  "current_stage": "completed",
+  "current_article": {
+    "slug": "reflection-al-baqarah-write-it-down",
+    "publication_date": "2026-10-20",
+    "topic_ar": "آية الدَّين: التوثيق العادل وحفظ الحقوق والذاكرة والثقة",
+    "topic_en": "The debt verse: fair documentation, rights, memory and trust",
+    "verified_quranic_references": [
+      {
+        "surah": "Al-Baqarah",
+        "surah_ar": "البقرة",
+        "ayahs": [
+          280,
+          282,
+          283
+        ],
+        "status": "verified",
+        "primary_text_url": "https://quran.com/2/282"
+      }
+    ],
+    "research_sources": [
+      {
+        "type": "Qur'an text",
+        "url": "https://quran.com/2/282",
+        "status": "verified"
+      },
+      {
+        "type": "English translation — Saheeh International",
+        "url": "https://corpus.quran.com/translation.jsp?chapter=2&verse=282",
+        "status": "verified"
+      },
+      {
+        "type": "Tafsir al-Tabari",
+        "url": "https://quran.ksu.edu.sa/tafseer/tabary/sura2-aya282.html",
+        "status": "verified"
+      },
+      {
+        "type": "Tafsir Ibn Kathir",
+        "url": "https://quran.ksu.edu.sa/tafseer/katheer/sura2-aya282.html",
+        "status": "verified"
+      },
+      {
+        "type": "Tafsir al-Qurtubi",
+        "url": "https://quran.ksu.edu.sa/tafseer/qortobi/sura2-aya282.html",
+        "status": "verified"
+      },
+      {
+        "type": "Tafsir al-Saadi",
+        "url": "https://quran.ksu.edu.sa/tafseer/saadi/sura2-aya282.html",
+        "status": "verified"
+      },
+      {
+        "type": "Context verse",
+        "url": "https://quran.com/2/280",
+        "status": "verified"
+      },
+      {
+        "type": "Context verse",
+        "url": "https://quran.com/2/283",
+        "status": "verified"
+      }
+    ],
+    "research_notes_path": "automation/quran-reflections/reflection-al-baqarah-write-it-down/research-notes.md",
+    "arabic_draft": {
+      "status": "published",
+      "path": "reflection-al-baqarah-write-it-down.html"
+    },
+    "english_draft": {
+      "status": "published",
+      "path": "en/reflection-al-baqarah-write-it-down.html"
+    },
+    "quality_gate": {
+      "status": "passed",
+      "score": 97,
+      "threshold": 90,
+      "blocking_error": false
+    },
+    "publishing": {
+      "status": "published_live_verified",
+      "first_publication_commit": "918261ed44a12639b5ec2cf9cfc44e6d7041d5c0",
+      "final_deployment_commit": "277b6e06bdc536c4c111db9687c9af09f9acf3f4",
+      "arabic_url": "https://tamayuz10x.com/reflection-al-baqarah-write-it-down.html",
+      "english_url": "https://tamayuz10x.com/en/reflection-al-baqarah-write-it-down.html",
+      "github_pages_run": "https://github.com/alaabmt/alaa-excellence/actions/runs/39401650765",
+      "site_health_run": "https://github.com/alaabmt/alaa-excellence/actions/runs/39401555611",
+      "live_verified_at": "2026-10-20T13:35:30+04:00"
+    }
+  },
+  "stage_order": [
+    "capability_check",
+    "load_checkpoint",
+    "duplicate_check",
+    "topic_selection",
+    "research",
+    "quran_verification",
+    "arabic_draft",
+    "independent_critique",
+    "english_draft",
+    "bilingual_parity",
+    "quality_gate",
+    "repository_publish",
+    "actions_and_pages",
+    "live_verification",
+    "completion_report",
+    "completed"
+  ],
+  "resume_policy": {
+    "persist_after_every_completed_stage": true,
+    "resume_from_next_action": true,
+    "usage_limit_behavior": "Keep the last committed checkpoint unchanged and retry on the next hourly run.",
+    "duplicate_prevention": [
+      "Check automation/quran-reflections-state.json.",
+      "Check data/quranic-reflection-topics.json.",
+      "Search Arabic and English repository pages and indexes.",
+      "Check the intended public URLs before publication."
+    ],
+    "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
+    "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
+  },
+  "next_action": "On the next hourly run, check execution capability and this file first. If no unfinished article exists and a reflection has already been completed for the current Asia/Dubai date, make no publication changes. After the local date changes, begin one new article at the first permitted run.",
+  "last_run": {
+    "mode": "manual_setup_and_test_cycle",
+    "status": "completed",
+    "completed_at": "2026-10-20T13:42:00+04:00",
+    "notes": "Checkpoint system initialized after successful bilingual publication and live verification."
+  }
+}
