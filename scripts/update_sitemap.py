@@ -11,8 +11,10 @@ import xml.etree.ElementTree as ET
 SITE = "https://tamayuz10x.com"
 SITEMAP = Path("sitemap.xml")
 ROBOTS = Path("robots.txt")
-ARTICLES = Path("articles.html")
-EN_ARTICLES = Path("en/articles.html")
+CONTENT_LIBRARIES = {
+    Path("."): (Path("articles.html"), Path("agentic-ai-10x.html")),
+    Path("en"): (Path("en/articles.html"), Path("en/agentic-ai-10x.html")),
+}
 CONTENT_PREFIXES = ("case-", "article-", "idea-")
 
 
@@ -83,27 +85,35 @@ def discover_indexable_pages() -> list[tuple[str, Path, str]]:
     return rows
 
 
+def library_contains(library: str, path: Path) -> bool:
+    candidates = (path.name, f"/{path.as_posix()}")
+    return any(
+        f'href="{candidate}"' in library or f"href='{candidate}'" in library
+        for candidate in candidates
+    )
+
+
 def validate_content_links(rows: list[tuple[str, Path, str]]) -> None:
-    ar_library = ARTICLES.read_text(encoding="utf-8")
-    en_library = EN_ARTICLES.read_text(encoding="utf-8") if EN_ARTICLES.exists() else ""
+    libraries = {
+        language_dir: [
+            path.read_text(encoding="utf-8")
+            for path in library_paths
+            if path.exists()
+        ]
+        for language_dir, library_paths in CONTENT_LIBRARIES.items()
+    }
     missing: list[str] = []
     for _, path, _ in rows:
         if not path.name.startswith(CONTENT_PREFIXES):
             continue
-        if path.parent == Path("."):
-            if f'href="{path.name}"' not in ar_library and f"href='{path.name}'" not in ar_library:
-                missing.append(path.as_posix())
-        elif path.parent == Path("en") and en_library:
-            if (
-                f'href="{path.name}"' not in en_library
-                and f"href='{path.name}'" not in en_library
-                and f'href="/en/{path.name}"' not in en_library
-                and f"href='/en/{path.name}'" not in en_library
-            ):
-                missing.append(path.as_posix())
+        language_libraries = libraries.get(path.parent, [])
+        if language_libraries and not any(
+            library_contains(library, path) for library in language_libraries
+        ):
+            missing.append(path.as_posix())
     if missing:
         raise RuntimeError(
-            "Indexable content pages missing an internal link from their language article library: "
+            "Indexable content pages missing an internal link from their language content libraries: "
             + ", ".join(missing)
         )
 
