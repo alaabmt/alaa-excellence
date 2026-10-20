@@ -7,30 +7,34 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-20T16:15:00+04:00",
-  "workflow_status": "completed",
-  "current_stage": "completed",
-  "run_lease": null,
+  "updated_at": "2026-10-20T22:00:00+04:00",
+  "workflow_status": "reconciling",
+  "current_stage": "duplicate_check",
+  "run_lease": {
+    "owner": "automation-agentic-ai-6ab56c5eee2481919cac424410c6b3f8",
+    "acquired_at": "2026-10-20T22:00:00+04:00",
+    "expires_at": "2026-10-20T23:50:00+04:00"
+  },
   "current_item": {
-    "slug": "article-agentic-ai-workplace-tasks",
-    "publication_date": "2026-10-19",
-    "title_ar": "كم من أعمال الشركة يستطيع الوكيل الذكي أن ينجزه وحده؟",
-    "title_en": "How Much of a Company's Work Can an AI Agent Finish on Its Own?",
-    "research_status": "completed_in_published_article",
-    "evidence_pack_status": "completed_in_published_article",
+    "slug": "article-agentic-ai-big-sleep-vulnerability-hunting",
+    "publication_date": "2026-10-20",
+    "title_ar": "كيف غيّر وكيل ذكي طريقة بحث غوغل عن الثغرات الأمنية، ومن يتحمّل كلفة إصلاحها؟",
+    "title_en": "How Did an AI Agent Change the Way Google Hunts for Software Flaws, and Who Pays to Fix Them?",
+    "research_status": "needs_reconciliation",
+    "evidence_pack_status": "needs_reconciliation",
     "arabic_draft": {
-      "status": "published",
-      "path": "article-agentic-ai-workplace-tasks.html"
+      "status": "repository_draft_detected",
+      "path": "article-agentic-ai-big-sleep-vulnerability-hunting.html"
     },
     "english_draft": {
-      "status": "published",
-      "path": "en/article-agentic-ai-workplace-tasks.html"
+      "status": "repository_draft_detected",
+      "path": "en/article-agentic-ai-big-sleep-vulnerability-hunting.html"
     },
     "publishing": {
-      "status": "published",
-      "publication_commit": "170cce885ec9256ac11bbd1339ecc64566170f7a",
-      "arabic_url": "https://tamayuz10x.com/article-agentic-ai-workplace-tasks.html",
-      "english_url": "https://tamayuz10x.com/en/article-agentic-ai-workplace-tasks.html"
+      "status": "unverified",
+      "publication_commit": "f7f6f736c83a6f1d1033b9779cabc29218350213",
+      "arabic_url": "https://tamayuz10x.com/article-agentic-ai-big-sleep-vulnerability-hunting.html",
+      "english_url": "https://tamayuz10x.com/en/article-agentic-ai-big-sleep-vulnerability-hunting.html"
     }
   },
   "stage_order": [
@@ -72,11 +76,11 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "At the next daily 22:00 Asia/Dubai run, read this state first. Start at most one new article only if no unfinished item exists and no Agentic AI article has already been started or published for that local date.",
+  "next_action": "Reconcile the existing 2026-10-20 Big Sleep draft: verify artifacts and evidence, apply the Agentic AI-only index rule, run bilingual quality gates, then verify Actions, Pages, live URLs, and exact latest head before completion.",
   "last_run": {
-    "mode": "checkpoint_initialization",
-    "status": "completed",
-    "completed_at": "2026-10-20T16:15:00+04:00",
-    "notes": "Initialized from the latest published Agentic AI article."
+    "mode": "scheduled_reconciliation",
+    "status": "in_progress",
+    "started_at": "2026-10-20T22:00:00+04:00",
+    "notes": "Duplicate check found an already-started Agentic AI article for today's Dubai date in commit f7f6f736c83a6f1d1033b9779cabc29218350213; no new article will be started."
   }
 }
