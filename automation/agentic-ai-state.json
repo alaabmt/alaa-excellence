@@ -7,9 +7,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-20T23:00:00+04:00",
+  "updated_at": "2026-10-20T23:04:00+04:00",
   "workflow_status": "reconciling",
-  "current_stage": "quality_gate",
+  "current_stage": "repository_publish",
   "run_lease": {
     "owner": "automation-agentic-ai-6ab56c5eee2481919cac424410c6b3f8",
     "acquired_at": "2026-10-20T22:00:00+04:00",
@@ -31,8 +31,8 @@
       "path": "en/article-agentic-ai-big-sleep-vulnerability-hunting.html"
     },
     "publishing": {
-      "status": "unverified",
-      "publication_commit": "f7f6f736c83a6f1d1033b9779cabc29218350213",
+      "status": "repository_updated",
+      "publication_commit": "00006b55b435c362c2e178254eb3596771891d4e",
       "arabic_url": "https://tamayuz10x.com/article-agentic-ai-big-sleep-vulnerability-hunting.html",
       "english_url": "https://tamayuz10x.com/en/article-agentic-ai-big-sleep-vulnerability-hunting.html"
     }
@@ -76,7 +76,7 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Record the reconciled repository publication head, then verify exact-head Actions and Pages.",
+  "next_action": "Verify GitHub Actions and Pages for the exact latest main head, then test both live URLs.",
   "last_run": {
     "mode": "scheduled_reconciliation",
     "status": "in_progress",
