@@ -66,7 +66,7 @@
     const seen = new Set();
     const add = (el) => {
       if (!el || seen.has(el)) return;
-      if (el.closest('.refs,.references,.tenx-share-box,.tenx-author-audio,.tenx-floating-audio,.back,nav,footer')) return;
+      if (el.closest('.refs,.references,.agent-refs,.tenx-share-box,.tenx-author-audio,.tenx-floating-audio,.back,nav,footer')) return;
       const text = getVisibleSpeechText(el);
       if (!text) return;
       seen.add(el);
@@ -82,7 +82,7 @@
     article.querySelectorAll(selector).forEach((el) => {
       if (reflectionPage && el.matches('h2') && /^(المراجع|المصادر|تنويه تحريري|أسرار المشاركة|References|Editorial Disclaimer|Sharing Notes)/i.test(cleanText(el.textContent))) afterReflectionText = true;
       if (reflectionPage && (afterReflectionText || el.closest('.page-header .eyebrow'))) return;
-      if (el.matches('.refs *, .references *, .tenx-share-box *, .tenx-author-audio *, .back')) return;
+      if (el.matches('.refs *, .references *, .agent-refs *, .tenx-share-box *, .tenx-author-audio *, .back')) return;
       const nested = Array.from(el.querySelectorAll(selector)).some((child) => child !== el && cleanText(child.textContent));
       if (nested && !el.matches('h2,h3,h4,p,li')) return;
       add(el);
