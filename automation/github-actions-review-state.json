@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "workflow_id": "github_actions_review",
+  "project": "Weekly GitHub Actions Review",
+  "workflow_type": "read_only_monitoring_report",
+  "repository": "alaabmt/alaa-excellence",
+  "branch": "main",
+  "timezone": "Asia/Dubai",
+  "updated_at": "2026-10-20T16:15:00+04:00",
+  "workflow_status": "completed",
+  "current_stage": "completed",
+  "run_lease": null,
+  "current_item": {
+    "review_period": "legacy run ending 2026-10-19",
+    "last_scheduler_run_at": "2026-10-19T09:40:25+04:00",
+    "report_artifact": null,
+    "report_status": "legacy_run_completed_before_checkpoint_system",
+    "mutation_policy": "Do not modify repository workflows or settings; report findings only."
+  },
+  "stage_order": [
+    "capability_check",
+    "load_checkpoint",
+    "collect_runs",
+    "classify_failures_and_cancellations",
+    "identify_recurrence_and_duplication",
+    "verify_latest_pages",
+    "write_report",
+    "deliver_summary",
+    "completed"
+  ],
+  "artifact_policy": {
+    "root": "automation/github-actions-review/<YYYY-MM-DD>/",
+    "files": [
+      "run-inventory.json",
+      "analysis.md",
+      "report.md"
+    ]
+  },
+  "checkpoint_policy": {
+    "checkpoint_after_every_stage": true,
+    "run_lease_minutes": 110,
+    "concurrency_rule": "Re-read the state before work. Skip while another unexpired run lease exists. Acquire the lease in a committed state update and re-read before every later write.",
+    "interruption_rule": "Resume only from a completed stage boundary. Reconcile pending or uncertain external actions before replaying them.",
+    "usage_limit_rule": "If safe writing remains possible, set retry_waiting, preserve next_action, record the blocker and release the lease. Otherwise leave the last valid checkpoint untouched for the hourly retry.",
+    "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
+    "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
+  },
+  "next_action": "At the next weekly Monday 09:00 Asia/Dubai run, create the dated artifact folder, checkpoint every completed stage and deliver one Arabic report. Resume unfinished stages hourly.",
+  "last_run": {
+    "mode": "legacy_primary_run",
+    "status": "completed",
+    "completed_at": "2026-10-19T09:40:48+04:00",
+    "notes": "Legacy result was delivered in Work but not archived in GitHub."
+  }
+}

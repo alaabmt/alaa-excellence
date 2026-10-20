@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "repository": "alaabmt/alaa-excellence",
+  "branch": "main",
+  "website": "https://tamayuz10x.com",
+  "timezone": "Asia/Dubai",
+  "updated_at": "2026-10-20T16:15:00+04:00",
+  "coordinator": {
+    "automation_id": "6ad7006c273481919e068147bdc00b05",
+    "title": "استئناف مهام التميّز 10X",
+    "cadence": "hourly",
+    "role": "Resume unfinished work without duplicating primary scheduled starts."
+  },
+  "workflows": [
+    {
+      "workflow_id": "quran_reflections",
+      "title": "التأمل القرآني اليومي 10X",
+      "state_path": "automation/quran-reflections-state.json",
+      "artifact_root": "automation/quran-reflections/",
+      "primary_automation_id": "6ad7006c273481919e068147bdc00b05",
+      "primary_schedule": "hourly coordinator; daily start at or after 17:00 Asia/Dubai",
+      "recovery_enabled": true,
+      "priority": 1
+    },
+    {
+      "workflow_id": "tenx_cases",
+      "title": "إنشاء ونشر حالات التميّز 10X",
+      "state_path": "automation/10x-cases-state.json",
+      "artifact_root": "automation/10x-cases/",
+      "primary_automation_id": "6a9e7dc6a760819184c17d82463be4a5",
+      "primary_schedule": "daily 07:30 Asia/Dubai",
+      "recovery_enabled": true,
+      "priority": 2
+    },
+    {
+      "workflow_id": "agentic_ai",
+      "title": "مقالات Agentic AI 10X اليومية",
+      "state_path": "automation/agentic-ai-state.json",
+      "artifact_root": "automation/agentic-ai/",
+      "primary_automation_id": "6ab56c5eee2481919cac424410c6b3f8",
+      "primary_schedule": "daily 22:00 Asia/Dubai",
+      "recovery_enabled": true,
+      "priority": 3
+    },
+    {
+      "workflow_id": "github_actions_review",
+      "title": "مراجعة GitHub Actions الأسبوعية",
+      "state_path": "automation/github-actions-review-state.json",
+      "artifact_root": "automation/github-actions-review/",
+      "primary_automation_id": "6ac8f7305ef081919af95ca72dae889b",
+      "primary_schedule": "weekly Monday 09:00 Asia/Dubai",
+      "recovery_enabled": true,
+      "priority": 4
+    },
+    {
+      "workflow_id": "uae_government_intelligence",
+      "title": "ذكاء التميّز الحكومي في الإمارات",
+      "state_path": "automation/uae-government-intelligence-state.json",
+      "artifact_root": "automation/uae-government-intelligence/",
+      "primary_automation_id": "6a9c7cda679c8191b71d1bbde4ba104c",
+      "primary_schedule": "weekly Monday 08:00 Asia/Dubai",
+      "recovery_enabled": true,
+      "priority": 5
+    }
+  ]
+}

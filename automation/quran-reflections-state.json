@@ -5,7 +5,7 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-20T13:44:00+04:00",
+  "updated_at": "2026-10-20T16:15:00+04:00",
   "workflow_status": "completed",
   "current_stage": "completed",
   "current_article": {
@@ -132,5 +132,17 @@
     "status": "completed",
     "completed_at": "2026-10-20T13:42:00+04:00",
     "notes": "Checkpoint system initialized after successful bilingual publication and live verification."
-  }
+  },
+  "workflow_id": "quran_reflections",
+  "run_lease": null,
+  "checkpoint_policy": {
+    "checkpoint_after_every_stage": true,
+    "run_lease_minutes": 110,
+    "concurrency_rule": "Re-read the state before work. Skip while another unexpired run lease exists. Acquire the lease in a committed state update and re-read before every later write.",
+    "interruption_rule": "Resume only from a completed stage boundary. Reconcile pending or uncertain external actions before replaying them.",
+    "usage_limit_rule": "If safe writing remains possible, set retry_waiting, preserve next_action, record the blocker and release the lease. Otherwise leave the last valid checkpoint untouched for the hourly retry.",
+    "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
+    "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
+  },
+  "coordinator_recovery": true
 }

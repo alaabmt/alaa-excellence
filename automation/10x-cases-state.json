@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "workflow_id": "tenx_cases",
+  "project": "Tamayuz 10X Cases",
+  "workflow_type": "bilingual_web_publication",
+  "repository": "alaabmt/alaa-excellence",
+  "branch": "main",
+  "website": "https://tamayuz10x.com",
+  "timezone": "Asia/Dubai",
+  "updated_at": "2026-10-20T16:15:00+04:00",
+  "workflow_status": "completed",
+  "current_stage": "completed",
+  "run_lease": null,
+  "current_item": {
+    "slug": "case-kaiser-advance-alert-monitor-clinical-deterioration",
+    "publication_date": "2026-10-20",
+    "title_ar": "كيف حوّلت Kaiser Permanente الإنذار المبكر إلى استجابة سريرية؟",
+    "title_en": "How Kaiser Permanente Turned Early Warning into Clinical Response",
+    "evidence_pack_status": "completed_in_published_article",
+    "company_insider_critique_status": "completed",
+    "arabic_draft": {
+      "status": "published",
+      "path": "case-kaiser-advance-alert-monitor-clinical-deterioration.html"
+    },
+    "english_draft": {
+      "status": "published",
+      "path": "en/case-kaiser-advance-alert-monitor-clinical-deterioration.html"
+    },
+    "publishing": {
+      "status": "published_live_verified",
+      "first_publication_commit": "b7ba13788919ab9efd114cf1830cc2b930d1db08",
+      "arabic_url": "https://tamayuz10x.com/case-kaiser-advance-alert-monitor-clinical-deterioration.html",
+      "english_url": "https://tamayuz10x.com/en/case-kaiser-advance-alert-monitor-clinical-deterioration.html"
+    }
+  },
+  "stage_order": [
+    "capability_check",
+    "load_checkpoint",
+    "duplicate_check",
+    "candidate_scan",
+    "evidence_pack",
+    "backcasting_and_10x_analysis",
+    "arabic_draft",
+    "company_insider_critique",
+    "english_draft",
+    "bilingual_parity",
+    "final_quality_gate",
+    "repository_publish",
+    "actions_and_pages",
+    "live_verification",
+    "completion_report",
+    "completed"
+  ],
+  "artifact_policy": {
+    "root": "automation/10x-cases/<slug>/",
+    "files": [
+      "candidate-notes.md",
+      "evidence-pack.md",
+      "draft-ar.md",
+      "draft-en.md",
+      "company-insider-critique.md",
+      "quality-review.md",
+      "publication-report.md"
+    ]
+  },
+  "checkpoint_policy": {
+    "checkpoint_after_every_stage": true,
+    "run_lease_minutes": 110,
+    "concurrency_rule": "Re-read the state before work. Skip while another unexpired run lease exists. Acquire the lease in a committed state update and re-read before every later write.",
+    "interruption_rule": "Resume only from a completed stage boundary. Reconcile pending or uncertain external actions before replaying them.",
+    "usage_limit_rule": "If safe writing remains possible, set retry_waiting, preserve next_action, record the blocker and release the lease. Otherwise leave the last valid checkpoint untouched for the hourly retry.",
+    "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
+    "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
+  },
+  "next_action": "At the next daily 07:30 Asia/Dubai run, read this state first. Start at most one new case only if no unfinished item exists and no case has already been published for that local date.",
+  "last_run": {
+    "mode": "legacy_primary_run",
+    "status": "completed",
+    "completed_at": "2026-10-20T09:40:37+04:00",
+    "notes": "Initialized from the latest verified published case."
+  }
+}

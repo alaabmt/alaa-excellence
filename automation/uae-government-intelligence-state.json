@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "workflow_id": "uae_government_intelligence",
+  "project": "UAE Government Excellence Intelligence",
+  "workflow_type": "deep_research_document",
+  "repository": "alaabmt/alaa-excellence",
+  "branch": "main",
+  "timezone": "Asia/Dubai",
+  "updated_at": "2026-10-20T16:15:00+04:00",
+  "workflow_status": "completed",
+  "current_stage": "completed",
+  "run_lease": null,
+  "current_item": {
+    "report_period": "legacy run ending 2026-10-19",
+    "last_scheduler_run_at": "2026-10-19T08:19:58+04:00",
+    "research_artifact": null,
+    "document_artifact": null,
+    "report_status": "legacy_run_completed_before_checkpoint_system"
+  },
+  "stage_order": [
+    "capability_check",
+    "load_checkpoint",
+    "scope_and_queries",
+    "official_source_scan",
+    "independent_and_academic_scan",
+    "evidence_matrix",
+    "thesis_selection",
+    "uae_excellence_lens",
+    "book_and_lecture_section",
+    "arabic_draft",
+    "word_render_and_visual_qa",
+    "final_report",
+    "completed"
+  ],
+  "artifact_policy": {
+    "root": "automation/uae-government-intelligence/<YYYY-MM-DD>/",
+    "files": [
+      "research-plan.md",
+      "source-log.md",
+      "evidence-matrix.md",
+      "draft-ar.md",
+      "visual-qa.md",
+      "publication-report.md"
+    ],
+    "external_document_note": "Record the durable Word document link or identifier in this state."
+  },
+  "checkpoint_policy": {
+    "checkpoint_after_every_stage": true,
+    "run_lease_minutes": 110,
+    "concurrency_rule": "Re-read the state before work. Skip while another unexpired run lease exists. Acquire the lease in a committed state update and re-read before every later write.",
+    "interruption_rule": "Resume only from a completed stage boundary. Reconcile pending or uncertain external actions before replaying them.",
+    "usage_limit_rule": "If safe writing remains possible, set retry_waiting, preserve next_action, record the blocker and release the lease. Otherwise leave the last valid checkpoint untouched for the hourly retry.",
+    "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
+    "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
+  },
+  "next_action": "At the next weekly Monday 08:00 Asia/Dubai run, create the dated artifact folder and checkpoint every completed research and document stage. Resume unfinished stages hourly.",
+  "last_run": {
+    "mode": "legacy_primary_run",
+    "status": "completed",
+    "completed_at": "2026-10-19T08:20:21+04:00",
+    "notes": "Legacy report was delivered in Work but not archived in GitHub."
+  }
+}
