@@ -7,14 +7,10 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-20T23:04:00+04:00",
+  "updated_at": "2026-10-20T23:20:00+04:00",
   "workflow_status": "retry_waiting",
   "current_stage": "actions_and_pages",
-  "run_lease": {
-    "owner": "automation-coordinator-6ad7006c273481919e068147bdc00b05",
-    "acquired_at": "2026-10-20T23:04:00+04:00",
-    "expires_at": "2026-10-21T00:54:00+04:00"
-  },
+  "run_lease": null,
   "current_item": {
     "slug": "article-agentic-ai-big-sleep-vulnerability-hunting",
     "publication_date": "2026-10-20",
@@ -76,17 +72,17 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Re-read state and latest main head. Verify GitHub Pages completed successfully for the exact latest head, then open both live article URLs and both specialist Agentic AI indexes; confirm the tracker table captions, bylines, reciprocal language links, specialist cards, and absence from the general indexes. If all pass, update publication-report.md and mark completed.",
+  "next_action": "Re-read state and latest main head. Verify GitHub Pages completed successfully for that exact latest head. Then spot-check both live article URLs and both specialist indexes against the already-recorded evidence; if unchanged and Pages succeeds, mark live_verification and completion_report complete.",
   "last_run": {
-    "mode": "scheduled_reconciliation",
+    "mode": "coordinator_recovery",
     "status": "retry_waiting",
-    "started_at": "2026-10-20T22:00:00+04:00",
-    "checkpointed_at": "2026-10-20T23:15:00+04:00",
-    "notes": "Reconciled the pre-existing 2026-10-20 Big Sleep article, created all durable artifacts, corrected Arabic English-term parentheses and metric denominators, preserved specialist cards, and removed general-index cards. Live/Pages verification could not be completed because the connector returned no exact-head status contexts and direct live-page retrieval was unavailable."
+    "started_at": "2026-10-20T23:04:00+04:00",
+    "checkpointed_at": "2026-10-20T23:20:00+04:00",
+    "notes": "Acquired a committed lease and reconciled live publication. Both article pages showed the correct bylines, reciprocal language links, and tracker captions/tables; both specialist indexes showed the article card; both general indexes correctly omitted it. The publication report now records this evidence. Completion remains pending because the available GitHub status and workflow-run queries could not prove Pages success for the exact latest main head."
   },
   "blocker": {
-    "type": "transient_verification_unavailable",
-    "details": "Exact-head GitHub Pages and live HTML could not be independently retrieved in this run.",
+    "type": "transient_exact_head_pages_verification_unavailable",
+    "details": "Live HTML and index placement are verified, but the GitHub connector returned no status contexts or usable Pages run for the exact latest main head. Retry exact-head Pages verification without republishing.",
     "retryable": true
   }
 }
