@@ -7,9 +7,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-20T22:34:00+04:00",
+  "updated_at": "2026-10-20T22:45:00+04:00",
   "workflow_status": "reconciling",
-  "current_stage": "beginner_critique",
+  "current_stage": "english_draft",
   "run_lease": {
     "owner": "automation-agentic-ai-6ab56c5eee2481919cac424410c6b3f8",
     "acquired_at": "2026-10-20T22:00:00+04:00",
@@ -27,7 +27,7 @@
       "path": "article-agentic-ai-big-sleep-vulnerability-hunting.html"
     },
     "english_draft": {
-      "status": "repository_draft_detected",
+      "status": "reconciled",
       "path": "en/article-agentic-ai-big-sleep-vulnerability-hunting.html"
     },
     "publishing": {
@@ -76,7 +76,7 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Add the reconciled tracker-count visual to both article pages, then checkpoint the English draft.",
+  "next_action": "Run bilingual parity, refresh the Arabic draft artifact, and correct index placement.",
   "last_run": {
     "mode": "scheduled_reconciliation",
     "status": "in_progress",
