@@ -1,7 +1,24 @@
 {
   "purpose": "سجل موضوعات التأملات القرآنية لتجنب تكرار القصة أو الزاوية (دليل مهارات كتابة التأملات القرآنية، البند 10، الخطوة 9)",
-  "updated": "2026-10-19",
+  "updated": "2026-10-20",
   "reflections": [
+    {
+      "slug": "reflection-al-baqarah-write-it-down",
+      "title_ar": "لماذا نكتب ما اتفقنا عليه إذا كنا نثق بعضنا ببعض؟",
+      "title_en": "If We Trust One Another, Why Write It Down?",
+      "date": "2026-10-20",
+      "verses": [
+        "البقرة: 280",
+        "البقرة: 282–283"
+      ],
+      "angle": "تأمل في آية الدَّين: التوثيق العادل بوصفه حفظًا للحقوق والذاكرة وتقليلًا للريبة، مع فصل الثقة عن ضعف الذاكرة وتطبيق معاصر متناسب لا يحوّل الآية إلى نموذج إداري",
+      "core_idea": "الكتابة العادلة لا تناقض الثقة؛ بل تحمي الحقوق والعلاقات من النسيان واختلاف الذاكرة، مع بقاء الأمانة وتقوى الله أصلًا.",
+      "contemporary_application": "سجل قرار موجز يثبت القرار والمسؤول والموعد وما بقي غير محسوم، من غير بيروقراطية زائدة.",
+      "url_ar": "https://tamayuz10x.com/reflection-al-baqarah-write-it-down.html",
+      "url_en": "https://tamayuz10x.com/en/reflection-al-baqarah-write-it-down.html",
+      "github_commit": "PENDING_FIRST_PUBLICATION_COMMIT",
+      "publication_status": "repository_update_pending"
+    },
     {
       "slug": "reflection-yaqub-do-not-despair",
       "title_ar": "لماذا أرسل يعقوب عليه السلام أبناءه يبحثون بعد أن يئسوا؟",

@@ -5,6 +5,27 @@
   "maxBytes": 170000,
   "cards": [
     {
+      "slug": "reflection-al-baqarah-write-it-down",
+      "background": "assets/previews/story-backgrounds/reflection-al-baqarah-write-it-down.jpg",
+      "category": "reflection",
+      "ar": {
+        "title": [
+          "لماذا نكتب ما اتفقنا عليه",
+          "إذا كنا نثق بعضنا ببعض؟"
+        ],
+        "subtitle": "تأمل في آية الدَّين: الكتابة تحفظ الحقوق والذاكرة وتقلل أسباب الشك.",
+        "alt": "غلاف توضيحي بالكحلي والذهبي لتأمل آية الدَّين، يظهر دفترًا مفتوحًا وقلم حبر وظل ميزان وقطعتين ذهبيتين ترمزان إلى طرفي اتفاق."
+      },
+      "en": {
+        "title": [
+          "If We Trust One Another,",
+          "Why Write It Down?"
+        ],
+        "subtitle": "A reflection on the debt verse: documentation can protect rights, memory and trust.",
+        "alt": "Navy and gold editorial cover for a reflection on the debt verse, showing an open ledger, an ink pen, the shadow of balanced scales and two gold markers representing parties to an agreement."
+      }
+    },
+    {
       "slug": "case-kaiser-advance-alert-monitor-clinical-deterioration",
       "background": "assets/previews/story-backgrounds/case-kaiser-advance-alert-monitor-clinical-deterioration.jpg",
       "category": "case",
@@ -1471,4 +1492,3 @@
     }
   ]
 }
-
