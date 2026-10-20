@@ -89,6 +89,27 @@
       }
     },
     {
+      "slug": "article-agentic-ai-big-sleep-vulnerability-hunting",
+      "background": "assets/previews/story-backgrounds/article-agentic-ai-big-sleep-vulnerability-hunting.jpg",
+      "category": "article",
+      "ar": {
+        "title": [
+          "كيف غيّر وكيل ذكي",
+          "بحث غوغل عن الثغرات؟"
+        ],
+        "subtitle": "أُصلح 80 من 85 بلاغًا قدّمها وكيل غوغل.",
+        "alt": "غلاف توضيحي بالكحلي والذهبي لمقال عن وكيل ذكي يفتش في شيفرة برمجية، يظهر فيه نافذة شيفرة وعدسة مكبّرة وعلامة مراجعة بشرية."
+      },
+      "en": {
+        "title": [
+          "How an AI Agent Changed",
+          "Google's Flaw Hunting"
+        ],
+        "subtitle": "Google's AI agent logged 85 public reports, and Google marks 80 as fixed.",
+        "alt": "Navy and gold illustrative cover for an article about an AI agent inspecting software code, showing a code window, a magnifying glass, and a human-review checkmark."
+      }
+    },
+    {
       "slug": "case-finland-housing-first-homelessness",
       "background": "assets/previews/story-backgrounds/case-finland-housing-first-homelessness.jpg",
       "category": "case",
