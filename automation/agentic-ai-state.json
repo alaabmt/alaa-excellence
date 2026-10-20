@@ -7,14 +7,10 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-21T00:58:03+04:00",
+  "updated_at": "2026-10-21T01:03:00+04:00",
   "workflow_status": "retry_waiting",
   "current_stage": "actions_and_pages",
-  "run_lease": {
-    "owner": "automation-coordinator-6ad7006c273481919e068147bdc00b05",
-    "acquired_at": "2026-10-21T00:58:03+04:00",
-    "expires_at": "2026-10-21T02:48:03+04:00"
-  },
+  "run_lease": null,
   "current_item": {
     "slug": "article-agentic-ai-big-sleep-vulnerability-hunting",
     "publication_date": "2026-10-20",
@@ -80,13 +76,13 @@
   "last_run": {
     "mode": "coordinator_recovery",
     "status": "retry_waiting",
-    "started_at": "2026-10-20T23:55:32+04:00",
-    "checkpointed_at": "2026-10-20T23:59:00+04:00",
-    "notes": "Acquired a committed lease and re-read the live and repository indexes. The Big Sleep card had been reintroduced into both general indexes, conflicting with the specialist-only Agentic AI prompt. Removed the Arabic card in f156908afb96ed4d1f6b4b9f6766c99585612b19 and the English card in 64dfc088eb65544ecbb69deee9f57c24ab18042e; specialist cards, article pages, publication-date registry and sitemap remain intact. Updated publication-report.md. Completion remains pending exact-head GitHub Pages success and live confirmation of the corrected indexes."
+    "started_at": "2026-10-21T00:58:03+04:00",
+    "checkpointed_at": "2026-10-21T01:03:00+04:00",
+    "notes": "Re-read the durable prompt, operating guidance and checkpoint; acquired a committed lease; verified that both general indexes remain corrected in main and both specialist indexes retain the article. Exact-head combined status and the available workflow-run query returned no Pages proof. The reachable live general-index snapshots still showed the pre-correction card, so no stage was advanced and no publication action was replayed."
   },
   "blocker": {
     "type": "transient_exact_head_pages_verification_unavailable",
-    "details": "Repository index placement is corrected, but the GitHub connector returned no status contexts or usable Pages run for the exact latest main head. Live general indexes still reflected the pre-correction deployment during this run. Retry exact-head Pages and live index verification without republishing.",
+    "details": "Main is corrected, but no exact-head GitHub Pages success was available and the reachable live general-index snapshots still reflected the pre-correction version. Retry exact-head Pages and fresh live index verification without republishing.",
     "retryable": true
   }
 }
