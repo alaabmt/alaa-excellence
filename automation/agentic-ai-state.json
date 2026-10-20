@@ -7,14 +7,10 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-21T02:02:54+04:00",
-  "workflow_status": "retry_waiting",
-  "current_stage": "actions_and_pages",
-  "run_lease": {
-    "owner": "automation-coordinator-6ad7006c273481919e068147bdc00b05",
-    "acquired_at": "2026-10-21T02:02:54+04:00",
-    "expires_at": "2026-10-21T03:52:54+04:00"
-  },
+  "updated_at": "2026-10-21T02:09:30+04:00",
+  "workflow_status": "completed",
+  "current_stage": "completed",
+  "run_lease": null,
   "current_item": {
     "slug": "article-agentic-ai-big-sleep-vulnerability-hunting",
     "publication_date": "2026-10-20",
@@ -31,10 +27,12 @@
       "path": "en/article-agentic-ai-big-sleep-vulnerability-hunting.html"
     },
     "publishing": {
-      "status": "deployment_unverified",
+      "status": "verified",
       "publication_commit": "64dfc088eb65544ecbb69deee9f57c24ab18042e",
       "arabic_url": "https://tamayuz10x.com/article-agentic-ai-big-sleep-vulnerability-hunting.html",
-      "english_url": "https://tamayuz10x.com/en/article-agentic-ai-big-sleep-vulnerability-hunting.html"
+      "english_url": "https://tamayuz10x.com/en/article-agentic-ai-big-sleep-vulnerability-hunting.html",
+      "verification_commit": "046b4d4d7122d8378144ec5dec8fc09aea9d1f1d",
+      "report_commit": "e4956b1b1cc287d4ef274103f146e360efcefcaf"
     }
   },
   "stage_order": [
@@ -76,17 +74,13 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Re-read state and latest main head. Verify GitHub Pages completed successfully for that exact latest head, then confirm both live general indexes no longer contain the Big Sleep card while both specialist indexes and both article pages still contain it. If all checks pass, update publication-report.md, complete live_verification and completion_report, and mark the workflow completed.",
+  "next_action": "No action. The Big Sleep bilingual publication is verified complete; the next scheduled Agentic AI cycle may start a new item.",
   "last_run": {
     "mode": "coordinator_recovery",
-    "status": "retry_waiting",
-    "started_at": "2026-10-21T00:58:03+04:00",
-    "checkpointed_at": "2026-10-21T01:03:00+04:00",
-    "notes": "Re-read the durable prompt, operating guidance and checkpoint; acquired a committed lease; verified that both general indexes remain corrected in main and both specialist indexes retain the article. Exact-head combined status and the available workflow-run query returned no Pages proof. The reachable live general-index snapshots still showed the pre-correction card, so no stage was advanced and no publication action was replayed."
+    "status": "completed",
+    "started_at": "2026-10-21T02:02:54+04:00",
+    "checkpointed_at": "2026-10-21T02:09:30+04:00",
+    "notes": "Verified both live general indexes exclude the Big Sleep card, both specialist indexes retain it, and both live article pages expose the expected canonical, hreflang, Schema.org, byline and tracker table. Fixed the sitemap crawlability validator so specialist libraries satisfy the internal-link gate; run #553 succeeded. GitHub Pages run #1573 succeeded for exact corrective head 046b4d4d7122d8378144ec5dec8fc09aea9d1f1d. Publication report finalized in e4956b1b1cc287d4ef274103f146e360efcefcaf."
   },
-  "blocker": {
-    "type": "transient_exact_head_pages_verification_unavailable",
-    "details": "Main is corrected, but no exact-head GitHub Pages success was available and the reachable live general-index snapshots still reflected the pre-correction version. Retry exact-head Pages and fresh live index verification without republishing.",
-    "retryable": true
-  }
+  "blocker": null
 }
