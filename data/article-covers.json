@@ -5,6 +5,27 @@
   "maxBytes": 170000,
   "cards": [
     {
+      "slug": "case-michigan-keystone-icu-checklist-infections",
+      "background": "assets/previews/story-backgrounds/case-michigan-keystone-icu-checklist-infections.jpg",
+      "category": "case",
+      "ar": {
+        "title": [
+          "حين صار بوسع التمريض",
+          "أن يوقف الطبيب"
+        ],
+        "subtitle": "انخفضت عدوى القسطرة في 103 وحدات عناية مركزة بنسبة تصل إلى 66% خلال 18 شهرًا",
+        "alt": "غلاف توضيحي بالكحلي والذهبي لحالة ميشيغان يُظهر سرير عناية مركزة وأنبوب قسطرة وقائمة تحقق بخمس علامات وخط نبض على شاشة."
+      },
+      "en": {
+        "title": [
+          "When Nurses Could",
+          "Stop the Doctor"
+        ],
+        "subtitle": "Central-line infections fell by up to 66% in 18 months across 103 intensive care units.",
+        "alt": "Navy and gold illustrative cover for the Michigan case, showing an intensive care bed, a catheter line, a five-item checklist and a heartbeat trace on a monitor."
+      }
+    },
+    {
       "slug": "article-agentic-ai-workplace-tasks",
       "background": "assets/previews/story-backgrounds/article-agentic-ai-workplace-tasks.jpg",
       "category": "article",
