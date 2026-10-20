@@ -7,14 +7,10 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-20T23:04:00+04:00",
-  "workflow_status": "reconciling",
-  "current_stage": "repository_publish",
-  "run_lease": {
-    "owner": "automation-agentic-ai-6ab56c5eee2481919cac424410c6b3f8",
-    "acquired_at": "2026-10-20T22:00:00+04:00",
-    "expires_at": "2026-10-20T23:50:00+04:00"
-  },
+  "updated_at": "2026-10-20T23:15:00+04:00",
+  "workflow_status": "retry_waiting",
+  "current_stage": "actions_and_pages",
+  "run_lease": null,
   "current_item": {
     "slug": "article-agentic-ai-big-sleep-vulnerability-hunting",
     "publication_date": "2026-10-20",
@@ -31,8 +27,8 @@
       "path": "en/article-agentic-ai-big-sleep-vulnerability-hunting.html"
     },
     "publishing": {
-      "status": "repository_updated",
-      "publication_commit": "00006b55b435c362c2e178254eb3596771891d4e",
+      "status": "deployment_unverified",
+      "publication_commit": "3f86a154c482a02c4df706a2e20e44d9b68336f4",
       "arabic_url": "https://tamayuz10x.com/article-agentic-ai-big-sleep-vulnerability-hunting.html",
       "english_url": "https://tamayuz10x.com/en/article-agentic-ai-big-sleep-vulnerability-hunting.html"
     }
@@ -76,11 +72,17 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Verify GitHub Actions and Pages for the exact latest main head, then test both live URLs.",
+  "next_action": "Re-read state and latest main head. Verify GitHub Pages completed successfully for the exact latest head, then open both live article URLs and both specialist Agentic AI indexes; confirm the tracker table captions, bylines, reciprocal language links, specialist cards, and absence from the general indexes. If all pass, update publication-report.md and mark completed.",
   "last_run": {
     "mode": "scheduled_reconciliation",
-    "status": "in_progress",
+    "status": "retry_waiting",
     "started_at": "2026-10-20T22:00:00+04:00",
-    "notes": "Duplicate check found an already-started Agentic AI article for today's Dubai date in commit f7f6f736c83a6f1d1033b9779cabc29218350213; no new article will be started."
+    "checkpointed_at": "2026-10-20T23:15:00+04:00",
+    "notes": "Reconciled the pre-existing 2026-10-20 Big Sleep article, created all durable artifacts, corrected Arabic English-term parentheses and metric denominators, preserved specialist cards, and removed general-index cards. Live/Pages verification could not be completed because the connector returned no exact-head status contexts and direct live-page retrieval was unavailable."
+  },
+  "blocker": {
+    "type": "transient_verification_unavailable",
+    "details": "Exact-head GitHub Pages and live HTML could not be independently retrieved in this run.",
+    "retryable": true
   }
 }
