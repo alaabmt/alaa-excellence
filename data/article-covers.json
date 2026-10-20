@@ -5,6 +5,27 @@
   "maxBytes": 170000,
   "cards": [
     {
+      "slug": "case-kaiser-advance-alert-monitor-clinical-deterioration",
+      "background": "assets/previews/story-backgrounds/case-kaiser-advance-alert-monitor-clinical-deterioration.jpg",
+      "category": "case",
+      "ar": {
+        "title": [
+          "إنذار مبكر",
+          "واستجابة بشرية"
+        ],
+        "subtitle": "من رصد كل ساعة إلى فريق سريري يتدخل قبل تفاقم الخطر",
+        "alt": "غلاف توضيحي بالكحلي والذهبي لحالة Kaiser Permanente، يظهر ممرضة مراقبة افتراضية وفريق استجابة سريرية داخل المستشفى."
+      },
+      "en": {
+        "title": [
+          "Earlier Warning,",
+          "Human Response"
+        ],
+        "subtitle": "Hourly risk screening became a nurse-curated clinical response.",
+        "alt": "Navy and gold illustrative cover for the Kaiser Permanente case, showing a virtual monitoring nurse and a clinical response team in a hospital."
+      }
+    },
+    {
       "slug": "case-michigan-keystone-icu-checklist-infections",
       "background": "assets/previews/story-backgrounds/case-michigan-keystone-icu-checklist-infections.jpg",
       "category": "case",
@@ -1450,3 +1471,4 @@
     }
   ]
 }
+
