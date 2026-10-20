@@ -4,7 +4,7 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-20T16:15:00+04:00",
+  "updated_at": "2026-10-20T16:18:00+04:00",
   "coordinator": {
     "automation_id": "6ad7006c273481919e068147bdc00b05",
     "title": "استئناف مهام التميّز 10X",
@@ -20,7 +20,8 @@
       "primary_automation_id": "6ad7006c273481919e068147bdc00b05",
       "primary_schedule": "hourly coordinator; daily start at or after 17:00 Asia/Dubai",
       "recovery_enabled": true,
-      "priority": 1
+      "priority": 1,
+      "prompt_path": "automation/prompts/quran-reflections.md"
     },
     {
       "workflow_id": "tenx_cases",
@@ -30,7 +31,8 @@
       "primary_automation_id": "6a9e7dc6a760819184c17d82463be4a5",
       "primary_schedule": "daily 07:30 Asia/Dubai",
       "recovery_enabled": true,
-      "priority": 2
+      "priority": 2,
+      "prompt_path": "automation/prompts/10x-cases.md"
     },
     {
       "workflow_id": "agentic_ai",
@@ -40,7 +42,8 @@
       "primary_automation_id": "6ab56c5eee2481919cac424410c6b3f8",
       "primary_schedule": "daily 22:00 Asia/Dubai",
       "recovery_enabled": true,
-      "priority": 3
+      "priority": 3,
+      "prompt_path": "automation/prompts/agentic-ai.md"
     },
     {
       "workflow_id": "github_actions_review",
@@ -50,7 +53,8 @@
       "primary_automation_id": "6ac8f7305ef081919af95ca72dae889b",
       "primary_schedule": "weekly Monday 09:00 Asia/Dubai",
       "recovery_enabled": true,
-      "priority": 4
+      "priority": 4,
+      "prompt_path": "automation/prompts/github-actions-review.md"
     },
     {
       "workflow_id": "uae_government_intelligence",
@@ -60,7 +64,8 @@
       "primary_automation_id": "6a9c7cda679c8191b71d1bbde4ba104c",
       "primary_schedule": "weekly Monday 08:00 Asia/Dubai",
       "recovery_enabled": true,
-      "priority": 5
+      "priority": 5,
+      "prompt_path": "automation/prompts/uae-government-intelligence.md"
     }
   ]
 }
