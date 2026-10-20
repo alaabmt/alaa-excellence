@@ -5,8 +5,8 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-20T13:42:00+04:00",
-  "workflow_status": "idle",
+  "updated_at": "2026-10-20T13:44:00+04:00",
+  "workflow_status": "completed",
   "current_stage": "completed",
   "current_article": {
     "slug": "reflection-al-baqarah-write-it-down",
@@ -92,7 +92,8 @@
       "github_pages_run": "https://github.com/alaabmt/alaa-excellence/actions/runs/39401650765",
       "site_health_run": "https://github.com/alaabmt/alaa-excellence/actions/runs/39401555611",
       "live_verified_at": "2026-10-20T13:35:30+04:00"
-    }
+    },
+    "publication_report_path": "automation/quran-reflections/reflection-al-baqarah-write-it-down/publication-report.md"
   },
   "stage_order": [
     "capability_check",
@@ -125,7 +126,7 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "On the next hourly run, check execution capability and this file first. If no unfinished article exists and a reflection has already been completed for the current Asia/Dubai date, make no publication changes. After the local date changes, begin one new article at the first permitted run.",
+  "next_action": "At each hourly run, check capability and this checkpoint first. Because the 2026-10-20 article is completed, do not start another article today. At or after 17:00 Asia/Dubai on the first later calendar date with no article, begin exactly one new article; otherwise no-op.",
   "last_run": {
     "mode": "manual_setup_and_test_cycle",
     "status": "completed",
