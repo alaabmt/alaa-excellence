@@ -5,9 +5,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-21T17:38:00+04:00",
+  "updated_at": "2026-10-21T17:47:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "arabic_draft",
+  "current_stage": "independent_critique",
   "current_article": {
     "article_id": "quran-reflection-2026-10-21-al-baqarah-giving-without-harm",
     "publication_date": "2026-10-21",
@@ -117,7 +117,7 @@
     ],
     "research_notes_path": "automation/quran-reflections/reflection-al-baqarah-giving-without-harm/research-notes.md",
     "arabic_draft": {
-      "status": "completed_unpublished",
+      "status": "approved_after_critique",
       "path": "automation/quran-reflections/reflection-al-baqarah-giving-without-harm/draft-ar.md"
     },
     "english_draft": {
@@ -134,7 +134,12 @@
     "publishing": {
       "status": "not_started"
     },
-    "publication_report_path": "automation/quran-reflections/reflection-al-baqarah-giving-without-harm/publication-report.md"
+    "publication_report_path": "automation/quran-reflections/reflection-al-baqarah-giving-without-harm/publication-report.md",
+    "independent_critique": {
+      "status": "passed_after_revision",
+      "path": "automation/quran-reflections/reflection-al-baqarah-giving-without-harm/quality-review.md",
+      "blocking_error": false
+    }
   },
   "stage_order": [
     "capability_check",
@@ -167,12 +172,12 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Perform the independent_critique of the Arabic draft for Qur'anic accuracy, tafsir/reflection/application separation, doctrinal safety, dignity framing, Arabic originality, repetition, and unsupported claims; save findings and revisions in quality-review.md before English drafting.",
+  "next_action": "Write and checkpoint the natural English draft in draft-en.md using Saheeh International, preserving the Arabic argument, section sequence, methodological boundary, and hypothetical dignity-centered application without literal translation.",
   "last_run": {
     "mode": "coordinator_daily_start",
     "status": "in_progress",
     "started_at": "2026-10-21T17:00:58+04:00",
-    "checkpointed_at": "2026-10-21T17:38:00+04:00",
+    "checkpointed_at": "2026-10-21T17:47:00+04:00",
     "starting_head": "a6bee056610e4095ef75bcfd8d4da168d64ba0df"
   },
   "workflow_id": "quran_reflections",
@@ -286,7 +291,8 @@
     "topic_selection",
     "research",
     "quran_verification",
-    "arabic_draft"
+    "arabic_draft",
+    "independent_critique"
   ],
   "duplicate_check": {
     "date": "2026-10-21",
