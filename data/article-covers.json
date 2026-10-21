@@ -1510,6 +1510,27 @@
         "subtitle": "Dedication alone does not make a system learn.",
         "alt": "Navy and gold editorial cover for an article about working around everyday problems, showing a blocked path and an arrow that curves around the obstacle."
       }
+    },
+    {
+      "slug": "case-singapore-newater-water-reuse",
+      "reference": true,
+      "category": "case",
+      "ar": {
+        "source": "assets/previews/story/case-singapore-newater-water-reuse-ar.jpg",
+        "title": [
+          "سنغافورة NEWater"
+        ],
+        "subtitle": "من المياه المستخدمة إلى مورد وطني",
+        "alt": "غلاف توضيحي بالكحلي والفيروزي لحالة NEWater، يظهر قطرة ماء داخل حلقة إعادة استخدام."
+      },
+      "en": {
+        "source": "assets/previews/story/case-singapore-newater-water-reuse-en.jpg",
+        "title": [
+          "Singapore NEWater"
+        ],
+        "subtitle": "From used water to national resource",
+        "alt": "Navy and turquoise editorial cover for the NEWater case, showing a water drop inside a reuse loop."
+      }
     }
   ]
 }
