@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+<title id="title">Giving without harm</title>
+<desc id="desc">A symbolic navy and gold composition: two open hands hold a warm circle while a protective arc preserves distance and dignity.</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#071a2f"/><stop offset="1" stop-color="#123f55"/></linearGradient>
+  <radialGradient id="glow"><stop stop-color="#f4d889" stop-opacity=".85"/><stop offset="1" stop-color="#c89535" stop-opacity="0"/></radialGradient>
+  <filter id="soft"><feGaussianBlur stdDeviation="28"/></filter>
+</defs>
+<rect width="1200" height="630" fill="url(#bg)"/>
+<circle cx="600" cy="285" r="170" fill="url(#glow)" filter="url(#soft)"/>
+<circle cx="600" cy="282" r="74" fill="#d8aa4e"/>
+<circle cx="600" cy="282" r="51" fill="#f3d785"/>
+<path d="M205 410c86-76 178-104 278-82 46 10 81 39 99 85-107-31-201-15-281 47-35 27-82 14-96-50z" fill="#0d3149" stroke="#d8aa4e" stroke-width="8"/>
+<path d="M995 410c-86-76-178-104-278-82-46 10-81 39-99 85 107-31 201-15 281 47 35 27 82 14 96-50z" fill="#0d3149" stroke="#d8aa4e" stroke-width="8"/>
+<path d="M398 188c45-82 119-127 202-127s157 45 202 127" fill="none" stroke="#d8aa4e" stroke-width="12" stroke-linecap="round"/>
+<path d="M600 73v51M478 111l28 43M722 111l-28 43" stroke="#f3d785" stroke-width="8" stroke-linecap="round"/>
+<path d="M600 184c-44 38-70 82-70 132 0 56 29 102 70 130 41-28 70-74 70-130 0-50-26-94-70-132z" fill="none" stroke="#f3d785" stroke-width="7" opacity=".72"/>
+<g fill="#f3d785" opacity=".45"><circle cx="323" cy="160" r="5"/><circle cx="892" cy="177" r="4"/><circle cx="274" cy="257" r="3"/><circle cx="944" cy="270" r="5"/></g>
+</svg>
