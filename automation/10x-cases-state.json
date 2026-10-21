@@ -7,9 +7,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-21T07:57:00+04:00",
+  "updated_at": "2026-10-21T08:02:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "arabic_draft",
+  "current_stage": "company_insider_critique",
   "run_lease": {
     "owner": "chatgpt-work-tenx-cases-20261021T073158+04",
     "acquired_at": "2026-10-21T07:32:30+04:00",
@@ -32,7 +32,8 @@
     "arabic_draft": {
       "status": "drafted",
       "path": "automation/10x-cases/case-singapore-newater-water-reuse/draft-ar.md"
-    }
+    },
+    "company_insider_critique_status": "passed_with_revisions_applied_to_arabic"
   },
   "stage_order": [
     "capability_check",
@@ -73,7 +74,7 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Run and save Company Insider Critique against the Arabic draft and Evidence Pack; revise unverifiable or overstated points before English drafting.",
+  "next_action": "Draft natural English with the same evidence, section sequence and critique limits; then run bilingual parity.",
   "last_run": {
     "mode": "daily_primary_run",
     "status": "in_progress",
@@ -110,6 +111,7 @@
     "candidate_scan",
     "evidence_pack",
     "backcasting_and_10x_analysis",
-    "arabic_draft"
+    "arabic_draft",
+    "company_insider_critique"
   ]
 }
