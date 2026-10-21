@@ -3,7 +3,7 @@
 - Article ID: `quran-reflection-2026-10-21-al-baqarah-giving-without-harm`
 - Publication date: 2026-10-21 (Asia/Dubai)
 - Research status: completed
-- Qur'an verification status: pending separate checkpoint
+- Qur'an verification status: passed
 
 ## Candidate angles reviewed
 
@@ -96,6 +96,44 @@ Use **Saheeh International**, cited as such:
 - https://quran.com/2/264
 - https://quran.com/2/265
 
+## Qur'an verification gate — passed
+
+Verified against the linked Qur'an text pages and cross-checked against the tafsir pages that reproduce the same verses.
+
+### Al-Baqarah 2:262
+
+> الَّذِينَ يُنفِقُونَ أَمْوَالَهُمْ فِي سَبِيلِ اللَّهِ ثُمَّ لَا يُتْبِعُونَ مَا أَنفَقُوا مَنًّا وَلَا أَذًى ۙ لَّهُمْ أَجْرُهُمْ عِندَ رَبِّهِمْ وَلَا خَوْفٌ عَلَيْهِمْ وَلَا هُمْ يَحْزَنُونَ
+
+- Surah: Al-Baqarah / البقرة
+- Ayah: 262
+- Status: exact text, surah, and verse number verified
+- Source: https://quran.com/2/262
+
+### Al-Baqarah 2:263
+
+> قَوْلٌ مَّعْرُوفٌ وَمَغْفِرَةٌ خَيْرٌ مِّن صَدَقَةٍ يَتْبَعُهَا أَذًى ۗ وَاللَّهُ غَنِيٌّ حَلِيمٌ
+
+- Surah: Al-Baqarah / البقرة
+- Ayah: 263
+- Status: exact text, surah, and verse number verified
+- Source: https://quran.com/2/263
+
+### Al-Baqarah 2:264
+
+> يَا أَيُّهَا الَّذِينَ آمَنُوا لَا تُبْطِلُوا صَدَقَاتِكُم بِالْمَنِّ وَالْأَذَىٰ كَالَّذِي يُنفِقُ مَالَهُ رِئَاءَ النَّاسِ وَلَا يُؤْمِنُ بِاللَّهِ وَالْيَوْمِ الْآخِرِ ۖ فَمَثَلُهُ كَمَثَلِ صَفْوَانٍ عَلَيْهِ تُرَابٌ فَأَصَابَهُ وَابِلٌ فَتَرَكَهُ صَلْدًا ۖ لَّا يَقْدِرُونَ عَلَىٰ شَيْءٍ مِّمَّا كَسَبُوا ۗ وَاللَّهُ لَا يَهْدِي الْقَوْمَ الْكَافِرِينَ
+
+- Surah: Al-Baqarah / البقرة
+- Ayah: 264
+- Status: exact text, surah, and verse number verified
+- Source: https://quran.com/2/264
+
+### Context and sequence
+
+- 2:261 precedes the selected passage and presents the multiplication of reward for spending in Allah's cause.
+- 2:265 follows it and contrasts insincere or damaged giving with spending that seeks Allah's pleasure and is rooted in conviction.
+- The selected verses therefore sit inside a coherent sequence on sincerity, conduct after giving, preservation or loss of reward, and the inner ground from which giving proceeds.
+- Status: context 2:261–265 and event/argument order verified.
+
 ## Next action
 
-Perform and checkpoint the separate Qur'an verification gate: record the exact Arabic text for 2:262–264, confirm surah and verse numbers, confirm the immediate context 2:261–265, and mark the references verified before Arabic drafting.
+Write the complete original Arabic draft, clearly separating tafsir, reflection, and the contemporary application. Preserve the doctrinal boundary: the modern dignity review is an application, not the tafsir of the verses.
