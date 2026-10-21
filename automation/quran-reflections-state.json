@@ -5,9 +5,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-21T17:24:27+04:00",
+  "updated_at": "2026-10-21T17:24:35+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "actions_and_pages",
+  "current_stage": "live_verification",
   "current_article": {
     "article_id": "quran-reflection-2026-10-21-al-baqarah-giving-without-harm",
     "publication_date": "2026-10-21",
@@ -132,7 +132,7 @@
       "path": "automation/quran-reflections/reflection-al-baqarah-giving-without-harm/quality-review.md"
     },
     "publishing": {
-      "status": "actions_and_pages_passed_live_check_pending",
+      "status": "published_live_verified",
       "first_publication_commit": "d0f6266079b2014fbec4b3817c39648bff1a14d0",
       "publication_registry_commit": "9d302cd00bf0aabec7f17fe99a2c60575861154a",
       "arabic_url": "https://tamayuz10x.com/reflection-al-baqarah-giving-without-harm.html",
@@ -145,7 +145,22 @@
       "site_health_run": "https://github.com/alaabmt/alaa-excellence/actions/runs/39607265940",
       "github_pages_run": "https://github.com/alaabmt/alaa-excellence/actions/runs/39607382468",
       "actions_result": "passed",
-      "pages_result": "passed"
+      "pages_result": "passed",
+      "final_deployment_commit": "d700a008ae7daa85278bba5170b0279d51c2b7f8",
+      "live_verified_at": "2026-10-21T17:24:35+04:00",
+      "live_checks": {
+        "arabic_page": true,
+        "english_page": true,
+        "arabic_cover_1200x630": true,
+        "english_cover_1200x630": true,
+        "four_indexes": true,
+        "sitemap": true,
+        "canonical": true,
+        "hreflang": true,
+        "schema_org": true,
+        "site_health": true,
+        "pages": true
+      }
     },
     "publication_report_path": "automation/quran-reflections/reflection-al-baqarah-giving-without-harm/publication-report.md",
     "independent_critique": {
@@ -185,12 +200,12 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Checkpoint the completed live verification of both pages, both 1200×630 cover images, all four indexes, canonical/hreflang/Schema.org, and sitemap.",
+  "next_action": "Checkpoint the saved publication report, then mark the workflow completed and release the run lease.",
   "last_run": {
     "mode": "coordinator_daily_start",
     "status": "in_progress",
     "started_at": "2026-10-21T17:00:58+04:00",
-    "checkpointed_at": "2026-10-21T17:24:27+04:00",
+    "checkpointed_at": "2026-10-21T17:24:35+04:00",
     "starting_head": "a6bee056610e4095ef75bcfd8d4da168d64ba0df"
   },
   "workflow_id": "quran_reflections",
@@ -310,7 +325,8 @@
     "bilingual_parity",
     "quality_gate",
     "repository_publish",
-    "actions_and_pages"
+    "actions_and_pages",
+    "live_verification"
   ],
   "duplicate_check": {
     "date": "2026-10-21",
