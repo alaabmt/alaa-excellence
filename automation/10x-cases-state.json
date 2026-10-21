@@ -7,9 +7,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-21T08:09:00+04:00",
+  "updated_at": "2026-10-21T08:15:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "english_draft",
+  "current_stage": "bilingual_parity",
   "run_lease": {
     "owner": "chatgpt-work-tenx-cases-20261021T073158+04",
     "acquired_at": "2026-10-21T07:32:30+04:00",
@@ -37,6 +37,10 @@
     "english_draft": {
       "status": "drafted",
       "path": "automation/10x-cases/case-singapore-newater-water-reuse/draft-en.md"
+    },
+    "bilingual_parity": {
+      "status": "passed",
+      "path": "automation/10x-cases/case-singapore-newater-water-reuse/bilingual-parity-review.md"
     }
   },
   "stage_order": [
@@ -78,7 +82,7 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Run paragraph-level bilingual parity for evidence, figures, sequence, critique limits and source links; save the review and checkpoint it.",
+  "next_action": "Run the Final Quality Gate across evidence, causality, rights, editorial quality, metadata, SEO and the existing site publishing architecture.",
   "last_run": {
     "mode": "daily_primary_run",
     "status": "in_progress",
@@ -117,6 +121,7 @@
     "backcasting_and_10x_analysis",
     "arabic_draft",
     "company_insider_critique",
-    "english_draft"
+    "english_draft",
+    "bilingual_parity"
   ]
 }
