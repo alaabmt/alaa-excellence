@@ -5,10 +5,91 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-20T16:15:00+04:00",
-  "workflow_status": "completed",
-  "current_stage": "completed",
+  "updated_at": "2026-10-21T17:00:58+04:00",
+  "workflow_status": "in_progress",
+  "current_stage": "load_checkpoint",
   "current_article": {
+    "publication_date": "2026-10-21",
+    "slug": null,
+    "topic_ar": null,
+    "topic_en": null,
+    "verified_quranic_references": [],
+    "research_sources": [],
+    "research_notes_path": null,
+    "arabic_draft": {
+      "status": "not_started",
+      "path": null
+    },
+    "english_draft": {
+      "status": "not_started",
+      "path": null
+    },
+    "quality_gate": {
+      "status": "not_started",
+      "score": null,
+      "threshold": 90,
+      "blocking_error": false
+    },
+    "publishing": {
+      "status": "not_started"
+    }
+  },
+  "stage_order": [
+    "capability_check",
+    "load_checkpoint",
+    "duplicate_check",
+    "topic_selection",
+    "research",
+    "quran_verification",
+    "arabic_draft",
+    "independent_critique",
+    "english_draft",
+    "bilingual_parity",
+    "quality_gate",
+    "repository_publish",
+    "actions_and_pages",
+    "live_verification",
+    "completion_report",
+    "completed"
+  ],
+  "resume_policy": {
+    "persist_after_every_completed_stage": true,
+    "resume_from_next_action": true,
+    "usage_limit_behavior": "Keep the last committed checkpoint unchanged and retry on the next hourly run.",
+    "duplicate_prevention": [
+      "Check automation/quran-reflections-state.json.",
+      "Check data/quranic-reflection-topics.json.",
+      "Search Arabic and English repository pages and indexes.",
+      "Check the intended public URLs before publication."
+    ],
+    "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
+    "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
+  },
+  "next_action": "Run duplicate_check for 2026-10-21 across checkpoint, topic registry, repository pages and indexes, sitemap, and expected live URLs; then select exactly one new topic.",
+  "last_run": {
+    "mode": "coordinator_daily_start",
+    "status": "in_progress",
+    "started_at": "2026-10-21T17:00:58+04:00",
+    "checkpointed_at": "2026-10-21T17:00:58+04:00",
+    "starting_head": "a6bee056610e4095ef75bcfd8d4da168d64ba0df"
+  },
+  "workflow_id": "quran_reflections",
+  "run_lease": {
+    "owner": "central-coordinator-2026-10-21T17:00:58+04:00",
+    "acquired_at": "2026-10-21T17:00:58+04:00",
+    "expires_at": "2026-10-21T18:50:58+04:00"
+  },
+  "checkpoint_policy": {
+    "checkpoint_after_every_stage": true,
+    "run_lease_minutes": 110,
+    "concurrency_rule": "Re-read the state before work. Skip while another unexpired run lease exists. Acquire the lease in a committed state update and re-read before every later write.",
+    "interruption_rule": "Resume only from a completed stage boundary. Reconcile pending or uncertain external actions before replaying them.",
+    "usage_limit_rule": "If safe writing remains possible, set retry_waiting, preserve next_action, record the blocker and release the lease. Otherwise leave the last valid checkpoint untouched for the hourly retry.",
+    "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
+    "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
+  },
+  "coordinator_recovery": true,
+  "last_completed_article": {
     "slug": "reflection-al-baqarah-write-it-down",
     "publication_date": "2026-10-20",
     "topic_ar": "آية الدَّين: التوثيق العادل وحفظ الحقوق والذاكرة والثقة",
@@ -95,54 +176,9 @@
     },
     "publication_report_path": "automation/quran-reflections/reflection-al-baqarah-write-it-down/publication-report.md"
   },
-  "stage_order": [
+  "run_date": "2026-10-21",
+  "completed_stages": [
     "capability_check",
-    "load_checkpoint",
-    "duplicate_check",
-    "topic_selection",
-    "research",
-    "quran_verification",
-    "arabic_draft",
-    "independent_critique",
-    "english_draft",
-    "bilingual_parity",
-    "quality_gate",
-    "repository_publish",
-    "actions_and_pages",
-    "live_verification",
-    "completion_report",
-    "completed"
-  ],
-  "resume_policy": {
-    "persist_after_every_completed_stage": true,
-    "resume_from_next_action": true,
-    "usage_limit_behavior": "Keep the last committed checkpoint unchanged and retry on the next hourly run.",
-    "duplicate_prevention": [
-      "Check automation/quran-reflections-state.json.",
-      "Check data/quranic-reflection-topics.json.",
-      "Search Arabic and English repository pages and indexes.",
-      "Check the intended public URLs before publication."
-    ],
-    "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
-    "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
-  },
-  "next_action": "At each hourly run, check capability and this checkpoint first. Because the 2026-10-20 article is completed, do not start another article today. At or after 17:00 Asia/Dubai on the first later calendar date with no article, begin exactly one new article; otherwise no-op.",
-  "last_run": {
-    "mode": "manual_setup_and_test_cycle",
-    "status": "completed",
-    "completed_at": "2026-10-20T13:42:00+04:00",
-    "notes": "Checkpoint system initialized after successful bilingual publication and live verification."
-  },
-  "workflow_id": "quran_reflections",
-  "run_lease": null,
-  "checkpoint_policy": {
-    "checkpoint_after_every_stage": true,
-    "run_lease_minutes": 110,
-    "concurrency_rule": "Re-read the state before work. Skip while another unexpired run lease exists. Acquire the lease in a committed state update and re-read before every later write.",
-    "interruption_rule": "Resume only from a completed stage boundary. Reconcile pending or uncertain external actions before replaying them.",
-    "usage_limit_rule": "If safe writing remains possible, set retry_waiting, preserve next_action, record the blocker and release the lease. Otherwise leave the last valid checkpoint untouched for the hourly retry.",
-    "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
-    "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
-  },
-  "coordinator_recovery": true
+    "load_checkpoint"
+  ]
 }
