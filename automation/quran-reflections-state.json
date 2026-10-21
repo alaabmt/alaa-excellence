@@ -5,9 +5,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-21T17:10:25+04:00",
+  "updated_at": "2026-10-21T17:11:11+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "bilingual_parity",
+  "current_stage": "quality_gate",
   "current_article": {
     "article_id": "quran-reflection-2026-10-21-al-baqarah-giving-without-harm",
     "publication_date": "2026-10-21",
@@ -125,8 +125,8 @@
       "path": "automation/quran-reflections/reflection-al-baqarah-giving-without-harm/draft-en.md"
     },
     "quality_gate": {
-      "status": "not_started",
-      "score": null,
+      "status": "passed",
+      "score": 98,
       "threshold": 90,
       "blocking_error": false,
       "path": "automation/quran-reflections/reflection-al-baqarah-giving-without-harm/quality-review.md"
@@ -172,12 +172,12 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Apply the final 100-point quality gate to both drafts; record the scored assessment in quality-review.md and block publication if any Qur’anic, tafsir, doctrinal, or parity error is found.",
+  "next_action": "Run the mandatory pre-publication duplicate check against the latest checkpoint, topic registry, repository pages and indexes, sitemap, and intended live URLs; then publish the bilingual pages and all required indexes, data, images, SEO, canonical, hreflang, Schema.org, and sitemap updates.",
   "last_run": {
     "mode": "coordinator_daily_start",
     "status": "in_progress",
     "started_at": "2026-10-21T17:00:58+04:00",
-    "checkpointed_at": "2026-10-21T17:10:25+04:00",
+    "checkpointed_at": "2026-10-21T17:11:11+04:00",
     "starting_head": "a6bee056610e4095ef75bcfd8d4da168d64ba0df"
   },
   "workflow_id": "quran_reflections",
@@ -294,7 +294,8 @@
     "arabic_draft",
     "independent_critique",
     "english_draft",
-    "bilingual_parity"
+    "bilingual_parity",
+    "quality_gate"
   ],
   "duplicate_check": {
     "date": "2026-10-21",
