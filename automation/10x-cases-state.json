@@ -7,10 +7,14 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-21T08:12:00+04:00",
+  "updated_at": "2026-10-21T09:04:44+04:00",
   "workflow_status": "retry_waiting",
   "current_stage": "actions_and_pages",
-  "run_lease": null,
+  "run_lease": {
+    "owner": "central-resumption-20261021T090444+0400",
+    "acquired_at": "2026-10-21T09:04:44+04:00",
+    "expires_at": "2026-10-21T10:54:44+04:00"
+  },
   "current_item": {
     "slug": "case-singapore-newater-water-reuse",
     "publication_date": "2026-10-21",
