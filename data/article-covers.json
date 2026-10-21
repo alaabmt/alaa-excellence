@@ -1551,6 +1551,27 @@
         "subtitle": "From used water to national resource",
         "alt": "Navy and turquoise editorial cover for the NEWater case, showing a water drop inside a reuse loop."
       }
+    },
+    {
+      "slug": "article-agentic-ai-productivity-measurement-bias",
+      "background": "assets/previews/story-backgrounds/article-agentic-ai-big-sleep-vulnerability-hunting.jpg",
+      "category": "article",
+      "ar": {
+        "title": [
+          "حين لا يريد المطورون",
+          "العمل بلا وكيل ذكي"
+        ],
+        "subtitle": "لماذا أصبح قياس الإنتاجية أصعب؟",
+        "alt": "غلاف توضيحي بالكحلي والذهبي لمقال عن قياس إنتاجية وكلاء البرمجة، يظهر فيه نافذة شيفرة وعدسة فحص وعلامة مراجعة بشرية."
+      },
+      "en": {
+        "title": [
+          "When Developers Avoid",
+          "the No-AI Condition"
+        ],
+        "subtitle": "Why agent adoption made productivity harder to measure.",
+        "alt": "Navy and gold illustrative cover for an article about measuring coding-agent productivity, showing a code window, an inspection lens, and a human-review checkmark."
+      }
     }
   ]
 }
