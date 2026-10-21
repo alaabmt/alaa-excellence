@@ -8,9 +8,13 @@
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
   "updated_at": "2026-10-21T07:52:00+04:00",
-  "workflow_status": "retry_waiting",
-  "current_stage": "actions_and_pages",
-  "run_lease": null,
+  "workflow_status": "in_progress",
+  "current_stage": "thumbnail_fix",
+  "run_lease": {
+    "owner": "newater-thumbnail-fix",
+    "acquired_at": "2026-10-21T08:10:00+04:00",
+    "expires_at": "2026-10-21T10:00:00+04:00"
+  },
   "current_item": {
     "slug": "case-singapore-newater-water-reuse",
     "publication_date": "2026-10-21",
@@ -93,7 +97,7 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Verify Pages and live video embeds on both article pages",
+  "next_action": "Ensure thumbnail visible in both pages then verify deployed latest head",
   "last_run": {
     "mode": "daily_primary_run",
     "status": "completed",
