@@ -5,9 +5,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-21T17:16:43+04:00",
+  "updated_at": "2026-10-21T17:24:27+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "repository_publish",
+  "current_stage": "actions_and_pages",
   "current_article": {
     "article_id": "quran-reflection-2026-10-21-al-baqarah-giving-without-harm",
     "publication_date": "2026-10-21",
@@ -132,14 +132,20 @@
       "path": "automation/quran-reflections/reflection-al-baqarah-giving-without-harm/quality-review.md"
     },
     "publishing": {
-      "status": "repository_published_deployment_pending",
+      "status": "actions_and_pages_passed_live_check_pending",
       "first_publication_commit": "d0f6266079b2014fbec4b3817c39648bff1a14d0",
       "publication_registry_commit": "9d302cd00bf0aabec7f17fe99a2c60575861154a",
       "arabic_url": "https://tamayuz10x.com/reflection-al-baqarah-giving-without-harm.html",
       "english_url": "https://tamayuz10x.com/en/reflection-al-baqarah-giving-without-harm.html",
       "cover_background": "assets/previews/story-backgrounds/reflection-al-baqarah-giving-without-harm.svg",
       "expected_arabic_cover": "assets/previews/story/reflection-al-baqarah-giving-without-harm-ar.jpg",
-      "expected_english_cover": "assets/previews/story/reflection-al-baqarah-giving-without-harm-en.jpg"
+      "expected_english_cover": "assets/previews/story/reflection-al-baqarah-giving-without-harm-en.jpg",
+      "cover_generation_commit": "d700a008ae7daa85278bba5170b0279d51c2b7f8",
+      "cover_generation_run": "https://github.com/alaabmt/alaa-excellence/actions/runs/39606903733",
+      "site_health_run": "https://github.com/alaabmt/alaa-excellence/actions/runs/39607265940",
+      "github_pages_run": "https://github.com/alaabmt/alaa-excellence/actions/runs/39607382468",
+      "actions_result": "passed",
+      "pages_result": "passed"
     },
     "publication_report_path": "automation/quran-reflections/reflection-al-baqarah-giving-without-harm/publication-report.md",
     "independent_critique": {
@@ -179,12 +185,12 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Wait for and verify the cover-generation, site-health, and GitHub Pages results for the latest publication head; reconcile any workflow-authored commits, then verify both live pages, both live images, all four index entries, canonical/hreflang/Schema.org, and sitemap before completion.",
+  "next_action": "Checkpoint the completed live verification of both pages, both 1200×630 cover images, all four indexes, canonical/hreflang/Schema.org, and sitemap.",
   "last_run": {
     "mode": "coordinator_daily_start",
     "status": "in_progress",
     "started_at": "2026-10-21T17:00:58+04:00",
-    "checkpointed_at": "2026-10-21T17:16:43+04:00",
+    "checkpointed_at": "2026-10-21T17:24:27+04:00",
     "starting_head": "a6bee056610e4095ef75bcfd8d4da168d64ba0df"
   },
   "workflow_id": "quran_reflections",
@@ -303,7 +309,8 @@
     "english_draft",
     "bilingual_parity",
     "quality_gate",
-    "repository_publish"
+    "repository_publish",
+    "actions_and_pages"
   ],
   "duplicate_check": {
     "date": "2026-10-21",
