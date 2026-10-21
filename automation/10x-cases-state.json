@@ -7,14 +7,10 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-21T09:04:44+04:00",
-  "workflow_status": "retry_waiting",
-  "current_stage": "actions_and_pages",
-  "run_lease": {
-    "owner": "central-resumption-20261021T090444+0400",
-    "acquired_at": "2026-10-21T09:04:44+04:00",
-    "expires_at": "2026-10-21T10:54:44+04:00"
-  },
+  "updated_at": "2026-10-21T09:14:00+04:00",
+  "workflow_status": "completed",
+  "current_stage": "completed",
+  "run_lease": null,
   "current_item": {
     "slug": "case-singapore-newater-water-reuse",
     "publication_date": "2026-10-21",
@@ -47,15 +43,25 @@
       "path": "automation/10x-cases/case-singapore-newater-water-reuse/quality-review.md"
     },
     "publishing": {
-      "status": "published_live_verified",
+      "status": "published_live_verified_after_bilingual_rewrite",
       "first_publication_commit": "ebe56109f7dadd54cec510f7bc862c07e70ed110",
       "fix_commit": "36633b3682f19f034c10780d294331d1571fd43f",
-      "final_content_commit": "9fe6776a2598d86c2988a8fe299ed75342bb07ed",
-      "actions": "passed",
-      "pages": "passed_exact_final_content_head",
+      "final_content_commit": "4d26c0b28684fe2ac05eb91c19c14fb11aac4335",
+      "actions": "passed_for_bilingual_rewrite",
+      "pages": "passed_exact_verification_head",
       "arabic_url": "https://tamayuz10x.com/case-singapore-newater-water-reuse.html",
       "english_url": "https://tamayuz10x.com/en/case-singapore-newater-water-reuse.html",
-      "live_verification": "passed"
+      "live_verification": "passed_after_bilingual_rewrite",
+      "arabic_rewrite_commit": "f03ec9177e054b7827c03d55ee60bb6a68acd1f6",
+      "english_rewrite_commit": "4d26c0b28684fe2ac05eb91c19c14fb11aac4335",
+      "rewrite_deployment_head": "5da84bbc642d1e264b62d3fac0c82acacfe46699",
+      "rewrite_pages_run": "https://github.com/alaabmt/alaa-excellence/actions/runs/39544132124",
+      "verification_head": "51b74c02544c1c25aa5fef0c5654322f42d447eb",
+      "verification_pages_run": "https://github.com/alaabmt/alaa-excellence/actions/runs/39547812021",
+      "index_verification": "passed_ar_en_single_card",
+      "sitemap_verification": "passed_ar_en_single_entry_2026-10-21",
+      "video_verification": "passed_thumbnail_privacy_enhanced_embed_fallback_and_end_position",
+      "publication_report_commit": "1eb1d45fbec2a583f66cf675424517e840408764"
     }
   },
   "stage_order": [
@@ -97,13 +103,16 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Verify GitHub Actions and Pages deployment at final main head and inspect live bilingual NEWater rewrite with video thumbnail at article end; do not claim live until verified",
+  "next_action": "Wait for the next scheduled 10X Cases cycle; do not start a second item for 2026-10-21",
   "last_run": {
-    "mode": "newater_bilingual_editorial_rewrite",
-    "status": "retry_waiting",
-    "notes": "Arabic and English rewrites committed and repository structure/video position verified. Public site inaccessible from current web tool; Pages/Actions unverified.",
+    "mode": "newater_bilingual_editorial_rewrite_verification",
+    "status": "completed",
+    "notes": "Verified successful Actions and Pages deployment, bilingual live rewrite, end-positioned official video with thumbnail/embed/fallback, reciprocal metadata, index cards, and sitemap entries. No duplicate publication.",
     "arabic_content_commit": "f03ec9177e054b7827c03d55ee60bb6a68acd1f6",
-    "english_content_commit": "4d26c0b28684fe2ac05eb91c19c14fb11aac4335"
+    "english_content_commit": "4d26c0b28684fe2ac05eb91c19c14fb11aac4335",
+    "rewrite_deployment_head": "5da84bbc642d1e264b62d3fac0c82acacfe46699",
+    "verification_head": "51b74c02544c1c25aa5fef0c5654322f42d447eb",
+    "publication_report_commit": "1eb1d45fbec2a583f66cf675424517e840408764"
   },
   "last_completed_item": {
     "slug": "case-singapore-newater-water-reuse",
@@ -137,15 +146,25 @@
       "path": "automation/10x-cases/case-singapore-newater-water-reuse/quality-review.md"
     },
     "publishing": {
-      "status": "published_live_verified",
+      "status": "published_live_verified_after_bilingual_rewrite",
       "first_publication_commit": "ebe56109f7dadd54cec510f7bc862c07e70ed110",
       "fix_commit": "36633b3682f19f034c10780d294331d1571fd43f",
-      "final_content_commit": "9fe6776a2598d86c2988a8fe299ed75342bb07ed",
-      "actions": "passed",
-      "pages": "passed_exact_final_content_head",
+      "final_content_commit": "4d26c0b28684fe2ac05eb91c19c14fb11aac4335",
+      "actions": "passed_for_bilingual_rewrite",
+      "pages": "passed_exact_verification_head",
       "arabic_url": "https://tamayuz10x.com/case-singapore-newater-water-reuse.html",
       "english_url": "https://tamayuz10x.com/en/case-singapore-newater-water-reuse.html",
-      "live_verification": "passed"
+      "live_verification": "passed_after_bilingual_rewrite",
+      "arabic_rewrite_commit": "f03ec9177e054b7827c03d55ee60bb6a68acd1f6",
+      "english_rewrite_commit": "4d26c0b28684fe2ac05eb91c19c14fb11aac4335",
+      "rewrite_deployment_head": "5da84bbc642d1e264b62d3fac0c82acacfe46699",
+      "rewrite_pages_run": "https://github.com/alaabmt/alaa-excellence/actions/runs/39544132124",
+      "verification_head": "51b74c02544c1c25aa5fef0c5654322f42d447eb",
+      "verification_pages_run": "https://github.com/alaabmt/alaa-excellence/actions/runs/39547812021",
+      "index_verification": "passed_ar_en_single_card",
+      "sitemap_verification": "passed_ar_en_single_entry_2026-10-21",
+      "video_verification": "passed_thumbnail_privacy_enhanced_embed_fallback_and_end_position",
+      "publication_report_commit": "1eb1d45fbec2a583f66cf675424517e840408764"
     }
   },
   "run_date": "2026-10-21",
