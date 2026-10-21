@@ -5,34 +5,49 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-21T17:08:00+04:00",
+  "updated_at": "2026-10-21T17:12:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "duplicate_check",
+  "current_stage": "topic_selection",
   "current_article": {
+    "article_id": "quran-reflection-2026-10-21-al-baqarah-giving-without-harm",
     "publication_date": "2026-10-21",
-    "slug": null,
-    "topic_ar": null,
-    "topic_en": null,
+    "slug": "reflection-al-baqarah-giving-without-harm",
+    "topic_ar": "متى تفقد العطية معناها؟ العطاء الذي يحفظ الكرامة ولا يتبعه منّ أو أذى",
+    "topic_en": "When Does a Gift Lose Its Meaning? Giving that preserves dignity and is not followed by reminders or harm",
+    "working_title_ar": "متى تفقد العطية معناها؟",
+    "working_title_en": "When Does a Gift Lose Its Meaning?",
+    "quranic_focus": {
+      "surah": "Al-Baqarah",
+      "surah_ar": "البقرة",
+      "ayahs": [
+        262,
+        263,
+        264
+      ],
+      "status": "pending_verification"
+    },
     "verified_quranic_references": [],
     "research_sources": [],
-    "research_notes_path": null,
+    "research_notes_path": "automation/quran-reflections/reflection-al-baqarah-giving-without-harm/research-notes.md",
     "arabic_draft": {
       "status": "not_started",
-      "path": null
+      "path": "automation/quran-reflections/reflection-al-baqarah-giving-without-harm/draft-ar.md"
     },
     "english_draft": {
       "status": "not_started",
-      "path": null
+      "path": "automation/quran-reflections/reflection-al-baqarah-giving-without-harm/draft-en.md"
     },
     "quality_gate": {
       "status": "not_started",
       "score": null,
       "threshold": 90,
-      "blocking_error": false
+      "blocking_error": false,
+      "path": "automation/quran-reflections/reflection-al-baqarah-giving-without-harm/quality-review.md"
     },
     "publishing": {
       "status": "not_started"
-    }
+    },
+    "publication_report_path": "automation/quran-reflections/reflection-al-baqarah-giving-without-harm/publication-report.md"
   },
   "stage_order": [
     "capability_check",
@@ -65,12 +80,12 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Select exactly one new Qur'anic reflection topic for 2026-10-21 after comparing at least three candidate angles against the topic registry; then assign a fixed date-bearing article id and stable slug.",
+  "next_action": "Complete research and quran_verification for Al-Baqarah 2:262-264: verify Arabic text, immediate context, Saheeh International translation, and relevant tafsir in al-Tabari, Ibn Kathir, al-Qurtubi, and al-Sa'di; save findings to research-notes.md.",
   "last_run": {
     "mode": "coordinator_daily_start",
     "status": "in_progress",
     "started_at": "2026-10-21T17:00:58+04:00",
-    "checkpointed_at": "2026-10-21T17:08:00+04:00",
+    "checkpointed_at": "2026-10-21T17:12:00+04:00",
     "starting_head": "a6bee056610e4095ef75bcfd8d4da168d64ba0df"
   },
   "workflow_id": "quran_reflections",
@@ -180,7 +195,8 @@
   "completed_stages": [
     "capability_check",
     "load_checkpoint",
-    "duplicate_check"
+    "duplicate_check",
+    "topic_selection"
   ],
   "duplicate_check": {
     "date": "2026-10-21",
