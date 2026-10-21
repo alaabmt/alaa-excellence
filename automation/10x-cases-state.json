@@ -8,13 +8,9 @@
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
   "updated_at": "2026-10-21T08:12:00+04:00",
-  "workflow_status": "in_progress",
-  "current_stage": "editorial_rewrite",
-  "run_lease": {
-    "owner": "newater-a3-editorial-publication-20261021",
-    "acquired_at": "2026-10-21T08:30:00+04:00",
-    "expires_at": "2026-10-21T10:20:00+04:00"
-  },
+  "workflow_status": "retry_waiting",
+  "current_stage": "actions_and_pages",
+  "run_lease": null,
   "current_item": {
     "slug": "case-singapore-newater-water-reuse",
     "publication_date": "2026-10-21",
@@ -97,12 +93,13 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Publish revised bilingual problem-first NEWater case, retain video at end, verify Pages",
+  "next_action": "Verify GitHub Actions and Pages deployment at final main head and inspect live bilingual NEWater rewrite with video thumbnail at article end; do not claim live until verified",
   "last_run": {
-    "mode": "newater_video_thumbnail_enhancement",
+    "mode": "newater_bilingual_editorial_rewrite",
     "status": "retry_waiting",
-    "notes": "Thumbnail preview and expandable YouTube player committed to both bilingual pages. External Pages and live checks unavailable; do not claim published.",
-    "last_content_commit": "d3503303257ef0bccdbc4fd9f34bbca7724805cb"
+    "notes": "Arabic and English rewrites committed and repository structure/video position verified. Public site inaccessible from current web tool; Pages/Actions unverified.",
+    "arabic_content_commit": "f03ec9177e054b7827c03d55ee60bb6a68acd1f6",
+    "english_content_commit": "4d26c0b28684fe2ac05eb91c19c14fb11aac4335"
   },
   "last_completed_item": {
     "slug": "case-singapore-newater-water-reuse",
