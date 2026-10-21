@@ -7,9 +7,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-21T22:36:00+04:00",
+  "updated_at": "2026-10-21T22:06:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "english_draft",
+  "current_stage": "repository_publish",
   "run_lease": {
     "owner": "automation-agentic-ai-6ab56c5eee2481919cac424410c6b3f8",
     "acquired_at": "2026-10-21T21:57:00+04:00",
@@ -31,9 +31,10 @@
       "path": "en/article-agentic-ai-productivity-measurement-bias.html"
     },
     "publishing": {
-      "status": "pending",
+      "status": "committed",
       "arabic_url": "https://tamayuz10x.com/article-agentic-ai-productivity-measurement-bias.html",
-      "english_url": "https://tamayuz10x.com/en/article-agentic-ai-productivity-measurement-bias.html"
+      "english_url": "https://tamayuz10x.com/en/article-agentic-ai-productivity-measurement-bias.html",
+      "publication_commit": "cca4215e0e253242cffce8bfbc3deeb5b9cff856"
     }
   },
   "stage_order": [
@@ -75,12 +76,12 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Run bilingual semantic parity and create both public HTML pages.",
+  "next_action": "Verify GitHub Actions and GitHub Pages for the exact current head, then verify both live URLs and specialist cards.",
   "last_run": {
     "mode": "scheduled_daily",
     "status": "in_progress",
     "started_at": "2026-10-21T21:57:00+04:00",
-    "notes": "Prior Big Sleep item is verified complete. Duplicate check found no Agentic AI article started or published for 2026-10-21."
+    "notes": "Bilingual parity and final quality gate passed. Public pages, specialist cards, publication dates and sitemap entries are committed; general article indexes remain unchanged."
   },
   "blocker": null,
   "last_completed_item": {
