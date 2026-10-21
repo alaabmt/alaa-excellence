@@ -7,9 +7,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-21T07:32:30+04:00",
+  "updated_at": "2026-10-21T07:36:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "load_checkpoint",
+  "current_stage": "duplicate_check",
   "run_lease": {
     "owner": "chatgpt-work-tenx-cases-20261021T073158+04",
     "acquired_at": "2026-10-21T07:32:30+04:00",
@@ -55,12 +55,12 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Re-read state and complete duplicate_check for 2026-10-21 Asia/Dubai; if clear, checkpoint before candidate_scan.",
+  "next_action": "Run candidate_scan for one non-duplicate case, save automation/10x-cases/<slug>/candidate-notes.md, then checkpoint before evidence_pack.",
   "last_run": {
     "mode": "daily_primary_run",
     "status": "in_progress",
     "started_at": "2026-10-21T07:31:58+04:00",
-    "notes": "Lease acquired after capability and durable-state checks."
+    "notes": "Capability, source-of-truth, lease and 2026-10-21 duplicate checks completed; no same-day case found."
   },
   "last_completed_item": {
     "slug": "case-kaiser-advance-alert-monitor-clinical-deterioration",
@@ -86,6 +86,8 @@
   },
   "run_date": "2026-10-21",
   "completed_stages": [
-    "capability_check"
+    "capability_check",
+    "load_checkpoint",
+    "duplicate_check"
   ]
 }
