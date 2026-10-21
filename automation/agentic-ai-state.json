@@ -7,9 +7,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-21T22:06:00+04:00",
+  "updated_at": "2026-10-21T22:11:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "study_selection",
+  "current_stage": "evidence_pack",
   "run_lease": {
     "owner": "automation-agentic-ai-6ab56c5eee2481919cac424410c6b3f8",
     "acquired_at": "2026-10-21T21:57:00+04:00",
@@ -21,7 +21,7 @@
     "title_ar": "حين لا يريد المطورون العمل بلا وكيل ذكي: لماذا أصبح قياس الإنتاجية أصعب؟",
     "title_en": "When Developers Do Not Want to Work Without AI: Why Productivity Became Harder to Measure",
     "research_status": "completed",
-    "evidence_pack_status": "pending",
+    "evidence_pack_status": "completed",
     "arabic_draft": {
       "status": "pending",
       "path": "article-agentic-ai-productivity-measurement-bias.html"
@@ -75,7 +75,7 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Create and checkpoint the Evidence Pack, separating measured early-trial results from unreliable late-study raw estimates.",
+  "next_action": "Reconstruct every numerator, denominator, confidence interval and uncertainty label in metrics-check.md.",
   "last_run": {
     "mode": "scheduled_daily",
     "status": "in_progress",
