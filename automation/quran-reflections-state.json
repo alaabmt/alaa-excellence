@@ -5,9 +5,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-21T17:00:58+04:00",
+  "updated_at": "2026-10-21T17:08:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "load_checkpoint",
+  "current_stage": "duplicate_check",
   "current_article": {
     "publication_date": "2026-10-21",
     "slug": null,
@@ -65,12 +65,12 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Run duplicate_check for 2026-10-21 across checkpoint, topic registry, repository pages and indexes, sitemap, and expected live URLs; then select exactly one new topic.",
+  "next_action": "Select exactly one new Qur'anic reflection topic for 2026-10-21 after comparing at least three candidate angles against the topic registry; then assign a fixed date-bearing article id and stable slug.",
   "last_run": {
     "mode": "coordinator_daily_start",
     "status": "in_progress",
     "started_at": "2026-10-21T17:00:58+04:00",
-    "checkpointed_at": "2026-10-21T17:00:58+04:00",
+    "checkpointed_at": "2026-10-21T17:08:00+04:00",
     "starting_head": "a6bee056610e4095ef75bcfd8d4da168d64ba0df"
   },
   "workflow_id": "quran_reflections",
@@ -179,6 +179,21 @@
   "run_date": "2026-10-21",
   "completed_stages": [
     "capability_check",
-    "load_checkpoint"
-  ]
+    "load_checkpoint",
+    "duplicate_check"
+  ],
+  "duplicate_check": {
+    "date": "2026-10-21",
+    "status": "passed_no_existing_article",
+    "checked": [
+      "checkpoint",
+      "data/quranic-reflection-topics.json",
+      "Arabic and English repository indexes",
+      "Arabic and English home indexes",
+      "sitemap.xml",
+      "repository search for 2026-10-21 reflection"
+    ],
+    "checked_at": "2026-10-21T17:08:00+04:00",
+    "head": "3a521dfa09cf0dbaf1a9f67419195835e641282d"
+  }
 }
