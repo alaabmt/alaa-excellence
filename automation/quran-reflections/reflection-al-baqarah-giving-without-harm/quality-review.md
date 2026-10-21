@@ -86,3 +86,37 @@ Reviewed: 2026-10-21 (Asia/Dubai)
 ### Parity decision
 
 The Arabic and English drafts are materially equivalent in meaning, evidence, certainty, ethical limits, and proposed application. No parity correction is required. Both drafts may proceed to the final quality gate.
+
+
+## Final quality gate — 100 points
+
+Status: **PASSED**  
+Score: **98/100**  
+Threshold: **90/100**  
+Blocking error: **none**
+
+| Criterion | Weight | Score | Finding |
+|---|---:|---:|---|
+| Qur’anic text, surah, numbering, and context | 20 | 20 | Arabic text and 2:262–264 numbering verified; 2:261 and 2:265 are used only as immediate context; Saheeh International is named in English. |
+| Tafsir accuracy and source fidelity | 20 | 20 | The synthesis matches the recorded readings of al-Tabari, Ibn Kathir, al-Qurtubi, and al-Sa‘di, including the limitation on the scope of invalidation. |
+| Tafsir–reflection–application separation | 15 | 15 | Each layer is labeled and the modern service-design discussion is expressly excluded from tafsir and detailed legal derivation. |
+| Doctrinal and ethical safety | 10 | 10 | Sincerity, reward, and seeking Allah’s pleasure remain central; no managerial instrumentalization of revelation or judgment of named actors appears. |
+| Original Arabic quality | 10 | 10 | Focused argument, concrete opening, readable paragraphing, restrained language, and no templated or translated feel. |
+| Natural English and bilingual parity | 10 | 9 | Natural, equivalent English preserves sequence and certainty. One point is reserved because rhetorical cadence necessarily differs across languages. |
+| Contemporary usefulness and dignity | 10 | 9 | The hypothetical example produces specific privacy, consent, and service safeguards without presenting them as religious rulings. One point is reserved because local implementation would still require contextual testing. |
+| Sources, citations, and editorial safeguards | 5 | 5 | Primary verses, named translation, four recognized tafsir works, references, and both methodological and editorial disclaimers are present. |
+| **Total** | **100** | **98** | **Publishable.** |
+
+### Fatal-error checks
+
+- Qur’anic wording or numbering error: **No**
+- Material tafsir misattribution: **No**
+- Doctrinal violation: **No**
+- Modern application presented as revelation or tafsir: **No**
+- Unsupported judgment about an identifiable person or organization: **No**
+- Arabic–English material contradiction: **No**
+- Duplicate-topic or duplicate-publication signal in the saved checkpoint: **No**
+
+### Gate decision
+
+Both drafts pass at 98/100. Publication is authorized subject to the required pre-publication duplicate check, current repository templates, bilingual metadata, images, indexes, structured data, sitemap, Actions, Pages, and live verification.
