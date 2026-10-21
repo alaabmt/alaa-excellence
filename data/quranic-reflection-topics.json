@@ -1,7 +1,23 @@
 {
   "purpose": "سجل موضوعات التأملات القرآنية لتجنب تكرار القصة أو الزاوية (دليل مهارات كتابة التأملات القرآنية، البند 10، الخطوة 9)",
-  "updated": "2026-10-20",
+  "updated": "2026-10-21",
   "reflections": [
+    {
+      "slug": "reflection-al-baqarah-giving-without-harm",
+      "title_ar": "متى تفقد العطية معناها؟",
+      "title_en": "When Does a Gift Lose Its Meaning?",
+      "date": "2026-10-21",
+      "verses": [
+        "البقرة: 261–265"
+      ],
+      "angle": "تأمل في حفظ العطاء من المنّ والأذى: مسؤولية ما يأتي بعد الصدقة، مع تطبيق معاصر على الخصوصية والموافقة الحرة ومسار المساعدة الذي يصون الكرامة دون تحويل الآيات إلى نموذج إداري.",
+      "core_idea": "لا يكتمل معنى العطاء بوصول المنفعة وحدها؛ فالمنّ والأذى قد يفسدان الصدقة، والكلمة المعروفة خير من عطاء يجرح الإنسان.",
+      "contemporary_application": "تصميم مسار مساعدة يجمع البيانات الضرورية مرة واحدة، يقيد الوصول إليها، ويفصل الموافقة على التصوير والنشر عن الاستحقاق.",
+      "url_ar": "https://tamayuz10x.com/reflection-al-baqarah-giving-without-harm.html",
+      "url_en": "https://tamayuz10x.com/en/reflection-al-baqarah-giving-without-harm.html",
+      "github_commit": "PENDING_FIRST_PUBLICATION_COMMIT",
+      "publication_status": "repository_update_pending"
+    },
     {
       "slug": "reflection-al-baqarah-write-it-down",
       "title_ar": "لماذا نكتب ما اتفقنا عليه إذا كنا نثق بعضنا ببعض؟",
