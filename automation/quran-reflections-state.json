@@ -5,9 +5,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-21T17:11:11+04:00",
+  "updated_at": "2026-10-21T17:16:43+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "quality_gate",
+  "current_stage": "repository_publish",
   "current_article": {
     "article_id": "quran-reflection-2026-10-21-al-baqarah-giving-without-harm",
     "publication_date": "2026-10-21",
@@ -117,12 +117,12 @@
     ],
     "research_notes_path": "automation/quran-reflections/reflection-al-baqarah-giving-without-harm/research-notes.md",
     "arabic_draft": {
-      "status": "approved_after_critique",
-      "path": "automation/quran-reflections/reflection-al-baqarah-giving-without-harm/draft-ar.md"
+      "status": "published_repository",
+      "path": "reflection-al-baqarah-giving-without-harm.html"
     },
     "english_draft": {
-      "status": "approved_after_parity",
-      "path": "automation/quran-reflections/reflection-al-baqarah-giving-without-harm/draft-en.md"
+      "status": "published_repository",
+      "path": "en/reflection-al-baqarah-giving-without-harm.html"
     },
     "quality_gate": {
       "status": "passed",
@@ -132,7 +132,14 @@
       "path": "automation/quran-reflections/reflection-al-baqarah-giving-without-harm/quality-review.md"
     },
     "publishing": {
-      "status": "not_started"
+      "status": "repository_published_deployment_pending",
+      "first_publication_commit": "d0f6266079b2014fbec4b3817c39648bff1a14d0",
+      "publication_registry_commit": "9d302cd00bf0aabec7f17fe99a2c60575861154a",
+      "arabic_url": "https://tamayuz10x.com/reflection-al-baqarah-giving-without-harm.html",
+      "english_url": "https://tamayuz10x.com/en/reflection-al-baqarah-giving-without-harm.html",
+      "cover_background": "assets/previews/story-backgrounds/reflection-al-baqarah-giving-without-harm.svg",
+      "expected_arabic_cover": "assets/previews/story/reflection-al-baqarah-giving-without-harm-ar.jpg",
+      "expected_english_cover": "assets/previews/story/reflection-al-baqarah-giving-without-harm-en.jpg"
     },
     "publication_report_path": "automation/quran-reflections/reflection-al-baqarah-giving-without-harm/publication-report.md",
     "independent_critique": {
@@ -172,12 +179,12 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Run the mandatory pre-publication duplicate check against the latest checkpoint, topic registry, repository pages and indexes, sitemap, and intended live URLs; then publish the bilingual pages and all required indexes, data, images, SEO, canonical, hreflang, Schema.org, and sitemap updates.",
+  "next_action": "Wait for and verify the cover-generation, site-health, and GitHub Pages results for the latest publication head; reconcile any workflow-authored commits, then verify both live pages, both live images, all four index entries, canonical/hreflang/Schema.org, and sitemap before completion.",
   "last_run": {
     "mode": "coordinator_daily_start",
     "status": "in_progress",
     "started_at": "2026-10-21T17:00:58+04:00",
-    "checkpointed_at": "2026-10-21T17:11:11+04:00",
+    "checkpointed_at": "2026-10-21T17:16:43+04:00",
     "starting_head": "a6bee056610e4095ef75bcfd8d4da168d64ba0df"
   },
   "workflow_id": "quran_reflections",
@@ -295,7 +302,8 @@
     "independent_critique",
     "english_draft",
     "bilingual_parity",
-    "quality_gate"
+    "quality_gate",
+    "repository_publish"
   ],
   "duplicate_check": {
     "date": "2026-10-21",
