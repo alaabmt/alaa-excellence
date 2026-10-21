@@ -63,3 +63,26 @@ Reviewed: 2026-10-21 (Asia/Dubai)
 ## Decision
 
 The Arabic draft is approved for English drafting. No blocking Qur'anic, tafsir, doctrinal, or editorial error remains after the citation correction.
+
+
+## Bilingual parity review
+
+Status: **passed**  
+Reviewed: 2026-10-21 (Asia/Dubai)
+
+| Check | Result |
+|---|---|
+| Central argument | Both versions ask whether a gift remains good when later reminders, humiliation, forced gratitude, or exposure injure the recipient. |
+| Qur’anic evidence | Both cite Al-Baqarah 2:262–264 and situate them between the images in 2:261 and 2:265. The English quotations reproduce Saheeh International and identify the translation. |
+| Tafsir | Both preserve the same four-source synthesis: al-Tabari, Ibn Kathir, al-Qurtubi, and al-Sa‘di. The al-Qurtubi limitation remains explicit. |
+| Separation of layers | Both distinguish established tafsir, reflective inference from “follow up,” and a proposed modern application. |
+| Contemporary example | Both use the same explicitly hypothetical aid-program journey: repeated disclosure, revealing waiting conditions, and publicity without a free refusal. |
+| Application safeguards | Both propose single collection of necessary data, need-to-know access, separate voluntary media consent, and respectful language. |
+| Doctrinal boundary | Neither version presents revelation as a management model, issues new legal rulings, or assigns motives to identifiable people or institutions. |
+| Structure | The section sequence is equivalent from opening problem through verses, tafsir, reflection, scenario, Tamayuz 10X lens, conclusion, methodological boundary, disclaimer, and references. |
+| Strength of claims | The English version does not intensify the Arabic claims or turn suggestions into obligations. |
+| Naturalness | The English reads as original American English rather than a sentence-by-sentence translation while preserving the Arabic reasoning. |
+
+### Parity decision
+
+The Arabic and English drafts are materially equivalent in meaning, evidence, certainty, ethical limits, and proposed application. No parity correction is required. Both drafts may proceed to the final quality gate.
