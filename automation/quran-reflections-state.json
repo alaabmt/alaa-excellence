@@ -5,9 +5,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-21T17:28:00+04:00",
+  "updated_at": "2026-10-21T17:38:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "quran_verification",
+  "current_stage": "arabic_draft",
   "current_article": {
     "article_id": "quran-reflection-2026-10-21-al-baqarah-giving-without-harm",
     "publication_date": "2026-10-21",
@@ -117,7 +117,7 @@
     ],
     "research_notes_path": "automation/quran-reflections/reflection-al-baqarah-giving-without-harm/research-notes.md",
     "arabic_draft": {
-      "status": "not_started",
+      "status": "completed_unpublished",
       "path": "automation/quran-reflections/reflection-al-baqarah-giving-without-harm/draft-ar.md"
     },
     "english_draft": {
@@ -167,12 +167,12 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Write and checkpoint the complete original Arabic draft in automation/quran-reflections/reflection-al-baqarah-giving-without-harm/draft-ar.md, clearly separating tafsir, reflection, and contemporary application.",
+  "next_action": "Perform the independent_critique of the Arabic draft for Qur'anic accuracy, tafsir/reflection/application separation, doctrinal safety, dignity framing, Arabic originality, repetition, and unsupported claims; save findings and revisions in quality-review.md before English drafting.",
   "last_run": {
     "mode": "coordinator_daily_start",
     "status": "in_progress",
     "started_at": "2026-10-21T17:00:58+04:00",
-    "checkpointed_at": "2026-10-21T17:28:00+04:00",
+    "checkpointed_at": "2026-10-21T17:38:00+04:00",
     "starting_head": "a6bee056610e4095ef75bcfd8d4da168d64ba0df"
   },
   "workflow_id": "quran_reflections",
@@ -285,7 +285,8 @@
     "duplicate_check",
     "topic_selection",
     "research",
-    "quran_verification"
+    "quran_verification",
+    "arabic_draft"
   ],
   "duplicate_check": {
     "date": "2026-10-21",
