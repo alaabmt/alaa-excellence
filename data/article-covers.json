@@ -5,6 +5,26 @@
   "maxBytes": 170000,
   "cards": [
     {
+      "slug": "reflection-al-baqarah-giving-without-harm",
+      "background": "assets/previews/story-backgrounds/reflection-al-baqarah-giving-without-harm.svg",
+      "category": "reflection",
+      "ar": {
+        "title": [
+          "متى تفقد العطية معناها؟"
+        ],
+        "subtitle": "العطاء يُحفظ حين لا يتبعه منّ أو أذى، وتصل المنفعة من غير أن تدفع الكرامة ثمنها.",
+        "alt": "غلاف رمزي بالكحلي والذهبي لتأمل العطاء بلا منّ أو أذى، يظهر يدين مفتوحتين تحفظان دائرة مضيئة داخل قوس واقٍ يرمز إلى الكرامة."
+      },
+      "en": {
+        "title": [
+          "When Does a Gift",
+          "Lose Its Meaning?"
+        ],
+        "subtitle": "Giving is preserved when help arrives without reminders, injury or a price paid in dignity.",
+        "alt": "Navy and gold symbolic cover for a reflection on giving without reminders or injury, showing two open hands protecting a warm circle beneath a safeguarding arc."
+      }
+    },
+    {
       "slug": "reflection-al-baqarah-write-it-down",
       "background": "assets/previews/story-backgrounds/reflection-al-baqarah-write-it-down.jpg",
       "category": "reflection",
