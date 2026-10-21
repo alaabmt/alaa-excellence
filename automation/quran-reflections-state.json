@@ -5,9 +5,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-21T17:24:41+04:00",
-  "workflow_status": "in_progress",
-  "current_stage": "completion_report",
+  "updated_at": "2026-10-21T17:24:51+04:00",
+  "workflow_status": "completed",
+  "current_stage": "completed",
   "current_article": {
     "article_id": "quran-reflection-2026-10-21-al-baqarah-giving-without-harm",
     "publication_date": "2026-10-21",
@@ -117,11 +117,11 @@
     ],
     "research_notes_path": "automation/quran-reflections/reflection-al-baqarah-giving-without-harm/research-notes.md",
     "arabic_draft": {
-      "status": "published_repository",
+      "status": "published",
       "path": "reflection-al-baqarah-giving-without-harm.html"
     },
     "english_draft": {
-      "status": "published_repository",
+      "status": "published",
       "path": "en/reflection-al-baqarah-giving-without-harm.html"
     },
     "quality_gate": {
@@ -205,20 +205,17 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Mark this article workflow completed, preserve the live-verified publication details as last_completed_article, and release the run lease.",
+  "next_action": "No action for 2026-10-21. Do not start or publish a second Qur’anic reflection on the same Asia/Dubai date.",
   "last_run": {
     "mode": "coordinator_daily_start",
-    "status": "in_progress",
+    "status": "completed",
     "started_at": "2026-10-21T17:00:58+04:00",
-    "checkpointed_at": "2026-10-21T17:24:41+04:00",
-    "starting_head": "a6bee056610e4095ef75bcfd8d4da168d64ba0df"
+    "checkpointed_at": "2026-10-21T17:24:51+04:00",
+    "starting_head": "a6bee056610e4095ef75bcfd8d4da168d64ba0df",
+    "completed_at": "2026-10-21T17:24:51+04:00"
   },
   "workflow_id": "quran_reflections",
-  "run_lease": {
-    "owner": "central-coordinator-2026-10-21T17:00:58+04:00",
-    "acquired_at": "2026-10-21T17:00:58+04:00",
-    "expires_at": "2026-10-21T18:50:58+04:00"
-  },
+  "run_lease": null,
   "checkpoint_policy": {
     "checkpoint_after_every_stage": true,
     "run_lease_minutes": 110,
@@ -230,91 +227,170 @@
   },
   "coordinator_recovery": true,
   "last_completed_article": {
-    "slug": "reflection-al-baqarah-write-it-down",
-    "publication_date": "2026-10-20",
-    "topic_ar": "آية الدَّين: التوثيق العادل وحفظ الحقوق والذاكرة والثقة",
-    "topic_en": "The debt verse: fair documentation, rights, memory and trust",
+    "article_id": "quran-reflection-2026-10-21-al-baqarah-giving-without-harm",
+    "publication_date": "2026-10-21",
+    "slug": "reflection-al-baqarah-giving-without-harm",
+    "topic_ar": "متى تفقد العطية معناها؟ العطاء الذي يحفظ الكرامة ولا يتبعه منّ أو أذى",
+    "topic_en": "When Does a Gift Lose Its Meaning? Giving that preserves dignity and is not followed by reminders or harm",
+    "working_title_ar": "متى تفقد العطية معناها؟",
+    "working_title_en": "When Does a Gift Lose Its Meaning?",
+    "quranic_focus": {
+      "surah": "Al-Baqarah",
+      "surah_ar": "البقرة",
+      "ayahs": [
+        262,
+        263,
+        264
+      ],
+      "status": "verified"
+    },
     "verified_quranic_references": [
       {
         "surah": "Al-Baqarah",
         "surah_ar": "البقرة",
         "ayahs": [
-          280,
-          282,
-          283
+          262,
+          263,
+          264
+        ],
+        "context_ayahs": [
+          261,
+          265
         ],
         "status": "verified",
-        "primary_text_url": "https://quran.com/2/282"
+        "primary_text_urls": [
+          "https://quran.com/2/262",
+          "https://quran.com/2/263",
+          "https://quran.com/2/264"
+        ],
+        "verified_at": "2026-10-21T17:28:00+04:00"
       }
     ],
     "research_sources": [
       {
+        "type": "Qur'an text and immediate context",
+        "url": "https://quran.com/2/261",
+        "status": "reviewed"
+      },
+      {
         "type": "Qur'an text",
-        "url": "https://quran.com/2/282",
+        "url": "https://quran.com/2/262",
+        "status": "reviewed"
+      },
+      {
+        "type": "Qur'an text",
+        "url": "https://quran.com/2/263",
+        "status": "reviewed"
+      },
+      {
+        "type": "Qur'an text",
+        "url": "https://quran.com/2/264",
+        "status": "reviewed"
+      },
+      {
+        "type": "Qur'an text and immediate context",
+        "url": "https://quran.com/2/265",
+        "status": "reviewed"
+      },
+      {
+        "type": "English translation — Saheeh International",
+        "url": "https://corpus.quran.com/translation.jsp?chapter=2&verse=262",
         "status": "verified"
       },
       {
         "type": "English translation — Saheeh International",
-        "url": "https://corpus.quran.com/translation.jsp?chapter=2&verse=282",
+        "url": "https://corpus.quran.com/translation.jsp?chapter=2&verse=263",
+        "status": "verified"
+      },
+      {
+        "type": "English translation — Saheeh International",
+        "url": "https://corpus.quran.com/translation.jsp?chapter=2&verse=264",
         "status": "verified"
       },
       {
         "type": "Tafsir al-Tabari",
-        "url": "https://quran.ksu.edu.sa/tafseer/tabary/sura2-aya282.html",
-        "status": "verified"
+        "url": "https://quran.ksu.edu.sa/tafseer/tabary/sura2-aya262.html",
+        "status": "reviewed"
+      },
+      {
+        "type": "Tafsir al-Tabari",
+        "url": "https://quran.ksu.edu.sa/tafseer/tabary/sura2-aya264.html",
+        "status": "reviewed"
       },
       {
         "type": "Tafsir Ibn Kathir",
-        "url": "https://quran.ksu.edu.sa/tafseer/katheer/sura2-aya282.html",
-        "status": "verified"
+        "url": "https://quran.ksu.edu.sa/tafseer/katheer/sura2-aya264.html",
+        "status": "reviewed"
       },
       {
         "type": "Tafsir al-Qurtubi",
-        "url": "https://quran.ksu.edu.sa/tafseer/qortobi/sura2-aya282.html",
-        "status": "verified"
+        "url": "https://quran.ksu.edu.sa/tafseer/qortobi/sura2-aya264.html",
+        "status": "reviewed"
       },
       {
-        "type": "Tafsir al-Saadi",
-        "url": "https://quran.ksu.edu.sa/tafseer/saadi/sura2-aya282.html",
-        "status": "verified"
-      },
-      {
-        "type": "Context verse",
-        "url": "https://quran.com/2/280",
-        "status": "verified"
-      },
-      {
-        "type": "Context verse",
-        "url": "https://quran.com/2/283",
-        "status": "verified"
+        "type": "Tafsir al-Sa'di",
+        "url": "https://quran.ksu.edu.sa/tafseer/saadi/sura2-aya264.html",
+        "status": "reviewed"
       }
     ],
-    "research_notes_path": "automation/quran-reflections/reflection-al-baqarah-write-it-down/research-notes.md",
+    "research_notes_path": "automation/quran-reflections/reflection-al-baqarah-giving-without-harm/research-notes.md",
     "arabic_draft": {
       "status": "published",
-      "path": "reflection-al-baqarah-write-it-down.html"
+      "path": "reflection-al-baqarah-giving-without-harm.html"
     },
     "english_draft": {
       "status": "published",
-      "path": "en/reflection-al-baqarah-write-it-down.html"
+      "path": "en/reflection-al-baqarah-giving-without-harm.html"
     },
     "quality_gate": {
       "status": "passed",
-      "score": 97,
+      "score": 98,
       "threshold": 90,
-      "blocking_error": false
+      "blocking_error": false,
+      "path": "automation/quran-reflections/reflection-al-baqarah-giving-without-harm/quality-review.md"
     },
     "publishing": {
       "status": "published_live_verified",
-      "first_publication_commit": "918261ed44a12639b5ec2cf9cfc44e6d7041d5c0",
-      "final_deployment_commit": "277b6e06bdc536c4c111db9687c9af09f9acf3f4",
-      "arabic_url": "https://tamayuz10x.com/reflection-al-baqarah-write-it-down.html",
-      "english_url": "https://tamayuz10x.com/en/reflection-al-baqarah-write-it-down.html",
-      "github_pages_run": "https://github.com/alaabmt/alaa-excellence/actions/runs/39401650765",
-      "site_health_run": "https://github.com/alaabmt/alaa-excellence/actions/runs/39401555611",
-      "live_verified_at": "2026-10-20T13:35:30+04:00"
+      "first_publication_commit": "d0f6266079b2014fbec4b3817c39648bff1a14d0",
+      "publication_registry_commit": "9d302cd00bf0aabec7f17fe99a2c60575861154a",
+      "arabic_url": "https://tamayuz10x.com/reflection-al-baqarah-giving-without-harm.html",
+      "english_url": "https://tamayuz10x.com/en/reflection-al-baqarah-giving-without-harm.html",
+      "cover_background": "assets/previews/story-backgrounds/reflection-al-baqarah-giving-without-harm.svg",
+      "expected_arabic_cover": "assets/previews/story/reflection-al-baqarah-giving-without-harm-ar.jpg",
+      "expected_english_cover": "assets/previews/story/reflection-al-baqarah-giving-without-harm-en.jpg",
+      "cover_generation_commit": "d700a008ae7daa85278bba5170b0279d51c2b7f8",
+      "cover_generation_run": "https://github.com/alaabmt/alaa-excellence/actions/runs/39606903733",
+      "site_health_run": "https://github.com/alaabmt/alaa-excellence/actions/runs/39607265940",
+      "github_pages_run": "https://github.com/alaabmt/alaa-excellence/actions/runs/39607382468",
+      "actions_result": "passed",
+      "pages_result": "passed",
+      "final_deployment_commit": "d700a008ae7daa85278bba5170b0279d51c2b7f8",
+      "live_verified_at": "2026-10-21T17:24:35+04:00",
+      "live_checks": {
+        "arabic_page": true,
+        "english_page": true,
+        "arabic_cover_1200x630": true,
+        "english_cover_1200x630": true,
+        "four_indexes": true,
+        "sitemap": true,
+        "canonical": true,
+        "hreflang": true,
+        "schema_org": true,
+        "site_health": true,
+        "pages": true
+      }
     },
-    "publication_report_path": "automation/quran-reflections/reflection-al-baqarah-write-it-down/publication-report.md"
+    "publication_report_path": "automation/quran-reflections/reflection-al-baqarah-giving-without-harm/publication-report.md",
+    "independent_critique": {
+      "status": "passed_after_revision",
+      "path": "automation/quran-reflections/reflection-al-baqarah-giving-without-harm/quality-review.md",
+      "blocking_error": false
+    },
+    "publication_report": {
+      "status": "saved",
+      "path": "automation/quran-reflections/reflection-al-baqarah-giving-without-harm/publication-report.md",
+      "commit": "c57339d33a4a4c6af68eaf120b67158e446506e9"
+    }
   },
   "run_date": "2026-10-21",
   "completed_stages": [
@@ -332,7 +408,8 @@
     "repository_publish",
     "actions_and_pages",
     "live_verification",
-    "completion_report"
+    "completion_report",
+    "completed"
   ],
   "duplicate_check": {
     "date": "2026-10-21",
