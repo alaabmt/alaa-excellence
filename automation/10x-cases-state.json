@@ -7,9 +7,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-21T08:02:00+04:00",
+  "updated_at": "2026-10-21T08:09:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "company_insider_critique",
+  "current_stage": "english_draft",
   "run_lease": {
     "owner": "chatgpt-work-tenx-cases-20261021T073158+04",
     "acquired_at": "2026-10-21T07:32:30+04:00",
@@ -33,7 +33,11 @@
       "status": "drafted",
       "path": "automation/10x-cases/case-singapore-newater-water-reuse/draft-ar.md"
     },
-    "company_insider_critique_status": "passed_with_revisions_applied_to_arabic"
+    "company_insider_critique_status": "passed_with_revisions_applied_bilingually",
+    "english_draft": {
+      "status": "drafted",
+      "path": "automation/10x-cases/case-singapore-newater-water-reuse/draft-en.md"
+    }
   },
   "stage_order": [
     "capability_check",
@@ -74,7 +78,7 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Draft natural English with the same evidence, section sequence and critique limits; then run bilingual parity.",
+  "next_action": "Run paragraph-level bilingual parity for evidence, figures, sequence, critique limits and source links; save the review and checkpoint it.",
   "last_run": {
     "mode": "daily_primary_run",
     "status": "in_progress",
@@ -112,6 +116,7 @@
     "evidence_pack",
     "backcasting_and_10x_analysis",
     "arabic_draft",
-    "company_insider_critique"
+    "company_insider_critique",
+    "english_draft"
   ]
 }
