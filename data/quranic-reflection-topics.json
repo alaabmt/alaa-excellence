@@ -1,7 +1,23 @@
 {
   "purpose": "سجل موضوعات التأملات القرآنية لتجنب تكرار القصة أو الزاوية (دليل مهارات كتابة التأملات القرآنية، البند 10، الخطوة 9)",
-  "updated": "2026-10-21",
+  "updated": "2026-10-22",
   "reflections": [
+    {
+      "slug": "reflection-al-maidah-justice-despite-dislike",
+      "title_ar": "هل يتغير ميزان العدل حين نختلف؟",
+      "title_en": "Does Justice Change When We Disagree?",
+      "date": "2026-10-22",
+      "verses": [
+        "المائدة: 8"
+      ],
+      "angle": "تأمل في ثبات العدل عند الخصومة: الشنآن لا يبيح الجور، والعدل أقرب للتقوى، مع تطبيق معاصر على مراجعة الأدلة والقرارات دون تحويل الآية إلى نموذج إداري.",
+      "core_idea": "الخصومة لا تغيّر الحق، والمشاعر لا تمنح إذنًا بتجاوز ما يثبته الدليل.",
+      "contemporary_application": "مراجعة شكوى ضد فريق لا نثق به عبر فصل الادعاء عن الظن وإتاحة الرد ومراجعة الاستنتاج.",
+      "url_ar": "https://tamayuz10x.com/reflection-al-maidah-justice-despite-dislike.html",
+      "url_en": "https://tamayuz10x.com/en/reflection-al-maidah-justice-despite-dislike.html",
+      "github_commit": "pending-publication-commit",
+      "publication_status": "repository_published; deployment_verification_pending"
+    },
     {
       "slug": "reflection-al-baqarah-giving-without-harm",
       "title_ar": "متى تفقد العطية معناها؟",
