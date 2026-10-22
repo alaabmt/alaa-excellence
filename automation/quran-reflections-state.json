@@ -5,13 +5,27 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-22T17:03:02+04:00",
+  "updated_at": "2026-10-22T17:12:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "duplicate_check",
+  "current_stage": "topic_selection",
   "current_article": {
-    "article_id": "quran-reflection-2026-10-22-pending-topic",
+    "article_id": "quran-reflection-2026-10-22-al-maidah-justice-despite-dislike",
     "publication_date": "2026-10-22",
-    "status": "topic_selection_pending"
+    "slug": "reflection-al-maidah-justice-despite-dislike",
+    "topic_ar": "العدل حين يشتد النفور: مقاومة أثر الشنآن في الحكم",
+    "topic_en": "Justice under dislike: resisting the influence of hostility on judgment",
+    "working_title_ar": "هل يتغير ميزان العدل حين نختلف؟",
+    "working_title_en": "Does Justice Change When We Disagree?",
+    "status": "topic_selected",
+    "quranic_focus": {
+      "surah": "Al-Ma'idah",
+      "surah_ar": "المائدة",
+      "ayahs": [
+        8
+      ],
+      "status": "pending_verification"
+    },
+    "research_notes_path": "automation/quran-reflections/reflection-al-maidah-justice-despite-dislike/research-notes.md"
   },
   "stage_order": [
     "capability_check",
@@ -44,12 +58,12 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Select one new Qur’anic reflection topic for 2026-10-22 after comparing three distinct angles against the published-topic registry.",
+  "next_action": "Research and verify Qur’an 5:8 in its immediate context; review al-Tabari, Ibn Kathir, al-Qurtubi and al-Sa'di, verify an attributed English translation, and save the evidence in research-notes.md before drafting.",
   "last_run": {
     "mode": "coordinator_daily_start",
     "status": "in_progress",
     "started_at": "2026-10-22T17:03:02+04:00",
-    "checkpointed_at": "2026-10-22T17:03:02+04:00",
+    "checkpointed_at": "2026-10-22T17:12:00+04:00",
     "starting_head": "7f010fa8471b9c1712be2e37e52b81695068938c"
   },
   "workflow_id": "quran_reflections",
@@ -238,7 +252,8 @@
   "completed_stages": [
     "capability_check",
     "load_checkpoint",
-    "duplicate_check"
+    "duplicate_check",
+    "topic_selection"
   ],
   "duplicate_check": {
     "date": "2026-10-22",
