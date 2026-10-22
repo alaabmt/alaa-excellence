@@ -5,9 +5,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-22T18:25:00+04:00",
-  "workflow_status": "in_progress",
-  "current_stage": "repository_publish",
+  "updated_at": "2026-10-22T18:31:00+04:00",
+  "workflow_status": "reconciling",
+  "current_stage": "actions_and_pages",
   "current_article": {
     "article_id": "quran-reflection-2026-10-22-al-maidah-justice-despite-dislike",
     "publication_date": "2026-10-22",
@@ -16,7 +16,7 @@
     "topic_en": "Justice under dislike: resisting the influence of hostility on judgment",
     "working_title_ar": "هل يتغير ميزان العدل حين نختلف؟",
     "working_title_en": "Does Justice Change When We Disagree?",
-    "status": "repository_published_actions_pending",
+    "status": "social_card_manifest_corrected_actions_pending",
     "quranic_focus": {
       "surah": "Al-Ma'idah",
       "surah_ar": "المائدة",
@@ -128,6 +128,17 @@
         "en": "https://tamayuz10x.com/en/reflection-al-maidah-justice-despite-dislike.html"
       },
       "verification": "Paired pages, four indexes, data registries, SVG source, metadata and sitemap structurally verified. Automatic sitemap normalization commit was reconciled as a descendant."
+    },
+    "actions_and_pages": {
+      "status": "reconciling",
+      "initial_social_card_run_id": 39793354358,
+      "initial_result": "failed_before_commit",
+      "failure_reason": "The new slug was absent from data/article-covers.json, so generated JPEGs were rejected as unreviewed.",
+      "correction": "Added a reviewed bilingual manifest entry using the existing fair-measure background; the manifest change will retrigger generation.",
+      "pages_for_checkpoint_commit": {
+        "run_id": 39793506757,
+        "status": "pending_at_checkpoint"
+      }
     }
   },
   "stage_order": [
@@ -161,16 +172,16 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Inspect GitHub Actions runs for publication commit 23763f88ba18a723326602220a2c288517dd72f6 and its descendants, wait for Arabic and English social-card JPEGs, then verify a successful Pages deployment for the exact final main head before checking both public URLs.",
+  "next_action": "Reconcile the Generate social share cards run triggered by the article-cover manifest correction; verify both generated JPEGs exist, then require Site health QA and Pages deployment success for the exact resulting main head before live URL checks.",
   "last_run": {
     "mode": "coordinator_resume",
-    "status": "checkpointed_repository_publish",
+    "status": "reconciling_actions_and_pages",
     "started_at": "2026-10-22T18:04:45+04:00",
-    "checkpointed_at": "2026-10-22T18:25:00+04:00",
+    "checkpointed_at": "2026-10-22T18:31:00+04:00",
     "starting_head": "676d5d405db84f6f12f474d1c26f9b602948229e",
     "publication_commit": "23763f88ba18a723326602220a2c288517dd72f6",
     "reconciled_head": "970f376a0c1eefe1bdfc808f96306dad68d89851",
-    "notes": "Repository publication completed and structurally verified; an automatic sitemap normalization descendant was reconciled before checkpointing."
+    "notes": "Initial social-card run failed before any external commit because the reviewed cover manifest lacked the new slug. A deterministic manifest correction was prepared; no duplicate page or image publication occurred."
   },
   "workflow_id": "quran_reflections",
   "run_lease": {

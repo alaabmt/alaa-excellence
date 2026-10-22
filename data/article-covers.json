@@ -5,6 +5,27 @@
   "maxBytes": 170000,
   "cards": [
     {
+      "slug": "reflection-al-maidah-justice-despite-dislike",
+      "background": "assets/previews/story-backgrounds/reflection-shuayb-fair-measure.jpg",
+      "category": "reflection",
+      "ar": {
+        "title": [
+          "هل يتغير ميزان العدل",
+          "حين نختلف؟"
+        ],
+        "subtitle": "الخصومة لا تغيّر الحق، والعدل يبقى أقرب للتقوى.",
+        "alt": "غلاف رمزي بالكحلي والذهبي لتأمل العدل عند الخصومة، يظهر ميزانًا متوازنًا بين شكلين متقابلين رغم اختلافهما."
+      },
+      "en": {
+        "title": [
+          "Does Justice Change",
+          "When We Disagree?"
+        ],
+        "subtitle": "Hostility does not change what is right; justice remains nearer to righteousness.",
+        "alt": "Navy and gold symbolic cover for a reflection on justice amid hostility, showing a balanced scale between two opposing forms."
+      }
+    },
+    {
       "slug": "reflection-al-baqarah-giving-without-harm",
       "background": "assets/previews/story-backgrounds/reflection-al-baqarah-write-it-down.jpg",
       "category": "reflection",
