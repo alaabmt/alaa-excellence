@@ -7,13 +7,13 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-22T08:40:00+04:00",
+  "updated_at": "2026-10-22T08:45:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "english_draft",
+  "current_stage": "bilingual_parity",
   "run_lease": {
     "owner": "chatgpt-work-tenx-cases-20261022T072730+04",
     "acquired_at": "2026-10-22T07:29:00+04:00",
-    "expires_at": "2026-10-22T09:19:00+04:00"
+    "expires_at": "2026-10-22T10:35:00+04:00"
   },
   "current_item": {
     "slug": "case-india-upi-interoperable-payments-infrastructure",
@@ -54,6 +54,11 @@
       "status": "drafted_with_critique_applied",
       "path": "automation/10x-cases/case-india-upi-interoperable-payments-infrastructure/draft-en.md",
       "commit": "ff809a7ef38c1220fc6d02f4cdf4e492f81bcb77"
+    },
+    "bilingual_parity": {
+      "status": "passed",
+      "path": "automation/10x-cases/case-india-upi-interoperable-payments-infrastructure/bilingual-parity-review.md",
+      "commit": "1798c55b616fc4b15e4399dcc89dcc0f7c37951e"
     }
   },
   "stage_order": [
@@ -95,7 +100,7 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Run fact-by-fact bilingual parity review across titles, dates, numbers, causal language, risks, pillars, lessons and sources; revise any mismatch.",
+  "next_action": "Run the final documentation, numeric, causal, editorial, independence, copyright, SEO, accessibility and technical quality gate; reject on any material failure.",
   "last_run": {
     "mode": "daily_primary_run",
     "status": "in_progress",
@@ -165,6 +170,7 @@
     "backcasting_and_10x_analysis",
     "arabic_draft",
     "company_insider_critique",
-    "english_draft"
+    "english_draft",
+    "bilingual_parity"
   ]
 }
