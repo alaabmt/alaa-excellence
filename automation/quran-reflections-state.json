@@ -5,9 +5,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-22T22:14:00+04:00",
+  "updated_at": "2026-10-22T22:15:00+04:00",
   "workflow_status": "reconciling",
-  "current_stage": "completion_report",
+  "current_stage": "completed",
   "current_article": {
     "article_id": "quran-reflection-2026-10-22-al-maidah-justice-despite-dislike",
     "publication_date": "2026-10-22",
@@ -16,7 +16,7 @@
     "topic_en": "Justice under dislike: resisting the influence of hostility on judgment",
     "working_title_ar": "هل يتغير ميزان العدل حين نختلف؟",
     "working_title_en": "Does Justice Change When We Disagree?",
-    "status": "live_verified_report_pending",
+    "status": "completion_report_saved",
     "quranic_focus": {
       "surah": "Al-Ma'idah",
       "surah_ar": "المائدة",
@@ -201,7 +201,12 @@
         "ar": "هل يتغير ميزان العدل حين نختلف؟ | التميّز 10X",
         "en": "Does Justice Change When We Disagree? | Tamayuz 10X"
       }
-    }
+    },
+    "publication_report": {
+      "status": "saved",
+      "path": "automation/quran-reflections/reflection-al-maidah-justice-despite-dislike/publication-report.md"
+    },
+    "publication_report_path": "automation/quran-reflections/reflection-al-maidah-justice-despite-dislike/publication-report.md"
   },
   "stage_order": [
     "capability_check",
@@ -234,15 +239,15 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Save the bilingual publication report artifact, checkpoint completion_report, then mark the workflow completed and release the run lease.",
+  "next_action": "Mark the workflow completed, record the report commit, release the run lease, and return the original publication report.",
   "last_run": {
     "mode": "coordinator_resume",
-    "status": "live_verification_completed",
+    "status": "completion_report_saved",
     "started_at": "2026-10-22T22:09:00+04:00",
     "starting_head": "ae5f63bea29f6b6559db6b45dcba6f590746c56e",
     "publication_commit": "23763f88ba18a723326602220a2c288517dd72f6",
     "social_assets_commit": "f59b4358ff2b9ec7450dfac94b67a67a8749383f",
-    "notes": "Pages succeeded for checkpoint head 64690f1. Both live pages, 1200×630 covers, canonical/hreflang metadata, schema, four indexes and sitemap membership passed.",
+    "notes": "Live verification passed and the durable bilingual publication report was saved.",
     "reconciled_head": "64690f1581c0441fa5a9b4e6b0d02639284f94cd",
     "pages_run_id": 39829283746,
     "live_verified_at": "2026-10-22T22:14:00+04:00"
@@ -444,7 +449,8 @@
     "quality_gate",
     "repository_publish",
     "actions_and_pages",
-    "live_verification"
+    "live_verification",
+    "completion_report"
   ],
   "duplicate_check": {
     "status": "passed_before_publication",
