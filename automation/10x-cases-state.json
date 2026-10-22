@@ -7,20 +7,16 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-22T09:07:00+04:00",
-  "workflow_status": "in_progress",
-  "current_stage": "repository_publish",
-  "run_lease": {
-    "owner": "chatgpt-work-tenx-cases-20261022T072730+04",
-    "acquired_at": "2026-10-22T07:29:00+04:00",
-    "expires_at": "2026-10-22T10:35:00+04:00"
-  },
+  "updated_at": "2026-10-22T09:24:00+04:00",
+  "workflow_status": "completed",
+  "current_stage": "completed",
+  "run_lease": null,
   "current_item": {
     "slug": "case-india-upi-interoperable-payments-infrastructure",
     "publication_date": "2026-10-22",
     "title_ar": "كيف حوّلت الهند المدفوعات الفورية إلى بنية مشتركة مفتوحة؟",
     "title_en": "How India Turned Instant Payments into Shared Infrastructure",
-    "candidate_status": "evidence_pack_passed",
+    "candidate_status": "published_live_verified",
     "artifact_root": "automation/10x-cases/case-india-upi-interoperable-payments-infrastructure/",
     "evidence_pack": {
       "status": "passed",
@@ -66,7 +62,7 @@
       "commit": "04a1475b42879c04d9ec159ee1a27e6a8f4a421a"
     },
     "publishing": {
-      "status": "repository_committed_pending_actions_pages",
+      "status": "published_live_verified",
       "first_publication_commit": "9729684b32c732c513111edfc7f6e197bc1cdfd8",
       "arabic_path": "case-india-upi-interoperable-payments-infrastructure.html",
       "english_path": "en/case-india-upi-interoperable-payments-infrastructure.html",
@@ -75,7 +71,22 @@
       "covers": [
         "assets/previews/story/case-india-upi-interoperable-payments-infrastructure-ar.jpg",
         "assets/previews/story/case-india-upi-interoperable-payments-infrastructure-en.jpg"
-      ]
+      ],
+      "disclaimer_fix_commit": "7fc57372303061ff267070a36ca1412ec1e08ebe",
+      "sitemap_reconciliation_commit": "97242f1cefc9d0ec06b468bcd9b7442d09b959c5",
+      "cover_fix_commit": "ff63d12803427f4dc2da4b1d264e23f6721520c6",
+      "final_content_commit": "00c35e99de4b47635f60ff5ef6fbe3d1ce94e9a1",
+      "actions": "passed",
+      "pages": "passed_exact_final_content_head",
+      "pages_run": "https://github.com/alaabmt/alaa-excellence/actions/runs/39718491915",
+      "live_verification": "passed",
+      "index_verification": "passed_ar_en_single_card",
+      "sitemap_verification": "passed_ar_en_single_entry",
+      "image_verification": "passed_1200x630_ar_en"
+    },
+    "publication_report": {
+      "path": "automation/10x-cases/case-india-upi-interoperable-payments-infrastructure/publication-report.md",
+      "commit": "895c287b87ac5fd3ffc50c1e0f136d7a465c05a7"
     }
   },
   "stage_order": [
@@ -117,64 +128,90 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Wait for GitHub Actions and Pages for publication commit 9729684b32c732c513111edfc7f6e197bc1cdfd8, reconcile any automated follow-up commit, then verify the final exact main head and live pages.",
+  "next_action": "For the next scheduled cycle, re-check the local publication date, durable state, repository indexes and live site before selecting a new case.",
   "last_run": {
     "mode": "daily_primary_run",
-    "status": "in_progress",
+    "status": "completed",
     "started_at": "2026-10-22T07:27:30+04:00",
-    "notes": "No 2026-10-22 case found in durable state, publication-date registry or Arabic/English indexes. Current guidance loaded; methodology remains implicit in published prose."
+    "notes": "India UPI bilingual case published. Evidence, critique, parity and QA passed. Actions and Pages passed; both live pages, covers, metadata, indexes and sitemap verified.",
+    "completed_at": "2026-10-22T09:24:00+04:00"
   },
   "last_completed_item": {
-    "slug": "case-singapore-newater-water-reuse",
-    "publication_date": "2026-10-21",
-    "title_ar": "من المياه المستخدمة إلى مورد وطني: كيف بنت سنغافورة NEWater؟",
-    "title_en": "From Used Water to National Resource: How Singapore Built NEWater",
-    "candidate_status": "published",
-    "artifact_root": "automation/10x-cases/case-singapore-newater-water-reuse/",
-    "evidence_pack_status": "passed",
-    "evidence_confidence": {
-      "implementation": "high",
-      "operating_model": "high",
-      "scale": "medium_high",
-      "acceptance_causality": "medium"
+    "slug": "case-india-upi-interoperable-payments-infrastructure",
+    "publication_date": "2026-10-22",
+    "title_ar": "كيف حوّلت الهند المدفوعات الفورية إلى بنية مشتركة مفتوحة؟",
+    "title_en": "How India Turned Instant Payments into Shared Infrastructure",
+    "candidate_status": "published_live_verified",
+    "artifact_root": "automation/10x-cases/case-india-upi-interoperable-payments-infrastructure/",
+    "evidence_pack": {
+      "status": "passed",
+      "path": "automation/10x-cases/case-india-upi-interoperable-payments-infrastructure/evidence-pack.md",
+      "commit": "35a1b0c92b15669242016d0dd88cfa148de84727",
+      "confidence": {
+        "implementation": "high",
+        "operating_model": "high",
+        "scale": "high",
+        "interoperability_contribution": "medium_high",
+        "inclusion_causality": "insufficient"
+      }
+    },
+    "analysis": {
+      "status": "passed",
+      "path": "automation/10x-cases/case-india-upi-interoperable-payments-infrastructure/backcasting-and-10x-analysis.md",
+      "commit": "c8f5ee11581692787e743d840a6a7f5a4cd3f0d3"
     },
     "arabic_draft": {
-      "status": "published",
-      "path": "case-singapore-newater-water-reuse.html"
+      "status": "revised_after_critique",
+      "path": "automation/10x-cases/case-india-upi-interoperable-payments-infrastructure/draft-ar.md",
+      "commit": "40fd254424caae5d1ae4f990c3659c2a2cdaa5bc",
+      "revision_commit": "119e3a96e895a09871b6d5c104978a5411436521"
     },
-    "company_insider_critique_status": "passed_with_revisions_applied_bilingually",
+    "company_insider_critique": {
+      "status": "passed_with_required_revisions",
+      "path": "automation/10x-cases/case-india-upi-interoperable-payments-infrastructure/company-insider-critique.md",
+      "commit": "8bd1834e5bcb91a353241d9d87881cd593bf3b2e"
+    },
     "english_draft": {
-      "status": "published",
-      "path": "en/case-singapore-newater-water-reuse.html"
+      "status": "drafted_with_critique_applied",
+      "path": "automation/10x-cases/case-india-upi-interoperable-payments-infrastructure/draft-en.md",
+      "commit": "ff809a7ef38c1220fc6d02f4cdf4e492f81bcb77"
     },
     "bilingual_parity": {
       "status": "passed",
-      "path": "automation/10x-cases/case-singapore-newater-water-reuse/bilingual-parity-review.md"
+      "path": "automation/10x-cases/case-india-upi-interoperable-payments-infrastructure/bilingual-parity-review.md",
+      "commit": "1798c55b616fc4b15e4399dcc89dcc0f7c37951e"
     },
     "final_quality_gate": {
       "status": "passed",
-      "path": "automation/10x-cases/case-singapore-newater-water-reuse/quality-review.md"
+      "path": "automation/10x-cases/case-india-upi-interoperable-payments-infrastructure/quality-review.md",
+      "commit": "04a1475b42879c04d9ec159ee1a27e6a8f4a421a"
     },
     "publishing": {
-      "status": "published_live_verified_after_bilingual_rewrite",
-      "first_publication_commit": "ebe56109f7dadd54cec510f7bc862c07e70ed110",
-      "fix_commit": "36633b3682f19f034c10780d294331d1571fd43f",
-      "final_content_commit": "4d26c0b28684fe2ac05eb91c19c14fb11aac4335",
-      "actions": "passed_for_bilingual_rewrite",
-      "pages": "passed_exact_verification_head",
-      "arabic_url": "https://tamayuz10x.com/case-singapore-newater-water-reuse.html",
-      "english_url": "https://tamayuz10x.com/en/case-singapore-newater-water-reuse.html",
-      "live_verification": "passed_after_bilingual_rewrite",
-      "arabic_rewrite_commit": "f03ec9177e054b7827c03d55ee60bb6a68acd1f6",
-      "english_rewrite_commit": "4d26c0b28684fe2ac05eb91c19c14fb11aac4335",
-      "rewrite_deployment_head": "5da84bbc642d1e264b62d3fac0c82acacfe46699",
-      "rewrite_pages_run": "https://github.com/alaabmt/alaa-excellence/actions/runs/39544132124",
-      "verification_head": "51b74c02544c1c25aa5fef0c5654322f42d447eb",
-      "verification_pages_run": "https://github.com/alaabmt/alaa-excellence/actions/runs/39547812021",
+      "status": "published_live_verified",
+      "first_publication_commit": "9729684b32c732c513111edfc7f6e197bc1cdfd8",
+      "arabic_path": "case-india-upi-interoperable-payments-infrastructure.html",
+      "english_path": "en/case-india-upi-interoperable-payments-infrastructure.html",
+      "arabic_url": "https://tamayuz10x.com/case-india-upi-interoperable-payments-infrastructure.html",
+      "english_url": "https://tamayuz10x.com/en/case-india-upi-interoperable-payments-infrastructure.html",
+      "covers": [
+        "assets/previews/story/case-india-upi-interoperable-payments-infrastructure-ar.jpg",
+        "assets/previews/story/case-india-upi-interoperable-payments-infrastructure-en.jpg"
+      ],
+      "disclaimer_fix_commit": "7fc57372303061ff267070a36ca1412ec1e08ebe",
+      "sitemap_reconciliation_commit": "97242f1cefc9d0ec06b468bcd9b7442d09b959c5",
+      "cover_fix_commit": "ff63d12803427f4dc2da4b1d264e23f6721520c6",
+      "final_content_commit": "00c35e99de4b47635f60ff5ef6fbe3d1ce94e9a1",
+      "actions": "passed",
+      "pages": "passed_exact_final_content_head",
+      "pages_run": "https://github.com/alaabmt/alaa-excellence/actions/runs/39718491915",
+      "live_verification": "passed",
       "index_verification": "passed_ar_en_single_card",
-      "sitemap_verification": "passed_ar_en_single_entry_2026-10-21",
-      "video_verification": "passed_thumbnail_privacy_enhanced_embed_fallback_and_end_position",
-      "publication_report_commit": "1eb1d45fbec2a583f66cf675424517e840408764"
+      "sitemap_verification": "passed_ar_en_single_entry",
+      "image_verification": "passed_1200x630_ar_en"
+    },
+    "publication_report": {
+      "path": "automation/10x-cases/case-india-upi-interoperable-payments-infrastructure/publication-report.md",
+      "commit": "895c287b87ac5fd3ffc50c1e0f136d7a465c05a7"
     }
   },
   "run_date": "2026-10-22",
@@ -190,6 +227,10 @@
     "english_draft",
     "bilingual_parity",
     "final_quality_gate",
-    "repository_publish"
+    "repository_publish",
+    "actions_and_pages",
+    "live_verification",
+    "completion_report",
+    "completed"
   ]
 }
