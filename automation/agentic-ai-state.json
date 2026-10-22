@@ -7,37 +7,15 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-21T22:12:00+04:00",
-  "workflow_status": "completed",
-  "current_stage": "completed",
-  "run_lease": null,
-  "current_item": {
-    "slug": "article-agentic-ai-productivity-measurement-bias",
-    "publication_date": "2026-10-21",
-    "title_ar": "حين لا يريد المطورون العمل بلا وكيل ذكي: لماذا أصبح قياس الإنتاجية أصعب؟",
-    "title_en": "When Developers Do Not Want to Work Without AI: Why Productivity Became Harder to Measure",
-    "research_status": "completed",
-    "evidence_pack_status": "completed",
-    "arabic_draft": {
-      "status": "reconciled",
-      "path": "article-agentic-ai-productivity-measurement-bias.html"
-    },
-    "english_draft": {
-      "status": "reconciled",
-      "path": "en/article-agentic-ai-productivity-measurement-bias.html"
-    },
-    "publishing": {
-      "status": "verified",
-      "arabic_url": "https://tamayuz10x.com/article-agentic-ai-productivity-measurement-bias.html",
-      "english_url": "https://tamayuz10x.com/en/article-agentic-ai-productivity-measurement-bias.html",
-      "publication_commit": "9632097cbdd5fe4d139f0cd5c38a5c07f5175fd9",
-      "verification_commit": "9632097cbdd5fe4d139f0cd5c38a5c07f5175fd9",
-      "report_commit": "dd8248dae67bcfee76e96a2cbf03b3f84f28abc6",
-      "pages_run_id": 39650055577,
-      "pages_run_number": 1711,
-      "social_cards_run_number": 370
-    }
+  "updated_at": "2026-10-22T21:59:00+04:00",
+  "workflow_status": "in_progress",
+  "current_stage": "duplicate_check",
+  "run_lease": {
+    "owner": "automation-agentic-ai-6ab56c5eee2481919cac424410c6b3f8",
+    "acquired_at": "2026-10-22T21:59:00+04:00",
+    "expires_at": "2026-10-22T23:49:00+04:00"
   },
+  "current_item": null,
   "stage_order": [
     "capability_check",
     "load_checkpoint",
@@ -77,13 +55,12 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "On the next scheduled run, begin a new item only if no Agentic AI article has started or published for that Asia/Dubai date.",
+  "next_action": "Select a new primary-source Agentic AI study or documented deployment for 2026-10-22, then create research notes.",
   "last_run": {
     "mode": "scheduled_daily",
-    "status": "completed",
-    "started_at": "2026-10-21T21:57:00+04:00",
-    "notes": "Published and live. Bilingual editorial, metric, parity and beginner-comprehension gates passed. Reviewed bilingual social covers generated. GitHub Pages run #1711 succeeded for commit 9632097; both article pages and both specialist cards were verified live, and the general article indexes remained unchanged.",
-    "completed_at": "2026-10-21T22:12:00+04:00"
+    "status": "in_progress",
+    "started_at": "2026-10-22T21:59:00+04:00",
+    "notes": "Prior item is complete. Duplicate check found no Agentic AI article started or published for 2026-10-22."
   },
   "blocker": null,
   "last_completed_item": {
