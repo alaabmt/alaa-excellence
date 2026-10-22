@@ -1511,6 +1511,27 @@
       }
     },
     {
+      "slug": "article-oe-evidence-defaults-shape-practice",
+      "background": "assets/previews/story-backgrounds/article-oe-evidence-defaults-shape-practice.jpg",
+      "category": "article",
+      "ar": {
+        "title": [
+          "حين يصبح الصواب",
+          "هو الخيار الجاهز"
+        ],
+        "subtitle": "الخيار الجاهز يغيّر الفعل قبل النتيجة",
+        "alt": "غلاف توضيحي بالكحلي والذهبي لمقال عن الخيارات الجاهزة في الأنظمة، يظهر فيه نموذج فيه خيار محدّد مسبقًا وطريق يمرّ به."
+      },
+      "en": {
+        "title": [
+          "When the Right Choice",
+          "Is Already Selected"
+        ],
+        "subtitle": "Defaults change actions before outcomes.",
+        "alt": "Navy and gold editorial cover for an article about defaults in systems, showing a form with one option already selected and a path running through it."
+      }
+    },
+    {
       "slug": "article-oe-evidence-workarounds-hide-problems",
       "background": "assets/previews/story-backgrounds/article-oe-evidence-workarounds-hide-problems.jpg",
       "category": "article",
