@@ -5,7 +5,7 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-22T18:23:00+04:00",
+  "updated_at": "2026-10-22T18:23:01+04:00",
   "workflow_status": "in_progress",
   "current_stage": "quality_gate",
   "current_article": {
@@ -146,15 +146,18 @@
   },
   "next_action": "Before publishing, re-read main and the checkpoint; re-run duplicate checks against the topic registry, repository pages, four indexes, sitemap and both intended live URLs, then build the paired HTML pages and required index/data/SEO/social-image updates from the current templates.",
   "last_run": {
-    "mode": "coordinator_daily_start",
-    "status": "checkpointed_in_progress",
-    "started_at": "2026-10-22T17:03:02+04:00",
-    "checkpointed_at": "2026-10-22T18:23:00+04:00",
-    "starting_head": "7f010fa8471b9c1712be2e37e52b81695068938c",
-    "notes": "Topic selected, researched and Qur’an-verified; Arabic and original English drafts completed; independent critique and bilingual parity passed; final content quality gate passed at 97/100. Publication not started."
+    "mode": "coordinator_resume",
+    "status": "in_progress",
+    "started_at": "2026-10-22T18:04:45+04:00",
+    "checkpointed_at": "2026-10-22T18:23:01+04:00",
+    "starting_head": "676d5d405db84f6f12f474d1c26f9b602948229e"
   },
   "workflow_id": "quran_reflections",
-  "run_lease": null,
+  "run_lease": {
+    "owner": "central-resume-2026-10-22T18:04:45+04:00",
+    "acquired_at": "2026-10-22T18:23:01+04:00",
+    "expires_at": "2026-10-22T20:13:01+04:00"
+  },
   "checkpoint_policy": {
     "checkpoint_after_every_stage": true,
     "run_lease_minutes": 110,
