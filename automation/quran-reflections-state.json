@@ -5,9 +5,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-22T22:12:00+04:00",
+  "updated_at": "2026-10-22T22:14:00+04:00",
   "workflow_status": "reconciling",
-  "current_stage": "live_verification",
+  "current_stage": "completion_report",
   "current_article": {
     "article_id": "quran-reflection-2026-10-22-al-maidah-justice-despite-dislike",
     "publication_date": "2026-10-22",
@@ -16,7 +16,7 @@
     "topic_en": "Justice under dislike: resisting the influence of hostility on judgment",
     "working_title_ar": "هل يتغير ميزان العدل حين نختلف؟",
     "working_title_en": "Does Justice Change When We Disagree?",
-    "status": "pages_deployed_live_verification_pending",
+    "status": "live_verified_report_pending",
     "quranic_focus": {
       "surah": "Al-Ma'idah",
       "surah_ar": "المائدة",
@@ -167,15 +167,40 @@
         }
       ],
       "pages_status": "success",
-      "exact_deployed_head": "8dad9f3a2820664afc3ce23b0a297ca64f1d0cd5",
+      "exact_deployed_head": "64690f1581c0441fa5a9b4e6b0d02639284f94cd",
       "pages_run": {
-        "id": 39828883085,
+        "id": 39829283746,
         "status": "completed",
         "conclusion": "success",
-        "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/39828883085"
+        "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/39829283746"
       },
       "social_assets_ancestor_verified": true,
       "repository_assets_reverified_at": "2026-10-22T22:12:00+04:00"
+    },
+    "live_verification": {
+      "status": "passed",
+      "verified_at": "2026-10-22T22:14:00+04:00",
+      "checks": {
+        "arabic_page": true,
+        "english_page": true,
+        "arabic_cover_1200x630": true,
+        "english_cover_1200x630": true,
+        "canonical": true,
+        "hreflang": true,
+        "metadata": true,
+        "schema_org": true,
+        "articles_index_ar": true,
+        "articles_index_en": true,
+        "quranic_index_ar": true,
+        "quranic_index_en": true,
+        "sitemap": true
+      },
+      "arabic_url": "https://tamayuz10x.com/reflection-al-maidah-justice-despite-dislike.html",
+      "english_url": "https://tamayuz10x.com/en/reflection-al-maidah-justice-despite-dislike.html",
+      "observed_titles": {
+        "ar": "هل يتغير ميزان العدل حين نختلف؟ | التميّز 10X",
+        "en": "Does Justice Change When We Disagree? | Tamayuz 10X"
+      }
     }
   },
   "stage_order": [
@@ -209,17 +234,18 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Verify both live article URLs, 1200×630 images, canonicals, hreflang, metadata, schema, four index pages and sitemap membership; then save the publication report and complete the workflow.",
+  "next_action": "Save the bilingual publication report artifact, checkpoint completion_report, then mark the workflow completed and release the run lease.",
   "last_run": {
     "mode": "coordinator_resume",
-    "status": "actions_and_pages_completed",
+    "status": "live_verification_completed",
     "started_at": "2026-10-22T22:09:00+04:00",
     "starting_head": "ae5f63bea29f6b6559db6b45dcba6f590746c56e",
     "publication_commit": "23763f88ba18a723326602220a2c288517dd72f6",
     "social_assets_commit": "f59b4358ff2b9ec7450dfac94b67a67a8749383f",
-    "notes": "Generated social-asset commit remains an ancestor; both JPEG blobs were reverified, and GitHub Pages succeeded for stable main head 8dad9f3a.",
-    "reconciled_head": "37758bf08b59b6c81cef8a84c516cb2bd7760483",
-    "pages_run_id": 39828883085
+    "notes": "Pages succeeded for checkpoint head 64690f1. Both live pages, 1200×630 covers, canonical/hreflang metadata, schema, four indexes and sitemap membership passed.",
+    "reconciled_head": "64690f1581c0441fa5a9b4e6b0d02639284f94cd",
+    "pages_run_id": 39829283746,
+    "live_verified_at": "2026-10-22T22:14:00+04:00"
   },
   "workflow_id": "quran_reflections",
   "run_lease": {
@@ -417,7 +443,8 @@
     "bilingual_parity",
     "quality_gate",
     "repository_publish",
-    "actions_and_pages"
+    "actions_and_pages",
+    "live_verification"
   ],
   "duplicate_check": {
     "status": "passed_before_publication",
