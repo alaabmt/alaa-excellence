@@ -7,9 +7,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-22T08:52:00+04:00",
+  "updated_at": "2026-10-22T09:07:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "final_quality_gate",
+  "current_stage": "repository_publish",
   "run_lease": {
     "owner": "chatgpt-work-tenx-cases-20261022T072730+04",
     "acquired_at": "2026-10-22T07:29:00+04:00",
@@ -64,6 +64,18 @@
       "status": "passed",
       "path": "automation/10x-cases/case-india-upi-interoperable-payments-infrastructure/quality-review.md",
       "commit": "04a1475b42879c04d9ec159ee1a27e6a8f4a421a"
+    },
+    "publishing": {
+      "status": "repository_committed_pending_actions_pages",
+      "first_publication_commit": "9729684b32c732c513111edfc7f6e197bc1cdfd8",
+      "arabic_path": "case-india-upi-interoperable-payments-infrastructure.html",
+      "english_path": "en/case-india-upi-interoperable-payments-infrastructure.html",
+      "arabic_url": "https://tamayuz10x.com/case-india-upi-interoperable-payments-infrastructure.html",
+      "english_url": "https://tamayuz10x.com/en/case-india-upi-interoperable-payments-infrastructure.html",
+      "covers": [
+        "assets/previews/story/case-india-upi-interoperable-payments-infrastructure-ar.jpg",
+        "assets/previews/story/case-india-upi-interoperable-payments-infrastructure-en.jpg"
+      ]
     }
   },
   "stage_order": [
@@ -105,7 +117,7 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Assemble and commit the bilingual pages, original covers, indexes, publication registry and sitemap on main, preserving current site design and metadata standards.",
+  "next_action": "Wait for GitHub Actions and Pages for publication commit 9729684b32c732c513111edfc7f6e197bc1cdfd8, reconcile any automated follow-up commit, then verify the final exact main head and live pages.",
   "last_run": {
     "mode": "daily_primary_run",
     "status": "in_progress",
@@ -177,6 +189,7 @@
     "company_insider_critique",
     "english_draft",
     "bilingual_parity",
-    "final_quality_gate"
+    "final_quality_gate",
+    "repository_publish"
   ]
 }
