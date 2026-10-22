@@ -5,9 +5,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-22T18:23:01+04:00",
+  "updated_at": "2026-10-22T18:25:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "quality_gate",
+  "current_stage": "repository_publish",
   "current_article": {
     "article_id": "quran-reflection-2026-10-22-al-maidah-justice-despite-dislike",
     "publication_date": "2026-10-22",
@@ -16,7 +16,7 @@
     "topic_en": "Justice under dislike: resisting the influence of hostility on judgment",
     "working_title_ar": "هل يتغير ميزان العدل حين نختلف؟",
     "working_title_en": "Does Justice Change When We Disagree?",
-    "status": "quality_gate_passed",
+    "status": "repository_published_actions_pending",
     "quranic_focus": {
       "surah": "Al-Ma'idah",
       "surah_ar": "المائدة",
@@ -111,6 +111,23 @@
       "threshold": 90,
       "blocking_error": false,
       "path": "automation/quran-reflections/reflection-al-maidah-justice-despite-dislike/quality-review.md"
+    },
+    "repository_publish": {
+      "status": "completed",
+      "commit": "23763f88ba18a723326602220a2c288517dd72f6",
+      "reconciled_descendant_head": "970f376a0c1eefe1bdfc808f96306dad68d89851",
+      "paths": {
+        "ar": "reflection-al-maidah-justice-despite-dislike.html",
+        "en": "en/reflection-al-maidah-justice-despite-dislike.html",
+        "background": "assets/previews/story-backgrounds/reflection-al-maidah-justice-despite-dislike.svg",
+        "image_ar": "assets/previews/story/reflection-al-maidah-justice-despite-dislike-ar.jpg",
+        "image_en": "assets/previews/story/reflection-al-maidah-justice-despite-dislike-en.jpg"
+      },
+      "urls": {
+        "ar": "https://tamayuz10x.com/reflection-al-maidah-justice-despite-dislike.html",
+        "en": "https://tamayuz10x.com/en/reflection-al-maidah-justice-despite-dislike.html"
+      },
+      "verification": "Paired pages, four indexes, data registries, SVG source, metadata and sitemap structurally verified. Automatic sitemap normalization commit was reconciled as a descendant."
     }
   },
   "stage_order": [
@@ -144,13 +161,16 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Before publishing, re-read main and the checkpoint; re-run duplicate checks against the topic registry, repository pages, four indexes, sitemap and both intended live URLs, then build the paired HTML pages and required index/data/SEO/social-image updates from the current templates.",
+  "next_action": "Inspect GitHub Actions runs for publication commit 23763f88ba18a723326602220a2c288517dd72f6 and its descendants, wait for Arabic and English social-card JPEGs, then verify a successful Pages deployment for the exact final main head before checking both public URLs.",
   "last_run": {
     "mode": "coordinator_resume",
-    "status": "in_progress",
+    "status": "checkpointed_repository_publish",
     "started_at": "2026-10-22T18:04:45+04:00",
-    "checkpointed_at": "2026-10-22T18:23:01+04:00",
-    "starting_head": "676d5d405db84f6f12f474d1c26f9b602948229e"
+    "checkpointed_at": "2026-10-22T18:25:00+04:00",
+    "starting_head": "676d5d405db84f6f12f474d1c26f9b602948229e",
+    "publication_commit": "23763f88ba18a723326602220a2c288517dd72f6",
+    "reconciled_head": "970f376a0c1eefe1bdfc808f96306dad68d89851",
+    "notes": "Repository publication completed and structurally verified; an automatic sitemap normalization descendant was reconciled before checkpointing."
   },
   "workflow_id": "quran_reflections",
   "run_lease": {
@@ -346,21 +366,24 @@
     "independent_critique",
     "english_draft",
     "bilingual_parity",
-    "quality_gate"
+    "quality_gate",
+    "repository_publish"
   ],
   "duplicate_check": {
-    "date": "2026-10-22",
-    "status": "passed_no_existing_article",
+    "status": "passed_before_publication",
+    "checked_at": "2026-10-22T18:23:30+04:00",
     "checked": [
       "checkpoint",
-      "data/quranic-reflection-topics.json",
-      "Arabic and English repository indexes",
-      "Arabic and English home indexes",
-      "sitemap.xml",
-      "repository search for 2026-10-22 reflection"
+      "topic registry",
+      "repository pages",
+      "articles.html",
+      "en/articles.html",
+      "quranic-reflections.html",
+      "en/quranic-reflections.html",
+      "sitemap",
+      "expected public URLs"
     ],
-    "checked_at": "2026-10-22T17:03:02+04:00",
-    "head": "7f010fa8471b9c1712be2e37e52b81695068938c"
+    "finding": "No prior article or live destination matching the slug/title was found before publication."
   },
   "blocker": null
 }
