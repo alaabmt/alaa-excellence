@@ -5,7 +5,7 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-22T18:35:00+04:00",
+  "updated_at": "2026-10-22T22:09:00+04:00",
   "workflow_status": "reconciling",
   "current_stage": "actions_and_pages",
   "current_article": {
@@ -203,17 +203,19 @@
   "next_action": "Re-read main and this checkpoint; verify the generated-image commit remains an ancestor and both JPEGs still exist, then require a successful GitHub Pages deployment for the exact current main head. After that, check both live URLs, canonicals, hreflang, metadata, images and index membership before completion.",
   "last_run": {
     "mode": "coordinator_resume",
-    "status": "checkpointed_reconciling_pages_pending",
-    "started_at": "2026-10-22T18:04:45+04:00",
-    "checkpointed_at": "2026-10-22T18:35:00+04:00",
-    "starting_head": "676d5d405db84f6f12f474d1c26f9b602948229e",
+    "status": "lease_acquired",
+    "started_at": "2026-10-22T22:09:00+04:00",
+    "starting_head": "ae5f63bea29f6b6559db6b45dcba6f590746c56e",
     "publication_commit": "23763f88ba18a723326602220a2c288517dd72f6",
-    "reconciled_head": "970f376a0c1eefe1bdfc808f96306dad68d89851",
-    "notes": "The first card run exposed a missing manifest entry; after correction, both bilingual JPEGs were generated and committed. Pages deployment remained queued/waiting, so live verification was not claimed.",
-    "social_assets_commit": "f59b4358ff2b9ec7450dfac94b67a67a8749383f"
+    "social_assets_commit": "f59b4358ff2b9ec7450dfac94b67a67a8749383f",
+    "notes": "Resuming reconciliation of GitHub Actions, Pages, and live publication checks."
   },
   "workflow_id": "quran_reflections",
-  "run_lease": null,
+  "run_lease": {
+    "owner": "central-resume-2026-10-22T22:04:58+04:00",
+    "acquired_at": "2026-10-22T22:09:00+04:00",
+    "expires_at": "2026-10-22T23:59:00+04:00"
+  },
   "checkpoint_policy": {
     "checkpoint_after_every_stage": true,
     "run_lease_minutes": 110,
