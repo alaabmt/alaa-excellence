@@ -5,9 +5,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-22T17:12:00+04:00",
+  "updated_at": "2026-10-22T17:24:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "topic_selection",
+  "current_stage": "research",
   "current_article": {
     "article_id": "quran-reflection-2026-10-22-al-maidah-justice-despite-dislike",
     "publication_date": "2026-10-22",
@@ -16,7 +16,7 @@
     "topic_en": "Justice under dislike: resisting the influence of hostility on judgment",
     "working_title_ar": "هل يتغير ميزان العدل حين نختلف؟",
     "working_title_en": "Does Justice Change When We Disagree?",
-    "status": "topic_selected",
+    "status": "research_completed",
     "quranic_focus": {
       "surah": "Al-Ma'idah",
       "surah_ar": "المائدة",
@@ -25,7 +25,50 @@
       ],
       "status": "pending_verification"
     },
-    "research_notes_path": "automation/quran-reflections/reflection-al-maidah-justice-despite-dislike/research-notes.md"
+    "research_notes_path": "automation/quran-reflections/reflection-al-maidah-justice-despite-dislike/research-notes.md",
+    "research_status": "completed",
+    "research_sources": [
+      {
+        "type": "Qur'an text and Sahih International translation",
+        "url": "https://legacy.quran.com/5/8",
+        "status": "reviewed"
+      },
+      {
+        "type": "Qur'an context",
+        "url": "https://corpus.quran.com/translation.jsp?chapter=5&verse=7",
+        "status": "reviewed"
+      },
+      {
+        "type": "Qur'an context",
+        "url": "https://corpus.quran.com/translation.jsp?chapter=5&verse=9",
+        "status": "reviewed"
+      },
+      {
+        "type": "Tafsir al-Tabari",
+        "url": "https://quran.ksu.edu.sa/tafseer/tabary/sura5-aya8.html",
+        "status": "reviewed"
+      },
+      {
+        "type": "Tafsir Ibn Kathir",
+        "url": "https://quran.ksu.edu.sa/tafseer/katheer/sura5-aya8.html",
+        "status": "reviewed"
+      },
+      {
+        "type": "Tafsir al-Qurtubi",
+        "url": "https://quran.ksu.edu.sa/tafseer/qortobi/sura5-aya8.html",
+        "status": "reviewed"
+      },
+      {
+        "type": "Tafsir al-Sa'di",
+        "url": "https://quran.ksu.edu.sa/tafseer/saadi/sura5-aya8.html",
+        "status": "reviewed"
+      },
+      {
+        "type": "English translation verification",
+        "url": "https://corpus.quran.com/translation.jsp?chapter=5&verse=8",
+        "status": "reviewed"
+      }
+    ]
   },
   "stage_order": [
     "capability_check",
@@ -58,12 +101,12 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Research and verify Qur’an 5:8 in its immediate context; review al-Tabari, Ibn Kathir, al-Qurtubi and al-Sa'di, verify an attributed English translation, and save the evidence in research-notes.md before drafting.",
+  "next_action": "Perform the independent Qur’anic verification gate for Al-Ma'idah 5:8: exact Arabic text, surah and ayah numbering, context 5:2 and 5:7–9, tafsir agreement, and Sahih International attribution.",
   "last_run": {
     "mode": "coordinator_daily_start",
     "status": "in_progress",
     "started_at": "2026-10-22T17:03:02+04:00",
-    "checkpointed_at": "2026-10-22T17:12:00+04:00",
+    "checkpointed_at": "2026-10-22T17:24:00+04:00",
     "starting_head": "7f010fa8471b9c1712be2e37e52b81695068938c"
   },
   "workflow_id": "quran_reflections",
@@ -253,7 +296,8 @@
     "capability_check",
     "load_checkpoint",
     "duplicate_check",
-    "topic_selection"
+    "topic_selection",
+    "research"
   ],
   "duplicate_check": {
     "date": "2026-10-22",
