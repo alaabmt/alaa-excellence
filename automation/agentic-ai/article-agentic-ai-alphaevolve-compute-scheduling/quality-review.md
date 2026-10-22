@@ -34,3 +34,33 @@ Result: **PASS for comprehension.**
 - Register a reviewed bilingual cover before the social-card workflow runs.
 - Add cards only to the two Agentic AI specialist hubs.
 - Verify the slug remains absent from both general article indexes.
+
+
+## Bilingual semantic parity
+
+- Both editions open with the same resource-mismatch problem without mirroring sentence structure.
+- Both define AlphaEvolve as an evolutionary coding agent whose candidates are executed and scored.
+- Both separate historical simulation, unseen evaluation and fleet deployment.
+- Both attach 0.7% to fleet-wide compute and state that the absolute numerator, fleet size, time window, variation, cost and energy effect are absent.
+- Both show the complete matrix breakdown: 38/54 matched, 14/54 surpassed and 2/54 fell behind; the reconstructed shares are 70.4%, 25.9% and 3.7%.
+- Both explain 48 versus 49 scalar multiplications as a specific mathematical operation count, not an application-speed claim.
+- Both isolate CodeEvolve as a separate 9-problem sample: 5/9 versus 4/9.
+- Both distinguish the 23% local kernel speedup from the 1% whole-training effect and state that the input-shape count is undisclosed.
+- Both label the 500-unit and 3.5-unit enterprise calculation as hypothetical.
+- Sources, evidence limits, glossary concepts and 10X decisions match semantically.
+- The English edition reads as native editorial English rather than translated Arabic.
+
+Result: **PASS for bilingual parity.**
+
+## Final HTML and placement gate
+
+- Each edition has one H1, 14 balanced sections, two balanced tables, one article container and one reviewed story cover.
+- Author names appear immediately below the title.
+- Canonical, reciprocal hreflang, publication date, Open Graph, Twitter and Article structured data are present.
+- Direct primary sources are linked.
+- Each specialist Agentic AI hub contains the slug in one visible card and once in CollectionPage JSON-LD.
+- Both general article indexes contain zero instances of the slug.
+- Sitemap contains both language URLs.
+- The Quranic collection was not changed and no duplicate promotional box was introduced.
+
+Result: **PASS — approved for Actions, Pages and live verification.**
