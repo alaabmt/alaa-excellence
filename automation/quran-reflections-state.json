@@ -5,7 +5,7 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-22T18:31:00+04:00",
+  "updated_at": "2026-10-22T18:35:00+04:00",
   "workflow_status": "reconciling",
   "current_stage": "actions_and_pages",
   "current_article": {
@@ -16,7 +16,7 @@
     "topic_en": "Justice under dislike: resisting the influence of hostility on judgment",
     "working_title_ar": "هل يتغير ميزان العدل حين نختلف؟",
     "working_title_en": "Does Justice Change When We Disagree?",
-    "status": "social_card_manifest_corrected_actions_pending",
+    "status": "social_assets_completed_pages_pending",
     "quranic_focus": {
       "surah": "Al-Ma'idah",
       "surah_ar": "المائدة",
@@ -130,7 +130,7 @@
       "verification": "Paired pages, four indexes, data registries, SVG source, metadata and sitemap structurally verified. Automatic sitemap normalization commit was reconciled as a descendant."
     },
     "actions_and_pages": {
-      "status": "reconciling",
+      "status": "social_assets_completed_pages_pending",
       "initial_social_card_run_id": 39793354358,
       "initial_result": "failed_before_commit",
       "failure_reason": "The new slug was absent from data/article-covers.json, so generated JPEGs were rejected as unreviewed.",
@@ -138,7 +138,35 @@
       "pages_for_checkpoint_commit": {
         "run_id": 39793506757,
         "status": "pending_at_checkpoint"
-      }
+      },
+      "manifest_correction_commit": "fc8030e8b55823e282899b48ea88e587e41c9170",
+      "social_assets_commit": "f59b4358ff2b9ec7450dfac94b67a67a8749383f",
+      "social_assets": {
+        "ar": {
+          "path": "assets/previews/story/reflection-al-maidah-justice-despite-dislike-ar.jpg",
+          "blob_sha": "3924b86872556c1bbfd99e22f013470bee88bfaf",
+          "verified": true
+        },
+        "en": {
+          "path": "assets/previews/story/reflection-al-maidah-justice-despite-dislike-en.jpg",
+          "blob_sha": "3e6f126b76ccf65e8925e108b65e5805fb16c6b0",
+          "verified": true
+        }
+      },
+      "social_generation_quality_checks": "passed in generation workflow before bot commit",
+      "pages_runs_observed": [
+        {
+          "run_id": 39794751667,
+          "head_sha": "f59b4358ff2b9ec7450dfac94b67a67a8749383f",
+          "status": "waiting"
+        },
+        {
+          "run_id": 39794750838,
+          "head_sha": "f59b4358ff2b9ec7450dfac94b67a67a8749383f",
+          "status": "queued"
+        }
+      ],
+      "pages_status": "pending"
     }
   },
   "stage_order": [
@@ -172,23 +200,20 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Reconcile the Generate social share cards run triggered by the article-cover manifest correction; verify both generated JPEGs exist, then require Site health QA and Pages deployment success for the exact resulting main head before live URL checks.",
+  "next_action": "Re-read main and this checkpoint; verify the generated-image commit remains an ancestor and both JPEGs still exist, then require a successful GitHub Pages deployment for the exact current main head. After that, check both live URLs, canonicals, hreflang, metadata, images and index membership before completion.",
   "last_run": {
     "mode": "coordinator_resume",
-    "status": "reconciling_actions_and_pages",
+    "status": "checkpointed_reconciling_pages_pending",
     "started_at": "2026-10-22T18:04:45+04:00",
-    "checkpointed_at": "2026-10-22T18:31:00+04:00",
+    "checkpointed_at": "2026-10-22T18:35:00+04:00",
     "starting_head": "676d5d405db84f6f12f474d1c26f9b602948229e",
     "publication_commit": "23763f88ba18a723326602220a2c288517dd72f6",
     "reconciled_head": "970f376a0c1eefe1bdfc808f96306dad68d89851",
-    "notes": "Initial social-card run failed before any external commit because the reviewed cover manifest lacked the new slug. A deterministic manifest correction was prepared; no duplicate page or image publication occurred."
+    "notes": "The first card run exposed a missing manifest entry; after correction, both bilingual JPEGs were generated and committed. Pages deployment remained queued/waiting, so live verification was not claimed.",
+    "social_assets_commit": "f59b4358ff2b9ec7450dfac94b67a67a8749383f"
   },
   "workflow_id": "quran_reflections",
-  "run_lease": {
-    "owner": "central-resume-2026-10-22T18:04:45+04:00",
-    "acquired_at": "2026-10-22T18:23:01+04:00",
-    "expires_at": "2026-10-22T20:13:01+04:00"
-  },
+  "run_lease": null,
   "checkpoint_policy": {
     "checkpoint_after_every_stage": true,
     "run_lease_minutes": 110,
@@ -396,5 +421,11 @@
     ],
     "finding": "No prior article or live destination matching the slug/title was found before publication."
   },
-  "blocker": null
+  "blocker": {
+    "type": "transient_external_queue",
+    "stage": "actions_and_pages",
+    "detail": "GitHub Pages deployment for the exact final head is queued/waiting; retry through the central resume coordinator.",
+    "retryable": true,
+    "decision_required": false
+  }
 }
