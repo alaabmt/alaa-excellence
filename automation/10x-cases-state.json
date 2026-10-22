@@ -7,9 +7,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-22T08:20:00+04:00",
+  "updated_at": "2026-10-22T08:28:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "arabic_draft",
+  "current_stage": "company_insider_critique",
   "run_lease": {
     "owner": "chatgpt-work-tenx-cases-20261022T072730+04",
     "acquired_at": "2026-10-22T07:29:00+04:00",
@@ -43,6 +43,11 @@
       "status": "drafted",
       "path": "automation/10x-cases/case-india-upi-interoperable-payments-infrastructure/draft-ar.md",
       "commit": "40fd254424caae5d1ae4f990c3659c2a2cdaa5bc"
+    },
+    "company_insider_critique": {
+      "status": "passed_with_required_revisions",
+      "path": "automation/10x-cases/case-india-upi-interoperable-payments-infrastructure/company-insider-critique.md",
+      "commit": "8bd1834e5bcb91a353241d9d87881cd593bf3b2e"
     }
   },
   "stage_order": [
@@ -84,7 +89,7 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Run the Company Insider Critique simulation against the Arabic draft, challenge overclaiming, metrics, governance, concentration and operating risks, then record required revisions.",
+  "next_action": "Apply the insider-critique revisions to Arabic and write a natural English equivalent with identical facts, periods, caveats and pillar conclusions.",
   "last_run": {
     "mode": "daily_primary_run",
     "status": "in_progress",
@@ -152,6 +157,7 @@
     "candidate_scan",
     "evidence_pack",
     "backcasting_and_10x_analysis",
-    "arabic_draft"
+    "arabic_draft",
+    "company_insider_critique"
   ]
 }
