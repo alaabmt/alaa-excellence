@@ -5,9 +5,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-22T17:43:00+04:00",
+  "updated_at": "2026-10-22T17:51:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "arabic_draft",
+  "current_stage": "independent_critique",
   "current_article": {
     "article_id": "quran-reflection-2026-10-22-al-maidah-justice-despite-dislike",
     "publication_date": "2026-10-22",
@@ -16,7 +16,7 @@
     "topic_en": "Justice under dislike: resisting the influence of hostility on judgment",
     "working_title_ar": "هل يتغير ميزان العدل حين نختلف؟",
     "working_title_en": "Does Justice Change When We Disagree?",
-    "status": "arabic_draft_completed",
+    "status": "arabic_revised_after_critique",
     "quranic_focus": {
       "surah": "Al-Ma'idah",
       "surah_ar": "المائدة",
@@ -89,8 +89,13 @@
       }
     ],
     "arabic_draft": {
-      "status": "drafted",
+      "status": "revised_after_critique",
       "path": "automation/quran-reflections/reflection-al-maidah-justice-despite-dislike/draft-ar.md"
+    },
+    "independent_critique": {
+      "status": "passed_after_revision",
+      "path": "automation/quran-reflections/reflection-al-maidah-justice-despite-dislike/quality-review.md",
+      "blocking_error": false
     }
   },
   "stage_order": [
@@ -124,12 +129,12 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Run an independent Qur’anic, theological, linguistic and editorial critique of the Arabic draft; save findings in quality-review.md and revise draft-ar.md for every supported blocking or material issue before starting English.",
+  "next_action": "Read the English editorial/human-style standard and bilingual parity standard, then write an original English draft in draft-en.md using the verified Sahih International translation attribution.",
   "last_run": {
     "mode": "coordinator_daily_start",
     "status": "in_progress",
     "started_at": "2026-10-22T17:03:02+04:00",
-    "checkpointed_at": "2026-10-22T17:43:00+04:00",
+    "checkpointed_at": "2026-10-22T17:51:00+04:00",
     "starting_head": "7f010fa8471b9c1712be2e37e52b81695068938c"
   },
   "workflow_id": "quran_reflections",
@@ -322,7 +327,8 @@
     "topic_selection",
     "research",
     "quran_verification",
-    "arabic_draft"
+    "arabic_draft",
+    "independent_critique"
   ],
   "duplicate_check": {
     "date": "2026-10-22",
