@@ -5,9 +5,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-22T18:15:00+04:00",
+  "updated_at": "2026-10-22T18:23:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "bilingual_parity",
+  "current_stage": "quality_gate",
   "current_article": {
     "article_id": "quran-reflection-2026-10-22-al-maidah-justice-despite-dislike",
     "publication_date": "2026-10-22",
@@ -16,7 +16,7 @@
     "topic_en": "Justice under dislike: resisting the influence of hostility on judgment",
     "working_title_ar": "هل يتغير ميزان العدل حين نختلف؟",
     "working_title_en": "Does Justice Change When We Disagree?",
-    "status": "bilingual_parity_passed",
+    "status": "quality_gate_passed",
     "quranic_focus": {
       "surah": "Al-Ma'idah",
       "surah_ar": "المائدة",
@@ -104,6 +104,13 @@
     "bilingual_parity": {
       "status": "passed",
       "path": "automation/quran-reflections/reflection-al-maidah-justice-despite-dislike/quality-review.md"
+    },
+    "quality_gate": {
+      "status": "passed",
+      "score": 97,
+      "threshold": 90,
+      "blocking_error": false,
+      "path": "automation/quran-reflections/reflection-al-maidah-justice-despite-dislike/quality-review.md"
     }
   },
   "stage_order": [
@@ -137,20 +144,17 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Run the final 100-point quality gate across Qur’anic accuracy, tafsir/theology, Arabic, English, parity, application boundaries, references and publish readiness; do not publish below 90 or with a blocking error.",
+  "next_action": "Before publishing, re-read main and the checkpoint; re-run duplicate checks against the topic registry, repository pages, four indexes, sitemap and both intended live URLs, then build the paired HTML pages and required index/data/SEO/social-image updates from the current templates.",
   "last_run": {
     "mode": "coordinator_daily_start",
-    "status": "in_progress",
+    "status": "checkpointed_in_progress",
     "started_at": "2026-10-22T17:03:02+04:00",
-    "checkpointed_at": "2026-10-22T18:15:00+04:00",
-    "starting_head": "7f010fa8471b9c1712be2e37e52b81695068938c"
+    "checkpointed_at": "2026-10-22T18:23:00+04:00",
+    "starting_head": "7f010fa8471b9c1712be2e37e52b81695068938c",
+    "notes": "Topic selected, researched and Qur’an-verified; Arabic and original English drafts completed; independent critique and bilingual parity passed; final content quality gate passed at 97/100. Publication not started."
   },
   "workflow_id": "quran_reflections",
-  "run_lease": {
-    "owner": "central-resume-2026-10-22T17:03:02+04:00",
-    "acquired_at": "2026-10-22T17:03:02+04:00",
-    "expires_at": "2026-10-22T18:53:02+04:00"
-  },
+  "run_lease": null,
   "checkpoint_policy": {
     "checkpoint_after_every_stage": true,
     "run_lease_minutes": 110,
@@ -338,7 +342,8 @@
     "arabic_draft",
     "independent_critique",
     "english_draft",
-    "bilingual_parity"
+    "bilingual_parity",
+    "quality_gate"
   ],
   "duplicate_check": {
     "date": "2026-10-22",
