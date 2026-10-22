@@ -1614,6 +1614,27 @@
         "subtitle": "Shared payment infrastructure",
         "alt": "Editorial cover for India’s UPI case, showing multiple payment apps connected through shared digital infrastructure."
       }
+    },
+    {
+      "slug": "article-agentic-ai-human-approval-oversight",
+      "background": "assets/previews/story-backgrounds/article-agentic-ai-human-approval-oversight.jpg",
+      "category": "article",
+      "ar": {
+        "title": [
+          "هل موافقة الإنسان على",
+          "الوكيل رقابة حقيقية؟"
+        ],
+        "subtitle": "يقبل المستخدمون 93% من طلبات الإذن بحسب أنثروبيك، فهل ما زالت الموافقة رقابة؟",
+        "alt": "غلاف توضيحي بالكحلي والذهبي لمقال عن رقابة الإنسان على وكيل ذكي، تظهر فيه قائمة طلبات وافق عليها المراجع كلها عدا طلبًا واحدًا أُوقف بزر إيقاف مؤقت."
+      },
+      "en": {
+        "title": [
+          "Is Human Approval of",
+          "an AI Agent Real Oversight?"
+        ],
+        "subtitle": "Anthropic reports that users accept 93% of permission prompts. Does approval still mean oversight?",
+        "alt": "Navy and gold illustrative cover for an article about human oversight of an AI agent, showing a list of requests all approved except one held back with a pause button."
+      }
     }
   ]
 }
