@@ -62,7 +62,7 @@ The verse leaves us with a measure that does not change with the identity of the
 **Methodological note:** This reflection distinguishes among the meaning established in recognized tafsir, the author's reflection, and the hypothetical organizational illustration. Contemporary review practices are not presented as a tafsir of the verse or as a management model extracted from it.
 
 **Editorial disclaimer:**  
-The views and analysis in this article represent the author’s professional interpretation based on the cited sources. They do not necessarily represent the official positions of any organizations mentioned. For complete and current information, readers should consult the original sources and official documents listed in the references.
+The views and analysis in this article represent the author’s professional interpretation based on the cited sources. They do not necessarily represent the official positions of any organizations mentioned. For complete and current information, consult the original sources and official documents listed in the references.
 
 ## References
 
