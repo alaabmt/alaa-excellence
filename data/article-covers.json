@@ -1572,6 +1572,27 @@
         "subtitle": "Why agent adoption made productivity harder to measure.",
         "alt": "Navy and gold illustrative cover for an article about measuring coding-agent productivity, showing a code window, an inspection lens, and a human-review checkmark."
       }
+    },
+    {
+      "slug": "case-india-upi-interoperable-payments-infrastructure",
+      "reference": true,
+      "category": "case",
+      "ar": {
+        "source": "assets/previews/story/case-india-upi-interoperable-payments-infrastructure-ar.jpg",
+        "title": [
+          "الهند وUPI"
+        ],
+        "subtitle": "بنية دفع مشتركة",
+        "alt": "غلاف توضيحي لحالة UPI في الهند، يظهر تطبيقات دفع متعددة متصلة ببنية رقمية مشتركة."
+      },
+      "en": {
+        "source": "assets/previews/story/case-india-upi-interoperable-payments-infrastructure-en.jpg",
+        "title": [
+          "India & UPI"
+        ],
+        "subtitle": "Shared payment infrastructure",
+        "alt": "Editorial cover for India’s UPI case, showing multiple payment apps connected through shared digital infrastructure."
+      }
     }
   ]
 }
