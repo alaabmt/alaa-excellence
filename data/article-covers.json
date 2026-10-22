@@ -1614,6 +1614,27 @@
         "subtitle": "Shared payment infrastructure",
         "alt": "Editorial cover for India’s UPI case, showing multiple payment apps connected through shared digital infrastructure."
       }
+    },
+    {
+      "slug": "article-agentic-ai-alphaevolve-compute-scheduling",
+      "background": "assets/previews/story-backgrounds/article-agentic-ai-workplace-tasks.jpg",
+      "category": "article",
+      "ar": {
+        "title": [
+          "حين استعاد الوكيل",
+          "قدرة حاسوبية عالقة"
+        ],
+        "subtitle": "من محاكاة الجدولة إلى تشغيل فعلي في مراكز البيانات",
+        "alt": "غلاف توضيحي بالكحلي والذهبي لمقال عن وكيل يطور خوارزمية جدولة لمراكز البيانات، يظهر فيه مبنى حوسبة وشبكة موارد وقاعدة تحقق."
+      },
+      "en": {
+        "title": [
+          "When an Agent Recovered",
+          "Stranded Compute"
+        ],
+        "subtitle": "From scheduling simulation to a live data-center deployment.",
+        "alt": "Navy and gold illustrative cover for an article about an agent evolving a data-center scheduling algorithm, showing computing infrastructure, a resource grid and a verification check."
+      }
     }
   ]
 }
