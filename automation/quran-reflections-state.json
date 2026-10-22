@@ -5,9 +5,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-22T17:24:00+04:00",
+  "updated_at": "2026-10-22T17:30:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "research",
+  "current_stage": "quran_verification",
   "current_article": {
     "article_id": "quran-reflection-2026-10-22-al-maidah-justice-despite-dislike",
     "publication_date": "2026-10-22",
@@ -16,14 +16,14 @@
     "topic_en": "Justice under dislike: resisting the influence of hostility on judgment",
     "working_title_ar": "هل يتغير ميزان العدل حين نختلف؟",
     "working_title_en": "Does Justice Change When We Disagree?",
-    "status": "research_completed",
+    "status": "quran_verified",
     "quranic_focus": {
       "surah": "Al-Ma'idah",
       "surah_ar": "المائدة",
       "ayahs": [
         8
       ],
-      "status": "pending_verification"
+      "status": "verified"
     },
     "research_notes_path": "automation/quran-reflections/reflection-al-maidah-justice-despite-dislike/research-notes.md",
     "research_status": "completed",
@@ -68,6 +68,25 @@
         "url": "https://corpus.quran.com/translation.jsp?chapter=5&verse=8",
         "status": "reviewed"
       }
+    ],
+    "verified_quranic_references": [
+      {
+        "surah": "Al-Ma'idah",
+        "surah_ar": "المائدة",
+        "ayahs": [
+          8
+        ],
+        "context_ayahs": [
+          2,
+          7,
+          9
+        ],
+        "status": "verified",
+        "primary_text_urls": [
+          "https://legacy.quran.com/5/8"
+        ],
+        "verified_at": "2026-10-22T17:30:00+04:00"
+      }
     ]
   },
   "stage_order": [
@@ -101,12 +120,12 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Perform the independent Qur’anic verification gate for Al-Ma'idah 5:8: exact Arabic text, surah and ayah numbering, context 5:2 and 5:7–9, tafsir agreement, and Sahih International attribution.",
+  "next_action": "Read the Arabic language/TTS and Arabic editorial standards, then write and save the complete Arabic draft in automation/quran-reflections/reflection-al-maidah-justice-despite-dislike/draft-ar.md.",
   "last_run": {
     "mode": "coordinator_daily_start",
     "status": "in_progress",
     "started_at": "2026-10-22T17:03:02+04:00",
-    "checkpointed_at": "2026-10-22T17:24:00+04:00",
+    "checkpointed_at": "2026-10-22T17:30:00+04:00",
     "starting_head": "7f010fa8471b9c1712be2e37e52b81695068938c"
   },
   "workflow_id": "quran_reflections",
@@ -297,7 +316,8 @@
     "load_checkpoint",
     "duplicate_check",
     "topic_selection",
-    "research"
+    "research",
+    "quran_verification"
   ],
   "duplicate_check": {
     "date": "2026-10-22",
