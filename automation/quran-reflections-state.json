@@ -5,7 +5,7 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-23T18:11:00+04:00",
+  "updated_at": "2026-10-23T18:57:00+04:00",
   "workflow_status": "in_progress",
   "current_stage": "arabic_draft",
   "current_article": {
@@ -112,18 +112,22 @@
     "mode": "coordinator_resume",
     "status": "in_progress",
     "started_at": "2026-10-23T17:00:45+04:00",
-    "starting_head": "4bd4159bf9ac6100c7055e08a7cacfb51c5de25a",
-    "notes": "Exact Qur’anic text, numbering, context, Sahih International source and tafsir attribution boundaries verified. Lease released at the checkpoint.",
+    "starting_head": "88167a7e0bf2705d503248a95074aedaf36bdb67",
+    "notes": "Lease acquired to resume the Arabic drafting stage from the verified Qur’anic checkpoint.",
     "last_checkpoint": "quran_verification",
     "last_checkpoint_at": "2026-10-23T18:11:00+04:00",
     "head_before_checkpoint": "f052a77a655afba9e53ddd87697d3cb5d979dfe9",
     "artifact_commit": "bbb98284fb18892f8438a50cf0653eff9c86b6c5",
     "research_commit": "e7897197a51ca7d321eaf7eab160fb21ca090fac",
-    "resumed_at": "2026-10-23T18:03:29+04:00",
+    "resumed_at": "2026-10-23T18:56:55+04:00",
     "quran_verification_commit": "f052a77a655afba9e53ddd87697d3cb5d979dfe9"
   },
   "workflow_id": "quran_reflections",
-  "run_lease": null,
+  "run_lease": {
+    "owner": "central-resume-coordinator-2026-10-23T18:56:55+04:00",
+    "acquired_at": "2026-10-23T18:56:55+04:00",
+    "expires_at": "2026-10-23T20:46:55+04:00"
+  },
   "checkpoint_policy": {
     "checkpoint_after_every_stage": true,
     "run_lease_minutes": 110,
