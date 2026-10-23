@@ -7,9 +7,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-23T08:59:00+04:00",
+  "updated_at": "2026-10-23T09:04:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "english_draft",
+  "current_stage": "bilingual_parity",
   "run_lease": {
     "owner": "chatgpt-work-tenx-cases-20261023T073400+04",
     "acquired_at": "2026-10-23T07:39:00+04:00",
@@ -68,6 +68,11 @@
       "status": "drafted_with_critique_applied",
       "path": "automation/10x-cases/case-sweden-vision-zero-safe-system-road-safety/draft-en.md",
       "commit": "f10094138e9a810eade23d5af85c6888dece4d2b"
+    },
+    "bilingual_parity": {
+      "status": "passed",
+      "path": "automation/10x-cases/case-sweden-vision-zero-safe-system-road-safety/bilingual-parity-review.md",
+      "commit": "d8bc5870a0c82c18c408bcc40ed13b41891b9b14"
     }
   },
   "stage_order": [
@@ -109,7 +114,7 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Run claim-by-claim bilingual parity review for facts, figures, causal boundaries, structure, video and disclaimers.",
+  "next_action": "Run Final Quality Gate across evidence, numbers, causality, editorial independence, rights, SEO and technical publication requirements.",
   "last_run": {
     "mode": "daily_primary_run",
     "status": "in_progress",
@@ -204,6 +209,7 @@
     "backcasting_and_10x_analysis",
     "arabic_draft",
     "company_insider_critique",
-    "english_draft"
+    "english_draft",
+    "bilingual_parity"
   ]
 }
