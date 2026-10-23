@@ -7,9 +7,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-23T22:10:00+04:00",
+  "updated_at": "2026-10-23T22:13:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "study_selection",
+  "current_stage": "evidence_pack",
   "run_lease": {
     "owner": "automation-agentic-ai-6ab56c5eee2481919cac424410c6b3f8",
     "acquired_at": "2026-10-23T22:05:00+04:00",
@@ -21,7 +21,7 @@
     "title_ar": "هل تُعدّ موافقة الإنسان على خطوات الوكيل الذكي رقابةً حقيقية، أم ختمًا شكليًا؟",
     "title_en": "When a Person Approves an AI Agent's Actions, Is That Real Oversight or a Rubber Stamp?",
     "research_status": "completed",
-    "evidence_pack_status": "pending",
+    "evidence_pack_status": "completed",
     "arabic_draft": {
       "status": "reconciling",
       "path": "article-agentic-ai-human-approval-oversight.html"
@@ -76,7 +76,7 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Build and commit the source-by-source Evidence Pack for the reconciled human-approval article.",
+  "next_action": "Reconstruct every reported percentage with its denominator, identify approximate inferred counts, and commit the metrics check.",
   "last_run": {
     "mode": "scheduled_daily",
     "status": "in_progress",
