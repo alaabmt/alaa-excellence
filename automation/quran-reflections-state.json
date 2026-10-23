@@ -5,7 +5,7 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-23T20:07:00+04:00",
+  "updated_at": "2026-10-23T21:00:00+04:00",
   "workflow_status": "in_progress",
   "current_stage": "english_draft",
   "current_article": {
@@ -124,21 +124,25 @@
     "mode": "coordinator_resume",
     "status": "in_progress",
     "started_at": "2026-10-23T17:00:45+04:00",
-    "starting_head": "9292a32f0f285855c3e8f9158326587b9f558274",
-    "notes": "Independent critique passed after five targeted Arabic revisions: one continuous hypothetical example, clearer tafsir/reflection boundary, softer precise wording, corrected 10X sentence and removal of meta phrasing. No blocking Qur’an, tafsir or creed error. Lease released at the checkpoint.",
+    "starting_head": "4da832631fa9e9b310a533a5dc8117ebac8bbb80",
+    "notes": "Lease acquired to write the original English draft from the reviewed Arabic source and verified translation.",
     "last_checkpoint": "independent_critique",
     "last_checkpoint_at": "2026-10-23T20:07:00+04:00",
     "head_before_checkpoint": "b526b313ea590015b44b94571ec2217a3b09c613",
     "artifact_commit": "bbb98284fb18892f8438a50cf0653eff9c86b6c5",
     "research_commit": "e7897197a51ca7d321eaf7eab160fb21ca090fac",
-    "resumed_at": "2026-10-23T19:59:36+04:00",
+    "resumed_at": "2026-10-23T20:59:50+04:00",
     "quran_verification_commit": "f052a77a655afba9e53ddd87697d3cb5d979dfe9",
     "arabic_draft_commit": "a7bd351b1ef0114b2c38c53d86f03652a71f99be",
     "arabic_revision_commit": "f192260f91fdbb2b0d00b7a10b7a81c725816615",
     "independent_critique_commit": "b526b313ea590015b44b94571ec2217a3b09c613"
   },
   "workflow_id": "quran_reflections",
-  "run_lease": null,
+  "run_lease": {
+    "owner": "central-resume-coordinator-2026-10-23T20:59:50+04:00",
+    "acquired_at": "2026-10-23T20:59:50+04:00",
+    "expires_at": "2026-10-23T22:49:50+04:00"
+  },
   "checkpoint_policy": {
     "checkpoint_after_every_stage": true,
     "run_lease_minutes": 110,
