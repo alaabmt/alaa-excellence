@@ -7,20 +7,64 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-23T10:02:00+04:00",
-  "workflow_status": "in_progress",
-  "current_stage": "live_verification",
-  "run_lease": {
-    "owner": "chatgpt-work-tenx-cases-20261023T073400+04",
-    "acquired_at": "2026-10-23T07:39:00+04:00",
-    "expires_at": "2026-10-23T10:37:00+04:00"
+  "updated_at": "2026-10-23T10:17:00+04:00",
+  "workflow_status": "completed",
+  "current_stage": "completed",
+  "run_lease": null,
+  "current_item": null,
+  "stage_order": [
+    "capability_check",
+    "load_checkpoint",
+    "duplicate_check",
+    "candidate_scan",
+    "evidence_pack",
+    "backcasting_and_10x_analysis",
+    "arabic_draft",
+    "company_insider_critique",
+    "english_draft",
+    "bilingual_parity",
+    "final_quality_gate",
+    "repository_publish",
+    "actions_and_pages",
+    "live_verification",
+    "completion_report",
+    "completed"
+  ],
+  "artifact_policy": {
+    "root": "automation/10x-cases/<slug>/",
+    "files": [
+      "candidate-notes.md",
+      "evidence-pack.md",
+      "draft-ar.md",
+      "draft-en.md",
+      "company-insider-critique.md",
+      "quality-review.md",
+      "publication-report.md"
+    ]
   },
-  "current_item": {
+  "checkpoint_policy": {
+    "checkpoint_after_every_stage": true,
+    "run_lease_minutes": 110,
+    "concurrency_rule": "Re-read the state before work. Skip while another unexpired run lease exists. Acquire the lease in a committed state update and re-read before every later write.",
+    "interruption_rule": "Resume only from a completed stage boundary. Reconcile pending or uncertain external actions before replaying them.",
+    "usage_limit_rule": "If safe writing remains possible, set retry_waiting, preserve next_action, record the blocker and release the lease. Otherwise leave the last valid checkpoint untouched for the hourly retry.",
+    "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
+    "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
+  },
+  "next_action": "On the next scheduled run, verify no 10X case already exists for that Asia/Dubai date before acquiring a new lease and scanning candidates.",
+  "last_run": {
+    "mode": "daily_primary_run",
+    "status": "completed",
+    "started_at": "2026-10-23T07:34:00+04:00",
+    "completed_at": "2026-10-23T10:17:00+04:00",
+    "notes": "Sweden Vision Zero bilingual case published, Actions and Pages passed after cover-registry reconciliation, and live AR/EN pages, covers, metadata, indexes and sitemap were verified."
+  },
+  "last_completed_item": {
     "slug": "case-sweden-vision-zero-safe-system-road-safety",
     "publication_date": "2026-10-23",
     "title_ar": "كيف نقلت السويد سلامة الطرق من تصحيح خطأ السائق إلى تصميم نظام يتسامح مع الخطأ؟",
     "title_en": "How Sweden Shifted Road Safety from Correcting Driver Error to Designing for Human Error",
-    "candidate_status": "published_to_main_pending_actions",
+    "candidate_status": "published_live_verified",
     "artifact_root": "automation/10x-cases/case-sweden-vision-zero-safe-system-road-safety/",
     "candidate_notes": {
       "path": "automation/10x-cases/case-sweden-vision-zero-safe-system-road-safety/candidate-notes.md",
@@ -88,7 +132,7 @@
       ]
     },
     "publishing": {
-      "status": "final_reference_numbering_fix_pending_pages",
+      "status": "published_live_verified",
       "arabic_path": "case-sweden-vision-zero-safe-system-road-safety.html",
       "english_path": "en/case-sweden-vision-zero-safe-system-road-safety.html",
       "arabic_url": "https://tamayuz10x.com/case-sweden-vision-zero-safe-system-road-safety.html",
@@ -103,11 +147,22 @@
       "failure_cause": "Published page was not registered in data/article-covers.json and used a noncanonical cover version.",
       "cover_registry_fix_commit": "49f2f519b6967a6e9f13a827647220b4bdd4d22a",
       "social_cards_commit": "7cc497015a0853e39b25bf25eafbd4ee9df8f6e0",
-      "pages_run": "https://github.com/alaabmt/alaa-excellence/actions/runs/39897232490",
-      "actions": "passed_after_cover_registry_fix"
+      "pages_run": "https://github.com/alaabmt/alaa-excellence/actions/runs/39897519073",
+      "actions": "passed",
+      "final_content_commit": "f9427a7f335cd68c08bdaf44a57419db42cdca9b",
+      "pages": "passed_exact_final_content_head",
+      "live_verification": "passed",
+      "index_verification": "passed_ar_en_single_card",
+      "sitemap_verification": "passed_ar_en_single_entry",
+      "image_verification": "passed_1200x630_ar_en"
+    },
+    "publication_report": {
+      "path": "automation/10x-cases/case-sweden-vision-zero-safe-system-road-safety/publication-report.md",
+      "commit": "24f9a8d190f8b358e928c68fa1c179dea559306a"
     }
   },
-  "stage_order": [
+  "run_date": "2026-10-23",
+  "completed_stages": [
     "capability_check",
     "load_checkpoint",
     "duplicate_check",
@@ -124,126 +179,5 @@
     "live_verification",
     "completion_report",
     "completed"
-  ],
-  "artifact_policy": {
-    "root": "automation/10x-cases/<slug>/",
-    "files": [
-      "candidate-notes.md",
-      "evidence-pack.md",
-      "draft-ar.md",
-      "draft-en.md",
-      "company-insider-critique.md",
-      "quality-review.md",
-      "publication-report.md"
-    ]
-  },
-  "checkpoint_policy": {
-    "checkpoint_after_every_stage": true,
-    "run_lease_minutes": 110,
-    "concurrency_rule": "Re-read the state before work. Skip while another unexpired run lease exists. Acquire the lease in a committed state update and re-read before every later write.",
-    "interruption_rule": "Resume only from a completed stage boundary. Reconcile pending or uncertain external actions before replaying them.",
-    "usage_limit_rule": "If safe writing remains possible, set retry_waiting, preserve next_action, record the blocker and release the lease. Otherwise leave the last valid checkpoint untouched for the hourly retry.",
-    "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
-    "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
-  },
-  "next_action": "Wait for Pages on the reference-numbering fix, then repeat live page, image, metadata, index and sitemap verification and write publication report.",
-  "last_run": {
-    "mode": "daily_primary_run",
-    "status": "in_progress",
-    "started_at": "2026-10-23T07:34:00+04:00",
-    "notes": "Duplicate screen passed. Sweden Vision Zero selected after UAE, regional and global scan because it documents a system-level operating-model transformation with primary, independent and academic evidence; publication remains conditional."
-  },
-  "last_completed_item": {
-    "slug": "case-india-upi-interoperable-payments-infrastructure",
-    "publication_date": "2026-10-22",
-    "title_ar": "كيف حوّلت الهند المدفوعات الفورية إلى بنية مشتركة مفتوحة؟",
-    "title_en": "How India Turned Instant Payments into Shared Infrastructure",
-    "candidate_status": "published_live_verified",
-    "artifact_root": "automation/10x-cases/case-india-upi-interoperable-payments-infrastructure/",
-    "evidence_pack": {
-      "status": "passed",
-      "path": "automation/10x-cases/case-india-upi-interoperable-payments-infrastructure/evidence-pack.md",
-      "commit": "35a1b0c92b15669242016d0dd88cfa148de84727",
-      "confidence": {
-        "implementation": "high",
-        "operating_model": "high",
-        "scale": "high",
-        "interoperability_contribution": "medium_high",
-        "inclusion_causality": "insufficient"
-      }
-    },
-    "analysis": {
-      "status": "passed",
-      "path": "automation/10x-cases/case-india-upi-interoperable-payments-infrastructure/backcasting-and-10x-analysis.md",
-      "commit": "c8f5ee11581692787e743d840a6a7f5a4cd3f0d3"
-    },
-    "arabic_draft": {
-      "status": "revised_after_critique",
-      "path": "automation/10x-cases/case-india-upi-interoperable-payments-infrastructure/draft-ar.md",
-      "commit": "40fd254424caae5d1ae4f990c3659c2a2cdaa5bc",
-      "revision_commit": "119e3a96e895a09871b6d5c104978a5411436521"
-    },
-    "company_insider_critique": {
-      "status": "passed_with_required_revisions",
-      "path": "automation/10x-cases/case-india-upi-interoperable-payments-infrastructure/company-insider-critique.md",
-      "commit": "8bd1834e5bcb91a353241d9d87881cd593bf3b2e"
-    },
-    "english_draft": {
-      "status": "drafted_with_critique_applied",
-      "path": "automation/10x-cases/case-india-upi-interoperable-payments-infrastructure/draft-en.md",
-      "commit": "ff809a7ef38c1220fc6d02f4cdf4e492f81bcb77"
-    },
-    "bilingual_parity": {
-      "status": "passed",
-      "path": "automation/10x-cases/case-india-upi-interoperable-payments-infrastructure/bilingual-parity-review.md",
-      "commit": "1798c55b616fc4b15e4399dcc89dcc0f7c37951e"
-    },
-    "final_quality_gate": {
-      "status": "passed",
-      "path": "automation/10x-cases/case-india-upi-interoperable-payments-infrastructure/quality-review.md",
-      "commit": "04a1475b42879c04d9ec159ee1a27e6a8f4a421a"
-    },
-    "publishing": {
-      "status": "published_live_verified",
-      "first_publication_commit": "9729684b32c732c513111edfc7f6e197bc1cdfd8",
-      "arabic_path": "case-india-upi-interoperable-payments-infrastructure.html",
-      "english_path": "en/case-india-upi-interoperable-payments-infrastructure.html",
-      "arabic_url": "https://tamayuz10x.com/case-india-upi-interoperable-payments-infrastructure.html",
-      "english_url": "https://tamayuz10x.com/en/case-india-upi-interoperable-payments-infrastructure.html",
-      "covers": [
-        "assets/previews/story/case-india-upi-interoperable-payments-infrastructure-ar.jpg",
-        "assets/previews/story/case-india-upi-interoperable-payments-infrastructure-en.jpg"
-      ],
-      "disclaimer_fix_commit": "7fc57372303061ff267070a36ca1412ec1e08ebe",
-      "sitemap_reconciliation_commit": "97242f1cefc9d0ec06b468bcd9b7442d09b959c5",
-      "cover_fix_commit": "ff63d12803427f4dc2da4b1d264e23f6721520c6",
-      "final_content_commit": "00c35e99de4b47635f60ff5ef6fbe3d1ce94e9a1",
-      "actions": "passed",
-      "pages": "passed_exact_final_content_head",
-      "pages_run": "https://github.com/alaabmt/alaa-excellence/actions/runs/39718491915",
-      "live_verification": "passed",
-      "index_verification": "passed_ar_en_single_card",
-      "sitemap_verification": "passed_ar_en_single_entry",
-      "image_verification": "passed_1200x630_ar_en"
-    },
-    "publication_report": {
-      "path": "automation/10x-cases/case-india-upi-interoperable-payments-infrastructure/publication-report.md",
-      "commit": "895c287b87ac5fd3ffc50c1e0f136d7a465c05a7"
-    }
-  },
-  "run_date": "2026-10-23",
-  "completed_stages": [
-    "capability_check",
-    "load_checkpoint",
-    "duplicate_check",
-    "candidate_scan",
-    "evidence_pack",
-    "backcasting_and_10x_analysis",
-    "arabic_draft",
-    "company_insider_critique",
-    "english_draft",
-    "bilingual_parity",
-    "final_quality_gate",
-    "repository_publish"
   ]
 }
