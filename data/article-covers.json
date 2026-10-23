@@ -1635,6 +1635,27 @@
         "subtitle": "From scheduling simulation to a live data-center deployment.",
         "alt": "Navy and gold illustrative cover for an article about an agent evolving a data-center scheduling algorithm, showing computing infrastructure, a resource grid and a verification check."
       }
+    },
+    {
+      "slug": "case-sweden-vision-zero-safe-system-road-safety",
+      "reference": true,
+      "category": "case",
+      "ar": {
+        "source": "assets/previews/story/case-sweden-vision-zero-safe-system-road-safety-ar.jpg",
+        "title": [
+          "السويد والرؤية صفر"
+        ],
+        "subtitle": "نظام يتسامح مع الخطأ",
+        "alt": "غلاف أصلي لحالة الرؤية صفر في السويد، يظهر طريق 2+1 بحاجز وسطي في مشهد اسكندنافي."
+      },
+      "en": {
+        "source": "assets/previews/story/case-sweden-vision-zero-safe-system-road-safety-en.jpg",
+        "title": [
+          "Sweden & Vision Zero"
+        ],
+        "subtitle": "Designing for human error",
+        "alt": "Original cover for Sweden’s Vision Zero case, showing a median-separated 2+1 road in a Nordic landscape."
+      }
     }
   ]
 }
