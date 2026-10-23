@@ -7,19 +7,19 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-23T08:43:00+04:00",
+  "updated_at": "2026-10-23T08:47:00+04:00",
   "workflow_status": "in_progress",
   "current_stage": "company_insider_critique",
   "run_lease": {
     "owner": "chatgpt-work-tenx-cases-20261023T073400+04",
     "acquired_at": "2026-10-23T07:39:00+04:00",
-    "expires_at": "2026-10-23T09:29:00+04:00"
+    "expires_at": "2026-10-23T10:37:00+04:00"
   },
   "current_item": {
     "slug": "case-sweden-vision-zero-safe-system-road-safety",
     "publication_date": "2026-10-23",
-    "title_ar": "كيف نقلت السويد سلامة الطرق من لوم السائق إلى تصميم نظام يتسامح مع الخطأ؟",
-    "title_en": "How Sweden Shifted Road Safety from Blaming Drivers to Designing for Human Error",
+    "title_ar": "كيف نقلت السويد سلامة الطرق من تصحيح خطأ السائق إلى تصميم نظام يتسامح مع الخطأ؟",
+    "title_en": "How Sweden Shifted Road Safety from Correcting Driver Error to Designing for Human Error",
     "candidate_status": "evidence_passed",
     "artifact_root": "automation/10x-cases/case-sweden-vision-zero-safe-system-road-safety/",
     "candidate_notes": {
@@ -54,9 +54,10 @@
       ]
     },
     "arabic_draft": {
-      "status": "drafted",
+      "status": "revised_after_critique",
       "path": "automation/10x-cases/case-sweden-vision-zero-safe-system-road-safety/draft-ar.md",
-      "commit": "f665242886ee048d99489c7f2865089e34f391b8"
+      "commit": "f665242886ee048d99489c7f2865089e34f391b8",
+      "revision_commit": "86a742f7d4dbe539aedc40891105aa4d20127885"
     },
     "company_insider_critique": {
       "status": "passed_with_required_revisions",
@@ -103,7 +104,7 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Apply required critique revisions to the Arabic draft, then prepare fact-equivalent natural English.",
+  "next_action": "Prepare fact-equivalent natural English from the revised Arabic draft.",
   "last_run": {
     "mode": "daily_primary_run",
     "status": "in_progress",
