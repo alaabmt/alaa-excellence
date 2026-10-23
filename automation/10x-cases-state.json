@@ -7,15 +7,26 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-23T07:39:00+04:00",
+  "updated_at": "2026-10-23T08:03:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "duplicate_check",
+  "current_stage": "candidate_scan",
   "run_lease": {
     "owner": "chatgpt-work-tenx-cases-20261023T073400+04",
     "acquired_at": "2026-10-23T07:39:00+04:00",
     "expires_at": "2026-10-23T09:29:00+04:00"
   },
-  "current_item": null,
+  "current_item": {
+    "slug": "case-sweden-vision-zero-safe-system-road-safety",
+    "publication_date": "2026-10-23",
+    "title_ar": "كيف نقلت السويد سلامة الطرق من لوم السائق إلى تصميم نظام يتسامح مع الخطأ؟",
+    "title_en": "How Sweden Shifted Road Safety from Blaming Drivers to Designing for Human Error",
+    "candidate_status": "selected_for_evidence_pack",
+    "artifact_root": "automation/10x-cases/case-sweden-vision-zero-safe-system-road-safety/",
+    "candidate_notes": {
+      "path": "automation/10x-cases/case-sweden-vision-zero-safe-system-road-safety/candidate-notes.md",
+      "commit": "99b4e03754c9d2482ae092d69435ca52c19c441e"
+    }
+  },
   "stage_order": [
     "capability_check",
     "load_checkpoint",
@@ -55,12 +66,12 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Scan UAE, regional and global candidates for a documented institutional transformation not already published; prefer stronger Arabic/UAE evidence when quality is equal.",
+  "next_action": "Build claim-level Evidence Pack for Sweden Vision Zero; separate intent, design capacity, implementation, achieved results and causal limits.",
   "last_run": {
     "mode": "daily_primary_run",
     "status": "in_progress",
     "started_at": "2026-10-23T07:34:00+04:00",
-    "notes": "No 2026-10-23 10X case found in durable state, publication registry, Arabic/English indexes or live index check. Current repository and Drive guidance loaded; lease acquired."
+    "notes": "Duplicate screen passed. Sweden Vision Zero selected after UAE, regional and global scan because it documents a system-level operating-model transformation with primary, independent and academic evidence; publication remains conditional."
   },
   "last_completed_item": {
     "slug": "case-india-upi-interoperable-payments-infrastructure",
@@ -144,6 +155,7 @@
   "completed_stages": [
     "capability_check",
     "load_checkpoint",
-    "duplicate_check"
+    "duplicate_check",
+    "candidate_scan"
   ]
 }
