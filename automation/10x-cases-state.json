@@ -7,9 +7,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-23T08:38:00+04:00",
+  "updated_at": "2026-10-23T08:43:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "arabic_draft",
+  "current_stage": "company_insider_critique",
   "run_lease": {
     "owner": "chatgpt-work-tenx-cases-20261023T073400+04",
     "acquired_at": "2026-10-23T07:39:00+04:00",
@@ -57,6 +57,11 @@
       "status": "drafted",
       "path": "automation/10x-cases/case-sweden-vision-zero-safe-system-road-safety/draft-ar.md",
       "commit": "f665242886ee048d99489c7f2865089e34f391b8"
+    },
+    "company_insider_critique": {
+      "status": "passed_with_required_revisions",
+      "path": "automation/10x-cases/case-sweden-vision-zero-safe-system-road-safety/company-insider-critique.md",
+      "commit": "693fb45380e2aaca293b1e756a31d882c033547e"
     }
   },
   "stage_order": [
@@ -98,7 +103,7 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Run Company Insider Critique as a simulated internal challenge; require revisions for any overclaim, missing constraint or operational inaccuracy.",
+  "next_action": "Apply required critique revisions to the Arabic draft, then prepare fact-equivalent natural English.",
   "last_run": {
     "mode": "daily_primary_run",
     "status": "in_progress",
@@ -191,6 +196,7 @@
     "candidate_scan",
     "evidence_pack",
     "backcasting_and_10x_analysis",
-    "arabic_draft"
+    "arabic_draft",
+    "company_insider_critique"
   ]
 }
