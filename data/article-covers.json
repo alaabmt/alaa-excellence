@@ -5,6 +5,27 @@
   "maxBytes": 170000,
   "cards": [
     {
+      "slug": "reflection-al-kahf-speaking-about-tomorrow",
+      "background": "assets/previews/story-backgrounds/reflection-al-baqarah-write-it-down.jpg",
+      "category": "reflection",
+      "ar": {
+        "title": [
+          "ماذا يتغير حين",
+          "نجزم بالغد؟"
+        ],
+        "subtitle": "نعزم ونعمل، لكن الغد لا يصبح ملكًا لنا؛ نرده إلى مشيئة الله ونصحح الطريق عند ظهور ما هو أرشد.",
+        "alt": "غلاف رمزي بالكحلي والذهبي لتأمل التواضع أمام الغد، يظهر دفترًا مفتوحًا ومسارًا ذهبيًا يرمزان إلى التخطيط مع بقاء المستقبل غير مضمون."
+      },
+      "en": {
+        "title": [
+          "What Changes When We Speak",
+          "Too Certainly About Tomorrow?"
+        ],
+        "subtitle": "We resolve and work without claiming tomorrow as ours, returning the outcome to Allah’s will.",
+        "alt": "Navy and gold symbolic cover for a reflection on humility before tomorrow, showing an open ledger and a golden path that suggest planning without possession of the future."
+      }
+    },
+    {
       "slug": "reflection-al-maidah-justice-despite-dislike",
       "background": "assets/previews/story-backgrounds/reflection-shuayb-fair-measure.jpg",
       "category": "reflection",
