@@ -5,9 +5,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-24T03:15:00+04:00",
+  "updated_at": "2026-10-24T03:18:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "completion_report",
+  "current_stage": "completed",
   "current_article": {
     "article_id": "quran-reflection-2026-10-23-al-kahf-speaking-about-tomorrow",
     "publication_date": "2026-10-23",
@@ -16,7 +16,7 @@
     "topic_en": "Humility before tomorrow: resolve under Allah’s will, remembrance and correction after forgetting",
     "working_title_ar": "ماذا يتغير حين نجزم بالغد؟",
     "working_title_en": "What Changes When We Speak Too Certainly About Tomorrow?",
-    "status": "published_live_verified_report_pending",
+    "status": "publication_report_saved_completion_pending",
     "quranic_focus": {
       "surah": "Al-Kahf",
       "surah_ar": "الكهف",
@@ -227,7 +227,13 @@
         "https://tamayuz10x.com/reflection-al-kahf-speaking-about-tomorrow.html",
         "https://tamayuz10x.com/en/reflection-al-kahf-speaking-about-tomorrow.html"
       ]
-    }
+    },
+    "publication_report": {
+      "status": "saved",
+      "path": "automation/quran-reflections/reflection-al-kahf-speaking-about-tomorrow/publication-report.md",
+      "commit": "4f25b2e1f5d77d2a5ddf5c0ff744af312eaa893c"
+    },
+    "publication_report_path": "automation/quran-reflections/reflection-al-kahf-speaking-about-tomorrow/publication-report.md"
   },
   "stage_order": [
     "capability_check",
@@ -260,16 +266,16 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Save automation/quran-reflections/reflection-al-kahf-speaking-about-tomorrow/publication-report.md with the verified publication, Actions, Pages, image, metadata, index and sitemap evidence; checkpoint completion_report, then mark the workflow completed and release the lease.",
+  "next_action": "Mark the 23 October 2026 Al-Kahf reflection completed, promote it to last_completed_article, release the run lease, and do not start another Qur’anic reflection before the daily start rule permits a new date.",
   "last_run": {
     "mode": "coordinator_resume",
     "status": "in_progress",
     "started_at": "2026-10-23T17:00:45+04:00",
     "starting_head": "99b75ab3cc1200cea31373b3092ec36f0df7d644",
     "notes": "Repository publication completed. Paired pages, four indexes, topic registry, cover manifest, sitemap and both generated social JPEGs are present; automatic sitemap and social-cover commits were reconciled as descendants. Pages and live verification remain pending.",
-    "last_checkpoint": "live_verification",
-    "last_checkpoint_at": "2026-10-24T03:15:00+04:00",
-    "head_before_checkpoint": "168b7c65cd4ffbc9de58e8713ae9d5b66b37c759",
+    "last_checkpoint": "completion_report",
+    "last_checkpoint_at": "2026-10-24T03:18:00+04:00",
+    "head_before_checkpoint": "4f25b2e1f5d77d2a5ddf5c0ff744af312eaa893c",
     "artifact_commit": "bbb98284fb18892f8438a50cf0653eff9c86b6c5",
     "research_commit": "e7897197a51ca7d321eaf7eab160fb21ca090fac",
     "resumed_at": "2026-10-24T03:04:39+04:00",
@@ -281,7 +287,8 @@
     "bilingual_parity_commit": "b78eec0aa42f1a751996f4d7cfd2f322e75d5fb3",
     "quality_gate_commit": "1f971f27d5908f6ace1b760eeea790793f550dcf",
     "repository_publish_commit": "e2320c0ffc465189e47148da68a4f2860f6a57a7",
-    "actions_and_pages_head": "d9b5e8b0c3f763c35e2c0e44d60ec5a0bd52f6ad"
+    "actions_and_pages_head": "d9b5e8b0c3f763c35e2c0e44d60ec5a0bd52f6ad",
+    "publication_report_commit": "4f25b2e1f5d77d2a5ddf5c0ff744af312eaa893c"
   },
   "workflow_id": "quran_reflections",
   "run_lease": {
@@ -527,7 +534,8 @@
     "quality_gate",
     "repository_publish",
     "actions_and_pages",
-    "live_verification"
+    "live_verification",
+    "completion_report"
   ],
   "duplicate_check": {
     "status": "passed_before_publication",
