@@ -7,35 +7,35 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-21T22:12:00+04:00",
+  "updated_at": "2026-10-22T22:15:00+04:00",
   "workflow_status": "completed",
   "current_stage": "completed",
   "run_lease": null,
   "current_item": {
-    "slug": "article-agentic-ai-productivity-measurement-bias",
-    "publication_date": "2026-10-21",
-    "title_ar": "حين لا يريد المطورون العمل بلا وكيل ذكي: لماذا أصبح قياس الإنتاجية أصعب؟",
-    "title_en": "When Developers Do Not Want to Work Without AI: Why Productivity Became Harder to Measure",
+    "slug": "article-agentic-ai-alphaevolve-compute-scheduling",
+    "publication_date": "2026-10-22",
+    "title_ar": "عندما تركت مراكز البيانات قدرة حاسوبية عاطلة: كيف كتب وكيل خوارزمية تستردها؟",
+    "title_en": "When Data Centers Left Computing Capacity Stranded: How an Agent Wrote a Better Scheduler",
     "research_status": "completed",
     "evidence_pack_status": "completed",
     "arabic_draft": {
       "status": "reconciled",
-      "path": "article-agentic-ai-productivity-measurement-bias.html"
+      "path": "article-agentic-ai-alphaevolve-compute-scheduling.html"
     },
     "english_draft": {
       "status": "reconciled",
-      "path": "en/article-agentic-ai-productivity-measurement-bias.html"
+      "path": "en/article-agentic-ai-alphaevolve-compute-scheduling.html"
     },
     "publishing": {
       "status": "verified",
-      "arabic_url": "https://tamayuz10x.com/article-agentic-ai-productivity-measurement-bias.html",
-      "english_url": "https://tamayuz10x.com/en/article-agentic-ai-productivity-measurement-bias.html",
-      "publication_commit": "9632097cbdd5fe4d139f0cd5c38a5c07f5175fd9",
-      "verification_commit": "9632097cbdd5fe4d139f0cd5c38a5c07f5175fd9",
-      "report_commit": "dd8248dae67bcfee76e96a2cbf03b3f84f28abc6",
-      "pages_run_id": 39650055577,
-      "pages_run_number": 1711,
-      "social_cards_run_number": 370
+      "arabic_url": "https://tamayuz10x.com/article-agentic-ai-alphaevolve-compute-scheduling.html",
+      "english_url": "https://tamayuz10x.com/en/article-agentic-ai-alphaevolve-compute-scheduling.html",
+      "publication_commit": "37758bf08b59b6c81cef8a84c516cb2bd7760483",
+      "verification_commit": "64690f1581c0441fa5a9b4e6b0d02639284f94cd",
+      "report_commit": "b559a04eb11dde1c41f70a6476fa9e7aac217992",
+      "pages_run_id": 39829283746,
+      "pages_run_number": 1801,
+      "social_cards_run_number": 381
     }
   },
   "stage_order": [
@@ -81,36 +81,36 @@
   "last_run": {
     "mode": "scheduled_daily",
     "status": "completed",
-    "started_at": "2026-10-21T21:57:00+04:00",
-    "notes": "Published and live. Bilingual editorial, metric, parity and beginner-comprehension gates passed. Reviewed bilingual social covers generated. GitHub Pages run #1711 succeeded for commit 9632097; both article pages and both specialist cards were verified live, and the general article indexes remained unchanged.",
-    "completed_at": "2026-10-21T22:12:00+04:00"
+    "started_at": "2026-10-22T21:59:00+04:00",
+    "notes": "Published and live. Bilingual editorial, metric, parity and beginner-comprehension gates passed. Reviewed bilingual social covers generated. GitHub Pages run #1801 succeeded for exact repository head 64690f1; both article pages and both specialist cards were verified live, and the general article indexes remained unchanged.",
+    "completed_at": "2026-10-22T22:15:00+04:00"
   },
   "blocker": null,
   "last_completed_item": {
-    "slug": "article-agentic-ai-productivity-measurement-bias",
-    "publication_date": "2026-10-21",
-    "title_ar": "حين لا يريد المطورون العمل بلا وكيل ذكي: لماذا أصبح قياس الإنتاجية أصعب؟",
-    "title_en": "When Developers Do Not Want to Work Without AI: Why Productivity Became Harder to Measure",
+    "slug": "article-agentic-ai-alphaevolve-compute-scheduling",
+    "publication_date": "2026-10-22",
+    "title_ar": "عندما تركت مراكز البيانات قدرة حاسوبية عاطلة: كيف كتب وكيل خوارزمية تستردها؟",
+    "title_en": "When Data Centers Left Computing Capacity Stranded: How an Agent Wrote a Better Scheduler",
     "research_status": "completed",
     "evidence_pack_status": "completed",
     "arabic_draft": {
       "status": "reconciled",
-      "path": "article-agentic-ai-productivity-measurement-bias.html"
+      "path": "article-agentic-ai-alphaevolve-compute-scheduling.html"
     },
     "english_draft": {
       "status": "reconciled",
-      "path": "en/article-agentic-ai-productivity-measurement-bias.html"
+      "path": "en/article-agentic-ai-alphaevolve-compute-scheduling.html"
     },
     "publishing": {
       "status": "verified",
-      "arabic_url": "https://tamayuz10x.com/article-agentic-ai-productivity-measurement-bias.html",
-      "english_url": "https://tamayuz10x.com/en/article-agentic-ai-productivity-measurement-bias.html",
-      "publication_commit": "9632097cbdd5fe4d139f0cd5c38a5c07f5175fd9",
-      "verification_commit": "9632097cbdd5fe4d139f0cd5c38a5c07f5175fd9",
-      "report_commit": "dd8248dae67bcfee76e96a2cbf03b3f84f28abc6",
-      "pages_run_id": 39650055577,
-      "pages_run_number": 1711,
-      "social_cards_run_number": 370
+      "arabic_url": "https://tamayuz10x.com/article-agentic-ai-alphaevolve-compute-scheduling.html",
+      "english_url": "https://tamayuz10x.com/en/article-agentic-ai-alphaevolve-compute-scheduling.html",
+      "publication_commit": "37758bf08b59b6c81cef8a84c516cb2bd7760483",
+      "verification_commit": "64690f1581c0441fa5a9b4e6b0d02639284f94cd",
+      "report_commit": "b559a04eb11dde1c41f70a6476fa9e7aac217992",
+      "pages_run_id": 39829283746,
+      "pages_run_number": 1801,
+      "social_cards_run_number": 381
     }
   }
 }

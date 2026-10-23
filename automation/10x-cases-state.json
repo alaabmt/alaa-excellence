@@ -7,88 +7,11 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-22T09:24:00+04:00",
+  "updated_at": "2026-10-23T07:59:00+04:00",
   "workflow_status": "completed",
   "current_stage": "completed",
   "run_lease": null,
-  "current_item": {
-    "slug": "case-india-upi-interoperable-payments-infrastructure",
-    "publication_date": "2026-10-22",
-    "title_ar": "كيف حوّلت الهند المدفوعات الفورية إلى بنية مشتركة مفتوحة؟",
-    "title_en": "How India Turned Instant Payments into Shared Infrastructure",
-    "candidate_status": "published_live_verified",
-    "artifact_root": "automation/10x-cases/case-india-upi-interoperable-payments-infrastructure/",
-    "evidence_pack": {
-      "status": "passed",
-      "path": "automation/10x-cases/case-india-upi-interoperable-payments-infrastructure/evidence-pack.md",
-      "commit": "35a1b0c92b15669242016d0dd88cfa148de84727",
-      "confidence": {
-        "implementation": "high",
-        "operating_model": "high",
-        "scale": "high",
-        "interoperability_contribution": "medium_high",
-        "inclusion_causality": "insufficient"
-      }
-    },
-    "analysis": {
-      "status": "passed",
-      "path": "automation/10x-cases/case-india-upi-interoperable-payments-infrastructure/backcasting-and-10x-analysis.md",
-      "commit": "c8f5ee11581692787e743d840a6a7f5a4cd3f0d3"
-    },
-    "arabic_draft": {
-      "status": "revised_after_critique",
-      "path": "automation/10x-cases/case-india-upi-interoperable-payments-infrastructure/draft-ar.md",
-      "commit": "40fd254424caae5d1ae4f990c3659c2a2cdaa5bc",
-      "revision_commit": "119e3a96e895a09871b6d5c104978a5411436521"
-    },
-    "company_insider_critique": {
-      "status": "passed_with_required_revisions",
-      "path": "automation/10x-cases/case-india-upi-interoperable-payments-infrastructure/company-insider-critique.md",
-      "commit": "8bd1834e5bcb91a353241d9d87881cd593bf3b2e"
-    },
-    "english_draft": {
-      "status": "drafted_with_critique_applied",
-      "path": "automation/10x-cases/case-india-upi-interoperable-payments-infrastructure/draft-en.md",
-      "commit": "ff809a7ef38c1220fc6d02f4cdf4e492f81bcb77"
-    },
-    "bilingual_parity": {
-      "status": "passed",
-      "path": "automation/10x-cases/case-india-upi-interoperable-payments-infrastructure/bilingual-parity-review.md",
-      "commit": "1798c55b616fc4b15e4399dcc89dcc0f7c37951e"
-    },
-    "final_quality_gate": {
-      "status": "passed",
-      "path": "automation/10x-cases/case-india-upi-interoperable-payments-infrastructure/quality-review.md",
-      "commit": "04a1475b42879c04d9ec159ee1a27e6a8f4a421a"
-    },
-    "publishing": {
-      "status": "published_live_verified",
-      "first_publication_commit": "9729684b32c732c513111edfc7f6e197bc1cdfd8",
-      "arabic_path": "case-india-upi-interoperable-payments-infrastructure.html",
-      "english_path": "en/case-india-upi-interoperable-payments-infrastructure.html",
-      "arabic_url": "https://tamayuz10x.com/case-india-upi-interoperable-payments-infrastructure.html",
-      "english_url": "https://tamayuz10x.com/en/case-india-upi-interoperable-payments-infrastructure.html",
-      "covers": [
-        "assets/previews/story/case-india-upi-interoperable-payments-infrastructure-ar.jpg",
-        "assets/previews/story/case-india-upi-interoperable-payments-infrastructure-en.jpg"
-      ],
-      "disclaimer_fix_commit": "7fc57372303061ff267070a36ca1412ec1e08ebe",
-      "sitemap_reconciliation_commit": "97242f1cefc9d0ec06b468bcd9b7442d09b959c5",
-      "cover_fix_commit": "ff63d12803427f4dc2da4b1d264e23f6721520c6",
-      "final_content_commit": "00c35e99de4b47635f60ff5ef6fbe3d1ce94e9a1",
-      "actions": "passed",
-      "pages": "passed_exact_final_content_head",
-      "pages_run": "https://github.com/alaabmt/alaa-excellence/actions/runs/39718491915",
-      "live_verification": "passed",
-      "index_verification": "passed_ar_en_single_card",
-      "sitemap_verification": "passed_ar_en_single_entry",
-      "image_verification": "passed_1200x630_ar_en"
-    },
-    "publication_report": {
-      "path": "automation/10x-cases/case-india-upi-interoperable-payments-infrastructure/publication-report.md",
-      "commit": "895c287b87ac5fd3ffc50c1e0f136d7a465c05a7"
-    }
-  },
+  "current_item": null,
   "stage_order": [
     "capability_check",
     "load_checkpoint",
@@ -128,93 +51,117 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "For the next scheduled cycle, re-check the local publication date, durable state, repository indexes and live site before selecting a new case.",
+  "next_action": "On the next scheduled run, verify no 10X case already exists for that Asia/Dubai date before acquiring a new lease and scanning candidates.",
   "last_run": {
     "mode": "daily_primary_run",
     "status": "completed",
-    "started_at": "2026-10-22T07:27:30+04:00",
-    "notes": "India UPI bilingual case published. Evidence, critique, parity and QA passed. Actions and Pages passed; both live pages, covers, metadata, indexes and sitemap verified.",
-    "completed_at": "2026-10-22T09:24:00+04:00"
+    "started_at": "2026-10-23T07:34:00+04:00",
+    "completed_at": "2026-10-23T07:59:00+04:00",
+    "notes": "Sweden Vision Zero bilingual case published; Actions and Pages passed after cover-registry reconciliation; live AR/EN pages, 1200×630 covers, metadata, indexes and sitemap were verified. Final repository-only completion commit was also deployed successfully."
   },
   "last_completed_item": {
-    "slug": "case-india-upi-interoperable-payments-infrastructure",
-    "publication_date": "2026-10-22",
-    "title_ar": "كيف حوّلت الهند المدفوعات الفورية إلى بنية مشتركة مفتوحة؟",
-    "title_en": "How India Turned Instant Payments into Shared Infrastructure",
+    "slug": "case-sweden-vision-zero-safe-system-road-safety",
+    "publication_date": "2026-10-23",
+    "title_ar": "كيف نقلت السويد سلامة الطرق من تصحيح خطأ السائق إلى تصميم نظام يتسامح مع الخطأ؟",
+    "title_en": "How Sweden Shifted Road Safety from Correcting Driver Error to Designing for Human Error",
     "candidate_status": "published_live_verified",
-    "artifact_root": "automation/10x-cases/case-india-upi-interoperable-payments-infrastructure/",
+    "artifact_root": "automation/10x-cases/case-sweden-vision-zero-safe-system-road-safety/",
+    "candidate_notes": {
+      "path": "automation/10x-cases/case-sweden-vision-zero-safe-system-road-safety/candidate-notes.md",
+      "commit": "99b4e03754c9d2482ae092d69435ca52c19c441e"
+    },
     "evidence_pack": {
       "status": "passed",
-      "path": "automation/10x-cases/case-india-upi-interoperable-payments-infrastructure/evidence-pack.md",
-      "commit": "35a1b0c92b15669242016d0dd88cfa148de84727",
+      "path": "automation/10x-cases/case-sweden-vision-zero-safe-system-road-safety/evidence-pack.md",
+      "commit": "cefa38f9a6bfe1f5f5c9f5f78d6500f622e7d925",
       "confidence": {
+        "policy_architecture": "high",
         "implementation": "high",
-        "operating_model": "high",
-        "scale": "high",
-        "interoperability_contribution": "medium_high",
-        "inclusion_causality": "insufficient"
+        "intervention_effects": "high",
+        "national_outcomes": "high",
+        "national_attribution": "medium"
       }
     },
     "analysis": {
       "status": "passed",
-      "path": "automation/10x-cases/case-india-upi-interoperable-payments-infrastructure/backcasting-and-10x-analysis.md",
-      "commit": "c8f5ee11581692787e743d840a6a7f5a4cd3f0d3"
+      "path": "automation/10x-cases/case-sweden-vision-zero-safe-system-road-safety/backcasting-and-10x-analysis.md",
+      "commit": "fc78d94f38bf5e795f16a0d0e844726b753eefb8",
+      "pillars_supported": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
     },
     "arabic_draft": {
       "status": "revised_after_critique",
-      "path": "automation/10x-cases/case-india-upi-interoperable-payments-infrastructure/draft-ar.md",
-      "commit": "40fd254424caae5d1ae4f990c3659c2a2cdaa5bc",
-      "revision_commit": "119e3a96e895a09871b6d5c104978a5411436521"
+      "path": "automation/10x-cases/case-sweden-vision-zero-safe-system-road-safety/draft-ar.md",
+      "commit": "f665242886ee048d99489c7f2865089e34f391b8",
+      "revision_commit": "86a742f7d4dbe539aedc40891105aa4d20127885"
     },
     "company_insider_critique": {
       "status": "passed_with_required_revisions",
-      "path": "automation/10x-cases/case-india-upi-interoperable-payments-infrastructure/company-insider-critique.md",
-      "commit": "8bd1834e5bcb91a353241d9d87881cd593bf3b2e"
+      "path": "automation/10x-cases/case-sweden-vision-zero-safe-system-road-safety/company-insider-critique.md",
+      "commit": "693fb45380e2aaca293b1e756a31d882c033547e"
     },
     "english_draft": {
       "status": "drafted_with_critique_applied",
-      "path": "automation/10x-cases/case-india-upi-interoperable-payments-infrastructure/draft-en.md",
-      "commit": "ff809a7ef38c1220fc6d02f4cdf4e492f81bcb77"
+      "path": "automation/10x-cases/case-sweden-vision-zero-safe-system-road-safety/draft-en.md",
+      "commit": "f10094138e9a810eade23d5af85c6888dece4d2b"
     },
     "bilingual_parity": {
       "status": "passed",
-      "path": "automation/10x-cases/case-india-upi-interoperable-payments-infrastructure/bilingual-parity-review.md",
-      "commit": "1798c55b616fc4b15e4399dcc89dcc0f7c37951e"
+      "path": "automation/10x-cases/case-sweden-vision-zero-safe-system-road-safety/bilingual-parity-review.md",
+      "commit": "d8bc5870a0c82c18c408bcc40ed13b41891b9b14"
     },
     "final_quality_gate": {
       "status": "passed",
-      "path": "automation/10x-cases/case-india-upi-interoperable-payments-infrastructure/quality-review.md",
-      "commit": "04a1475b42879c04d9ec159ee1a27e6a8f4a421a"
+      "path": "automation/10x-cases/case-sweden-vision-zero-safe-system-road-safety/quality-review.md",
+      "commit": "fb5eac24b9fc9640d6adda215bf2d7d33ace9582"
+    },
+    "covers": {
+      "source": "original_ai_generated",
+      "dimensions": "1200x630",
+      "paths": [
+        "assets/previews/story/case-sweden-vision-zero-safe-system-road-safety-ar.jpg",
+        "assets/previews/story/case-sweden-vision-zero-safe-system-road-safety-en.jpg"
+      ]
     },
     "publishing": {
       "status": "published_live_verified",
-      "first_publication_commit": "9729684b32c732c513111edfc7f6e197bc1cdfd8",
-      "arabic_path": "case-india-upi-interoperable-payments-infrastructure.html",
-      "english_path": "en/case-india-upi-interoperable-payments-infrastructure.html",
-      "arabic_url": "https://tamayuz10x.com/case-india-upi-interoperable-payments-infrastructure.html",
-      "english_url": "https://tamayuz10x.com/en/case-india-upi-interoperable-payments-infrastructure.html",
+      "arabic_path": "case-sweden-vision-zero-safe-system-road-safety.html",
+      "english_path": "en/case-sweden-vision-zero-safe-system-road-safety.html",
+      "arabic_url": "https://tamayuz10x.com/case-sweden-vision-zero-safe-system-road-safety.html",
+      "english_url": "https://tamayuz10x.com/en/case-sweden-vision-zero-safe-system-road-safety.html",
       "covers": [
-        "assets/previews/story/case-india-upi-interoperable-payments-infrastructure-ar.jpg",
-        "assets/previews/story/case-india-upi-interoperable-payments-infrastructure-en.jpg"
+        "assets/previews/story/case-sweden-vision-zero-safe-system-road-safety-ar.jpg",
+        "assets/previews/story/case-sweden-vision-zero-safe-system-road-safety-en.jpg"
       ],
-      "disclaimer_fix_commit": "7fc57372303061ff267070a36ca1412ec1e08ebe",
-      "sitemap_reconciliation_commit": "97242f1cefc9d0ec06b468bcd9b7442d09b959c5",
-      "cover_fix_commit": "ff63d12803427f4dc2da4b1d264e23f6721520c6",
-      "final_content_commit": "00c35e99de4b47635f60ff5ef6fbe3d1ce94e9a1",
+      "first_publication_commit": "5905d29adc8fb0e5d3d2db4eeb239390af299f73",
+      "sitemap_reconciliation_commit": "30935c48f6a1fabfc17b1481abbd6f9128400ad5",
+      "failed_run": "https://github.com/alaabmt/alaa-excellence/actions/runs/39896992261",
+      "failure_cause": "Published page was not registered in data/article-covers.json and used a noncanonical cover version.",
+      "cover_registry_fix_commit": "49f2f519b6967a6e9f13a827647220b4bdd4d22a",
+      "social_cards_commit": "7cc497015a0853e39b25bf25eafbd4ee9df8f6e0",
+      "pages_run": "https://github.com/alaabmt/alaa-excellence/actions/runs/39897519073",
       "actions": "passed",
+      "final_content_commit": "f9427a7f335cd68c08bdaf44a57419db42cdca9b",
       "pages": "passed_exact_final_content_head",
-      "pages_run": "https://github.com/alaabmt/alaa-excellence/actions/runs/39718491915",
       "live_verification": "passed",
       "index_verification": "passed_ar_en_single_card",
       "sitemap_verification": "passed_ar_en_single_entry",
       "image_verification": "passed_1200x630_ar_en"
     },
     "publication_report": {
-      "path": "automation/10x-cases/case-india-upi-interoperable-payments-infrastructure/publication-report.md",
-      "commit": "895c287b87ac5fd3ffc50c1e0f136d7a465c05a7"
+      "path": "automation/10x-cases/case-sweden-vision-zero-safe-system-road-safety/publication-report.md",
+      "commit": "24f9a8d190f8b358e928c68fa1c179dea559306a"
     }
   },
-  "run_date": "2026-10-22",
+  "run_date": "2026-10-23",
   "completed_stages": [
     "capability_check",
     "load_checkpoint",

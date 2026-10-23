@@ -5,10 +5,114 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-22T18:35:00+04:00",
-  "workflow_status": "reconciling",
-  "current_stage": "actions_and_pages",
+  "updated_at": "2026-10-23T17:14:00+04:00",
+  "workflow_status": "in_progress",
+  "current_stage": "quran_verification",
   "current_article": {
+    "article_id": "quran-reflection-2026-10-23-al-kahf-speaking-about-tomorrow",
+    "publication_date": "2026-10-23",
+    "slug": "reflection-al-kahf-speaking-about-tomorrow",
+    "topic_ar": "التواضع أمام الغد: العزم مع مشيئة الله، والذكر والتصحيح عند النسيان",
+    "topic_en": "Humility before tomorrow: resolve under Allah’s will, remembrance and correction after forgetting",
+    "working_title_ar": "ماذا يتغير حين نجزم بالغد؟",
+    "working_title_en": "What Changes When We Speak Too Certainly About Tomorrow?",
+    "status": "research_completed",
+    "quranic_focus": {
+      "surah": "Al-Kahf",
+      "surah_ar": "الكهف",
+      "ayahs": [
+        23,
+        24
+      ],
+      "status": "preliminarily_verified"
+    },
+    "research_notes_path": "automation/quran-reflections/reflection-al-kahf-speaking-about-tomorrow/research-notes.md",
+    "research_status": "completed",
+    "research_sources": [
+      {
+        "type": "Qur'an text and Sahih International translation",
+        "url": "https://legacy.quran.com/18/23-24",
+        "status": "reviewed"
+      },
+      {
+        "type": "Tafsir al-Tabari",
+        "url": "https://quran.ksu.edu.sa/tafseer/tabary/sura18-aya24.html",
+        "status": "reviewed"
+      },
+      {
+        "type": "Tafsir Ibn Kathir",
+        "url": "https://quran.ksu.edu.sa/tafseer/katheer/sura18-aya24.html",
+        "status": "reviewed"
+      },
+      {
+        "type": "Tafsir al-Qurtubi",
+        "url": "https://quran.ksu.edu.sa/tafseer/qortobi/sura18-aya24.html",
+        "status": "reviewed"
+      },
+      {
+        "type": "Tafsir al-Sa'di",
+        "url": "https://quran.ksu.edu.sa/tafseer/saadi/sura18-aya24.html",
+        "status": "reviewed"
+      }
+    ]
+  },
+  "stage_order": [
+    "capability_check",
+    "load_checkpoint",
+    "duplicate_check",
+    "topic_selection",
+    "research",
+    "quran_verification",
+    "arabic_draft",
+    "independent_critique",
+    "english_draft",
+    "bilingual_parity",
+    "quality_gate",
+    "repository_publish",
+    "actions_and_pages",
+    "live_verification",
+    "completion_report",
+    "completed"
+  ],
+  "resume_policy": {
+    "persist_after_every_completed_stage": true,
+    "resume_from_next_action": true,
+    "usage_limit_behavior": "Keep the last committed checkpoint unchanged and retry on the next hourly run.",
+    "duplicate_prevention": [
+      "Check automation/quran-reflections-state.json.",
+      "Check data/quranic-reflection-topics.json.",
+      "Search Arabic and English repository pages and indexes.",
+      "Check the intended public URLs before publication."
+    ],
+    "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
+    "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
+  },
+  "next_action": "Verify and record the exact Arabic text, Uthmani orthography, surah and ayah numbers, immediate context, Sahih International wording, and tafsir attribution boundaries for Al-Kahf 18:23–24; then checkpoint quran_verification before drafting.",
+  "last_run": {
+    "mode": "coordinator_daily_start",
+    "status": "in_progress",
+    "started_at": "2026-10-23T17:00:45+04:00",
+    "starting_head": "cb17ead922ddba50bef81884e55e96d11d84b6ea",
+    "notes": "Started the 2026-10-23 cycle, passed duplicate checks, selected Al-Kahf 18:23–24, and completed the detailed research stage. Lease released at a safe checkpoint.",
+    "last_checkpoint": "research",
+    "last_checkpoint_at": "2026-10-23T17:14:00+04:00",
+    "head_before_checkpoint": "e7897197a51ca7d321eaf7eab160fb21ca090fac",
+    "artifact_commit": "bbb98284fb18892f8438a50cf0653eff9c86b6c5",
+    "research_commit": "e7897197a51ca7d321eaf7eab160fb21ca090fac"
+  },
+  "workflow_id": "quran_reflections",
+  "run_lease": null,
+  "checkpoint_policy": {
+    "checkpoint_after_every_stage": true,
+    "run_lease_minutes": 110,
+    "concurrency_rule": "Re-read the state before work. Skip while another unexpired run lease exists. Acquire the lease in a committed state update and re-read before every later write.",
+    "interruption_rule": "Resume only from a completed stage boundary. Reconcile pending or uncertain external actions before replaying them.",
+    "usage_limit_rule": "If safe writing remains possible, set retry_waiting, preserve next_action, record the blocker and release the lease. Otherwise leave the last valid checkpoint untouched for the hourly retry.",
+    "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
+    "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
+  },
+  "coordinator_recovery": true,
+  "last_completed_article": {
     "article_id": "quran-reflection-2026-10-22-al-maidah-justice-despite-dislike",
     "publication_date": "2026-10-22",
     "slug": "reflection-al-maidah-justice-despite-dislike",
@@ -16,7 +120,7 @@
     "topic_en": "Justice under dislike: resisting the influence of hostility on judgment",
     "working_title_ar": "هل يتغير ميزان العدل حين نختلف؟",
     "working_title_en": "Does Justice Change When We Disagree?",
-    "status": "social_assets_completed_pages_pending",
+    "status": "completed_published_live_verified",
     "quranic_focus": {
       "surah": "Al-Ma'idah",
       "surah_ar": "المائدة",
@@ -130,7 +234,7 @@
       "verification": "Paired pages, four indexes, data registries, SVG source, metadata and sitemap structurally verified. Automatic sitemap normalization commit was reconciled as a descendant."
     },
     "actions_and_pages": {
-      "status": "social_assets_completed_pages_pending",
+      "status": "completed",
       "initial_social_card_run_id": 39793354358,
       "initial_result": "failed_before_commit",
       "failure_reason": "The new slug was absent from data/article-covers.json, so generated JPEGs were rejected as unreviewed.",
@@ -166,244 +270,68 @@
           "status": "queued"
         }
       ],
-      "pages_status": "pending"
-    }
-  },
-  "stage_order": [
-    "capability_check",
-    "load_checkpoint",
-    "duplicate_check",
-    "topic_selection",
-    "research",
-    "quran_verification",
-    "arabic_draft",
-    "independent_critique",
-    "english_draft",
-    "bilingual_parity",
-    "quality_gate",
-    "repository_publish",
-    "actions_and_pages",
-    "live_verification",
-    "completion_report",
-    "completed"
-  ],
-  "resume_policy": {
-    "persist_after_every_completed_stage": true,
-    "resume_from_next_action": true,
-    "usage_limit_behavior": "Keep the last committed checkpoint unchanged and retry on the next hourly run.",
-    "duplicate_prevention": [
-      "Check automation/quran-reflections-state.json.",
-      "Check data/quranic-reflection-topics.json.",
-      "Search Arabic and English repository pages and indexes.",
-      "Check the intended public URLs before publication."
-    ],
-    "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
-    "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
-  },
-  "next_action": "Re-read main and this checkpoint; verify the generated-image commit remains an ancestor and both JPEGs still exist, then require a successful GitHub Pages deployment for the exact current main head. After that, check both live URLs, canonicals, hreflang, metadata, images and index membership before completion.",
-  "last_run": {
-    "mode": "coordinator_resume",
-    "status": "checkpointed_reconciling_pages_pending",
-    "started_at": "2026-10-22T18:04:45+04:00",
-    "checkpointed_at": "2026-10-22T18:35:00+04:00",
-    "starting_head": "676d5d405db84f6f12f474d1c26f9b602948229e",
-    "publication_commit": "23763f88ba18a723326602220a2c288517dd72f6",
-    "reconciled_head": "970f376a0c1eefe1bdfc808f96306dad68d89851",
-    "notes": "The first card run exposed a missing manifest entry; after correction, both bilingual JPEGs were generated and committed. Pages deployment remained queued/waiting, so live verification was not claimed.",
-    "social_assets_commit": "f59b4358ff2b9ec7450dfac94b67a67a8749383f"
-  },
-  "workflow_id": "quran_reflections",
-  "run_lease": null,
-  "checkpoint_policy": {
-    "checkpoint_after_every_stage": true,
-    "run_lease_minutes": 110,
-    "concurrency_rule": "Re-read the state before work. Skip while another unexpired run lease exists. Acquire the lease in a committed state update and re-read before every later write.",
-    "interruption_rule": "Resume only from a completed stage boundary. Reconcile pending or uncertain external actions before replaying them.",
-    "usage_limit_rule": "If safe writing remains possible, set retry_waiting, preserve next_action, record the blocker and release the lease. Otherwise leave the last valid checkpoint untouched for the hourly retry.",
-    "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
-    "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
-  },
-  "coordinator_recovery": true,
-  "last_completed_article": {
-    "article_id": "quran-reflection-2026-10-21-al-baqarah-giving-without-harm",
-    "publication_date": "2026-10-21",
-    "slug": "reflection-al-baqarah-giving-without-harm",
-    "topic_ar": "متى تفقد العطية معناها؟ العطاء الذي يحفظ الكرامة ولا يتبعه منّ أو أذى",
-    "topic_en": "When Does a Gift Lose Its Meaning? Giving that preserves dignity and is not followed by reminders or harm",
-    "working_title_ar": "متى تفقد العطية معناها؟",
-    "working_title_en": "When Does a Gift Lose Its Meaning?",
-    "quranic_focus": {
-      "surah": "Al-Baqarah",
-      "surah_ar": "البقرة",
-      "ayahs": [
-        262,
-        263,
-        264
-      ],
-      "status": "verified"
+      "pages_status": "success",
+      "exact_deployed_head": "64690f1581c0441fa5a9b4e6b0d02639284f94cd",
+      "pages_run": {
+        "id": 39829283746,
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/39829283746"
+      },
+      "social_assets_ancestor_verified": true,
+      "repository_assets_reverified_at": "2026-10-22T22:12:00+04:00"
     },
-    "verified_quranic_references": [
-      {
-        "surah": "Al-Baqarah",
-        "surah_ar": "البقرة",
-        "ayahs": [
-          262,
-          263,
-          264
-        ],
-        "context_ayahs": [
-          261,
-          265
-        ],
-        "status": "verified",
-        "primary_text_urls": [
-          "https://quran.com/2/262",
-          "https://quran.com/2/263",
-          "https://quran.com/2/264"
-        ],
-        "verified_at": "2026-10-21T17:28:00+04:00"
-      }
-    ],
-    "research_sources": [
-      {
-        "type": "Qur'an text and immediate context",
-        "url": "https://quran.com/2/261",
-        "status": "reviewed"
-      },
-      {
-        "type": "Qur'an text",
-        "url": "https://quran.com/2/262",
-        "status": "reviewed"
-      },
-      {
-        "type": "Qur'an text",
-        "url": "https://quran.com/2/263",
-        "status": "reviewed"
-      },
-      {
-        "type": "Qur'an text",
-        "url": "https://quran.com/2/264",
-        "status": "reviewed"
-      },
-      {
-        "type": "Qur'an text and immediate context",
-        "url": "https://quran.com/2/265",
-        "status": "reviewed"
-      },
-      {
-        "type": "English translation — Saheeh International",
-        "url": "https://corpus.quran.com/translation.jsp?chapter=2&verse=262",
-        "status": "verified"
-      },
-      {
-        "type": "English translation — Saheeh International",
-        "url": "https://corpus.quran.com/translation.jsp?chapter=2&verse=263",
-        "status": "verified"
-      },
-      {
-        "type": "English translation — Saheeh International",
-        "url": "https://corpus.quran.com/translation.jsp?chapter=2&verse=264",
-        "status": "verified"
-      },
-      {
-        "type": "Tafsir al-Tabari",
-        "url": "https://quran.ksu.edu.sa/tafseer/tabary/sura2-aya262.html",
-        "status": "reviewed"
-      },
-      {
-        "type": "Tafsir al-Tabari",
-        "url": "https://quran.ksu.edu.sa/tafseer/tabary/sura2-aya264.html",
-        "status": "reviewed"
-      },
-      {
-        "type": "Tafsir Ibn Kathir",
-        "url": "https://quran.ksu.edu.sa/tafseer/katheer/sura2-aya264.html",
-        "status": "reviewed"
-      },
-      {
-        "type": "Tafsir al-Qurtubi",
-        "url": "https://quran.ksu.edu.sa/tafseer/qortobi/sura2-aya264.html",
-        "status": "reviewed"
-      },
-      {
-        "type": "Tafsir al-Sa'di",
-        "url": "https://quran.ksu.edu.sa/tafseer/saadi/sura2-aya264.html",
-        "status": "reviewed"
-      }
-    ],
-    "research_notes_path": "automation/quran-reflections/reflection-al-baqarah-giving-without-harm/research-notes.md",
-    "arabic_draft": {
-      "status": "published",
-      "path": "reflection-al-baqarah-giving-without-harm.html"
-    },
-    "english_draft": {
-      "status": "published",
-      "path": "en/reflection-al-baqarah-giving-without-harm.html"
-    },
-    "quality_gate": {
+    "live_verification": {
       "status": "passed",
-      "score": 98,
-      "threshold": 90,
-      "blocking_error": false,
-      "path": "automation/quran-reflections/reflection-al-baqarah-giving-without-harm/quality-review.md"
-    },
-    "publishing": {
-      "status": "published_live_verified",
-      "first_publication_commit": "d0f6266079b2014fbec4b3817c39648bff1a14d0",
-      "publication_registry_commit": "9d302cd00bf0aabec7f17fe99a2c60575861154a",
-      "arabic_url": "https://tamayuz10x.com/reflection-al-baqarah-giving-without-harm.html",
-      "english_url": "https://tamayuz10x.com/en/reflection-al-baqarah-giving-without-harm.html",
-      "cover_background": "assets/previews/story-backgrounds/reflection-al-baqarah-giving-without-harm.svg",
-      "expected_arabic_cover": "assets/previews/story/reflection-al-baqarah-giving-without-harm-ar.jpg",
-      "expected_english_cover": "assets/previews/story/reflection-al-baqarah-giving-without-harm-en.jpg",
-      "cover_generation_commit": "d700a008ae7daa85278bba5170b0279d51c2b7f8",
-      "cover_generation_run": "https://github.com/alaabmt/alaa-excellence/actions/runs/39606903733",
-      "site_health_run": "https://github.com/alaabmt/alaa-excellence/actions/runs/39607265940",
-      "github_pages_run": "https://github.com/alaabmt/alaa-excellence/actions/runs/39607382468",
-      "actions_result": "passed",
-      "pages_result": "passed",
-      "final_deployment_commit": "d700a008ae7daa85278bba5170b0279d51c2b7f8",
-      "live_verified_at": "2026-10-21T17:24:35+04:00",
-      "live_checks": {
+      "verified_at": "2026-10-22T22:14:00+04:00",
+      "checks": {
         "arabic_page": true,
         "english_page": true,
         "arabic_cover_1200x630": true,
         "english_cover_1200x630": true,
-        "four_indexes": true,
-        "sitemap": true,
         "canonical": true,
         "hreflang": true,
+        "metadata": true,
         "schema_org": true,
-        "site_health": true,
-        "pages": true
+        "articles_index_ar": true,
+        "articles_index_en": true,
+        "quranic_index_ar": true,
+        "quranic_index_en": true,
+        "sitemap": true
+      },
+      "arabic_url": "https://tamayuz10x.com/reflection-al-maidah-justice-despite-dislike.html",
+      "english_url": "https://tamayuz10x.com/en/reflection-al-maidah-justice-despite-dislike.html",
+      "observed_titles": {
+        "ar": "هل يتغير ميزان العدل حين نختلف؟ | التميّز 10X",
+        "en": "Does Justice Change When We Disagree? | Tamayuz 10X"
       }
-    },
-    "publication_report_path": "automation/quran-reflections/reflection-al-baqarah-giving-without-harm/publication-report.md",
-    "independent_critique": {
-      "status": "passed_after_revision",
-      "path": "automation/quran-reflections/reflection-al-baqarah-giving-without-harm/quality-review.md",
-      "blocking_error": false
     },
     "publication_report": {
       "status": "saved",
-      "path": "automation/quran-reflections/reflection-al-baqarah-giving-without-harm/publication-report.md",
-      "commit": "c57339d33a4a4c6af68eaf120b67158e446506e9"
+      "path": "automation/quran-reflections/reflection-al-maidah-justice-despite-dislike/publication-report.md",
+      "commit": "7a850301a7c0929a04a0100e747af3fa7afa185d"
+    },
+    "publication_report_path": "automation/quran-reflections/reflection-al-maidah-justice-despite-dislike/publication-report.md",
+    "publishing": {
+      "status": "published_live_verified",
+      "first_publication_commit": "23763f88ba18a723326602220a2c288517dd72f6",
+      "social_assets_commit": "f59b4358ff2b9ec7450dfac94b67a67a8749383f",
+      "final_deployment_commit": "64690f1581c0441fa5a9b4e6b0d02639284f94cd",
+      "pages_run": "https://github.com/alaabmt/alaa-excellence/actions/runs/39829283746",
+      "arabic_url": "https://tamayuz10x.com/reflection-al-maidah-justice-despite-dislike.html",
+      "english_url": "https://tamayuz10x.com/en/reflection-al-maidah-justice-despite-dislike.html",
+      "live_verified_at": "2026-10-22T22:14:00+04:00",
+      "actions_result": "passed",
+      "pages_result": "passed"
     }
   },
-  "run_date": "2026-10-22",
+  "run_date": "2026-10-23",
   "completed_stages": [
     "capability_check",
     "load_checkpoint",
     "duplicate_check",
     "topic_selection",
-    "research",
-    "quran_verification",
-    "arabic_draft",
-    "independent_critique",
-    "english_draft",
-    "bilingual_parity",
-    "quality_gate",
-    "repository_publish"
+    "research"
   ],
   "duplicate_check": {
     "status": "passed_before_publication",
@@ -421,11 +349,5 @@
     ],
     "finding": "No prior article or live destination matching the slug/title was found before publication."
   },
-  "blocker": {
-    "type": "transient_external_queue",
-    "stage": "actions_and_pages",
-    "detail": "GitHub Pages deployment for the exact final head is queued/waiting; retry through the central resume coordinator.",
-    "retryable": true,
-    "decision_required": false
-  }
+  "blocker": null
 }
