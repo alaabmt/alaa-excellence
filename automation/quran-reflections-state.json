@@ -5,9 +5,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-24T03:06:00+04:00",
+  "updated_at": "2026-10-24T03:11:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "actions_and_pages",
+  "current_stage": "live_verification",
   "current_article": {
     "article_id": "quran-reflection-2026-10-23-al-kahf-speaking-about-tomorrow",
     "publication_date": "2026-10-23",
@@ -16,7 +16,7 @@
     "topic_en": "Humility before tomorrow: resolve under Allah’s will, remembrance and correction after forgetting",
     "working_title_ar": "ماذا يتغير حين نجزم بالغد؟",
     "working_title_en": "What Changes When We Speak Too Certainly About Tomorrow?",
-    "status": "repository_published_actions_pending",
+    "status": "actions_and_pages_completed_live_verification_pending",
     "quranic_focus": {
       "surah": "Al-Kahf",
       "surah_ar": "الكهف",
@@ -139,6 +139,65 @@
         }
       },
       "verification": "Paired pages, canonical, hreflang, Article schema, four indexes, topic registry, reviewed cover manifest, two sitemap entries and both generated JPEG assets were structurally verified in the repository. Actions and exact-head Pages deployment remain to be reconciled."
+    },
+    "actions_and_pages": {
+      "status": "completed",
+      "reconciliation_trigger_commit": "28c5406abd9512d6c861048c51bb3f924f549ca5",
+      "reconciled_descendant_head": "d9b5e8b0c3f763c35e2c0e44d60ec5a0bd52f6ad",
+      "prior_site_health_failure": {
+        "run_id": 40016943494,
+        "head_sha": "403b87ad1a90c6e58ccef9e2cd882c4b4fce5889",
+        "reason": "The first full-index run preceded generated social assets and reported only the six then-missing Al-Kahf image references."
+      },
+      "required_checks": {
+        "site_health": {
+          "run_id": 40037875882,
+          "run_number": 460,
+          "conclusion": "success",
+          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40037875882"
+        },
+        "article_date_integrity": {
+          "run_id": 40037875845,
+          "run_number": 527,
+          "conclusion": "success",
+          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40037875845"
+        },
+        "sitemap": {
+          "run_id": 40037876012,
+          "run_number": 610,
+          "conclusion": "success",
+          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40037876012"
+        },
+        "social_cards": {
+          "run_id": 40037875941,
+          "run_number": 402,
+          "conclusion": "success",
+          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40037875941"
+        },
+        "pages": {
+          "run_id": 40037950728,
+          "run_number": 1925,
+          "head_sha": "d9b5e8b0c3f763c35e2c0e44d60ec5a0bd52f6ad",
+          "conclusion": "success",
+          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40037950728"
+        }
+      },
+      "social_assets": {
+        "ar": {
+          "path": "assets/previews/story/reflection-al-kahf-speaking-about-tomorrow-ar.jpg",
+          "blob_sha": "2418bc873919954f67db1f9733294564bc82e80d",
+          "width": 1200,
+          "height": 630,
+          "verified": true
+        },
+        "en": {
+          "path": "assets/previews/story/reflection-al-kahf-speaking-about-tomorrow-en.jpg",
+          "blob_sha": "787d19f957e8d6c446b51fc5887862e07e88f706",
+          "width": 1200,
+          "height": 630,
+          "verified": true
+        }
+      }
     }
   },
   "stage_order": [
@@ -172,16 +231,16 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Reconcile GitHub Actions for publication and social-cover generation, verify both generated JPEGs are 1200×630 and the required checks passed, then wait for GitHub Pages to succeed for the exact final content head or a verified descendant containing it. Checkpoint actions_and_pages before live verification of both pages, canonical, hreflang, metadata, Schema.org, images, four indexes and sitemap.",
+  "next_action": "Verify both live language pages and their exact canonical, reciprocal hreflang, metadata, Article Schema.org, language-specific 1200×630 images, single cards in articles.html, en/articles.html, quranic-reflections.html and en/quranic-reflections.html, and one sitemap entry per URL. Then checkpoint live_verification before saving the publication report.",
   "last_run": {
     "mode": "coordinator_resume",
     "status": "in_progress",
     "started_at": "2026-10-23T17:00:45+04:00",
     "starting_head": "99b75ab3cc1200cea31373b3092ec36f0df7d644",
     "notes": "Repository publication completed. Paired pages, four indexes, topic registry, cover manifest, sitemap and both generated social JPEGs are present; automatic sitemap and social-cover commits were reconciled as descendants. Pages and live verification remain pending.",
-    "last_checkpoint": "repository_publish",
-    "last_checkpoint_at": "2026-10-24T00:17:00+04:00",
-    "head_before_checkpoint": "e2320c0ffc465189e47148da68a4f2860f6a57a7",
+    "last_checkpoint": "actions_and_pages",
+    "last_checkpoint_at": "2026-10-24T03:11:00+04:00",
+    "head_before_checkpoint": "d9b5e8b0c3f763c35e2c0e44d60ec5a0bd52f6ad",
     "artifact_commit": "bbb98284fb18892f8438a50cf0653eff9c86b6c5",
     "research_commit": "e7897197a51ca7d321eaf7eab160fb21ca090fac",
     "resumed_at": "2026-10-24T03:04:39+04:00",
@@ -192,7 +251,8 @@
     "english_draft_commit": "6732982550ce67b349b6ed78dd82158904013e87",
     "bilingual_parity_commit": "b78eec0aa42f1a751996f4d7cfd2f322e75d5fb3",
     "quality_gate_commit": "1f971f27d5908f6ace1b760eeea790793f550dcf",
-    "repository_publish_commit": "e2320c0ffc465189e47148da68a4f2860f6a57a7"
+    "repository_publish_commit": "e2320c0ffc465189e47148da68a4f2860f6a57a7",
+    "actions_and_pages_head": "d9b5e8b0c3f763c35e2c0e44d60ec5a0bd52f6ad"
   },
   "workflow_id": "quran_reflections",
   "run_lease": {
@@ -436,7 +496,8 @@
     "english_draft",
     "bilingual_parity",
     "quality_gate",
-    "repository_publish"
+    "repository_publish",
+    "actions_and_pages"
   ],
   "duplicate_check": {
     "status": "passed_before_publication",
