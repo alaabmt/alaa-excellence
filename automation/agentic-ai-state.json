@@ -7,35 +7,34 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-22T22:15:00+04:00",
-  "workflow_status": "completed",
-  "current_stage": "completed",
-  "run_lease": null,
+  "updated_at": "2026-10-23T22:05:00+04:00",
+  "workflow_status": "reconciling",
+  "current_stage": "duplicate_check",
+  "run_lease": {
+    "owner": "automation-agentic-ai-6ab56c5eee2481919cac424410c6b3f8",
+    "acquired_at": "2026-10-23T22:05:00+04:00",
+    "expires_at": "2026-10-23T23:55:00+04:00"
+  },
   "current_item": {
-    "slug": "article-agentic-ai-alphaevolve-compute-scheduling",
-    "publication_date": "2026-10-22",
-    "title_ar": "عندما تركت مراكز البيانات قدرة حاسوبية عاطلة: كيف كتب وكيل خوارزمية تستردها؟",
-    "title_en": "When Data Centers Left Computing Capacity Stranded: How an Agent Wrote a Better Scheduler",
-    "research_status": "completed",
-    "evidence_pack_status": "completed",
+    "slug": "article-agentic-ai-human-approval-oversight",
+    "publication_date": "2026-10-23",
+    "title_ar": "هل تُعدّ موافقة الإنسان على خطوات الوكيل الذكي رقابةً حقيقية، أم ختمًا شكليًا؟",
+    "title_en": "When a Person Approves an AI Agent's Actions, Is That Real Oversight or a Rubber Stamp?",
+    "research_status": "reconciling",
+    "evidence_pack_status": "pending",
     "arabic_draft": {
-      "status": "reconciled",
-      "path": "article-agentic-ai-alphaevolve-compute-scheduling.html"
+      "status": "reconciling",
+      "path": "article-agentic-ai-human-approval-oversight.html"
     },
     "english_draft": {
-      "status": "reconciled",
-      "path": "en/article-agentic-ai-alphaevolve-compute-scheduling.html"
+      "status": "reconciling",
+      "path": "en/article-agentic-ai-human-approval-oversight.html"
     },
     "publishing": {
-      "status": "verified",
-      "arabic_url": "https://tamayuz10x.com/article-agentic-ai-alphaevolve-compute-scheduling.html",
-      "english_url": "https://tamayuz10x.com/en/article-agentic-ai-alphaevolve-compute-scheduling.html",
-      "publication_commit": "37758bf08b59b6c81cef8a84c516cb2bd7760483",
-      "verification_commit": "64690f1581c0441fa5a9b4e6b0d02639284f94cd",
-      "report_commit": "b559a04eb11dde1c41f70a6476fa9e7aac217992",
-      "pages_run_id": 39829283746,
-      "pages_run_number": 1801,
-      "social_cards_run_number": 381
+      "status": "reconciling",
+      "arabic_url": "https://tamayuz10x.com/article-agentic-ai-human-approval-oversight.html",
+      "english_url": "https://tamayuz10x.com/en/article-agentic-ai-human-approval-oversight.html",
+      "publication_commit": "6d8a63d40e31f3892ff105507c5a22b645a9c3a8"
     }
   },
   "stage_order": [
@@ -77,13 +76,12 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "On the next scheduled run, begin a new item only if no Agentic AI article has started or published for that Asia/Dubai date.",
+  "next_action": "Reconcile the externally published 2026-10-23 Agentic AI article: rebuild the evidence pack and metrics, remove prohibited meta-language, add denominator-based results and an explicitly hypothetical example, restore specialist-only placement, then re-run all quality and live-publication checks.",
   "last_run": {
     "mode": "scheduled_daily",
-    "status": "completed",
-    "started_at": "2026-10-22T21:59:00+04:00",
-    "notes": "Published and live. Bilingual editorial, metric, parity and beginner-comprehension gates passed. Reviewed bilingual social covers generated. GitHub Pages run #1801 succeeded for exact repository head 64690f1; both article pages and both specialist cards were verified live, and the general article indexes remained unchanged.",
-    "completed_at": "2026-10-22T22:15:00+04:00"
+    "status": "reconciling",
+    "started_at": "2026-10-23T22:02:50+04:00",
+    "notes": "A same-day Agentic AI article was already published outside the daily workflow. No duplicate will be created. The existing bilingual artifact requires reconciliation with the permanent editorial and placement standards."
   },
   "blocker": null,
   "last_completed_item": {
