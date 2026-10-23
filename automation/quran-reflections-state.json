@@ -5,9 +5,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-23T21:00:00+04:00",
+  "updated_at": "2026-10-23T21:09:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "english_draft",
+  "current_stage": "bilingual_parity",
   "current_article": {
     "article_id": "quran-reflection-2026-10-23-al-kahf-speaking-about-tomorrow",
     "publication_date": "2026-10-23",
@@ -16,7 +16,7 @@
     "topic_en": "Humility before tomorrow: resolve under Allah’s will, remembrance and correction after forgetting",
     "working_title_ar": "ماذا يتغير حين نجزم بالغد؟",
     "working_title_en": "What Changes When We Speak Too Certainly About Tomorrow?",
-    "status": "independent_critique_completed",
+    "status": "english_draft_completed",
     "quranic_focus": {
       "surah": "Al-Kahf",
       "surah_ar": "الكهف",
@@ -86,6 +86,12 @@
       "path": "automation/quran-reflections/reflection-al-kahf-speaking-about-tomorrow/quality-review.md",
       "commit": "b526b313ea590015b44b94571ec2217a3b09c613",
       "blocking_error": false
+    },
+    "english_draft": {
+      "status": "drafted_original_english_pending_parity",
+      "path": "automation/quran-reflections/reflection-al-kahf-speaking-about-tomorrow/draft-en.md",
+      "initial_commit": "ea0abb610d838ab8c1148be29712e60da62ca5a2",
+      "revision_commit": "6732982550ce67b349b6ed78dd82158904013e87"
     }
   },
   "stage_order": [
@@ -119,30 +125,27 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Write an original editorial English draft in automation/quran-reflections/reflection-al-kahf-speaking-about-tomorrow/draft-en.md using the verified Sahih International translation, preserving the revised Arabic argument, the tafsir/reflection/application boundaries and the single hypothetical example; then checkpoint english_draft before bilingual parity review.",
+  "next_action": "Perform bilingual parity review comparing the revised Arabic and English drafts for argument sequence, Qur'anic references, tafsir/reflection/application boundaries, the single hypothetical example, 10X limits, disclaimers and references; append the parity matrix and findings to quality-review.md, revise either draft if needed, then checkpoint bilingual_parity before quality_gate.",
   "last_run": {
     "mode": "coordinator_resume",
     "status": "in_progress",
     "started_at": "2026-10-23T17:00:45+04:00",
     "starting_head": "4da832631fa9e9b310a533a5dc8117ebac8bbb80",
-    "notes": "Lease acquired to write the original English draft from the reviewed Arabic source and verified translation.",
-    "last_checkpoint": "independent_critique",
-    "last_checkpoint_at": "2026-10-23T20:07:00+04:00",
-    "head_before_checkpoint": "b526b313ea590015b44b94571ec2217a3b09c613",
+    "notes": "Saved the original English draft from the reviewed Arabic source, applied the English editorial standard, verified the Sahih International source, and limited the direct translated excerpt while paraphrasing the remaining guidance.",
+    "last_checkpoint": "english_draft",
+    "last_checkpoint_at": "2026-10-23T21:09:00+04:00",
+    "head_before_checkpoint": "6732982550ce67b349b6ed78dd82158904013e87",
     "artifact_commit": "bbb98284fb18892f8438a50cf0653eff9c86b6c5",
     "research_commit": "e7897197a51ca7d321eaf7eab160fb21ca090fac",
     "resumed_at": "2026-10-23T20:59:50+04:00",
     "quran_verification_commit": "f052a77a655afba9e53ddd87697d3cb5d979dfe9",
     "arabic_draft_commit": "a7bd351b1ef0114b2c38c53d86f03652a71f99be",
     "arabic_revision_commit": "f192260f91fdbb2b0d00b7a10b7a81c725816615",
-    "independent_critique_commit": "b526b313ea590015b44b94571ec2217a3b09c613"
+    "independent_critique_commit": "b526b313ea590015b44b94571ec2217a3b09c613",
+    "english_draft_commit": "6732982550ce67b349b6ed78dd82158904013e87"
   },
   "workflow_id": "quran_reflections",
-  "run_lease": {
-    "owner": "central-resume-coordinator-2026-10-23T20:59:50+04:00",
-    "acquired_at": "2026-10-23T20:59:50+04:00",
-    "expires_at": "2026-10-23T22:49:50+04:00"
-  },
+  "run_lease": null,
   "checkpoint_policy": {
     "checkpoint_after_every_stage": true,
     "run_lease_minutes": 110,
@@ -375,7 +378,8 @@
     "research",
     "quran_verification",
     "arabic_draft",
-    "independent_critique"
+    "independent_critique",
+    "english_draft"
   ],
   "duplicate_check": {
     "status": "passed_before_publication",
