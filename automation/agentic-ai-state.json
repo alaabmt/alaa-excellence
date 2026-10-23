@@ -7,9 +7,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-23T22:27:00+04:00",
+  "updated_at": "2026-10-23T22:30:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "english_draft",
+  "current_stage": "quality_gate",
   "run_lease": {
     "owner": "automation-agentic-ai-6ab56c5eee2481919cac424410c6b3f8",
     "acquired_at": "2026-10-23T22:05:00+04:00",
@@ -76,7 +76,7 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Run bilingual semantic parity, native-English, terminology, metric, evidence-boundary, and publication-structure gates; append the result to quality-review.md.",
+  "next_action": "Replace both public article bodies with the approved bilingual drafts, enforce Arabic parentheses and approved disclaimers, remove the two cards from the general indexes, then verify specialist hubs, metadata, covers, dates, sitemap, Actions, Pages, and live URLs.",
   "last_run": {
     "mode": "scheduled_daily",
     "status": "in_progress",
