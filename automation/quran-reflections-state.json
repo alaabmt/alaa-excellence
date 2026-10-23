@@ -5,7 +5,7 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-24T00:17:00+04:00",
+  "updated_at": "2026-10-24T01:03:00+04:00",
   "workflow_status": "in_progress",
   "current_stage": "actions_and_pages",
   "current_article": {
@@ -184,7 +184,7 @@
     "head_before_checkpoint": "e2320c0ffc465189e47148da68a4f2860f6a57a7",
     "artifact_commit": "bbb98284fb18892f8438a50cf0653eff9c86b6c5",
     "research_commit": "e7897197a51ca7d321eaf7eab160fb21ca090fac",
-    "resumed_at": "2026-10-24T00:04:38+04:00",
+    "resumed_at": "2026-10-24T00:59:57+04:00",
     "quran_verification_commit": "f052a77a655afba9e53ddd87697d3cb5d979dfe9",
     "arabic_draft_commit": "a7bd351b1ef0114b2c38c53d86f03652a71f99be",
     "arabic_revision_commit": "f192260f91fdbb2b0d00b7a10b7a81c725816615",
@@ -195,7 +195,11 @@
     "repository_publish_commit": "e2320c0ffc465189e47148da68a4f2860f6a57a7"
   },
   "workflow_id": "quran_reflections",
-  "run_lease": null,
+  "run_lease": {
+    "owner": "central-resume-coordinator-2026-10-24T00:59:57+04:00",
+    "acquired_at": "2026-10-24T00:59:57+04:00",
+    "expires_at": "2026-10-24T02:49:57+04:00"
+  },
   "checkpoint_policy": {
     "checkpoint_after_every_stage": true,
     "run_lease_minutes": 110,
