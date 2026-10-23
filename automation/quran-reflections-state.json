@@ -5,7 +5,7 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-23T21:09:00+04:00",
+  "updated_at": "2026-10-23T22:02:00+04:00",
   "workflow_status": "in_progress",
   "current_stage": "bilingual_parity",
   "current_article": {
@@ -131,13 +131,13 @@
     "status": "in_progress",
     "started_at": "2026-10-23T17:00:45+04:00",
     "starting_head": "4da832631fa9e9b310a533a5dc8117ebac8bbb80",
-    "notes": "Saved the original English draft from the reviewed Arabic source, applied the English editorial standard, verified the Sahih International source, and limited the direct translated excerpt while paraphrasing the remaining guidance.",
+    "notes": "Lease acquired to perform the bilingual parity review from the saved English-draft checkpoint.",
     "last_checkpoint": "english_draft",
     "last_checkpoint_at": "2026-10-23T21:09:00+04:00",
     "head_before_checkpoint": "6732982550ce67b349b6ed78dd82158904013e87",
     "artifact_commit": "bbb98284fb18892f8438a50cf0653eff9c86b6c5",
     "research_commit": "e7897197a51ca7d321eaf7eab160fb21ca090fac",
-    "resumed_at": "2026-10-23T20:59:50+04:00",
+    "resumed_at": "2026-10-23T22:01:45+04:00",
     "quran_verification_commit": "f052a77a655afba9e53ddd87697d3cb5d979dfe9",
     "arabic_draft_commit": "a7bd351b1ef0114b2c38c53d86f03652a71f99be",
     "arabic_revision_commit": "f192260f91fdbb2b0d00b7a10b7a81c725816615",
@@ -145,7 +145,11 @@
     "english_draft_commit": "6732982550ce67b349b6ed78dd82158904013e87"
   },
   "workflow_id": "quran_reflections",
-  "run_lease": null,
+  "run_lease": {
+    "owner": "central-resume-coordinator-2026-10-23T22:01:45+04:00",
+    "acquired_at": "2026-10-23T22:01:45+04:00",
+    "expires_at": "2026-10-23T23:51:45+04:00"
+  },
   "checkpoint_policy": {
     "checkpoint_after_every_stage": true,
     "run_lease_minutes": 110,
