@@ -5,8 +5,8 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-24T03:18:00+04:00",
-  "workflow_status": "in_progress",
+  "updated_at": "2026-10-24T03:19:00+04:00",
+  "workflow_status": "completed",
   "current_stage": "completed",
   "current_article": {
     "article_id": "quran-reflection-2026-10-23-al-kahf-speaking-about-tomorrow",
@@ -16,7 +16,7 @@
     "topic_en": "Humility before tomorrow: resolve under Allah’s will, remembrance and correction after forgetting",
     "working_title_ar": "ماذا يتغير حين نجزم بالغد؟",
     "working_title_en": "What Changes When We Speak Too Certainly About Tomorrow?",
-    "status": "publication_report_saved_completion_pending",
+    "status": "completed_published_live_verified",
     "quranic_focus": {
       "surah": "Al-Kahf",
       "surah_ar": "الكهف",
@@ -233,7 +233,17 @@
       "path": "automation/quran-reflections/reflection-al-kahf-speaking-about-tomorrow/publication-report.md",
       "commit": "4f25b2e1f5d77d2a5ddf5c0ff744af312eaa893c"
     },
-    "publication_report_path": "automation/quran-reflections/reflection-al-kahf-speaking-about-tomorrow/publication-report.md"
+    "publication_report_path": "automation/quran-reflections/reflection-al-kahf-speaking-about-tomorrow/publication-report.md",
+    "publishing": {
+      "status": "published_live_verified",
+      "first_publication_commit": "6fcb0a0b525f9e6c8763c5a167d9fbe67d5c9890",
+      "english_page_commit": "950bd4429a3ad0125c8109f18b7a5f827ee7662e",
+      "social_assets_commit": "d9b5e8b0c3f763c35e2c0e44d60ec5a0bd52f6ad",
+      "final_deployment_commit": "d9b5e8b0c3f763c35e2c0e44d60ec5a0bd52f6ad",
+      "pages_run": "https://github.com/alaabmt/alaa-excellence/actions/runs/40037950728",
+      "arabic_url": "https://tamayuz10x.com/reflection-al-kahf-speaking-about-tomorrow.html",
+      "english_url": "https://tamayuz10x.com/en/reflection-al-kahf-speaking-about-tomorrow.html"
+    }
   },
   "stage_order": [
     "capability_check",
@@ -266,16 +276,16 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Mark the 23 October 2026 Al-Kahf reflection completed, promote it to last_completed_article, release the run lease, and do not start another Qur’anic reflection before the daily start rule permits a new date.",
+  "next_action": "Before 17:00 Asia/Dubai on 24 October 2026, do not start a new reflection. At or after 17:00, start at most one reflection for 24 October only after duplicate checks confirm none has started or been published.",
   "last_run": {
     "mode": "coordinator_resume",
-    "status": "in_progress",
+    "status": "completed",
     "started_at": "2026-10-23T17:00:45+04:00",
     "starting_head": "99b75ab3cc1200cea31373b3092ec36f0df7d644",
-    "notes": "Repository publication completed. Paired pages, four indexes, topic registry, cover manifest, sitemap and both generated social JPEGs are present; automatic sitemap and social-cover commits were reconciled as descendants. Pages and live verification remain pending.",
-    "last_checkpoint": "completion_report",
-    "last_checkpoint_at": "2026-10-24T03:18:00+04:00",
-    "head_before_checkpoint": "4f25b2e1f5d77d2a5ddf5c0ff744af312eaa893c",
+    "notes": "Al-Kahf 18:23–24 reflection published in Arabic and English; required Actions passed after asset reconciliation; exact-descendant Pages deployment and live pages, covers, metadata, four indexes and sitemap were verified.",
+    "last_checkpoint": "completed",
+    "last_checkpoint_at": "2026-10-24T03:19:00+04:00",
+    "head_before_checkpoint": "b30095fbf2b037990a3530c602a05ac035b35719",
     "artifact_commit": "bbb98284fb18892f8438a50cf0653eff9c86b6c5",
     "research_commit": "e7897197a51ca7d321eaf7eab160fb21ca090fac",
     "resumed_at": "2026-10-24T03:04:39+04:00",
@@ -288,14 +298,11 @@
     "quality_gate_commit": "1f971f27d5908f6ace1b760eeea790793f550dcf",
     "repository_publish_commit": "e2320c0ffc465189e47148da68a4f2860f6a57a7",
     "actions_and_pages_head": "d9b5e8b0c3f763c35e2c0e44d60ec5a0bd52f6ad",
-    "publication_report_commit": "4f25b2e1f5d77d2a5ddf5c0ff744af312eaa893c"
+    "publication_report_commit": "4f25b2e1f5d77d2a5ddf5c0ff744af312eaa893c",
+    "completed_at": "2026-10-24T03:19:00+04:00"
   },
   "workflow_id": "quran_reflections",
-  "run_lease": {
-    "owner": "central-resume-coordinator-2026-10-24T03:04:39+04:00",
-    "acquired_at": "2026-10-24T03:04:39+04:00",
-    "expires_at": "2026-10-24T04:54:39+04:00"
-  },
+  "run_lease": null,
   "checkpoint_policy": {
     "checkpoint_after_every_stage": true,
     "run_lease_minutes": 110,
@@ -307,216 +314,240 @@
   },
   "coordinator_recovery": true,
   "last_completed_article": {
-    "article_id": "quran-reflection-2026-10-22-al-maidah-justice-despite-dislike",
-    "publication_date": "2026-10-22",
-    "slug": "reflection-al-maidah-justice-despite-dislike",
-    "topic_ar": "العدل حين يشتد النفور: مقاومة أثر الشنآن في الحكم",
-    "topic_en": "Justice under dislike: resisting the influence of hostility on judgment",
-    "working_title_ar": "هل يتغير ميزان العدل حين نختلف؟",
-    "working_title_en": "Does Justice Change When We Disagree?",
+    "article_id": "quran-reflection-2026-10-23-al-kahf-speaking-about-tomorrow",
+    "publication_date": "2026-10-23",
+    "slug": "reflection-al-kahf-speaking-about-tomorrow",
+    "topic_ar": "التواضع أمام الغد: العزم مع مشيئة الله، والذكر والتصحيح عند النسيان",
+    "topic_en": "Humility before tomorrow: resolve under Allah’s will, remembrance and correction after forgetting",
+    "working_title_ar": "ماذا يتغير حين نجزم بالغد؟",
+    "working_title_en": "What Changes When We Speak Too Certainly About Tomorrow?",
     "status": "completed_published_live_verified",
     "quranic_focus": {
-      "surah": "Al-Ma'idah",
-      "surah_ar": "المائدة",
+      "surah": "Al-Kahf",
+      "surah_ar": "الكهف",
       "ayahs": [
-        8
+        23,
+        24
       ],
       "status": "verified"
     },
-    "research_notes_path": "automation/quran-reflections/reflection-al-maidah-justice-despite-dislike/research-notes.md",
+    "research_notes_path": "automation/quran-reflections/reflection-al-kahf-speaking-about-tomorrow/research-notes.md",
     "research_status": "completed",
     "research_sources": [
       {
         "type": "Qur'an text and Sahih International translation",
-        "url": "https://legacy.quran.com/5/8",
-        "status": "reviewed"
-      },
-      {
-        "type": "Qur'an context",
-        "url": "https://corpus.quran.com/translation.jsp?chapter=5&verse=7",
-        "status": "reviewed"
-      },
-      {
-        "type": "Qur'an context",
-        "url": "https://corpus.quran.com/translation.jsp?chapter=5&verse=9",
+        "url": "https://legacy.quran.com/18/23-24",
         "status": "reviewed"
       },
       {
         "type": "Tafsir al-Tabari",
-        "url": "https://quran.ksu.edu.sa/tafseer/tabary/sura5-aya8.html",
+        "url": "https://quran.ksu.edu.sa/tafseer/tabary/sura18-aya24.html",
         "status": "reviewed"
       },
       {
         "type": "Tafsir Ibn Kathir",
-        "url": "https://quran.ksu.edu.sa/tafseer/katheer/sura5-aya8.html",
+        "url": "https://quran.ksu.edu.sa/tafseer/katheer/sura18-aya24.html",
         "status": "reviewed"
       },
       {
         "type": "Tafsir al-Qurtubi",
-        "url": "https://quran.ksu.edu.sa/tafseer/qortobi/sura5-aya8.html",
+        "url": "https://quran.ksu.edu.sa/tafseer/qortobi/sura18-aya24.html",
         "status": "reviewed"
       },
       {
         "type": "Tafsir al-Sa'di",
-        "url": "https://quran.ksu.edu.sa/tafseer/saadi/sura5-aya8.html",
-        "status": "reviewed"
-      },
-      {
-        "type": "English translation verification",
-        "url": "https://corpus.quran.com/translation.jsp?chapter=5&verse=8",
+        "url": "https://quran.ksu.edu.sa/tafseer/saadi/sura18-aya24.html",
         "status": "reviewed"
       }
     ],
     "verified_quranic_references": [
       {
-        "surah": "Al-Ma'idah",
-        "surah_ar": "المائدة",
+        "surah": "Al-Kahf",
+        "surah_ar": "الكهف",
         "ayahs": [
-          8
+          23,
+          24
         ],
         "context_ayahs": [
-          2,
-          7,
-          9
+          22,
+          25
         ],
         "status": "verified",
         "primary_text_urls": [
-          "https://legacy.quran.com/5/8"
+          "https://legacy.quran.com/18/23-24"
         ],
-        "verified_at": "2026-10-22T17:30:00+04:00"
+        "translation": "Sahih International",
+        "verified_at": "2026-10-23T18:10:00+04:00"
       }
     ],
     "arabic_draft": {
       "status": "revised_after_critique",
-      "path": "automation/quran-reflections/reflection-al-maidah-justice-despite-dislike/draft-ar.md"
+      "path": "automation/quran-reflections/reflection-al-kahf-speaking-about-tomorrow/draft-ar.md",
+      "initial_commit": "a7bd351b1ef0114b2c38c53d86f03652a71f99be",
+      "revision_commit": "f192260f91fdbb2b0d00b7a10b7a81c725816615"
     },
     "independent_critique": {
       "status": "passed_after_revision",
-      "path": "automation/quran-reflections/reflection-al-maidah-justice-despite-dislike/quality-review.md",
+      "path": "automation/quran-reflections/reflection-al-kahf-speaking-about-tomorrow/quality-review.md",
+      "commit": "b526b313ea590015b44b94571ec2217a3b09c613",
       "blocking_error": false
     },
     "english_draft": {
       "status": "drafted_original_english_parity_passed",
-      "path": "automation/quran-reflections/reflection-al-maidah-justice-despite-dislike/draft-en.md"
+      "path": "automation/quran-reflections/reflection-al-kahf-speaking-about-tomorrow/draft-en.md",
+      "initial_commit": "ea0abb610d838ab8c1148be29712e60da62ca5a2",
+      "revision_commit": "6732982550ce67b349b6ed78dd82158904013e87"
     },
     "bilingual_parity": {
       "status": "passed",
-      "path": "automation/quran-reflections/reflection-al-maidah-justice-despite-dislike/quality-review.md"
+      "path": "automation/quran-reflections/reflection-al-kahf-speaking-about-tomorrow/quality-review.md",
+      "commit": "b78eec0aa42f1a751996f4d7cfd2f322e75d5fb3",
+      "blocking_error": false,
+      "revisions_required": false
     },
     "quality_gate": {
       "status": "passed",
-      "score": 97,
+      "score": 98,
       "threshold": 90,
       "blocking_error": false,
-      "path": "automation/quran-reflections/reflection-al-maidah-justice-despite-dislike/quality-review.md"
+      "path": "automation/quran-reflections/reflection-al-kahf-speaking-about-tomorrow/quality-review.md",
+      "commit": "1f971f27d5908f6ace1b760eeea790793f550dcf"
     },
     "repository_publish": {
       "status": "completed",
-      "commit": "23763f88ba18a723326602220a2c288517dd72f6",
-      "reconciled_descendant_head": "970f376a0c1eefe1bdfc808f96306dad68d89851",
+      "first_publication_commit": "6fcb0a0b525f9e6c8763c5a167d9fbe67d5c9890",
+      "english_page_commit": "950bd4429a3ad0125c8109f18b7a5f827ee7662e",
+      "indexes_final_commit": "403b87ad1a90c6e58ccef9e2cd882c4b4fce5889",
+      "sitemap_reconciliation_commit": "32509e26c67d31a8e71fea6123cc2e114d7cc3c4",
+      "registry_final_commit": "80048989a090f3a81f4eb00b538a52b96474ade0",
+      "social_assets_commit": "e2320c0ffc465189e47148da68a4f2860f6a57a7",
+      "reconciled_descendant_head": "e2320c0ffc465189e47148da68a4f2860f6a57a7",
       "paths": {
-        "ar": "reflection-al-maidah-justice-despite-dislike.html",
-        "en": "en/reflection-al-maidah-justice-despite-dislike.html",
-        "background": "assets/previews/story-backgrounds/reflection-al-maidah-justice-despite-dislike.svg",
-        "image_ar": "assets/previews/story/reflection-al-maidah-justice-despite-dislike-ar.jpg",
-        "image_en": "assets/previews/story/reflection-al-maidah-justice-despite-dislike-en.jpg"
+        "ar": "reflection-al-kahf-speaking-about-tomorrow.html",
+        "en": "en/reflection-al-kahf-speaking-about-tomorrow.html",
+        "image_ar": "assets/previews/story/reflection-al-kahf-speaking-about-tomorrow-ar.jpg",
+        "image_en": "assets/previews/story/reflection-al-kahf-speaking-about-tomorrow-en.jpg",
+        "cover_manifest": "data/article-covers.json"
       },
       "urls": {
-        "ar": "https://tamayuz10x.com/reflection-al-maidah-justice-despite-dislike.html",
-        "en": "https://tamayuz10x.com/en/reflection-al-maidah-justice-despite-dislike.html"
+        "ar": "https://tamayuz10x.com/reflection-al-kahf-speaking-about-tomorrow.html",
+        "en": "https://tamayuz10x.com/en/reflection-al-kahf-speaking-about-tomorrow.html"
       },
-      "verification": "Paired pages, four indexes, data registries, SVG source, metadata and sitemap structurally verified. Automatic sitemap normalization commit was reconciled as a descendant."
+      "social_assets": {
+        "ar": {
+          "blob_sha": "2418bc873919954f67db1f9733294564bc82e80d",
+          "verified_present": true
+        },
+        "en": {
+          "blob_sha": "787d19f957e8d6c446b51fc5887862e07e88f706",
+          "verified_present": true
+        }
+      },
+      "verification": "Paired pages, canonical, hreflang, Article schema, four indexes, topic registry, reviewed cover manifest, two sitemap entries and both generated JPEG assets were structurally verified in the repository. Actions and exact-head Pages deployment remain to be reconciled."
     },
     "actions_and_pages": {
       "status": "completed",
-      "initial_social_card_run_id": 39793354358,
-      "initial_result": "failed_before_commit",
-      "failure_reason": "The new slug was absent from data/article-covers.json, so generated JPEGs were rejected as unreviewed.",
-      "correction": "Added a reviewed bilingual manifest entry using the existing fair-measure background; the manifest change will retrigger generation.",
-      "pages_for_checkpoint_commit": {
-        "run_id": 39793506757,
-        "status": "pending_at_checkpoint"
+      "reconciliation_trigger_commit": "28c5406abd9512d6c861048c51bb3f924f549ca5",
+      "reconciled_descendant_head": "d9b5e8b0c3f763c35e2c0e44d60ec5a0bd52f6ad",
+      "prior_site_health_failure": {
+        "run_id": 40016943494,
+        "head_sha": "403b87ad1a90c6e58ccef9e2cd882c4b4fce5889",
+        "reason": "The first full-index run preceded generated social assets and reported only the six then-missing Al-Kahf image references."
       },
-      "manifest_correction_commit": "fc8030e8b55823e282899b48ea88e587e41c9170",
-      "social_assets_commit": "f59b4358ff2b9ec7450dfac94b67a67a8749383f",
+      "required_checks": {
+        "site_health": {
+          "run_id": 40037875882,
+          "run_number": 460,
+          "conclusion": "success",
+          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40037875882"
+        },
+        "article_date_integrity": {
+          "run_id": 40037875845,
+          "run_number": 527,
+          "conclusion": "success",
+          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40037875845"
+        },
+        "sitemap": {
+          "run_id": 40037876012,
+          "run_number": 610,
+          "conclusion": "success",
+          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40037876012"
+        },
+        "social_cards": {
+          "run_id": 40037875941,
+          "run_number": 402,
+          "conclusion": "success",
+          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40037875941"
+        },
+        "pages": {
+          "run_id": 40037950728,
+          "run_number": 1925,
+          "head_sha": "d9b5e8b0c3f763c35e2c0e44d60ec5a0bd52f6ad",
+          "conclusion": "success",
+          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40037950728"
+        }
+      },
       "social_assets": {
         "ar": {
-          "path": "assets/previews/story/reflection-al-maidah-justice-despite-dislike-ar.jpg",
-          "blob_sha": "3924b86872556c1bbfd99e22f013470bee88bfaf",
+          "path": "assets/previews/story/reflection-al-kahf-speaking-about-tomorrow-ar.jpg",
+          "blob_sha": "2418bc873919954f67db1f9733294564bc82e80d",
+          "width": 1200,
+          "height": 630,
           "verified": true
         },
         "en": {
-          "path": "assets/previews/story/reflection-al-maidah-justice-despite-dislike-en.jpg",
-          "blob_sha": "3e6f126b76ccf65e8925e108b65e5805fb16c6b0",
+          "path": "assets/previews/story/reflection-al-kahf-speaking-about-tomorrow-en.jpg",
+          "blob_sha": "787d19f957e8d6c446b51fc5887862e07e88f706",
+          "width": 1200,
+          "height": 630,
           "verified": true
         }
-      },
-      "social_generation_quality_checks": "passed in generation workflow before bot commit",
-      "pages_runs_observed": [
-        {
-          "run_id": 39794751667,
-          "head_sha": "f59b4358ff2b9ec7450dfac94b67a67a8749383f",
-          "status": "waiting"
-        },
-        {
-          "run_id": 39794750838,
-          "head_sha": "f59b4358ff2b9ec7450dfac94b67a67a8749383f",
-          "status": "queued"
-        }
-      ],
-      "pages_status": "success",
-      "exact_deployed_head": "64690f1581c0441fa5a9b4e6b0d02639284f94cd",
-      "pages_run": {
-        "id": 39829283746,
-        "status": "completed",
-        "conclusion": "success",
-        "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/39829283746"
-      },
-      "social_assets_ancestor_verified": true,
-      "repository_assets_reverified_at": "2026-10-22T22:12:00+04:00"
+      }
     },
     "live_verification": {
       "status": "passed",
-      "verified_at": "2026-10-22T22:14:00+04:00",
+      "verified_at": "2026-10-24T03:14:00+04:00",
+      "arabic_url": "https://tamayuz10x.com/reflection-al-kahf-speaking-about-tomorrow.html",
+      "english_url": "https://tamayuz10x.com/en/reflection-al-kahf-speaking-about-tomorrow.html",
+      "observed_titles": {
+        "ar": "ماذا يتغير حين نجزم بالغد؟ | التميّز 10X",
+        "en": "What Changes When We Speak Too Certainly About Tomorrow? | Tamayuz 10X"
+      },
       "checks": {
         "arabic_page": true,
         "english_page": true,
+        "canonical": true,
+        "reciprocal_hreflang": true,
+        "metadata": true,
+        "article_schema_org": true,
         "arabic_cover_1200x630": true,
         "english_cover_1200x630": true,
-        "canonical": true,
-        "hreflang": true,
-        "metadata": true,
-        "schema_org": true,
-        "articles_index_ar": true,
-        "articles_index_en": true,
-        "quranic_index_ar": true,
-        "quranic_index_en": true,
-        "sitemap": true
+        "articles_index_ar_single_card": true,
+        "articles_index_en_single_card": true,
+        "quranic_index_ar_single_card": true,
+        "quranic_index_en_single_card": true,
+        "sitemap_one_loc_per_language": true
       },
-      "arabic_url": "https://tamayuz10x.com/reflection-al-maidah-justice-despite-dislike.html",
-      "english_url": "https://tamayuz10x.com/en/reflection-al-maidah-justice-despite-dislike.html",
-      "observed_titles": {
-        "ar": "هل يتغير ميزان العدل حين نختلف؟ | التميّز 10X",
-        "en": "Does Justice Change When We Disagree? | Tamayuz 10X"
-      }
+      "sitemap_locs": [
+        "https://tamayuz10x.com/reflection-al-kahf-speaking-about-tomorrow.html",
+        "https://tamayuz10x.com/en/reflection-al-kahf-speaking-about-tomorrow.html"
+      ]
     },
     "publication_report": {
       "status": "saved",
-      "path": "automation/quran-reflections/reflection-al-maidah-justice-despite-dislike/publication-report.md",
-      "commit": "7a850301a7c0929a04a0100e747af3fa7afa185d"
+      "path": "automation/quran-reflections/reflection-al-kahf-speaking-about-tomorrow/publication-report.md",
+      "commit": "4f25b2e1f5d77d2a5ddf5c0ff744af312eaa893c"
     },
-    "publication_report_path": "automation/quran-reflections/reflection-al-maidah-justice-despite-dislike/publication-report.md",
+    "publication_report_path": "automation/quran-reflections/reflection-al-kahf-speaking-about-tomorrow/publication-report.md",
     "publishing": {
       "status": "published_live_verified",
-      "first_publication_commit": "23763f88ba18a723326602220a2c288517dd72f6",
-      "social_assets_commit": "f59b4358ff2b9ec7450dfac94b67a67a8749383f",
-      "final_deployment_commit": "64690f1581c0441fa5a9b4e6b0d02639284f94cd",
-      "pages_run": "https://github.com/alaabmt/alaa-excellence/actions/runs/39829283746",
-      "arabic_url": "https://tamayuz10x.com/reflection-al-maidah-justice-despite-dislike.html",
-      "english_url": "https://tamayuz10x.com/en/reflection-al-maidah-justice-despite-dislike.html",
-      "live_verified_at": "2026-10-22T22:14:00+04:00",
-      "actions_result": "passed",
-      "pages_result": "passed"
+      "first_publication_commit": "6fcb0a0b525f9e6c8763c5a167d9fbe67d5c9890",
+      "english_page_commit": "950bd4429a3ad0125c8109f18b7a5f827ee7662e",
+      "social_assets_commit": "d9b5e8b0c3f763c35e2c0e44d60ec5a0bd52f6ad",
+      "final_deployment_commit": "d9b5e8b0c3f763c35e2c0e44d60ec5a0bd52f6ad",
+      "pages_run": "https://github.com/alaabmt/alaa-excellence/actions/runs/40037950728",
+      "arabic_url": "https://tamayuz10x.com/reflection-al-kahf-speaking-about-tomorrow.html",
+      "english_url": "https://tamayuz10x.com/en/reflection-al-kahf-speaking-about-tomorrow.html"
     }
   },
   "run_date": "2026-10-23",
@@ -535,7 +566,8 @@
     "repository_publish",
     "actions_and_pages",
     "live_verification",
-    "completion_report"
+    "completion_report",
+    "completed"
   ],
   "duplicate_check": {
     "status": "passed_before_publication",
