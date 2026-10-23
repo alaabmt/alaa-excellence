@@ -7,9 +7,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-23T22:05:00+04:00",
-  "workflow_status": "reconciling",
-  "current_stage": "duplicate_check",
+  "updated_at": "2026-10-23T22:10:00+04:00",
+  "workflow_status": "in_progress",
+  "current_stage": "study_selection",
   "run_lease": {
     "owner": "automation-agentic-ai-6ab56c5eee2481919cac424410c6b3f8",
     "acquired_at": "2026-10-23T22:05:00+04:00",
@@ -20,7 +20,7 @@
     "publication_date": "2026-10-23",
     "title_ar": "هل تُعدّ موافقة الإنسان على خطوات الوكيل الذكي رقابةً حقيقية، أم ختمًا شكليًا؟",
     "title_en": "When a Person Approves an AI Agent's Actions, Is That Real Oversight or a Rubber Stamp?",
-    "research_status": "reconciling",
+    "research_status": "completed",
     "evidence_pack_status": "pending",
     "arabic_draft": {
       "status": "reconciling",
@@ -76,12 +76,12 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Reconcile the externally published 2026-10-23 Agentic AI article: rebuild the evidence pack and metrics, remove prohibited meta-language, add denominator-based results and an explicitly hypothetical example, restore specialist-only placement, then re-run all quality and live-publication checks.",
+  "next_action": "Build and commit the source-by-source Evidence Pack for the reconciled human-approval article.",
   "last_run": {
     "mode": "scheduled_daily",
-    "status": "reconciling",
+    "status": "in_progress",
     "started_at": "2026-10-23T22:02:50+04:00",
-    "notes": "A same-day Agentic AI article was already published outside the daily workflow. No duplicate will be created. The existing bilingual artifact requires reconciliation with the permanent editorial and placement standards."
+    "notes": "Same-day external publication reconciled as today's item. Research and source verification completed; no duplicate article created."
   },
   "blocker": null,
   "last_completed_item": {
