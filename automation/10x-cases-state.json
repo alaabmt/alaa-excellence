@@ -7,9 +7,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-23T09:21:00+04:00",
+  "updated_at": "2026-10-23T09:34:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "final_quality_gate",
+  "current_stage": "repository_publish",
   "run_lease": {
     "owner": "chatgpt-work-tenx-cases-20261023T073400+04",
     "acquired_at": "2026-10-23T07:39:00+04:00",
@@ -20,7 +20,7 @@
     "publication_date": "2026-10-23",
     "title_ar": "كيف نقلت السويد سلامة الطرق من تصحيح خطأ السائق إلى تصميم نظام يتسامح مع الخطأ؟",
     "title_en": "How Sweden Shifted Road Safety from Correcting Driver Error to Designing for Human Error",
-    "candidate_status": "evidence_passed",
+    "candidate_status": "published_to_main_pending_actions",
     "artifact_root": "automation/10x-cases/case-sweden-vision-zero-safe-system-road-safety/",
     "candidate_notes": {
       "path": "automation/10x-cases/case-sweden-vision-zero-safe-system-road-safety/candidate-notes.md",
@@ -86,6 +86,17 @@
         "assets/previews/story/case-sweden-vision-zero-safe-system-road-safety-ar.jpg",
         "assets/previews/story/case-sweden-vision-zero-safe-system-road-safety-en.jpg"
       ]
+    },
+    "publishing": {
+      "status": "published_to_main_pending_actions",
+      "arabic_path": "case-sweden-vision-zero-safe-system-road-safety.html",
+      "english_path": "en/case-sweden-vision-zero-safe-system-road-safety.html",
+      "arabic_url": "https://tamayuz10x.com/case-sweden-vision-zero-safe-system-road-safety.html",
+      "english_url": "https://tamayuz10x.com/en/case-sweden-vision-zero-safe-system-road-safety.html",
+      "covers": [
+        "assets/previews/story/case-sweden-vision-zero-safe-system-road-safety-ar.jpg",
+        "assets/previews/story/case-sweden-vision-zero-safe-system-road-safety-en.jpg"
+      ]
     }
   },
   "stage_order": [
@@ -127,7 +138,7 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Publish both pages, original covers, index cards, registry and sitemap atomically to main; then verify Actions and Pages.",
+  "next_action": "Verify GitHub Actions and Pages for the publication commit, reconcile any automated sitemap/card commit, then perform live AR/EN page, image, metadata, index and sitemap checks.",
   "last_run": {
     "mode": "daily_primary_run",
     "status": "in_progress",
@@ -224,6 +235,7 @@
     "company_insider_critique",
     "english_draft",
     "bilingual_parity",
-    "final_quality_gate"
+    "final_quality_gate",
+    "repository_publish"
   ]
 }
