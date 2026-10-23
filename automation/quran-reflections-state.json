@@ -5,9 +5,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-23T23:02:00+04:00",
+  "updated_at": "2026-10-23T23:08:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "quality_gate",
+  "current_stage": "repository_publish",
   "current_article": {
     "article_id": "quran-reflection-2026-10-23-al-kahf-speaking-about-tomorrow",
     "publication_date": "2026-10-23",
@@ -16,7 +16,7 @@
     "topic_en": "Humility before tomorrow: resolve under Allah’s will, remembrance and correction after forgetting",
     "working_title_ar": "ماذا يتغير حين نجزم بالغد؟",
     "working_title_en": "What Changes When We Speak Too Certainly About Tomorrow?",
-    "status": "bilingual_parity_completed",
+    "status": "quality_gate_passed",
     "quranic_focus": {
       "surah": "Al-Kahf",
       "surah_ar": "الكهف",
@@ -99,6 +99,14 @@
       "commit": "b78eec0aa42f1a751996f4d7cfd2f322e75d5fb3",
       "blocking_error": false,
       "revisions_required": false
+    },
+    "quality_gate": {
+      "status": "passed",
+      "score": 98,
+      "threshold": 90,
+      "blocking_error": false,
+      "path": "automation/quran-reflections/reflection-al-kahf-speaking-about-tomorrow/quality-review.md",
+      "commit": "1f971f27d5908f6ace1b760eeea790793f550dcf"
     }
   },
   "stage_order": [
@@ -132,16 +140,16 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Run the final 100-point quality gate with a minimum passing score of 90, rechecking Qur'anic text, tafsir and creed blockers; editorial and human-writing quality in both languages; source and reference fidelity; repetition; application discipline; and publication readiness. Record the scored gate in quality-review.md, revise if needed, and checkpoint quality_gate before any repository publication.",
+  "next_action": "Before publication, re-run duplicate prevention against the checkpoint, data/quranic-reflection-topics.json, the Arabic and English repository pages and four indexes, sitemap, and both intended live URLs. If clear, build the paired HTML pages from the current templates; update topic and content registries, four indexes, SEO, canonical, hreflang, Schema.org, sitemap and bilingual social-preview configuration; verify every repository artifact and checkpoint repository_publish before waiting for Actions and Pages.",
   "last_run": {
     "mode": "coordinator_resume",
     "status": "in_progress",
     "started_at": "2026-10-23T17:00:45+04:00",
     "starting_head": "4da832631fa9e9b310a533a5dc8117ebac8bbb80",
-    "notes": "Lease acquired to run the final 100-point content quality gate from the bilingual-parity checkpoint.",
-    "last_checkpoint": "bilingual_parity",
-    "last_checkpoint_at": "2026-10-23T22:08:00+04:00",
-    "head_before_checkpoint": "b78eec0aa42f1a751996f4d7cfd2f322e75d5fb3",
+    "notes": "The final content quality gate passed at 98/100 with no blocking error in Qur'anic text, tafsir, creed, bilingual parity or application discipline. Repository publication has not started.",
+    "last_checkpoint": "quality_gate",
+    "last_checkpoint_at": "2026-10-23T23:08:00+04:00",
+    "head_before_checkpoint": "1f971f27d5908f6ace1b760eeea790793f550dcf",
     "artifact_commit": "bbb98284fb18892f8438a50cf0653eff9c86b6c5",
     "research_commit": "e7897197a51ca7d321eaf7eab160fb21ca090fac",
     "resumed_at": "2026-10-23T23:01:57+04:00",
@@ -150,14 +158,11 @@
     "arabic_revision_commit": "f192260f91fdbb2b0d00b7a10b7a81c725816615",
     "independent_critique_commit": "b526b313ea590015b44b94571ec2217a3b09c613",
     "english_draft_commit": "6732982550ce67b349b6ed78dd82158904013e87",
-    "bilingual_parity_commit": "b78eec0aa42f1a751996f4d7cfd2f322e75d5fb3"
+    "bilingual_parity_commit": "b78eec0aa42f1a751996f4d7cfd2f322e75d5fb3",
+    "quality_gate_commit": "1f971f27d5908f6ace1b760eeea790793f550dcf"
   },
   "workflow_id": "quran_reflections",
-  "run_lease": {
-    "owner": "central-resume-coordinator-2026-10-23T23:01:57+04:00",
-    "acquired_at": "2026-10-23T23:01:57+04:00",
-    "expires_at": "2026-10-24T00:51:57+04:00"
-  },
+  "run_lease": null,
   "checkpoint_policy": {
     "checkpoint_after_every_stage": true,
     "run_lease_minutes": 110,
@@ -392,7 +397,8 @@
     "arabic_draft",
     "independent_critique",
     "english_draft",
-    "bilingual_parity"
+    "bilingual_parity",
+    "quality_gate"
   ],
   "duplicate_check": {
     "status": "passed_before_publication",
