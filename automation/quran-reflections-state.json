@@ -5,7 +5,7 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-23T17:14:00+04:00",
+  "updated_at": "2026-10-23T18:03:29+04:00",
   "workflow_status": "in_progress",
   "current_stage": "quran_verification",
   "current_article": {
@@ -89,19 +89,24 @@
   },
   "next_action": "Verify and record the exact Arabic text, Uthmani orthography, surah and ayah numbers, immediate context, Sahih International wording, and tafsir attribution boundaries for Al-Kahf 18:23–24; then checkpoint quran_verification before drafting.",
   "last_run": {
-    "mode": "coordinator_daily_start",
+    "mode": "coordinator_resume",
     "status": "in_progress",
     "started_at": "2026-10-23T17:00:45+04:00",
-    "starting_head": "cb17ead922ddba50bef81884e55e96d11d84b6ea",
+    "starting_head": "4bd4159bf9ac6100c7055e08a7cacfb51c5de25a",
     "notes": "Started the 2026-10-23 cycle, passed duplicate checks, selected Al-Kahf 18:23–24, and completed the detailed research stage. Lease released at a safe checkpoint.",
     "last_checkpoint": "research",
     "last_checkpoint_at": "2026-10-23T17:14:00+04:00",
     "head_before_checkpoint": "e7897197a51ca7d321eaf7eab160fb21ca090fac",
     "artifact_commit": "bbb98284fb18892f8438a50cf0653eff9c86b6c5",
-    "research_commit": "e7897197a51ca7d321eaf7eab160fb21ca090fac"
+    "research_commit": "e7897197a51ca7d321eaf7eab160fb21ca090fac",
+    "resumed_at": "2026-10-23T18:03:29+04:00"
   },
   "workflow_id": "quran_reflections",
-  "run_lease": null,
+  "run_lease": {
+    "owner": "central-resume-coordinator-2026-10-23T18:03:29+04:00",
+    "acquired_at": "2026-10-23T18:03:29+04:00",
+    "expires_at": "2026-10-23T19:53:29+04:00"
+  },
   "checkpoint_policy": {
     "checkpoint_after_every_stage": true,
     "run_lease_minutes": 110,
