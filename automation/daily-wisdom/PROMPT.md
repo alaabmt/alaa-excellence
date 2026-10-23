@@ -19,7 +19,7 @@ Each run (once a day, 09:00 Dubai) produces **one wisdom** taken from **one** Ta
 4. Read every earlier log entry for this article. The new wisdom must express a **different idea**.
 
 ## 3. Write the wisdom
-**First read `automation/daily-wisdom/WISDOM_WRITING_SKILL.md` and apply it.** Write three candidates with three different hooks, test them with its checklist, keep the best one, and record the hook type in the log as `"hook"` (paradox / correction / image / scene / question / warning). Never use the same hook type as the previous log entry. The rest of this section lists the fixed rules.
+**First read `automation/daily-wisdom/WISDOM_WRITING_SKILL.md` and apply it, including section 10 (owner-approved lessons: name the referent, strong clear hook, one concrete example, practical closing question; test with a reader who has not read the article).** Write three candidates with three different hooks, test them with its checklist, keep the best one, and record the hook type in the log as `"hook"` (paradox / correction / image / scene / question / warning). Never use the same hook type as the previous log entry. The rest of this section lists the fixed rules.
 A wisdom is **one idea**, stated as a lesson that also holds outside the article. It is not a summary of the article.
 
 Length: not short and not long.
