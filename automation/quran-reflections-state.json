@@ -5,9 +5,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-23T17:03:00+04:00",
+  "updated_at": "2026-10-23T17:04:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "duplicate_check",
+  "current_stage": "topic_selection",
   "current_article": null,
   "stage_order": [
     "capability_check",
@@ -40,16 +40,16 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Complete and checkpoint duplicate_check against the state, topic registry, repository pages and today's date.",
+  "next_action": "Select one original Qur’anic reflection angle for 2026-10-23 after comparing it with every published topic.",
   "last_run": {
     "mode": "coordinator_daily_start",
     "status": "in_progress",
     "started_at": "2026-10-23T17:00:45+04:00",
     "starting_head": "cb17ead922ddba50bef81884e55e96d11d84b6ea",
     "notes": "Started one daily Qur’anic reflection cycle after the 17:00 Asia/Dubai window and an initial duplicate check.",
-    "last_checkpoint": "load_checkpoint",
-    "last_checkpoint_at": "2026-10-23T17:03:00+04:00",
-    "head_before_checkpoint": "78b0251c64da514ddc4fa543c98839aebe88a56f"
+    "last_checkpoint": "duplicate_check",
+    "last_checkpoint_at": "2026-10-23T17:04:00+04:00",
+    "head_before_checkpoint": "97dd954f6c75d74e622dedc3cce275b2ef5314ad"
   },
   "workflow_id": "quran_reflections",
   "run_lease": {
@@ -283,7 +283,8 @@
   "run_date": "2026-10-23",
   "completed_stages": [
     "capability_check",
-    "load_checkpoint"
+    "load_checkpoint",
+    "duplicate_check"
   ],
   "duplicate_check": {
     "status": "passed_before_publication",
