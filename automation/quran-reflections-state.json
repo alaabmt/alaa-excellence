@@ -5,9 +5,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-23T18:03:29+04:00",
+  "updated_at": "2026-10-23T18:11:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "quran_verification",
+  "current_stage": "arabic_draft",
   "current_article": {
     "article_id": "quran-reflection-2026-10-23-al-kahf-speaking-about-tomorrow",
     "publication_date": "2026-10-23",
@@ -16,7 +16,7 @@
     "topic_en": "Humility before tomorrow: resolve under Allah’s will, remembrance and correction after forgetting",
     "working_title_ar": "ماذا يتغير حين نجزم بالغد؟",
     "working_title_en": "What Changes When We Speak Too Certainly About Tomorrow?",
-    "status": "research_completed",
+    "status": "quran_verified",
     "quranic_focus": {
       "surah": "Al-Kahf",
       "surah_ar": "الكهف",
@@ -24,7 +24,7 @@
         23,
         24
       ],
-      "status": "preliminarily_verified"
+      "status": "verified"
     },
     "research_notes_path": "automation/quran-reflections/reflection-al-kahf-speaking-about-tomorrow/research-notes.md",
     "research_status": "completed",
@@ -53,6 +53,26 @@
         "type": "Tafsir al-Sa'di",
         "url": "https://quran.ksu.edu.sa/tafseer/saadi/sura18-aya24.html",
         "status": "reviewed"
+      }
+    ],
+    "verified_quranic_references": [
+      {
+        "surah": "Al-Kahf",
+        "surah_ar": "الكهف",
+        "ayahs": [
+          23,
+          24
+        ],
+        "context_ayahs": [
+          22,
+          25
+        ],
+        "status": "verified",
+        "primary_text_urls": [
+          "https://legacy.quran.com/18/23-24"
+        ],
+        "translation": "Sahih International",
+        "verified_at": "2026-10-23T18:10:00+04:00"
       }
     ]
   },
@@ -87,26 +107,23 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Verify and record the exact Arabic text, Uthmani orthography, surah and ayah numbers, immediate context, Sahih International wording, and tafsir attribution boundaries for Al-Kahf 18:23–24; then checkpoint quran_verification before drafting.",
+  "next_action": "Write the complete original Arabic draft in automation/quran-reflections/reflection-al-kahf-speaking-about-tomorrow/draft-ar.md, preserving the verified tafsir boundaries and one explicitly hypothetical contemporary example; then checkpoint arabic_draft before independent critique.",
   "last_run": {
     "mode": "coordinator_resume",
     "status": "in_progress",
     "started_at": "2026-10-23T17:00:45+04:00",
     "starting_head": "4bd4159bf9ac6100c7055e08a7cacfb51c5de25a",
-    "notes": "Started the 2026-10-23 cycle, passed duplicate checks, selected Al-Kahf 18:23–24, and completed the detailed research stage. Lease released at a safe checkpoint.",
-    "last_checkpoint": "research",
-    "last_checkpoint_at": "2026-10-23T17:14:00+04:00",
-    "head_before_checkpoint": "e7897197a51ca7d321eaf7eab160fb21ca090fac",
+    "notes": "Exact Qur’anic text, numbering, context, Sahih International source and tafsir attribution boundaries verified. Lease released at the checkpoint.",
+    "last_checkpoint": "quran_verification",
+    "last_checkpoint_at": "2026-10-23T18:11:00+04:00",
+    "head_before_checkpoint": "f052a77a655afba9e53ddd87697d3cb5d979dfe9",
     "artifact_commit": "bbb98284fb18892f8438a50cf0653eff9c86b6c5",
     "research_commit": "e7897197a51ca7d321eaf7eab160fb21ca090fac",
-    "resumed_at": "2026-10-23T18:03:29+04:00"
+    "resumed_at": "2026-10-23T18:03:29+04:00",
+    "quran_verification_commit": "f052a77a655afba9e53ddd87697d3cb5d979dfe9"
   },
   "workflow_id": "quran_reflections",
-  "run_lease": {
-    "owner": "central-resume-coordinator-2026-10-23T18:03:29+04:00",
-    "acquired_at": "2026-10-23T18:03:29+04:00",
-    "expires_at": "2026-10-23T19:53:29+04:00"
-  },
+  "run_lease": null,
   "checkpoint_policy": {
     "checkpoint_after_every_stage": true,
     "run_lease_minutes": 110,
@@ -336,7 +353,8 @@
     "load_checkpoint",
     "duplicate_check",
     "topic_selection",
-    "research"
+    "research",
+    "quran_verification"
   ],
   "duplicate_check": {
     "status": "passed_before_publication",
@@ -354,5 +372,25 @@
     ],
     "finding": "No prior article or live destination matching the slug/title was found before publication."
   },
-  "blocker": null
+  "blocker": null,
+  "verified_quranic_references": [
+    {
+      "surah": "Al-Kahf",
+      "surah_ar": "الكهف",
+      "ayahs": [
+        23,
+        24
+      ],
+      "context_ayahs": [
+        22,
+        25
+      ],
+      "status": "verified",
+      "primary_text_urls": [
+        "https://legacy.quran.com/18/23-24"
+      ],
+      "translation": "Sahih International",
+      "verified_at": "2026-10-23T18:10:00+04:00"
+    }
+  ]
 }
