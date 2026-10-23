@@ -5,9 +5,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-24T00:05:00+04:00",
+  "updated_at": "2026-10-24T00:17:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "repository_publish",
+  "current_stage": "actions_and_pages",
   "current_article": {
     "article_id": "quran-reflection-2026-10-23-al-kahf-speaking-about-tomorrow",
     "publication_date": "2026-10-23",
@@ -16,7 +16,7 @@
     "topic_en": "Humility before tomorrow: resolve under Allah’s will, remembrance and correction after forgetting",
     "working_title_ar": "ماذا يتغير حين نجزم بالغد؟",
     "working_title_en": "What Changes When We Speak Too Certainly About Tomorrow?",
-    "status": "quality_gate_passed",
+    "status": "repository_published_actions_pending",
     "quranic_focus": {
       "surah": "Al-Kahf",
       "surah_ar": "الكهف",
@@ -107,6 +107,38 @@
       "blocking_error": false,
       "path": "automation/quran-reflections/reflection-al-kahf-speaking-about-tomorrow/quality-review.md",
       "commit": "1f971f27d5908f6ace1b760eeea790793f550dcf"
+    },
+    "repository_publish": {
+      "status": "completed",
+      "first_publication_commit": "6fcb0a0b525f9e6c8763c5a167d9fbe67d5c9890",
+      "english_page_commit": "950bd4429a3ad0125c8109f18b7a5f827ee7662e",
+      "indexes_final_commit": "403b87ad1a90c6e58ccef9e2cd882c4b4fce5889",
+      "sitemap_reconciliation_commit": "32509e26c67d31a8e71fea6123cc2e114d7cc3c4",
+      "registry_final_commit": "80048989a090f3a81f4eb00b538a52b96474ade0",
+      "social_assets_commit": "e2320c0ffc465189e47148da68a4f2860f6a57a7",
+      "reconciled_descendant_head": "e2320c0ffc465189e47148da68a4f2860f6a57a7",
+      "paths": {
+        "ar": "reflection-al-kahf-speaking-about-tomorrow.html",
+        "en": "en/reflection-al-kahf-speaking-about-tomorrow.html",
+        "image_ar": "assets/previews/story/reflection-al-kahf-speaking-about-tomorrow-ar.jpg",
+        "image_en": "assets/previews/story/reflection-al-kahf-speaking-about-tomorrow-en.jpg",
+        "cover_manifest": "data/article-covers.json"
+      },
+      "urls": {
+        "ar": "https://tamayuz10x.com/reflection-al-kahf-speaking-about-tomorrow.html",
+        "en": "https://tamayuz10x.com/en/reflection-al-kahf-speaking-about-tomorrow.html"
+      },
+      "social_assets": {
+        "ar": {
+          "blob_sha": "2418bc873919954f67db1f9733294564bc82e80d",
+          "verified_present": true
+        },
+        "en": {
+          "blob_sha": "787d19f957e8d6c446b51fc5887862e07e88f706",
+          "verified_present": true
+        }
+      },
+      "verification": "Paired pages, canonical, hreflang, Article schema, four indexes, topic registry, reviewed cover manifest, two sitemap entries and both generated JPEG assets were structurally verified in the repository. Actions and exact-head Pages deployment remain to be reconciled."
     }
   },
   "stage_order": [
@@ -140,16 +172,16 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Before publication, re-run duplicate prevention against the checkpoint, data/quranic-reflection-topics.json, the Arabic and English repository pages and four indexes, sitemap, and both intended live URLs. If clear, build the paired HTML pages from the current templates; update topic and content registries, four indexes, SEO, canonical, hreflang, Schema.org, sitemap and bilingual social-preview configuration; verify every repository artifact and checkpoint repository_publish before waiting for Actions and Pages.",
+  "next_action": "Reconcile GitHub Actions for publication and social-cover generation, verify both generated JPEGs are 1200×630 and the required checks passed, then wait for GitHub Pages to succeed for the exact final content head or a verified descendant containing it. Checkpoint actions_and_pages before live verification of both pages, canonical, hreflang, metadata, Schema.org, images, four indexes and sitemap.",
   "last_run": {
     "mode": "coordinator_resume",
     "status": "in_progress",
     "started_at": "2026-10-23T17:00:45+04:00",
     "starting_head": "4da832631fa9e9b310a533a5dc8117ebac8bbb80",
-    "notes": "Lease acquired for repository publication after the passed final quality gate; duplicate and live-destination checks must complete before any public file write.",
-    "last_checkpoint": "quality_gate",
-    "last_checkpoint_at": "2026-10-23T23:08:00+04:00",
-    "head_before_checkpoint": "1f971f27d5908f6ace1b760eeea790793f550dcf",
+    "notes": "Repository publication completed. Paired pages, four indexes, topic registry, cover manifest, sitemap and both generated social JPEGs are present; automatic sitemap and social-cover commits were reconciled as descendants. Pages and live verification remain pending.",
+    "last_checkpoint": "repository_publish",
+    "last_checkpoint_at": "2026-10-24T00:17:00+04:00",
+    "head_before_checkpoint": "e2320c0ffc465189e47148da68a4f2860f6a57a7",
     "artifact_commit": "bbb98284fb18892f8438a50cf0653eff9c86b6c5",
     "research_commit": "e7897197a51ca7d321eaf7eab160fb21ca090fac",
     "resumed_at": "2026-10-24T00:04:38+04:00",
@@ -159,14 +191,11 @@
     "independent_critique_commit": "b526b313ea590015b44b94571ec2217a3b09c613",
     "english_draft_commit": "6732982550ce67b349b6ed78dd82158904013e87",
     "bilingual_parity_commit": "b78eec0aa42f1a751996f4d7cfd2f322e75d5fb3",
-    "quality_gate_commit": "1f971f27d5908f6ace1b760eeea790793f550dcf"
+    "quality_gate_commit": "1f971f27d5908f6ace1b760eeea790793f550dcf",
+    "repository_publish_commit": "e2320c0ffc465189e47148da68a4f2860f6a57a7"
   },
   "workflow_id": "quran_reflections",
-  "run_lease": {
-    "owner": "central-resume-coordinator-2026-10-24T00:04:38+04:00",
-    "acquired_at": "2026-10-24T00:04:38+04:00",
-    "expires_at": "2026-10-24T01:54:38+04:00"
-  },
+  "run_lease": null,
   "checkpoint_policy": {
     "checkpoint_after_every_stage": true,
     "run_lease_minutes": 110,
@@ -402,11 +431,12 @@
     "independent_critique",
     "english_draft",
     "bilingual_parity",
-    "quality_gate"
+    "quality_gate",
+    "repository_publish"
   ],
   "duplicate_check": {
     "status": "passed_before_publication",
-    "checked_at": "2026-10-22T18:23:30+04:00",
+    "checked_at": "2026-10-24T00:06:00+04:00",
     "checked": [
       "checkpoint",
       "topic registry",
@@ -416,9 +446,10 @@
       "quranic-reflections.html",
       "en/quranic-reflections.html",
       "sitemap",
-      "expected public URLs"
+      "expected public URLs",
+      "exact-title web search"
     ],
-    "finding": "No prior article or live destination matching the slug/title was found before publication."
+    "finding": "No prior repository pages, registry entry, index card, sitemap entry or indexed live destination matched the slug or titles before publication. Direct URL inspection was unavailable to the public fetcher; exact-title and exact-slug searches returned no result."
   },
   "blocker": null,
   "verified_quranic_references": [
