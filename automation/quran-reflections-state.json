@@ -5,7 +5,7 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-23T23:08:00+04:00",
+  "updated_at": "2026-10-24T00:05:00+04:00",
   "workflow_status": "in_progress",
   "current_stage": "repository_publish",
   "current_article": {
@@ -146,13 +146,13 @@
     "status": "in_progress",
     "started_at": "2026-10-23T17:00:45+04:00",
     "starting_head": "4da832631fa9e9b310a533a5dc8117ebac8bbb80",
-    "notes": "The final content quality gate passed at 98/100 with no blocking error in Qur'anic text, tafsir, creed, bilingual parity or application discipline. Repository publication has not started.",
+    "notes": "Lease acquired for repository publication after the passed final quality gate; duplicate and live-destination checks must complete before any public file write.",
     "last_checkpoint": "quality_gate",
     "last_checkpoint_at": "2026-10-23T23:08:00+04:00",
     "head_before_checkpoint": "1f971f27d5908f6ace1b760eeea790793f550dcf",
     "artifact_commit": "bbb98284fb18892f8438a50cf0653eff9c86b6c5",
     "research_commit": "e7897197a51ca7d321eaf7eab160fb21ca090fac",
-    "resumed_at": "2026-10-23T23:01:57+04:00",
+    "resumed_at": "2026-10-24T00:04:38+04:00",
     "quran_verification_commit": "f052a77a655afba9e53ddd87697d3cb5d979dfe9",
     "arabic_draft_commit": "a7bd351b1ef0114b2c38c53d86f03652a71f99be",
     "arabic_revision_commit": "f192260f91fdbb2b0d00b7a10b7a81c725816615",
@@ -162,7 +162,11 @@
     "quality_gate_commit": "1f971f27d5908f6ace1b760eeea790793f550dcf"
   },
   "workflow_id": "quran_reflections",
-  "run_lease": null,
+  "run_lease": {
+    "owner": "central-resume-coordinator-2026-10-24T00:04:38+04:00",
+    "acquired_at": "2026-10-24T00:04:38+04:00",
+    "expires_at": "2026-10-24T01:54:38+04:00"
+  },
   "checkpoint_policy": {
     "checkpoint_after_every_stage": true,
     "run_lease_minutes": 110,
