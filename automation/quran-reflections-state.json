@@ -5,222 +5,10 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-22T22:16:00+04:00",
-  "workflow_status": "completed",
-  "current_stage": "completed",
-  "current_article": {
-    "article_id": "quran-reflection-2026-10-22-al-maidah-justice-despite-dislike",
-    "publication_date": "2026-10-22",
-    "slug": "reflection-al-maidah-justice-despite-dislike",
-    "topic_ar": "العدل حين يشتد النفور: مقاومة أثر الشنآن في الحكم",
-    "topic_en": "Justice under dislike: resisting the influence of hostility on judgment",
-    "working_title_ar": "هل يتغير ميزان العدل حين نختلف؟",
-    "working_title_en": "Does Justice Change When We Disagree?",
-    "status": "completed_published_live_verified",
-    "quranic_focus": {
-      "surah": "Al-Ma'idah",
-      "surah_ar": "المائدة",
-      "ayahs": [
-        8
-      ],
-      "status": "verified"
-    },
-    "research_notes_path": "automation/quran-reflections/reflection-al-maidah-justice-despite-dislike/research-notes.md",
-    "research_status": "completed",
-    "research_sources": [
-      {
-        "type": "Qur'an text and Sahih International translation",
-        "url": "https://legacy.quran.com/5/8",
-        "status": "reviewed"
-      },
-      {
-        "type": "Qur'an context",
-        "url": "https://corpus.quran.com/translation.jsp?chapter=5&verse=7",
-        "status": "reviewed"
-      },
-      {
-        "type": "Qur'an context",
-        "url": "https://corpus.quran.com/translation.jsp?chapter=5&verse=9",
-        "status": "reviewed"
-      },
-      {
-        "type": "Tafsir al-Tabari",
-        "url": "https://quran.ksu.edu.sa/tafseer/tabary/sura5-aya8.html",
-        "status": "reviewed"
-      },
-      {
-        "type": "Tafsir Ibn Kathir",
-        "url": "https://quran.ksu.edu.sa/tafseer/katheer/sura5-aya8.html",
-        "status": "reviewed"
-      },
-      {
-        "type": "Tafsir al-Qurtubi",
-        "url": "https://quran.ksu.edu.sa/tafseer/qortobi/sura5-aya8.html",
-        "status": "reviewed"
-      },
-      {
-        "type": "Tafsir al-Sa'di",
-        "url": "https://quran.ksu.edu.sa/tafseer/saadi/sura5-aya8.html",
-        "status": "reviewed"
-      },
-      {
-        "type": "English translation verification",
-        "url": "https://corpus.quran.com/translation.jsp?chapter=5&verse=8",
-        "status": "reviewed"
-      }
-    ],
-    "verified_quranic_references": [
-      {
-        "surah": "Al-Ma'idah",
-        "surah_ar": "المائدة",
-        "ayahs": [
-          8
-        ],
-        "context_ayahs": [
-          2,
-          7,
-          9
-        ],
-        "status": "verified",
-        "primary_text_urls": [
-          "https://legacy.quran.com/5/8"
-        ],
-        "verified_at": "2026-10-22T17:30:00+04:00"
-      }
-    ],
-    "arabic_draft": {
-      "status": "revised_after_critique",
-      "path": "automation/quran-reflections/reflection-al-maidah-justice-despite-dislike/draft-ar.md"
-    },
-    "independent_critique": {
-      "status": "passed_after_revision",
-      "path": "automation/quran-reflections/reflection-al-maidah-justice-despite-dislike/quality-review.md",
-      "blocking_error": false
-    },
-    "english_draft": {
-      "status": "drafted_original_english_parity_passed",
-      "path": "automation/quran-reflections/reflection-al-maidah-justice-despite-dislike/draft-en.md"
-    },
-    "bilingual_parity": {
-      "status": "passed",
-      "path": "automation/quran-reflections/reflection-al-maidah-justice-despite-dislike/quality-review.md"
-    },
-    "quality_gate": {
-      "status": "passed",
-      "score": 97,
-      "threshold": 90,
-      "blocking_error": false,
-      "path": "automation/quran-reflections/reflection-al-maidah-justice-despite-dislike/quality-review.md"
-    },
-    "repository_publish": {
-      "status": "completed",
-      "commit": "23763f88ba18a723326602220a2c288517dd72f6",
-      "reconciled_descendant_head": "970f376a0c1eefe1bdfc808f96306dad68d89851",
-      "paths": {
-        "ar": "reflection-al-maidah-justice-despite-dislike.html",
-        "en": "en/reflection-al-maidah-justice-despite-dislike.html",
-        "background": "assets/previews/story-backgrounds/reflection-al-maidah-justice-despite-dislike.svg",
-        "image_ar": "assets/previews/story/reflection-al-maidah-justice-despite-dislike-ar.jpg",
-        "image_en": "assets/previews/story/reflection-al-maidah-justice-despite-dislike-en.jpg"
-      },
-      "urls": {
-        "ar": "https://tamayuz10x.com/reflection-al-maidah-justice-despite-dislike.html",
-        "en": "https://tamayuz10x.com/en/reflection-al-maidah-justice-despite-dislike.html"
-      },
-      "verification": "Paired pages, four indexes, data registries, SVG source, metadata and sitemap structurally verified. Automatic sitemap normalization commit was reconciled as a descendant."
-    },
-    "actions_and_pages": {
-      "status": "completed",
-      "initial_social_card_run_id": 39793354358,
-      "initial_result": "failed_before_commit",
-      "failure_reason": "The new slug was absent from data/article-covers.json, so generated JPEGs were rejected as unreviewed.",
-      "correction": "Added a reviewed bilingual manifest entry using the existing fair-measure background; the manifest change will retrigger generation.",
-      "pages_for_checkpoint_commit": {
-        "run_id": 39793506757,
-        "status": "pending_at_checkpoint"
-      },
-      "manifest_correction_commit": "fc8030e8b55823e282899b48ea88e587e41c9170",
-      "social_assets_commit": "f59b4358ff2b9ec7450dfac94b67a67a8749383f",
-      "social_assets": {
-        "ar": {
-          "path": "assets/previews/story/reflection-al-maidah-justice-despite-dislike-ar.jpg",
-          "blob_sha": "3924b86872556c1bbfd99e22f013470bee88bfaf",
-          "verified": true
-        },
-        "en": {
-          "path": "assets/previews/story/reflection-al-maidah-justice-despite-dislike-en.jpg",
-          "blob_sha": "3e6f126b76ccf65e8925e108b65e5805fb16c6b0",
-          "verified": true
-        }
-      },
-      "social_generation_quality_checks": "passed in generation workflow before bot commit",
-      "pages_runs_observed": [
-        {
-          "run_id": 39794751667,
-          "head_sha": "f59b4358ff2b9ec7450dfac94b67a67a8749383f",
-          "status": "waiting"
-        },
-        {
-          "run_id": 39794750838,
-          "head_sha": "f59b4358ff2b9ec7450dfac94b67a67a8749383f",
-          "status": "queued"
-        }
-      ],
-      "pages_status": "success",
-      "exact_deployed_head": "64690f1581c0441fa5a9b4e6b0d02639284f94cd",
-      "pages_run": {
-        "id": 39829283746,
-        "status": "completed",
-        "conclusion": "success",
-        "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/39829283746"
-      },
-      "social_assets_ancestor_verified": true,
-      "repository_assets_reverified_at": "2026-10-22T22:12:00+04:00"
-    },
-    "live_verification": {
-      "status": "passed",
-      "verified_at": "2026-10-22T22:14:00+04:00",
-      "checks": {
-        "arabic_page": true,
-        "english_page": true,
-        "arabic_cover_1200x630": true,
-        "english_cover_1200x630": true,
-        "canonical": true,
-        "hreflang": true,
-        "metadata": true,
-        "schema_org": true,
-        "articles_index_ar": true,
-        "articles_index_en": true,
-        "quranic_index_ar": true,
-        "quranic_index_en": true,
-        "sitemap": true
-      },
-      "arabic_url": "https://tamayuz10x.com/reflection-al-maidah-justice-despite-dislike.html",
-      "english_url": "https://tamayuz10x.com/en/reflection-al-maidah-justice-despite-dislike.html",
-      "observed_titles": {
-        "ar": "هل يتغير ميزان العدل حين نختلف؟ | التميّز 10X",
-        "en": "Does Justice Change When We Disagree? | Tamayuz 10X"
-      }
-    },
-    "publication_report": {
-      "status": "saved",
-      "path": "automation/quran-reflections/reflection-al-maidah-justice-despite-dislike/publication-report.md",
-      "commit": "7a850301a7c0929a04a0100e747af3fa7afa185d"
-    },
-    "publication_report_path": "automation/quran-reflections/reflection-al-maidah-justice-despite-dislike/publication-report.md",
-    "publishing": {
-      "status": "published_live_verified",
-      "first_publication_commit": "23763f88ba18a723326602220a2c288517dd72f6",
-      "social_assets_commit": "f59b4358ff2b9ec7450dfac94b67a67a8749383f",
-      "final_deployment_commit": "64690f1581c0441fa5a9b4e6b0d02639284f94cd",
-      "pages_run": "https://github.com/alaabmt/alaa-excellence/actions/runs/39829283746",
-      "arabic_url": "https://tamayuz10x.com/reflection-al-maidah-justice-despite-dislike.html",
-      "english_url": "https://tamayuz10x.com/en/reflection-al-maidah-justice-despite-dislike.html",
-      "live_verified_at": "2026-10-22T22:14:00+04:00",
-      "actions_result": "passed",
-      "pages_result": "passed"
-    }
-  },
+  "updated_at": "2026-10-23T17:00:45+04:00",
+  "workflow_status": "in_progress",
+  "current_stage": "capability_check",
+  "current_article": null,
   "stage_order": [
     "capability_check",
     "load_checkpoint",
@@ -252,24 +40,20 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "No action for 2026-10-22. Do not start another Qur’anic reflection on the same Asia/Dubai date.",
+  "next_action": "Complete and checkpoint capability_check for the 2026-10-23 Qur’anic reflection cycle.",
   "last_run": {
-    "mode": "coordinator_resume",
-    "status": "completed",
-    "started_at": "2026-10-22T22:09:00+04:00",
-    "starting_head": "ae5f63bea29f6b6559db6b45dcba6f590746c56e",
-    "publication_commit": "23763f88ba18a723326602220a2c288517dd72f6",
-    "social_assets_commit": "f59b4358ff2b9ec7450dfac94b67a67a8749383f",
-    "notes": "Qur’anic reflection published bilingually, social cards verified, Pages passed, both live pages and all indexes verified, and the publication report saved.",
-    "reconciled_head": "64690f1581c0441fa5a9b4e6b0d02639284f94cd",
-    "pages_run_id": 39829283746,
-    "live_verified_at": "2026-10-22T22:14:00+04:00",
-    "completed_at": "2026-10-22T22:16:00+04:00",
-    "report_commit": "7a850301a7c0929a04a0100e747af3fa7afa185d",
-    "final_deployment_commit": "64690f1581c0441fa5a9b4e6b0d02639284f94cd"
+    "mode": "coordinator_daily_start",
+    "status": "in_progress",
+    "started_at": "2026-10-23T17:00:45+04:00",
+    "starting_head": "cb17ead922ddba50bef81884e55e96d11d84b6ea",
+    "notes": "Started one daily Qur’anic reflection cycle after the 17:00 Asia/Dubai window and an initial duplicate check."
   },
   "workflow_id": "quran_reflections",
-  "run_lease": null,
+  "run_lease": {
+    "owner": "central-resume-coordinator-2026-10-23T17:00:45+04:00",
+    "acquired_at": "2026-10-23T17:00:45+04:00",
+    "expires_at": "2026-10-23T18:50:45+04:00"
+  },
   "checkpoint_policy": {
     "checkpoint_after_every_stage": true,
     "run_lease_minutes": 110,
@@ -493,25 +277,8 @@
       "pages_result": "passed"
     }
   },
-  "run_date": "2026-10-22",
-  "completed_stages": [
-    "capability_check",
-    "load_checkpoint",
-    "duplicate_check",
-    "topic_selection",
-    "research",
-    "quran_verification",
-    "arabic_draft",
-    "independent_critique",
-    "english_draft",
-    "bilingual_parity",
-    "quality_gate",
-    "repository_publish",
-    "actions_and_pages",
-    "live_verification",
-    "completion_report",
-    "completed"
-  ],
+  "run_date": "2026-10-23",
+  "completed_stages": [],
   "duplicate_check": {
     "status": "passed_before_publication",
     "checked_at": "2026-10-22T18:23:30+04:00",
