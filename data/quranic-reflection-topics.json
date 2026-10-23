@@ -1,7 +1,23 @@
 {
   "purpose": "سجل موضوعات التأملات القرآنية لتجنب تكرار القصة أو الزاوية (دليل مهارات كتابة التأملات القرآنية، البند 10، الخطوة 9)",
-  "updated": "2026-10-22",
+  "updated": "2026-10-23",
   "reflections": [
+    {
+      "slug": "reflection-al-kahf-speaking-about-tomorrow",
+      "title_ar": "ماذا يتغير حين نجزم بالغد؟",
+      "title_en": "What Changes When We Speak Too Certainly About Tomorrow?",
+      "date": "2026-10-23",
+      "verses": [
+        "الكهف: 23–24"
+      ],
+      "angle": "تأمل في التواضع أمام الغد: العزم مع رد المستقبل إلى مشيئة الله، والذكر والتصحيح عند النسيان، دون جعل «إن شاء الله» ذريعة للتسويف أو أداة إدارية.",
+      "core_idea": "نعزم ونعمل ونأخذ بالأسباب، لكننا لا نملك الغد؛ نرد النتيجة إلى مشيئة الله ونطلب الأقرب رشدًا عند ظهور ما يستوجب التصحيح.",
+      "contemporary_application": "مسؤول فريق يؤخر قرارًا معلنًا بعد ظهور معلومة أساسية غير مراجعة، فيوضح ما استجد ويصحح الموعد بدل حماية صورة اليقين.",
+      "url_ar": "https://tamayuz10x.com/reflection-al-kahf-speaking-about-tomorrow.html",
+      "url_en": "https://tamayuz10x.com/en/reflection-al-kahf-speaking-about-tomorrow.html",
+      "github_commit": "repository_publish_in_progress",
+      "publication_status": "repository_published; actions_and_pages_pending"
+    },
     {
       "slug": "reflection-al-maidah-justice-despite-dislike",
       "title_ar": "هل يتغير ميزان العدل حين نختلف؟",
