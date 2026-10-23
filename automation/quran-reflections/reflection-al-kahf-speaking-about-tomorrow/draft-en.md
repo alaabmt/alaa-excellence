@@ -4,8 +4,10 @@ A team lead leaves a long meeting after promising to issue an important decision
 
 The Qur’an draws the boundary clearly:
 
-> **“And never say of anything, ‘Indeed, I will do that tomorrow,’ except [when adding], ‘If Allah wills.’ And remember your Lord when you forget [it] and say, ‘Perhaps my Lord will guide me to what is nearer than this to right conduct.’”**  
-> Al-Kahf 18:23–24, Sahih International
+> **“And never say of anything, ‘Indeed, I will do that tomorrow,’ except [when adding], ‘If Allah wills.’”**  
+> Al-Kahf 18:23–24, Sahih International (excerpt)
+
+The passage continues by directing the believer to remember Allah after forgetting and to ask for guidance toward what is nearer to right conduct.
 
 These verses do not cancel resolve or discourage planning. They correct the place a person occupies within a plan. Work remains necessary, but the future cannot be spoken of as though it has already become ours. Saying **in shā’ Allāh — if Allah wills** does not reduce responsibility. It declares dependence on Allah, acknowledges that intention alone cannot secure an outcome, and places confidence where it belongs.
 
@@ -31,11 +33,11 @@ Sincere resolve says: I will do what I can, prepare for what I know, honor what 
 
 ## A way back after forgetting
 
-The verse does not stop at the exception. It continues: **“And remember your Lord when you forget.”** Al-Tabari, Ibn Kathir, and Al-Qurtubi report several views on the phrase. A prominent view concerns making the exception when one remembers it. The commentaries also carry a broader meaning of remembering Allah after forgetfulness and returning to Him. There is no need here to settle the matters on which the exegetes differed or to move into detailed questions of oaths and expiation. The common ground is sufficient: forgetting does not close the door to remembrance, return, and correction.
+The verse does not stop at the exception. It continues with a command to remember Allah after forgetting. Al-Tabari, Ibn Kathir, and Al-Qurtubi report several views on the phrase. A prominent view concerns making the exception when one remembers it. The commentaries also carry a broader meaning of remembering Allah after forgetfulness and returning to Him. There is no need here to settle the matters on which the exegetes differed or to move into detailed questions of oaths and expiation. The common ground is sufficient: forgetting does not close the door to remembrance, return, and correction.
 
 That opening matters because human attention is not constant. A person may forget, speak too quickly, or discover that confidence exceeded knowledge. The command to remember can be contemplated as a path back from protecting an old image of certainty. The person remembers Allah, corrects what was said, and asks for right guidance.
 
-The verse then teaches the supplication: **“Perhaps my Lord will guide me to what is nearer than this to right conduct.”** The issue is no longer only a missed phrase. It becomes a request for guidance toward something more right. An original intention may have been good, yet Allah may guide a person to something better. A plan may once have looked like the most faithful path, then new knowledge may show that revising it is more honest and just. Returning is not always defeat. It can be the movement from defending an image to seeking guidance.
+The verse then teaches a supplication for the Lord’s guidance toward what is nearer to right conduct. The issue is no longer only a missed phrase. It becomes a request for guidance toward something more right. An original intention may have been good, yet Allah may guide a person to something better. A plan may once have looked like the most faithful path, then new knowledge may show that revising it is more honest and just. Returning is not always defeat. It can be the movement from defending an image to seeking guidance.
 
 A further reflection follows: someone who places the future under Allah’s will does not become less responsible for choices. Such a person may become more willing to review them—less inclined to treat a plan as untouchable, less threatened by an admission of incomplete knowledge, and less likely to turn a past promise into an argument against necessary correction.
 
