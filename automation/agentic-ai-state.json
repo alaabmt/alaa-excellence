@@ -7,9 +7,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-23T22:30:00+04:00",
+  "updated_at": "2026-10-23T22:38:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "quality_gate",
+  "current_stage": "repository_publish",
   "run_lease": {
     "owner": "automation-agentic-ai-6ab56c5eee2481919cac424410c6b3f8",
     "acquired_at": "2026-10-23T22:05:00+04:00",
@@ -23,18 +23,18 @@
     "research_status": "completed",
     "evidence_pack_status": "completed",
     "arabic_draft": {
-      "status": "completed",
+      "status": "reconciled",
       "path": "article-agentic-ai-human-approval-oversight.html"
     },
     "english_draft": {
-      "status": "completed",
+      "status": "reconciled",
       "path": "en/article-agentic-ai-human-approval-oversight.html"
     },
     "publishing": {
-      "status": "reconciling",
+      "status": "committed",
       "arabic_url": "https://tamayuz10x.com/article-agentic-ai-human-approval-oversight.html",
       "english_url": "https://tamayuz10x.com/en/article-agentic-ai-human-approval-oversight.html",
-      "publication_commit": "6d8a63d40e31f3892ff105507c5a22b645a9c3a8"
+      "publication_commit": "92234d2f48e650016f50861be15c656930a2fed1"
     }
   },
   "stage_order": [
@@ -76,12 +76,12 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Replace both public article bodies with the approved bilingual drafts, enforce Arabic parentheses and approved disclaimers, remove the two cards from the general indexes, then verify specialist hubs, metadata, covers, dates, sitemap, Actions, Pages, and live URLs.",
+  "next_action": "Verify all GitHub Actions and GitHub Pages for the exact current head, then verify both live articles, specialist cards, covers, reciprocal links, sitemap, date registry, and exclusion from the general indexes.",
   "last_run": {
     "mode": "scheduled_daily",
     "status": "in_progress",
     "started_at": "2026-10-23T22:02:50+04:00",
-    "notes": "Same-day external publication reconciled as today's item. Research and source verification completed; no duplicate article created."
+    "notes": "Reconciled the same-day externally published article instead of creating a duplicate. Rebuilt both editions around the measured datasets and denominators, added a labeled hypothetical example and side-study box, restored specialist-only placement, and updated SEO/structured citations."
   },
   "blocker": null,
   "last_completed_item": {
