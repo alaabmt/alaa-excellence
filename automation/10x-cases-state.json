@@ -7,9 +7,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-23T09:43:00+04:00",
+  "updated_at": "2026-10-23T10:02:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "actions_and_pages",
+  "current_stage": "live_verification",
   "run_lease": {
     "owner": "chatgpt-work-tenx-cases-20261023T073400+04",
     "acquired_at": "2026-10-23T07:39:00+04:00",
@@ -88,7 +88,7 @@
       ]
     },
     "publishing": {
-      "status": "reconciling_actions_after_cover_registry_fix",
+      "status": "final_reference_numbering_fix_pending_pages",
       "arabic_path": "case-sweden-vision-zero-safe-system-road-safety.html",
       "english_path": "en/case-sweden-vision-zero-safe-system-road-safety.html",
       "arabic_url": "https://tamayuz10x.com/case-sweden-vision-zero-safe-system-road-safety.html",
@@ -100,7 +100,11 @@
       "first_publication_commit": "5905d29adc8fb0e5d3d2db4eeb239390af299f73",
       "sitemap_reconciliation_commit": "30935c48f6a1fabfc17b1481abbd6f9128400ad5",
       "failed_run": "https://github.com/alaabmt/alaa-excellence/actions/runs/39896992261",
-      "failure_cause": "Published page was not registered in data/article-covers.json and used a noncanonical cover version."
+      "failure_cause": "Published page was not registered in data/article-covers.json and used a noncanonical cover version.",
+      "cover_registry_fix_commit": "49f2f519b6967a6e9f13a827647220b4bdd4d22a",
+      "social_cards_commit": "7cc497015a0853e39b25bf25eafbd4ee9df8f6e0",
+      "pages_run": "https://github.com/alaabmt/alaa-excellence/actions/runs/39897232490",
+      "actions": "passed_after_cover_registry_fix"
     }
   },
   "stage_order": [
@@ -142,7 +146,7 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Verify the cover-registry fix workflows, Pages deployment and final live output; do not republish content.",
+  "next_action": "Wait for Pages on the reference-numbering fix, then repeat live page, image, metadata, index and sitemap verification and write publication report.",
   "last_run": {
     "mode": "daily_primary_run",
     "status": "in_progress",

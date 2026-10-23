@@ -108,5 +108,4 @@
 10. Swedish Transport Administration, “Data Collection.” https://bransch.trafikverket.se/en/startpage/operations/Operations-road/vision-zero-academy/Vision-Zero-and-ways-to-work/data-collection/
 11. OECD/International Transport Forum, *The Safe System Approach in Action*, 2022. https://www.oecd.org/content/dam/oecd/en/publications/reports/2022/06/the-safe-system-approach-in-action_80a2cfc3/ad5d82f0-en.pdf
 12. Matts-Åke Belin, *Public Road Safety Policy Change and Its Implementation: Vision Zero a Road Safety Policy Innovation*, Karolinska Institutet, 2012. https://openarchive.ki.se/xmlui/handle/10616/40928
-
 13. Swedish Transport Administration, “Vi behöver göra mer för att minska antalet omkomna och allvarligt skadade i vägtrafiken,” May 2026. https://www.trafikverket.se/om-oss/nyheter/nationella-nyheter/2026/maj/vi-behover-gora-mer-for-att-minska-antalet-omkomna-och-allvarligt-skadade-i-vagtrafiken/
