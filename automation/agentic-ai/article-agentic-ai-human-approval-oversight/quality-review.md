@@ -53,3 +53,64 @@ Expected plain-language answer:
 ## Status
 
 Arabic draft may proceed to English drafting after the two publication corrections are enforced in the generated HTML.
+
+
+## Bilingual semantic parity and final pre-publication gate
+
+### Factual parity
+
+**Pass.** Both editions preserve:
+- the 93% company-reported acceptance claim and its missing denominator;
+- the three distinct evaluation datasets: 10,000 real internal calls, 52 selected real overeager actions, and 1,000 synthetic exfiltration attempts;
+- the full-pipeline rates and the same approximate/exact count boundaries;
+- the warning that no overall accuracy can be computed by pooling the rows;
+- the hypothetical status of the procurement example;
+- the side-study sample and the distinction between study-level prevalence and decision-level error;
+- the legal scope limitation for EU high-risk systems;
+- the distinction between company evidence, independent research, governance texts, and editorial analysis;
+- the same six institutional decisions under the 10X lens.
+
+### Natural-English review
+
+**Pass.** The English edition uses its own narrative sequence and idiom:
+- it opens with the approval queue and the consequence of a risky request;
+- it frames the intervention as replacing prompt volume with a technical gate;
+- it explains the three datasets before displaying the table;
+- it does not mirror Arabic sentence structure or paragraph cadence.
+
+A native editor should not infer a sentence-by-sentence translation.
+
+### Arabic terminology review
+
+**Pass subject to HTML enforcement.**
+- Technical terms are introduced in Arabic with English forms enclosed in parentheses.
+- FPR and FNR are defined at first use.
+- The Arabic HTML references must enclose English names and titles in parentheses.
+- No process-oriented first-person language from the earlier publication may remain.
+
+### Narrative and evidence gate
+
+**Pass.**
+- Concrete problem appears in the first line.
+- Concepts are defined at first use.
+- Intervention precedes results.
+- Results move from total to correct and incorrect with denominators.
+- Secondary research is isolated in a labeled side box.
+- Hypothetical example is explicitly labeled.
+- Limits precede institutional decisions.
+- The 10X lens redesigns the operating model.
+- Conclusion returns to the practical problem.
+- Both editions use the same direct sources.
+
+### Publication placement gate
+
+Required before completion:
+- one card and one matching JSON-LD entry in each specialist hub;
+- zero cards/links/JSON-LD entries in articles.html and en/articles.html;
+- one story cover, one author line, one share component, reciprocal language links, canonical metadata, and approved disclaimers;
+- sitemap and publication-date registry entries retained;
+- live cover dimensions and load verified.
+
+## Pre-publication status
+
+**Approved for repository publication after the HTML enforcement and placement corrections above.**
