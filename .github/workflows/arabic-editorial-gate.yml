@@ -1,0 +1,23 @@
+name: Arabic editorial gate
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'article-agentic-ai-alphaevolve-compute-scheduling.html'
+      - 'editorial-qa/alphaevolve.json'
+      - 'scripts/check_arabic_editorial.py'
+      - '.github/workflows/arabic-editorial-gate.yml'
+  pull_request:
+    paths:
+      - 'article-agentic-ai-alphaevolve-compute-scheduling.html'
+      - 'editorial-qa/alphaevolve.json'
+      - 'scripts/check_arabic_editorial.py'
+      - '.github/workflows/arabic-editorial-gate.yml'
+  workflow_dispatch:
+jobs:
+  editorial-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check Arabic article approval
+        run: python3 scripts/check_arabic_editorial.py article-agentic-ai-alphaevolve-compute-scheduling.html editorial-qa/alphaevolve.json
