@@ -5,7 +5,7 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-24T21:24:00+04:00",
+  "updated_at": "2026-10-24T22:02:00+04:00",
   "workflow_status": "in_progress",
   "current_stage": "quality_gate",
   "current_article": {
@@ -176,7 +176,7 @@
     "topic_selection_commit": "d2deaf1cd13861986ed878cb7d9919479959d8e4",
     "research_commit": "239d631089150ce0c9df909d4aefedb1d8f9aa4f",
     "quran_verification_commit": "4ab5f8c446c766adf34d03877a20d56a1f789751",
-    "resumed_at": "2026-10-24T21:04:00+04:00",
+    "resumed_at": "2026-10-24T22:02:00+04:00",
     "resumed_by": "central-coordinator",
     "arabic_draft_commit": "46da29cd66622e4ce08f4e072db3a4036a05e95c",
     "checkpointed_at": "2026-10-24T21:24:00+04:00",
@@ -186,7 +186,11 @@
     "bilingual_parity_commit": "4f4f358ec877a76eb8e72eb0dfc5901e4977e32b"
   },
   "workflow_id": "quran_reflections",
-  "run_lease": null,
+  "run_lease": {
+    "owner": "central-coordinator-quran-2026-10-24-quality-gate",
+    "acquired_at": "2026-10-24T22:02:00+04:00",
+    "expires_at": "2026-10-24T23:52:00+04:00"
+  },
   "checkpoint_policy": {
     "checkpoint_after_every_stage": true,
     "run_lease_minutes": 110,
