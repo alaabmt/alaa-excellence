@@ -7,9 +7,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-24T22:20:00+04:00",
+  "updated_at": "2026-10-24T22:22:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "actions_and_pages",
+  "current_stage": "live_verification",
   "run_lease": {
     "owner": "automation-agentic-ai-6ab56c5eee2481919cac424410c6b3f8",
     "acquired_at": "2026-10-24T21:59:00+04:00",
@@ -31,19 +31,28 @@
       "path": "en/article-agentic-ai-building-customer-service-agents.html"
     },
     "publishing": {
-      "status": "awaiting_final_actions_and_pages",
+      "status": "pages_verified",
       "arabic_url": "https://tamayuz10x.com/article-agentic-ai-building-customer-service-agents.html",
       "english_url": "https://tamayuz10x.com/en/article-agentic-ai-building-customer-service-agents.html",
       "social_assets_commit": "85abbb4f644bfaca31ce89a0cbdc81cf0d46161a",
       "mobile_gate_run_id": 40119798475,
       "mobile_gate_run_number": 64,
-      "publication_commit": "7a96a81d1591267a4c8355e69bdeed3ce13ee154",
+      "publication_commit": "c5724499e2517a3ec9a24252218d88b187fba9d7",
       "repository_checks": {
         "article_pages": 2,
         "specialist_hubs": 2,
         "general_index_slug_occurrences": 0,
         "sitemap_entries": 2,
         "social_images": "2 x 1200x630"
+      },
+      "pages_run_id": 40120106666,
+      "pages_run_number": 2041,
+      "checks": {
+        "arabic_editorial_gate": 68,
+        "site_health_qa": 474,
+        "article_date_integrity": 540,
+        "editorial_disclaimer": 268,
+        "social_cards": 417
       }
     }
   },
@@ -86,7 +95,7 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Wait for all required checks and GitHub Pages to succeed for the exact current head, then verify both live pages and specialist-hub placement.",
+  "next_action": "Perform final live spot-check of both language pages and specialist hubs against the deployed head, then write publication-report.md and mark completed.",
   "last_run": {
     "mode": "scheduled_daily",
     "status": "in_progress",
