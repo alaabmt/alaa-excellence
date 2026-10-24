@@ -1,7 +1,23 @@
 {
   "purpose": "سجل موضوعات التأملات القرآنية لتجنب تكرار القصة أو الزاوية (دليل مهارات كتابة التأملات القرآنية، البند 10، الخطوة 9)",
-  "updated": "2026-10-23",
+  "updated": "2026-10-24",
   "reflections": [
+    {
+      "slug": "reflection-az-zumar-follow-the-best",
+      "title_ar": "هل يكفي أن نسمع، أم نتبع أحسن ما سمعنا؟",
+      "title_en": "Is Listening Enough, or Do We Follow the Best of What We Hear?",
+      "date": "2026-10-24",
+      "verses": [
+        "الزمر: 18"
+      ],
+      "angle": "تأمل في الاستماع الذي يقود إلى التمييز واتباع الأحسن، ضمن سياق اجتناب الطاغوت والإنابة إلى الله والهداية، من غير اختزال الآية في مقارنة آراء أو نموذج إداري.",
+      "core_idea": "لا يكتمل الاستماع بمجرد استقبال الأقوال؛ يظهر صدقه حين يُتبع ما يتبين أنه أهدى وأقوم، مع بقاء الوحي والهداية الإلهية ميزانًا للحق.",
+      "contemporary_application": "فريق قرار يراجع اقتراحًا مفضّلًا بعد أن تكشف محللة بهدوء أثرًا غير منظور في كبار السن وذوي الإعاقة؛ المثال افتراضي وليس تفسيرًا للآية.",
+      "url_ar": "https://tamayuz10x.com/reflection-az-zumar-follow-the-best.html",
+      "url_en": "https://tamayuz10x.com/en/reflection-az-zumar-follow-the-best.html",
+      "github_commit": "786c24894c4bef772bfbdb96bffa044e9d259290",
+      "publication_status": "repository_published; social_cards_actions_and_pages_pending"
+    },
     {
       "slug": "reflection-al-kahf-speaking-about-tomorrow",
       "title_ar": "ماذا يتغير حين نجزم بالغد؟",
