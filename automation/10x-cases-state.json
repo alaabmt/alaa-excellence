@@ -7,9 +7,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-24T07:48:00+04:00",
+  "updated_at": "2026-10-24T07:52:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "final_quality_gate",
+  "current_stage": "repository_publish",
   "run_lease": {
     "owner": "chatgpt-work-tenx-daily-2026-10-24T0731",
     "acquired_at": "2026-10-24T07:31:20+04:00",
@@ -65,6 +65,22 @@
     "bilingual_parity": {
       "status": "passed",
       "path": "automation/10x-cases/case-seoul-food-waste-pay-as-you-throw-rfid/bilingual-parity-review.md"
+    },
+    "final_quality_gate": {
+      "status": "passed",
+      "path": "automation/10x-cases/case-seoul-food-waste-pay-as-you-throw-rfid/quality-review.md"
+    },
+    "covers": {
+      "source": "original_ai_generated",
+      "dimensions": "1200x630",
+      "sizes_bytes": {
+        "ar": 102195,
+        "en": 119254
+      },
+      "paths": [
+        "assets/previews/story/case-seoul-food-waste-pay-as-you-throw-rfid-ar.jpg",
+        "assets/previews/story/case-seoul-food-waste-pay-as-you-throw-rfid-en.jpg"
+      ]
     }
   },
   "stage_order": [
@@ -106,7 +122,7 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Run the Final Quality Gate across evidence, narrative, language, technical publish readiness, SEO, covers, metadata, dates, parity and rights.",
+  "next_action": "Publish the complete bilingual package atomically to main, including pages, indexes, date and cover registries, social cards and sitemap; then monitor Actions and Pages.",
   "last_run": {
     "mode": "daily_primary_run",
     "status": "in_progress",
@@ -227,6 +243,7 @@
     "arabic_draft",
     "company_insider_critique",
     "english_draft",
-    "bilingual_parity"
+    "bilingual_parity",
+    "final_quality_gate"
   ]
 }
