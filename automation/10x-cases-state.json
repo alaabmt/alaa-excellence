@@ -7,9 +7,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-24T07:46:30+04:00",
+  "updated_at": "2026-10-24T07:48:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "bilingual_parity",
+  "current_stage": "final_quality_gate",
   "run_lease": {
     "owner": "chatgpt-work-tenx-daily-2026-10-24T0731",
     "acquired_at": "2026-10-24T07:31:20+04:00",
@@ -61,6 +61,10 @@
     "english_draft": {
       "status": "drafted_with_critique_applied",
       "path": "automation/10x-cases/case-seoul-food-waste-pay-as-you-throw-rfid/draft-en.md"
+    },
+    "bilingual_parity": {
+      "status": "passed",
+      "path": "automation/10x-cases/case-seoul-food-waste-pay-as-you-throw-rfid/bilingual-parity-review.md"
     }
   },
   "stage_order": [
@@ -102,7 +106,7 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Run bilingual parity for facts, figures, evidence limits, section order, disclaimer and video decision; then perform the Final Quality Gate.",
+  "next_action": "Run the Final Quality Gate across evidence, narrative, language, technical publish readiness, SEO, covers, metadata, dates, parity and rights.",
   "last_run": {
     "mode": "daily_primary_run",
     "status": "in_progress",
@@ -222,6 +226,7 @@
     "backcasting_and_10x_analysis",
     "arabic_draft",
     "company_insider_critique",
-    "english_draft"
+    "english_draft",
+    "bilingual_parity"
   ]
 }
