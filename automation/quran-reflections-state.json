@@ -5,9 +5,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-25T02:06:00+04:00",
+  "updated_at": "2026-10-25T02:14:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "actions_and_pages",
+  "current_stage": "live_verification",
   "current_article": {
     "article_id": "quran-reflection-2026-10-24-az-zumar-follow-the-best",
     "publication_date": "2026-10-24",
@@ -16,7 +16,7 @@
     "topic_en": "Responsible listening: hearing different words and following the best of them",
     "working_title_ar": "هل يكفي أن نسمع، أم نتبع أحسن ما سمعنا؟",
     "working_title_en": "Is Listening Enough, or Do We Follow the Best of What We Hear?",
-    "status": "repository_publish_completed",
+    "status": "actions_and_pages_completed",
     "quranic_focus": {
       "surah": "Az-Zumar",
       "surah_ar": "الزمر",
@@ -176,6 +176,57 @@
         }
       },
       "verification": "Paired pages, canonical, reciprocal hreflang, Article schema, four indexes, topic registry, cover and date manifests, two sitemap locations and both generated 1200x630 JPEG assets were structurally verified in the repository. Actions and exact-head Pages deployment remain to be reconciled."
+    },
+    "actions_and_pages": {
+      "status": "completed",
+      "reconciliation_trigger_commit": "c3c40064853a59b69ad5fefe24bf94742f3a25af",
+      "sitemap_descendant_commit": "25396c15163507a5b562450566aa0a35e77f378e",
+      "reconciled_descendant_head": "5cecb5738eb03a4fd860cf73eb94c5ddf37eabbf",
+      "report_path": "automation/quran-reflections/reflection-az-zumar-follow-the-best/actions-and-pages-report.md",
+      "report_commit": "4c150a4d2b7423401135588eac969bd42d001dc8",
+      "prior_site_health_failure": {
+        "run_id": 40132778087,
+        "head_sha": "786c24894c4bef772bfbdb96bffa044e9d259290",
+        "reason": "Historical publication commit preceded generated social assets; rerunning that historical commit correctly reproduced the six then-missing Az-Zumar image references."
+      },
+      "required_checks": {
+        "site_health": {
+          "run_id": 40137135561,
+          "head_sha": "c3c40064853a59b69ad5fefe24bf94742f3a25af",
+          "conclusion": "success",
+          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40137135561"
+        },
+        "article_date_integrity": {
+          "run_id": 40137135511,
+          "head_sha": "c3c40064853a59b69ad5fefe24bf94742f3a25af",
+          "conclusion": "success",
+          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40137135511"
+        },
+        "sitemap": {
+          "run_id": 40137135528,
+          "head_sha": "c3c40064853a59b69ad5fefe24bf94742f3a25af",
+          "conclusion": "success",
+          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40137135528"
+        },
+        "arabic_editorial": {
+          "run_id": 40137135519,
+          "head_sha": "c3c40064853a59b69ad5fefe24bf94742f3a25af",
+          "conclusion": "success",
+          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40137135519"
+        },
+        "social_cards": {
+          "run_id": 40137135464,
+          "head_sha": "c3c40064853a59b69ad5fefe24bf94742f3a25af",
+          "conclusion": "success",
+          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40137135464"
+        },
+        "pages": {
+          "run_id": 40137210587,
+          "head_sha": "5cecb5738eb03a4fd860cf73eb94c5ddf37eabbf",
+          "conclusion": "success",
+          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40137210587"
+        }
+      }
     }
   },
   "stage_order": [
@@ -209,15 +260,15 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Reconcile the required GitHub Actions on the latest descendant head. Because the initial site-health run preceded generated social assets, obtain a fresh successful site-health result without duplicating publication; then require an exact-head successful Pages deployment and verify the Arabic and English live pages, canonical/hreflang/Article schema, four indexes, sitemap locations and both 1200x630 social cards before saving the final publication report.",
+  "next_action": "Verify the Arabic and English live pages, observed titles, canonical and reciprocal hreflang, metadata and Article schema, the single matching card in each of the four live indexes, exactly one sitemap location per language, and both live 1200x630 social-card responses. If all pass, save publication-report.md, mark completion_report and completed, release the lease and deliver the original Arabic completion report.",
   "last_run": {
     "mode": "coordinator_daily_start",
     "status": "in_progress",
     "started_at": "2026-10-24T17:03:26+04:00",
     "starting_head": "6139460adf513e2176a1aadca6c8b06708c60082",
     "notes": "Started the single allowed Qur'anic reflection cycle for 24 October after capability, checkpoint, registry, repository and indexed-web duplicate checks.",
-    "last_checkpoint": "repository_publish",
-    "last_checkpoint_at": "2026-10-25T01:15:00+04:00",
+    "last_checkpoint": "actions_and_pages",
+    "last_checkpoint_at": "2026-10-25T02:14:00+04:00",
     "topic_selection_commit": "d2deaf1cd13861986ed878cb7d9919479959d8e4",
     "research_commit": "239d631089150ce0c9df909d4aefedb1d8f9aa4f",
     "quran_verification_commit": "4ab5f8c446c766adf34d03877a20d56a1f789751",
@@ -234,7 +285,9 @@
     "reconciled_expired_lease": true,
     "repository_publish_commit": "786c24894c4bef772bfbdb96bffa044e9d259290",
     "social_assets_commit": "341b77e6aadf4c2930e8d8aef9f42ef0beed146c",
-    "repository_publish_report_commit": "6a6c56868292dd9b0e7531fda8ab45d802394182"
+    "repository_publish_report_commit": "6a6c56868292dd9b0e7531fda8ab45d802394182",
+    "actions_and_pages_report_commit": "4c150a4d2b7423401135588eac969bd42d001dc8",
+    "pages_run_id": 40137210587
   },
   "workflow_id": "quran_reflections",
   "run_lease": {
@@ -502,7 +555,8 @@
     "english_draft",
     "bilingual_parity",
     "quality_gate",
-    "repository_publish"
+    "repository_publish",
+    "actions_and_pages"
   ],
   "duplicate_check": {
     "status": "passed",
