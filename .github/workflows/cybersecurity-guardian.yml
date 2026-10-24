@@ -26,6 +26,7 @@ jobs:
           persist-credentials: false
       - name: Run conservative security hygiene checks
         run: python3 scripts/cybersecurity_guardian.py --root . --output "$RUNNER_TEMP/cybersecurity-report.json"
-      - name: Show summary (no secret values)
+      - name: Publish findings summary (no secret values)
+        if: always()
         run: |
-          python3 -c 'import json,os; p=json.load(open(os.environ["RUNNER_TEMP"]+"/cybersecurity-report.json")); print("status:",p["status"],"files:",p["files_scanned"],"potential findings:",len(p["findings"])); [print(x["severity"],x["rule"],x["file"],x["line"]) for x in p["findings"]]'
+          python3 -c 'import json,os,pathlib; p=json.load(open(os.environ["RUNNER_TEMP"]+"/cybersecurity-report.json")); lines=["## Cybersecurity Guardian", "Status: **"+p["status"]+"**", "Files scanned: "+str(p["files_scanned"]), "Potential findings: "+str(len(p["findings"])), "", "| Severity | Rule | File | Line |", "|---|---|---|---|"]; lines += ["| "+" | ".join(str(x[k]).replace("|","/") for k in ("severity","rule","file","line"))+" |" for x in p["findings"]]; pathlib.Path(os.environ["GITHUB_STEP_SUMMARY"]).write_text("\n".join(lines)+"\n"); print("\n".join(lines))'
