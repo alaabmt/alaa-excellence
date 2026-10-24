@@ -1,0 +1,19 @@
+{
+  "article": "article-agentic-ai-alphaevolve-compute-scheduling.html",
+  "headline": "كيف استخدمت غوغل الذكاء الاصطناعي لتحسين توزيع المهام على أجهزتها؟",
+  "reviewed_at": "2026-10-24",
+  "reviewer": "AI editorial review (not a human reader test)",
+  "summary": "استخدم فريق غوغل نظاماً يقترح تعديلات على طريقة توزيع المهام بين أجهزة مراكز البيانات، ثم يختبرها؛ وأفاد بتحسين استخدام جزء من الموارد، دون نشر حجمها المطلق.",
+  "gates": {
+    "title": "PASS",
+    "introduction": "PASS",
+    "summary": "PASS",
+    "terminology": "NOT VERIFIED",
+    "evidence": "NOT VERIFIED",
+    "mobile": "NOT VERIFIED",
+    "language": "NOT VERIFIED"
+  },
+  "mobile_evidence": "",
+  "source_evidence": "",
+  "decision": "BLOCKED: editorial, evidence and mobile verification incomplete"
+}
