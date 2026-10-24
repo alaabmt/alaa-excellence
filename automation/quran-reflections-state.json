@@ -5,7 +5,7 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-24T23:06:00+04:00",
+  "updated_at": "2026-10-25T01:08:00+04:00",
   "workflow_status": "in_progress",
   "current_stage": "repository_publish",
   "current_article": {
@@ -185,7 +185,7 @@
     "topic_selection_commit": "d2deaf1cd13861986ed878cb7d9919479959d8e4",
     "research_commit": "239d631089150ce0c9df909d4aefedb1d8f9aa4f",
     "quran_verification_commit": "4ab5f8c446c766adf34d03877a20d56a1f789751",
-    "resumed_at": "2026-10-24T23:06:00+04:00",
+    "resumed_at": "2026-10-25T01:08:00+04:00",
     "resumed_by": "central-coordinator",
     "arabic_draft_commit": "46da29cd66622e4ce08f4e072db3a4036a05e95c",
     "checkpointed_at": "2026-10-24T22:18:00+04:00",
@@ -194,13 +194,14 @@
     "english_draft_commit": "220dc6a17c04b363adde8b07d942d72eba7e3d72",
     "bilingual_parity_commit": "4f4f358ec877a76eb8e72eb0dfc5901e4977e32b",
     "quality_gate_commit": "fe9878e2084ce86de5e553caffe42a3760f5702d",
-    "quality_score": 98
+    "quality_score": 98,
+    "reconciled_expired_lease": true
   },
   "workflow_id": "quran_reflections",
   "run_lease": {
-    "owner": "central-coordinator-quran-2026-10-24-repository-publish",
-    "acquired_at": "2026-10-24T23:06:00+04:00",
-    "expires_at": "2026-10-25T00:56:00+04:00"
+    "owner": "central-coordinator-quran-2026-10-24-repository-publish-r2",
+    "acquired_at": "2026-10-25T01:08:00+04:00",
+    "expires_at": "2026-10-25T02:58:00+04:00"
   },
   "checkpoint_policy": {
     "checkpoint_after_every_stage": true,
