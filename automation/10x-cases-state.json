@@ -7,20 +7,16 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-24T07:57:00+04:00",
-  "workflow_status": "in_progress",
-  "current_stage": "actions_and_pages",
-  "run_lease": {
-    "owner": "chatgpt-work-tenx-daily-2026-10-24T0731",
-    "acquired_at": "2026-10-24T07:31:20+04:00",
-    "expires_at": "2026-10-24T09:21:20+04:00"
-  },
+  "updated_at": "2026-10-24T07:49:00+04:00",
+  "workflow_status": "completed",
+  "current_stage": "completed",
+  "run_lease": null,
   "current_item": {
     "slug": "case-seoul-food-waste-pay-as-you-throw-rfid",
     "publication_date": "2026-10-24",
     "title_working_ar": "كيف نقلت سيول نفايات الطعام من كيس مجهول إلى وزن يراه كل منزل؟",
     "title_working_en": "How Seoul Made Every Household See the Weight of Its Food Waste",
-    "candidate_status": "repository_published_pending_deploy",
+    "candidate_status": "published_live_verified",
     "artifact_root": "automation/10x-cases/case-seoul-food-waste-pay-as-you-throw-rfid/",
     "evidence_pack": {
       "status": "passed",
@@ -83,15 +79,27 @@
       ]
     },
     "publishing": {
-      "status": "repository_published_pending_deploy",
+      "status": "published_live_verified",
       "arabic_path": "case-seoul-food-waste-pay-as-you-throw-rfid.html",
       "english_path": "en/case-seoul-food-waste-pay-as-you-throw-rfid.html",
       "arabic_url": "https://tamayuz10x.com/case-seoul-food-waste-pay-as-you-throw-rfid.html",
       "english_url": "https://tamayuz10x.com/en/case-seoul-food-waste-pay-as-you-throw-rfid.html",
-      "first_publication_commit": "pending_current_commit",
-      "actions": "pending",
-      "pages": "pending",
-      "live_verification": "pending"
+      "first_publication_commit": "3bbc56bbb44528bd21869a53d2e7e11493240553",
+      "actions": "passed",
+      "pages": "passed_exact_final_content_head",
+      "live_verification": "passed",
+      "sitemap_reconciliation_commit": "35e488fd0cc128774a7859e5f8855cce17f073c9",
+      "initial_social_cards_commit": "5733db245852ace1a09fb465675f4d31353e0c47",
+      "metadata_alignment_commit": "f3695587fb49ee85d025e2b047664c63d2ea638c",
+      "final_content_commit": "980980e4ba925b34819082394c827749afff3393",
+      "pages_run": "https://github.com/alaabmt/alaa-excellence/actions/runs/40059698506",
+      "index_verification": "passed_ar_en_single_card",
+      "sitemap_verification": "passed_ar_en_single_loc",
+      "image_verification": "passed_1200x630_ar_en"
+    },
+    "publication_report": {
+      "path": "automation/10x-cases/case-seoul-food-waste-pay-as-you-throw-rfid/publication-report.md",
+      "commit": "26e1ec573c99d9a5247ea3d11be225171422bdc2"
     }
   },
   "stage_order": [
@@ -133,43 +141,36 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Reconcile the exact publication commit, monitor permanent GitHub Actions and Pages, then verify live pages, covers, metadata, indexes and sitemap.",
+  "next_action": "On the next scheduled cycle, re-read all operating guides, check the current date and duplicate status, and begin only if no case has already been started or published for that Asia/Dubai date.",
   "last_run": {
     "mode": "daily_primary_run",
-    "status": "in_progress",
+    "status": "completed",
     "started_at": "2026-10-24T07:31:20+04:00",
-    "completed_at": null,
-    "notes": "Capability, checkpoint and duplicate checks passed; no 10X case dated 2026-10-24 found on main or live AR/EN indexes."
+    "completed_at": "2026-10-24T07:49:00+04:00",
+    "notes": "Seoul food-waste PAYT/RFID case published bilingually; permanent Actions and Pages passed; live pages, separate 1200x630 covers, metadata, single index cards and single sitemap loc entries verified."
   },
   "last_completed_item": {
-    "slug": "case-sweden-vision-zero-safe-system-road-safety",
-    "publication_date": "2026-10-23",
-    "title_ar": "كيف نقلت السويد سلامة الطرق من تصحيح خطأ السائق إلى تصميم نظام يتسامح مع الخطأ؟",
-    "title_en": "How Sweden Shifted Road Safety from Correcting Driver Error to Designing for Human Error",
+    "slug": "case-seoul-food-waste-pay-as-you-throw-rfid",
+    "publication_date": "2026-10-24",
+    "title_working_ar": "كيف نقلت سيول نفايات الطعام من كيس مجهول إلى وزن يراه كل منزل؟",
+    "title_working_en": "How Seoul Made Every Household See the Weight of Its Food Waste",
     "candidate_status": "published_live_verified",
-    "artifact_root": "automation/10x-cases/case-sweden-vision-zero-safe-system-road-safety/",
-    "candidate_notes": {
-      "path": "automation/10x-cases/case-sweden-vision-zero-safe-system-road-safety/candidate-notes.md",
-      "commit": "99b4e03754c9d2482ae092d69435ca52c19c441e"
-    },
+    "artifact_root": "automation/10x-cases/case-seoul-food-waste-pay-as-you-throw-rfid/",
     "evidence_pack": {
       "status": "passed",
-      "path": "automation/10x-cases/case-sweden-vision-zero-safe-system-road-safety/evidence-pack.md",
-      "commit": "cefa38f9a6bfe1f5f5c9f5f78d6500f622e7d925",
+      "path": "automation/10x-cases/case-seoul-food-waste-pay-as-you-throw-rfid/evidence-pack.md",
       "confidence": {
-        "policy_architecture": "high",
-        "implementation": "high",
-        "intervention_effects": "high",
-        "national_outcomes": "high",
-        "national_attribution": "medium"
+        "policy_chronology": "high",
+        "operating_function": "high",
+        "seoul_tonnage_trend": "high",
+        "citywide_rfid_attribution": "medium",
+        "national_recycling_final_use": "medium"
       }
     },
     "analysis": {
       "status": "passed",
-      "path": "automation/10x-cases/case-sweden-vision-zero-safe-system-road-safety/backcasting-and-10x-analysis.md",
-      "commit": "fc78d94f38bf5e795f16a0d0e844726b753eefb8",
+      "path": "automation/10x-cases/case-seoul-food-waste-pay-as-you-throw-rfid/backcasting-and-10x-analysis.md",
       "pillars_supported": [
-        1,
         2,
         3,
         4,
@@ -177,70 +178,66 @@
         6,
         7,
         8
+      ],
+      "pillar_gap": [
+        1
       ]
     },
     "arabic_draft": {
       "status": "revised_after_critique",
-      "path": "automation/10x-cases/case-sweden-vision-zero-safe-system-road-safety/draft-ar.md",
-      "commit": "f665242886ee048d99489c7f2865089e34f391b8",
-      "revision_commit": "86a742f7d4dbe539aedc40891105aa4d20127885"
+      "path": "automation/10x-cases/case-seoul-food-waste-pay-as-you-throw-rfid/draft-ar.md"
     },
     "company_insider_critique": {
       "status": "passed_with_required_revisions",
-      "path": "automation/10x-cases/case-sweden-vision-zero-safe-system-road-safety/company-insider-critique.md",
-      "commit": "693fb45380e2aaca293b1e756a31d882c033547e"
+      "path": "automation/10x-cases/case-seoul-food-waste-pay-as-you-throw-rfid/company-insider-critique.md",
+      "remaining_gaps": 7
     },
     "english_draft": {
       "status": "drafted_with_critique_applied",
-      "path": "automation/10x-cases/case-sweden-vision-zero-safe-system-road-safety/draft-en.md",
-      "commit": "f10094138e9a810eade23d5af85c6888dece4d2b"
+      "path": "automation/10x-cases/case-seoul-food-waste-pay-as-you-throw-rfid/draft-en.md"
     },
     "bilingual_parity": {
       "status": "passed",
-      "path": "automation/10x-cases/case-sweden-vision-zero-safe-system-road-safety/bilingual-parity-review.md",
-      "commit": "d8bc5870a0c82c18c408bcc40ed13b41891b9b14"
+      "path": "automation/10x-cases/case-seoul-food-waste-pay-as-you-throw-rfid/bilingual-parity-review.md"
     },
     "final_quality_gate": {
       "status": "passed",
-      "path": "automation/10x-cases/case-sweden-vision-zero-safe-system-road-safety/quality-review.md",
-      "commit": "fb5eac24b9fc9640d6adda215bf2d7d33ace9582"
+      "path": "automation/10x-cases/case-seoul-food-waste-pay-as-you-throw-rfid/quality-review.md"
     },
     "covers": {
       "source": "original_ai_generated",
       "dimensions": "1200x630",
+      "sizes_bytes": {
+        "ar": 102195,
+        "en": 119254
+      },
       "paths": [
-        "assets/previews/story/case-sweden-vision-zero-safe-system-road-safety-ar.jpg",
-        "assets/previews/story/case-sweden-vision-zero-safe-system-road-safety-en.jpg"
+        "assets/previews/story/case-seoul-food-waste-pay-as-you-throw-rfid-ar.jpg",
+        "assets/previews/story/case-seoul-food-waste-pay-as-you-throw-rfid-en.jpg"
       ]
     },
     "publishing": {
       "status": "published_live_verified",
-      "arabic_path": "case-sweden-vision-zero-safe-system-road-safety.html",
-      "english_path": "en/case-sweden-vision-zero-safe-system-road-safety.html",
-      "arabic_url": "https://tamayuz10x.com/case-sweden-vision-zero-safe-system-road-safety.html",
-      "english_url": "https://tamayuz10x.com/en/case-sweden-vision-zero-safe-system-road-safety.html",
-      "covers": [
-        "assets/previews/story/case-sweden-vision-zero-safe-system-road-safety-ar.jpg",
-        "assets/previews/story/case-sweden-vision-zero-safe-system-road-safety-en.jpg"
-      ],
-      "first_publication_commit": "5905d29adc8fb0e5d3d2db4eeb239390af299f73",
-      "sitemap_reconciliation_commit": "30935c48f6a1fabfc17b1481abbd6f9128400ad5",
-      "failed_run": "https://github.com/alaabmt/alaa-excellence/actions/runs/39896992261",
-      "failure_cause": "Published page was not registered in data/article-covers.json and used a noncanonical cover version.",
-      "cover_registry_fix_commit": "49f2f519b6967a6e9f13a827647220b4bdd4d22a",
-      "social_cards_commit": "7cc497015a0853e39b25bf25eafbd4ee9df8f6e0",
-      "pages_run": "https://github.com/alaabmt/alaa-excellence/actions/runs/39897519073",
+      "arabic_path": "case-seoul-food-waste-pay-as-you-throw-rfid.html",
+      "english_path": "en/case-seoul-food-waste-pay-as-you-throw-rfid.html",
+      "arabic_url": "https://tamayuz10x.com/case-seoul-food-waste-pay-as-you-throw-rfid.html",
+      "english_url": "https://tamayuz10x.com/en/case-seoul-food-waste-pay-as-you-throw-rfid.html",
+      "first_publication_commit": "3bbc56bbb44528bd21869a53d2e7e11493240553",
       "actions": "passed",
-      "final_content_commit": "f9427a7f335cd68c08bdaf44a57419db42cdca9b",
       "pages": "passed_exact_final_content_head",
       "live_verification": "passed",
+      "sitemap_reconciliation_commit": "35e488fd0cc128774a7859e5f8855cce17f073c9",
+      "initial_social_cards_commit": "5733db245852ace1a09fb465675f4d31353e0c47",
+      "metadata_alignment_commit": "f3695587fb49ee85d025e2b047664c63d2ea638c",
+      "final_content_commit": "980980e4ba925b34819082394c827749afff3393",
+      "pages_run": "https://github.com/alaabmt/alaa-excellence/actions/runs/40059698506",
       "index_verification": "passed_ar_en_single_card",
-      "sitemap_verification": "passed_ar_en_single_entry",
+      "sitemap_verification": "passed_ar_en_single_loc",
       "image_verification": "passed_1200x630_ar_en"
     },
     "publication_report": {
-      "path": "automation/10x-cases/case-sweden-vision-zero-safe-system-road-safety/publication-report.md",
-      "commit": "24f9a8d190f8b358e928c68fa1c179dea559306a"
+      "path": "automation/10x-cases/case-seoul-food-waste-pay-as-you-throw-rfid/publication-report.md",
+      "commit": "26e1ec573c99d9a5247ea3d11be225171422bdc2"
     }
   },
   "run_date": "2026-10-24",
@@ -256,6 +253,10 @@
     "english_draft",
     "bilingual_parity",
     "final_quality_gate",
-    "repository_publish"
+    "repository_publish",
+    "actions_and_pages",
+    "live_verification",
+    "completion_report",
+    "completed"
   ]
 }
