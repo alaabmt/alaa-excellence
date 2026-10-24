@@ -5,6 +5,27 @@
   "maxBytes": 170000,
   "cards": [
     {
+      "slug": "reflection-az-zumar-follow-the-best",
+      "background": "assets/previews/story-backgrounds/reflection-al-baqarah-write-it-down.jpg",
+      "category": "reflection",
+      "ar": {
+        "title": [
+          "هل يكفي أن نسمع،",
+          "أم نتبع الأحسن؟"
+        ],
+        "subtitle": "الاستماع الصادق يقود إلى التمييز والاتباع، لا إلى جمع الأصوات فقط.",
+        "alt": "غلاف رمزي بالكحلي والذهبي لتأمل الاستماع واتباع الأحسن، يظهر موجات صوتية ومسارًا ذهبيًا يتجه نحو نقطة مضيئة ترمز إلى التمييز والهداية."
+      },
+      "en": {
+        "title": [
+          "Is Listening Enough,",
+          "or Do We Follow the Best?"
+        ],
+        "subtitle": "Sincere listening leads to discernment and following, not exposure alone.",
+        "alt": "Navy and gold symbolic cover for a reflection on listening and following what is best, with sound waves and a golden path leading toward a point of light that suggests discernment and guidance."
+      }
+    },
+    {
       "slug": "case-seoul-food-waste-pay-as-you-throw-rfid",
       "reference": true,
       "category": "case",
