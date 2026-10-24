@@ -5,9 +5,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-25T01:08:00+04:00",
+  "updated_at": "2026-10-25T01:15:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "repository_publish",
+  "current_stage": "actions_and_pages",
   "current_article": {
     "article_id": "quran-reflection-2026-10-24-az-zumar-follow-the-best",
     "publication_date": "2026-10-24",
@@ -16,7 +16,7 @@
     "topic_en": "Responsible listening: hearing different words and following the best of them",
     "working_title_ar": "هل يكفي أن نسمع، أم نتبع أحسن ما سمعنا؟",
     "working_title_en": "Is Listening Enough, or Do We Follow the Best of What We Hear?",
-    "status": "quality_gate_passed",
+    "status": "repository_publish_completed",
     "quranic_focus": {
       "surah": "Az-Zumar",
       "surah_ar": "الزمر",
@@ -140,6 +140,42 @@
       "review_path": "automation/quran-reflections/reflection-az-zumar-follow-the-best/quality-review.md",
       "commit": "fe9878e2084ce86de5e553caffe42a3760f5702d",
       "completed_at": "2026-10-24T22:18:00+04:00"
+    },
+    "repository_publish": {
+      "status": "completed",
+      "first_publication_commit": "786c24894c4bef772bfbdb96bffa044e9d259290",
+      "topic_registry_commit": "3c8e14878a05fcf57abf65027219d97d8c295404",
+      "sitemap_reconciliation_commit": "9e0fbb0700b6730e78063a25b62cd1b132c291a1",
+      "social_assets_commit": "341b77e6aadf4c2930e8d8aef9f42ef0beed146c",
+      "registry_reconciliation_commit": "82e78a376643666431df9236bf622ac497cbc4d4",
+      "report_path": "automation/quran-reflections/reflection-az-zumar-follow-the-best/repository-publish-report.md",
+      "report_commit": "6a6c56868292dd9b0e7531fda8ab45d802394182",
+      "paths": {
+        "ar": "reflection-az-zumar-follow-the-best.html",
+        "en": "en/reflection-az-zumar-follow-the-best.html",
+        "image_ar": "assets/previews/story/reflection-az-zumar-follow-the-best-ar.jpg",
+        "image_en": "assets/previews/story/reflection-az-zumar-follow-the-best-en.jpg",
+        "cover_manifest": "data/article-covers.json"
+      },
+      "urls": {
+        "ar": "https://tamayuz10x.com/reflection-az-zumar-follow-the-best.html",
+        "en": "https://tamayuz10x.com/en/reflection-az-zumar-follow-the-best.html"
+      },
+      "social_assets": {
+        "ar": {
+          "blob_sha": "6753eee0933a94c1a3c6eb36f4005aea884a37f7",
+          "width": 1200,
+          "height": 630,
+          "verified_present": true
+        },
+        "en": {
+          "blob_sha": "eac945a85929be9df4cff0992ab53a7dd5284e60",
+          "width": 1200,
+          "height": 630,
+          "verified_present": true
+        }
+      },
+      "verification": "Paired pages, canonical, reciprocal hreflang, Article schema, four indexes, topic registry, cover and date manifests, two sitemap locations and both generated 1200x630 JPEG assets were structurally verified in the repository. Actions and exact-head Pages deployment remain to be reconciled."
     }
   },
   "stage_order": [
@@ -173,15 +209,15 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Before publication, repeat duplicate and live-destination checks against the checkpoint, topic registry, repository history, expected Arabic and English pages, four indexes and sitemap. If clear, create both HTML pages from the current paired template, update indexes, topic registry, social metadata, canonical/hreflang/Schema.org and sitemap, generate both 1200x630 social cards, checkpoint repository_publish, then verify Actions and Pages separately.",
+  "next_action": "Reconcile the required GitHub Actions on the latest descendant head. Because the initial site-health run preceded generated social assets, obtain a fresh successful site-health result without duplicating publication; then require an exact-head successful Pages deployment and verify the Arabic and English live pages, canonical/hreflang/Article schema, four indexes, sitemap locations and both 1200x630 social cards before saving the final publication report.",
   "last_run": {
     "mode": "coordinator_daily_start",
     "status": "in_progress",
     "started_at": "2026-10-24T17:03:26+04:00",
     "starting_head": "6139460adf513e2176a1aadca6c8b06708c60082",
     "notes": "Started the single allowed Qur'anic reflection cycle for 24 October after capability, checkpoint, registry, repository and indexed-web duplicate checks.",
-    "last_checkpoint": "quality_gate",
-    "last_checkpoint_at": "2026-10-24T17:48:00+04:00",
+    "last_checkpoint": "repository_publish",
+    "last_checkpoint_at": "2026-10-25T01:15:00+04:00",
     "topic_selection_commit": "d2deaf1cd13861986ed878cb7d9919479959d8e4",
     "research_commit": "239d631089150ce0c9df909d4aefedb1d8f9aa4f",
     "quran_verification_commit": "4ab5f8c446c766adf34d03877a20d56a1f789751",
@@ -195,14 +231,13 @@
     "bilingual_parity_commit": "4f4f358ec877a76eb8e72eb0dfc5901e4977e32b",
     "quality_gate_commit": "fe9878e2084ce86de5e553caffe42a3760f5702d",
     "quality_score": 98,
-    "reconciled_expired_lease": true
+    "reconciled_expired_lease": true,
+    "repository_publish_commit": "786c24894c4bef772bfbdb96bffa044e9d259290",
+    "social_assets_commit": "341b77e6aadf4c2930e8d8aef9f42ef0beed146c",
+    "repository_publish_report_commit": "6a6c56868292dd9b0e7531fda8ab45d802394182"
   },
   "workflow_id": "quran_reflections",
-  "run_lease": {
-    "owner": "central-coordinator-quran-2026-10-24-repository-publish-r2",
-    "acquired_at": "2026-10-25T01:08:00+04:00",
-    "expires_at": "2026-10-25T02:58:00+04:00"
-  },
+  "run_lease": null,
   "checkpoint_policy": {
     "checkpoint_after_every_stage": true,
     "run_lease_minutes": 110,
@@ -462,7 +497,8 @@
     "independent_critique",
     "english_draft",
     "bilingual_parity",
-    "quality_gate"
+    "quality_gate",
+    "repository_publish"
   ],
   "duplicate_check": {
     "status": "passed",
