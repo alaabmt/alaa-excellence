@@ -88,3 +88,16 @@ Result: PASS.
 - Actual narrow-viewport/mobile verification: NOT VERIFIED until browser test.
 - Listening interface behavior: pending browser test.
 - Live publication, specialist-only placement, Actions, and Pages: pending.
+
+
+## Final rendered-page gate — 2026-10-24
+
+- PASS — Arabic and English H1, browser title, Open Graph title, Twitter title and Article JSON-LD headline are semantically identical; only the site-name suffix appears in the browser title.
+- PASS — Author appears immediately below each H1: الدكتور علاء محمد أحمد / Dr. Alaa Mohammad Ahmed.
+- PASS — Canonical URLs and reciprocal Arabic/English alternates resolve to the matching live pages.
+- PASS — Each page has one generated 1200×630 JPEG cover with reviewed alternative text; live browser natural dimensions are 1200×630.
+- PASS — Each page contains two result tables, one distinctly styled secondary-study box, one editorial note, one listening control and one injected sharing box; no duplicated promotional/share box.
+- PASS — The specialist hubs contain the new story card and CollectionPage hasPart entry in each language. The general article indexes contain zero occurrences of the slug.
+- PASS — Actual Chromium mobile layout test at 320, 375, 390 and 430 CSS pixels: all eight checks for the baseline and today's article reported pass=true; no page-width overflow, H1 visible, RTL true, tables scrollable. GitHub Actions run: https://github.com/alaabmt/alaa-excellence/actions/runs/40119798475
+- PASS — Arabic editorial gate run #64 completed successfully. Article date integrity, approved-disclaimer and social-card generation also completed successfully.
+- PASS — Live Arabic and English pages render the exact titles, author lines, metrics, glossary, hypothetical label, side-study label, five direct references and one-language counterpart link.
