@@ -2,6 +2,8 @@
 
 Before researching, drafting, editing, or publishing Tamayuz 10X content:
 
+**Mandatory:** Read and enforce `ARABIC-EDITORIAL-CLARITY-STANDARD.md` for every Arabic editorial page. Its seven PASS/FAIL gates block publication; a missing real mobile verification is NOT VERIFIED, not PASS. All agents, including scheduled publishing agents, must record gate results.
+
 1. Read `10X_Agent_AI_Master_Operating_Manual_AR.md` from `main` as the highest project operating reference.
 2. For every article in the **Preventive Engineering / FMEA** series, read and apply `PREVENTIVE_ENGINEERING_ARTICLE_STANDARD.md` before drafting, revising, or publishing it. This is a mandatory Quality Gate for the nine-stage method, one continuous application case, explicit stage outputs, narrated tables/infographics (introduced before and interpreted after), risk-triad explanation, data-to-FMEA mapping, worked example, before/after FMEA table, implementation pilot, mobile layout, evidence limits, the exact Arabic naming **منهجية هندسة الوقاية (FMEA)** at every Arabic occurrence, the exact collective risk terminology **ثلاثية تحديد الخطر (Severity, Occurrence, Detection — S/O/D)** (do not use any prior Arabic risk-triad label or bare collective S/O/D in Arabic), and first-use definitions for new technical terms and abbreviations.
 3. For every 10X case, before publishing or changing social preview imagery, read and apply `10X_CASE_SOCIAL_PREVIEW_STANDARD.md`. Every bilingual case must have separate Arabic and English preview cards, and every claim or number shown on those cards must be supported by the case Evidence Pack.
