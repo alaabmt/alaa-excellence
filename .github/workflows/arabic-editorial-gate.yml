@@ -10,7 +10,7 @@ jobs:
   editorial-and-mobile-check:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
       - name: Install browser test dependencies
         run: |
           python3 -m pip install playwright
@@ -29,7 +29,7 @@ jobs:
         run: python3 scripts/check_arabic_editorial.py article-agentic-ai-building-customer-service-agents.html editorial-qa/agent-construction.json
       - name: Preserve mobile screenshots and QA result
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: arabic-article-mobile-review
           path: |
