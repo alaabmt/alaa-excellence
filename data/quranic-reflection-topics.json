@@ -1,6 +1,6 @@
 {
   "purpose": "سجل موضوعات التأملات القرآنية لتجنب تكرار القصة أو الزاوية (دليل مهارات كتابة التأملات القرآنية، البند 10، الخطوة 9)",
-  "updated": "2026-10-25T01:11:00+04:00",
+  "updated": "2026-10-25T02:18:00+04:00",
   "reflections": [
     {
       "slug": "reflection-az-zumar-follow-the-best",
@@ -16,8 +16,10 @@
       "url_ar": "https://tamayuz10x.com/reflection-az-zumar-follow-the-best.html",
       "url_en": "https://tamayuz10x.com/en/reflection-az-zumar-follow-the-best.html",
       "github_commit": "786c24894c4bef772bfbdb96bffa044e9d259290",
-      "publication_status": "repository_published; social_cards_generated_1200x630; actions_and_pages_pending",
-      "social_assets_commit": "341b77e6aadf4c2930e8d8aef9f42ef0beed146c"
+      "publication_status": "published_live_verified",
+      "social_assets_commit": "341b77e6aadf4c2930e8d8aef9f42ef0beed146c",
+      "final_content_head": "abc3fd6fd8126e29baba6b824978510b59ecf05d",
+      "pages_run_id": 40137339880
     },
     {
       "slug": "reflection-al-kahf-speaking-about-tomorrow",
