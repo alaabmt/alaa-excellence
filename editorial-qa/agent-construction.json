@@ -1,0 +1,58 @@
+{
+  "article": "article-agentic-ai-building-customer-service-agents.html",
+  "headline": "هل يستطيع الذكاء الاصطناعي بناء وكيل خدمة عملاء موثوق؟ دليل من 53 مهمة بناء",
+  "reviewed_at": "2026-10-24",
+  "reviewer": "AI editorial review (not a human reader test)",
+  "summary": "اختبرت الدراسة وكلاء برمجية بنت أنظمة خدمة عملاء في 53 مهمة محاكاة؛ بلغ أفضل متوسط آلي 23.9 من 100، فلا يكفي أن تعمل الشيفرة كي تُنشر.",
+  "gates": {
+    "title": "PASS",
+    "introduction": "PASS",
+    "summary": "PASS",
+    "terminology": "PASS",
+    "evidence": "PASS",
+    "mobile": "NOT VERIFIED",
+    "language": "PASS"
+  },
+  "mobile_evidence": "",
+  "source_evidence": [
+    {
+      "claim": "53 construction tasks: 6 airline, 6 retail, 6 telecom, 35 banking",
+      "url": "https://arxiv.org/html/2609.04611v1",
+      "location": "Benchmark design and domain tables",
+      "assessment": "6+6+6+35=53; simulated construction tasks, not production deployments"
+    },
+    {
+      "claim": "Best automated overall mean 23.9/100; expert-authored reference 82.2/100",
+      "url": "https://arxiv.org/html/2609.04611v1",
+      "location": "Main results table",
+      "assessment": "Means across 53 task scores; not raw counts of successful projects"
+    },
+    {
+      "claim": "Best domain means 55.9, 72.8, 48.2 and 5.9",
+      "url": "https://arxiv.org/html/2609.04611v1",
+      "location": "Domain results",
+      "assessment": "Denominators are 6, 6, 6 and 35 construction tasks"
+    },
+    {
+      "claim": "One banking evaluation succeeded in 1/93 cases and failed in 92/93",
+      "url": "https://arxiv.org/html/2609.04611v1",
+      "location": "Banking example",
+      "assessment": "1+92=93; 1.1% and 98.9% after rounding"
+    },
+    {
+      "claim": "2,868 distinct artifacts and more than 5.5 million text tokens",
+      "url": "https://arxiv.org/html/2609.04611v1",
+      "location": "Environment scale",
+      "assessment": "Text-token total excludes additional images, PDFs and recordings"
+    },
+    {
+      "claim": "Hypothetical supplier-approval scenario",
+      "url": "editorial example",
+      "location": "Hypothetical case section",
+      "assessment": "Clearly labelled hypothetical and not attributed to the benchmark"
+    }
+  ],
+  "decision": "BLOCKED pending actual mobile viewport/browser verification and workflow confirmation",
+  "terminology_evidence": "Coding agent, customer-service agent, API, held-out case, ground truth, reference ceiling and mean score are explained at first use or in the glossary.",
+  "language_evidence": "Arabic draft passed a 20–30 second comprehension check; English labels are parenthesized and the secondary study is isolated in a labelled side box."
+}
