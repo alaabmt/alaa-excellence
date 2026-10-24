@@ -7,35 +7,20 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-23T22:18:30+04:00",
-  "workflow_status": "completed",
-  "current_stage": "completed",
-  "run_lease": null,
+  "updated_at": "2026-10-24T21:59:00+04:00",
+  "workflow_status": "in_progress",
+  "current_stage": "duplicate_check",
+  "run_lease": {
+    "owner": "automation-agentic-ai-6ab56c5eee2481919cac424410c6b3f8",
+    "acquired_at": "2026-10-24T21:59:00+04:00",
+    "expires_at": "2026-10-24T23:49:00+04:00"
+  },
   "current_item": {
-    "slug": "article-agentic-ai-human-approval-oversight",
-    "publication_date": "2026-10-23",
-    "title_ar": "هل تُعدّ موافقة الإنسان على خطوات الوكيل الذكي رقابةً حقيقية، أم ختمًا شكليًا؟",
-    "title_en": "When a Person Approves an AI Agent's Actions, Is That Real Oversight or a Rubber Stamp?",
-    "research_status": "completed",
-    "evidence_pack_status": "completed",
-    "arabic_draft": {
-      "status": "reconciled",
-      "path": "article-agentic-ai-human-approval-oversight.html"
-    },
-    "english_draft": {
-      "status": "reconciled",
-      "path": "en/article-agentic-ai-human-approval-oversight.html"
-    },
+    "publication_date": "2026-10-24",
+    "research_status": "not_started",
+    "evidence_pack_status": "not_started",
     "publishing": {
-      "status": "verified",
-      "arabic_url": "https://tamayuz10x.com/article-agentic-ai-human-approval-oversight.html",
-      "english_url": "https://tamayuz10x.com/en/article-agentic-ai-human-approval-oversight.html",
-      "publication_commit": "92234d2f48e650016f50861be15c656930a2fed1",
-      "verification_commit": "64c3e95fe831bb5a76b2d04c26b6ec326aedd92b",
-      "report_commit": "64c3e95fe831bb5a76b2d04c26b6ec326aedd92b",
-      "pages_run_id": 40002008041,
-      "pages_run_number": 1900,
-      "social_cards_run_number": 394
+      "status": "not_started"
     }
   },
   "stage_order": [
@@ -77,13 +62,12 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "At the next scheduled run, check whether an Agentic AI article has already started or been published for the current Asia/Dubai date before selecting a new primary study.",
+  "next_action": "Select a primary Agentic AI study with direct quantitative evidence after confirming no same-day article exists.",
   "last_run": {
     "mode": "scheduled_daily",
-    "status": "completed",
-    "started_at": "2026-10-23T22:02:50+04:00",
-    "notes": "Reconciled the same-day externally published article without duplication; rebuilt both editions around explicit datasets and denominators; restored specialist-only placement; verified quality gates, CI, exact-head Pages deployment, covers, metadata, language links, and live pages.",
-    "completed_at": "2026-10-23T22:18:30+04:00"
+    "status": "in_progress",
+    "started_at": "2026-10-24T21:58:02+04:00",
+    "notes": "No Agentic AI article or workflow artifact dated 2026-10-24 was found in the repository; starting a new cycle."
   },
   "blocker": null,
   "last_completed_item": {
