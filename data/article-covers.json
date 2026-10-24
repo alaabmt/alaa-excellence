@@ -5,6 +5,28 @@
   "maxBytes": 170000,
   "cards": [
     {
+      "slug": "case-seoul-food-waste-pay-as-you-throw-rfid",
+      "reference": true,
+      "category": "case",
+      "ar": {
+        "source": "assets/previews/story/case-seoul-food-waste-pay-as-you-throw-rfid-ar.jpg",
+        "title": [
+          "حين صار للهدر وزن"
+        ],
+        "subtitle": "ربطت سيول ما ترميه الأسرة بالسعر والمعالجة",
+        "alt": "غلاف أصلي لحالة مخلفات الطعام في سيول، يظهر حاوية وزن ذكية وأسرة تتخلص من بقايا الطعام أمام أفق المدينة."
+      },
+      "en": {
+        "source": "assets/previews/story/case-seoul-food-waste-pay-as-you-throw-rfid-en.jpg",
+        "title": [
+          "When Food Waste",
+          "Got a Price by Weight"
+        ],
+        "subtitle": "Seoul linked household disposal, billing and treatment.",
+        "alt": "Original cover for Seoul's food-waste case, showing a weight-based smart bin and household food scraps against the city skyline."
+      }
+    },
+    {
       "slug": "reflection-al-kahf-speaking-about-tomorrow",
       "background": "assets/previews/story-backgrounds/reflection-al-baqarah-write-it-down.jpg",
       "category": "reflection",
