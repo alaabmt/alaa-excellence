@@ -5,9 +5,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-24T17:37:00+04:00",
+  "updated_at": "2026-10-24T17:48:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "quran_verification",
+  "current_stage": "arabic_draft",
   "current_article": {
     "article_id": "quran-reflection-2026-10-24-az-zumar-follow-the-best",
     "publication_date": "2026-10-24",
@@ -16,14 +16,18 @@
     "topic_en": "Responsible listening: hearing different words and following the best of them",
     "working_title_ar": "هل يكفي أن نسمع، أم نتبع أحسن ما سمعنا؟",
     "working_title_en": "Is Listening Enough, or Do We Follow the Best of What We Hear?",
-    "status": "research_completed",
+    "status": "quran_verified",
     "quranic_focus": {
       "surah": "Az-Zumar",
       "surah_ar": "الزمر",
       "ayahs": [
         18
       ],
-      "status": "pending_verification"
+      "context_ayahs": [
+        17,
+        19
+      ],
+      "status": "verified"
     },
     "research_notes_path": "automation/quran-reflections/reflection-az-zumar-follow-the-best/research-notes.md",
     "research_status": "completed",
@@ -78,6 +82,26 @@
         "url": "https://quran.ksu.edu.sa/tafseer/saadi/sura39-aya18.html",
         "status": "reviewed"
       }
+    ],
+    "verified_quranic_references": [
+      {
+        "surah": "Az-Zumar",
+        "surah_ar": "الزمر",
+        "ayahs": [
+          18
+        ],
+        "context_ayahs": [
+          17,
+          19
+        ],
+        "status": "verified",
+        "primary_text_urls": [
+          "https://legacy.quran.com/39/17-18",
+          "https://legacy.quran.com/39/17-23"
+        ],
+        "translation": "Sahih International",
+        "verified_at": "2026-10-24T17:45:00+04:00"
+      }
     ]
   },
   "stage_order": [
@@ -111,24 +135,21 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Verify the Arabic Qur'anic text and Uthmani spelling, surah and ayah numbering, immediate context, exact Sahih International wording, and the attribution boundaries for al-Tabari, Ibn Kathir, al-Qurtubi and al-Sa'di; record quran_verification before drafting.",
+  "next_action": "Write the complete original Arabic draft in automation/quran-reflections/reflection-az-zumar-follow-the-best/draft-ar.md. Keep tafsir, reflection and the single hypothetical application distinct; preserve the verified context and attribution limits; then checkpoint arabic_draft before independent critique.",
   "last_run": {
     "mode": "coordinator_daily_start",
     "status": "in_progress",
     "started_at": "2026-10-24T17:03:26+04:00",
     "starting_head": "6139460adf513e2176a1aadca6c8b06708c60082",
     "notes": "Started the single allowed Qur'anic reflection cycle for 24 October after capability, checkpoint, registry, repository and indexed-web duplicate checks.",
-    "last_checkpoint": "research",
-    "last_checkpoint_at": "2026-10-24T17:37:00+04:00",
+    "last_checkpoint": "quran_verification",
+    "last_checkpoint_at": "2026-10-24T17:48:00+04:00",
     "topic_selection_commit": "d2deaf1cd13861986ed878cb7d9919479959d8e4",
-    "research_commit": "239d631089150ce0c9df909d4aefedb1d8f9aa4f"
+    "research_commit": "239d631089150ce0c9df909d4aefedb1d8f9aa4f",
+    "quran_verification_commit": "4ab5f8c446c766adf34d03877a20d56a1f789751"
   },
   "workflow_id": "quran_reflections",
-  "run_lease": {
-    "owner": "central-coordinator-quran-2026-10-24",
-    "acquired_at": "2026-10-24T17:08:00+04:00",
-    "expires_at": "2026-10-24T18:58:00+04:00"
-  },
+  "run_lease": null,
   "checkpoint_policy": {
     "checkpoint_after_every_stage": true,
     "run_lease_minutes": 110,
@@ -382,7 +403,8 @@
     "load_checkpoint",
     "duplicate_check",
     "topic_selection",
-    "research"
+    "research",
+    "quran_verification"
   ],
   "duplicate_check": {
     "status": "passed",
