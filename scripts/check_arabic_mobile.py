@@ -33,7 +33,7 @@ async def main():
         "screenshots": [str(OUT / f"alphaevolve-{width}.png") for width in (320, 375, 390, 430)],
         "scope": "Automated rendered-layout verification; screenshots retained for human visual review"
     }
-    report["decision"] = "AUTOMATED EDITORIAL GATE PASS, subject to successful CI run"
+    report["decision"] = "CI candidate PASS only; authoritative approval is successful GitHub Actions job"
     report_path.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print("PASS: Automated mobile browser layout checks; temporary CI approval generated")
 
@@ -44,7 +44,17 @@ async def run_browser(results):
         browser = await p.chromium.launch(headless=True)
         for width in (320, 375, 390, 430):
             page = await browser.new_page(viewport={"width": width, "height": 844}, device_scale_factor=1)
-            await page.goto("http://127.0.0.1:8765/" + PAGE.name, wait_until="networkidle")
+            response = await page.goto("http://127.0.0.1:8765/" + PAGE.name, wait_until="networkidle")
+            if response is None or response.status != 200:
+                raise RuntimeError(f"Article HTTP request failed at {width}px")
+            assets_ok = await page.evaluate("""async () => {
+                const assets = [...document.querySelectorAll('link[rel="stylesheet"], script[src], img[src]')];
+                const paths = assets.map(x => x.getAttribute('href') || x.getAttribute('src')).filter(x => x && x.startsWith('/'));
+                const statuses = await Promise.all(paths.map(async x => (await fetch(x)).status));
+                return statuses.every(status => status === 200);
+            }""")
+            if not assets_ok:
+                raise RuntimeError(f"One or more local site assets failed to load at {width}px")
             await page.screenshot(path=str(OUT / f"alphaevolve-{width}.png"), full_page=True)
             result = await page.evaluate("""() => ({
                 viewport: document.documentElement.clientWidth,
