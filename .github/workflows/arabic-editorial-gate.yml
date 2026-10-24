@@ -17,8 +17,16 @@ jobs:
           python3 -m playwright install --with-deps chromium
       - name: Render actual mobile layouts and create evidence
         run: python3 scripts/check_arabic_mobile.py
-      - name: Check all seven editorial gates using generated mobile evidence
+      - name: Render today's Agentic AI article at actual mobile widths
+        env:
+          ARABIC_ARTICLE: article-agentic-ai-building-customer-service-agents.html
+          EDITORIAL_REPORT: editorial-qa/agent-construction.json
+          MOBILE_ARTIFACT_PREFIX: agent-construction
+        run: python3 scripts/check_arabic_mobile.py
+      - name: Check AlphaEvolve editorial gates using generated mobile evidence
         run: python3 scripts/check_arabic_editorial.py article-agentic-ai-alphaevolve-compute-scheduling.html editorial-qa/alphaevolve.json
+      - name: Check today's seven editorial gates
+        run: python3 scripts/check_arabic_editorial.py article-agentic-ai-building-customer-service-agents.html editorial-qa/agent-construction.json
       - name: Preserve mobile screenshots and QA result
         if: always()
         uses: actions/upload-artifact@v4
@@ -27,4 +35,5 @@ jobs:
           path: |
             editorial-qa/mobile-artifacts/
             editorial-qa/alphaevolve.json
+            editorial-qa/agent-construction.json
           if-no-files-found: error
