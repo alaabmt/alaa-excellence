@@ -5,13 +5,38 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-24T17:18:00+04:00",
+  "updated_at": "2026-10-24T17:23:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "topic_selection",
+  "current_stage": "research",
   "current_article": {
-    "article_id": "quran-reflection-2026-10-24-pending-topic",
+    "article_id": "quran-reflection-2026-10-24-az-zumar-follow-the-best",
     "publication_date": "2026-10-24",
-    "status": "initializing"
+    "slug": "reflection-az-zumar-follow-the-best",
+    "topic_ar": "الاستماع المسؤول: سماع الأقوال ثم اتباع أحسنها",
+    "topic_en": "Responsible listening: hearing different words and following the best of them",
+    "working_title_ar": "هل يكفي أن نسمع، أم نتبع أحسن ما سمعنا؟",
+    "working_title_en": "Is Listening Enough, or Do We Follow the Best of What We Hear?",
+    "status": "topic_selected",
+    "quranic_focus": {
+      "surah": "Az-Zumar",
+      "surah_ar": "الزمر",
+      "ayahs": [
+        18
+      ],
+      "status": "pending_verification"
+    },
+    "research_notes_path": "automation/quran-reflections/reflection-az-zumar-follow-the-best/research-notes.md",
+    "research_status": "not_started",
+    "topic_selection": {
+      "status": "completed",
+      "candidates": [
+        "Az-Zumar 39:18 — listening, discernment and following what is best",
+        "Al-Balad 90:11–16 — the steep path and costly goodness",
+        "Al-Hujurat 49:12 — suspicion, surveillance and unseen trust"
+      ],
+      "selected": "Az-Zumar 39:18 — listening, discernment and following what is best",
+      "artifact_commit": "d2deaf1cd13861986ed878cb7d9919479959d8e4"
+    }
   },
   "stage_order": [
     "capability_check",
@@ -44,15 +69,16 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Select one non-duplicative angle from three candidates, fix the slug and thesis, and save topic_selection before research.",
+  "next_action": "Research Az-Zumar 39:18 in context using the verified Qur'an text, Sahih International and the commentaries of al-Tabari, Ibn Kathir, al-Qurtubi and al-Sa'di as needed; document agreements, differences and methodological limits in research-notes.md.",
   "last_run": {
     "mode": "coordinator_daily_start",
     "status": "in_progress",
     "started_at": "2026-10-24T17:03:26+04:00",
     "starting_head": "6139460adf513e2176a1aadca6c8b06708c60082",
     "notes": "Started the single allowed Qur'anic reflection cycle for 24 October after capability, checkpoint, registry, repository and indexed-web duplicate checks.",
-    "last_checkpoint": "duplicate_check",
-    "last_checkpoint_at": "2026-10-24T17:18:00+04:00"
+    "last_checkpoint": "topic_selection",
+    "last_checkpoint_at": "2026-10-24T17:23:00+04:00",
+    "topic_selection_commit": "d2deaf1cd13861986ed878cb7d9919479959d8e4"
   },
   "workflow_id": "quran_reflections",
   "run_lease": {
@@ -311,7 +337,8 @@
   "completed_stages": [
     "capability_check",
     "load_checkpoint",
-    "duplicate_check"
+    "duplicate_check",
+    "topic_selection"
   ],
   "duplicate_check": {
     "status": "passed",
