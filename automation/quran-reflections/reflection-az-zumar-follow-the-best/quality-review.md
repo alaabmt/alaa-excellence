@@ -157,3 +157,55 @@ The Arabic and English drafts were compared for structure, Qur’anic meaning, t
 
 No material bilingual discrepancy remains. Both drafts may proceed to the final 100-point quality gate. Publication, index updates and repository page creation remain prohibited until that gate is completed and passed.
 
+---
+
+## Final quality gate — 24 October 2026
+
+- Publication threshold: **90/100**
+- Final score: **98/100 — Pass**
+- Blocking Qur’anic, tafsir, creed or bilingual-parity error: **None**
+- Gate decision: **Eligible to proceed to repository publication preparation after a fresh duplicate and destination check**
+
+| Category | Maximum | Score | Assessment |
+|---|---:|---:|---|
+| Qur’anic text, surah, numbering and context | 20 | 20 | The exact Arabic wording of Az-Zumar 39:18, its identity and the 39:17–19 context are preserved; the English quotation matches the verified Sahih International wording |
+| Tafsir and creed | 20 | 20 | The four tafsir sources are represented within the verified limits; divine guidance and the primacy of revelation remain central |
+| Separation of tafsir, reflection and application | 15 | 15 | The distinction is explicit in both drafts, in the hypothetical-example caveat and in the methodological note |
+| Original Arabic and editorial quality | 10 | 10 | The Arabic is clear, natural and publication-ready after independent critique and parity revisions |
+| Natural English and translation attribution | 10 | 9 | The English reads independently and attributes Sahih International correctly; final HTML must retain the explicit translation label and avoid implying that the surrounding prose is Qur’an translation |
+| Bilingual parity | 10 | 10 | Section sequence, claims, limits, questions, references and disclaimer are synchronized |
+| Contemporary application and restraint | 5 | 5 | One clearly hypothetical scenario is used, and the text rejects presenting the verse as a management model |
+| References and traceability | 5 | 5 | Both drafts carry the same eight direct source URLs linked to text, context and tafsir |
+| Originality, structure and conclusion | 5 | 4 | The listening-to-following angle is distinct and coherent; deliberate repetition of “listening,” “discernment” and “following” should not be amplified in the HTML callouts |
+| **Total** | **100** | **98** | **Pass** |
+
+### Blocking-error checks
+
+- Exact Qur’anic wording, surah and ayah number: **Pass**.
+- Sahih International wording and attribution: **Pass**.
+- Immediate Qur’anic context: **Pass**.
+- Tafsir attribution and limits: **Pass**.
+- Creed and centrality of divine guidance: **Pass**.
+- No conversion of revelation into a management technique: **Pass**.
+- No invented institutional fact, metric or real-world case: **Pass**.
+- Hypothetical example labeling: **Pass**.
+- Natural Arabic and English: **Pass**.
+- Bilingual meaning, sequence and references: **Pass**.
+- Duplicate topic and slug checks inherited from the verified pre-draft checkpoint: **Pass**, subject to mandatory recheck immediately before repository publication.
+
+### Publication-stage cautions
+
+Before any public file is created or updated:
+
+1. Re-read the checkpoint and repository head.
+2. Repeat duplicate checks across the topic registry, target pages, four indexes, sitemap, repository history and expected live URLs.
+3. Build the Arabic and English pages from the current paired template.
+4. Preserve the Sahih International attribution and the methodological distinction in rendered HTML.
+5. Keep canonical, reciprocal hreflang, Schema.org, publication date, author data and social metadata synchronized.
+6. Generate and verify both 1200×630 social cards.
+7. Do not call the article live until Actions and GitHub Pages succeed for the exact final head and both public pages are checked.
+
+### Gate conclusion
+
+The article pair passes the final quality gate at **98/100** with no blocking error. The next permitted stage is `repository_publish`; no publication action was performed during this gate.
+
