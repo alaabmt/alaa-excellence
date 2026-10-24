@@ -7,9 +7,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-24T22:22:00+04:00",
+  "updated_at": "2026-10-24T22:24:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "live_verification",
+  "current_stage": "completion_report",
   "run_lease": {
     "owner": "automation-agentic-ai-6ab56c5eee2481919cac424410c6b3f8",
     "acquired_at": "2026-10-24T21:59:00+04:00",
@@ -31,7 +31,7 @@
       "path": "en/article-agentic-ai-building-customer-service-agents.html"
     },
     "publishing": {
-      "status": "pages_verified",
+      "status": "live_verified",
       "arabic_url": "https://tamayuz10x.com/article-agentic-ai-building-customer-service-agents.html",
       "english_url": "https://tamayuz10x.com/en/article-agentic-ai-building-customer-service-agents.html",
       "social_assets_commit": "85abbb4f644bfaca31ce89a0cbdc81cf0d46161a",
@@ -53,6 +53,35 @@
         "article_date_integrity": 540,
         "editorial_disclaimer": 268,
         "social_cards": 417
+      },
+      "live_verification": {
+        "arabic": {
+          "status": "200 and rendered",
+          "title": true,
+          "author": true,
+          "cover": "1200x630 complete",
+          "tables": 2,
+          "side_boxes": 2,
+          "share_boxes": 1,
+          "listening_control": true
+        },
+        "english": {
+          "status": "200 and rendered",
+          "title": true,
+          "author": true,
+          "cover": "1200x630 complete",
+          "tables": 2,
+          "side_boxes": 2,
+          "share_boxes": 1,
+          "listening_control": true
+        },
+        "hubs": {
+          "arabic_cards": 1,
+          "english_cards": 1,
+          "arabic_general_links": 0,
+          "english_general_links": 0
+        },
+        "verified_at": "2026-10-24T22:24:00+04:00"
       }
     }
   },
@@ -95,7 +124,7 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Perform final live spot-check of both language pages and specialist hubs against the deployed head, then write publication-report.md and mark completed.",
+  "next_action": "Write publication-report.md, then mark the cycle completed and wait for GitHub Pages success on the exact final state commit.",
   "last_run": {
     "mode": "scheduled_daily",
     "status": "in_progress",
