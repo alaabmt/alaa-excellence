@@ -1720,6 +1720,27 @@
         "subtitle": "Anthropic reports that users accept 93% of permission prompts. Does approval still mean oversight?",
         "alt": "Navy and gold illustrative cover for an article about human oversight of an AI agent, showing a list of requests all approved except one held back with a pause button."
       }
+    },
+    {
+      "slug": "article-agentic-ai-building-customer-service-agents",
+      "background": "assets/previews/story-backgrounds/article-agentic-ai-workplace-tasks.jpg",
+      "category": "article",
+      "ar": {
+        "title": [
+          "هل يبني الذكاء الاصطناعي",
+          "وكيل خدمة موثوقًا؟"
+        ],
+        "subtitle": "في 53 مهمة بناء، بلغ أفضل متوسط آلي 23.9 من 100.",
+        "alt": "غلاف توضيحي بالكحلي والذهبي لوكيل برمجي يبني نظام خدمة عملاء أمام لوحة تقييم تعرض 53 مهمة ودرجة 23.9 من 100."
+      },
+      "en": {
+        "title": [
+          "Can AI Build a Reliable",
+          "Customer-Service Agent?"
+        ],
+        "subtitle": "Across 53 construction tasks, the best automated mean was 23.9/100.",
+        "alt": "Navy and gold illustrative cover showing a coding agent building a customer-service system beside an evaluation panel with 53 tasks and a score of 23.9 out of 100."
+      }
     }
   ]
 }
