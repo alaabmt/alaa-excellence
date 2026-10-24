@@ -5,9 +5,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-24T18:05:00+04:00",
+  "updated_at": "2026-10-24T18:24:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "arabic_draft",
+  "current_stage": "independent_critique",
   "current_article": {
     "article_id": "quran-reflection-2026-10-24-az-zumar-follow-the-best",
     "publication_date": "2026-10-24",
@@ -16,7 +16,7 @@
     "topic_en": "Responsible listening: hearing different words and following the best of them",
     "working_title_ar": "هل يكفي أن نسمع، أم نتبع أحسن ما سمعنا؟",
     "working_title_en": "Is Listening Enough, or Do We Follow the Best of What We Hear?",
-    "status": "quran_verified",
+    "status": "arabic_draft_completed",
     "quranic_focus": {
       "surah": "Az-Zumar",
       "surah_ar": "الزمر",
@@ -102,7 +102,13 @@
         "translation": "Sahih International",
         "verified_at": "2026-10-24T17:45:00+04:00"
       }
-    ]
+    ],
+    "arabic_draft": {
+      "status": "drafted_pending_critique",
+      "path": "automation/quran-reflections/reflection-az-zumar-follow-the-best/draft-ar.md",
+      "initial_commit": "46da29cd66622e4ce08f4e072db3a4036a05e95c",
+      "completed_at": "2026-10-24T18:24:00+04:00"
+    }
   },
   "stage_order": [
     "capability_check",
@@ -135,27 +141,25 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Write the complete original Arabic draft in automation/quran-reflections/reflection-az-zumar-follow-the-best/draft-ar.md. Keep tafsir, reflection and the single hypothetical application distinct; preserve the verified context and attribution limits; then checkpoint arabic_draft before independent critique.",
+  "next_action": "Run an independent critique of the Arabic draft for Qur'anic and tafsir accuracy, separation of tafsir from reflection, attribution limits, hypothetical-example labeling, Arabic clarity, repetition and publication readiness. Save automation/quran-reflections/reflection-az-zumar-follow-the-best/quality-review.md and checkpoint independent_critique before any English draft.",
   "last_run": {
     "mode": "coordinator_daily_start",
     "status": "in_progress",
     "started_at": "2026-10-24T17:03:26+04:00",
     "starting_head": "6139460adf513e2176a1aadca6c8b06708c60082",
     "notes": "Started the single allowed Qur'anic reflection cycle for 24 October after capability, checkpoint, registry, repository and indexed-web duplicate checks.",
-    "last_checkpoint": "quran_verification",
+    "last_checkpoint": "arabic_draft",
     "last_checkpoint_at": "2026-10-24T17:48:00+04:00",
     "topic_selection_commit": "d2deaf1cd13861986ed878cb7d9919479959d8e4",
     "research_commit": "239d631089150ce0c9df909d4aefedb1d8f9aa4f",
     "quran_verification_commit": "4ab5f8c446c766adf34d03877a20d56a1f789751",
     "resumed_at": "2026-10-24T18:05:00+04:00",
-    "resumed_by": "central-coordinator"
+    "resumed_by": "central-coordinator",
+    "arabic_draft_commit": "46da29cd66622e4ce08f4e072db3a4036a05e95c",
+    "checkpointed_at": "2026-10-24T18:24:00+04:00"
   },
   "workflow_id": "quran_reflections",
-  "run_lease": {
-    "owner": "central-coordinator-quran-2026-10-24-arabic-draft",
-    "acquired_at": "2026-10-24T18:05:00+04:00",
-    "expires_at": "2026-10-24T19:55:00+04:00"
-  },
+  "run_lease": null,
   "checkpoint_policy": {
     "checkpoint_after_every_stage": true,
     "run_lease_minutes": 110,
@@ -410,7 +414,8 @@
     "duplicate_check",
     "topic_selection",
     "research",
-    "quran_verification"
+    "quran_verification",
+    "arabic_draft"
   ],
   "duplicate_check": {
     "status": "passed",
