@@ -2,12 +2,15 @@
 """Render the actual Arabic article at mobile widths and fail on horizontal overflow."""
 import asyncio
 import json
+import os
 import subprocess
 import time
 from pathlib import Path
 from playwright.async_api import async_playwright
 
-PAGE = Path("article-agentic-ai-alphaevolve-compute-scheduling.html").resolve()
+PAGE = Path(os.environ.get("ARABIC_ARTICLE", "article-agentic-ai-alphaevolve-compute-scheduling.html")).resolve()
+REPORT = Path(os.environ.get("EDITORIAL_REPORT", "editorial-qa/alphaevolve.json"))
+PREFIX = os.environ.get("MOBILE_ARTIFACT_PREFIX", PAGE.stem)
 OUT = Path("editorial-qa/mobile-artifacts")
 OUT.mkdir(parents=True, exist_ok=True)
 
@@ -20,17 +23,17 @@ async def main():
     finally:
         server.terminate()
         server.wait(timeout=10)
-    (OUT / "results.json").write_text(json.dumps(results, ensure_ascii=False, indent=2), encoding="utf-8")
+    (OUT / f"{PREFIX}-results.json").write_text(json.dumps(results, ensure_ascii=False, indent=2), encoding="utf-8")
     for result in results: print(result)
     if not all(r["pass"] for r in results):
         raise SystemExit("FAIL: Mobile layout")
-    report_path = Path("editorial-qa/alphaevolve.json")
+    report_path = REPORT
     report = json.loads(report_path.read_text(encoding="utf-8"))
     report["gates"]["mobile"] = "PASS"
     report["mobile_evidence"] = {
         "method": "Playwright Chromium browser, 320/375/390/430px viewports",
-        "results": str(OUT / "results.json"),
-        "screenshots": [str(OUT / f"alphaevolve-{width}.png") for width in (320, 375, 390, 430)],
+        "results": str(OUT / f"{PREFIX}-results.json"),
+        "screenshots": [str(OUT / f"{PREFIX}-{width}.png") for width in (320, 375, 390, 430)],
         "scope": "Automated rendered-layout verification; screenshots retained for human visual review"
     }
     report["decision"] = "CI candidate PASS only; authoritative approval is successful GitHub Actions job"
@@ -55,7 +58,7 @@ async def run_browser(results):
             }""")
             if not assets_ok:
                 raise RuntimeError(f"One or more local site assets failed to load at {width}px")
-            await page.screenshot(path=str(OUT / f"alphaevolve-{width}.png"), full_page=True)
+            await page.screenshot(path=str(OUT / f"{PREFIX}-{width}.png"), full_page=True)
             result = await page.evaluate("""() => ({
                 viewport: document.documentElement.clientWidth,
                 pageWidth: document.documentElement.scrollWidth,
