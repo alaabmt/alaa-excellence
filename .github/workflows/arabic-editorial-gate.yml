@@ -6,24 +6,18 @@ on:
       - 'article-agentic-ai-alphaevolve-compute-scheduling.html'
       - 'editorial-qa/alphaevolve.json'
       - 'scripts/check_arabic_editorial.py'
-      - '.github/workflows/arabic-editorial-gate.yml'
       - 'scripts/check_arabic_mobile.py'
+      - '.github/workflows/arabic-editorial-gate.yml'
   pull_request:
     paths:
       - 'article-agentic-ai-alphaevolve-compute-scheduling.html'
       - 'editorial-qa/alphaevolve.json'
       - 'scripts/check_arabic_editorial.py'
+      - 'scripts/check_arabic_mobile.py'
       - '.github/workflows/arabic-editorial-gate.yml'
   workflow_dispatch:
 jobs:
-  editorial-check:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Check Arabic article approval
-        run: python3 scripts/check_arabic_editorial.py article-agentic-ai-alphaevolve-compute-scheduling.html editorial-qa/alphaevolve.json
-
-  mobile-browser-check:
+  editorial-and-mobile-check:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -31,12 +25,16 @@ jobs:
         run: |
           python3 -m pip install playwright
           python3 -m playwright install --with-deps chromium
-      - name: Render and inspect mobile widths
+      - name: Render actual mobile layouts and create evidence
         run: python3 scripts/check_arabic_mobile.py
-      - name: Preserve mobile screenshots and test output
+      - name: Check all seven editorial gates using generated mobile evidence
+        run: python3 scripts/check_arabic_editorial.py article-agentic-ai-alphaevolve-compute-scheduling.html editorial-qa/alphaevolve.json
+      - name: Preserve mobile screenshots and QA result
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: arabic-article-mobile-review
-          path: editorial-qa/mobile-artifacts/
-          if-no-files-found: warn
+          path: |
+            editorial-qa/mobile-artifacts/
+            editorial-qa/alphaevolve.json
+          if-no-files-found: error
