@@ -1,0 +1,31 @@
+name: Cybersecurity Guardian (read-only)
+on:
+  schedule:
+    - cron: '17 3 * * 1'
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - '.github/workflows/**'
+      - 'scripts/**'
+      - 'supabase/**'
+      - 'cloudflare/**'
+      - 'account/**'
+      - 'admin/**'
+      - 'security/**'
+      - 'assets/js/**'
+permissions:
+  contents: read
+jobs:
+  static-security-review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout reviewed revision
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - name: Run conservative security hygiene checks
+        run: python3 scripts/cybersecurity_guardian.py --root . --output "$RUNNER_TEMP/cybersecurity-report.json"
+      - name: Show summary (no secret values)
+        run: |
+          python3 -c 'import json,os; p=json.load(open(os.environ["RUNNER_TEMP"]+"/cybersecurity-report.json")); print("status:",p["status"],"files:",p["files_scanned"],"potential findings:",len(p["findings"])); [print(x["severity"],x["rule"],x["file"],x["line"]) for x in p["findings"]]'
