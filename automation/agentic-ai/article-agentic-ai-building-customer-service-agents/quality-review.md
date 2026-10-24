@@ -56,3 +56,35 @@ Result: PASS.
 ## Publication decision at this stage
 
 HOLD. Editorial gates pass except the required real mobile/browser gate, which remains NOT VERIFIED until both HTML editions are implemented and tested at narrow widths. English native-authoring and bilingual parity reviews also remain pending.
+
+
+## Bilingual semantic parity
+
+- Primary sample: 53 tasks, split 6/6/6/35 — MATCH.
+- Evidence volume: 2,868 artifacts and >5.5 million text tokens — MATCH.
+- Six developer configurations, one construction trial per task, eight-hour cap — MATCH.
+- Best automated score: 23.9/100 across 53 task-level scores — MATCH.
+- Expert-authored ceiling: 82.2/100 and ground-truth/oracle limitation — MATCH.
+- Domain means and denominators: 55.9/6, 72.8/6, 48.2/6, 5.9/35 — MATCH.
+- Banking example: 1/93 correct, 92/93 incorrect — MATCH and labelled non-general.
+- Client-contact 0.3%, question association 0.16 vs 0.50, architecture 92%, and 31-to-67 probe all retain missing-count caveats — MATCH.
+- Hypothetical supplier example is explicitly hypothetical in both editions — MATCH.
+- CRMArena-Pro side box: 19 task types, 25 objects, 29,101/54,569 records, ~58%/~35% with raw-count limitation — MATCH.
+- Simulation, preprint, task-mix, one-trial, expert-ceiling, and total-cost limits — MATCH.
+- Seven 10X institutional decisions — semantically equivalent, adapted to each language.
+- Five direct references — MATCH.
+
+Result: PASS.
+
+## Native-English review
+
+The English edition was authored from the source ledger, not translated paragraph by paragraph. It uses a native explanatory sequence: shipping failure → construction test → score boundary → complexity → one countable example → development behavior → hypothetical governance case. Sentence rhythm, transitions, terminology, and table labels read as original editorial English. No Arabic rhetorical syntax or untranslated administrative abstraction was detected.
+
+Result: PASS.
+
+## Remaining gates
+
+- HTML title consistency: pending implementation.
+- Actual narrow-viewport/mobile verification: NOT VERIFIED until browser test.
+- Listening interface behavior: pending browser test.
+- Live publication, specialist-only placement, Actions, and Pages: pending.
