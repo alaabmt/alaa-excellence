@@ -118,3 +118,42 @@ The English draft may begin, subject to all of the following:
 ## Stage conclusion
 
 The revised Arabic draft contains no blocking issue and is cleared for `english_draft`. This review is not the final 100-point quality gate; that gate remains mandatory after bilingual parity review.
+
+---
+
+## Bilingual parity review — 24 October 2026
+
+**Verdict: Pass after two alignment corrections.**
+
+The Arabic and English drafts were compared for structure, Qur’anic meaning, tafsir attribution, interpretive limits, the hypothetical example, references, methodological note and editorial disclaimer.
+
+### Alignment corrections applied
+
+1. The Arabic references were aligned with the verified research set so both drafts now contain the same eight source URLs.
+2. The English methodological note was promoted to the matching heading level, and the editorial disclaimer was moved after the references to match the Arabic sequence.
+
+**Arabic parity revision:** `cd14a17992f88b2484d9ffe5318d89e8708718d4`  
+**English parity revision:** `88cbb14e17d7417dc1bc5f94596bd963f2447020`
+
+### Parity checks
+
+| Check | Result |
+|---|---|
+| Same article purpose and thesis | Pass |
+| Same ten substantive sections in the same order | Pass |
+| Matching heading hierarchy, methodological note and references | Pass |
+| Az-Zumar 39:17–19 context preserved | Pass |
+| 39:18 Sahih International wording explicitly attributed in English | Pass |
+| Al-Tabari, Ibn Kathir, al-Qurtubi and al-Sa‘di claims equivalent | Pass |
+| Divine guidance and revelation remain central | Pass |
+| Tafsir, reflection and application remain distinct | Pass |
+| One hypothetical decision-team example in both versions | Pass |
+| Same four self-review questions and three closing questions | Pass |
+| Same eight source URLs | Pass |
+| Editorial disclaimer present after references in both versions | Pass |
+| No additional English claim or omitted Arabic limitation | Pass |
+
+### Conclusion
+
+No material bilingual discrepancy remains. Both drafts may proceed to the final 100-point quality gate. Publication, index updates and repository page creation remain prohibited until that gate is completed and passed.
+
