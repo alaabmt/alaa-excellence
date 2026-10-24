@@ -44,9 +44,9 @@ def check(page, report):
             if isinstance(obj, dict) and obj.get("@type") == "Article": ld = obj
         except json.JSONDecodeError:
             errors.append("Invalid Article JSON-LD")
-    normalize = lambda s: re.sub(r"\\s+", " ", unescape(s)).strip()
+    normalize = lambda s: re.sub(r"\s+", " ", unescape(s)).strip()
     browser = normalize("".join(doc.title))
-    browser = re.sub(r"\\s*\\|\\s*التميّز 10X$", "", browser)
+    browser = re.sub(r"\s*\|\s*التميّز 10X$", "", browser)
     values = {
         "H1": normalize("".join(doc.h1)),
         "title": browser,
