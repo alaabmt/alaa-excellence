@@ -2,6 +2,8 @@
 """Render the actual Arabic article at mobile widths and fail on horizontal overflow."""
 import asyncio
 import json
+import subprocess
+import time
 from pathlib import Path
 from playwright.async_api import async_playwright
 
@@ -11,11 +13,25 @@ OUT.mkdir(parents=True, exist_ok=True)
 
 async def main():
     results = []
+    server = subprocess.Popen(["python3", "-m", "http.server", "8765", "--bind", "127.0.0.1"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    time.sleep(1)
+    try:
+        await run_browser(results)
+    finally:
+        server.terminate()
+        server.wait(timeout=10)
+    (OUT / "results.json").write_text(json.dumps(results, ensure_ascii=False, indent=2), encoding="utf-8")
+    for result in results: print(result)
+    if not all(r["pass"] for r in results):
+        raise SystemExit("FAIL: Mobile layout")
+    print("PASS: Chromium layout checks completed. Evidence saved for editorial approval.")
+
+async def run_browser(results):
     async with async_playwright() as p:
         browser = await p.chromium.launch(headless=True)
         for width in (320, 375, 390, 430):
             page = await browser.new_page(viewport={"width": width, "height": 844}, device_scale_factor=1)
-            await page.goto(PAGE.as_uri(), wait_until="load")
+            await page.goto("http://127.0.0.1:8765/" + PAGE.name, wait_until="networkidle")
             await page.screenshot(path=str(OUT / f"alphaevolve-{width}.png"), full_page=True)
             result = await page.evaluate("""() => ({
                 viewport: document.documentElement.clientWidth,
@@ -29,10 +45,6 @@ async def main():
             results.append(result)
             await page.close()
         await browser.close()
-    (OUT / "results.json").write_text(json.dumps(results, ensure_ascii=False, indent=2), encoding="utf-8")
-    for result in results: print(result)
-    if not all(r["pass"] for r in results):
-        raise SystemExit("FAIL: Mobile layout")
     report_path = Path("editorial-qa/alphaevolve.json")
     report = json.loads(report_path.read_text(encoding="utf-8"))
     report["gates"]["mobile"] = "PASS"
