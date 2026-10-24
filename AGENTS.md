@@ -27,3 +27,7 @@ The analytical framework is **internal editorial scaffolding**, never reader-fac
 ## Mandatory novice-comprehension quality gate — applies to every agent
 
 Every agent that drafts, edits, reviews, publishes, schedules, or maintains Tamayuz 10X editorial pages **MUST** read and enforce section 13, **«بوابة إلزامية لفهم القارئ غير المتخصص»**, of `ARABIC-LANGUAGE-AND-TTS-STANDARD.md`. This is a blocking publication gate, not an optional style recommendation. Check title clarity, the first 30 seconds, first-use terminology, one-sentence comprehension, and mobile/RTL presentation. Any failed check requires revision and retesting before publication; document the gate result in the editorial QA record. Apply the equivalent comprehension and mobile checks to English editions as appropriate. Do not bypass the gate for automated or scheduled publishing.
+
+## Cybersecurity Guardian
+
+For security, authentication, Supabase, Cloudflare, admin/account, GitHub Actions, and incident-response tasks, read `security/CYBERSECURITY_GUARDIAN_AGENT.md` and `security/skills/cybersecurity-guardian/SKILL.md`. Run scoped, read-only checks and verify findings manually. Sensitive changes require authorized review.
