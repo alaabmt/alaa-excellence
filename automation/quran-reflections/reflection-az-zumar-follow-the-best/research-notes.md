@@ -118,3 +118,57 @@ The verse praises servants whose listening leads beyond exposure to faithful dis
 ## Stage status
 
 Research completed. The next stage is literal Qur'anic verification of the Arabic text, surah and ayah number, immediate context, Sahih International wording, and the attribution boundaries above.
+
+
+## Qur'anic verification — completed 24 October 2026
+
+### Identity and numbering
+
+- Surah: **Az-Zumar (الزمر)**.
+- Primary verse: **39:18**.
+- Immediate context checked: **39:17–19**.
+- The Qur'an source and all four tafsir pages identify the Arabic text as Az-Zumar, ayah 18.
+
+### Arabic text and Uthmani spelling
+
+Verified text:
+
+> الَّذِينَ يَسْتَمِعُونَ الْقَوْلَ فَيَتَّبِعُونَ أَحْسَنَهُ ۚ أُولَٰئِكَ الَّذِينَ هَدَاهُمُ اللَّهُ ۖ وَأُولَٰئِكَ هُمْ أُولُو الْأَلْبَابِ
+
+The wording and ayah number agree across the Qur'an source and the al-Tabari, Ibn Kathir, al-Qurtubi and al-Sa'di pages reviewed.
+
+### Sahih International wording
+
+Verified wording:
+
+> “Who listen to speech and follow the best of it. Those are the ones Allah has guided, and those are people of understanding.”
+
+The English article must attribute this wording to **Sahih International** and must not describe the surrounding reflection as a translation of the Qur'an.
+
+### Context verification
+
+- Ayah 39:17 describes people who avoid worshiping false objects of worship and turn to Allah; good tidings are promised to them.
+- Ayah 39:18 describes the servants who listen to speech and follow the best of it, then identifies them as guided by Allah and as people of understanding.
+- Ayah 39:19 turns to the contrasting case of one upon whom the word of punishment has become due.
+- Therefore, the primary ayah is not a context-free endorsement of unrestricted opinion comparison. It belongs to a passage about worship, repentance/turning to Allah, divine guidance, sound understanding and the contrast with persistent error.
+
+### Attribution verification
+
+- **Al-Tabari:** safely attribute the connection between following the best speech, guidance to right conduct, sound judgment and intellect. His discussion of 39:17 supports the link to Allah's oneness and obedience. A reported occasion involving people before the Prophet's mission must be presented as a report, not as the sole uncontested scope of the verse.
+- **Ibn Kathir:** safely attribute understanding and acting upon the speech, together with sound intellect and upright disposition.
+- **Al-Qurtubi:** safely state that he records several reported explanations. Do not collapse them into one consensus or present one as exclusively intended.
+- **Al-Sa'di:** safely attribute the broad discernment between what deserves preference and what should be avoided, while preserving his explicit statement that Allah's speech and the Messenger's speech are best in the absolute sense.
+
+### Blocking-error review
+
+No blocking error was found in the surah name, ayah number, Arabic wording, Sahih International wording, immediate context or the limited attribution statements above.
+
+### Drafting constraints carried forward
+
+1. Separate tafsir, reflection and contemporary application explicitly.
+2. Do not turn the verse into a modern decision-making method.
+3. Do not define “best” as popularity, efficiency or personal preference.
+4. Keep divine guidance central; do not credit discernment to human technique alone.
+5. Use one hypothetical decision-team example and label it as hypothetical.
+6. Preserve the distinction between verifying information and choosing what deserves to be followed.
+7. Include a methodological note and specific tafsir references.
