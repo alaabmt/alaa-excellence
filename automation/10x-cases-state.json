@@ -7,9 +7,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-24T07:38:00+04:00",
+  "updated_at": "2026-10-24T07:40:30+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "arabic_draft",
+  "current_stage": "company_insider_critique",
   "run_lease": {
     "owner": "chatgpt-work-tenx-daily-2026-10-24T0731",
     "acquired_at": "2026-10-24T07:31:20+04:00",
@@ -48,6 +48,10 @@
       "pillar_gap": [
         1
       ]
+    },
+    "arabic_draft": {
+      "status": "drafted",
+      "path": "automation/10x-cases/case-seoul-food-waste-pay-as-you-throw-rfid/draft-ar.md"
     }
   },
   "stage_order": [
@@ -89,7 +93,7 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Draft the original Arabic case in the approved narrative structure, preserving all evidence limits and terminology rules.",
+  "next_action": "Run the simulated Company Insider Critique, verify any new issues, then revise the Arabic draft before the final gates.",
   "last_run": {
     "mode": "daily_primary_run",
     "status": "in_progress",
@@ -206,6 +210,7 @@
     "duplicate_check",
     "candidate_scan",
     "evidence_pack",
-    "backcasting_and_10x_analysis"
+    "backcasting_and_10x_analysis",
+    "arabic_draft"
   ]
 }
