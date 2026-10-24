@@ -1,20 +1,10 @@
 name: Arabic editorial gate
+# Always run on every PR so a required status check is never skipped by path filters.
 on:
   push:
     branches: [main]
-    paths:
-      - 'article-agentic-ai-alphaevolve-compute-scheduling.html'
-      - 'editorial-qa/alphaevolve.json'
-      - 'scripts/check_arabic_editorial.py'
-      - 'scripts/check_arabic_mobile.py'
-      - '.github/workflows/arabic-editorial-gate.yml'
   pull_request:
-    paths:
-      - 'article-agentic-ai-alphaevolve-compute-scheduling.html'
-      - 'editorial-qa/alphaevolve.json'
-      - 'scripts/check_arabic_editorial.py'
-      - 'scripts/check_arabic_mobile.py'
-      - '.github/workflows/arabic-editorial-gate.yml'
+    branches: [main]
   workflow_dispatch:
 jobs:
   editorial-and-mobile-check:
