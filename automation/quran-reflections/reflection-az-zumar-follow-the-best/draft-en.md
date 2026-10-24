@@ -92,10 +92,9 @@ One of the verse’s most compelling effects is that it can reshape our idea of 
 
 ---
 
-**Methodological note:** This is a contemporary reflection grounded in the context of Az-Zumar 39:17–19 and in meanings recorded by al-Tabari, Ibn Kathir, al-Qurtubi, and al-Sa‘di. Statements attributed to the commentators are presented as tafsir; the personal and institutional applications are contemporary reflections, not a new interpretation of the verse. The scenario is hypothetical and does not describe a particular event or organization.
+## Methodological note
 
-**Editorial disclaimer:**  
-The views and analysis in this reflection represent the author’s professional interpretation based on the cited sources. They do not necessarily represent the official positions of any organization mentioned. The original and complete Qur’anic text, translations, and tafsir should be consulted directly through the sources below.
+This is a contemporary reflection grounded in the context of Az-Zumar 39:17–19 and in meanings recorded by al-Tabari, Ibn Kathir, al-Qurtubi, and al-Sa‘di. Statements attributed to the commentators are presented as tafsir; the personal and institutional applications are contemporary reflections, not a new interpretation of the verse. The scenario is hypothetical and does not describe a particular event or organization.
 
 ## References
 
@@ -107,3 +106,6 @@ The views and analysis in this reflection represent the author’s professional 
 6. Al-Qurtubi, *Al-Jami‘ li-Ahkam al-Qur’an*, commentary on Az-Zumar 39:17: https://quran.ksu.edu.sa/tafseer/qortobi/sura39-aya17.html
 7. Al-Qurtubi, *Al-Jami‘ li-Ahkam al-Qur’an*, commentary on Az-Zumar 39:18: https://quran.ksu.edu.sa/tafseer/qortobi/sura39-aya18.html
 8. Al-Sa‘di, *Taysir al-Karim al-Rahman*, commentary on Az-Zumar 39:18: https://quran.ksu.edu.sa/tafseer/saadi/sura39-aya18.html
+
+**Editorial disclaimer:**  
+The views and analysis in this reflection represent the author’s professional interpretation based on the cited sources. They do not necessarily represent the official positions of any organization mentioned. The original and complete Qur’anic text, translations, and tafsir should be consulted directly through the sources above.
