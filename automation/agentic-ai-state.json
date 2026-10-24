@@ -7,9 +7,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-24T22:18:00+04:00",
+  "updated_at": "2026-10-24T22:20:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "repository_publish",
+  "current_stage": "actions_and_pages",
   "run_lease": {
     "owner": "automation-agentic-ai-6ab56c5eee2481919cac424410c6b3f8",
     "acquired_at": "2026-10-24T21:59:00+04:00",
@@ -31,12 +31,20 @@
       "path": "en/article-agentic-ai-building-customer-service-agents.html"
     },
     "publishing": {
-      "status": "repository_published",
+      "status": "awaiting_final_actions_and_pages",
       "arabic_url": "https://tamayuz10x.com/article-agentic-ai-building-customer-service-agents.html",
       "english_url": "https://tamayuz10x.com/en/article-agentic-ai-building-customer-service-agents.html",
       "social_assets_commit": "85abbb4f644bfaca31ce89a0cbdc81cf0d46161a",
       "mobile_gate_run_id": 40119798475,
-      "mobile_gate_run_number": 64
+      "mobile_gate_run_number": 64,
+      "publication_commit": "7a96a81d1591267a4c8355e69bdeed3ce13ee154",
+      "repository_checks": {
+        "article_pages": 2,
+        "specialist_hubs": 2,
+        "general_index_slug_occurrences": 0,
+        "sitemap_entries": 2,
+        "social_images": "2 x 1200x630"
+      }
     }
   },
   "stage_order": [
@@ -78,7 +86,7 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Confirm repository placement, current head and all required files, then checkpoint repository publication before exact Actions and Pages verification.",
+  "next_action": "Wait for all required checks and GitHub Pages to succeed for the exact current head, then verify both live pages and specialist-hub placement.",
   "last_run": {
     "mode": "scheduled_daily",
     "status": "in_progress",
