@@ -5,9 +5,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-24T17:23:00+04:00",
+  "updated_at": "2026-10-24T17:37:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "research",
+  "current_stage": "quran_verification",
   "current_article": {
     "article_id": "quran-reflection-2026-10-24-az-zumar-follow-the-best",
     "publication_date": "2026-10-24",
@@ -16,7 +16,7 @@
     "topic_en": "Responsible listening: hearing different words and following the best of them",
     "working_title_ar": "هل يكفي أن نسمع، أم نتبع أحسن ما سمعنا؟",
     "working_title_en": "Is Listening Enough, or Do We Follow the Best of What We Hear?",
-    "status": "topic_selected",
+    "status": "research_completed",
     "quranic_focus": {
       "surah": "Az-Zumar",
       "surah_ar": "الزمر",
@@ -26,7 +26,7 @@
       "status": "pending_verification"
     },
     "research_notes_path": "automation/quran-reflections/reflection-az-zumar-follow-the-best/research-notes.md",
-    "research_status": "not_started",
+    "research_status": "completed",
     "topic_selection": {
       "status": "completed",
       "candidates": [
@@ -36,7 +36,49 @@
       ],
       "selected": "Az-Zumar 39:18 — listening, discernment and following what is best",
       "artifact_commit": "d2deaf1cd13861986ed878cb7d9919479959d8e4"
-    }
+    },
+    "research_sources": [
+      {
+        "type": "Qur'an text and Sahih International translation",
+        "url": "https://legacy.quran.com/39/17-18",
+        "status": "reviewed"
+      },
+      {
+        "type": "Tafsir al-Tabari 39:17",
+        "url": "https://quran.ksu.edu.sa/tafseer/tabary/sura39-aya17.html",
+        "status": "reviewed"
+      },
+      {
+        "type": "Tafsir al-Tabari 39:18",
+        "url": "https://quran.ksu.edu.sa/tafseer/tabary/sura39-aya18.html",
+        "status": "reviewed"
+      },
+      {
+        "type": "Tafsir Ibn Kathir 39:17",
+        "url": "https://quran.ksu.edu.sa/tafseer/katheer/sura39-aya17.html",
+        "status": "reviewed"
+      },
+      {
+        "type": "Tafsir Ibn Kathir 39:18",
+        "url": "https://quran.ksu.edu.sa/tafseer/katheer/sura39-aya18.html",
+        "status": "reviewed"
+      },
+      {
+        "type": "Tafsir al-Qurtubi 39:17",
+        "url": "https://quran.ksu.edu.sa/tafseer/qortobi/sura39-aya17.html",
+        "status": "reviewed"
+      },
+      {
+        "type": "Tafsir al-Qurtubi 39:18",
+        "url": "https://quran.ksu.edu.sa/tafseer/qortobi/sura39-aya18.html",
+        "status": "reviewed"
+      },
+      {
+        "type": "Tafsir al-Sa'di 39:18",
+        "url": "https://quran.ksu.edu.sa/tafseer/saadi/sura39-aya18.html",
+        "status": "reviewed"
+      }
+    ]
   },
   "stage_order": [
     "capability_check",
@@ -69,16 +111,17 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Research Az-Zumar 39:18 in context using the verified Qur'an text, Sahih International and the commentaries of al-Tabari, Ibn Kathir, al-Qurtubi and al-Sa'di as needed; document agreements, differences and methodological limits in research-notes.md.",
+  "next_action": "Verify the Arabic Qur'anic text and Uthmani spelling, surah and ayah numbering, immediate context, exact Sahih International wording, and the attribution boundaries for al-Tabari, Ibn Kathir, al-Qurtubi and al-Sa'di; record quran_verification before drafting.",
   "last_run": {
     "mode": "coordinator_daily_start",
     "status": "in_progress",
     "started_at": "2026-10-24T17:03:26+04:00",
     "starting_head": "6139460adf513e2176a1aadca6c8b06708c60082",
     "notes": "Started the single allowed Qur'anic reflection cycle for 24 October after capability, checkpoint, registry, repository and indexed-web duplicate checks.",
-    "last_checkpoint": "topic_selection",
-    "last_checkpoint_at": "2026-10-24T17:23:00+04:00",
-    "topic_selection_commit": "d2deaf1cd13861986ed878cb7d9919479959d8e4"
+    "last_checkpoint": "research",
+    "last_checkpoint_at": "2026-10-24T17:37:00+04:00",
+    "topic_selection_commit": "d2deaf1cd13861986ed878cb7d9919479959d8e4",
+    "research_commit": "239d631089150ce0c9df909d4aefedb1d8f9aa4f"
   },
   "workflow_id": "quran_reflections",
   "run_lease": {
@@ -338,7 +381,8 @@
     "capability_check",
     "load_checkpoint",
     "duplicate_check",
-    "topic_selection"
+    "topic_selection",
+    "research"
   ],
   "duplicate_check": {
     "status": "passed",
