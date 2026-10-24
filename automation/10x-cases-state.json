@@ -7,9 +7,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-24T07:35:34+04:00",
+  "updated_at": "2026-10-24T07:36:27+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "evidence_pack",
+  "current_stage": "backcasting_and_10x_analysis",
   "run_lease": {
     "owner": "chatgpt-work-tenx-daily-2026-10-24T0731",
     "acquired_at": "2026-10-24T07:31:20+04:00",
@@ -20,8 +20,19 @@
     "publication_date": "2026-10-24",
     "title_working_ar": "كيف نقلت سيول نفايات الطعام من كيس مجهول إلى وزن يراه كل منزل؟",
     "title_working_en": "How Seoul Made Every Household See the Weight of Its Food Waste",
-    "candidate_status": "selected_for_evidence_validation",
-    "artifact_root": "automation/10x-cases/case-seoul-food-waste-pay-as-you-throw-rfid/"
+    "candidate_status": "evidence_passed",
+    "artifact_root": "automation/10x-cases/case-seoul-food-waste-pay-as-you-throw-rfid/",
+    "evidence_pack": {
+      "status": "passed",
+      "path": "automation/10x-cases/case-seoul-food-waste-pay-as-you-throw-rfid/evidence-pack.md",
+      "confidence": {
+        "policy_chronology": "high",
+        "operating_function": "high",
+        "seoul_tonnage_trend": "high",
+        "citywide_rfid_attribution": "medium",
+        "national_recycling_final_use": "medium"
+      }
+    }
   },
   "stage_order": [
     "capability_check",
@@ -62,7 +73,7 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Build the Evidence Pack: verify primary and independent sources, separate national and Seoul measures, and decide whether the case passes the evidence threshold.",
+  "next_action": "Complete backcasting and evidence-limited 10X pillar analysis; document supported pillars and gaps.",
   "last_run": {
     "mode": "daily_primary_run",
     "status": "in_progress",
@@ -177,6 +188,7 @@
     "capability_check",
     "load_checkpoint",
     "duplicate_check",
-    "candidate_scan"
+    "candidate_scan",
+    "evidence_pack"
   ]
 }
