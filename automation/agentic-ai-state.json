@@ -7,9 +7,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-24T22:25:00+04:00",
+  "updated_at": "2026-10-24T22:31:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "arabic_draft",
+  "current_stage": "beginner_critique",
   "run_lease": {
     "owner": "automation-agentic-ai-6ab56c5eee2481919cac424410c6b3f8",
     "acquired_at": "2026-10-24T21:59:00+04:00",
@@ -18,7 +18,7 @@
   "current_item": {
     "slug": "article-agentic-ai-building-customer-service-agents",
     "publication_date": "2026-10-24",
-    "title_ar": "هل يستطيع الذكاء الاصطناعي بناء وكيل خدمة عملاء موثوق؟ اختبار 53 مشروعًا",
+    "title_ar": "هل يستطيع الذكاء الاصطناعي بناء وكيل خدمة عملاء موثوق؟ دليل من 53 مهمة بناء",
     "title_en": "Can AI Reliably Build a Customer-Service Agent? A 53-Project Test",
     "research_status": "completed",
     "evidence_pack_status": "completed",
@@ -73,7 +73,7 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Run the independent beginner-comprehension critique and all Arabic clarity gates; revise before drafting English.",
+  "next_action": "Draft an original English edition from the sources, preserving score/count boundaries without mirroring the Arabic structure.",
   "last_run": {
     "mode": "scheduled_daily",
     "status": "in_progress",
