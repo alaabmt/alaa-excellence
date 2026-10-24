@@ -7,6 +7,7 @@ on:
       - 'editorial-qa/alphaevolve.json'
       - 'scripts/check_arabic_editorial.py'
       - '.github/workflows/arabic-editorial-gate.yml'
+      - 'scripts/check_arabic_mobile.py'
   pull_request:
     paths:
       - 'article-agentic-ai-alphaevolve-compute-scheduling.html'
@@ -21,3 +22,21 @@ jobs:
       - uses: actions/checkout@v4
       - name: Check Arabic article approval
         run: python3 scripts/check_arabic_editorial.py article-agentic-ai-alphaevolve-compute-scheduling.html editorial-qa/alphaevolve.json
+
+  mobile-browser-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install browser test dependencies
+        run: |
+          python3 -m pip install playwright
+          python3 -m playwright install --with-deps chromium
+      - name: Render and inspect mobile widths
+        run: python3 scripts/check_arabic_mobile.py
+      - name: Preserve mobile screenshots and test output
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: arabic-article-mobile-review
+          path: editorial-qa/mobile-artifacts/
+          if-no-files-found: warn
