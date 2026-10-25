@@ -7,7 +7,7 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-25T07:49:00+04:00",
+  "updated_at": "2026-10-25T07:50:00+04:00",
   "workflow_status": "completed",
   "current_stage": "completed",
   "run_lease": null,
@@ -121,7 +121,10 @@
       "desktop_rendering": "passed_no_horizontal_overflow_at_1363px",
       "mobile_verification": "responsive_preflight_passed_live_device_emulation_unavailable",
       "browser_console": "no_site_errors; browser-extension-only errors observed",
-      "state_closure_pages": "pending"
+      "state_closure_pages": "passed",
+      "state_closure_commit": "aa964c7d828bbd8177d1e52b87093cfd262b628d",
+      "state_closure_pages_run": "https://github.com/alaabmt/alaa-excellence/actions/runs/40159590183",
+      "state_closure_arabic_gate_run": "https://github.com/alaabmt/alaa-excellence/actions/runs/40159589758"
     },
     "publication_report": {
       "path": "automation/10x-cases/case-london-ulez-clean-air-operating-model/publication-report.md",
@@ -285,7 +288,10 @@
       "desktop_rendering": "passed_no_horizontal_overflow_at_1363px",
       "mobile_verification": "responsive_preflight_passed_live_device_emulation_unavailable",
       "browser_console": "no_site_errors; browser-extension-only errors observed",
-      "state_closure_pages": "pending"
+      "state_closure_pages": "passed",
+      "state_closure_commit": "aa964c7d828bbd8177d1e52b87093cfd262b628d",
+      "state_closure_pages_run": "https://github.com/alaabmt/alaa-excellence/actions/runs/40159590183",
+      "state_closure_arabic_gate_run": "https://github.com/alaabmt/alaa-excellence/actions/runs/40159589758"
     },
     "publication_report": {
       "path": "automation/10x-cases/case-london-ulez-clean-air-operating-model/publication-report.md",
