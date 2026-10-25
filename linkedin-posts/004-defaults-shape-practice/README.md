@@ -43,4 +43,4 @@ The website article also cites two systematic reviews: Raban et al., *JAMIA* 202
 |---|---|---|
 | Website article (AR + EN) | Live 2026-10-25 (PR #79). Title changed on 25 Oct to meet the Arabic editorial clarity standard: «ماذا حدث حين جعلت المستشفيات الإجراء الصحيح خيارًا جاهزًا؟» / "What Happened When Hospitals Made the Right Action the Default?" | https://tamayuz10x.com/article-oe-evidence-defaults-shape-practice.html · https://tamayuz10x.com/en/article-oe-evidence-defaults-shape-practice.html |
 | LinkedIn Arabic carousel | Published 2026-10-25, `urn:li:ugcPost:7520021739255255040`, document title «حين يصبح الصواب هو الخيار الجاهز» | https://www.linkedin.com/feed/update/urn:li:ugcPost:7520021739255255040/ |
-| LinkedIn English carousel | Scheduled ~2026-10-25 09:35 UTC (13:35 Dubai) | — |
+| LinkedIn English carousel | Scheduled ~2026-10-25 09:22 UTC (13:22 Dubai) | — |
