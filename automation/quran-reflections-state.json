@@ -5,9 +5,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-26T03:05:24+04:00",
+  "updated_at": "2026-10-26T03:13:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "repository_publish",
+  "current_stage": "actions_and_pages",
   "current_article": {
     "article_id": "quran-reflection-2026-10-25-al-balad-the-steep-path",
     "publication_date": "2026-10-25",
@@ -16,7 +16,7 @@
     "topic_en": "The steep path: why the Qur'an describes costly goodness as a path that must be crossed",
     "working_title_ar": "ماذا يعني اقتحام العقبة في سورة البلد؟",
     "working_title_en": "What Does It Mean to Cross the Steep Path in Surah Al-Balad?",
-    "status": "quality_gate_passed_pending_repository_publish",
+    "status": "repository_published_pending_actions_and_pages",
     "quranic_focus": {
       "surah": "Al-Balad",
       "surah_ar": "البلد",
@@ -151,6 +151,45 @@
       "rtl_gate": "NOT VERIFIED until final HTML",
       "tts_gate": "NOT VERIFIED until final HTML",
       "completed_at": "2026-10-25T22:02:17+04:00"
+    },
+    "repository_publish": {
+      "status": "completed",
+      "completed_at": "2026-10-26T03:13:00+04:00",
+      "report_path": "automation/quran-reflections/reflection-al-balad-the-steep-path/repository-publish-report.md",
+      "report_commit": "8ec8c664a97b90409668e24643e1cb9676c26e97",
+      "arabic_page": {
+        "path": "reflection-al-balad-the-steep-path.html",
+        "commit": "59ce4120aa224f63acab275471f142a8fe541d0c",
+        "blob_sha": "6bb73dd5d991e3fb15d039eadaf78d55e3861d02"
+      },
+      "english_page": {
+        "path": "en/reflection-al-balad-the-steep-path.html",
+        "commit": "bad8bd704274b55e2c3b1e03660f377efa7cba66",
+        "blob_sha": "b447da1b4aacdb9c006520233dfa5bf7e0a091cc"
+      },
+      "index_commits": [
+        "75668db8b1e37d78d08520e0448faaf8a89a30c0",
+        "c235cebd229b9acf4ecb54e6cb7a8f1ce1216da0",
+        "90d5c15e1638e475abb17fc3a5d5b97fe3ba5c7c",
+        "9c6da1be12428319eca1ac8fb4634aa34f782f9d"
+      ],
+      "topic_registry_commit": "89cc9eb1",
+      "cover_manifest_commit": "02d1f09ac183730b3b74ba14253af84e817b42ec",
+      "publication_dates_commit": "e014c0c0c73d9bb74891812cc0c43229661a72f3",
+      "sitemap_commit": "5bd571d9727cfed9acfc3e821eb16374b627d0d9",
+      "social_assets_commit": "e67c800fb42d841e7ee2f9073f22d0399336a14b",
+      "social_assets": [
+        {
+          "path": "assets/previews/story/reflection-al-balad-the-steep-path-ar.jpg",
+          "blob_sha": "d49757c6df19c92503b561b9248616fe2e753d98"
+        },
+        {
+          "path": "assets/previews/story/reflection-al-balad-the-steep-path-en.jpg",
+          "blob_sha": "509f56e77d54a7728b670de72ea4a88497d3f934"
+        }
+      ],
+      "verified_main_head": "e67c800fb42d841e7ee2f9073f22d0399336a14b",
+      "duplicate_check": "passed: one entry per target in manifests and sitemap; page and asset paths unique"
     }
   },
   "stage_order": [
@@ -184,15 +223,15 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Before any public write, repeat duplicate checks across the checkpoint, topic registry, intended Arabic and English page paths, four indexes, both sitemap locations, repository history and expected live URLs; then build and commit the paired HTML pages, required index/data/sitemap updates and separate 1200x630 social cards, preserving the 98/100 gate constraints. Checkpoint repository_publish before Actions and Pages reconciliation.",
+  "next_action": "Reconcile the latest main head and GitHub Actions runs triggered by repository publication, including Generate social share cards, site-health, editorial, sitemap/date gates and Pages deployment. Verify both live pages, four live index placements, both 1200x630 social-card URLs, metadata and sitemap against the exact deployed head; do not rerun completed repository publication work.",
   "last_run": {
     "mode": "coordinator_daily_start",
     "status": "in_progress",
     "started_at": "2026-10-25T17:04:58+04:00",
     "starting_head": null,
-    "notes": "Expired prior repository_publish lease reconciled: target pages absent and slug absent from four indexes, topic registry, cover/date manifests and sitemap; direct live URLs inaccessible but exact indexed search returned no match.",
-    "last_checkpoint": "quality_gate",
-    "last_checkpoint_at": "2026-10-25T22:02:17+04:00",
+    "notes": "Repository publication completed and reconciled after verifying topic-registry side effect, paired pages, four indexes, data manifests, sitemap and generated bilingual social assets on main. Actions and Pages reconciliation remains.",
+    "last_checkpoint": "repository_publish",
+    "last_checkpoint_at": "2026-10-26T03:13:00+04:00",
     "topic_selection_commit": "38443c4497625d55012b6093fbbbe4db8e423ef5",
     "research_commit": "8c477f7da206979894c424ee5d424bee7aec62c1",
     "quran_verification_commit": "f0d3d42faba405f97c29dde7eaa9dc16d149e00b",
@@ -204,14 +243,12 @@
     "english_draft_commit": "fdc7e68b199aa9aab80a6d5284e69f6d6683a3e5",
     "bilingual_parity_commit": "a78d7018b838ff85d77c9a971c8f2454daeb7685",
     "quality_gate_commit": "bc8e3e30d546d563a670691ad7e0ca152229b0ce",
-    "quality_score": 98
+    "quality_score": 98,
+    "repository_publish_report_commit": "8ec8c664a97b90409668e24643e1cb9676c26e97",
+    "social_assets_commit": "e67c800fb42d841e7ee2f9073f22d0399336a14b"
   },
   "workflow_id": "quran_reflections",
-  "run_lease": {
-    "owner": "central-coordinator",
-    "acquired_at": "2026-10-26T03:05:24+04:00",
-    "expires_at": "2026-10-26T04:55:24+04:00"
-  },
+  "run_lease": null,
   "checkpoint_policy": {
     "checkpoint_after_every_stage": true,
     "run_lease_minutes": 110,
@@ -499,7 +536,8 @@
     "independent_critique",
     "english_draft",
     "bilingual_parity",
-    "quality_gate"
+    "quality_gate",
+    "repository_publish"
   ],
   "duplicate_check": {
     "status": "passed",
