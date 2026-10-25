@@ -1,8 +1,8 @@
 # LinkedIn Post 004 — حين يصبح الصواب هو الخيار الجاهز / When the right choice is the default
 
 **Format:** LinkedIn document (carousel), 8 slides, 1080×1350, two separate posts: Arabic (`carousel-ar.pdf`) and English (`carousel-en.pdf`). The English version is written as original English, not a translation.
-**Website article:** https://tamayuz10x.com/article-oe-evidence-defaults-shape-practice.html and https://tamayuz10x.com/en/article-oe-evidence-defaults-shape-practice.html (draft PR #79, not live yet).
-**Status:** Draft, waiting for the owner's approval. Not published.
+**Website article:** https://tamayuz10x.com/article-oe-evidence-defaults-shape-practice.html and https://tamayuz10x.com/en/article-oe-evidence-defaults-shape-practice.html (PR #79, squash merge 65e6dfd, live 2026-10-25).
+**Status:** Approved by the owner on 2026-10-25. Article live; Arabic post published; English post scheduled.
 
 | File | Purpose |
 |---|---|
@@ -36,3 +36,11 @@ All numbers checked against the PubMed abstracts on 22 Oct 2026.
 The website article also cites two systematic reviews: Raban et al., *JAMIA* 2023 (PMID 37187160) and Nguyen et al., *JAMA Netw Open* 2024 (PMID 39287947).
 
 **Evidence limits:** all four trials are in health care; two were single-center (smoking, surgery); the palliative care data are from 2016–2018 and the trial missed its primary outcome; the smoking trial used a Bayesian analysis; no Arab organizations were studied. Applying the idea to other sectors is an inference.
+
+## Publication
+
+| Item | Status | Link |
+|---|---|---|
+| Website article (AR + EN) | Live 2026-10-25 (PR #79). Title changed on 25 Oct to meet the Arabic editorial clarity standard: «ماذا حدث حين جعلت المستشفيات الإجراء الصحيح خيارًا جاهزًا؟» / "What Happened When Hospitals Made the Right Action the Default?" | https://tamayuz10x.com/article-oe-evidence-defaults-shape-practice.html · https://tamayuz10x.com/en/article-oe-evidence-defaults-shape-practice.html |
+| LinkedIn Arabic carousel | Published 2026-10-25, `urn:li:ugcPost:7520021739255255040`, document title «حين يصبح الصواب هو الخيار الجاهز» | https://www.linkedin.com/feed/update/urn:li:ugcPost:7520021739255255040/ |
+| LinkedIn English carousel | Scheduled ~2026-10-25 09:35 UTC (13:35 Dubai) | — |
