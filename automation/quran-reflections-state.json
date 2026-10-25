@@ -5,9 +5,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-25T19:02:43+04:00",
+  "updated_at": "2026-10-25T19:15:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "independent_critique",
+  "current_stage": "english_draft",
   "current_article": {
     "article_id": "quran-reflection-2026-10-25-al-balad-the-steep-path",
     "publication_date": "2026-10-25",
@@ -16,7 +16,7 @@
     "topic_en": "The steep path: why the Qur'an describes costly goodness as a path that must be crossed",
     "working_title_ar": "ماذا يعني اقتحام العقبة في سورة البلد؟",
     "working_title_en": "Why Does the Qur’an Describe Goodness as a Steep Path?",
-    "status": "arabic_draft_completed",
+    "status": "arabic_revised_and_critique_passed",
     "quranic_focus": {
       "surah": "Al-Balad",
       "surah_ar": "البلد",
@@ -106,11 +106,20 @@
     ],
     "quran_verification_commit": "f0d3d42faba405f97c29dde7eaa9dc16d149e00b",
     "arabic_draft": {
-      "status": "completed_pending_independent_critique",
+      "status": "revised_and_cleared",
       "path": "automation/quran-reflections/reflection-al-balad-the-steep-path/draft-ar.md",
       "initial_commit": "c8711f8125a2becb054f020202fe7d64ebb3bb4d",
-      "blob_sha": "940a64062b2e8217d0b0cbeb0fdaf5b47518297a",
-      "completed_at": "2026-10-25T18:18:00+04:00"
+      "blob_sha": "de0a909c5d164b6df8f692adcee0b870e15386b8",
+      "completed_at": "2026-10-25T18:18:00+04:00",
+      "revision_commit": "0492f4b34050a2c68159a7b4e3711e73049ff74d"
+    },
+    "independent_critique": {
+      "status": "passed_after_non_blocking_revisions",
+      "path": "automation/quran-reflections/reflection-al-balad-the-steep-path/quality-review.md",
+      "commit": "f5f230131bb985a45b30a2548ee3ee09e6277d15",
+      "blob_sha": "24ba6e5673968d7f6a9f98f370fc3966f3f460e1",
+      "completed_at": "2026-10-25T19:15:00+04:00",
+      "mobile_gate": "NOT VERIFIED until final HTML"
     }
   },
   "stage_order": [
@@ -144,28 +153,26 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Perform an independent critique of the Arabic draft against Qur'anic accuracy, tafsir boundaries, novice comprehension, Arabic originality, repetition, and contemporary-application limits; save quality-review.md and revise draft-ar.md before any English drafting.",
+  "next_action": "Create an original English draft with the same Qur'anic scope, interpretive limits, hypothetical example, references and editorial notices; use Sahih International for quoted verse translations, then checkpoint english_draft before bilingual parity review.",
   "last_run": {
     "mode": "coordinator_daily_start",
     "status": "in_progress",
     "started_at": "2026-10-25T17:04:58+04:00",
     "starting_head": null,
     "notes": "Started the single allowed Qur'anic reflection cycle for 25 October after capability, checkpoint, registry and repository duplicate checks.",
-    "last_checkpoint": "arabic_draft",
-    "last_checkpoint_at": "2026-10-25T18:18:00+04:00",
+    "last_checkpoint": "independent_critique",
+    "last_checkpoint_at": "2026-10-25T19:15:00+04:00",
     "topic_selection_commit": "38443c4497625d55012b6093fbbbe4db8e423ef5",
     "research_commit": "8c477f7da206979894c424ee5d424bee7aec62c1",
     "quran_verification_commit": "f0d3d42faba405f97c29dde7eaa9dc16d149e00b",
     "resumed_at": "2026-10-25T19:02:43+04:00",
     "resumed_by": "central-coordinator",
-    "arabic_draft_commit": "c8711f8125a2becb054f020202fe7d64ebb3bb4d"
+    "arabic_draft_commit": "c8711f8125a2becb054f020202fe7d64ebb3bb4d",
+    "arabic_revision_commit": "0492f4b34050a2c68159a7b4e3711e73049ff74d",
+    "independent_critique_commit": "f5f230131bb985a45b30a2548ee3ee09e6277d15"
   },
   "workflow_id": "quran_reflections",
-  "run_lease": {
-    "owner": "central-coordinator",
-    "acquired_at": "2026-10-25T19:02:43+04:00",
-    "expires_at": "2026-10-25T20:52:43+04:00"
-  },
+  "run_lease": null,
   "checkpoint_policy": {
     "checkpoint_after_every_stage": true,
     "run_lease_minutes": 110,
@@ -449,7 +456,8 @@
     "topic_selection",
     "research",
     "quran_verification",
-    "arabic_draft"
+    "arabic_draft",
+    "independent_critique"
   ],
   "duplicate_check": {
     "status": "passed",
