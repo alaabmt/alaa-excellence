@@ -7,9 +7,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-25T09:08:00+04:00",
+  "updated_at": "2026-10-25T09:11:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "live_verification",
+  "current_stage": "completion_report",
   "run_lease": {
     "owner": "chatgpt-work-tenx-daily-2026-10-25T0732",
     "acquired_at": "2026-10-25T07:32:14+04:00",
@@ -98,7 +98,7 @@
       ]
     },
     "publishing": {
-      "status": "pages_deployed_awaiting_live_verification",
+      "status": "published_live_verified",
       "arabic_path": "case-london-ulez-clean-air-operating-model.html",
       "english_path": "en/case-london-ulez-clean-air-operating-model.html",
       "arabic_url": "https://tamayuz10x.com/case-london-ulez-clean-air-operating-model.html",
@@ -106,7 +106,7 @@
       "first_publication_commit": "57b211cdb1ff6657d89905dbacff8132baa439c9",
       "actions": "passed",
       "pages": "passed_exact_final_content_head",
-      "live_verification": "pending",
+      "live_verification": "passed",
       "arabic_editorial_gate_run": "https://github.com/alaabmt/alaa-excellence/actions/runs/40159322763",
       "pages_run": "https://github.com/alaabmt/alaa-excellence/actions/runs/40159359787",
       "sitemap_reconciliation_commit": "6567cc863470c9e625406036ecb22de336b32190",
@@ -115,7 +115,16 @@
       "final_cover_sizes_bytes": {
         "ar": 158706,
         "en": 158037
-      }
+      },
+      "page_verification": "passed_ar_en_titles_body_citations_disclosure",
+      "metadata_verification": "passed_canonical_hreflang_schema_og_twitter",
+      "index_verification": "passed_ar_en_single_card_first_position",
+      "sitemap_verification": "passed_ar_en_single_loc",
+      "image_verification": "passed_1200x630_ar_en",
+      "video_verification": "passed_embed_url_title_position_no_autoplay",
+      "desktop_rendering": "passed_no_horizontal_overflow_at_1363px",
+      "mobile_verification": "responsive_preflight_passed_live_device_emulation_unavailable",
+      "browser_console": "no_site_errors; browser-extension-only errors observed"
     }
   },
   "stage_order": [
@@ -157,7 +166,7 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Complete live verification of both pages, covers, metadata, video, index cards and sitemap, then save the publication report.",
+  "next_action": "Write the Arabic publication report with exact commits, run URLs, live checks, evidence confidence and remaining limitations; then close the state and release the lease.",
   "last_run": {
     "mode": "daily_primary_run",
     "status": "in_progress",
@@ -270,6 +279,7 @@
     "bilingual_parity",
     "final_quality_gate",
     "repository_publish",
-    "actions_and_pages"
+    "actions_and_pages",
+    "live_verification"
   ]
 }
