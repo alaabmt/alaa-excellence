@@ -5,9 +5,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-25T17:04:58+04:00",
+  "updated_at": "2026-10-25T17:08:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "duplicate_check",
+  "current_stage": "topic_selection",
   "current_article": {
     "article_id": "quran-reflection-2026-10-25-al-balad-the-steep-path",
     "publication_date": "2026-10-25",
@@ -16,7 +16,7 @@
     "topic_en": "The steep path: why the Qur'an describes costly goodness as a path that must be crossed",
     "working_title_ar": "لماذا سمّى القرآن الخير طريقًا شاقًا؟",
     "working_title_en": "Why Does the Qur’an Describe Goodness as a Steep Path?",
-    "status": "initializing",
+    "status": "duplicate_check_passed",
     "quranic_focus": {
       "surah": "Al-Balad",
       "surah_ar": "البلد",
@@ -78,15 +78,15 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Complete live intended-URL and index duplicate checks, then select one non-duplicate topic and save the topic-selection artifact.",
+  "next_action": "Compare the three non-duplicate candidates, select one, and save the topic-selection rationale in research-notes.md.",
   "last_run": {
     "mode": "coordinator_daily_start",
     "status": "in_progress",
     "started_at": "2026-10-25T17:04:58+04:00",
     "starting_head": null,
     "notes": "Started the single allowed Qur'anic reflection cycle for 25 October after capability, checkpoint, registry and repository duplicate checks.",
-    "last_checkpoint": "load_checkpoint",
-    "last_checkpoint_at": "2026-10-25T17:04:58+04:00"
+    "last_checkpoint": "duplicate_check",
+    "last_checkpoint_at": "2026-10-25T17:08:00+04:00"
   },
   "workflow_id": "quran_reflections",
   "run_lease": {
@@ -372,17 +372,25 @@
   "run_date": "2026-10-25",
   "completed_stages": [
     "capability_check",
-    "load_checkpoint"
+    "load_checkpoint",
+    "duplicate_check"
   ],
   "duplicate_check": {
-    "status": "in_progress",
-    "checked_at": "2026-10-25T17:04:58+04:00",
+    "status": "passed",
+    "checked_at": "2026-10-25T17:08:00+04:00",
     "checked": [
       "checkpoint",
       "topic registry",
-      "repository code search"
+      "repository code search",
+      "articles.html",
+      "en/articles.html",
+      "quranic-reflections.html",
+      "en/quranic-reflections.html",
+      "sitemap.xml",
+      "intended public URLs",
+      "exact-slug and exact-topic indexed web search"
     ],
-    "finding": "No 25 October cycle was present. Repository searches returned no match for العقبة, Al-Balad, steep path, or 2026-10-25; live intended URLs remain to be checked."
+    "finding": "No 25 October article or cycle exists. No repository or indexed-live result matched Al-Balad 90:11–17, العقبة, steep path, the proposed slug, or the intended Arabic and English URLs. Direct URL retrieval was inaccessible, so repository, sitemap, index and exact indexed-search results are the affirmative duplicate evidence."
   },
   "blocker": null,
   "verified_quranic_references": [
