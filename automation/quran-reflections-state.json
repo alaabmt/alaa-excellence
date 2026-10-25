@@ -5,7 +5,7 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-25T17:24:00+04:00",
+  "updated_at": "2026-10-25T18:02:54+04:00",
   "workflow_status": "in_progress",
   "current_stage": "arabic_draft",
   "current_article": {
@@ -137,7 +137,7 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Draft the Arabic reflection from the verified notes, preserving the direct meanings of emancipation, hunger, kinship and severe poverty; label any organizational application as a contemporary reflection rather than tafsir.",
+  "next_action": "Draft and save the Arabic reflection from the verified notes, then checkpoint arabic_draft before independent critique.",
   "last_run": {
     "mode": "coordinator_daily_start",
     "status": "in_progress",
@@ -148,10 +148,16 @@
     "last_checkpoint_at": "2026-10-25T17:24:00+04:00",
     "topic_selection_commit": "38443c4497625d55012b6093fbbbe4db8e423ef5",
     "research_commit": "8c477f7da206979894c424ee5d424bee7aec62c1",
-    "quran_verification_commit": "f0d3d42faba405f97c29dde7eaa9dc16d149e00b"
+    "quran_verification_commit": "f0d3d42faba405f97c29dde7eaa9dc16d149e00b",
+    "resumed_at": "2026-10-25T18:02:54+04:00",
+    "resumed_by": "central-coordinator"
   },
   "workflow_id": "quran_reflections",
-  "run_lease": null,
+  "run_lease": {
+    "owner": "central-coordinator",
+    "acquired_at": "2026-10-25T18:02:54+04:00",
+    "expires_at": "2026-10-25T19:52:54+04:00"
+  },
   "checkpoint_policy": {
     "checkpoint_after_every_stage": true,
     "run_lease_minutes": 110,
