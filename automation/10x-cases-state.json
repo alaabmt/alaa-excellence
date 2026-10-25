@@ -7,9 +7,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-25T08:07:00+04:00",
+  "updated_at": "2026-10-25T08:16:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "company_insider_critique",
+  "current_stage": "english_draft",
   "run_lease": {
     "owner": "chatgpt-work-tenx-daily-2026-10-25T0732",
     "acquired_at": "2026-10-25T07:32:14+04:00",
@@ -59,9 +59,16 @@
       ]
     },
     "arabic_draft": {
-      "status": "drafted",
+      "status": "revised_after_critique",
       "path": "automation/10x-cases/case-london-ulez-clean-air-operating-model/draft-ar.md",
-      "commit": "7c4ab6733725cb8a4ee336e6dc2cf1b744d19f97"
+      "commit": "36ce05ca1d2604312a2da0cd139ac7dd69012cd7"
+    },
+    "company_insider_critique": {
+      "status": "passed_with_required_revisions",
+      "path": "automation/10x-cases/case-london-ulez-clean-air-operating-model/company-insider-critique.md",
+      "commit": "658e62ac0bb94b2bc1b5b94624b8963721e7a0cf",
+      "required_revisions": 7,
+      "remaining_gaps": 2
     }
   },
   "stage_order": [
@@ -103,7 +110,7 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Run Company Insider Critique as a simulation, identify unsupported or operationally naive claims, and revise the Arabic draft before English drafting.",
+  "next_action": "Write a natural English editorial counterpart with exact factual parity, not a sentence-by-sentence translation.",
   "last_run": {
     "mode": "daily_primary_run",
     "status": "in_progress",
@@ -210,6 +217,7 @@
     "candidate_scan",
     "evidence_pack",
     "backcasting_and_10x_analysis",
-    "arabic_draft"
+    "arabic_draft",
+    "company_insider_critique"
   ]
 }
