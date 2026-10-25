@@ -2,7 +2,7 @@
 
 Review type: editorial simulation of a non-specialist reader; **not a human-user study**.
 Review date: 2026-10-25 Asia/Dubai.
-Current decision: **DO NOT PUBLISH YET** — editorial gates pass, but real mobile/RTL browser verification is pending.
+Current decision: **READY FOR DEPLOYMENT VERIFICATION** — editorial, bilingual, repository, and real Chromium mobile/RTL gates pass; exact-head Pages and live rendering remain pending.
 
 ## 20–30 second comprehension test
 With the title hidden, the opening answers:
@@ -39,20 +39,21 @@ One-sentence story (28 words):
 | 3. 20–35 word summary | PASS | 28-word sentence recorded above. |
 | 4. Terms | PASS | Web agent, automatic evaluator, MASM, Guide Text, false negative, trajectory, percentage point and statistical significance defined. |
 | 5. Numbers/evidence | PASS | Every main proportion has numerator/denominator; simulation, selected benchmark and one-rollout limits preserved. |
-| 6. Real mobile/RTL browser | NOT VERIFIED | Must be tested after HTML publication candidate exists; blocks release now. |
+| 6. Real mobile/RTL browser | PASS | GitHub Actions Arabic editorial gate run 40220535963 rendered 320, 375, 390 and 430 px widths in Chromium and passed overflow/RTL checks. |
 | 7. Language/editing | PASS | Problem-first Arabic, no translated construction in title/opening, no reader-facing meta-commentary. |
 
-## English review gate (pending)
-The English draft must be authored separately from the evidence pack, preserve the same counts and limits, and then undergo translation-detection and semantic-parity review.
+## English review gate
+**PASS.** The English article was authored independently from the evidence pack, preserves the same counts and limits, and passed translation-detection and semantic-parity review.
 
-## Pre-publication technical checks (pending)
-- H1/title/OG/Twitter/JSON-LD headline equality.
-- Author directly under H1.
-- One author block, one share box, one listening control.
-- Dedicated Arabic and English 1200×630 cards, each under 170,000 bytes.
-- Reciprocal canonical/hreflang and language switch.
-- Specialist hubs only; zero slug occurrences in general article indexes.
-- Publication-date registry, sitemap, exact-head Actions/Pages, live 200/render checks.
+## Pre-publication technical checks
+- **PASS:** H1/title/OG/Twitter/JSON-LD headline equality.
+- **PASS:** author directly under H1.
+- **PASS:** one author block, one share box and one listening control per language.
+- **PASS:** dedicated Arabic and English 1200×630 cards, each under 170,000 bytes.
+- **PASS:** reciprocal canonical/hreflang and language switch.
+- **PASS:** specialist hubs only; zero slug occurrences in general article indexes.
+- **PASS:** publication-date registry, sitemap, article-date integrity, site health, disclaimer, social-card and Arabic editorial workflows.
+- **PENDING:** exact-head Pages deployment and live 200/render checks.
 
 ## Bilingual semantic-parity review
 - Same primary study, 165-task denominator, six conditions and four audited GPT-5.5 conditions: **PASS**.
@@ -65,4 +66,4 @@ The English draft must be authored separately from the evidence pack, preserve t
 - Section order and component positions match; wording and sentence architecture are independently natural in each language: **PASS**.
 - Native-English translation-detection test: no sentence exists merely to mirror Arabic syntax; opening, transitions and decisions read as original executive English: **PASS**.
 
-Publication remains blocked until real browser/mobile verification, repository checks, exact-head Actions/Pages success and live rendering are complete.
+Publication remains blocked only until exact-head Pages deployment and live 200/render checks are complete.
