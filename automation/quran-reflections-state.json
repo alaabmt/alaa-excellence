@@ -5,9 +5,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-25T17:10:00+04:00",
+  "updated_at": "2026-10-25T17:18:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "research",
+  "current_stage": "quran_verification",
   "current_article": {
     "article_id": "quran-reflection-2026-10-25-al-balad-the-steep-path",
     "publication_date": "2026-10-25",
@@ -16,7 +16,7 @@
     "topic_en": "The steep path: why the Qur'an describes costly goodness as a path that must be crossed",
     "working_title_ar": "لماذا سمّى القرآن الخير طريقًا شاقًا؟",
     "working_title_en": "Why Does the Qur’an Describe Goodness as a Steep Path?",
-    "status": "topic_selected",
+    "status": "research_completed",
     "quranic_focus": {
       "surah": "Al-Balad",
       "surah_ar": "البلد",
@@ -36,7 +36,7 @@
       "status": "pending_verification"
     },
     "research_notes_path": "automation/quran-reflections/reflection-al-balad-the-steep-path/research-notes.md",
-    "research_status": "pending",
+    "research_status": "completed",
     "topic_selection": {
       "status": "completed",
       "candidates": [
@@ -46,7 +46,35 @@
       ],
       "selected": "Al-Balad 90:11–17 — the steep path and costly goodness",
       "artifact_commit": "38443c4497625d55012b6093fbbbe4db8e423ef5"
-    }
+    },
+    "research_commit": "8c477f7da206979894c424ee5d424bee7aec62c1",
+    "research_sources": [
+      {
+        "type": "Qur'an text and Sahih International translation",
+        "url": "https://legacy.quran.com/90/11-17",
+        "status": "reviewed"
+      },
+      {
+        "type": "Tafsir al-Tabari 90:11,13,14,17",
+        "url": "https://quran.ksu.edu.sa/tafseer/tabary/sura90-aya11.html",
+        "status": "reviewed"
+      },
+      {
+        "type": "Tafsir Ibn Kathir 90:11,13,17",
+        "url": "https://quran.ksu.edu.sa/tafseer/katheer/sura90-aya11.html",
+        "status": "reviewed"
+      },
+      {
+        "type": "Tafsir al-Qurtubi 90:11,13,17",
+        "url": "https://quran.ksu.edu.sa/tafseer/qortobi/sura90-aya11.html",
+        "status": "reviewed"
+      },
+      {
+        "type": "Tafsir al-Sa'di 90:11,13,17",
+        "url": "https://quran.ksu.edu.sa/tafseer/saadi/sura90-aya11.html",
+        "status": "reviewed"
+      }
+    ]
   },
   "stage_order": [
     "capability_check",
@@ -79,16 +107,17 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Research Al-Balad 90:11–17 from the verified Qur'an text and the selected classical tafsir sources; record interpretive limits and contemporary application boundaries in research-notes.md.",
+  "next_action": "Verify the Arabic Qur'an text, verse numbering, Sahih International translation, surrounding context (90:8–18), and record the verified references before drafting.",
   "last_run": {
     "mode": "coordinator_daily_start",
     "status": "in_progress",
     "started_at": "2026-10-25T17:04:58+04:00",
     "starting_head": null,
     "notes": "Started the single allowed Qur'anic reflection cycle for 25 October after capability, checkpoint, registry and repository duplicate checks.",
-    "last_checkpoint": "topic_selection",
-    "last_checkpoint_at": "2026-10-25T17:10:00+04:00",
-    "topic_selection_commit": "38443c4497625d55012b6093fbbbe4db8e423ef5"
+    "last_checkpoint": "research",
+    "last_checkpoint_at": "2026-10-25T17:18:00+04:00",
+    "topic_selection_commit": "38443c4497625d55012b6093fbbbe4db8e423ef5",
+    "research_commit": "8c477f7da206979894c424ee5d424bee7aec62c1"
   },
   "workflow_id": "quran_reflections",
   "run_lease": {
@@ -376,7 +405,8 @@
     "capability_check",
     "load_checkpoint",
     "duplicate_check",
-    "topic_selection"
+    "topic_selection",
+    "research"
   ],
   "duplicate_check": {
     "status": "passed",
