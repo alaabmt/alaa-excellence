@@ -1804,6 +1804,27 @@
         "subtitle": "Across 53 construction tasks, the best automated mean was 23.9/100.",
         "alt": "Navy and gold illustrative cover showing a coding agent building a customer-service system beside an evaluation panel with 53 tasks and a score of 23.9 out of 100."
       }
+    },
+    {
+      "slug": "article-agentic-ai-weekly-radar-oct-25",
+      "background": "assets/previews/story-backgrounds/article-agentic-ai-weekly-radar-oct-25.jpg",
+      "category": "article",
+      "ar": {
+        "title": [
+          "ماذا يراقب القائد",
+          "وماذا يجرّب وماذا يوقف؟"
+        ],
+        "subtitle": "لكل تطور من التطورات الخمسة في الوكلاء الأذكياء قرار مختلف للقائد.",
+        "alt": "غلاف توضيحي بالكحلي والذهبي لمقال رصد أسبوعي، تظهر فيه شاشة رادار عليها خمس نقاط وإحداها محاطة بدائرة مراجعة."
+      },
+      "en": {
+        "title": [
+          "What Should Leaders Watch,",
+          "Pilot, or Stop This Week?"
+        ],
+        "subtitle": "Five AI agent developments from October 19 to 25, 2026, each with its own decision.",
+        "alt": "Navy and gold illustrative cover for a weekly radar article, showing a radar screen with five blips, one of them circled for review."
+      }
     }
   ]
 }
