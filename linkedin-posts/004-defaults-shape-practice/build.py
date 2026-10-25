@@ -46,7 +46,7 @@ ar.append(('dark',f"""<div class="cover-logo">{imgs("logo")}</div>
   <div class="swipe">← اسحب للمتابعة</div>""",NAME))
 ar.append(('',f"""<div class="kicker">التجربة الأولى</div>
   <h2>ماذا تغيّر في أحد عشر مستشفى؟</h2>
-  <p class="lead">في الرعاية المعتادة، لا يحصل المريض على استشارة الرعاية التلطيفية إلا إذا تذكّرها الطبيب وطلبها.</p>
+  <p class="lead">في الرعاية المعتادة، لا يحصل المريض على استشارة الرعاية التلطيفية إلا إذا قرّر الطبيب طلبها.</p>
   <div class="box">
     <p>ثم صار طلبها يُسجَّل تلقائيًا لكل مريض في الخامسة والستين فأكثر مصاب بانسداد رئوي مزمن متقدم أو خرف أو فشل كلوي، وبقي للطبيب أن يلغيه. ولم يزد عدد العاملين في الرعاية التلطيفية.</p>
   </div>
@@ -105,7 +105,7 @@ en.append(('dark',f"""<div class="cover-logo">{imgs("logo")}</div>
   <div class="swipe">Swipe →</div>""",EN_NAME))
 en.append(('',f"""<div class="kicker">Trial one</div>
   <h2>What changed in 11 hospitals?</h2>
-  <p class="lead">Under usual care, a patient got a palliative care consult only if a doctor remembered to order one.</p>
+  <p class="lead">Under usual care, a patient got a palliative care consult only if a doctor decided to order one.</p>
   <div class="box"><p>Then the consult was ordered automatically for every patient aged 65 or older with advanced chronic lung disease (COPD), dementia, or kidney failure. Doctors could cancel it. Palliative care staffing did not increase.</p></div>
   <p class="small" style="margin-top:30px">Palliative care relieves symptoms and helps patients and families make treatment decisions during serious illness.</p>""",C1))
 en.append(('',f"""<div class="kicker">Findings</div>
