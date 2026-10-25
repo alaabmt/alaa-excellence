@@ -5,9 +5,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-25T17:18:00+04:00",
+  "updated_at": "2026-10-25T17:24:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "quran_verification",
+  "current_stage": "arabic_draft",
   "current_article": {
     "article_id": "quran-reflection-2026-10-25-al-balad-the-steep-path",
     "publication_date": "2026-10-25",
@@ -16,7 +16,7 @@
     "topic_en": "The steep path: why the Qur'an describes costly goodness as a path that must be crossed",
     "working_title_ar": "لماذا سمّى القرآن الخير طريقًا شاقًا؟",
     "working_title_en": "Why Does the Qur’an Describe Goodness as a Steep Path?",
-    "status": "research_completed",
+    "status": "quran_verified_ready_for_arabic_draft",
     "quranic_focus": {
       "surah": "Al-Balad",
       "surah_ar": "البلد",
@@ -29,11 +29,13 @@
         16
       ],
       "context_ayahs": [
+        8,
+        9,
         10,
         17,
         18
       ],
-      "status": "pending_verification"
+      "status": "verified"
     },
     "research_notes_path": "automation/quran-reflections/reflection-al-balad-the-steep-path/research-notes.md",
     "research_status": "completed",
@@ -74,7 +76,35 @@
         "url": "https://quran.ksu.edu.sa/tafseer/saadi/sura90-aya11.html",
         "status": "reviewed"
       }
-    ]
+    ],
+    "verified_quranic_references": [
+      {
+        "surah": "Al-Balad",
+        "surah_ar": "البلد",
+        "ayahs": [
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17
+        ],
+        "context_ayahs": [
+          8,
+          9,
+          10,
+          18
+        ],
+        "status": "verified",
+        "primary_text_urls": [
+          "https://legacy.quran.com/90/11-17"
+        ],
+        "translation": "Sahih International",
+        "verified_at": "2026-10-25T17:24:00+04:00"
+      }
+    ],
+    "quran_verification_commit": "f0d3d42faba405f97c29dde7eaa9dc16d149e00b"
   },
   "stage_order": [
     "capability_check",
@@ -107,24 +137,21 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Verify the Arabic Qur'an text, verse numbering, Sahih International translation, surrounding context (90:8–18), and record the verified references before drafting.",
+  "next_action": "Draft the Arabic reflection from the verified notes, preserving the direct meanings of emancipation, hunger, kinship and severe poverty; label any organizational application as a contemporary reflection rather than tafsir.",
   "last_run": {
     "mode": "coordinator_daily_start",
     "status": "in_progress",
     "started_at": "2026-10-25T17:04:58+04:00",
     "starting_head": null,
     "notes": "Started the single allowed Qur'anic reflection cycle for 25 October after capability, checkpoint, registry and repository duplicate checks.",
-    "last_checkpoint": "research",
-    "last_checkpoint_at": "2026-10-25T17:18:00+04:00",
+    "last_checkpoint": "quran_verification",
+    "last_checkpoint_at": "2026-10-25T17:24:00+04:00",
     "topic_selection_commit": "38443c4497625d55012b6093fbbbe4db8e423ef5",
-    "research_commit": "8c477f7da206979894c424ee5d424bee7aec62c1"
+    "research_commit": "8c477f7da206979894c424ee5d424bee7aec62c1",
+    "quran_verification_commit": "f0d3d42faba405f97c29dde7eaa9dc16d149e00b"
   },
   "workflow_id": "quran_reflections",
-  "run_lease": {
-    "owner": "central-coordinator",
-    "acquired_at": "2026-10-25T17:04:58+04:00",
-    "expires_at": "2026-10-25T18:54:58+04:00"
-  },
+  "run_lease": null,
   "checkpoint_policy": {
     "checkpoint_after_every_stage": true,
     "run_lease_minutes": 110,
@@ -406,7 +433,8 @@
     "load_checkpoint",
     "duplicate_check",
     "topic_selection",
-    "research"
+    "research",
+    "quran_verification"
   ],
   "duplicate_check": {
     "status": "passed",
