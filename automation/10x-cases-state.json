@@ -7,15 +7,26 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-25T07:33:00+04:00",
+  "updated_at": "2026-10-25T07:41:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "candidate_scan",
+  "current_stage": "evidence_pack",
   "run_lease": {
     "owner": "chatgpt-work-tenx-daily-2026-10-25T0732",
     "acquired_at": "2026-10-25T07:32:14+04:00",
     "expires_at": "2026-10-25T09:22:14+04:00"
   },
-  "current_item": null,
+  "current_item": {
+    "slug": "case-london-ulez-clean-air-operating-model",
+    "publication_date": "2026-10-25",
+    "title_working_ar": "كيف جعلت لندن دخول المركبة الملوثة قراراً له ثمن؟",
+    "title_working_en": "How London Put a Price on Driving the Most Polluting Vehicles",
+    "candidate_status": "selected_pending_evidence_pack",
+    "artifact_root": "automation/10x-cases/case-london-ulez-clean-air-operating-model/",
+    "candidate_notes": {
+      "path": "automation/10x-cases/case-london-ulez-clean-air-operating-model/candidate-notes.md",
+      "commit": "142b59d0d6812edac021c6e6d19157b34b3d1ddd"
+    }
+  },
   "stage_order": [
     "capability_check",
     "load_checkpoint",
@@ -55,7 +66,7 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Scan UAE, regional and global candidates; exclude previously published topics; select only a case that meets the evidence and implementation gates.",
+  "next_action": "Build the London ULEZ Evidence Pack, triangulating official monitoring, independent causal air-quality research, health evidence, implementation details, equity constraints and the verified official video.",
   "last_run": {
     "mode": "daily_primary_run",
     "status": "in_progress",
@@ -158,6 +169,7 @@
   "completed_stages": [
     "capability_check",
     "load_checkpoint",
-    "duplicate_check"
+    "duplicate_check",
+    "candidate_scan"
   ]
 }
