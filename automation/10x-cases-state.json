@@ -7,9 +7,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-25T08:54:00+04:00",
+  "updated_at": "2026-10-25T09:00:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "repository_publish",
+  "current_stage": "actions_and_pages",
   "run_lease": {
     "owner": "chatgpt-work-tenx-daily-2026-10-25T0732",
     "acquired_at": "2026-10-25T07:32:14+04:00",
@@ -96,6 +96,17 @@
         "assets/previews/story/case-london-ulez-clean-air-operating-model-ar.jpg",
         "assets/previews/story/case-london-ulez-clean-air-operating-model-en.jpg"
       ]
+    },
+    "publishing": {
+      "status": "commit_pushed_awaiting_actions_and_pages",
+      "arabic_path": "case-london-ulez-clean-air-operating-model.html",
+      "english_path": "en/case-london-ulez-clean-air-operating-model.html",
+      "arabic_url": "https://tamayuz10x.com/case-london-ulez-clean-air-operating-model.html",
+      "english_url": "https://tamayuz10x.com/en/case-london-ulez-clean-air-operating-model.html",
+      "first_publication_commit": "57b211cdb1ff6657d89905dbacff8132baa439c9",
+      "actions": "pending",
+      "pages": "pending",
+      "live_verification": "pending"
     }
   },
   "stage_order": [
@@ -137,7 +148,7 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Publish the validated Arabic and English pages, original social cards, index cards, date and cover registries, and sitemap in one atomic main-branch commit.",
+  "next_action": "Monitor GitHub Actions and bot-generated follow-up commits, reconcile the final content head, then verify GitHub Pages and the live Arabic and English surfaces.",
   "last_run": {
     "mode": "daily_primary_run",
     "status": "in_progress",
@@ -248,6 +259,7 @@
     "company_insider_critique",
     "english_draft",
     "bilingual_parity",
-    "final_quality_gate"
+    "final_quality_gate",
+    "repository_publish"
   ]
 }
