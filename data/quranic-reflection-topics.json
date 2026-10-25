@@ -1,7 +1,58 @@
 {
   "purpose": "سجل موضوعات التأملات القرآنية لتجنب تكرار القصة أو الزاوية (دليل مهارات كتابة التأملات القرآنية، البند 10، الخطوة 9)",
-  "updated": "2026-10-21",
+  "updated": "2026-10-25T02:18:00+04:00",
   "reflections": [
+    {
+      "slug": "reflection-az-zumar-follow-the-best",
+      "title_ar": "هل يكفي أن نسمع، أم نتبع أحسن ما سمعنا؟",
+      "title_en": "Is Listening Enough, or Do We Follow the Best of What We Hear?",
+      "date": "2026-10-24",
+      "verses": [
+        "الزمر: 18"
+      ],
+      "angle": "تأمل في الاستماع الذي يقود إلى التمييز واتباع الأحسن، ضمن سياق اجتناب الطاغوت والإنابة إلى الله والهداية، من غير اختزال الآية في مقارنة آراء أو نموذج إداري.",
+      "core_idea": "لا يكتمل الاستماع بمجرد استقبال الأقوال؛ يظهر صدقه حين يُتبع ما يتبين أنه أهدى وأقوم، مع بقاء الوحي والهداية الإلهية ميزانًا للحق.",
+      "contemporary_application": "فريق قرار يراجع اقتراحًا مفضّلًا بعد أن تكشف محللة بهدوء أثرًا غير منظور في كبار السن وذوي الإعاقة؛ المثال افتراضي وليس تفسيرًا للآية.",
+      "url_ar": "https://tamayuz10x.com/reflection-az-zumar-follow-the-best.html",
+      "url_en": "https://tamayuz10x.com/en/reflection-az-zumar-follow-the-best.html",
+      "github_commit": "786c24894c4bef772bfbdb96bffa044e9d259290",
+      "publication_status": "published_live_verified",
+      "social_assets_commit": "341b77e6aadf4c2930e8d8aef9f42ef0beed146c",
+      "final_content_head": "abc3fd6fd8126e29baba6b824978510b59ecf05d",
+      "pages_run_id": 40137339880
+    },
+    {
+      "slug": "reflection-al-kahf-speaking-about-tomorrow",
+      "title_ar": "ماذا يتغير حين نجزم بالغد؟",
+      "title_en": "What Changes When We Speak Too Certainly About Tomorrow?",
+      "date": "2026-10-23",
+      "verses": [
+        "الكهف: 23–24"
+      ],
+      "angle": "تأمل في التواضع أمام الغد: العزم مع رد المستقبل إلى مشيئة الله، والذكر والتصحيح عند النسيان، دون جعل «إن شاء الله» ذريعة للتسويف أو أداة إدارية.",
+      "core_idea": "نعزم ونعمل ونأخذ بالأسباب، لكننا لا نملك الغد؛ نرد النتيجة إلى مشيئة الله ونطلب الأقرب رشدًا عند ظهور ما يستوجب التصحيح.",
+      "contemporary_application": "مسؤول فريق يؤخر قرارًا معلنًا بعد ظهور معلومة أساسية غير مراجعة، فيوضح ما استجد ويصحح الموعد بدل حماية صورة اليقين.",
+      "url_ar": "https://tamayuz10x.com/reflection-al-kahf-speaking-about-tomorrow.html",
+      "url_en": "https://tamayuz10x.com/en/reflection-al-kahf-speaking-about-tomorrow.html",
+      "github_commit": "403b87ad1a90c6e58ccef9e2cd882c4b4fce5889",
+      "publication_status": "repository_published; actions_and_pages_pending"
+    },
+    {
+      "slug": "reflection-al-maidah-justice-despite-dislike",
+      "title_ar": "هل يتغير ميزان العدل حين نختلف؟",
+      "title_en": "Does Justice Change When We Disagree?",
+      "date": "2026-10-22",
+      "verses": [
+        "المائدة: 8"
+      ],
+      "angle": "تأمل في ثبات العدل عند الخصومة: الشنآن لا يبيح الجور، والعدل أقرب للتقوى، مع تطبيق معاصر على مراجعة الأدلة والقرارات دون تحويل الآية إلى نموذج إداري.",
+      "core_idea": "الخصومة لا تغيّر الحق، والمشاعر لا تمنح إذنًا بتجاوز ما يثبته الدليل.",
+      "contemporary_application": "مراجعة شكوى ضد فريق لا نثق به عبر فصل الادعاء عن الظن وإتاحة الرد ومراجعة الاستنتاج.",
+      "url_ar": "https://tamayuz10x.com/reflection-al-maidah-justice-despite-dislike.html",
+      "url_en": "https://tamayuz10x.com/en/reflection-al-maidah-justice-despite-dislike.html",
+      "github_commit": "23763f88ba18a723326602220a2c288517dd72f6",
+      "publication_status": "repository_published; actions_and_pages_pending"
+    },
     {
       "slug": "reflection-al-baqarah-giving-without-harm",
       "title_ar": "متى تفقد العطية معناها؟",

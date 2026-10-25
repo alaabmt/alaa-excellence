@@ -1,0 +1,58 @@
+{
+  "article": "article-agentic-ai-alphaevolve-compute-scheduling.html",
+  "headline": "كيف استخدمت غوغل الذكاء الاصطناعي لتحسين توزيع المهام على أجهزتها؟",
+  "reviewed_at": "2026-10-24",
+  "reviewer": "AI editorial review (not a human reader test)",
+  "summary": "استخدم فريق غوغل نظاماً يقترح تعديلات على طريقة توزيع المهام بين أجهزة مراكز البيانات، ثم يختبرها؛ وأفاد بتحسين استخدام جزء من الموارد، دون نشر حجمها المطلق.",
+  "gates": {
+    "title": "PASS",
+    "introduction": "PASS",
+    "summary": "PASS",
+    "terminology": "PASS",
+    "evidence": "PASS",
+    "mobile": "NOT VERIFIED",
+    "language": "PASS"
+  },
+  "mobile_evidence": "",
+  "source_evidence": [
+    {
+      "claim": "0.7% of fleet-wide compute resources recovered after deployment",
+      "url": "https://arxiv.org/html/2506.13131v1",
+      "location": "Section 3.3.1",
+      "assessment": "Source explicitly reports average 0.7% post-deployment; no absolute fleet denominator published"
+    },
+    {
+      "claim": "38 matched, 14 surpassed, 2 below out of 54",
+      "url": "https://arxiv.org/html/2506.13131v1",
+      "location": "Appendix A, Table 3",
+      "assessment": "38+14+2=54; percentages rounded to 70.4%,25.9%,3.7%"
+    },
+    {
+      "claim": "48 instead of 49 scalar multiplications for complex 4x4 matrix product",
+      "url": "https://arxiv.org/html/2506.13131v1",
+      "location": "Abstract and Table 2",
+      "assessment": "48/49 verified; 2.04% is operation-count change, not wall-clock speedup"
+    },
+    {
+      "claim": "23% kernel speedup; 1% overall training reduction",
+      "url": "https://arxiv.org/html/2506.13131v1",
+      "location": "Section 3.3.2",
+      "assessment": "Verified distinction between component and whole training"
+    },
+    {
+      "claim": "CodeEvolve 5 of 9 benchmarks",
+      "url": "https://arxiv.org/html/2510.14150v6",
+      "location": "Abstract and Section 5",
+      "assessment": "Authors compare with AlphaEvolve reported results; not replication of Google production outcome"
+    },
+    {
+      "claim": "500 x 0.7% = 3.5 units",
+      "url": "editorial example",
+      "location": "Hypothetical scenario",
+      "assessment": "Arithmetic checked; clearly labelled hypothetical"
+    }
+  ],
+  "decision": "BLOCKED pending actual mobile viewport/browser verification and workflow confirmation",
+  "terminology_evidence": "Reviewed the article throughout: AlphaEvolve, evolutionary agent, LLMs, Borg, vector bin packing, evaluator, kernel, shadow deployment, confidence interval and CodeEvolve are introduced with Arabic explanations or explained in the nearby glossary. This is an AI editorial assessment, not a reader study.",
+  "language_evidence": "Full article reread and edited to replace dense technical prose in the system description, Borg scheduling, 0.7% interpretation, Gemini kernel and closing question; no human reader testing claimed."
+}

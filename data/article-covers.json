@@ -1,9 +1,115 @@
 {
-  "version": "20261013-ega-10x",
+  "version": "20261025-london-ulez",
   "width": 1200,
   "height": 630,
   "maxBytes": 170000,
   "cards": [
+    {
+      "slug": "case-london-ulez-clean-air-operating-model",
+      "reference": true,
+      "category": "case",
+      "ar": {
+        "source": "assets/previews/story/case-london-ulez-clean-air-operating-model-ar.jpg",
+        "title": [
+          "لندن والانبعاثات"
+        ],
+        "subtitle": "حين صار أداء المركبة جزءًا من قرار الطريق",
+        "alt": "غلاف أصلي لحالة منطقة الانبعاثات في لندن، يظهر حركة المرور والحافلة الحمراء ضمن طبقة رصد وبيانات حضرية."
+      },
+      "en": {
+        "source": "assets/previews/story/case-london-ulez-clean-air-operating-model-en.jpg",
+        "title": [
+          "London and ULEZ"
+        ],
+        "subtitle": "When emissions performance entered the road-use decision",
+        "alt": "Original cover for London's ULEZ case, showing traffic and a red bus within a restrained urban detection and data layer."
+      }
+    },
+    {
+      "slug": "reflection-az-zumar-follow-the-best",
+      "background": "assets/previews/story-backgrounds/reflection-al-baqarah-write-it-down.jpg",
+      "category": "reflection",
+      "ar": {
+        "title": [
+          "هل يكفي أن نسمع،",
+          "أم نتبع الأحسن؟"
+        ],
+        "subtitle": "الاستماع الصادق يقود إلى التمييز والاتباع، لا إلى جمع الأصوات فقط.",
+        "alt": "غلاف رمزي بالكحلي والذهبي لتأمل الاستماع واتباع الأحسن، يظهر موجات صوتية ومسارًا ذهبيًا يتجه نحو نقطة مضيئة ترمز إلى التمييز والهداية."
+      },
+      "en": {
+        "title": [
+          "Is Listening Enough,",
+          "or Do We Follow the Best?"
+        ],
+        "subtitle": "Sincere listening leads to discernment and following, not exposure alone.",
+        "alt": "Navy and gold symbolic cover for a reflection on listening and following what is best, with sound waves and a golden path leading toward a point of light that suggests discernment and guidance."
+      }
+    },
+    {
+      "slug": "case-seoul-food-waste-pay-as-you-throw-rfid",
+      "reference": true,
+      "category": "case",
+      "ar": {
+        "source": "assets/previews/story/case-seoul-food-waste-pay-as-you-throw-rfid-ar.jpg",
+        "title": [
+          "حين صار للهدر وزن"
+        ],
+        "subtitle": "ربطت سيول ما ترميه الأسرة بالسعر والمعالجة",
+        "alt": "غلاف أصلي لحالة مخلفات الطعام في سيول، يظهر حاوية وزن ذكية وأسرة تتخلص من بقايا الطعام أمام أفق المدينة."
+      },
+      "en": {
+        "source": "assets/previews/story/case-seoul-food-waste-pay-as-you-throw-rfid-en.jpg",
+        "title": [
+          "When Food Waste",
+          "Got a Price by Weight"
+        ],
+        "subtitle": "Seoul linked household disposal, billing and treatment.",
+        "alt": "Original cover for Seoul's food-waste case, showing a weight-based smart bin and household food scraps against the city skyline."
+      }
+    },
+    {
+      "slug": "reflection-al-kahf-speaking-about-tomorrow",
+      "background": "assets/previews/story-backgrounds/reflection-al-baqarah-write-it-down.jpg",
+      "category": "reflection",
+      "ar": {
+        "title": [
+          "ماذا يتغير حين",
+          "نجزم بالغد؟"
+        ],
+        "subtitle": "نعزم ونعمل، لكن الغد لا يصبح ملكًا لنا؛ نرده إلى مشيئة الله ونصحح الطريق عند ظهور ما هو أرشد.",
+        "alt": "غلاف رمزي بالكحلي والذهبي لتأمل التواضع أمام الغد، يظهر دفترًا مفتوحًا ومسارًا ذهبيًا يرمزان إلى التخطيط مع بقاء المستقبل غير مضمون."
+      },
+      "en": {
+        "title": [
+          "What Changes When We Speak",
+          "Too Certainly About Tomorrow?"
+        ],
+        "subtitle": "We resolve and work without claiming tomorrow as ours, returning the outcome to Allah’s will.",
+        "alt": "Navy and gold symbolic cover for a reflection on humility before tomorrow, showing an open ledger and a golden path that suggest planning without possession of the future."
+      }
+    },
+    {
+      "slug": "reflection-al-maidah-justice-despite-dislike",
+      "background": "assets/previews/story-backgrounds/reflection-shuayb-fair-measure.jpg",
+      "category": "reflection",
+      "ar": {
+        "title": [
+          "هل يتغير ميزان العدل",
+          "حين نختلف؟"
+        ],
+        "subtitle": "الخصومة لا تغيّر الحق، والعدل يبقى أقرب للتقوى.",
+        "alt": "غلاف رمزي بالكحلي والذهبي لتأمل العدل عند الخصومة، يظهر ميزانًا متوازنًا بين شكلين متقابلين رغم اختلافهما."
+      },
+      "en": {
+        "title": [
+          "Does Justice Change",
+          "When We Disagree?"
+        ],
+        "subtitle": "Hostility does not change what is right; justice remains nearer to righteousness.",
+        "alt": "Navy and gold symbolic cover for a reflection on justice amid hostility, showing a balanced scale between two opposing forms."
+      }
+    },
     {
       "slug": "reflection-al-baqarah-giving-without-harm",
       "background": "assets/previews/story-backgrounds/reflection-al-baqarah-write-it-down.jpg",
@@ -1613,6 +1719,90 @@
         ],
         "subtitle": "Shared payment infrastructure",
         "alt": "Editorial cover for India’s UPI case, showing multiple payment apps connected through shared digital infrastructure."
+      }
+    },
+    {
+      "slug": "article-agentic-ai-alphaevolve-compute-scheduling",
+      "background": "assets/previews/story-backgrounds/article-agentic-ai-workplace-tasks.jpg",
+      "category": "article",
+      "ar": {
+        "title": [
+          "حين استعاد الوكيل",
+          "قدرة حاسوبية عالقة"
+        ],
+        "subtitle": "من محاكاة الجدولة إلى تشغيل فعلي في مراكز البيانات",
+        "alt": "غلاف توضيحي بالكحلي والذهبي لمقال عن وكيل يطور خوارزمية جدولة لمراكز البيانات، يظهر فيه مبنى حوسبة وشبكة موارد وقاعدة تحقق."
+      },
+      "en": {
+        "title": [
+          "When an Agent Recovered",
+          "Stranded Compute"
+        ],
+        "subtitle": "From scheduling simulation to a live data-center deployment.",
+        "alt": "Navy and gold illustrative cover for an article about an agent evolving a data-center scheduling algorithm, showing computing infrastructure, a resource grid and a verification check."
+      }
+    },
+    {
+      "slug": "case-sweden-vision-zero-safe-system-road-safety",
+      "reference": true,
+      "category": "case",
+      "ar": {
+        "source": "assets/previews/story/case-sweden-vision-zero-safe-system-road-safety-ar.jpg",
+        "title": [
+          "السويد والرؤية صفر"
+        ],
+        "subtitle": "نظام يتسامح مع الخطأ",
+        "alt": "غلاف أصلي لحالة الرؤية صفر في السويد، يظهر طريق 2+1 بحاجز وسطي في مشهد اسكندنافي."
+      },
+      "en": {
+        "source": "assets/previews/story/case-sweden-vision-zero-safe-system-road-safety-en.jpg",
+        "title": [
+          "Sweden & Vision Zero"
+        ],
+        "subtitle": "Designing for human error",
+        "alt": "Original cover for Sweden’s Vision Zero case, showing a median-separated 2+1 road in a Nordic landscape."
+      }
+    },
+    {
+      "slug": "article-agentic-ai-human-approval-oversight",
+      "background": "assets/previews/story-backgrounds/article-agentic-ai-human-approval-oversight.jpg",
+      "category": "article",
+      "ar": {
+        "title": [
+          "هل موافقة الإنسان على",
+          "الوكيل رقابة حقيقية؟"
+        ],
+        "subtitle": "يقبل المستخدمون 93% من طلبات الإذن بحسب أنثروبيك، فهل ما زالت الموافقة رقابة؟",
+        "alt": "غلاف توضيحي بالكحلي والذهبي لمقال عن رقابة الإنسان على وكيل ذكي، تظهر فيه قائمة طلبات وافق عليها المراجع كلها عدا طلبًا واحدًا أُوقف بزر إيقاف مؤقت."
+      },
+      "en": {
+        "title": [
+          "Is Human Approval of",
+          "an AI Agent Real Oversight?"
+        ],
+        "subtitle": "Anthropic reports that users accept 93% of permission prompts. Does approval still mean oversight?",
+        "alt": "Navy and gold illustrative cover for an article about human oversight of an AI agent, showing a list of requests all approved except one held back with a pause button."
+      }
+    },
+    {
+      "slug": "article-agentic-ai-building-customer-service-agents",
+      "background": "assets/previews/story-backgrounds/article-agentic-ai-workplace-tasks.jpg",
+      "category": "article",
+      "ar": {
+        "title": [
+          "هل يبني الذكاء الاصطناعي",
+          "وكيل خدمة موثوقًا؟"
+        ],
+        "subtitle": "في 53 مهمة بناء، بلغ أفضل متوسط آلي 23.9 من 100.",
+        "alt": "غلاف توضيحي بالكحلي والذهبي لوكيل برمجي يبني نظام خدمة عملاء أمام لوحة تقييم تعرض 53 مهمة ودرجة 23.9 من 100."
+      },
+      "en": {
+        "title": [
+          "Can AI Build a Reliable",
+          "Customer-Service Agent?"
+        ],
+        "subtitle": "Across 53 construction tasks, the best automated mean was 23.9/100.",
+        "alt": "Navy and gold illustrative cover showing a coding agent building a customer-service system beside an evaluation panel with 53 tasks and a score of 23.9 out of 100."
       }
     }
   ]

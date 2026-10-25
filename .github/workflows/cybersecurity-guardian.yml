@@ -1,0 +1,32 @@
+name: Cybersecurity Guardian (read-only)
+on:
+  schedule:
+    - cron: '17 3 * * 1'
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - '.github/workflows/**'
+      - 'scripts/**'
+      - 'supabase/**'
+      - 'cloudflare/**'
+      - 'account/**'
+      - 'admin/**'
+      - 'security/**'
+      - 'assets/js/**'
+permissions:
+  contents: read
+jobs:
+  static-security-review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout reviewed revision
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5 (Node.js 24)
+        with:
+          persist-credentials: false
+      - name: Run conservative security hygiene checks
+        run: python3 scripts/cybersecurity_guardian.py --root . --output "$RUNNER_TEMP/cybersecurity-report.json"
+      - name: Publish findings summary (no secret values)
+        if: always()
+        run: |
+          python3 -c 'import json,os,pathlib; p=json.load(open(os.environ["RUNNER_TEMP"]+"/cybersecurity-report.json")); lines=["## Cybersecurity Guardian", "Status: **"+p["status"]+"**", "Files scanned: "+str(p["files_scanned"]), "Potential findings: "+str(len(p["findings"])), "", "| Severity | Rule | File | Line |", "|---|---|---|---|"]; lines += ["| "+" | ".join(str(x[k]).replace("|","/") for k in ("severity","rule","file","line"))+" |" for x in p["findings"]]; pathlib.Path(os.environ["GITHUB_STEP_SUMMARY"]).write_text("\n".join(lines)+"\n"); print("\n".join(lines))'
