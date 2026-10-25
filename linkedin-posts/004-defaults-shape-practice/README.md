@@ -2,7 +2,7 @@
 
 **Format:** LinkedIn document (carousel), 8 slides, 1080×1350, two separate posts: Arabic (`carousel-ar.pdf`) and English (`carousel-en.pdf`). The English version is written as original English, not a translation.
 **Website article:** https://tamayuz10x.com/article-oe-evidence-defaults-shape-practice.html and https://tamayuz10x.com/en/article-oe-evidence-defaults-shape-practice.html (PR #79, squash merge 65e6dfd, live 2026-10-25).
-**Status:** Approved by the owner on 2026-10-25. Article live; Arabic post published; English post scheduled.
+**Status:** Approved by the owner on 2026-10-25. Article live; Arabic and English posts published.
 
 | File | Purpose |
 |---|---|
@@ -43,4 +43,4 @@ The website article also cites two systematic reviews: Raban et al., *JAMIA* 202
 |---|---|---|
 | Website article (AR + EN) | Live 2026-10-25 (PR #79). Title changed on 25 Oct to meet the Arabic editorial clarity standard: «ماذا حدث حين جعلت المستشفيات الإجراء الصحيح خيارًا جاهزًا؟» / "What Happened When Hospitals Made the Right Action the Default?" | https://tamayuz10x.com/article-oe-evidence-defaults-shape-practice.html · https://tamayuz10x.com/en/article-oe-evidence-defaults-shape-practice.html |
 | LinkedIn Arabic carousel | Published 2026-10-25, `urn:li:ugcPost:7520021739255255040`, document title «حين يصبح الصواب هو الخيار الجاهز» | https://www.linkedin.com/feed/update/urn:li:ugcPost:7520021739255255040/ |
-| LinkedIn English carousel | Scheduled ~2026-10-25 09:22 UTC (13:22 Dubai) | — |
+| LinkedIn English carousel | Published 2026-10-25, `urn:li:ugcPost:7520022360222085120`, document title "When the right choice is the default" | https://www.linkedin.com/feed/update/urn:li:ugcPost:7520022360222085120/ |
