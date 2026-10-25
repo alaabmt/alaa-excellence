@@ -1,9 +1,30 @@
 {
-  "version": "20261013-ega-10x",
+  "version": "20261025-london-ulez",
   "width": 1200,
   "height": 630,
   "maxBytes": 170000,
   "cards": [
+    {
+      "slug": "case-london-ulez-clean-air-operating-model",
+      "reference": true,
+      "category": "case",
+      "ar": {
+        "source": "assets/previews/story/case-london-ulez-clean-air-operating-model-ar.jpg",
+        "title": [
+          "لندن والانبعاثات"
+        ],
+        "subtitle": "حين صار أداء المركبة جزءًا من قرار الطريق",
+        "alt": "غلاف أصلي لحالة منطقة الانبعاثات في لندن، يظهر حركة المرور والحافلة الحمراء ضمن طبقة رصد وبيانات حضرية."
+      },
+      "en": {
+        "source": "assets/previews/story/case-london-ulez-clean-air-operating-model-en.jpg",
+        "title": [
+          "London and ULEZ"
+        ],
+        "subtitle": "When emissions performance entered the road-use decision",
+        "alt": "Original cover for London's ULEZ case, showing traffic and a red bus within a restrained urban detection and data layer."
+      }
+    },
     {
       "slug": "reflection-az-zumar-follow-the-best",
       "background": "assets/previews/story-backgrounds/reflection-al-baqarah-write-it-down.jpg",
