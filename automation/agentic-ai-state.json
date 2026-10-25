@@ -7,9 +7,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-25T22:45:00+04:00",
+  "updated_at": "2026-10-25T22:48:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "english_draft",
+  "current_stage": "bilingual_parity",
   "run_lease": {
     "owner": "scheduled-agentic-ai-2026-10-25",
     "acquired_at": "2026-10-25T21:58:00+04:00",
@@ -73,7 +73,7 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Run bilingual semantic parity and native-English review; record matched facts, limits, references and any structural differences.",
+  "next_action": "Build publication candidates, dedicated bilingual social cards, specialist-hub cards, date registry, sitemap and editorial QA; run static and actual mobile browser gates before repository publication.",
   "last_run": {
     "mode": "scheduled_daily",
     "status": "in_progress",
