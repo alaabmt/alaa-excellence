@@ -7,9 +7,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-25T08:16:00+04:00",
+  "updated_at": "2026-10-25T08:31:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "english_draft",
+  "current_stage": "bilingual_parity",
   "run_lease": {
     "owner": "chatgpt-work-tenx-daily-2026-10-25T0732",
     "acquired_at": "2026-10-25T07:32:14+04:00",
@@ -69,6 +69,11 @@
       "commit": "658e62ac0bb94b2bc1b5b94624b8963721e7a0cf",
       "required_revisions": 7,
       "remaining_gaps": 2
+    },
+    "english_draft": {
+      "status": "drafted_with_critique_applied",
+      "path": "automation/10x-cases/case-london-ulez-clean-air-operating-model/draft-en.md",
+      "commit": "189b813a357284cdc1d874c0a7a6f2b75b3a66e5"
     }
   },
   "stage_order": [
@@ -110,7 +115,7 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Write a natural English editorial counterpart with exact factual parity, not a sentence-by-sentence translation.",
+  "next_action": "Run a fact, number, certainty, structure, video and source parity audit across the Arabic and English drafts.",
   "last_run": {
     "mode": "daily_primary_run",
     "status": "in_progress",
@@ -218,6 +223,7 @@
     "evidence_pack",
     "backcasting_and_10x_analysis",
     "arabic_draft",
-    "company_insider_critique"
+    "company_insider_critique",
+    "english_draft"
   ]
 }
