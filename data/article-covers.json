@@ -1804,6 +1804,29 @@
         "subtitle": "Across 53 construction tasks, the best automated mean was 23.9/100.",
         "alt": "Navy and gold illustrative cover showing a coding agent building a customer-service system beside an evaluation panel with 53 tasks and a score of 23.9 out of 100."
       }
+    },
+    {
+      "slug": "article-agentic-ai-web-agent-evaluation-audit",
+      "reference": true,
+      "category": "article",
+      "ar": {
+        "source": "assets/previews/story/article-agentic-ai-web-agent-evaluation-audit-ar.jpg",
+        "title": [
+          "أنجز المهمة…",
+          "لكن الاختبار قال: فشل"
+        ],
+        "subtitle": "مراجعة بشرية لـ165 مهمة تفصل بين حكم الآلة وما تثبته البيئة.",
+        "alt": "غلاف لمراجعة موثقة لوكلاء الويب يظهر اختلاف حكم الاختبار عن النتيجة المثبتة."
+      },
+      "en": {
+        "source": "assets/previews/story/article-agentic-ai-web-agent-evaluation-audit-en.jpg",
+        "title": [
+          "The Task Was Done.",
+          "The Test Said “Failed.”"
+        ],
+        "subtitle": "A human audit of 165 tasks separates evaluator verdicts from environment evidence.",
+        "alt": "Cover for an evidence-based web-agent audit showing a test verdict diverging from the verified result."
+      }
     }
   ]
 }

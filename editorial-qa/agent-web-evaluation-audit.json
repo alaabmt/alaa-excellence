@@ -1,0 +1,58 @@
+{
+  "article": "article-agentic-ai-web-agent-evaluation-audit.html",
+  "headline": "عندما ينجز وكيل الويب المهمة لكن الاختبار يعلن فشله: مراجعة بشرية لـ165 مهمة",
+  "reviewed_at": "2026-10-25",
+  "reviewer": "AI editorial review (not a human reader test)",
+  "summary": "راجع باحثون 165 مهمة لوكيل ويب، فاستعاد التدقيق البشري 12 نجاحاً رفضها الاختبار الآلي، وكشف أن الحلقات والتوقف المبكر وصيغ الإجراءات الخاطئة تفسر إخفاقات كثيرة.",
+  "gates": {
+    "title": "PASS",
+    "introduction": "PASS",
+    "summary": "PASS",
+    "terminology": "PASS",
+    "evidence": "PASS",
+    "mobile": "NOT VERIFIED",
+    "language": "PASS"
+  },
+  "mobile_evidence": "",
+  "source_evidence": [
+    {
+      "claim": "The audited condition contained 165 WebArena-Lite task runs",
+      "url": "https://arxiv.org/html/2610.01491v1",
+      "location": "Sections 3.1 and 5.1, Table 1",
+      "assessment": "Selected, resettable benchmark tasks; one rollout per task-condition, not production traffic"
+    },
+    {
+      "claim": "Raw 51/165 accepted; corrected 63/165; 12 false negatives recovered",
+      "url": "https://arxiv.org/html/2610.01491v1",
+      "location": "Table 1",
+      "assessment": "Complements are 114/165 raw failures and 102/165 verified failures"
+    },
+    {
+      "claim": "Primary failure modes total 102",
+      "url": "https://arxiv.org/html/2610.01491v1",
+      "location": "Table 6",
+      "assessment": "32+13+13+9+8+27=102; one primary label per failed trajectory"
+    },
+    {
+      "claim": "Guide Text comparison: 57/165 versus 63/165, with 20 gains and 14 regressions",
+      "url": "https://arxiv.org/html/2610.01491v1",
+      "location": "Tables 3–5 and Section 5.4",
+      "assessment": "Net +6; exact paired test p=.392; observational guides do not establish stable causality"
+    },
+    {
+      "claim": "Progress claims versus verified progress",
+      "url": "https://arxiv.org/html/2610.01491v1",
+      "location": "Table 7",
+      "assessment": "91/165 extractable; 7/102 failures claimed 100%, but 0/40 analyzable budget-exhausted failures verified complete"
+    },
+    {
+      "claim": "Hypothetical benefits-portal scenario",
+      "url": "editorial example",
+      "location": "Hypothetical deployment section",
+      "assessment": "Clearly labelled hypothetical and not attributed to the study"
+    }
+  ],
+  "decision": "BLOCKED pending actual mobile viewport/browser verification and successful GitHub Actions confirmation",
+  "terminology_evidence": "Web agent, automatic evaluator, MASM, Guide Text, false negative, trajectory, percentage point and statistical significance are explained at first use or in the glossary.",
+  "language_evidence": "Arabic draft passed a 20–30 second comprehension simulation; every main proportion carries its numerator and denominator, and the secondary study is isolated in a labelled side box."
+}

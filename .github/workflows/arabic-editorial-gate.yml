@@ -19,9 +19,9 @@ jobs:
         run: python3 scripts/check_arabic_mobile.py
       - name: Render today's Agentic AI article at actual mobile widths
         env:
-          ARABIC_ARTICLE: article-agentic-ai-building-customer-service-agents.html
-          EDITORIAL_REPORT: editorial-qa/agent-construction.json
-          MOBILE_ARTIFACT_PREFIX: agent-construction
+          ARABIC_ARTICLE: article-agentic-ai-web-agent-evaluation-audit.html
+          EDITORIAL_REPORT: editorial-qa/agent-web-evaluation-audit.json
+          MOBILE_ARTIFACT_PREFIX: agent-web-evaluation-audit
         run: python3 scripts/check_arabic_mobile.py
       - name: Render the OE evidence defaults article at actual mobile widths
         env:
@@ -34,7 +34,7 @@ jobs:
       - name: Check AlphaEvolve editorial gates using generated mobile evidence
         run: python3 scripts/check_arabic_editorial.py article-agentic-ai-alphaevolve-compute-scheduling.html editorial-qa/alphaevolve.json
       - name: Check today's seven editorial gates
-        run: python3 scripts/check_arabic_editorial.py article-agentic-ai-building-customer-service-agents.html editorial-qa/agent-construction.json
+        run: python3 scripts/check_arabic_editorial.py article-agentic-ai-web-agent-evaluation-audit.html editorial-qa/agent-web-evaluation-audit.json
       - name: Preserve mobile screenshots and QA result
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
@@ -43,6 +43,6 @@ jobs:
           path: |
             editorial-qa/mobile-artifacts/
             editorial-qa/alphaevolve.json
-            editorial-qa/agent-construction.json
+            editorial-qa/agent-web-evaluation-audit.json
             editorial-qa/oe-defaults.json
           if-no-files-found: error
