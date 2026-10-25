@@ -53,3 +53,16 @@ The English draft must be authored separately from the evidence pack, preserve t
 - Reciprocal canonical/hreflang and language switch.
 - Specialist hubs only; zero slug occurrences in general article indexes.
 - Publication-date registry, sitemap, exact-head Actions/Pages, live 200/render checks.
+
+## Bilingual semantic-parity review
+- Same primary study, 165-task denominator, six conditions and four audited GPT-5.5 conditions: **PASS**.
+- Same strongest-condition counts: raw 51/165, raw failures 114/165, corrected 63/165, verified failures 102/165, recovered 12/165: **PASS**.
+- Same 102-failure breakdown and grouped remainder 27/102: **PASS**.
+- Same Guide Text comparison: 57/165 vs 63/165, 20 gains, 14 regressions, 34/165 flips and p=.392: **PASS**.
+- Same progress subsets: 91/165, 18/102, 7/102, 8/40 and 0/40: **PASS**.
+- Same explicitly hypothetical benefits-portal example: **PASS**.
+- Same nine evidence limitations and three references: **PASS**.
+- Section order and component positions match; wording and sentence architecture are independently natural in each language: **PASS**.
+- Native-English translation-detection test: no sentence exists merely to mirror Arabic syntax; opening, transitions and decisions read as original executive English: **PASS**.
+
+Publication remains blocked until real browser/mobile verification, repository checks, exact-head Actions/Pages success and live rendering are complete.
