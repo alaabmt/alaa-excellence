@@ -1,5 +1,5 @@
 {
-  "version": "20261025-london-ulez",
+  "version": "20261026-al-balad",
   "width": 1200,
   "height": 630,
   "maxBytes": 170000,
@@ -23,6 +23,27 @@
         ],
         "subtitle": "When emissions performance entered the road-use decision",
         "alt": "Original cover for London's ULEZ case, showing traffic and a red bus within a restrained urban detection and data layer."
+      }
+    },
+    {
+      "slug": "reflection-al-balad-the-steep-path",
+      "background": "assets/previews/story-backgrounds/reflection-al-baqarah-write-it-down.jpg",
+      "category": "reflection",
+      "ar": {
+        "title": [
+          "ماذا يعني اقتحام",
+          "العقبة؟"
+        ],
+        "subtitle": "الرحمة المكلفة تبلغ من أثقلته القيود أو الجوع أو اليتم أو الفقر.",
+        "alt": "غلاف رمزي بالكحلي والذهبي لتأمل سورة البلد، يظهر مسارًا صاعدًا نحو ضوء تحيط به رموز التحرير والغذاء والرحمة."
+      },
+      "en": {
+        "title": [
+          "What Does It Mean to Cross",
+          "the Steep Path?"
+        ],
+        "subtitle": "Costly compassion reaches people burdened by bondage, hunger, orphanhood, or poverty.",
+        "alt": "Navy and gold symbolic cover for a reflection on Surah Al-Balad, showing an ascending path toward light with symbols of liberation, food, and compassion."
       }
     },
     {
