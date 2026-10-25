@@ -7,9 +7,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-25T09:00:00+04:00",
+  "updated_at": "2026-10-25T09:08:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "actions_and_pages",
+  "current_stage": "live_verification",
   "run_lease": {
     "owner": "chatgpt-work-tenx-daily-2026-10-25T0732",
     "acquired_at": "2026-10-25T07:32:14+04:00",
@@ -98,15 +98,24 @@
       ]
     },
     "publishing": {
-      "status": "commit_pushed_awaiting_actions_and_pages",
+      "status": "pages_deployed_awaiting_live_verification",
       "arabic_path": "case-london-ulez-clean-air-operating-model.html",
       "english_path": "en/case-london-ulez-clean-air-operating-model.html",
       "arabic_url": "https://tamayuz10x.com/case-london-ulez-clean-air-operating-model.html",
       "english_url": "https://tamayuz10x.com/en/case-london-ulez-clean-air-operating-model.html",
       "first_publication_commit": "57b211cdb1ff6657d89905dbacff8132baa439c9",
-      "actions": "pending",
-      "pages": "pending",
-      "live_verification": "pending"
+      "actions": "passed",
+      "pages": "passed_exact_final_content_head",
+      "live_verification": "pending",
+      "arabic_editorial_gate_run": "https://github.com/alaabmt/alaa-excellence/actions/runs/40159322763",
+      "pages_run": "https://github.com/alaabmt/alaa-excellence/actions/runs/40159359787",
+      "sitemap_reconciliation_commit": "6567cc863470c9e625406036ecb22de336b32190",
+      "cover_sync_commit": "963f8d29f3ff6f6a8f10a1aaee4f9594f1dca47c",
+      "final_content_commit": "963f8d29f3ff6f6a8f10a1aaee4f9594f1dca47c",
+      "final_cover_sizes_bytes": {
+        "ar": 158706,
+        "en": 158037
+      }
     }
   },
   "stage_order": [
@@ -148,7 +157,7 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Monitor GitHub Actions and bot-generated follow-up commits, reconcile the final content head, then verify GitHub Pages and the live Arabic and English surfaces.",
+  "next_action": "Complete live verification of both pages, covers, metadata, video, index cards and sitemap, then save the publication report.",
   "last_run": {
     "mode": "daily_primary_run",
     "status": "in_progress",
@@ -260,6 +269,7 @@
     "english_draft",
     "bilingual_parity",
     "final_quality_gate",
-    "repository_publish"
+    "repository_publish",
+    "actions_and_pages"
   ]
 }
