@@ -7,9 +7,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-25T08:31:00+04:00",
+  "updated_at": "2026-10-25T08:38:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "bilingual_parity",
+  "current_stage": "final_quality_gate",
   "run_lease": {
     "owner": "chatgpt-work-tenx-daily-2026-10-25T0732",
     "acquired_at": "2026-10-25T07:32:14+04:00",
@@ -74,6 +74,11 @@
       "status": "drafted_with_critique_applied",
       "path": "automation/10x-cases/case-london-ulez-clean-air-operating-model/draft-en.md",
       "commit": "189b813a357284cdc1d874c0a7a6f2b75b3a66e5"
+    },
+    "bilingual_parity": {
+      "status": "passed",
+      "path": "automation/10x-cases/case-london-ulez-clean-air-operating-model/bilingual-parity-review.md",
+      "commit": "f74d2f5e45a56f20ea6e4d0a71d17f3ef2cd96a6"
     }
   },
   "stage_order": [
@@ -115,7 +120,7 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Run a fact, number, certainty, structure, video and source parity audit across the Arabic and English drafts.",
+  "next_action": "Build exact Arabic and English publication pages, original social cards and technical metadata, then run final editorial and technical preflight before the atomic publication commit.",
   "last_run": {
     "mode": "daily_primary_run",
     "status": "in_progress",
@@ -224,6 +229,7 @@
     "backcasting_and_10x_analysis",
     "arabic_draft",
     "company_insider_critique",
-    "english_draft"
+    "english_draft",
+    "bilingual_parity"
   ]
 }
