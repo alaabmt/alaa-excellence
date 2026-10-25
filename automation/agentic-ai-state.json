@@ -7,81 +7,31 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-24T22:25:00+04:00",
-  "workflow_status": "completed",
-  "current_stage": "completed",
-  "run_lease": null,
+  "updated_at": "2026-10-25T21:58:00+04:00",
+  "workflow_status": "in_progress",
+  "current_stage": "duplicate_check",
+  "run_lease": {
+    "owner": "scheduled-agentic-ai-2026-10-25",
+    "acquired_at": "2026-10-25T21:58:00+04:00",
+    "expires_at": "2026-10-25T23:48:00+04:00"
+  },
   "current_item": {
-    "slug": "article-agentic-ai-building-customer-service-agents",
-    "publication_date": "2026-10-24",
-    "title_ar": "هل يستطيع الذكاء الاصطناعي بناء وكيل خدمة عملاء موثوق؟ دليل من 53 مهمة بناء",
-    "title_en": "Can AI Reliably Build a Customer-Service Agent? Evidence from 53 Construction Tasks",
-    "research_status": "completed",
-    "evidence_pack_status": "completed",
+    "slug": null,
+    "publication_date": "2026-10-25",
+    "title_ar": null,
+    "title_en": null,
+    "research_status": "not_started",
+    "evidence_pack_status": "not_started",
     "arabic_draft": {
-      "status": "verified",
-      "path": "article-agentic-ai-building-customer-service-agents.html"
+      "status": "not_started",
+      "path": null
     },
     "english_draft": {
-      "status": "verified",
-      "path": "en/article-agentic-ai-building-customer-service-agents.html"
+      "status": "not_started",
+      "path": null
     },
     "publishing": {
-      "status": "verified",
-      "arabic_url": "https://tamayuz10x.com/article-agentic-ai-building-customer-service-agents.html",
-      "english_url": "https://tamayuz10x.com/en/article-agentic-ai-building-customer-service-agents.html",
-      "social_assets_commit": "85abbb4f644bfaca31ce89a0cbdc81cf0d46161a",
-      "mobile_gate_run_id": 40119798475,
-      "mobile_gate_run_number": 64,
-      "publication_commit": "c5724499e2517a3ec9a24252218d88b187fba9d7",
-      "repository_checks": {
-        "article_pages": 2,
-        "specialist_hubs": 2,
-        "general_index_slug_occurrences": 0,
-        "sitemap_entries": 2,
-        "social_images": "2 x 1200x630"
-      },
-      "pages_run_id": 40120106666,
-      "pages_run_number": 2041,
-      "checks": {
-        "arabic_editorial_gate": 68,
-        "site_health_qa": 474,
-        "article_date_integrity": 540,
-        "editorial_disclaimer": 268,
-        "social_cards": 417
-      },
-      "live_verification": {
-        "arabic": {
-          "status": "200 and rendered",
-          "title": true,
-          "author": true,
-          "cover": "1200x630 complete",
-          "tables": 2,
-          "side_boxes": 2,
-          "share_boxes": 1,
-          "listening_control": true
-        },
-        "english": {
-          "status": "200 and rendered",
-          "title": true,
-          "author": true,
-          "cover": "1200x630 complete",
-          "tables": 2,
-          "side_boxes": 2,
-          "share_boxes": 1,
-          "listening_control": true
-        },
-        "hubs": {
-          "arabic_cards": 1,
-          "english_cards": 1,
-          "arabic_general_links": 0,
-          "english_general_links": 0
-        },
-        "verified_at": "2026-10-24T22:24:00+04:00"
-      },
-      "verification_commit": "c218ffbf03c8369bd1d82035bd7a91d0a37fed21",
-      "report_commit": "c00875da4e0a4252eafc5e96fab8b9bb2e46e140",
-      "social_cards_run_number": 417
+      "status": "not_started"
     }
   },
   "stage_order": [
@@ -123,13 +73,13 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "On the next scheduled run, start a new article only if no Agentic AI item has started or published on that Asia/Dubai date.",
+  "next_action": "Check repository and live destinations for any Agentic AI item already started or published on 2026-10-25 Asia/Dubai; if none, select a primary study.",
   "last_run": {
     "mode": "scheduled_daily",
-    "status": "completed",
-    "started_at": "2026-10-24T21:58:02+04:00",
-    "completed_at": "2026-10-24T22:25:00+04:00",
-    "notes": "Published and live-verified the bilingual Agentic AI article; all required content, mobile, health, social-card and Pages gates passed."
+    "status": "in_progress",
+    "started_at": "2026-10-25T21:56:42+04:00",
+    "completed_at": null,
+    "notes": "Lease acquired; beginning duplicate check for the 2026-10-25 cycle."
   },
   "blocker": null,
   "last_completed_item": {
