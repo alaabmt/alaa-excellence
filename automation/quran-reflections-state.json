@@ -5,9 +5,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-25T22:01:22+04:00",
+  "updated_at": "2026-10-25T22:02:17+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "quality_gate",
+  "current_stage": "repository_publish",
   "current_article": {
     "article_id": "quran-reflection-2026-10-25-al-balad-the-steep-path",
     "publication_date": "2026-10-25",
@@ -16,7 +16,7 @@
     "topic_en": "The steep path: why the Qur'an describes costly goodness as a path that must be crossed",
     "working_title_ar": "ماذا يعني اقتحام العقبة في سورة البلد؟",
     "working_title_en": "What Does It Mean to Cross the Steep Path in Surah Al-Balad?",
-    "status": "bilingual_parity_passed",
+    "status": "quality_gate_passed_pending_repository_publish",
     "quranic_focus": {
       "surah": "Al-Balad",
       "surah_ar": "البلد",
@@ -138,6 +138,19 @@
       "english_blob_sha": "f1d8cd82d380466259e126c272193af9cf8837f0",
       "same_source_urls": 18,
       "completed_at": "2026-10-25T21:02:59+04:00"
+    },
+    "quality_gate": {
+      "status": "passed",
+      "score": 98,
+      "threshold": 90,
+      "blocking_errors": [],
+      "review_path": "automation/quran-reflections/reflection-al-balad-the-steep-path/quality-review.md",
+      "commit": "bc8e3e30d546d563a670691ad7e0ca152229b0ce",
+      "blob_sha": "e6a20bfd47a21f83c72cd77021021dd57c3bf5b1",
+      "mobile_gate": "NOT VERIFIED until final HTML",
+      "rtl_gate": "NOT VERIFIED until final HTML",
+      "tts_gate": "NOT VERIFIED until final HTML",
+      "completed_at": "2026-10-25T22:02:17+04:00"
     }
   },
   "stage_order": [
@@ -171,15 +184,15 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Run the full 100-point quality gate on both drafts with a minimum score of 90 and zero blocking Qur'anic, interpretive or creed errors; record the score and remaining NOT VERIFIED mobile/RTL/TTS checks in quality-review.md, revise if required, then checkpoint quality_gate before repository publication.",
+  "next_action": "Before any public write, repeat duplicate checks across the checkpoint, topic registry, intended Arabic and English page paths, four indexes, both sitemap locations, repository history and expected live URLs; then build and commit the paired HTML pages, required index/data/sitemap updates and separate 1200x630 social cards, preserving the 98/100 gate constraints. Checkpoint repository_publish before Actions and Pages reconciliation.",
   "last_run": {
     "mode": "coordinator_daily_start",
     "status": "in_progress",
     "started_at": "2026-10-25T17:04:58+04:00",
     "starting_head": null,
     "notes": "Started the single allowed Qur'anic reflection cycle for 25 October after capability, checkpoint, registry and repository duplicate checks.",
-    "last_checkpoint": "bilingual_parity",
-    "last_checkpoint_at": "2026-10-25T21:02:59+04:00",
+    "last_checkpoint": "quality_gate",
+    "last_checkpoint_at": "2026-10-25T22:02:17+04:00",
     "topic_selection_commit": "38443c4497625d55012b6093fbbbe4db8e423ef5",
     "research_commit": "8c477f7da206979894c424ee5d424bee7aec62c1",
     "quran_verification_commit": "f0d3d42faba405f97c29dde7eaa9dc16d149e00b",
@@ -189,14 +202,12 @@
     "arabic_revision_commit": "0492f4b34050a2c68159a7b4e3711e73049ff74d",
     "independent_critique_commit": "f5f230131bb985a45b30a2548ee3ee09e6277d15",
     "english_draft_commit": "fdc7e68b199aa9aab80a6d5284e69f6d6683a3e5",
-    "bilingual_parity_commit": "a78d7018b838ff85d77c9a971c8f2454daeb7685"
+    "bilingual_parity_commit": "a78d7018b838ff85d77c9a971c8f2454daeb7685",
+    "quality_gate_commit": "bc8e3e30d546d563a670691ad7e0ca152229b0ce",
+    "quality_score": 98
   },
   "workflow_id": "quran_reflections",
-  "run_lease": {
-    "owner": "central-coordinator",
-    "acquired_at": "2026-10-25T22:01:22+04:00",
-    "expires_at": "2026-10-25T23:51:22+04:00"
-  },
+  "run_lease": null,
   "checkpoint_policy": {
     "checkpoint_after_every_stage": true,
     "run_lease_minutes": 110,
@@ -483,7 +494,8 @@
     "arabic_draft",
     "independent_critique",
     "english_draft",
-    "bilingual_parity"
+    "bilingual_parity",
+    "quality_gate"
   ],
   "duplicate_check": {
     "status": "passed",
