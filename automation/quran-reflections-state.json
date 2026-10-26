@@ -5,9 +5,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-27T03:00:35+04:00",
+  "updated_at": "2026-10-27T03:03:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "repository_publish",
+  "current_stage": "actions_and_pages",
   "current_article": {
     "article_id": "quran-reflection-2026-10-26-al-hujurat-suspicion-surveillance-trust",
     "publication_date": "2026-10-26",
@@ -16,7 +16,7 @@
     "topic_en": "Suspicion, spying and backbiting: what the verse protects in a person's dignity when they are absent",
     "working_title_ar": "متى تتحول الرغبة في معرفة ما يخفيه الناس إلى ظلم؟",
     "working_title_en": "When Does the Desire to Know What People Conceal Become an Injustice?",
-    "status": "quality_gate_passed",
+    "status": "repository_published",
     "quranic_focus": {
       "surah": "Al-Hujurat",
       "surah_ar": "الحجرات",
@@ -138,9 +138,13 @@
       "tts_gate": "NOT VERIFIED until final HTML"
     },
     "repository_publish": {
-      "status": "text_pages_and_records_committed_social_assets_pending",
+      "status": "completed",
+      "completed_at": "2026-10-27T03:03:00+04:00",
+      "report_path": "automation/quran-reflections/reflection-al-hujurat-suspicion-surveillance-trust/repository-publish-report.md",
       "text_commit": "33c743dfea7fa3c44cf73e5b1902a1d0ec9c2bbd",
-      "sitemap_reconciliation_commit": "336cab1d5243fe64d6904e38ff17fc343ea0c92a",
+      "sitemap_reconciliation_commit": "990f9a61a1be6ffa62bbf880ba88707659f6fb92",
+      "social_assets_commit": "336cab1d5243fe64d6904e38ff17fc343ea0c92a",
+      "topic_and_checkpoint_commit": "a9dc4b7d37e600dcb77b870470860b5fa98b60c6",
       "arabic_page": {
         "path": "reflection-al-hujurat-suspicion-surveillance-trust.html"
       },
@@ -159,8 +163,33 @@
         "data/article-publication-dates.json",
         "sitemap.xml"
       ],
-      "report_path": "automation/quran-reflections/reflection-al-hujurat-suspicion-surveillance-trust/repository-publish-report.md",
-      "duplicate_check": "passed immediately before write: no repository slug matches; both expected live URLs returned GitHub Pages 404"
+      "social_assets": [
+        {
+          "path": "assets/previews/story/reflection-al-hujurat-suspicion-surveillance-trust-ar.jpg",
+          "width": 1200,
+          "height": 630,
+          "size_bytes": 151376
+        },
+        {
+          "path": "assets/previews/story/reflection-al-hujurat-suspicion-surveillance-trust-en.jpg",
+          "width": 1200,
+          "height": 630,
+          "size_bytes": 150612
+        }
+      ],
+      "checks": {
+        "title_and_h1": true,
+        "canonical_and_reciprocal_hreflang": true,
+        "article_and_breadcrumb_schema": true,
+        "rtl_ltr": true,
+        "language_isolation": true,
+        "tts_structure": true,
+        "topic_registry_single": true,
+        "index_card_single_each": true,
+        "publication_dates_match": true,
+        "sitemap_single_each": true
+      },
+      "duplicate_check": "passed before publication and after generated bot commits"
     }
   },
   "stage_order": [
@@ -194,13 +223,15 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Reconcile the Generate social share cards workflow and latest main head for text publication commit 33c743dfea7fa3c44cf73e5b1902a1d0ec9c2bbd. Verify that both 1200×630 social assets were generated exactly once, then re-read state/main, run repository-level HTML, RTL, language-isolation, TTS-structure and duplicate checks, finalize repository_publish and release the lease.",
+  "next_action": "Reconcile required GitHub Actions for the exact current content lineage, wait for successful Site Health, Article date integrity, sitemap, Arabic editorial/mobile-RTL, social cards and GitHub Pages runs, and inspect any failures before advancing. Do not replay publication.",
   "last_run": {
     "mode": "coordinator_resume",
     "status": "in_progress",
     "started_at": "2026-10-27T03:00:35+04:00",
     "starting_head": "a9dc4b7d37e600dcb77b870470860b5fa98b60c6",
-    "notes": "Reacquired an expired lease and resumed repository_publish by reconciling the already committed text pages, generated social cards and repository checks; no completed public write will be replayed."
+    "notes": "Repository publication reconciled successfully: pages, four indexes, topic/date/cover registries, sitemap and both generated 1200×630 social cards are present exactly once. Advancing to Actions and Pages verification.",
+    "last_checkpoint": "repository_publish",
+    "last_checkpoint_at": "2026-10-27T03:03:00+04:00"
   },
   "workflow_id": "quran_reflections",
   "run_lease": {
@@ -519,7 +550,8 @@
     "independent_critique",
     "english_draft",
     "bilingual_parity",
-    "quality_gate"
+    "quality_gate",
+    "repository_publish"
   ],
   "duplicate_check": {
     "status": "passed",
