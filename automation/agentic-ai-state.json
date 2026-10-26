@@ -7,9 +7,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-26T22:20:00+04:00",
+  "updated_at": "2026-10-26T22:24:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "metric_reconstruction",
+  "current_stage": "arabic_draft",
   "run_lease": {
     "owner": "scheduled-agentic-ai-2026-10-26",
     "acquired_at": "2026-10-26T22:03:00+04:00",
@@ -73,7 +73,7 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Reconstruct and check every headline metric, denominator and rounded value; save metrics-check.md before drafting.",
+  "next_action": "Draft the Arabic article from the Evidence Pack with problem-first narrative, explicit metric definitions, denominators, hypothetical example, limits, 10X decisions and references.",
   "last_run": {
     "mode": "scheduled_daily",
     "status": "in_progress",
