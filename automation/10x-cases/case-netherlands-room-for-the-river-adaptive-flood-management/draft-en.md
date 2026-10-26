@@ -107,10 +107,6 @@ Start with the future in which the institution must operate, then preserve optio
 
 What future do we want our institution to operate in several years from now, and what should it be able to see, decide and execute then that it cannot do today? If that is the future we want, which space, data, skills, governance and ways of working must we begin building now—before the available options become more expensive or impossible?
 
-## Video explainer
-
-**Rijkswaterstaat — Corporate Clip Room for the River (English)**  
-https://www.youtube.com/watch?v=slmkG93SH3Q
 
 **Editorial notice:**  
 The opinions and analyses presented in this article reflect the author’s professional judgment based on the cited sources and do not necessarily represent the official positions of the organisations mentioned. For the original, complete and most up-to-date information and references, please consult the original sources and official documents listed below.
