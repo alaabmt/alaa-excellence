@@ -7,10 +7,14 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-26T11:24:00+04:00",
+  "updated_at": "2026-10-26T12:16:44+04:00",
   "workflow_status": "in_progress",
   "current_stage": "repository_publish",
-  "run_lease": null,
+  "run_lease": {
+    "owner": "central-coordinator-2026-10-26T1216",
+    "acquired_at": "2026-10-26T12:16:44+04:00",
+    "expires_at": "2026-10-26T14:06:44+04:00"
+  },
   "current_item": {
     "slug": "case-netherlands-room-for-the-river-adaptive-flood-management",
     "publication_date": "2026-10-26",
@@ -133,7 +137,7 @@
     "started_at": "2026-10-26T07:34:24+04:00",
     "completed_at": null,
     "notes": "Guides re-read; previous London cycle completed; no unexpired lease and no 10X case dated 2026-10-26 found in the state, publication-date registry, or Arabic/English indexes.",
-    "resumed_at": "2026-10-26T11:00:47+04:00",
+    "resumed_at": "2026-10-26T12:16:44+04:00",
     "resumed_by": "central-coordinator",
     "last_checkpoint": "final_quality_gate",
     "last_checkpoint_at": "2026-10-26T11:24:00+04:00"
