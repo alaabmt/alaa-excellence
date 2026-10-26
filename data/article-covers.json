@@ -1,9 +1,30 @@
 {
-  "version": "20261026-al-balad",
+  "version": "20261026-room-river",
   "width": 1200,
   "height": 630,
   "maxBytes": 170000,
   "cards": [
+    {
+      "slug": "case-netherlands-room-for-the-river-adaptive-flood-management",
+      "background": "assets/previews/story-backgrounds/case-dewa-hydro-insight-smart-water.jpg",
+      "category": "case",
+      "ar": {
+        "title": [
+          "حين أعطت هولندا",
+          "النهر مساحة"
+        ],
+        "subtitle": "34 موقعًا أعادت تصميم الحماية حول نهر متغير.",
+        "alt": "غلاف لحالة مساحة للنهر في هولندا، يظهر مجرى نهري واسعًا وسدودًا متراجعة ضمن مشهد مائي متكيف."
+      },
+      "en": {
+        "title": [
+          "When the Netherlands",
+          "Gave Rivers More Room"
+        ],
+        "subtitle": "A 34-location portfolio redesigned flood protection.",
+        "alt": "Cover for the Netherlands Room for the River case, showing a widened river corridor and set-back dikes in an adaptive waterscape."
+      }
+    },
     {
       "slug": "case-london-ulez-clean-air-operating-model",
       "reference": true,
