@@ -5,7 +5,7 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-26T03:13:00+04:00",
+  "updated_at": "2026-10-26T03:58:30+04:00",
   "workflow_status": "in_progress",
   "current_stage": "actions_and_pages",
   "current_article": {
@@ -228,14 +228,14 @@
     "mode": "coordinator_daily_start",
     "status": "in_progress",
     "started_at": "2026-10-25T17:04:58+04:00",
-    "starting_head": null,
+    "starting_head": "66bfae5dfda2062918733e06cc03400a140f38d0",
     "notes": "Repository publication completed and reconciled after verifying topic-registry side effect, paired pages, four indexes, data manifests, sitemap and generated bilingual social assets on main. Actions and Pages reconciliation remains.",
     "last_checkpoint": "repository_publish",
     "last_checkpoint_at": "2026-10-26T03:13:00+04:00",
     "topic_selection_commit": "38443c4497625d55012b6093fbbbe4db8e423ef5",
     "research_commit": "8c477f7da206979894c424ee5d424bee7aec62c1",
     "quran_verification_commit": "f0d3d42faba405f97c29dde7eaa9dc16d149e00b",
-    "resumed_at": "2026-10-26T03:05:24+04:00",
+    "resumed_at": "2026-10-26T03:58:30+04:00",
     "resumed_by": "central-coordinator",
     "arabic_draft_commit": "c8711f8125a2becb054f020202fe7d64ebb3bb4d",
     "arabic_revision_commit": "0492f4b34050a2c68159a7b4e3711e73049ff74d",
@@ -248,7 +248,11 @@
     "social_assets_commit": "e67c800fb42d841e7ee2f9073f22d0399336a14b"
   },
   "workflow_id": "quran_reflections",
-  "run_lease": null,
+  "run_lease": {
+    "owner": "central-coordinator",
+    "acquired_at": "2026-10-26T03:58:30+04:00",
+    "expires_at": "2026-10-26T05:48:30+04:00"
+  },
   "checkpoint_policy": {
     "checkpoint_after_every_stage": true,
     "run_lease_minutes": 110,
