@@ -5,7 +5,7 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-27T00:12:00+04:00",
+  "updated_at": "2026-10-27T00:57:31+04:00",
   "workflow_status": "in_progress",
   "current_stage": "repository_publish",
   "current_article": {
@@ -173,15 +173,16 @@
   "last_run": {
     "mode": "coordinator_resume",
     "status": "in_progress",
-    "started_at": "2026-10-26T21:55:48+04:00",
-    "starting_head": "7acefe6f32f057802afc15e5fe3a1a55dced8140",
-    "notes": "No unfinished workflows. After 17:00 Dubai, duplicate checks found no Qur’anic reflection started or published for 2026-10-26 in the state, topic registry, Quran indexes, repository search, article indexes, publication-date registry or sitemap.",
-    "last_checkpoint": "quality_gate",
-    "last_checkpoint_at": "2026-10-27T00:12:00+04:00",
-    "resumed_at": "2026-10-27T00:00:21+04:00"
+    "started_at": "2026-10-27T00:57:31+04:00",
+    "starting_head": "513318afd6ab7cf630de17e961f18489ebab9bd1",
+    "notes": "Selected as the only unfinished workflow after capability, registry, state and lease checks; resuming repository_publish from the saved checkpoint."
   },
   "workflow_id": "quran_reflections",
-  "run_lease": null,
+  "run_lease": {
+    "owner": "central-resume-coordinator",
+    "acquired_at": "2026-10-27T00:57:31+04:00",
+    "expires_at": "2026-10-27T02:47:31+04:00"
+  },
   "checkpoint_policy": {
     "checkpoint_after_every_stage": true,
     "run_lease_minutes": 110,
