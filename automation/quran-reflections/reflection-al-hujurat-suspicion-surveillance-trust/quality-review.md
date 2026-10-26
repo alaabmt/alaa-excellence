@@ -85,3 +85,68 @@
 ## Decision
 
 **PASS after one heading-alignment revision.** The bilingual pair preserves the same evidence, interpretation limits, hypothetical status, ethical questions and 10X application. Proceed to the 100-point final quality gate. Mobile/RTL/TTS remain NOT VERIFIED until final HTML.
+
+# Final 100-point quality gate
+
+**Gate date:** 27 October 2026  
+**Threshold:** 90/100  
+**Result:** **98/100 — PASS**  
+**Blocking Qur’an, tafsir, creed, parity or methodological errors:** none
+
+| Category | Maximum | Score | Assessment |
+|---|---:|---:|---|
+| Qur’an text, surah, numbering and context | 20 | 20 | Arabic 49:12 is verified; both editions preserve the 49:10–13 context and identify Sahih International. |
+| Tafsir and creed | 20 | 20 | Claims remain within al-Tabari, Ibn Kathir, al-Qurtubi and al-Saʿdi; no claim about the unseen or new legal ruling. |
+| Separation of tafsir, reflection and application | 15 | 15 | The reflective sequence is labeled as reflection and the monitoring case is explicitly hypothetical. |
+| Original Arabic and editorial clarity | 10 | 10 | Arabic passed the independent critique after first-use definitions for governance and institutional intelligence. |
+| Natural English and translation attribution | 10 | 9 | English reads as authored prose and attributes the Qur’an excerpt; one point retained as caution against over-formal phrasing during HTML conversion. |
+| Bilingual parity | 10 | 10 | Titles, claims, caveats, questions, 10X angles and source order match after heading alignment. |
+| Contemporary application discipline | 5 | 5 | One bounded example; no blanket equation between authorized inquiry and tajassus. |
+| References and traceability | 5 | 5 | Five identical source URLs appear in the same order in both drafts. |
+| Originality, structure and conclusion | 5 | 4 | Distinct angle and verse-centered close; final HTML must avoid duplicating restraint/capability phrases in extra callout boxes. |
+| **Total** | **100** | **98** | **PASS** |
+
+## Blocking checks
+
+- Arabic Qur’an text, surah and ayah number: **PASS**
+- Sahih International attribution: **PASS**
+- Immediate context: **PASS**
+- Tafsir attribution and limits: **PASS**
+- Creed and avoidance of management claims attributed to revelation: **PASS**
+- Ghibah / buhtan distinction: **PASS**
+- Hypothetical example label: **PASS**
+- No invented institution, event result or quantitative claim: **PASS**
+- Arabic and English naturalness: **PASS**
+- Bilingual meaning, caveats and references: **PASS**
+- Prior duplicate check: **PASS**, and must be repeated immediately before public-file writes
+
+## Novice-comprehension gate
+
+| Gate | Arabic | English | Evidence |
+|---|---|---|---|
+| Title clarity | PASS | PASS | Both titles directly identify the question of seeking concealed information and injustice. |
+| First 30 seconds | PASS | PASS | Both open with an ambiguous employee alert escalating into intrusion and absent-person discussion. |
+| One-sentence comprehension | PASS | PASS | Both can be summarized as stopping unsupported suspicion before it becomes a search for hidden faults and harm to an absent person. |
+| First-use terminology | PASS | PASS | Governance and institutional intelligence receive direct functional definitions. |
+| Numbers and evidence | PASS | PASS | No empirical result or percentage is claimed; verse and reference numbers are sourced. |
+| Language editing | PASS | PASS | No meaning-changing error or blocking translation structure found. |
+| Actual mobile rendering | NOT VERIFIED | NOT VERIFIED | Final HTML does not yet exist. |
+| RTL and mixed-direction links | NOT VERIFIED | Not applicable before HTML | Must be tested on the final Arabic page. |
+| TTS and listening controls | NOT VERIFIED | NOT VERIFIED | Must be tested on the final pages. |
+
+The novice test is an editorial simulation, not a human-reader study.
+
+## Publication constraints
+
+This score authorizes preparation of repository publication files only. It is not a claim that the article is published or fully ready. Before any public write:
+
+1. Re-read the checkpoint and latest main head.
+2. Recheck the topic registry, intended Arabic and English page paths, four indexes, publication-date registry, sitemap and both expected live URLs.
+3. Build separate Arabic and English pages with reciprocal canonical/hreflang, Article schema, author/date metadata and visible methodology/source boundaries.
+4. Create separate 1200×630 social images and verify them.
+5. Run actual narrow-width, RTL, mixed-direction-link and TTS tests.
+6. Wait for required Actions and GitHub Pages on the exact final head, then inspect live pages and indexes.
+
+## Gate decision
+
+**PASS at 98/100.** The next permitted stage is `repository_publish` after a fresh duplicate-and-destination reconciliation. No public page, index, registry, sitemap or live destination was changed by this gate.

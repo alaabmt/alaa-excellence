@@ -5,9 +5,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-27T00:06:00+04:00",
+  "updated_at": "2026-10-27T00:12:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "quality_gate",
+  "current_stage": "repository_publish",
   "current_article": {
     "article_id": "quran-reflection-2026-10-26-al-hujurat-suspicion-surveillance-trust",
     "publication_date": "2026-10-26",
@@ -16,7 +16,7 @@
     "topic_en": "Suspicion, spying and backbiting: what the verse protects in a person's dignity when they are absent",
     "working_title_ar": "متى تتحول الرغبة في معرفة ما يخفيه الناس إلى ظلم؟",
     "working_title_en": "When Does the Desire to Know What People Conceal Become an Injustice?",
-    "status": "bilingual_parity_passed",
+    "status": "quality_gate_passed",
     "quranic_focus": {
       "surah": "Al-Hujurat",
       "surah_ar": "الحجرات",
@@ -125,6 +125,17 @@
       "same_source_urls": 5,
       "completed_at": "2026-10-27T00:06:00+04:00",
       "mobile_gate": "NOT VERIFIED until final HTML"
+    },
+    "quality_gate": {
+      "status": "passed",
+      "score": 98,
+      "threshold": 90,
+      "blocking_errors": [],
+      "review_path": "automation/quran-reflections/reflection-al-hujurat-suspicion-surveillance-trust/quality-review.md",
+      "completed_at": "2026-10-27T00:12:00+04:00",
+      "mobile_gate": "NOT VERIFIED until final HTML",
+      "rtl_gate": "NOT VERIFIED until final HTML",
+      "tts_gate": "NOT VERIFIED until final HTML"
     }
   },
   "stage_order": [
@@ -158,23 +169,19 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Run the final 100-point quality gate on both drafts, requiring at least 90 with no blocking Qur’an, tafsir, creed, language-parity or methodological error; record score and blockers in quality-review.md before any repository publication.",
+  "next_action": "Before any public write, reconcile duplicate and destination state across the checkpoint, topic registry, Arabic/English target pages, four indexes, publication-date registry, sitemap and both expected live URLs. If clear, build and commit the bilingual HTML pages and required repository records/assets from the passed drafts, then checkpoint repository_publish.",
   "last_run": {
     "mode": "coordinator_resume",
     "status": "in_progress",
     "started_at": "2026-10-26T21:55:48+04:00",
     "starting_head": "7acefe6f32f057802afc15e5fe3a1a55dced8140",
     "notes": "No unfinished workflows. After 17:00 Dubai, duplicate checks found no Qur’anic reflection started or published for 2026-10-26 in the state, topic registry, Quran indexes, repository search, article indexes, publication-date registry or sitemap.",
-    "last_checkpoint": "bilingual_parity",
-    "last_checkpoint_at": "2026-10-27T00:06:00+04:00",
+    "last_checkpoint": "quality_gate",
+    "last_checkpoint_at": "2026-10-27T00:12:00+04:00",
     "resumed_at": "2026-10-27T00:00:21+04:00"
   },
   "workflow_id": "quran_reflections",
-  "run_lease": {
-    "owner": "central-coordinator-2026-10-27T0000",
-    "acquired_at": "2026-10-27T00:00:21+04:00",
-    "expires_at": "2026-10-27T01:50:21+04:00"
-  },
+  "run_lease": null,
   "checkpoint_policy": {
     "checkpoint_after_every_stage": true,
     "run_lease_minutes": 110,
@@ -485,7 +492,8 @@
     "arabic_draft",
     "independent_critique",
     "english_draft",
-    "bilingual_parity"
+    "bilingual_parity",
+    "quality_gate"
   ],
   "duplicate_check": {
     "status": "passed",
