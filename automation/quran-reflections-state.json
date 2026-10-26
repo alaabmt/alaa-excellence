@@ -5,9 +5,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-26T22:01:16+04:00",
+  "updated_at": "2026-10-26T22:02:09+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "quran_verification",
+  "current_stage": "arabic_draft",
   "current_article": {
     "article_id": "quran-reflection-2026-10-26-al-hujurat-suspicion-surveillance-trust",
     "publication_date": "2026-10-26",
@@ -16,7 +16,7 @@
     "topic_en": "Suspicion, spying and backbiting: what the verse protects in a person's dignity when they are absent",
     "working_title_ar": "متى تتحول الرغبة في معرفة ما يخفيه الناس إلى ظلم؟",
     "working_title_en": "When Does the Desire to Know What People Conceal Become an Injustice?",
-    "status": "research_completed",
+    "status": "quran_verified",
     "quranic_focus": {
       "surah": "Al-Hujurat",
       "surah_ar": "الحجرات",
@@ -28,7 +28,7 @@
         11,
         13
       ],
-      "status": "pending_verification"
+      "status": "verified"
     },
     "research_notes_path": "automation/quran-reflections/reflection-al-hujurat-suspicion-surveillance-trust/research-notes.md",
     "research_status": "completed",
@@ -72,6 +72,28 @@
         "url": "https://quran.ksu.edu.sa/tafseer/saadi/sura49-aya12.html",
         "status": "reviewed"
       }
+    ],
+    "research_commit": "de0024836493abc5f48c13a1bf3c9d302f998eae",
+    "verified_quranic_references": [
+      {
+        "surah": "Al-Hujurat",
+        "surah_ar": "الحجرات",
+        "ayahs": [
+          12
+        ],
+        "context_ayahs": [
+          10,
+          11,
+          13
+        ],
+        "status": "verified",
+        "primary_text_urls": [
+          "https://legacy.quran.com/49/12",
+          "https://legacy.quran.com/49/10-13"
+        ],
+        "translation": "Sahih International",
+        "verified_at": "2026-10-26T22:02:09+04:00"
+      }
     ]
   },
   "stage_order": [
@@ -105,22 +127,18 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Perform the independent Qur’an-reference verification gate: re-check Al-Hujurat 49:12, Arabic text, Sahih International attribution, 49:10–13 context and every tafsir-derived claim; record the verified reference set before Arabic drafting.",
+  "next_action": "Draft the Arabic reflection from the verified research, following the repository editorial and TTS standards. Keep the monitoring example explicitly hypothetical, distinguish authorized proportionate inquiry from tajassus, and save draft-ar.md before independent critique.",
   "last_run": {
     "mode": "coordinator_daily_start",
     "status": "in_progress",
     "started_at": "2026-10-26T21:55:48+04:00",
     "starting_head": "20aadf100dc8c07a5a29239213b4523f3d16202d",
     "notes": "No unfinished workflows. After 17:00 Dubai, duplicate checks found no Qur’anic reflection started or published for 2026-10-26 in the state, topic registry, Quran indexes, repository search, article indexes, publication-date registry or sitemap.",
-    "last_checkpoint": "research",
-    "last_checkpoint_at": "2026-10-26T22:01:16+04:00"
+    "last_checkpoint": "quran_verification",
+    "last_checkpoint_at": "2026-10-26T22:02:09+04:00"
   },
   "workflow_id": "quran_reflections",
-  "run_lease": {
-    "owner": "central-coordinator-2026-10-26T2155",
-    "acquired_at": "2026-10-26T21:55:48+04:00",
-    "expires_at": "2026-10-26T23:45:48+04:00"
-  },
+  "run_lease": null,
   "checkpoint_policy": {
     "checkpoint_after_every_stage": true,
     "run_lease_minutes": 110,
@@ -426,7 +444,8 @@
     "load_checkpoint",
     "duplicate_check",
     "topic_selection",
-    "research"
+    "research",
+    "quran_verification"
   ],
   "duplicate_check": {
     "status": "passed",
@@ -445,5 +464,25 @@
     "finding": "No Qur’anic reflection cycle, registry entry, Quran-index card or reflection page dated 2026-10-26 exists. The date occurrences in general article records belong to the Netherlands 10X case, not a reflection."
   },
   "blocker": null,
-  "verified_quranic_references": []
+  "verified_quranic_references": [
+    {
+      "surah": "Al-Hujurat",
+      "surah_ar": "الحجرات",
+      "ayahs": [
+        12
+      ],
+      "context_ayahs": [
+        10,
+        11,
+        13
+      ],
+      "status": "verified",
+      "primary_text_urls": [
+        "https://legacy.quran.com/49/12",
+        "https://legacy.quran.com/49/10-13"
+      ],
+      "translation": "Sahih International",
+      "verified_at": "2026-10-26T22:02:09+04:00"
+    }
+  ]
 }

@@ -82,3 +82,20 @@ The verse protects absent dignity by interrupting a moral chain: do not treat un
 
 **Research status:** completed.  
 **Next gate:** independent Qur’an-reference verification before Arabic drafting.
+
+## Independent Qur’an-reference verification gate
+
+Completed on 26 October 2026 before Arabic drafting.
+
+- [x] Surah identity re-checked: Al-Hujurat / الحجرات, chapter 49.
+- [x] Focus ayah re-checked: 49:12; no adjacent verse was merged into the quotation.
+- [x] Arabic text cross-checked between Quran.com and the King Saud University tafsir pages; wording and ayah number match.
+- [x] Sahih International attribution and complete rendering checked at legacy Quran.com.
+- [x] Context 49:10–13 read as a continuous unit; summaries above remain faithful and are not presented as quotations.
+- [x] Al-Tabari, Ibn Kathir, Al-Qurtubi and Al-Saʿdi claims re-checked against their 49:12 pages.
+- [x] Ghibah/buhtan distinction verified across Al-Tabari, Ibn Kathir and Al-Qurtubi.
+- [x] Al-Qurtubi’s evidentiary boundary verified: unsupported accusation differs from judgment based on a valid sign or apparent cause.
+- [x] Modern monitoring scenario remains a contemporary application, not tafsir.
+- [x] No claim that the verse is a complete privacy law; no blanket condemnation of authorized, necessary and proportionate inquiry.
+
+**Verification result:** passed. Arabic drafting may begin from the verified reference set.
