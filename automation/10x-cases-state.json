@@ -7,13 +7,13 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-26T08:23:00+04:00",
+  "updated_at": "2026-10-26T11:00:47+04:00",
   "workflow_status": "in_progress",
   "current_stage": "final_quality_gate",
   "run_lease": {
-    "owner": "chatgpt-work-tenx-daily-2026-10-26T0734",
-    "acquired_at": "2026-10-26T07:35:00+04:00",
-    "expires_at": "2026-10-26T09:25:00+04:00"
+    "owner": "central-coordinator-2026-10-26T1100",
+    "acquired_at": "2026-10-26T11:00:47+04:00",
+    "expires_at": "2026-10-26T12:50:47+04:00"
   },
   "current_item": {
     "slug": "case-netherlands-room-for-the-river-adaptive-flood-management",
@@ -125,7 +125,9 @@
     "status": "in_progress",
     "started_at": "2026-10-26T07:34:24+04:00",
     "completed_at": null,
-    "notes": "Guides re-read; previous London cycle completed; no unexpired lease and no 10X case dated 2026-10-26 found in the state, publication-date registry, or Arabic/English indexes."
+    "notes": "Guides re-read; previous London cycle completed; no unexpired lease and no 10X case dated 2026-10-26 found in the state, publication-date registry, or Arabic/English indexes.",
+    "resumed_at": "2026-10-26T11:00:47+04:00",
+    "resumed_by": "central-coordinator"
   },
   "last_completed_item": {
     "slug": "case-london-ulez-clean-air-operating-model",
