@@ -5,9 +5,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-26T04:04:30+04:00",
+  "updated_at": "2026-10-26T04:07:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "live_verification",
+  "current_stage": "completion_report",
   "current_article": {
     "article_id": "quran-reflection-2026-10-25-al-balad-the-steep-path",
     "publication_date": "2026-10-25",
@@ -243,6 +243,38 @@
           "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40247410164"
         }
       }
+    },
+    "live_verification": {
+      "status": "passed",
+      "verified_at": "2026-10-26T04:07:00+04:00",
+      "deployed_head": "12303482fd990d339155f59ab327d5e55e1775d7",
+      "arabic_url": "https://tamayuz10x.com/reflection-al-balad-the-steep-path.html",
+      "english_url": "https://tamayuz10x.com/en/reflection-al-balad-the-steep-path.html",
+      "observed_titles": {
+        "ar": "ماذا يعني اقتحام العقبة في سورة البلد؟ | التميّز 10X",
+        "en": "What Does It Mean to Cross the Steep Path in Surah Al-Balad? | Tamayuz 10X"
+      },
+      "checks": {
+        "arabic_page": true,
+        "english_page": true,
+        "canonical": true,
+        "reciprocal_hreflang": true,
+        "rtl_ltr": true,
+        "metadata": true,
+        "article_schema_org": true,
+        "english_visible_arabic_leakage": false,
+        "arabic_cover_1200x630": true,
+        "english_cover_1200x630": true,
+        "articles_index_ar_single_card": true,
+        "articles_index_en_single_card": true,
+        "quranic_index_ar_single_card": true,
+        "quranic_index_en_single_card": true,
+        "sitemap_one_loc_per_language": true
+      },
+      "sitemap_locs": [
+        "https://tamayuz10x.com/reflection-al-balad-the-steep-path.html",
+        "https://tamayuz10x.com/en/reflection-al-balad-the-steep-path.html"
+      ]
     }
   },
   "stage_order": [
@@ -276,15 +308,15 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Verify the Arabic and English live pages after the successful exact-head Pages deployment, including titles, canonical and reciprocal hreflang, Article schema, RTL/LTR, absence of visible Arabic leakage in the English article, both 1200x630 social cards, one article card in each of the four live indexes, and exactly one sitemap URL per language. Save the live-verification checkpoint before the completion report.",
+  "next_action": "Create and commit publication-report.md with the Arabic and English titles and live URLs, quality score 98/100, first publication commits, language-isolation fix, Actions results, exact-head Pages success and live verification evidence. Then re-read main and the checkpoint, mark the workflow completed, archive the article as last_completed_article and release the lease.",
   "last_run": {
     "mode": "coordinator_daily_start",
     "status": "in_progress",
     "started_at": "2026-10-25T17:04:58+04:00",
     "starting_head": "66bfae5dfda2062918733e06cc03400a140f38d0",
-    "notes": "Actions and Pages reconciled after correcting visible Arabic leakage in the English article. All required checks passed on the fix head and Pages succeeded for descendant head 12303482.",
-    "last_checkpoint": "actions_and_pages",
-    "last_checkpoint_at": "2026-10-26T04:04:30+04:00",
+    "notes": "Both live pages, metadata, reciprocal hreflang, Article schema, RTL/LTR, English language isolation, both 1200x630 social cards, four single-card index placements and two unique sitemap locations were verified after successful Pages deployment.",
+    "last_checkpoint": "live_verification",
+    "last_checkpoint_at": "2026-10-26T04:07:00+04:00",
     "topic_selection_commit": "38443c4497625d55012b6093fbbbe4db8e423ef5",
     "research_commit": "8c477f7da206979894c424ee5d424bee7aec62c1",
     "quran_verification_commit": "f0d3d42faba405f97c29dde7eaa9dc16d149e00b",
@@ -596,7 +628,8 @@
     "bilingual_parity",
     "quality_gate",
     "repository_publish",
-    "actions_and_pages"
+    "actions_and_pages",
+    "live_verification"
   ],
   "duplicate_check": {
     "status": "passed",
