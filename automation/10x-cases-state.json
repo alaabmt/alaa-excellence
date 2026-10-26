@@ -7,9 +7,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-26T08:00:00+04:00",
+  "updated_at": "2026-10-26T08:08:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "arabic_draft",
+  "current_stage": "company_insider_critique",
   "run_lease": {
     "owner": "chatgpt-work-tenx-daily-2026-10-26T0734",
     "acquired_at": "2026-10-26T07:35:00+04:00",
@@ -56,6 +56,11 @@
       "pillar_gap": [
         4
       ]
+    },
+    "arabic_draft": {
+      "status": "drafted_pre_critique",
+      "path": "automation/10x-cases/case-netherlands-room-for-the-river-adaptive-flood-management/draft-ar.md",
+      "commit": "4143989f4be3c16b2763ad5e8bf741da1754c868"
     }
   },
   "stage_order": [
@@ -97,7 +102,7 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Write the original Arabic executive case, problem-first and evidence-led, preserving all confidence limits and exact editorial disclosure.",
+  "next_action": "Run Company Insider Critique as a simulation, verify every criticism against public evidence, revise the Arabic draft, and preserve unresolved gaps.",
   "last_run": {
     "mode": "daily_primary_run",
     "status": "in_progress",
@@ -232,6 +237,7 @@
     "duplicate_check",
     "candidate_scan",
     "evidence_pack",
-    "backcasting_and_10x_analysis"
+    "backcasting_and_10x_analysis",
+    "arabic_draft"
   ]
 }
