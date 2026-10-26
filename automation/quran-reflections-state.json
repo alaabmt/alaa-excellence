@@ -5,17 +5,41 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-26T21:55:48+04:00",
+  "updated_at": "2026-10-26T22:01:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "topic_selection",
+  "current_stage": "research",
   "current_article": {
-    "article_id": "quran-reflection-2026-10-26-pending",
+    "article_id": "quran-reflection-2026-10-26-al-hujurat-suspicion-surveillance-trust",
     "publication_date": "2026-10-26",
-    "status": "topic_selection_pending",
+    "slug": "reflection-al-hujurat-suspicion-surveillance-trust",
+    "topic_ar": "سوء الظن والتجسس والغيبة: ما الذي تحميه الآية في كرامة الإنسان حين يغيب؟",
+    "topic_en": "Suspicion, spying and backbiting: what the verse protects in a person's dignity when they are absent",
+    "working_title_ar": "متى تتحول الرغبة في معرفة ما يخفيه الناس إلى ظلم؟",
+    "working_title_en": "When Does the Desire to Know What People Conceal Become an Injustice?",
+    "status": "topic_selected",
+    "quranic_focus": {
+      "surah": "Al-Hujurat",
+      "surah_ar": "الحجرات",
+      "ayahs": [
+        12
+      ],
+      "context_ayahs": [
+        10,
+        11,
+        13
+      ],
+      "status": "pending_verification"
+    },
+    "research_notes_path": "automation/quran-reflections/reflection-al-hujurat-suspicion-surveillance-trust/research-notes.md",
+    "research_status": "pending",
     "topic_selection": {
-      "status": "pending",
-      "candidates": [],
-      "selected": null
+      "status": "completed",
+      "candidates": [
+        "Al-Hujurat 49:12 — suspicion, spying and the dignity of what remains unseen",
+        "Al-Mutaffifin 83:1–6 — demanding a full measure while giving less",
+        "Al-Ma’idah 5:2 — the boundary of cooperation"
+      ],
+      "selected": "Al-Hujurat 49:12 — suspicion, spying and the dignity of what remains unseen"
     }
   },
   "stage_order": [
@@ -49,15 +73,15 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Generate three concise, non-duplicate Qur’anic reflection angles after comparing the published-topic registry, then select one with a single central question and save the topic-selection artifact before research.",
+  "next_action": "Research and verify Qur’an 49:12 in its 49:10–13 context using the Qur’an text, Sahih International and established tafsir sources; distinguish سوء الظن, التجسس and الغيبة, record interpretive limits and save the completed research notes before Qur’an verification.",
   "last_run": {
     "mode": "coordinator_daily_start",
     "status": "in_progress",
     "started_at": "2026-10-26T21:55:48+04:00",
     "starting_head": "20aadf100dc8c07a5a29239213b4523f3d16202d",
     "notes": "No unfinished workflows. After 17:00 Dubai, duplicate checks found no Qur’anic reflection started or published for 2026-10-26 in the state, topic registry, Quran indexes, repository search, article indexes, publication-date registry or sitemap.",
-    "last_checkpoint": "duplicate_check",
-    "last_checkpoint_at": "2026-10-26T21:55:48+04:00"
+    "last_checkpoint": "topic_selection",
+    "last_checkpoint_at": "2026-10-26T22:01:00+04:00"
   },
   "workflow_id": "quran_reflections",
   "run_lease": {
@@ -368,7 +392,8 @@
   "completed_stages": [
     "capability_check",
     "load_checkpoint",
-    "duplicate_check"
+    "duplicate_check",
+    "topic_selection"
   ],
   "duplicate_check": {
     "status": "passed",
