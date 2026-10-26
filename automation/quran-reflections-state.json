@@ -5,10 +5,19 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-26T04:10:30+04:00",
-  "workflow_status": "completed",
-  "current_stage": "completed",
-  "current_article": null,
+  "updated_at": "2026-10-26T21:55:48+04:00",
+  "workflow_status": "in_progress",
+  "current_stage": "topic_selection",
+  "current_article": {
+    "article_id": "quran-reflection-2026-10-26-pending",
+    "publication_date": "2026-10-26",
+    "status": "topic_selection_pending",
+    "topic_selection": {
+      "status": "pending",
+      "candidates": [],
+      "selected": null
+    }
+  },
   "stage_order": [
     "capability_check",
     "load_checkpoint",
@@ -40,36 +49,22 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "At or after 17:00 Asia/Dubai on the next eligible local date, first verify no Qur’anic reflection has already been started or published for that date, then acquire a new lease before topic selection. Before 17:00, or if that date already has a cycle, no-op.",
+  "next_action": "Generate three concise, non-duplicate Qur’anic reflection angles after comparing the published-topic registry, then select one with a single central question and save the topic-selection artifact before research.",
   "last_run": {
     "mode": "coordinator_daily_start",
-    "status": "completed",
-    "started_at": "2026-10-25T17:04:58+04:00",
-    "starting_head": "66bfae5dfda2062918733e06cc03400a140f38d0",
-    "notes": "Al-Balad reflection completed: quality 98/100; paired pages, bilingual 1200x630 covers, Actions, exact-head Pages, live pages, four indexes, metadata and sitemap verified. English visible Arabic leakage found by Site health was corrected before completion.",
-    "last_checkpoint": "completed",
-    "last_checkpoint_at": "2026-10-26T04:10:30+04:00",
-    "topic_selection_commit": "38443c4497625d55012b6093fbbbe4db8e423ef5",
-    "research_commit": "8c477f7da206979894c424ee5d424bee7aec62c1",
-    "quran_verification_commit": "f0d3d42faba405f97c29dde7eaa9dc16d149e00b",
-    "resumed_at": "2026-10-26T03:58:30+04:00",
-    "resumed_by": "central-coordinator",
-    "arabic_draft_commit": "c8711f8125a2becb054f020202fe7d64ebb3bb4d",
-    "arabic_revision_commit": "0492f4b34050a2c68159a7b4e3711e73049ff74d",
-    "independent_critique_commit": "f5f230131bb985a45b30a2548ee3ee09e6277d15",
-    "english_draft_commit": "fdc7e68b199aa9aab80a6d5284e69f6d6683a3e5",
-    "bilingual_parity_commit": "a78d7018b838ff85d77c9a971c8f2454daeb7685",
-    "quality_gate_commit": "bc8e3e30d546d563a670691ad7e0ca152229b0ce",
-    "quality_score": 98,
-    "repository_publish_report_commit": "8ec8c664a97b90409668e24643e1cb9676c26e97",
-    "social_assets_commit": "e67c800fb42d841e7ee2f9073f22d0399336a14b",
-    "actions_and_pages_report_commit": "ff5b5ea319f30d9c63a238d25230f81dafb76552",
-    "completed_at": "2026-10-26T04:10:30+04:00",
-    "publication_report_commit": "859946e417ceaf8bec902cf4b439fc47e2efded3",
-    "final_pages_run": "https://github.com/alaabmt/alaa-excellence/actions/runs/40247740197"
+    "status": "in_progress",
+    "started_at": "2026-10-26T21:55:48+04:00",
+    "starting_head": "20aadf100dc8c07a5a29239213b4523f3d16202d",
+    "notes": "No unfinished workflows. After 17:00 Dubai, duplicate checks found no Qur’anic reflection started or published for 2026-10-26 in the state, topic registry, Quran indexes, repository search, article indexes, publication-date registry or sitemap.",
+    "last_checkpoint": "duplicate_check",
+    "last_checkpoint_at": "2026-10-26T21:55:48+04:00"
   },
   "workflow_id": "quran_reflections",
-  "run_lease": null,
+  "run_lease": {
+    "owner": "central-coordinator-2026-10-26T2155",
+    "acquired_at": "2026-10-26T21:55:48+04:00",
+    "expires_at": "2026-10-26T23:45:48+04:00"
+  },
   "checkpoint_policy": {
     "checkpoint_after_every_stage": true,
     "run_lease_minutes": 110,
@@ -369,28 +364,15 @@
       "english_url": "https://tamayuz10x.com/en/reflection-al-balad-the-steep-path.html"
     }
   },
-  "run_date": "2026-10-25",
+  "run_date": "2026-10-26",
   "completed_stages": [
     "capability_check",
     "load_checkpoint",
-    "duplicate_check",
-    "topic_selection",
-    "research",
-    "quran_verification",
-    "arabic_draft",
-    "independent_critique",
-    "english_draft",
-    "bilingual_parity",
-    "quality_gate",
-    "repository_publish",
-    "actions_and_pages",
-    "live_verification",
-    "completion_report",
-    "completed"
+    "duplicate_check"
   ],
   "duplicate_check": {
     "status": "passed",
-    "checked_at": "2026-10-25T17:08:00+04:00",
+    "checked_at": "2026-10-26T21:55:48+04:00",
     "checked": [
       "checkpoint",
       "topic registry",
@@ -400,30 +382,10 @@
       "quranic-reflections.html",
       "en/quranic-reflections.html",
       "sitemap.xml",
-      "intended public URLs",
-      "exact-slug and exact-topic indexed web search"
+      "article-publication-dates.json"
     ],
-    "finding": "No 25 October article or cycle exists. No repository or indexed-live result matched Al-Balad 90:11–17, العقبة, steep path, the proposed slug, or the intended Arabic and English URLs. Direct URL retrieval was inaccessible, so repository, sitemap, index and exact indexed-search results are the affirmative duplicate evidence."
+    "finding": "No Qur’anic reflection cycle, registry entry, Quran-index card or reflection page dated 2026-10-26 exists. The date occurrences in general article records belong to the Netherlands 10X case, not a reflection."
   },
   "blocker": null,
-  "verified_quranic_references": [
-    {
-      "surah": "Al-Kahf",
-      "surah_ar": "الكهف",
-      "ayahs": [
-        23,
-        24
-      ],
-      "context_ayahs": [
-        22,
-        25
-      ],
-      "status": "verified",
-      "primary_text_urls": [
-        "https://legacy.quran.com/18/23-24"
-      ],
-      "translation": "Sahih International",
-      "verified_at": "2026-10-23T18:10:00+04:00"
-    }
-  ]
+  "verified_quranic_references": []
 }
