@@ -5,7 +5,7 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-27T01:07:00+04:00",
+  "updated_at": "2026-10-27T03:00:35+04:00",
   "workflow_status": "in_progress",
   "current_stage": "repository_publish",
   "current_article": {
@@ -198,16 +198,15 @@
   "last_run": {
     "mode": "coordinator_resume",
     "status": "in_progress",
-    "started_at": "2026-10-27T00:57:31+04:00",
-    "starting_head": "513318afd6ab7cf630de17e961f18489ebab9bd1",
-    "notes": "Committed both HTML pages, four index cards, cover manifest entry, publication-date entries and two sitemap URLs after repository and live duplicate checks. The sitemap bot reconciled the entries at the latest descendant head. Generated social assets remain pending.",
-    "last_checkpoint": "quality_gate"
+    "started_at": "2026-10-27T03:00:35+04:00",
+    "starting_head": "a9dc4b7d37e600dcb77b870470860b5fa98b60c6",
+    "notes": "Reacquired an expired lease and resumed repository_publish by reconciling the already committed text pages, generated social cards and repository checks; no completed public write will be replayed."
   },
   "workflow_id": "quran_reflections",
   "run_lease": {
     "owner": "central-resume-coordinator",
-    "acquired_at": "2026-10-27T00:57:31+04:00",
-    "expires_at": "2026-10-27T02:47:31+04:00"
+    "acquired_at": "2026-10-27T03:00:35+04:00",
+    "expires_at": "2026-10-27T04:50:35+04:00"
   },
   "checkpoint_policy": {
     "checkpoint_after_every_stage": true,
