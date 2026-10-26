@@ -34,7 +34,7 @@
 - Both reject a system-wide causal estimate of national flood-risk reduction.
 - Both frame Room for the River 2.0 as continuing adaptation, not validation of every earlier choice.
 - Both end with an equivalent future-first 10X question.
-- Both place the verified official video after the 10X question and before disclosure/references.
+- Both omit video after the proposed YouTube URL could not be independently verified as available and embeddable; no factual claim depends on it.
 
 ## Editorial equivalence
 
@@ -57,4 +57,4 @@ The Arabic draft contains the exact mandatory Arabic editorial notice. The Engli
 - Preserve exact numerical wording in HTML metadata and social cards.
 - Ensure canonical and reciprocal hreflang match the final URLs.
 - Do not abbreviate the social-preview subtitle into a stronger causal claim.
-- Keep the YouTube embed non-autoplay and after the 10X question.
+- Publish without a video unless a later preflight identifies a relevant, available and embeddable verified source.
