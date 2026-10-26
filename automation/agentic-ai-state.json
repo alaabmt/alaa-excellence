@@ -7,9 +7,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-26T22:12:00+04:00",
+  "updated_at": "2026-10-26T22:20:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "evidence_pack",
+  "current_stage": "metric_reconstruction",
   "run_lease": {
     "owner": "scheduled-agentic-ai-2026-10-26",
     "acquired_at": "2026-10-26T22:03:00+04:00",
@@ -21,7 +21,7 @@
     "title_ar": "عندما لا يصل الوكيل إلى رقم قابل للحساب: هل يبرر فريق من الوكلاء كلفة أعلى بـ4.5 مرات؟",
     "title_en": "When One Agent Never Reaches the Number: Is a Multi-Agent Workflow Worth 4.5× the Time?",
     "research_status": "completed",
-    "evidence_pack_status": "in_progress",
+    "evidence_pack_status": "completed",
     "arabic_draft": {
       "status": "pending",
       "path": "article-agentic-ai-multi-agent-scientific-analysis-cost.html"
@@ -73,7 +73,7 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Build the claim-by-claim Evidence Pack from ST-Bench and the primary ScienceAgentBench source, then reconstruct every reported percentage and denominator.",
+  "next_action": "Reconstruct and check every headline metric, denominator and rounded value; save metrics-check.md before drafting.",
   "last_run": {
     "mode": "scheduled_daily",
     "status": "in_progress",
