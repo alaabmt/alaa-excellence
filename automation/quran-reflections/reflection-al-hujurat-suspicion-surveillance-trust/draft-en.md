@@ -61,7 +61,7 @@ The stated purpose is protection. Before deploying a tool, however, the institut
 
 This case is hypothetical, not an interpretation of the verse. It does not label every security audit as spying and it offers no legal or religious ruling on a specific system. Its purpose is narrower: to ask whether the institution is seeking a defined truth with the least necessary intrusion, or turning suspicion into an open license to collect people’s lives.
 
-## Three 10X questions
+## Three 10X angles
 
 The verse is not a modern management framework. It can, however, open responsible questions that connect with several Tamayuz 10X pillars.
 
