@@ -7,9 +7,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-26T12:16:44+04:00",
+  "updated_at": "2026-10-26T12:26:14.716+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "repository_publish",
+  "current_stage": "actions_and_pages",
   "run_lease": {
     "owner": "central-coordinator-2026-10-26T1216",
     "acquired_at": "2026-10-26T12:16:44+04:00",
@@ -89,6 +89,36 @@
       "parity_revision_commit": "791faa1877c4599410dcf791fde3cb09df7dfb82",
       "video_decision": "omitted_unverified",
       "blocking_errors": []
+    },
+    "covers": {
+      "source": "repository_social_card_generator",
+      "dimensions": "1200x630",
+      "sizes_bytes": {
+        "ar": 155251,
+        "en": 158897
+      },
+      "paths": [
+        "assets/previews/story/case-netherlands-room-for-the-river-adaptive-flood-management-ar.jpg",
+        "assets/previews/story/case-netherlands-room-for-the-river-adaptive-flood-management-en.jpg"
+      ],
+      "generation_run": "https://github.com/alaabmt/alaa-excellence/actions/runs/40291927866",
+      "sync_commit": "5f0d73cf0742a0968c08d973b5f7a63b6887e58c"
+    },
+    "publishing": {
+      "status": "repository_published_actions_in_progress",
+      "arabic_path": "case-netherlands-room-for-the-river-adaptive-flood-management.html",
+      "english_path": "en/case-netherlands-room-for-the-river-adaptive-flood-management.html",
+      "arabic_url": "https://tamayuz10x.com/case-netherlands-room-for-the-river-adaptive-flood-management.html",
+      "english_url": "https://tamayuz10x.com/en/case-netherlands-room-for-the-river-adaptive-flood-management.html",
+      "first_publication_commit": "f3da8a1df103d7983e6b6b036a0d5f35a518dea7",
+      "sitemap_reconciliation_commit": "ed568030d53d903174a6896c84e6de1f9151f5e0",
+      "cover_sync_commit": "5f0d73cf0742a0968c08d973b5f7a63b6887e58c",
+      "automated_checks": "passed_primary_publication_commit",
+      "pages": "reconciling_final_head"
+    },
+    "publication_report": {
+      "path": "automation/10x-cases/case-netherlands-room-for-the-river-adaptive-flood-management/publication-report.md",
+      "commit": "224e69995d7e66a65681ea935524d4691de1ce6a"
     }
   },
   "stage_order": [
@@ -130,17 +160,17 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Re-read main and the checkpoint; run duplicate and publication-destination preflight, then create the reviewed Arabic and English pages, original 1200×630 social cards, index/date/sitemap updates and repository publication report without embedding an unverified video.",
+  "next_action": "Re-read main and this checkpoint; reconcile GitHub Actions and Pages against the exact final content head, then verify both live pages, metadata, single index and sitemap entries, 1200×630 images, responsive rendering and browser console before completion.",
   "last_run": {
     "mode": "daily_primary_run",
     "status": "in_progress",
     "started_at": "2026-10-26T07:34:24+04:00",
     "completed_at": null,
-    "notes": "Guides re-read; previous London cycle completed; no unexpired lease and no 10X case dated 2026-10-26 found in the state, publication-date registry, or Arabic/English indexes.",
+    "notes": "Bilingual pages, indexes, date registry, sitemap and cover manifest published; social-card workflow generated and synchronized both 1200×630 assets; repository publication report saved. Actions and final-head Pages/live verification remain.",
     "resumed_at": "2026-10-26T12:16:44+04:00",
     "resumed_by": "central-coordinator",
-    "last_checkpoint": "final_quality_gate",
-    "last_checkpoint_at": "2026-10-26T11:24:00+04:00"
+    "last_checkpoint": "repository_publish",
+    "last_checkpoint_at": "2026-10-26T12:26:14.716+04:00"
   },
   "last_completed_item": {
     "slug": "case-london-ulez-clean-air-operating-model",
@@ -274,6 +304,7 @@
     "company_insider_critique",
     "english_draft",
     "bilingual_parity",
-    "final_quality_gate"
+    "final_quality_gate",
+    "repository_publish"
   ]
 }
