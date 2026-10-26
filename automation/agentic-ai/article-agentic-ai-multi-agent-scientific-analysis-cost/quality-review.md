@@ -93,3 +93,15 @@ Result: **PASS**.
 ## Native-English translation-detection test
 
 **PASS.** The English opening uses its own cadence and management framing; headings, transitions and sentence lengths are not mapped from Arabic. No sentence exists merely to preserve Arabic syntax. Facts, uncertainty, denominators, metric definitions and conclusions remain semantically aligned.
+
+
+## Repository and mobile gate — 2026-10-26 22:15 Asia/Dubai
+
+- Site health: PASS (run 40375529497).
+- Crawlability and sitemap: PASS (run 40375529558).
+- Editorial disclaimer: PASS (run 40375529716).
+- Article date integrity: PASS (run 40375529515).
+- Social cards: PASS (run 40375529667); the workflow reconciled the bilingual cover assets in commit 0c23fae8b1b5704f27028be6f5fd2aba396306ad.
+- Arabic editorial and actual Chromium mobile/RTL rendering: PASS (run 40375529726).
+- Static reconciliation: two article pages; one specialist-hub card per language; zero slug occurrences in the general article indexes; two sitemap entries; two 1200×630 social images.
+- A malformed Arabic canonical URL found by the first site-health run was corrected before publication; the repaired site-health and crawlability runs both passed.

@@ -1,7 +1,7 @@
 {
   "article": "article-agentic-ai-multi-agent-scientific-analysis-cost.html",
   "headline": "عندما لا يصل الوكيل إلى رقم قابل للحساب: هل يبرر فريق من الوكلاء كلفة أعلى بـ4.5 مرات؟",
-  "reviewed_at": "2026-10-26",
+  "reviewed_at": "2026-10-26T22:15:00+04:00",
   "reviewer": "AI editorial review (not a human reader test)",
   "summary": "اختبرت الدراسة 100 مهمة علمية؛ تجاوزت تسعة إعدادات متعددة الوكلاء خط الأساس، لكن أقوى درجة احتاجت نحو 4.5 أمثال الزمن، وكان المكسب أساساً في بلوغ حساب واقعي.",
   "gates": {
@@ -10,10 +10,10 @@
     "summary": "PASS",
     "terminology": "PASS",
     "evidence": "PASS",
-    "mobile": "NOT VERIFIED",
+    "mobile": "PASS",
     "language": "PASS"
   },
-  "mobile_evidence": "",
+  "mobile_evidence": "GitHub Actions Arabic editorial gate run 40375529726 rendered actual Chromium mobile widths and completed successfully.",
   "source_evidence": [
     {
       "claim": "100 tasks, 2,067 queries, and 1,184/391/492 split",
