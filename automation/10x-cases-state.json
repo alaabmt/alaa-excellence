@@ -7,14 +7,10 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-26T11:00:47+04:00",
+  "updated_at": "2026-10-26T11:24:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "final_quality_gate",
-  "run_lease": {
-    "owner": "central-coordinator-2026-10-26T1100",
-    "acquired_at": "2026-10-26T11:00:47+04:00",
-    "expires_at": "2026-10-26T12:50:47+04:00"
-  },
+  "current_stage": "repository_publish",
+  "run_lease": null,
   "current_item": {
     "slug": "case-netherlands-room-for-the-river-adaptive-flood-management",
     "publication_date": "2026-10-26",
@@ -78,6 +74,17 @@
       "status": "passed",
       "path": "automation/10x-cases/case-netherlands-room-for-the-river-adaptive-flood-management/bilingual-parity-review.md",
       "commit": "5a9cf9c8475e926d43352a9d4912078f575dd13a"
+    },
+    "final_quality_gate": {
+      "status": "passed_after_blocking_revisions",
+      "score": 96,
+      "path": "automation/10x-cases/case-netherlands-room-for-the-river-adaptive-flood-management/quality-review.md",
+      "commit": "3b759dd3e8980df5a65eeeab48d57064bac751c5",
+      "arabic_revision_commit": "8dd62d0b1f90e3b1b3bbe2cbfda769cda76b4017",
+      "english_revision_commit": "87abbf33e1e99c22bf1e830c99a840ae2d8eba89",
+      "parity_revision_commit": "791faa1877c4599410dcf791fde3cb09df7dfb82",
+      "video_decision": "omitted_unverified",
+      "blocking_errors": []
     }
   },
   "stage_order": [
@@ -119,7 +126,7 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Run final editorial, documentation, numerical, causal, independence, copyright, SEO and technical pre-publication gate.",
+  "next_action": "Re-read main and the checkpoint; run duplicate and publication-destination preflight, then create the reviewed Arabic and English pages, original 1200×630 social cards, index/date/sitemap updates and repository publication report without embedding an unverified video.",
   "last_run": {
     "mode": "daily_primary_run",
     "status": "in_progress",
@@ -127,7 +134,9 @@
     "completed_at": null,
     "notes": "Guides re-read; previous London cycle completed; no unexpired lease and no 10X case dated 2026-10-26 found in the state, publication-date registry, or Arabic/English indexes.",
     "resumed_at": "2026-10-26T11:00:47+04:00",
-    "resumed_by": "central-coordinator"
+    "resumed_by": "central-coordinator",
+    "last_checkpoint": "final_quality_gate",
+    "last_checkpoint_at": "2026-10-26T11:24:00+04:00"
   },
   "last_completed_item": {
     "slug": "case-london-ulez-clean-air-operating-model",
@@ -260,6 +269,7 @@
     "arabic_draft",
     "company_insider_critique",
     "english_draft",
-    "bilingual_parity"
+    "bilingual_parity",
+    "final_quality_gate"
   ]
 }
