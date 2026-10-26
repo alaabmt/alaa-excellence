@@ -5,6 +5,27 @@
   "maxBytes": 170000,
   "cards": [
     {
+      "slug": "reflection-al-hujurat-suspicion-surveillance-trust",
+      "background": "assets/previews/story-backgrounds/reflection-al-baqarah-write-it-down.jpg",
+      "category": "reflection",
+      "ar": {
+        "title": [
+          "متى يصبح البحث",
+          "في المستور ظلمًا؟"
+        ],
+        "subtitle": "حدود تحمي الأمن والخصوصية وكرامة الغائب.",
+        "alt": "غلاف رمزي بالكحلي والذهبي لتأمل الحجرات 49:12، يظهر عدسة بحث أمام حد يحمي خصوصية الإنسان وكرامته."
+      },
+      "en": {
+        "title": [
+          "When Does Seeking",
+          "the Concealed Become Unjust?"
+        ],
+        "subtitle": "Boundaries that protect security, privacy, and an absent person’s dignity.",
+        "alt": "Navy and gold symbolic cover for a reflection on Al-Hujurat 49:12, showing a search lens meeting a boundary that protects privacy and dignity."
+      }
+    },
+    {
       "slug": "case-netherlands-room-for-the-river-adaptive-flood-management",
       "background": "assets/previews/story-backgrounds/case-dewa-hydro-insight-smart-water.jpg",
       "category": "case",
