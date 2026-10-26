@@ -5,9 +5,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-26T03:58:30+04:00",
+  "updated_at": "2026-10-26T04:04:30+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "actions_and_pages",
+  "current_stage": "live_verification",
   "current_article": {
     "article_id": "quran-reflection-2026-10-25-al-balad-the-steep-path",
     "publication_date": "2026-10-25",
@@ -190,6 +190,59 @@
       ],
       "verified_main_head": "e67c800fb42d841e7ee2f9073f22d0399336a14b",
       "duplicate_check": "passed: one entry per target in manifests and sitemap; page and asset paths unique"
+    },
+    "actions_and_pages": {
+      "status": "completed",
+      "completed_at": "2026-10-26T04:04:30+04:00",
+      "reconciliation_trigger_commit": "fd77235551d5c8ed2a91673da88c5a416922ffe8",
+      "language_isolation_fix_commit": "a8e0cf300577814b98db83ef0a5494969e009adf",
+      "sitemap_descendant_commit": "12303482fd990d339155f59ab327d5e55e1775d7",
+      "reconciled_descendant_head": "12303482fd990d339155f59ab327d5e55e1775d7",
+      "report_path": "automation/quran-reflections/reflection-al-balad-the-steep-path/actions-and-pages-report.md",
+      "report_commit": "ff5b5ea319f30d9c63a238d25230f81dafb76552",
+      "prior_site_health_failure": {
+        "run_id": 40247288997,
+        "head_sha": "fd77235551d5c8ed2a91673da88c5a416922ffe8",
+        "reason": "English page visibly contained Arabic verse quotations; repository-local link, collection and metadata checks otherwise passed."
+      },
+      "required_checks": {
+        "site_health": {
+          "run_id": 40247358023,
+          "head_sha": "a8e0cf300577814b98db83ef0a5494969e009adf",
+          "conclusion": "success",
+          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40247358023"
+        },
+        "article_date_integrity": {
+          "run_id": 40247357999,
+          "head_sha": "a8e0cf300577814b98db83ef0a5494969e009adf",
+          "conclusion": "success",
+          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40247357999"
+        },
+        "sitemap": {
+          "run_id": 40247358016,
+          "head_sha": "a8e0cf300577814b98db83ef0a5494969e009adf",
+          "conclusion": "success",
+          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40247358016"
+        },
+        "arabic_editorial": {
+          "run_id": 40247358050,
+          "head_sha": "a8e0cf300577814b98db83ef0a5494969e009adf",
+          "conclusion": "success",
+          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40247358050"
+        },
+        "social_cards": {
+          "run_id": 40247358064,
+          "head_sha": "a8e0cf300577814b98db83ef0a5494969e009adf",
+          "conclusion": "success",
+          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40247358064"
+        },
+        "pages": {
+          "run_id": 40247410164,
+          "head_sha": "12303482fd990d339155f59ab327d5e55e1775d7",
+          "conclusion": "success",
+          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40247410164"
+        }
+      }
     }
   },
   "stage_order": [
@@ -223,15 +276,15 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Reconcile the latest main head and GitHub Actions runs triggered by repository publication, including Generate social share cards, site-health, editorial, sitemap/date gates and Pages deployment. Verify both live pages, four live index placements, both 1200x630 social-card URLs, metadata and sitemap against the exact deployed head; do not rerun completed repository publication work.",
+  "next_action": "Verify the Arabic and English live pages after the successful exact-head Pages deployment, including titles, canonical and reciprocal hreflang, Article schema, RTL/LTR, absence of visible Arabic leakage in the English article, both 1200x630 social cards, one article card in each of the four live indexes, and exactly one sitemap URL per language. Save the live-verification checkpoint before the completion report.",
   "last_run": {
     "mode": "coordinator_daily_start",
     "status": "in_progress",
     "started_at": "2026-10-25T17:04:58+04:00",
     "starting_head": "66bfae5dfda2062918733e06cc03400a140f38d0",
-    "notes": "Repository publication completed and reconciled after verifying topic-registry side effect, paired pages, four indexes, data manifests, sitemap and generated bilingual social assets on main. Actions and Pages reconciliation remains.",
-    "last_checkpoint": "repository_publish",
-    "last_checkpoint_at": "2026-10-26T03:13:00+04:00",
+    "notes": "Actions and Pages reconciled after correcting visible Arabic leakage in the English article. All required checks passed on the fix head and Pages succeeded for descendant head 12303482.",
+    "last_checkpoint": "actions_and_pages",
+    "last_checkpoint_at": "2026-10-26T04:04:30+04:00",
     "topic_selection_commit": "38443c4497625d55012b6093fbbbe4db8e423ef5",
     "research_commit": "8c477f7da206979894c424ee5d424bee7aec62c1",
     "quran_verification_commit": "f0d3d42faba405f97c29dde7eaa9dc16d149e00b",
@@ -245,7 +298,8 @@
     "quality_gate_commit": "bc8e3e30d546d563a670691ad7e0ca152229b0ce",
     "quality_score": 98,
     "repository_publish_report_commit": "8ec8c664a97b90409668e24643e1cb9676c26e97",
-    "social_assets_commit": "e67c800fb42d841e7ee2f9073f22d0399336a14b"
+    "social_assets_commit": "e67c800fb42d841e7ee2f9073f22d0399336a14b",
+    "actions_and_pages_report_commit": "ff5b5ea319f30d9c63a238d25230f81dafb76552"
   },
   "workflow_id": "quran_reflections",
   "run_lease": {
@@ -541,7 +595,8 @@
     "english_draft",
     "bilingual_parity",
     "quality_gate",
-    "repository_publish"
+    "repository_publish",
+    "actions_and_pages"
   ],
   "duplicate_check": {
     "status": "passed",
