@@ -5,10 +5,82 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-26T04:07:00+04:00",
-  "workflow_status": "in_progress",
-  "current_stage": "completion_report",
-  "current_article": {
+  "updated_at": "2026-10-26T04:10:30+04:00",
+  "workflow_status": "completed",
+  "current_stage": "completed",
+  "current_article": null,
+  "stage_order": [
+    "capability_check",
+    "load_checkpoint",
+    "duplicate_check",
+    "topic_selection",
+    "research",
+    "quran_verification",
+    "arabic_draft",
+    "independent_critique",
+    "english_draft",
+    "bilingual_parity",
+    "quality_gate",
+    "repository_publish",
+    "actions_and_pages",
+    "live_verification",
+    "completion_report",
+    "completed"
+  ],
+  "resume_policy": {
+    "persist_after_every_completed_stage": true,
+    "resume_from_next_action": true,
+    "usage_limit_behavior": "Keep the last committed checkpoint unchanged and retry on the next hourly run.",
+    "duplicate_prevention": [
+      "Check automation/quran-reflections-state.json.",
+      "Check data/quranic-reflection-topics.json.",
+      "Search Arabic and English repository pages and indexes.",
+      "Check the intended public URLs before publication."
+    ],
+    "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
+    "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
+  },
+  "next_action": "At or after 17:00 Asia/Dubai on the next eligible local date, first verify no Qur’anic reflection has already been started or published for that date, then acquire a new lease before topic selection. Before 17:00, or if that date already has a cycle, no-op.",
+  "last_run": {
+    "mode": "coordinator_daily_start",
+    "status": "completed",
+    "started_at": "2026-10-25T17:04:58+04:00",
+    "starting_head": "66bfae5dfda2062918733e06cc03400a140f38d0",
+    "notes": "Al-Balad reflection completed: quality 98/100; paired pages, bilingual 1200x630 covers, Actions, exact-head Pages, live pages, four indexes, metadata and sitemap verified. English visible Arabic leakage found by Site health was corrected before completion.",
+    "last_checkpoint": "completed",
+    "last_checkpoint_at": "2026-10-26T04:10:30+04:00",
+    "topic_selection_commit": "38443c4497625d55012b6093fbbbe4db8e423ef5",
+    "research_commit": "8c477f7da206979894c424ee5d424bee7aec62c1",
+    "quran_verification_commit": "f0d3d42faba405f97c29dde7eaa9dc16d149e00b",
+    "resumed_at": "2026-10-26T03:58:30+04:00",
+    "resumed_by": "central-coordinator",
+    "arabic_draft_commit": "c8711f8125a2becb054f020202fe7d64ebb3bb4d",
+    "arabic_revision_commit": "0492f4b34050a2c68159a7b4e3711e73049ff74d",
+    "independent_critique_commit": "f5f230131bb985a45b30a2548ee3ee09e6277d15",
+    "english_draft_commit": "fdc7e68b199aa9aab80a6d5284e69f6d6683a3e5",
+    "bilingual_parity_commit": "a78d7018b838ff85d77c9a971c8f2454daeb7685",
+    "quality_gate_commit": "bc8e3e30d546d563a670691ad7e0ca152229b0ce",
+    "quality_score": 98,
+    "repository_publish_report_commit": "8ec8c664a97b90409668e24643e1cb9676c26e97",
+    "social_assets_commit": "e67c800fb42d841e7ee2f9073f22d0399336a14b",
+    "actions_and_pages_report_commit": "ff5b5ea319f30d9c63a238d25230f81dafb76552",
+    "completed_at": "2026-10-26T04:10:30+04:00",
+    "publication_report_commit": "859946e417ceaf8bec902cf4b439fc47e2efded3",
+    "final_pages_run": "https://github.com/alaabmt/alaa-excellence/actions/runs/40247740197"
+  },
+  "workflow_id": "quran_reflections",
+  "run_lease": null,
+  "checkpoint_policy": {
+    "checkpoint_after_every_stage": true,
+    "run_lease_minutes": 110,
+    "concurrency_rule": "Re-read the state before work. Skip while another unexpired run lease exists. Acquire the lease in a committed state update and re-read before every later write.",
+    "interruption_rule": "Resume only from a completed stage boundary. Reconcile pending or uncertain external actions before replaying them.",
+    "usage_limit_rule": "If safe writing remains possible, set retry_waiting, preserve next_action, record the blocker and release the lease. Otherwise leave the last valid checkpoint untouched for the hourly retry.",
+    "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
+    "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
+  },
+  "coordinator_recovery": true,
+  "last_completed_article": {
     "article_id": "quran-reflection-2026-10-25-al-balad-the-steep-path",
     "publication_date": "2026-10-25",
     "slug": "reflection-al-balad-the-steep-path",
@@ -16,7 +88,7 @@
     "topic_en": "The steep path: why the Qur'an describes costly goodness as a path that must be crossed",
     "working_title_ar": "ماذا يعني اقتحام العقبة في سورة البلد؟",
     "working_title_en": "What Does It Mean to Cross the Steep Path in Surah Al-Balad?",
-    "status": "repository_published_pending_actions_and_pages",
+    "status": "completed_published_live_verified",
     "quranic_focus": {
       "surah": "Al-Balad",
       "surah_ar": "البلد",
@@ -275,343 +347,26 @@
         "https://tamayuz10x.com/reflection-al-balad-the-steep-path.html",
         "https://tamayuz10x.com/en/reflection-al-balad-the-steep-path.html"
       ]
-    }
-  },
-  "stage_order": [
-    "capability_check",
-    "load_checkpoint",
-    "duplicate_check",
-    "topic_selection",
-    "research",
-    "quran_verification",
-    "arabic_draft",
-    "independent_critique",
-    "english_draft",
-    "bilingual_parity",
-    "quality_gate",
-    "repository_publish",
-    "actions_and_pages",
-    "live_verification",
-    "completion_report",
-    "completed"
-  ],
-  "resume_policy": {
-    "persist_after_every_completed_stage": true,
-    "resume_from_next_action": true,
-    "usage_limit_behavior": "Keep the last committed checkpoint unchanged and retry on the next hourly run.",
-    "duplicate_prevention": [
-      "Check automation/quran-reflections-state.json.",
-      "Check data/quranic-reflection-topics.json.",
-      "Search Arabic and English repository pages and indexes.",
-      "Check the intended public URLs before publication."
-    ],
-    "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
-    "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
-  },
-  "next_action": "Create and commit publication-report.md with the Arabic and English titles and live URLs, quality score 98/100, first publication commits, language-isolation fix, Actions results, exact-head Pages success and live verification evidence. Then re-read main and the checkpoint, mark the workflow completed, archive the article as last_completed_article and release the lease.",
-  "last_run": {
-    "mode": "coordinator_daily_start",
-    "status": "in_progress",
-    "started_at": "2026-10-25T17:04:58+04:00",
-    "starting_head": "66bfae5dfda2062918733e06cc03400a140f38d0",
-    "notes": "Both live pages, metadata, reciprocal hreflang, Article schema, RTL/LTR, English language isolation, both 1200x630 social cards, four single-card index placements and two unique sitemap locations were verified after successful Pages deployment.",
-    "last_checkpoint": "live_verification",
-    "last_checkpoint_at": "2026-10-26T04:07:00+04:00",
-    "topic_selection_commit": "38443c4497625d55012b6093fbbbe4db8e423ef5",
-    "research_commit": "8c477f7da206979894c424ee5d424bee7aec62c1",
-    "quran_verification_commit": "f0d3d42faba405f97c29dde7eaa9dc16d149e00b",
-    "resumed_at": "2026-10-26T03:58:30+04:00",
-    "resumed_by": "central-coordinator",
-    "arabic_draft_commit": "c8711f8125a2becb054f020202fe7d64ebb3bb4d",
-    "arabic_revision_commit": "0492f4b34050a2c68159a7b4e3711e73049ff74d",
-    "independent_critique_commit": "f5f230131bb985a45b30a2548ee3ee09e6277d15",
-    "english_draft_commit": "fdc7e68b199aa9aab80a6d5284e69f6d6683a3e5",
-    "bilingual_parity_commit": "a78d7018b838ff85d77c9a971c8f2454daeb7685",
-    "quality_gate_commit": "bc8e3e30d546d563a670691ad7e0ca152229b0ce",
-    "quality_score": 98,
-    "repository_publish_report_commit": "8ec8c664a97b90409668e24643e1cb9676c26e97",
-    "social_assets_commit": "e67c800fb42d841e7ee2f9073f22d0399336a14b",
-    "actions_and_pages_report_commit": "ff5b5ea319f30d9c63a238d25230f81dafb76552"
-  },
-  "workflow_id": "quran_reflections",
-  "run_lease": {
-    "owner": "central-coordinator",
-    "acquired_at": "2026-10-26T03:58:30+04:00",
-    "expires_at": "2026-10-26T05:48:30+04:00"
-  },
-  "checkpoint_policy": {
-    "checkpoint_after_every_stage": true,
-    "run_lease_minutes": 110,
-    "concurrency_rule": "Re-read the state before work. Skip while another unexpired run lease exists. Acquire the lease in a committed state update and re-read before every later write.",
-    "interruption_rule": "Resume only from a completed stage boundary. Reconcile pending or uncertain external actions before replaying them.",
-    "usage_limit_rule": "If safe writing remains possible, set retry_waiting, preserve next_action, record the blocker and release the lease. Otherwise leave the last valid checkpoint untouched for the hourly retry.",
-    "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
-    "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
-  },
-  "coordinator_recovery": true,
-  "last_completed_article": {
-    "article_id": "quran-reflection-2026-10-24-az-zumar-follow-the-best",
-    "publication_date": "2026-10-24",
-    "slug": "reflection-az-zumar-follow-the-best",
-    "topic_ar": "الاستماع المسؤول: سماع الأقوال ثم اتباع أحسنها",
-    "topic_en": "Responsible listening: hearing different words and following the best of them",
-    "working_title_ar": "هل يكفي أن نسمع، أم نتبع أحسن ما سمعنا؟",
-    "working_title_en": "Is Listening Enough, or Do We Follow the Best of What We Hear?",
-    "status": "completed_published_live_verified",
-    "quranic_focus": {
-      "surah": "Az-Zumar",
-      "surah_ar": "الزمر",
-      "ayahs": [
-        18
-      ],
-      "context_ayahs": [
-        17,
-        19
-      ],
-      "status": "verified"
-    },
-    "research_notes_path": "automation/quran-reflections/reflection-az-zumar-follow-the-best/research-notes.md",
-    "research_status": "completed",
-    "topic_selection": {
-      "status": "completed",
-      "candidates": [
-        "Az-Zumar 39:18 — listening, discernment and following what is best",
-        "Al-Balad 90:11–16 — the steep path and costly goodness",
-        "Al-Hujurat 49:12 — suspicion, surveillance and unseen trust"
-      ],
-      "selected": "Az-Zumar 39:18 — listening, discernment and following what is best",
-      "artifact_commit": "d2deaf1cd13861986ed878cb7d9919479959d8e4"
-    },
-    "research_sources": [
-      {
-        "type": "Qur'an text and Sahih International translation",
-        "url": "https://legacy.quran.com/39/17-18",
-        "status": "reviewed"
-      },
-      {
-        "type": "Tafsir al-Tabari 39:17",
-        "url": "https://quran.ksu.edu.sa/tafseer/tabary/sura39-aya17.html",
-        "status": "reviewed"
-      },
-      {
-        "type": "Tafsir al-Tabari 39:18",
-        "url": "https://quran.ksu.edu.sa/tafseer/tabary/sura39-aya18.html",
-        "status": "reviewed"
-      },
-      {
-        "type": "Tafsir Ibn Kathir 39:17",
-        "url": "https://quran.ksu.edu.sa/tafseer/katheer/sura39-aya17.html",
-        "status": "reviewed"
-      },
-      {
-        "type": "Tafsir Ibn Kathir 39:18",
-        "url": "https://quran.ksu.edu.sa/tafseer/katheer/sura39-aya18.html",
-        "status": "reviewed"
-      },
-      {
-        "type": "Tafsir al-Qurtubi 39:17",
-        "url": "https://quran.ksu.edu.sa/tafseer/qortobi/sura39-aya17.html",
-        "status": "reviewed"
-      },
-      {
-        "type": "Tafsir al-Qurtubi 39:18",
-        "url": "https://quran.ksu.edu.sa/tafseer/qortobi/sura39-aya18.html",
-        "status": "reviewed"
-      },
-      {
-        "type": "Tafsir al-Sa'di 39:18",
-        "url": "https://quran.ksu.edu.sa/tafseer/saadi/sura39-aya18.html",
-        "status": "reviewed"
-      }
-    ],
-    "verified_quranic_references": [
-      {
-        "surah": "Az-Zumar",
-        "surah_ar": "الزمر",
-        "ayahs": [
-          18
-        ],
-        "context_ayahs": [
-          17,
-          19
-        ],
-        "status": "verified",
-        "primary_text_urls": [
-          "https://legacy.quran.com/39/17-18",
-          "https://legacy.quran.com/39/17-23"
-        ],
-        "translation": "Sahih International",
-        "verified_at": "2026-10-24T17:45:00+04:00"
-      }
-    ],
-    "arabic_draft": {
-      "status": "revised_and_cleared",
-      "path": "automation/quran-reflections/reflection-az-zumar-follow-the-best/draft-ar.md",
-      "initial_commit": "46da29cd66622e4ce08f4e072db3a4036a05e95c",
-      "completed_at": "2026-10-24T18:24:00+04:00",
-      "revision_commit": "ebdcb68c95795f679e71315ab7e5f44ca673d118",
-      "parity_revision_commit": "cd14a17992f88b2484d9ffe5318d89e8708718d4"
-    },
-    "independent_critique": {
-      "status": "passed_after_non_blocking_revisions",
-      "path": "automation/quran-reflections/reflection-az-zumar-follow-the-best/quality-review.md",
-      "commit": "b2f3950dbdba4c53492dad44a4c42359829da6b8",
-      "completed_at": "2026-10-24T19:24:00+04:00"
-    },
-    "english_draft": {
-      "status": "parity_cleared",
-      "path": "automation/quran-reflections/reflection-az-zumar-follow-the-best/draft-en.md",
-      "commit": "220dc6a17c04b363adde8b07d942d72eba7e3d72",
-      "quran_translation": "Sahih International",
-      "completed_at": "2026-10-24T20:18:00+04:00",
-      "parity_revision_commit": "88cbb14e17d7417dc1bc5f94596bd963f2447020"
-    },
-    "bilingual_parity": {
-      "status": "passed_after_alignment",
-      "review_path": "automation/quran-reflections/reflection-az-zumar-follow-the-best/quality-review.md",
-      "review_commit": "4f4f358ec877a76eb8e72eb0dfc5901e4977e32b",
-      "same_source_urls": 8,
-      "completed_at": "2026-10-24T21:24:00+04:00"
-    },
-    "quality_gate": {
-      "status": "passed",
-      "score": 98,
-      "threshold": 90,
-      "blocking_errors": [],
-      "review_path": "automation/quran-reflections/reflection-az-zumar-follow-the-best/quality-review.md",
-      "commit": "fe9878e2084ce86de5e553caffe42a3760f5702d",
-      "completed_at": "2026-10-24T22:18:00+04:00"
-    },
-    "repository_publish": {
-      "status": "completed",
-      "first_publication_commit": "786c24894c4bef772bfbdb96bffa044e9d259290",
-      "topic_registry_commit": "3c8e14878a05fcf57abf65027219d97d8c295404",
-      "sitemap_reconciliation_commit": "9e0fbb0700b6730e78063a25b62cd1b132c291a1",
-      "social_assets_commit": "341b77e6aadf4c2930e8d8aef9f42ef0beed146c",
-      "registry_reconciliation_commit": "82e78a376643666431df9236bf622ac497cbc4d4",
-      "report_path": "automation/quran-reflections/reflection-az-zumar-follow-the-best/repository-publish-report.md",
-      "report_commit": "6a6c56868292dd9b0e7531fda8ab45d802394182",
-      "paths": {
-        "ar": "reflection-az-zumar-follow-the-best.html",
-        "en": "en/reflection-az-zumar-follow-the-best.html",
-        "image_ar": "assets/previews/story/reflection-az-zumar-follow-the-best-ar.jpg",
-        "image_en": "assets/previews/story/reflection-az-zumar-follow-the-best-en.jpg",
-        "cover_manifest": "data/article-covers.json"
-      },
-      "urls": {
-        "ar": "https://tamayuz10x.com/reflection-az-zumar-follow-the-best.html",
-        "en": "https://tamayuz10x.com/en/reflection-az-zumar-follow-the-best.html"
-      },
-      "social_assets": {
-        "ar": {
-          "blob_sha": "6753eee0933a94c1a3c6eb36f4005aea884a37f7",
-          "width": 1200,
-          "height": 630,
-          "verified_present": true
-        },
-        "en": {
-          "blob_sha": "eac945a85929be9df4cff0992ab53a7dd5284e60",
-          "width": 1200,
-          "height": 630,
-          "verified_present": true
-        }
-      },
-      "verification": "Paired pages, canonical, reciprocal hreflang, Article schema, four indexes, topic registry, cover and date manifests, two sitemap locations and both generated 1200x630 JPEG assets were structurally verified in the repository. Actions and exact-head Pages deployment remain to be reconciled."
-    },
-    "actions_and_pages": {
-      "status": "completed",
-      "reconciliation_trigger_commit": "c3c40064853a59b69ad5fefe24bf94742f3a25af",
-      "sitemap_descendant_commit": "25396c15163507a5b562450566aa0a35e77f378e",
-      "reconciled_descendant_head": "5cecb5738eb03a4fd860cf73eb94c5ddf37eabbf",
-      "report_path": "automation/quran-reflections/reflection-az-zumar-follow-the-best/actions-and-pages-report.md",
-      "report_commit": "4c150a4d2b7423401135588eac969bd42d001dc8",
-      "prior_site_health_failure": {
-        "run_id": 40132778087,
-        "head_sha": "786c24894c4bef772bfbdb96bffa044e9d259290",
-        "reason": "Historical publication commit preceded generated social assets; rerunning that historical commit correctly reproduced the six then-missing Az-Zumar image references."
-      },
-      "required_checks": {
-        "site_health": {
-          "run_id": 40137135561,
-          "head_sha": "c3c40064853a59b69ad5fefe24bf94742f3a25af",
-          "conclusion": "success",
-          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40137135561"
-        },
-        "article_date_integrity": {
-          "run_id": 40137135511,
-          "head_sha": "c3c40064853a59b69ad5fefe24bf94742f3a25af",
-          "conclusion": "success",
-          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40137135511"
-        },
-        "sitemap": {
-          "run_id": 40137135528,
-          "head_sha": "c3c40064853a59b69ad5fefe24bf94742f3a25af",
-          "conclusion": "success",
-          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40137135528"
-        },
-        "arabic_editorial": {
-          "run_id": 40137135519,
-          "head_sha": "c3c40064853a59b69ad5fefe24bf94742f3a25af",
-          "conclusion": "success",
-          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40137135519"
-        },
-        "social_cards": {
-          "run_id": 40137135464,
-          "head_sha": "c3c40064853a59b69ad5fefe24bf94742f3a25af",
-          "conclusion": "success",
-          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40137135464"
-        },
-        "pages": {
-          "run_id": 40137210587,
-          "head_sha": "5cecb5738eb03a4fd860cf73eb94c5ddf37eabbf",
-          "conclusion": "success",
-          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40137210587"
-        }
-      }
-    },
-    "live_verification": {
-      "status": "passed",
-      "verified_at": "2026-10-25T02:12:00+04:00",
-      "arabic_url": "https://tamayuz10x.com/reflection-az-zumar-follow-the-best.html",
-      "english_url": "https://tamayuz10x.com/en/reflection-az-zumar-follow-the-best.html",
-      "observed_titles": {
-        "ar": "هل يكفي أن نسمع، أم نتبع أحسن ما سمعنا؟ | التميّز 10X",
-        "en": "Is Listening Enough, or Do We Follow the Best of What We Hear? | Tamayuz 10X"
-      },
-      "checks": {
-        "arabic_page": true,
-        "english_page": true,
-        "canonical": true,
-        "reciprocal_hreflang": true,
-        "metadata": true,
-        "article_schema_org": true,
-        "arabic_cover_1200x630": true,
-        "english_cover_1200x630": true,
-        "articles_index_ar_single_card": true,
-        "articles_index_en_single_card": true,
-        "quranic_index_ar_single_card": true,
-        "quranic_index_en_single_card": true,
-        "sitemap_one_loc_per_language": true
-      },
-      "sitemap_locs": [
-        "https://tamayuz10x.com/reflection-az-zumar-follow-the-best.html",
-        "https://tamayuz10x.com/en/reflection-az-zumar-follow-the-best.html"
-      ]
     },
     "publication_report": {
       "status": "saved",
-      "path": "automation/quran-reflections/reflection-az-zumar-follow-the-best/publication-report.md",
-      "commit": "9424622081037672e49064ab385791a9816050e0"
+      "path": "automation/quran-reflections/reflection-al-balad-the-steep-path/publication-report.md",
+      "commit": "859946e417ceaf8bec902cf4b439fc47e2efded3"
     },
-    "publication_report_path": "automation/quran-reflections/reflection-az-zumar-follow-the-best/publication-report.md",
+    "publication_report_path": "automation/quran-reflections/reflection-al-balad-the-steep-path/publication-report.md",
     "publishing": {
       "status": "published_live_verified",
-      "first_publication_commit": "786c24894c4bef772bfbdb96bffa044e9d259290",
-      "social_assets_commit": "5cecb5738eb03a4fd860cf73eb94c5ddf37eabbf",
-      "final_deployment_commit": "9424622081037672e49064ab385791a9816050e0",
-      "pages_run": "https://github.com/alaabmt/alaa-excellence/actions/runs/40137483758",
-      "arabic_url": "https://tamayuz10x.com/reflection-az-zumar-follow-the-best.html",
-      "english_url": "https://tamayuz10x.com/en/reflection-az-zumar-follow-the-best.html"
+      "first_publication_commits": [
+        "59ce4120aa224f63acab275471f142a8fe541d0c",
+        "bad8bd704274b55e2c3b1e03660f377efa7cba66"
+      ],
+      "social_assets_commit": "e67c800fb42d841e7ee2f9073f22d0399336a14b",
+      "language_isolation_fix_commit": "a8e0cf300577814b98db83ef0a5494969e009adf",
+      "exact_content_deployment_head": "12303482fd990d339155f59ab327d5e55e1775d7",
+      "final_deployment_commit": "859946e417ceaf8bec902cf4b439fc47e2efded3",
+      "pages_run": "https://github.com/alaabmt/alaa-excellence/actions/runs/40247740197",
+      "arabic_url": "https://tamayuz10x.com/reflection-al-balad-the-steep-path.html",
+      "english_url": "https://tamayuz10x.com/en/reflection-al-balad-the-steep-path.html"
     }
   },
   "run_date": "2026-10-25",
@@ -629,7 +384,9 @@
     "quality_gate",
     "repository_publish",
     "actions_and_pages",
-    "live_verification"
+    "live_verification",
+    "completion_report",
+    "completed"
   ],
   "duplicate_check": {
     "status": "passed",
