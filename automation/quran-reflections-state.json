@@ -5,7 +5,7 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-27T03:03:00+04:00",
+  "updated_at": "2026-10-27T03:29:00+04:00",
   "workflow_status": "in_progress",
   "current_stage": "actions_and_pages",
   "current_article": {
@@ -190,6 +190,65 @@
         "sitemap_single_each": true
       },
       "duplicate_check": "passed before publication and after generated bot commits"
+    },
+    "actions_and_pages": {
+      "status": "in_progress",
+      "checked_at": "2026-10-27T03:29:00+04:00",
+      "reconciliation_trigger_commit": "cf580cca388ba8f79441dfec4b508450ea830020",
+      "sitemap_descendant_commit": "1f6e07e49ce2533acd78035a07d1ce19761fbaf2",
+      "social_cards_descendant_commit": "c7b3b6c6fa8aeaca4f83aa2abb9ba7679f0032b3",
+      "exact_content_head": "c7b3b6c6fa8aeaca4f83aa2abb9ba7679f0032b3",
+      "report_path": "automation/quran-reflections/reflection-al-hujurat-suspicion-surveillance-trust/actions-and-pages-report.md",
+      "required_checks": {
+        "site_health": {
+          "run_id": 40416842011,
+          "conclusion": "success",
+          "head_sha": "cf580cca388ba8f79441dfec4b508450ea830020",
+          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40416842011"
+        },
+        "article_date_integrity": {
+          "run_id": 40416842076,
+          "conclusion": "success",
+          "head_sha": "cf580cca388ba8f79441dfec4b508450ea830020",
+          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40416842076"
+        },
+        "sitemap": {
+          "run_id": 40416841888,
+          "conclusion": "success",
+          "head_sha": "cf580cca388ba8f79441dfec4b508450ea830020",
+          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40416841888"
+        },
+        "arabic_editorial": {
+          "run_id": 40416841988,
+          "conclusion": "success",
+          "head_sha": "cf580cca388ba8f79441dfec4b508450ea830020",
+          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40416841988",
+          "scope_note": "Workflow passed, but its mobile renderer currently targets fixed non-Qur’anic pages; it is not exact evidence for this reflection."
+        },
+        "social_cards": {
+          "run_id": 40416841929,
+          "conclusion": "success",
+          "head_sha": "cf580cca388ba8f79441dfec4b508450ea830020",
+          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40416841929"
+        },
+        "pages": {
+          "run_id": 40416920989,
+          "conclusion": "success",
+          "head_sha": "c7b3b6c6fa8aeaca4f83aa2abb9ba7679f0032b3",
+          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40416920989"
+        }
+      },
+      "live_smoke_check": {
+        "ar": true,
+        "en": true,
+        "canonical_and_hreflang": true,
+        "rtl_ltr": true,
+        "tts_controls": true,
+        "covers_1200x630": true,
+        "four_indexes_visible": true,
+        "sitemap_single_loc_each": true
+      },
+      "remaining_gate": "Exact rendered mobile-width check for this reflection at 320/375/390/430px. The existing Arabic workflow does not target this page, local Chromium is unavailable, and the cloud browser security policy rejected a mobile-frame harness."
     }
   },
   "stage_order": [
@@ -223,13 +282,13 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Reconcile required GitHub Actions for the exact current content lineage, wait for successful Site Health, Article date integrity, sitemap, Arabic editorial/mobile-RTL, social cards and GitHub Pages runs, and inspect any failures before advancing. Do not replay publication.",
+  "next_action": "Run an exact article-targeted rendered mobile/RTL check for reflection-al-hujurat-suspicion-surveillance-trust.html at 320/375/390/430px (and English parity), then complete actions_and_pages and advance to live_verification. Do not replay publication or already-successful Actions.",
   "last_run": {
     "mode": "coordinator_resume",
     "status": "in_progress",
     "started_at": "2026-10-27T03:00:35+04:00",
     "starting_head": "a9dc4b7d37e600dcb77b870470860b5fa98b60c6",
-    "notes": "Repository publication reconciled successfully: pages, four indexes, topic/date/cover registries, sitemap and both generated 1200×630 social cards are present exactly once. Advancing to Actions and Pages verification.",
+    "notes": "Required repository, Site Health, date, sitemap, social-card and exact-lineage Pages checks succeeded. Live smoke verification also passed. Exact mobile-width evidence for this Qur’anic page remains because the repository Arabic workflow targets fixed unrelated pages and the current browser/runtime could not safely emulate those widths.",
     "last_checkpoint": "repository_publish",
     "last_checkpoint_at": "2026-10-27T03:03:00+04:00"
   },
