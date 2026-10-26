@@ -5,7 +5,7 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-27T00:57:31+04:00",
+  "updated_at": "2026-10-27T01:07:00+04:00",
   "workflow_status": "in_progress",
   "current_stage": "repository_publish",
   "current_article": {
@@ -136,6 +136,31 @@
       "mobile_gate": "NOT VERIFIED until final HTML",
       "rtl_gate": "NOT VERIFIED until final HTML",
       "tts_gate": "NOT VERIFIED until final HTML"
+    },
+    "repository_publish": {
+      "status": "text_pages_and_records_committed_social_assets_pending",
+      "text_commit": "33c743dfea7fa3c44cf73e5b1902a1d0ec9c2bbd",
+      "sitemap_reconciliation_commit": "336cab1d5243fe64d6904e38ff17fc343ea0c92a",
+      "arabic_page": {
+        "path": "reflection-al-hujurat-suspicion-surveillance-trust.html"
+      },
+      "english_page": {
+        "path": "en/reflection-al-hujurat-suspicion-surveillance-trust.html"
+      },
+      "indexes": [
+        "articles.html",
+        "en/articles.html",
+        "quranic-reflections.html",
+        "en/quranic-reflections.html"
+      ],
+      "records": [
+        "data/quranic-reflection-topics.json",
+        "data/article-covers.json",
+        "data/article-publication-dates.json",
+        "sitemap.xml"
+      ],
+      "report_path": "automation/quran-reflections/reflection-al-hujurat-suspicion-surveillance-trust/repository-publish-report.md",
+      "duplicate_check": "passed immediately before write: no repository slug matches; both expected live URLs returned GitHub Pages 404"
     }
   },
   "stage_order": [
@@ -169,13 +194,14 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Before any public write, reconcile duplicate and destination state across the checkpoint, topic registry, Arabic/English target pages, four indexes, publication-date registry, sitemap and both expected live URLs. If clear, build and commit the bilingual HTML pages and required repository records/assets from the passed drafts, then checkpoint repository_publish.",
+  "next_action": "Reconcile the Generate social share cards workflow and latest main head for text publication commit 33c743dfea7fa3c44cf73e5b1902a1d0ec9c2bbd. Verify that both 1200×630 social assets were generated exactly once, then re-read state/main, run repository-level HTML, RTL, language-isolation, TTS-structure and duplicate checks, finalize repository_publish and release the lease.",
   "last_run": {
     "mode": "coordinator_resume",
     "status": "in_progress",
     "started_at": "2026-10-27T00:57:31+04:00",
     "starting_head": "513318afd6ab7cf630de17e961f18489ebab9bd1",
-    "notes": "Selected as the only unfinished workflow after capability, registry, state and lease checks; resuming repository_publish from the saved checkpoint."
+    "notes": "Committed both HTML pages, four index cards, cover manifest entry, publication-date entries and two sitemap URLs after repository and live duplicate checks. The sitemap bot reconciled the entries at the latest descendant head. Generated social assets remain pending.",
+    "last_checkpoint": "quality_gate"
   },
   "workflow_id": "quran_reflections",
   "run_lease": {

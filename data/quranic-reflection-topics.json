@@ -1,7 +1,23 @@
 {
   "purpose": "سجل موضوعات التأملات القرآنية لتجنب تكرار القصة أو الزاوية (دليل مهارات كتابة التأملات القرآنية، البند 10، الخطوة 9)",
-  "updated": "2026-10-26T03:10:00+04:00",
+  "updated": "2026-10-27T01:07:00+04:00",
   "reflections": [
+    {
+      "slug": "reflection-al-hujurat-suspicion-surveillance-trust",
+      "title_ar": "متى تتحول الرغبة في معرفة ما يخفيه الناس إلى ظلم؟",
+      "title_en": "When Does the Desire to Know What People Conceal Become an Injustice?",
+      "date": "2026-10-26",
+      "verses": [
+        "الحجرات: 12"
+      ],
+      "angle": "تأمل في حماية كرامة الإنسان عند غيابه: كيف قد ينتقل الظن غير المسنود إلى تتبع للمستور ثم إلى غيبة، مع إبقاء الفرق بين التحقق المشروع المتناسب والتجسس ظاهرًا.",
+      "core_idea": "لا يتحول الاحتمال إلى حقيقة، ولا تمنح القدرة التقنية إذنًا مفتوحًا؛ فالبحث المسؤول يبدأ بدليل ظاهر ويجمع أقل قدر لازم ويحفظ حق الرد وكرامة الغائب.",
+      "contemporary_application": "مثال افتراضي لمؤسسة واجهت تسريبًا محدودًا، وتقارن بين مراقبة دائمة شاملة وتحقيق محدد ومصرح به ومتناسب مع الخطر.",
+      "url_ar": "https://tamayuz10x.com/reflection-al-hujurat-suspicion-surveillance-trust.html",
+      "url_en": "https://tamayuz10x.com/en/reflection-al-hujurat-suspicion-surveillance-trust.html",
+      "github_commit": "33c743dfea7fa3c44cf73e5b1902a1d0ec9c2bbd",
+      "publication_status": "repository_published; social_assets_and_actions_pending"
+    },
     {
       "slug": "reflection-al-balad-the-steep-path",
       "title_ar": "ماذا يعني اقتحام العقبة في سورة البلد؟",
