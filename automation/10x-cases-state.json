@@ -7,9 +7,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-26T08:22:00+04:00",
+  "updated_at": "2026-10-26T08:23:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "bilingual_parity",
+  "current_stage": "final_quality_gate",
   "run_lease": {
     "owner": "chatgpt-work-tenx-daily-2026-10-26T0734",
     "acquired_at": "2026-10-26T07:35:00+04:00",
@@ -73,6 +73,11 @@
       "status": "drafted_with_critique_applied",
       "path": "automation/10x-cases/case-netherlands-room-for-the-river-adaptive-flood-management/draft-en.md",
       "commit": "b937150c2bb44cbba468d4973ae4877e15f72b08"
+    },
+    "bilingual_parity": {
+      "status": "passed",
+      "path": "automation/10x-cases/case-netherlands-room-for-the-river-adaptive-flood-management/bilingual-parity-review.md",
+      "commit": "5a9cf9c8475e926d43352a9d4912078f575dd13a"
     }
   },
   "stage_order": [
@@ -114,7 +119,7 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Verify bilingual parity for facts, numbers, causal strength, evidence limits, structure and disclosure.",
+  "next_action": "Run final editorial, documentation, numerical, causal, independence, copyright, SEO and technical pre-publication gate.",
   "last_run": {
     "mode": "daily_primary_run",
     "status": "in_progress",
@@ -252,6 +257,7 @@
     "backcasting_and_10x_analysis",
     "arabic_draft",
     "company_insider_critique",
-    "english_draft"
+    "english_draft",
+    "bilingual_parity"
   ]
 }
