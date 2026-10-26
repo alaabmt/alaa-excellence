@@ -7,9 +7,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-26T12:26:14.716+04:00",
+  "updated_at": "2026-10-26T12:29:08.799+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "actions_and_pages",
+  "current_stage": "live_verification",
   "run_lease": {
     "owner": "central-coordinator-2026-10-26T1216",
     "acquired_at": "2026-10-26T12:16:44+04:00",
@@ -105,7 +105,7 @@
       "sync_commit": "5f0d73cf0742a0968c08d973b5f7a63b6887e58c"
     },
     "publishing": {
-      "status": "repository_published_actions_in_progress",
+      "status": "pages_deployed_pending_live_verification",
       "arabic_path": "case-netherlands-room-for-the-river-adaptive-flood-management.html",
       "english_path": "en/case-netherlands-room-for-the-river-adaptive-flood-management.html",
       "arabic_url": "https://tamayuz10x.com/case-netherlands-room-for-the-river-adaptive-flood-management.html",
@@ -114,7 +114,11 @@
       "sitemap_reconciliation_commit": "ed568030d53d903174a6896c84e6de1f9151f5e0",
       "cover_sync_commit": "5f0d73cf0742a0968c08d973b5f7a63b6887e58c",
       "automated_checks": "passed_primary_publication_commit",
-      "pages": "reconciling_final_head"
+      "pages": "passed_exact_checkpoint_head",
+      "actions": "passed",
+      "final_content_head": "ded9bdcaf96684410e4b501497581ba39bef97cc",
+      "arabic_editorial_gate_run": "https://github.com/alaabmt/alaa-excellence/actions/runs/40292254682",
+      "pages_run": "https://github.com/alaabmt/alaa-excellence/actions/runs/40292255234"
     },
     "publication_report": {
       "path": "automation/10x-cases/case-netherlands-room-for-the-river-adaptive-flood-management/publication-report.md",
@@ -160,7 +164,7 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Re-read main and this checkpoint; reconcile GitHub Actions and Pages against the exact final content head, then verify both live pages, metadata, single index and sitemap entries, 1200×630 images, responsive rendering and browser console before completion.",
+  "next_action": "Verify the Arabic and English live pages against the checkpoint: titles and full bodies, canonical/hreflang/schema/OG metadata, exact single index and sitemap entries, 1200×630 cover delivery, absence of unverified video, responsive overflow and site-origin browser-console errors; then save the live-verification checkpoint.",
   "last_run": {
     "mode": "daily_primary_run",
     "status": "in_progress",
@@ -169,8 +173,8 @@
     "notes": "Bilingual pages, indexes, date registry, sitemap and cover manifest published; social-card workflow generated and synchronized both 1200×630 assets; repository publication report saved. Actions and final-head Pages/live verification remain.",
     "resumed_at": "2026-10-26T12:16:44+04:00",
     "resumed_by": "central-coordinator",
-    "last_checkpoint": "repository_publish",
-    "last_checkpoint_at": "2026-10-26T12:26:14.716+04:00"
+    "last_checkpoint": "actions_and_pages",
+    "last_checkpoint_at": "2026-10-26T12:29:08.799+04:00"
   },
   "last_completed_item": {
     "slug": "case-london-ulez-clean-air-operating-model",
@@ -305,6 +309,7 @@
     "english_draft",
     "bilingual_parity",
     "final_quality_gate",
-    "repository_publish"
+    "repository_publish",
+    "actions_and_pages"
   ]
 }
