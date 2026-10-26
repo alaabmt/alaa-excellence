@@ -7,9 +7,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-26T22:55:00+04:00",
+  "updated_at": "2026-10-26T23:05:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "quality_gate",
+  "current_stage": "repository_publish",
   "run_lease": {
     "owner": "scheduled-agentic-ai-2026-10-26",
     "acquired_at": "2026-10-26T22:03:00+04:00",
@@ -31,7 +31,7 @@
       "path": "en/article-agentic-ai-multi-agent-scientific-analysis-cost.html"
     },
     "publishing": {
-      "status": "not_started"
+      "status": "candidate_committed"
     }
   },
   "stage_order": [
@@ -73,7 +73,7 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Build both article pages, dedicated social cards, specialist-hub cards, publication records, sitemap and today-specific editorial QA/workflow configuration; then run repository gates before publication.",
+  "next_action": "Run static repository checks and actual Chromium mobile/RTL gate; do not publish until all checks, exact-head Pages and live rendering pass.",
   "last_run": {
     "mode": "scheduled_daily",
     "status": "in_progress",

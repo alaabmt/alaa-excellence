@@ -1869,6 +1869,29 @@
         "subtitle": "A human audit of 165 tasks separates evaluator verdicts from environment evidence.",
         "alt": "Cover for an evidence-based web-agent audit showing a test verdict diverging from the verified result."
       }
+    },
+    {
+      "slug": "article-agentic-ai-multi-agent-scientific-analysis-cost",
+      "reference": true,
+      "category": "article",
+      "ar": {
+        "source": "assets/previews/story/article-agentic-ai-multi-agent-scientific-analysis-cost-ar.jpg",
+        "title": [
+          "عندما لا يصل الوكيل",
+          "إلى رقم قابل للحساب"
+        ],
+        "subtitle": "9 من 10 إعدادات تقدمت، لكن أقواها احتاج 4.5× الزمن.",
+        "alt": "غلاف تحليلي يوضح وكيلاً واحداً يتفرع إلى فريق من الوكلاء ثم يصل إلى درجة مركبة 32 من 100."
+      },
+      "en": {
+        "source": "assets/previews/story/article-agentic-ai-multi-agent-scientific-analysis-cost-en.jpg",
+        "title": [
+          "When One Agent",
+          "Never Reaches the Number"
+        ],
+        "subtitle": "9 of 10 workflows improved, but the strongest took 4.5× the time.",
+        "alt": "Analytical cover showing one agent branching into a team before reaching a composite score of 32 out of 100."
+      }
     }
   ]
 }

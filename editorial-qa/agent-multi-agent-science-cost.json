@@ -1,0 +1,58 @@
+{
+  "article": "article-agentic-ai-multi-agent-scientific-analysis-cost.html",
+  "headline": "عندما لا يصل الوكيل إلى رقم قابل للحساب: هل يبرر فريق من الوكلاء كلفة أعلى بـ4.5 مرات؟",
+  "reviewed_at": "2026-10-26",
+  "reviewer": "AI editorial review (not a human reader test)",
+  "summary": "اختبرت الدراسة 100 مهمة علمية؛ تجاوزت تسعة إعدادات متعددة الوكلاء خط الأساس، لكن أقوى درجة احتاجت نحو 4.5 أمثال الزمن، وكان المكسب أساساً في بلوغ حساب واقعي.",
+  "gates": {
+    "title": "PASS",
+    "introduction": "PASS",
+    "summary": "PASS",
+    "terminology": "PASS",
+    "evidence": "PASS",
+    "mobile": "NOT VERIFIED",
+    "language": "PASS"
+  },
+  "mobile_evidence": "",
+  "source_evidence": [
+    {
+      "claim": "100 tasks, 2,067 queries, and 1,184/391/492 split",
+      "url": "https://arxiv.org/html/2610.07763v1",
+      "location": "Sections 2.2 and 3",
+      "assessment": "Controlled Earth-science benchmark; 492 held-out queries"
+    },
+    {
+      "claim": "Nine of ten MAS configurations exceed the 11.0 GPT-5 baseline",
+      "url": "https://arxiv.org/html/2610.07763v1",
+      "location": "Section 4.2",
+      "assessment": "Composite score, not accuracy; five methods under two protocols"
+    },
+    {
+      "claim": "GPTSwarm category 32.0 at about 4.5x time; W4S task 29.4 at 1.85x",
+      "url": "https://arxiv.org/html/2610.07763v1",
+      "location": "Sections 4.2-4.3",
+      "assessment": "Absolute performance and cost efficiency select different workflows"
+    },
+    {
+      "claim": "Strict task win rate 51/100; 49/100 not higher",
+      "url": "https://arxiv.org/html/2610.07763v1",
+      "location": "Section 4.3",
+      "assessment": "Remainder can include ties and lower scores"
+    },
+    {
+      "claim": "ScienceAgentBench side sample: 102 tasks from 44 papers and four disciplines",
+      "url": "https://arxiv.org/abs/2410.05080",
+      "location": "Abstract",
+      "assessment": "Independent context only; source-reported rounded percentages"
+    },
+    {
+      "claim": "Hypothetical environmental-authority scenario",
+      "url": "editorial example",
+      "location": "Hypothetical operating scenario",
+      "assessment": "Explicitly labelled hypothetical"
+    }
+  ],
+  "decision": "BLOCKED pending actual mobile viewport/browser verification and successful GitHub Actions confirmation",
+  "terminology_evidence": "MAS, composite score, realistic output, conditional pass rate, task win rate, inference time and held-out query are defined.",
+  "language_evidence": "Problem-first Arabic passed a 30-word comprehension simulation; all reconstructable proportions carry numerator and denominator."
+}
