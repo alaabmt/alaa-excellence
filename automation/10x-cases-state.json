@@ -7,9 +7,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-26T12:29:08.799+04:00",
+  "updated_at": "2026-10-26T12:29:36.986+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "live_verification",
+  "current_stage": "completion_report",
   "run_lease": {
     "owner": "central-coordinator-2026-10-26T1216",
     "acquired_at": "2026-10-26T12:16:44+04:00",
@@ -105,7 +105,7 @@
       "sync_commit": "5f0d73cf0742a0968c08d973b5f7a63b6887e58c"
     },
     "publishing": {
-      "status": "pages_deployed_pending_live_verification",
+      "status": "published_live_verified",
       "arabic_path": "case-netherlands-room-for-the-river-adaptive-flood-management.html",
       "english_path": "en/case-netherlands-room-for-the-river-adaptive-flood-management.html",
       "arabic_url": "https://tamayuz10x.com/case-netherlands-room-for-the-river-adaptive-flood-management.html",
@@ -118,7 +118,17 @@
       "actions": "passed",
       "final_content_head": "ded9bdcaf96684410e4b501497581ba39bef97cc",
       "arabic_editorial_gate_run": "https://github.com/alaabmt/alaa-excellence/actions/runs/40292254682",
-      "pages_run": "https://github.com/alaabmt/alaa-excellence/actions/runs/40292255234"
+      "pages_run": "https://github.com/alaabmt/alaa-excellence/actions/runs/40292255234",
+      "live_verification": "passed",
+      "page_verification": "passed_ar_en_titles_body_references_disclosure",
+      "metadata_verification": "passed_canonical_hreflang_schema_og",
+      "index_verification": "passed_ar_en_single_card",
+      "sitemap_verification": "passed_ar_en_single_loc",
+      "image_verification": "passed_1200x630_ar_en",
+      "video_verification": "omitted_unverified_no_embed_present",
+      "desktop_rendering": "passed_no_horizontal_overflow",
+      "mobile_verification": "responsive_structure_present_live_device_emulation_not_run",
+      "browser_console": "no_site_origin_errors; browser-extension-only errors observed"
     },
     "publication_report": {
       "path": "automation/10x-cases/case-netherlands-room-for-the-river-adaptive-flood-management/publication-report.md",
@@ -164,7 +174,7 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Verify the Arabic and English live pages against the checkpoint: titles and full bodies, canonical/hreflang/schema/OG metadata, exact single index and sitemap entries, 1200×630 cover delivery, absence of unverified video, responsive overflow and site-origin browser-console errors; then save the live-verification checkpoint.",
+  "next_action": "Write the original completion report from the saved publication artifact, mark the workflow completed, release the run lease and preserve the live URLs and exact verification evidence.",
   "last_run": {
     "mode": "daily_primary_run",
     "status": "in_progress",
@@ -173,8 +183,8 @@
     "notes": "Bilingual pages, indexes, date registry, sitemap and cover manifest published; social-card workflow generated and synchronized both 1200×630 assets; repository publication report saved. Actions and final-head Pages/live verification remain.",
     "resumed_at": "2026-10-26T12:16:44+04:00",
     "resumed_by": "central-coordinator",
-    "last_checkpoint": "actions_and_pages",
-    "last_checkpoint_at": "2026-10-26T12:29:08.799+04:00"
+    "last_checkpoint": "live_verification",
+    "last_checkpoint_at": "2026-10-26T12:29:36.986+04:00"
   },
   "last_completed_item": {
     "slug": "case-london-ulez-clean-air-operating-model",
@@ -310,6 +320,7 @@
     "bilingual_parity",
     "final_quality_gate",
     "repository_publish",
-    "actions_and_pages"
+    "actions_and_pages",
+    "live_verification"
   ]
 }

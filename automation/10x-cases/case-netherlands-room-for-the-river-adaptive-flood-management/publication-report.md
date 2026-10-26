@@ -2,7 +2,7 @@
 
 ## Status
 
-Repository publication completed for the bilingual 10X case. Automated quality and asset generation succeeded. GitHub Pages deployment and live verification remain the next stage; this report does not claim that the public destination is live yet.
+Completed. The bilingual 10X case is published and live-verified. Automated quality, asset generation and GitHub Pages deployment succeeded on the exact content checkpoint.
 
 ## Item
 
@@ -67,8 +67,27 @@ Passed on the primary publication commit:
 - Generate social share cards
 - Article date integrity
 
-GitHub Pages deployment for the final cover-sync head is still being reconciled and must be verified before declaring the article live.
+GitHub Pages deployment passed on the exact checkpoint head `ded9bdcaf96684410e4b501497581ba39bef97cc`.
 
-## Next action
+## Live verification
 
-Monitor the final-head GitHub Pages run, verify the Arabic and English live pages, metadata, single index and sitemap entries, 1200×630 images, responsive rendering and browser console, then update this report and close the workflow.
+Verified on 26 October 2026 after Pages run [40292255234](https://github.com/alaabmt/alaa-excellence/actions/runs/40292255234):
+
+- Arabic page title, complete body, mandatory notice and nine references rendered.
+- English page title, complete body, mandatory notice and nine references rendered.
+- Canonical, Arabic/English/x-default hreflang, two JSON-LD blocks and language-matched Open Graph images were correct.
+- Both delivered cover images reported natural dimensions of 1200×630.
+- No iframe or video element was present, matching the unverified-video omission decision.
+- Arabic and English article indexes each contained exactly one card for the slug.
+- Sitemap contained exactly one Arabic and one English `loc`.
+- No horizontal overflow appeared on the inspected desktop viewport.
+- Browser console contained no site-origin warning or error; two observed errors originated only from the browser extension.
+
+## Live URLs
+
+- Arabic: https://tamayuz10x.com/case-netherlands-room-for-the-river-adaptive-flood-management.html
+- English: https://tamayuz10x.com/en/case-netherlands-room-for-the-river-adaptive-flood-management.html
+
+## Completion
+
+The repository, generated assets, automation checks, Pages deployment and live destination are consistent. No duplicate publication was created.
