@@ -74,3 +74,22 @@ Result: **PASS**.
 - Publication-date registry and sitemap.
 - Actual Chromium widths 320, 375, 390 and 430 px.
 - Exact-latest-head Actions, Pages and live 200/render verification.
+
+
+## Bilingual semantic-parity review
+
+- Same primary study, date, 100-task benchmark, 2,067-query total and 1,184/391/492 split: **PASS**.
+- Same ten configurations from five methods × two protocols and same GPT-5 control: **PASS**.
+- Same overall result, 9/10 above and 1/10 not above baseline: **PASS**.
+- Same baseline and named scores: 11.0, 32.0, 30.3, 29.4 and 8.2: **PASS**.
+- Same strict task split: 51/100 higher, 49/100 not higher, with ties/losses not conflated: **PASS**.
+- Same cost trade-off: ≈4.5× for maximum score and 1.85× for the most efficient reported point: **PASS**.
+- Same explanation that gains came mainly from reaching realistic computation, with conditional pass rates around 50–58%: **PASS**.
+- Same separate ScienceAgentBench side evidence, n=102, and no invented integer numerators: **PASS**.
+- Same explicitly hypothetical environmental-authority scenario: **PASS**.
+- Same ten evidence limitations and two primary references: **PASS**.
+- Same eight institutional decisions in meaning, with English reordered and recast for natural executive prose: **PASS**.
+
+## Native-English translation-detection test
+
+**PASS.** The English opening uses its own cadence and management framing; headings, transitions and sentence lengths are not mapped from Arabic. No sentence exists merely to preserve Arabic syntax. Facts, uncertainty, denominators, metric definitions and conclusions remain semantically aligned.
