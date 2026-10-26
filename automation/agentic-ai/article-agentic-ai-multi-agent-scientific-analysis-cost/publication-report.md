@@ -32,6 +32,12 @@
 
 The initial candidate contained a malformed Arabic canonical URL and an unmatched section boundary. Site-health and sitemap gates correctly rejected the canonical URL. Both defects were repaired in commit `6fe302b67621410fa641bcf8d55379dce2e3026f`; the repaired gates passed. The social-card workflow then produced head `0c23fae8b1b5704f27028be6f5fd2aba396306ad`.
 
-## Pending at this checkpoint
+## Final deployment and live verification
 
-Exact-head GitHub Pages success and live rendering/link verification. Completion must not be declared until those checks pass.
+- Verification head: `62d7e1c16c0f67a3f2e54978bc8dca42a8a900a2`.
+- Exact-head Arabic editorial/mobile gate: PASS — [run 40375883575](https://github.com/alaabmt/alaa-excellence/actions/runs/40375883575), run number 259.
+- Exact-head GitHub Pages: PASS — [run 40375881631](https://github.com/alaabmt/alaa-excellence/actions/runs/40375881631), run number 2262.
+- Arabic and English pages returned live rendered documents with the correct H1, author immediately below the title, correct canonical URL, complete 1200×630 cover, three result tables, one clearly separated secondary-study box, working canonical share links and no desktop horizontal overflow.
+- Each specialist hub contains exactly one article card; both general article indexes contain zero article links.
+
+Status: COMPLETED.
