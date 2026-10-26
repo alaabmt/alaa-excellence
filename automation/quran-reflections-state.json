@@ -5,9 +5,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-26T22:01:00+04:00",
+  "updated_at": "2026-10-26T22:01:16+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "research",
+  "current_stage": "quran_verification",
   "current_article": {
     "article_id": "quran-reflection-2026-10-26-al-hujurat-suspicion-surveillance-trust",
     "publication_date": "2026-10-26",
@@ -16,7 +16,7 @@
     "topic_en": "Suspicion, spying and backbiting: what the verse protects in a person's dignity when they are absent",
     "working_title_ar": "متى تتحول الرغبة في معرفة ما يخفيه الناس إلى ظلم؟",
     "working_title_en": "When Does the Desire to Know What People Conceal Become an Injustice?",
-    "status": "topic_selected",
+    "status": "research_completed",
     "quranic_focus": {
       "surah": "Al-Hujurat",
       "surah_ar": "الحجرات",
@@ -31,7 +31,7 @@
       "status": "pending_verification"
     },
     "research_notes_path": "automation/quran-reflections/reflection-al-hujurat-suspicion-surveillance-trust/research-notes.md",
-    "research_status": "pending",
+    "research_status": "completed",
     "topic_selection": {
       "status": "completed",
       "candidates": [
@@ -40,7 +40,39 @@
         "Al-Ma’idah 5:2 — the boundary of cooperation"
       ],
       "selected": "Al-Hujurat 49:12 — suspicion, spying and the dignity of what remains unseen"
-    }
+    },
+    "research_sources": [
+      {
+        "type": "Qur'an text and Sahih International translation",
+        "url": "https://legacy.quran.com/49/12",
+        "status": "reviewed"
+      },
+      {
+        "type": "Immediate context, Al-Hujurat 49:10–13",
+        "url": "https://quran.com/49/10-13",
+        "status": "reviewed"
+      },
+      {
+        "type": "Tafsir al-Tabari 49:12",
+        "url": "https://quran.ksu.edu.sa/tafseer/tabary/sura49-aya12.html",
+        "status": "reviewed"
+      },
+      {
+        "type": "Tafsir Ibn Kathir 49:12",
+        "url": "https://quran.ksu.edu.sa/tafseer/katheer/sura49-aya12.html",
+        "status": "reviewed"
+      },
+      {
+        "type": "Tafsir al-Qurtubi 49:12",
+        "url": "https://quran.ksu.edu.sa/tafseer/qortobi/sura49-aya12.html",
+        "status": "reviewed"
+      },
+      {
+        "type": "Tafsir al-Sa'di 49:12",
+        "url": "https://quran.ksu.edu.sa/tafseer/saadi/sura49-aya12.html",
+        "status": "reviewed"
+      }
+    ]
   },
   "stage_order": [
     "capability_check",
@@ -73,15 +105,15 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Research and verify Qur’an 49:12 in its 49:10–13 context using the Qur’an text, Sahih International and established tafsir sources; distinguish سوء الظن, التجسس and الغيبة, record interpretive limits and save the completed research notes before Qur’an verification.",
+  "next_action": "Perform the independent Qur’an-reference verification gate: re-check Al-Hujurat 49:12, Arabic text, Sahih International attribution, 49:10–13 context and every tafsir-derived claim; record the verified reference set before Arabic drafting.",
   "last_run": {
     "mode": "coordinator_daily_start",
     "status": "in_progress",
     "started_at": "2026-10-26T21:55:48+04:00",
     "starting_head": "20aadf100dc8c07a5a29239213b4523f3d16202d",
     "notes": "No unfinished workflows. After 17:00 Dubai, duplicate checks found no Qur’anic reflection started or published for 2026-10-26 in the state, topic registry, Quran indexes, repository search, article indexes, publication-date registry or sitemap.",
-    "last_checkpoint": "topic_selection",
-    "last_checkpoint_at": "2026-10-26T22:01:00+04:00"
+    "last_checkpoint": "research",
+    "last_checkpoint_at": "2026-10-26T22:01:16+04:00"
   },
   "workflow_id": "quran_reflections",
   "run_lease": {
@@ -393,7 +425,8 @@
     "capability_check",
     "load_checkpoint",
     "duplicate_check",
-    "topic_selection"
+    "topic_selection",
+    "research"
   ],
   "duplicate_check": {
     "status": "passed",
