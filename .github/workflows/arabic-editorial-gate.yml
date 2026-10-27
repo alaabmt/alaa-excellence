@@ -23,6 +23,8 @@ jobs:
           EDITORIAL_REPORT: editorial-qa/agent-multi-agent-science-cost.json
           MOBILE_ARTIFACT_PREFIX: agent-multi-agent-science-cost
         run: python3 scripts/check_arabic_mobile.py
+      - name: Render current Qur'anic reflection at actual mobile widths
+        run: python3 scripts/check_quran_reflection_mobile.py
       - name: Render the OE evidence defaults article at actual mobile widths
         env:
           ARABIC_ARTICLE: article-oe-evidence-defaults-shape-practice.html
