@@ -5,7 +5,7 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-27T03:29:00+04:00",
+  "updated_at": "2026-10-27T05:00:00+04:00",
   "workflow_status": "in_progress",
   "current_stage": "actions_and_pages",
   "current_article": {
@@ -286,17 +286,17 @@
   "last_run": {
     "mode": "coordinator_resume",
     "status": "in_progress",
-    "started_at": "2026-10-27T03:00:35+04:00",
-    "starting_head": "a9dc4b7d37e600dcb77b870470860b5fa98b60c6",
-    "notes": "Required repository, Site Health, date, sitemap, social-card and exact-lineage Pages checks succeeded. Live smoke verification also passed. Exact mobile-width evidence for this Qur’anic page remains because the repository Arabic workflow targets fixed unrelated pages and the current browser/runtime could not safely emulate those widths.",
+    "started_at": "2026-10-27T05:00:00+04:00",
+    "starting_head": "bab533289154a71dd25a927be78f904fc6415e83",
+    "notes": "Resuming exact mobile-width verification only; publication and successful workflows will not be replayed.",
     "last_checkpoint": "repository_publish",
     "last_checkpoint_at": "2026-10-27T03:03:00+04:00"
   },
   "workflow_id": "quran_reflections",
   "run_lease": {
     "owner": "central-resume-coordinator",
-    "acquired_at": "2026-10-27T03:00:35+04:00",
-    "expires_at": "2026-10-27T04:50:35+04:00"
+    "acquired_at": "2026-10-27T05:00:00+04:00",
+    "expires_at": "2026-10-27T06:50:00+04:00"
   },
   "checkpoint_policy": {
     "checkpoint_after_every_stage": true,
