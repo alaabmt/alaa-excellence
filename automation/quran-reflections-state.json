@@ -5,9 +5,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-27T05:00:00+04:00",
+  "updated_at": "2026-10-27T05:09:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "actions_and_pages",
+  "current_stage": "live_verification",
   "current_article": {
     "article_id": "quran-reflection-2026-10-26-al-hujurat-suspicion-surveillance-trust",
     "publication_date": "2026-10-26",
@@ -192,7 +192,7 @@
       "duplicate_check": "passed before publication and after generated bot commits"
     },
     "actions_and_pages": {
-      "status": "in_progress",
+      "status": "completed",
       "checked_at": "2026-10-27T03:29:00+04:00",
       "reconciliation_trigger_commit": "cf580cca388ba8f79441dfec4b508450ea830020",
       "sitemap_descendant_commit": "1f6e07e49ce2533acd78035a07d1ce19761fbaf2",
@@ -248,7 +248,42 @@
         "four_indexes_visible": true,
         "sitemap_single_loc_each": true
       },
-      "remaining_gate": "Exact rendered mobile-width check for this reflection at 320/375/390/430px. The existing Arabic workflow does not target this page, local Chromium is unavailable, and the cloud browser security policy rejected a mobile-frame harness."
+      "remaining_gate": null,
+      "completed_at": "2026-10-27T05:09:00+04:00",
+      "exact_mobile_test_commit": "a13cdad44405a7c2bdc3f3d769b5ec8a8c16d710",
+      "exact_mobile_test": {
+        "workflow_run_id": 40430113647,
+        "job_id": 121945443136,
+        "conclusion": "success",
+        "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40430113647",
+        "artifact_id": 12702275217,
+        "artifact_url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40430113647/artifacts/12702275217",
+        "viewports": [
+          320,
+          375,
+          390,
+          430
+        ],
+        "languages": [
+          "ar",
+          "en"
+        ],
+        "assertions": [
+          "no horizontal overflow",
+          "H1 visible",
+          "correct lang and dir",
+          "local assets load",
+          "tables scroll safely",
+          "listen control present"
+        ],
+        "cases_passed": 8
+      },
+      "pages_after_mobile_test": {
+        "run_id": 40430114463,
+        "head_sha": "a13cdad44405a7c2bdc3f3d769b5ec8a8c16d710",
+        "conclusion": "success",
+        "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40430114463"
+      }
     }
   },
   "stage_order": [
@@ -282,15 +317,15 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Run an exact article-targeted rendered mobile/RTL check for reflection-al-hujurat-suspicion-surveillance-trust.html at 320/375/390/430px (and English parity), then complete actions_and_pages and advance to live_verification. Do not replay publication or already-successful Actions.",
+  "next_action": "Wait for GitHub Pages success on the exact latest checkpoint head, then verify both live pages, canonical/hreflang, RTL/LTR, TTS controls, 1200×630 images, four indexes, sitemap uniqueness and deployed content before saving live_verification.",
   "last_run": {
     "mode": "coordinator_resume",
     "status": "in_progress",
     "started_at": "2026-10-27T05:00:00+04:00",
     "starting_head": "bab533289154a71dd25a927be78f904fc6415e83",
-    "notes": "Resuming exact mobile-width verification only; publication and successful workflows will not be replayed.",
-    "last_checkpoint": "repository_publish",
-    "last_checkpoint_at": "2026-10-27T03:03:00+04:00"
+    "notes": "Exact bilingual mobile rendering passed at 320/375/390/430px in GitHub Actions (8/8 cases) and Pages succeeded for the mobile-test commit. Advancing to live verification.",
+    "last_checkpoint": "actions_and_pages",
+    "last_checkpoint_at": "2026-10-27T05:09:00+04:00"
   },
   "workflow_id": "quran_reflections",
   "run_lease": {
@@ -610,7 +645,8 @@
     "english_draft",
     "bilingual_parity",
     "quality_gate",
-    "repository_publish"
+    "repository_publish",
+    "actions_and_pages"
   ],
   "duplicate_check": {
     "status": "passed",

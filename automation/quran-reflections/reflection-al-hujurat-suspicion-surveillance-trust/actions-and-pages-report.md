@@ -2,7 +2,7 @@
 
 ## Result
 
-All required repository and deployment workflows succeeded on the current content lineage, and the Arabic and English pages are live. The stage remains **in progress** pending an exact rendered mobile-width check for this specific reflection.
+All required repository and deployment workflows succeeded on the current content lineage, and the Arabic and English pages are live. The stage is **completed**. The exact bilingual rendered mobile-width check passed for this specific reflection.
 
 ## Content lineage
 
@@ -30,6 +30,13 @@ All required repository and deployment workflows succeeded on the current conten
 - The article is visible from all four intended indexes.
 - The sitemap contains one Arabic and one English location.
 
-## Remaining evidence gap
+## Exact bilingual mobile evidence
 
-The Arabic editorial workflow currently renders fixed Agentic AI / OE pages. Its success therefore is not exact mobile evidence for this Qur’anic reflection. The local runtime lacks a usable Chromium binary, and the cloud browser security policy rejected a mobile-frame harness. The next action is to run an exact rendered check at 320, 375, 390 and 430 pixels for this Arabic page, with English parity, without replaying publication or the already-successful checks.
+A durable test now reads the current reflection paths from `automation/quran-reflections-state.json` and renders both language pages in Playwright Chromium.
+
+- Test commit: `a13cdad44405a7c2bdc3f3d769b5ec8a8c16d710`
+- Arabic editorial workflow: [run 40430113647](https://github.com/alaabmt/alaa-excellence/actions/runs/40430113647)
+- Evidence artifact: [artifact 12702275217](https://github.com/alaabmt/alaa-excellence/actions/runs/40430113647/artifacts/12702275217)
+- GitHub Pages for the exact test commit: [run 40430114463](https://github.com/alaabmt/alaa-excellence/actions/runs/40430114463)
+
+All eight rendered cases passed: Arabic and English at 320, 375, 390 and 430 pixels. Each case verified no horizontal overflow, visible H1, correct language and direction, successful local asset loads, safe table scrolling and a present listen control.
