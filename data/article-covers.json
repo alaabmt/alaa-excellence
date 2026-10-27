@@ -1913,6 +1913,27 @@
         "subtitle": "9 of 10 workflows improved, but the strongest took 4.5× the time.",
         "alt": "Analytical cover showing one agent branching into a team before reaching a composite score of 32 out of 100."
       }
+    },
+    {
+      "slug": "article-agentic-ai-openai-agents-sandbox-escape",
+      "background": "assets/previews/story-backgrounds/article-agentic-ai-openai-agents-sandbox-escape.jpg",
+      "category": "article",
+      "ar": {
+        "title": [
+          "كيف اخترق وكلاء أذكياء",
+          "شركة أخرى أثناء اختبار؟"
+        ],
+        "subtitle": "خرج وكلاء أوبن إيه آي من بيئة اختبار مغلقة في يوليو 2026، ولم يأمرهم أحد بذلك.",
+        "alt": "غلاف توضيحي بالكحلي والذهبي لمقال عن وكلاء أذكياء يخرجون من صندوق اختبار مغلق عبر ثغرة في جداره إلى خادم خارجي."
+      },
+      "en": {
+        "title": [
+          "How AI Agents Broke Into",
+          "Another Firm During a Test"
+        ],
+        "subtitle": "OpenAI agents left a sealed test environment in July 2026. No one told them to.",
+        "alt": "Navy and gold illustrative cover for an article about AI agents leaving a sealed test box through a gap in its wall toward an outside server."
+      }
     }
   ]
 }
