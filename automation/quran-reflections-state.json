@@ -5,9 +5,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-27T05:16:00+04:00",
-  "workflow_status": "in_progress",
-  "current_stage": "completion_report",
+  "updated_at": "2026-10-27T05:20:00+04:00",
+  "workflow_status": "completed",
+  "current_stage": "completed",
   "current_article": {
     "article_id": "quran-reflection-2026-10-26-al-hujurat-suspicion-surveillance-trust",
     "publication_date": "2026-10-26",
@@ -16,7 +16,7 @@
     "topic_en": "Suspicion, spying and backbiting: what the verse protects in a person's dignity when they are absent",
     "working_title_ar": "متى تتحول الرغبة في معرفة ما يخفيه الناس إلى ظلم؟",
     "working_title_en": "When Does the Desire to Know What People Conceal Become an Injustice?",
-    "status": "published_live_verified",
+    "status": "completed_published_live_verified",
     "quranic_focus": {
       "surah": "Al-Hujurat",
       "surah_ar": "الحجرات",
@@ -352,7 +352,13 @@
         "ar_loc_count": 1,
         "en_loc_count": 1
       }
-    }
+    },
+    "publication_report": {
+      "status": "saved",
+      "path": "automation/quran-reflections/reflection-al-hujurat-suspicion-surveillance-trust/publication-report.md",
+      "completed_at": "2026-10-27T05:20:00+04:00"
+    },
+    "completed_at": "2026-10-27T05:20:00+04:00"
   },
   "stage_order": [
     "capability_check",
@@ -385,22 +391,18 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Create the final bilingual publication report, mark the cycle completed, copy the article into last_completed_article, and release run_lease.",
+  "next_action": "No unfinished stage. Keep this cycle closed; a future daily trigger may start a new Qur’anic reflection only after the date and duplicate guards pass.",
   "last_run": {
     "mode": "coordinator_resume",
-    "status": "in_progress",
+    "status": "completed",
     "started_at": "2026-10-27T05:00:00+04:00",
     "starting_head": "bab533289154a71dd25a927be78f904fc6415e83",
-    "notes": "Exact bilingual mobile rendering passed at 320/375/390/430px in GitHub Actions (8/8 cases) and Pages succeeded for the mobile-test commit. Advancing to live verification.",
-    "last_checkpoint": "actions_and_pages",
-    "last_checkpoint_at": "2026-10-27T05:09:00+04:00"
+    "last_checkpoint": "completed",
+    "last_checkpoint_at": "2026-10-27T05:20:00+04:00",
+    "notes": "Completed exact bilingual mobile QA, corrected a stale English hero summary discovered during live verification, re-ran Actions and Pages, verified both live pages, four indexes and sitemap uniqueness, saved the publication report, and released the lease."
   },
   "workflow_id": "quran_reflections",
-  "run_lease": {
-    "owner": "central-resume-coordinator",
-    "acquired_at": "2026-10-27T05:00:00+04:00",
-    "expires_at": "2026-10-27T06:50:00+04:00"
-  },
+  "run_lease": null,
   "checkpoint_policy": {
     "checkpoint_after_every_stage": true,
     "run_lease_minutes": 110,
@@ -412,293 +414,356 @@
   },
   "coordinator_recovery": true,
   "last_completed_article": {
-    "article_id": "quran-reflection-2026-10-25-al-balad-the-steep-path",
-    "publication_date": "2026-10-25",
-    "slug": "reflection-al-balad-the-steep-path",
-    "topic_ar": "العقبة: لماذا يصف القرآن الخير المكلف بطريق يحتاج إلى اقتحام؟",
-    "topic_en": "The steep path: why the Qur'an describes costly goodness as a path that must be crossed",
-    "working_title_ar": "ماذا يعني اقتحام العقبة في سورة البلد؟",
-    "working_title_en": "What Does It Mean to Cross the Steep Path in Surah Al-Balad?",
+    "article_id": "quran-reflection-2026-10-26-al-hujurat-suspicion-surveillance-trust",
+    "publication_date": "2026-10-26",
+    "slug": "reflection-al-hujurat-suspicion-surveillance-trust",
+    "topic_ar": "سوء الظن والتجسس والغيبة: ما الذي تحميه الآية في كرامة الإنسان حين يغيب؟",
+    "topic_en": "Suspicion, spying and backbiting: what the verse protects in a person's dignity when they are absent",
+    "working_title_ar": "متى تتحول الرغبة في معرفة ما يخفيه الناس إلى ظلم؟",
+    "working_title_en": "When Does the Desire to Know What People Conceal Become an Injustice?",
     "status": "completed_published_live_verified",
     "quranic_focus": {
-      "surah": "Al-Balad",
-      "surah_ar": "البلد",
+      "surah": "Al-Hujurat",
+      "surah_ar": "الحجرات",
       "ayahs": [
-        11,
-        12,
-        13,
-        14,
-        15,
-        16
+        12
       ],
       "context_ayahs": [
-        8,
-        9,
         10,
-        17,
-        18
+        11,
+        13
       ],
       "status": "verified"
     },
-    "research_notes_path": "automation/quran-reflections/reflection-al-balad-the-steep-path/research-notes.md",
+    "research_notes_path": "automation/quran-reflections/reflection-al-hujurat-suspicion-surveillance-trust/research-notes.md",
     "research_status": "completed",
     "topic_selection": {
       "status": "completed",
       "candidates": [
-        "Al-Balad 90:11–17 — the steep path and costly goodness",
-        "Al-Hujurat 49:12 — suspicion, surveillance and unseen trust",
-        "Al-Mutaffifin 83:1–3 — small distortions that corrode trust"
+        "Al-Hujurat 49:12 — suspicion, spying and the dignity of what remains unseen",
+        "Al-Mutaffifin 83:1–6 — demanding a full measure while giving less",
+        "Al-Ma’idah 5:2 — the boundary of cooperation"
       ],
-      "selected": "Al-Balad 90:11–17 — the steep path and costly goodness",
-      "artifact_commit": "38443c4497625d55012b6093fbbbe4db8e423ef5"
+      "selected": "Al-Hujurat 49:12 — suspicion, spying and the dignity of what remains unseen"
     },
-    "research_commit": "8c477f7da206979894c424ee5d424bee7aec62c1",
     "research_sources": [
       {
         "type": "Qur'an text and Sahih International translation",
-        "url": "https://legacy.quran.com/90/11-17",
+        "url": "https://legacy.quran.com/49/12",
         "status": "reviewed"
       },
       {
-        "type": "Tafsir al-Tabari 90:11,13,14,17",
-        "url": "https://quran.ksu.edu.sa/tafseer/tabary/sura90-aya11.html",
+        "type": "Immediate context, Al-Hujurat 49:10–13",
+        "url": "https://quran.com/49/10-13",
         "status": "reviewed"
       },
       {
-        "type": "Tafsir Ibn Kathir 90:11,13,17",
-        "url": "https://quran.ksu.edu.sa/tafseer/katheer/sura90-aya11.html",
+        "type": "Tafsir al-Tabari 49:12",
+        "url": "https://quran.ksu.edu.sa/tafseer/tabary/sura49-aya12.html",
         "status": "reviewed"
       },
       {
-        "type": "Tafsir al-Qurtubi 90:11,13,17",
-        "url": "https://quran.ksu.edu.sa/tafseer/qortobi/sura90-aya11.html",
+        "type": "Tafsir Ibn Kathir 49:12",
+        "url": "https://quran.ksu.edu.sa/tafseer/katheer/sura49-aya12.html",
         "status": "reviewed"
       },
       {
-        "type": "Tafsir al-Sa'di 90:11,13,17",
-        "url": "https://quran.ksu.edu.sa/tafseer/saadi/sura90-aya11.html",
+        "type": "Tafsir al-Qurtubi 49:12",
+        "url": "https://quran.ksu.edu.sa/tafseer/qortobi/sura49-aya12.html",
+        "status": "reviewed"
+      },
+      {
+        "type": "Tafsir al-Sa'di 49:12",
+        "url": "https://quran.ksu.edu.sa/tafseer/saadi/sura49-aya12.html",
         "status": "reviewed"
       }
     ],
+    "research_commit": "de0024836493abc5f48c13a1bf3c9d302f998eae",
     "verified_quranic_references": [
       {
-        "surah": "Al-Balad",
-        "surah_ar": "البلد",
+        "surah": "Al-Hujurat",
+        "surah_ar": "الحجرات",
         "ayahs": [
-          11,
-          12,
-          13,
-          14,
-          15,
-          16,
-          17
+          12
         ],
         "context_ayahs": [
-          8,
-          9,
           10,
-          18
+          11,
+          13
         ],
         "status": "verified",
         "primary_text_urls": [
-          "https://legacy.quran.com/90/11-17"
+          "https://legacy.quran.com/49/12",
+          "https://legacy.quran.com/49/10-13"
         ],
         "translation": "Sahih International",
-        "verified_at": "2026-10-25T17:24:00+04:00"
+        "verified_at": "2026-10-26T22:02:09+04:00"
       }
     ],
-    "quran_verification_commit": "f0d3d42faba405f97c29dde7eaa9dc16d149e00b",
     "arabic_draft": {
       "status": "revised_and_cleared",
-      "path": "automation/quran-reflections/reflection-al-balad-the-steep-path/draft-ar.md",
-      "initial_commit": "c8711f8125a2becb054f020202fe7d64ebb3bb4d",
-      "blob_sha": "de0a909c5d164b6df8f692adcee0b870e15386b8",
-      "completed_at": "2026-10-25T18:18:00+04:00",
-      "revision_commit": "0492f4b34050a2c68159a7b4e3711e73049ff74d"
+      "path": "automation/quran-reflections/reflection-al-hujurat-suspicion-surveillance-trust/draft-ar.md",
+      "word_count": 1274,
+      "completed_at": "2026-10-26T23:02:00+04:00",
+      "revision_count": 2
     },
     "independent_critique": {
       "status": "passed_after_non_blocking_revisions",
-      "path": "automation/quran-reflections/reflection-al-balad-the-steep-path/quality-review.md",
-      "commit": "f5f230131bb985a45b30a2548ee3ee09e6277d15",
-      "blob_sha": "24ba6e5673968d7f6a9f98f370fc3966f3f460e1",
-      "completed_at": "2026-10-25T19:15:00+04:00",
-      "mobile_gate": "NOT VERIFIED until final HTML"
+      "path": "automation/quran-reflections/reflection-al-hujurat-suspicion-surveillance-trust/quality-review.md",
+      "blocking_errors": [],
+      "revisions_applied": 2,
+      "completed_at": "2026-10-26T23:08:00+04:00",
+      "mobile_gate": "NOT VERIFIED until final HTML",
+      "tts_gate": "NOT VERIFIED until final HTML"
     },
     "english_draft": {
       "status": "parity_cleared",
-      "path": "automation/quran-reflections/reflection-al-balad-the-steep-path/draft-en.md",
-      "commit": "fdc7e68b199aa9aab80a6d5284e69f6d6683a3e5",
-      "blob_sha": "f1d8cd82d380466259e126c272193af9cf8837f0",
+      "path": "automation/quran-reflections/reflection-al-hujurat-suspicion-surveillance-trust/draft-en.md",
+      "word_count": 1515,
       "quran_translation": "Sahih International",
-      "completed_at": "2026-10-25T20:00:07+04:00"
+      "completed_at": "2026-10-26T23:15:00+04:00"
     },
     "bilingual_parity": {
-      "status": "passed_without_draft_changes",
-      "review_path": "automation/quran-reflections/reflection-al-balad-the-steep-path/quality-review.md",
-      "review_commit": "a78d7018b838ff85d77c9a971c8f2454daeb7685",
-      "review_blob_sha": "a20f1eaee2dd6a2b38c27a74398fdf70f50f788f",
-      "arabic_blob_sha": "de0a909c5d164b6df8f692adcee0b870e15386b8",
-      "english_blob_sha": "f1d8cd82d380466259e126c272193af9cf8837f0",
-      "same_source_urls": 18,
-      "completed_at": "2026-10-25T21:02:59+04:00"
+      "status": "passed_after_heading_alignment",
+      "review_path": "automation/quran-reflections/reflection-al-hujurat-suspicion-surveillance-trust/quality-review.md",
+      "revision_count": 1,
+      "same_source_urls": 5,
+      "completed_at": "2026-10-27T00:06:00+04:00",
+      "mobile_gate": "NOT VERIFIED until final HTML"
     },
     "quality_gate": {
       "status": "passed",
       "score": 98,
       "threshold": 90,
       "blocking_errors": [],
-      "review_path": "automation/quran-reflections/reflection-al-balad-the-steep-path/quality-review.md",
-      "commit": "bc8e3e30d546d563a670691ad7e0ca152229b0ce",
-      "blob_sha": "e6a20bfd47a21f83c72cd77021021dd57c3bf5b1",
+      "review_path": "automation/quran-reflections/reflection-al-hujurat-suspicion-surveillance-trust/quality-review.md",
+      "completed_at": "2026-10-27T00:12:00+04:00",
       "mobile_gate": "NOT VERIFIED until final HTML",
       "rtl_gate": "NOT VERIFIED until final HTML",
-      "tts_gate": "NOT VERIFIED until final HTML",
-      "completed_at": "2026-10-25T22:02:17+04:00"
+      "tts_gate": "NOT VERIFIED until final HTML"
     },
     "repository_publish": {
       "status": "completed",
-      "completed_at": "2026-10-26T03:13:00+04:00",
-      "report_path": "automation/quran-reflections/reflection-al-balad-the-steep-path/repository-publish-report.md",
-      "report_commit": "8ec8c664a97b90409668e24643e1cb9676c26e97",
+      "completed_at": "2026-10-27T03:03:00+04:00",
+      "report_path": "automation/quran-reflections/reflection-al-hujurat-suspicion-surveillance-trust/repository-publish-report.md",
+      "text_commit": "33c743dfea7fa3c44cf73e5b1902a1d0ec9c2bbd",
+      "sitemap_reconciliation_commit": "990f9a61a1be6ffa62bbf880ba88707659f6fb92",
+      "social_assets_commit": "336cab1d5243fe64d6904e38ff17fc343ea0c92a",
+      "topic_and_checkpoint_commit": "a9dc4b7d37e600dcb77b870470860b5fa98b60c6",
       "arabic_page": {
-        "path": "reflection-al-balad-the-steep-path.html",
-        "commit": "59ce4120aa224f63acab275471f142a8fe541d0c",
-        "blob_sha": "6bb73dd5d991e3fb15d039eadaf78d55e3861d02"
+        "path": "reflection-al-hujurat-suspicion-surveillance-trust.html"
       },
       "english_page": {
-        "path": "en/reflection-al-balad-the-steep-path.html",
-        "commit": "bad8bd704274b55e2c3b1e03660f377efa7cba66",
-        "blob_sha": "b447da1b4aacdb9c006520233dfa5bf7e0a091cc"
+        "path": "en/reflection-al-hujurat-suspicion-surveillance-trust.html"
       },
-      "index_commits": [
-        "75668db8b1e37d78d08520e0448faaf8a89a30c0",
-        "c235cebd229b9acf4ecb54e6cb7a8f1ce1216da0",
-        "90d5c15e1638e475abb17fc3a5d5b97fe3ba5c7c",
-        "9c6da1be12428319eca1ac8fb4634aa34f782f9d"
+      "indexes": [
+        "articles.html",
+        "en/articles.html",
+        "quranic-reflections.html",
+        "en/quranic-reflections.html"
       ],
-      "topic_registry_commit": "89cc9eb1",
-      "cover_manifest_commit": "02d1f09ac183730b3b74ba14253af84e817b42ec",
-      "publication_dates_commit": "e014c0c0c73d9bb74891812cc0c43229661a72f3",
-      "sitemap_commit": "5bd571d9727cfed9acfc3e821eb16374b627d0d9",
-      "social_assets_commit": "e67c800fb42d841e7ee2f9073f22d0399336a14b",
+      "records": [
+        "data/quranic-reflection-topics.json",
+        "data/article-covers.json",
+        "data/article-publication-dates.json",
+        "sitemap.xml"
+      ],
       "social_assets": [
         {
-          "path": "assets/previews/story/reflection-al-balad-the-steep-path-ar.jpg",
-          "blob_sha": "d49757c6df19c92503b561b9248616fe2e753d98"
+          "path": "assets/previews/story/reflection-al-hujurat-suspicion-surveillance-trust-ar.jpg",
+          "width": 1200,
+          "height": 630,
+          "size_bytes": 151376
         },
         {
-          "path": "assets/previews/story/reflection-al-balad-the-steep-path-en.jpg",
-          "blob_sha": "509f56e77d54a7728b670de72ea4a88497d3f934"
+          "path": "assets/previews/story/reflection-al-hujurat-suspicion-surveillance-trust-en.jpg",
+          "width": 1200,
+          "height": 630,
+          "size_bytes": 150612
         }
       ],
-      "verified_main_head": "e67c800fb42d841e7ee2f9073f22d0399336a14b",
-      "duplicate_check": "passed: one entry per target in manifests and sitemap; page and asset paths unique"
+      "checks": {
+        "title_and_h1": true,
+        "canonical_and_reciprocal_hreflang": true,
+        "article_and_breadcrumb_schema": true,
+        "rtl_ltr": true,
+        "language_isolation": true,
+        "tts_structure": true,
+        "topic_registry_single": true,
+        "index_card_single_each": true,
+        "publication_dates_match": true,
+        "sitemap_single_each": true
+      },
+      "duplicate_check": "passed before publication and after generated bot commits"
     },
     "actions_and_pages": {
       "status": "completed",
-      "completed_at": "2026-10-26T04:04:30+04:00",
-      "reconciliation_trigger_commit": "fd77235551d5c8ed2a91673da88c5a416922ffe8",
-      "language_isolation_fix_commit": "a8e0cf300577814b98db83ef0a5494969e009adf",
-      "sitemap_descendant_commit": "12303482fd990d339155f59ab327d5e55e1775d7",
-      "reconciled_descendant_head": "12303482fd990d339155f59ab327d5e55e1775d7",
-      "report_path": "automation/quran-reflections/reflection-al-balad-the-steep-path/actions-and-pages-report.md",
-      "report_commit": "ff5b5ea319f30d9c63a238d25230f81dafb76552",
-      "prior_site_health_failure": {
-        "run_id": 40247288997,
-        "head_sha": "fd77235551d5c8ed2a91673da88c5a416922ffe8",
-        "reason": "English page visibly contained Arabic verse quotations; repository-local link, collection and metadata checks otherwise passed."
-      },
+      "checked_at": "2026-10-27T03:29:00+04:00",
+      "reconciliation_trigger_commit": "cf580cca388ba8f79441dfec4b508450ea830020",
+      "sitemap_descendant_commit": "1f6e07e49ce2533acd78035a07d1ce19761fbaf2",
+      "social_cards_descendant_commit": "c7b3b6c6fa8aeaca4f83aa2abb9ba7679f0032b3",
+      "exact_content_head": "c7b3b6c6fa8aeaca4f83aa2abb9ba7679f0032b3",
+      "report_path": "automation/quran-reflections/reflection-al-hujurat-suspicion-surveillance-trust/actions-and-pages-report.md",
       "required_checks": {
         "site_health": {
-          "run_id": 40247358023,
-          "head_sha": "a8e0cf300577814b98db83ef0a5494969e009adf",
+          "run_id": 40416842011,
           "conclusion": "success",
-          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40247358023"
+          "head_sha": "cf580cca388ba8f79441dfec4b508450ea830020",
+          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40416842011"
         },
         "article_date_integrity": {
-          "run_id": 40247357999,
-          "head_sha": "a8e0cf300577814b98db83ef0a5494969e009adf",
+          "run_id": 40416842076,
           "conclusion": "success",
-          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40247357999"
+          "head_sha": "cf580cca388ba8f79441dfec4b508450ea830020",
+          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40416842076"
         },
         "sitemap": {
-          "run_id": 40247358016,
-          "head_sha": "a8e0cf300577814b98db83ef0a5494969e009adf",
+          "run_id": 40416841888,
           "conclusion": "success",
-          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40247358016"
+          "head_sha": "cf580cca388ba8f79441dfec4b508450ea830020",
+          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40416841888"
         },
         "arabic_editorial": {
-          "run_id": 40247358050,
-          "head_sha": "a8e0cf300577814b98db83ef0a5494969e009adf",
+          "run_id": 40416841988,
           "conclusion": "success",
-          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40247358050"
+          "head_sha": "cf580cca388ba8f79441dfec4b508450ea830020",
+          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40416841988",
+          "scope_note": "Workflow passed, but its mobile renderer currently targets fixed non-Qur’anic pages; it is not exact evidence for this reflection."
         },
         "social_cards": {
-          "run_id": 40247358064,
-          "head_sha": "a8e0cf300577814b98db83ef0a5494969e009adf",
+          "run_id": 40416841929,
           "conclusion": "success",
-          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40247358064"
+          "head_sha": "cf580cca388ba8f79441dfec4b508450ea830020",
+          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40416841929"
         },
         "pages": {
-          "run_id": 40247410164,
-          "head_sha": "12303482fd990d339155f59ab327d5e55e1775d7",
+          "run_id": 40416920989,
           "conclusion": "success",
-          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40247410164"
+          "head_sha": "c7b3b6c6fa8aeaca4f83aa2abb9ba7679f0032b3",
+          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40416920989"
         }
+      },
+      "live_smoke_check": {
+        "ar": true,
+        "en": true,
+        "canonical_and_hreflang": true,
+        "rtl_ltr": true,
+        "tts_controls": true,
+        "covers_1200x630": true,
+        "four_indexes_visible": true,
+        "sitemap_single_loc_each": true
+      },
+      "remaining_gate": null,
+      "completed_at": "2026-10-27T05:09:00+04:00",
+      "exact_mobile_test_commit": "a13cdad44405a7c2bdc3f3d769b5ec8a8c16d710",
+      "exact_mobile_test": {
+        "workflow_run_id": 40430113647,
+        "job_id": 121945443136,
+        "conclusion": "success",
+        "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40430113647",
+        "artifact_id": 12702275217,
+        "artifact_url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40430113647/artifacts/12702275217",
+        "viewports": [
+          320,
+          375,
+          390,
+          430
+        ],
+        "languages": [
+          "ar",
+          "en"
+        ],
+        "assertions": [
+          "no horizontal overflow",
+          "H1 visible",
+          "correct lang and dir",
+          "local assets load",
+          "tables scroll safely",
+          "listen control present"
+        ],
+        "cases_passed": 8
+      },
+      "pages_after_mobile_test": {
+        "run_id": 40430114463,
+        "head_sha": "a13cdad44405a7c2bdc3f3d769b5ec8a8c16d710",
+        "conclusion": "success",
+        "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40430114463"
       }
     },
     "live_verification": {
-      "status": "passed",
-      "verified_at": "2026-10-26T04:07:00+04:00",
-      "deployed_head": "12303482fd990d339155f59ab327d5e55e1775d7",
-      "arabic_url": "https://tamayuz10x.com/reflection-al-balad-the-steep-path.html",
-      "english_url": "https://tamayuz10x.com/en/reflection-al-balad-the-steep-path.html",
-      "observed_titles": {
-        "ar": "ماذا يعني اقتحام العقبة في سورة البلد؟ | التميّز 10X",
-        "en": "What Does It Mean to Cross the Steep Path in Surah Al-Balad? | Tamayuz 10X"
+      "status": "passed_after_live_editorial_correction",
+      "verified_at": "2026-10-27T05:16:00+04:00",
+      "deployed_head": "467b766ba7d8087614b45e311e6a01a281ce46cb",
+      "content_fix_commit": "4b8e47f8fc152022aeca253db99819600d4b07fb",
+      "pages_run": {
+        "run_id": 40431095695,
+        "conclusion": "success",
+        "head_sha": "467b766ba7d8087614b45e311e6a01a281ce46cb",
+        "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40431095695"
       },
-      "checks": {
-        "arabic_page": true,
-        "english_page": true,
-        "canonical": true,
-        "reciprocal_hreflang": true,
-        "rtl_ltr": true,
-        "metadata": true,
-        "article_schema_org": true,
-        "english_visible_arabic_leakage": false,
-        "arabic_cover_1200x630": true,
-        "english_cover_1200x630": true,
-        "articles_index_ar_single_card": true,
-        "articles_index_en_single_card": true,
-        "quranic_index_ar_single_card": true,
-        "quranic_index_en_single_card": true,
-        "sitemap_one_loc_per_language": true
+      "editorial_run": {
+        "run_id": 40431026568,
+        "conclusion": "success",
+        "head_sha": "4b8e47f8fc152022aeca253db99819600d4b07fb",
+        "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40431026568"
       },
-      "sitemap_locs": [
-        "https://tamayuz10x.com/reflection-al-balad-the-steep-path.html",
-        "https://tamayuz10x.com/en/reflection-al-balad-the-steep-path.html"
-      ]
+      "correction": {
+        "issue": "English hero summary belonged to a previous reflection.",
+        "resolution": "Replaced it with a faithful Al-Hujurat summary and re-ran Actions and Pages.",
+        "live_confirmed": true
+      },
+      "pages": {
+        "ar": {
+          "url": "https://tamayuz10x.com/reflection-al-hujurat-suspicion-surveillance-trust.html",
+          "lang": "ar",
+          "dir": "rtl",
+          "canonical": true,
+          "hreflang": true,
+          "tts": true,
+          "image_1200x630": true,
+          "article_schema": true,
+          "breadcrumb_schema": true,
+          "no_overflow": true
+        },
+        "en": {
+          "url": "https://tamayuz10x.com/en/reflection-al-hujurat-suspicion-surveillance-trust.html",
+          "lang": "en",
+          "dir": "ltr",
+          "canonical": true,
+          "hreflang": true,
+          "tts": true,
+          "image_1200x630": true,
+          "article_schema": true,
+          "breadcrumb_schema": true,
+          "no_overflow": true,
+          "corrected_summary_live": true
+        }
+      },
+      "indexes": {
+        "articles.html": {
+          "unique_cards": 1
+        },
+        "quranic-reflections.html": {
+          "unique_cards": 1
+        },
+        "en/articles.html": {
+          "unique_cards": 1
+        },
+        "en/quranic-reflections.html": {
+          "unique_cards": 1
+        }
+      },
+      "sitemap": {
+        "ar_loc_count": 1,
+        "en_loc_count": 1
+      }
     },
     "publication_report": {
       "status": "saved",
-      "path": "automation/quran-reflections/reflection-al-balad-the-steep-path/publication-report.md",
-      "commit": "859946e417ceaf8bec902cf4b439fc47e2efded3"
+      "path": "automation/quran-reflections/reflection-al-hujurat-suspicion-surveillance-trust/publication-report.md",
+      "completed_at": "2026-10-27T05:20:00+04:00"
     },
-    "publication_report_path": "automation/quran-reflections/reflection-al-balad-the-steep-path/publication-report.md",
-    "publishing": {
-      "status": "published_live_verified",
-      "first_publication_commits": [
-        "59ce4120aa224f63acab275471f142a8fe541d0c",
-        "bad8bd704274b55e2c3b1e03660f377efa7cba66"
-      ],
-      "social_assets_commit": "e67c800fb42d841e7ee2f9073f22d0399336a14b",
-      "language_isolation_fix_commit": "a8e0cf300577814b98db83ef0a5494969e009adf",
-      "exact_content_deployment_head": "12303482fd990d339155f59ab327d5e55e1775d7",
-      "final_deployment_commit": "859946e417ceaf8bec902cf4b439fc47e2efded3",
-      "pages_run": "https://github.com/alaabmt/alaa-excellence/actions/runs/40247740197",
-      "arabic_url": "https://tamayuz10x.com/reflection-al-balad-the-steep-path.html",
-      "english_url": "https://tamayuz10x.com/en/reflection-al-balad-the-steep-path.html"
-    }
+    "completed_at": "2026-10-27T05:20:00+04:00"
   },
   "run_date": "2026-10-26",
   "completed_stages": [
@@ -715,7 +780,9 @@
     "quality_gate",
     "repository_publish",
     "actions_and_pages",
-    "live_verification"
+    "live_verification",
+    "completion_report",
+    "completed"
   ],
   "duplicate_check": {
     "status": "passed",
