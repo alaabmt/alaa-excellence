@@ -5,9 +5,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-27T05:09:00+04:00",
+  "updated_at": "2026-10-27T05:16:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "live_verification",
+  "current_stage": "completion_report",
   "current_article": {
     "article_id": "quran-reflection-2026-10-26-al-hujurat-suspicion-surveillance-trust",
     "publication_date": "2026-10-26",
@@ -16,7 +16,7 @@
     "topic_en": "Suspicion, spying and backbiting: what the verse protects in a person's dignity when they are absent",
     "working_title_ar": "متى تتحول الرغبة في معرفة ما يخفيه الناس إلى ظلم؟",
     "working_title_en": "When Does the Desire to Know What People Conceal Become an Injustice?",
-    "status": "repository_published",
+    "status": "published_live_verified",
     "quranic_focus": {
       "surah": "Al-Hujurat",
       "surah_ar": "الحجرات",
@@ -284,6 +284,74 @@
         "conclusion": "success",
         "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40430114463"
       }
+    },
+    "live_verification": {
+      "status": "passed_after_live_editorial_correction",
+      "verified_at": "2026-10-27T05:16:00+04:00",
+      "deployed_head": "467b766ba7d8087614b45e311e6a01a281ce46cb",
+      "content_fix_commit": "4b8e47f8fc152022aeca253db99819600d4b07fb",
+      "pages_run": {
+        "run_id": 40431095695,
+        "conclusion": "success",
+        "head_sha": "467b766ba7d8087614b45e311e6a01a281ce46cb",
+        "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40431095695"
+      },
+      "editorial_run": {
+        "run_id": 40431026568,
+        "conclusion": "success",
+        "head_sha": "4b8e47f8fc152022aeca253db99819600d4b07fb",
+        "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40431026568"
+      },
+      "correction": {
+        "issue": "English hero summary belonged to a previous reflection.",
+        "resolution": "Replaced it with a faithful Al-Hujurat summary and re-ran Actions and Pages.",
+        "live_confirmed": true
+      },
+      "pages": {
+        "ar": {
+          "url": "https://tamayuz10x.com/reflection-al-hujurat-suspicion-surveillance-trust.html",
+          "lang": "ar",
+          "dir": "rtl",
+          "canonical": true,
+          "hreflang": true,
+          "tts": true,
+          "image_1200x630": true,
+          "article_schema": true,
+          "breadcrumb_schema": true,
+          "no_overflow": true
+        },
+        "en": {
+          "url": "https://tamayuz10x.com/en/reflection-al-hujurat-suspicion-surveillance-trust.html",
+          "lang": "en",
+          "dir": "ltr",
+          "canonical": true,
+          "hreflang": true,
+          "tts": true,
+          "image_1200x630": true,
+          "article_schema": true,
+          "breadcrumb_schema": true,
+          "no_overflow": true,
+          "corrected_summary_live": true
+        }
+      },
+      "indexes": {
+        "articles.html": {
+          "unique_cards": 1
+        },
+        "quranic-reflections.html": {
+          "unique_cards": 1
+        },
+        "en/articles.html": {
+          "unique_cards": 1
+        },
+        "en/quranic-reflections.html": {
+          "unique_cards": 1
+        }
+      },
+      "sitemap": {
+        "ar_loc_count": 1,
+        "en_loc_count": 1
+      }
     }
   },
   "stage_order": [
@@ -317,7 +385,7 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Wait for GitHub Pages success on the exact latest checkpoint head, then verify both live pages, canonical/hreflang, RTL/LTR, TTS controls, 1200×630 images, four indexes, sitemap uniqueness and deployed content before saving live_verification.",
+  "next_action": "Create the final bilingual publication report, mark the cycle completed, copy the article into last_completed_article, and release run_lease.",
   "last_run": {
     "mode": "coordinator_resume",
     "status": "in_progress",
@@ -646,7 +714,8 @@
     "bilingual_parity",
     "quality_gate",
     "repository_publish",
-    "actions_and_pages"
+    "actions_and_pages",
+    "live_verification"
   ],
   "duplicate_check": {
     "status": "passed",
