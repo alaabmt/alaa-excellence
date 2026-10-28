@@ -25,6 +25,14 @@ jobs:
         run: python3 scripts/check_arabic_mobile.py
       - name: Render current Qur'anic reflection at actual mobile widths
         run: python3 scripts/check_quran_reflection_mobile.py
+      - name: Render the OE evidence handoffs article at actual mobile widths
+        env:
+          ARABIC_ARTICLE: article-oe-evidence-standardized-handoffs.html
+          EDITORIAL_REPORT: editorial-qa/oe-handoffs.json
+          MOBILE_ARTIFACT_PREFIX: oe-handoffs
+        run: python3 scripts/check_arabic_mobile.py
+      - name: Check OE evidence handoffs editorial gates
+        run: python3 scripts/check_arabic_editorial.py article-oe-evidence-standardized-handoffs.html editorial-qa/oe-handoffs.json
       - name: Render the OE evidence defaults article at actual mobile widths
         env:
           ARABIC_ARTICLE: article-oe-evidence-defaults-shape-practice.html
@@ -47,4 +55,5 @@ jobs:
             editorial-qa/alphaevolve.json
             editorial-qa/agent-multi-agent-science-cost.json
             editorial-qa/oe-defaults.json
+            editorial-qa/oe-handoffs.json
           if-no-files-found: error

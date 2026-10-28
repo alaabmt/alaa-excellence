@@ -1,0 +1,73 @@
+{
+  "article": "article-oe-evidence-standardized-handoffs.html",
+  "headline": "ماذا حدث حين وحّدت المستشفيات طريقة تسليم المرضى بين المناوبات؟",
+  "reviewed_at": "2026-10-28",
+  "reviewer": "AI editorial review (not a human reader test)",
+  "introduction_answers": {
+    "problem": "الأخطاء في تسليم المريض بين المناوبات من الأسباب الرئيسة للأخطاء الطبية.",
+    "who": "الأطباء المقيمون في 32 مستشفى أمريكيًا ومرضاهم.",
+    "change": "تعلّموا طريقة موحّدة للتسليم (I-PASS) مع تدريب 18 شهرًا، فانخفضت الأحداث الضارة المرتبطة بالتسليم المبلَّغ عنها بنسبة 47%."
+  },
+  "summary": "وحّدت 32 مستشفى أمريكيًا طريقة تسليم المرضى بين المناوبات مع تدريب ومتابعة، فتحسّنت جودة التسليم وانخفضت الأحداث المبلَّغ عنها، لكن تجربة أسترالية لم تغيّر مؤشرها الرئيس.",
+  "gates": {
+    "title": "PASS",
+    "introduction": "PASS",
+    "summary": "PASS",
+    "terminology": "PASS",
+    "evidence": "PASS",
+    "mobile": "PASS",
+    "language": "PASS"
+  },
+  "terminology_evidence": "Handoff, I-PASS (five steps), SBAR (four steps), adverse event, resident physician, pressure injury and the stepped randomized rollout are explained at first use or in the glossary; English terms are in parentheses after the Arabic.",
+  "language_evidence": "Arabic written natively from meaning; title names the actor (hospitals) and the action; introduction re-read without the title (editorial simulation, not a human reader test).",
+  "mobile_evidence": {
+    "method": "Playwright Chromium browser, 320/375/390/430px viewports",
+    "results": "editorial-qa/mobile-artifacts/oe-handoffs-results.json",
+    "screenshots": [
+      "editorial-qa/mobile-artifacts/oe-handoffs-320.png",
+      "editorial-qa/mobile-artifacts/oe-handoffs-375.png",
+      "editorial-qa/mobile-artifacts/oe-handoffs-390.png",
+      "editorial-qa/mobile-artifacts/oe-handoffs-430.png"
+    ],
+    "scope": "Automated rendered-layout verification; screenshots retained for human visual review"
+  },
+  "source_evidence": [
+    {
+      "claim": "32 hospitals (12 community, 20 academic); 2,735 residents; 760 faculty champions; 18 months of external coaching with monthly metric reviews",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36326255/",
+      "location": "Abstract: Settings, Intervention, Results",
+      "assessment": "Prospective pre-post hybrid effectiveness-implementation study; no control group"
+    },
+    {
+      "claim": "Handoff-related reported adverse events fell 47%: major 1.7 to 0.9, minor 17.5 to 9.3 per person-year",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36326255/",
+      "location": "Abstract: Results",
+      "assessment": "Resident-reported surveillance surveys (1,942 reports); denominator is person-years"
+    },
+    {
+      "claim": "All five elements: verbal 20% to 66% (n=4,812), written 10% to 74% (n=1,787); receiver synthesis 31% to 83%",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36326255/",
+      "location": "Abstract: Results",
+      "assessment": "Direct observation with validated tools; percentages of observed handoffs"
+    },
+    {
+      "claim": "I-PASS reduces errors and adverse events with moderate certainty (10 studies); SBAR low certainty; other tools insufficient; 12 tools searched",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40306923/",
+      "location": "Abstract: Results, Conclusion",
+      "assessment": "Making Healthcare Safer IV systematic review, last 10 years"
+    },
+    {
+      "claim": "3 hospitals, 9 wards, 13,753 admissions; primary composite unchanged (OR 0.99); pressure injuries down 41% (absolute 0.8%); safety attitudes 74.6 to 79.7",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42574924/",
+      "location": "Abstract: Methods, Results",
+      "assessment": "Stepped-wedge cluster randomised trial, Australia"
+    },
+    {
+      "claim": "42 studies, 6 RCTs; adverse events improved in 3/16, errors 3/7, length of stay 3/7, mortality 0/4; combined structural and educational more often positive",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39733333/",
+      "location": "Abstract: Results",
+      "assessment": "Systematic review of physician inpatient handoff interventions"
+    }
+  ],
+  "decision": "CI candidate PASS only; authoritative approval is successful GitHub Actions job"
+}
