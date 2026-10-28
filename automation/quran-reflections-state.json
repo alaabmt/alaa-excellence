@@ -5,7 +5,7 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-28T17:36:17.114Z",
+  "updated_at": "2026-10-28T17:37:07.576Z",
   "workflow_status": "reconciling",
   "current_stage": "repository_publish",
   "current_article": {
@@ -156,6 +156,24 @@
       "mobile_gate": "NOT VERIFIED until final HTML",
       "rtl_gate": "NOT VERIFIED until final HTML",
       "tts_gate": "NOT VERIFIED until final HTML"
+    },
+    "publishing": {
+      "status": "partial_repository_publication",
+      "arabic_path": "reflection-al-mutaffifin-demanding-full-measure-giving-less.html",
+      "english_path": "en/reflection-al-mutaffifin-demanding-full-measure-giving-less.html",
+      "arabic_commit": "2d7481db8f60aa3f48648182251ade101783f3a1",
+      "english_commit": "9edf479a74eb441fb79c395d8977dbd4bf4ea152",
+      "arabic_reflections_index_commit": "b234ffaf433fd5af23d41d8bf76b19f84a5ee0d5",
+      "pending": [
+        "en/quranic-reflections.html",
+        "articles.html",
+        "en/articles.html",
+        "data/quranic-reflection-topics.json",
+        "sitemap.xml",
+        "assets and QA",
+        "Actions and Pages",
+        "live verification"
+      ]
     }
   },
   "stage_order": [
@@ -189,7 +207,7 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Reconcile live destination for both expected Al-Mutaffifin URLs with an authoritative HTTP check, then publish exactly one Arabic and one English page plus registry/index/sitemap entries; verify Actions/Pages and live pages.",
+  "next_action": "Reconcile partial publication on main. Two HTML pages and Arabic reflections index have been committed; do NOT recreate. Complete English reflections index, both general article indexes, topic registry, sitemap, social assets, then validate HTML/mobile/RTL/TTS, Actions, Pages and live URLs. GitHub connector safety blocked further index writes.",
   "last_run": {
     "mode": "coordinator_resume",
     "status": "in_progress",
@@ -202,11 +220,7 @@
     "resumed_by": "central-coordinator"
   },
   "workflow_id": "quran_reflections",
-  "run_lease": {
-    "owner": "manual-publication",
-    "acquired_at": "2026-10-28T17:36:17.114Z",
-    "expires_at": "2026-10-28T19:26:17.114Z"
-  },
+  "run_lease": null,
   "checkpoint_policy": {
     "checkpoint_after_every_stage": true,
     "run_lease_minutes": 110,
@@ -600,8 +614,8 @@
     "finding": "No Qur’anic reflection cycle, registry entry, Quran-index card or reflection page dated 2026-10-26 exists. The date occurrences in general article records belong to the Netherlands 10X case, not a reflection."
   },
   "blocker": {
-    "type": "live_destination_unverifiable",
-    "details": "Direct live Arabic and English URLs returned inaccessible through web reader; search index omission does not establish live HTTP 404. Repository pages, indexes and topic registry do not yet contain slug.",
+    "type": "github_connector_write_safety",
+    "details": "GitHub connector blocked updates to en/quranic-reflections.html; do not retry blindly.",
     "retryable": true
   },
   "verified_quranic_references": [
