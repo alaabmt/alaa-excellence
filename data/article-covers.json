@@ -5,6 +5,27 @@
   "maxBytes": 170000,
   "cards": [
     {
+      "slug": "reflection-al-mutaffifin-demanding-full-measure-giving-less",
+      "background": "assets/previews/story-backgrounds/reflection-al-baqarah-write-it-down.jpg",
+      "category": "reflection",
+      "ar": {
+        "title": [
+          "لماذا نطلب حقنا كاملًا",
+          "ثم ننقص حقوق الآخرين؟"
+        ],
+        "subtitle": "سورة المطففين تكشف معيارًا لا يتغير بتغير موقعنا.",
+        "alt": "غلاف رمزي بالكحلي والذهبي لتأمل سورة المطففين 83:1–6، يظهر ميزانًا مستقيمًا ومكيالين متقابلين للدلالة على عدالة الأخذ والعطاء."
+      },
+      "en": {
+        "title": [
+          "Why Demand Our Due in Full",
+          "While Giving Others Less?"
+        ],
+        "subtitle": "Al-Mutaffifin exposes a standard that must not change with our position.",
+        "alt": "Navy and gold symbolic cover for a reflection on Al-Mutaffifin 83:1–6, showing a level balance and paired measures to represent fairness in taking and giving."
+      }
+    },
+    {
       "slug": "reflection-al-hujurat-suspicion-surveillance-trust",
       "background": "assets/previews/story-backgrounds/reflection-al-baqarah-write-it-down.jpg",
       "category": "reflection",
