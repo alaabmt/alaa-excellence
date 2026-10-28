@@ -110,3 +110,40 @@ The source set confirms two connected movements:
 - Tafsir al-Sa‘di 83:4: https://quran.ksu.edu.sa/tafseer/saadi/sura83-aya4.html
 
 Research status: **completed**. Qur’anic verification is recorded separately below before drafting.
+
+
+## Independent Qur’anic verification
+
+### Text and numbering
+
+Verified focus: **Surah Al-Mutaffifin, verses 1–6**. The text sequence and numbering were checked against the Qur’an source rather than recalled from memory:
+
+1. وَيْلٌ لِّلْمُطَفِّفِينَ
+2. الَّذِينَ إِذَا اكْتَالُوا عَلَى النَّاسِ يَسْتَوْفُونَ
+3. وَإِذَا كَالُوهُمْ أَو وَّزَنُوهُمْ يُخْسِرُونَ
+4. أَلَا يَظُنُّ أُولَٰئِكَ أَنَّهُم مَّبْعُوثُونَ
+5. لِيَوْمٍ عَظِيمٍ
+6. يَوْمَ يَقُومُ النَّاسُ لِرَبِّ الْعَالَمِينَ
+
+Translation source for the English article: **Sahih International**.
+
+### Verification findings
+
+- **PASS — Qur’anic text and verse references:** 83:1–6 match the reviewed source.
+- **PASS — Immediate context:** the article’s thesis preserves the movement from unfair measure (1–3) to resurrection and standing before Allah (4–6).
+- **PASS — Tafsir support:** the central explanatory claim is supported across al-Tabari, Ibn Kathir, al-Qurtubi and al-Sa‘di.
+- **PASS — Disagreement handling:** reports about the place or timing of revelation differ; the draft must not present one view as uncontested.
+- **PASS — Tafsir/reflection separation:** short measure and weight belong to the direct explanatory meaning; the modern service example is explicitly a bounded reflection.
+- **PASS — Creed and theological boundary:** accountability before Allah remains central; no miracle, revelation, or divine attribute is converted into a management device.
+- **PASS — Contemporary example:** hypothetical, not attributed to a real institution, and not offered as the legal or lexical meaning of the verses.
+- **PASS — Publication blocker review:** no material error found at this stage.
+
+### Drafting constraints carried forward
+
+1. Do not broaden `التطفيف` into every form of imperfection as though that were the verse’s direct lexical meaning.
+2. Say that the asymmetry in a service process **can be reflected upon** in light of the verses; do not say the verses directly prescribe a modern service standard.
+3. Preserve the eschatological center of verses 4–6.
+4. Note the differing revelation reports only if relevant; do not let the article depend on them.
+5. Use one hypothetical service example and keep it proportionate.
+
+Independent Qur’anic verification: **PASS — no blocking errors**.
