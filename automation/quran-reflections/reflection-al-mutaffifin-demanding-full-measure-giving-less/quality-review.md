@@ -136,3 +136,68 @@ The connected reflection-writing guide expects explicit tafsir citation in three
 
 Bilingual parity blocking errors: **none**.
 
+## Final manuscript quality gate
+
+### Result
+
+**97/100 — PASS**  
+Minimum required score: **90/100**  
+Blocking errors: **none**
+
+This decision clears the bilingual manuscripts for repository-publication preparation. It does not clear the final HTML, mobile, RTL, TTS, Actions, Pages or live-site gates.
+
+### Scored rubric
+
+| Category | Score | Maximum | Finding |
+|---|---:|---:|---|
+| Qur’anic text, numbering and creed | 20 | 20 | Al-Mutaffifin 83:1–6 verified; resurrection and standing before Allah remain central |
+| Tafsir accuracy and disagreement handling | 20 | 20 | Direct meaning is precise; four tafsir sources align; differing revelation reports are not overstated |
+| Tafsir/reflection/application boundary | 15 | 15 | The service example is explicitly hypothetical and is not presented as lexical meaning, legal ruling or management framework |
+| Arabic editorial quality and novice clarity | 15 | 15 | Clear title, concrete opening, one central idea, 1,382 words, no prohibited meta-writing, and three explicit tafsir locations |
+| Natural English editorial quality | 14 | 15 | Reads as independently authored English; complete and precise, though more expansive than the Arabic version |
+| Evidence and reference integrity | 10 | 10 | Five matching sources, stable order, supported claims and no unsupported quantitative result |
+| Bilingual parity | 10 | 10 | Claims, cautions, example, theology, references and closing question are equivalent |
+| Manuscript-to-publication readiness | 3 | 5 | Content structure is ready; real HTML/mobile/RTL/TTS validation remains unavailable until pages exist |
+| **Total** | **97** | **100** | **PASS** |
+
+### Blocking checks
+
+- Qur’anic text error: **none**
+- Wrong surah or verse number: **none**
+- Material tafsir overreach: **none**
+- Creed error: **none**
+- Unmarked contemporary inference: **none**
+- Real institution presented through an unverified allegation: **none**
+- Unsupported numeric 10X promise: **none**
+- Source mismatch between languages: **none**
+- Unexplained material technical term: **none**
+- Prohibited editorial meta-language: **none**
+
+### Manuscript checks
+
+- Arabic word count: **1,382**, within the connected guide’s 900–1,400 range.
+- English word count: **1,856**.
+- Main sections: **8 in each language**.
+- References: **5 in each language**, same order and destinations.
+- Tafsir citations: **3 explicit locations in each language**.
+- Contemporary examples: **1 hypothetical example in each language**.
+- Arabic one-sentence comprehension summary: **تعرض الآيات ازدواج المعيار حين يستوفي الإنسان حقه ثم ينقص حق غيره، وتدعونا لمراجعة هذا التفاوت مع استحضار الوقوف بين يدي الله.**
+- English one-sentence comprehension summary: **The verses expose the double standard of taking our due in full while diminishing what others receive, under the final accountability of standing before Allah.**
+
+### Deferred publication gates
+
+The following are deliberately recorded as **NOT VERIFIED**, not PASS:
+
+- Arabic narrow-screen rendering at 320, 375, 390 and 430 pixels
+- English narrow-screen rendering at 320, 375, 390 and 430 pixels
+- RTL/LTR interaction in final HTML
+- TTS pronunciation, reading order, highlighting and floating controls
+- Canonical, reciprocal hreflang and Schema.org output
+- Index, registry and sitemap uniqueness after publication
+- GitHub Actions and exact-head GitHub Pages deployment
+- Live Arabic and English pages and social images
+
+### Quality-gate decision
+
+The manuscripts are cleared for the `repository_publish` stage. Before any publication write, repeat duplicate checks against the checkpoint, topic registry, repository pages, four indexes, sitemap and expected live URLs. If an external publication effect becomes uncertain, switch to `reconciling` before replaying any write.
+
