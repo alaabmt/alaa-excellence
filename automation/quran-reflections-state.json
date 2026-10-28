@@ -5,7 +5,7 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-28T19:01:50+04:00",
+  "updated_at": "2026-10-28T20:01:24+04:00",
   "workflow_status": "in_progress",
   "current_stage": "arabic_draft",
   "current_article": {
@@ -155,11 +155,15 @@
     "last_checkpoint": "arabic_draft",
     "last_checkpoint_at": "2026-10-28T19:01:50+04:00",
     "notes": "Saved the 1,342-word original Arabic draft for Al-Mutaffifin 83:1–6. It preserves the direct tafsir meaning, labels the service case as hypothetical reflection, centers resurrection and standing before Allah, and leaves mobile/RTL/TTS verification pending until final HTML.",
-    "resumed_at": "2026-10-28T18:59:52+04:00",
+    "resumed_at": "2026-10-28T20:01:24+04:00",
     "resumed_by": "central-coordinator"
   },
   "workflow_id": "quran_reflections",
-  "run_lease": null,
+  "run_lease": {
+    "owner": "central-coordinator",
+    "acquired_at": "2026-10-28T20:01:24+04:00",
+    "expires_at": "2026-10-28T21:51:24+04:00"
+  },
   "checkpoint_policy": {
     "checkpoint_after_every_stage": true,
     "run_lease_minutes": 110,
