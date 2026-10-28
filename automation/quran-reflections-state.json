@@ -5,360 +5,35 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-27T05:20:00+04:00",
-  "workflow_status": "completed",
-  "current_stage": "completed",
+  "updated_at": "2026-10-28T17:58:00+04:00",
+  "workflow_status": "in_progress",
+  "current_stage": "duplicate_check",
   "current_article": {
-    "article_id": "quran-reflection-2026-10-26-al-hujurat-suspicion-surveillance-trust",
-    "publication_date": "2026-10-26",
-    "slug": "reflection-al-hujurat-suspicion-surveillance-trust",
-    "topic_ar": "سوء الظن والتجسس والغيبة: ما الذي تحميه الآية في كرامة الإنسان حين يغيب؟",
-    "topic_en": "Suspicion, spying and backbiting: what the verse protects in a person's dignity when they are absent",
-    "working_title_ar": "متى تتحول الرغبة في معرفة ما يخفيه الناس إلى ظلم؟",
-    "working_title_en": "When Does the Desire to Know What People Conceal Become an Injustice?",
-    "status": "completed_published_live_verified",
-    "quranic_focus": {
-      "surah": "Al-Hujurat",
-      "surah_ar": "الحجرات",
-      "ayahs": [
-        12
-      ],
-      "context_ayahs": [
-        10,
-        11,
-        13
-      ],
-      "status": "verified"
-    },
-    "research_notes_path": "automation/quran-reflections/reflection-al-hujurat-suspicion-surveillance-trust/research-notes.md",
-    "research_status": "completed",
+    "article_id": "quran-reflection-2026-10-28-al-mutaffifin-fair-measure",
+    "publication_date": "2026-10-28",
+    "slug": "reflection-al-mutaffifin-demanding-full-measure-giving-less",
+    "topic_ar": "المطففين 83:1–6 — أن نطلب حقنا كاملًا ثم ننقص حقوق الآخرين",
+    "topic_en": "Al-Mutaffifin 83:1–6 — demanding our due in full while diminishing what others receive",
+    "working_title_ar": "ماذا نرى في الميزان عندما يكون النقص لصالحنا؟",
+    "working_title_en": "What Do We See in the Measure When the Shortfall Benefits Us?",
+    "status": "in_progress",
     "topic_selection": {
-      "status": "completed",
+      "status": "pending",
       "candidates": [
-        "Al-Hujurat 49:12 — suspicion, spying and the dignity of what remains unseen",
         "Al-Mutaffifin 83:1–6 — demanding a full measure while giving less",
-        "Al-Ma’idah 5:2 — the boundary of cooperation"
-      ],
-      "selected": "Al-Hujurat 49:12 — suspicion, spying and the dignity of what remains unseen"
+        "Al-Ma’idah 5:2 — the boundary of cooperation",
+        "An-Nahl 16:90 — justice, excellence and giving beyond minimum duty"
+      ]
     },
-    "research_sources": [
-      {
-        "type": "Qur'an text and Sahih International translation",
-        "url": "https://legacy.quran.com/49/12",
-        "status": "reviewed"
-      },
-      {
-        "type": "Immediate context, Al-Hujurat 49:10–13",
-        "url": "https://quran.com/49/10-13",
-        "status": "reviewed"
-      },
-      {
-        "type": "Tafsir al-Tabari 49:12",
-        "url": "https://quran.ksu.edu.sa/tafseer/tabary/sura49-aya12.html",
-        "status": "reviewed"
-      },
-      {
-        "type": "Tafsir Ibn Kathir 49:12",
-        "url": "https://quran.ksu.edu.sa/tafseer/katheer/sura49-aya12.html",
-        "status": "reviewed"
-      },
-      {
-        "type": "Tafsir al-Qurtubi 49:12",
-        "url": "https://quran.ksu.edu.sa/tafseer/qortobi/sura49-aya12.html",
-        "status": "reviewed"
-      },
-      {
-        "type": "Tafsir al-Sa'di 49:12",
-        "url": "https://quran.ksu.edu.sa/tafseer/saadi/sura49-aya12.html",
-        "status": "reviewed"
-      }
-    ],
-    "research_commit": "de0024836493abc5f48c13a1bf3c9d302f998eae",
-    "verified_quranic_references": [
-      {
-        "surah": "Al-Hujurat",
-        "surah_ar": "الحجرات",
-        "ayahs": [
-          12
-        ],
-        "context_ayahs": [
-          10,
-          11,
-          13
-        ],
-        "status": "verified",
-        "primary_text_urls": [
-          "https://legacy.quran.com/49/12",
-          "https://legacy.quran.com/49/10-13"
-        ],
-        "translation": "Sahih International",
-        "verified_at": "2026-10-26T22:02:09+04:00"
-      }
-    ],
-    "arabic_draft": {
-      "status": "revised_and_cleared",
-      "path": "automation/quran-reflections/reflection-al-hujurat-suspicion-surveillance-trust/draft-ar.md",
-      "word_count": 1274,
-      "completed_at": "2026-10-26T23:02:00+04:00",
-      "revision_count": 2
-    },
-    "independent_critique": {
-      "status": "passed_after_non_blocking_revisions",
-      "path": "automation/quran-reflections/reflection-al-hujurat-suspicion-surveillance-trust/quality-review.md",
-      "blocking_errors": [],
-      "revisions_applied": 2,
-      "completed_at": "2026-10-26T23:08:00+04:00",
-      "mobile_gate": "NOT VERIFIED until final HTML",
-      "tts_gate": "NOT VERIFIED until final HTML"
-    },
-    "english_draft": {
-      "status": "parity_cleared",
-      "path": "automation/quran-reflections/reflection-al-hujurat-suspicion-surveillance-trust/draft-en.md",
-      "word_count": 1515,
-      "quran_translation": "Sahih International",
-      "completed_at": "2026-10-26T23:15:00+04:00"
-    },
-    "bilingual_parity": {
-      "status": "passed_after_heading_alignment",
-      "review_path": "automation/quran-reflections/reflection-al-hujurat-suspicion-surveillance-trust/quality-review.md",
-      "revision_count": 1,
-      "same_source_urls": 5,
-      "completed_at": "2026-10-27T00:06:00+04:00",
-      "mobile_gate": "NOT VERIFIED until final HTML"
-    },
-    "quality_gate": {
-      "status": "passed",
-      "score": 98,
-      "threshold": 90,
-      "blocking_errors": [],
-      "review_path": "automation/quran-reflections/reflection-al-hujurat-suspicion-surveillance-trust/quality-review.md",
-      "completed_at": "2026-10-27T00:12:00+04:00",
-      "mobile_gate": "NOT VERIFIED until final HTML",
-      "rtl_gate": "NOT VERIFIED until final HTML",
-      "tts_gate": "NOT VERIFIED until final HTML"
-    },
-    "repository_publish": {
-      "status": "completed",
-      "completed_at": "2026-10-27T03:03:00+04:00",
-      "report_path": "automation/quran-reflections/reflection-al-hujurat-suspicion-surveillance-trust/repository-publish-report.md",
-      "text_commit": "33c743dfea7fa3c44cf73e5b1902a1d0ec9c2bbd",
-      "sitemap_reconciliation_commit": "990f9a61a1be6ffa62bbf880ba88707659f6fb92",
-      "social_assets_commit": "336cab1d5243fe64d6904e38ff17fc343ea0c92a",
-      "topic_and_checkpoint_commit": "a9dc4b7d37e600dcb77b870470860b5fa98b60c6",
-      "arabic_page": {
-        "path": "reflection-al-hujurat-suspicion-surveillance-trust.html"
-      },
-      "english_page": {
-        "path": "en/reflection-al-hujurat-suspicion-surveillance-trust.html"
-      },
-      "indexes": [
-        "articles.html",
-        "en/articles.html",
-        "quranic-reflections.html",
-        "en/quranic-reflections.html"
-      ],
-      "records": [
-        "data/quranic-reflection-topics.json",
-        "data/article-covers.json",
-        "data/article-publication-dates.json",
-        "sitemap.xml"
-      ],
-      "social_assets": [
-        {
-          "path": "assets/previews/story/reflection-al-hujurat-suspicion-surveillance-trust-ar.jpg",
-          "width": 1200,
-          "height": 630,
-          "size_bytes": 151376
-        },
-        {
-          "path": "assets/previews/story/reflection-al-hujurat-suspicion-surveillance-trust-en.jpg",
-          "width": 1200,
-          "height": 630,
-          "size_bytes": 150612
-        }
-      ],
-      "checks": {
-        "title_and_h1": true,
-        "canonical_and_reciprocal_hreflang": true,
-        "article_and_breadcrumb_schema": true,
-        "rtl_ltr": true,
-        "language_isolation": true,
-        "tts_structure": true,
-        "topic_registry_single": true,
-        "index_card_single_each": true,
-        "publication_dates_match": true,
-        "sitemap_single_each": true
-      },
-      "duplicate_check": "passed before publication and after generated bot commits"
-    },
-    "actions_and_pages": {
-      "status": "completed",
-      "checked_at": "2026-10-27T03:29:00+04:00",
-      "reconciliation_trigger_commit": "cf580cca388ba8f79441dfec4b508450ea830020",
-      "sitemap_descendant_commit": "1f6e07e49ce2533acd78035a07d1ce19761fbaf2",
-      "social_cards_descendant_commit": "c7b3b6c6fa8aeaca4f83aa2abb9ba7679f0032b3",
-      "exact_content_head": "c7b3b6c6fa8aeaca4f83aa2abb9ba7679f0032b3",
-      "report_path": "automation/quran-reflections/reflection-al-hujurat-suspicion-surveillance-trust/actions-and-pages-report.md",
-      "required_checks": {
-        "site_health": {
-          "run_id": 40416842011,
-          "conclusion": "success",
-          "head_sha": "cf580cca388ba8f79441dfec4b508450ea830020",
-          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40416842011"
-        },
-        "article_date_integrity": {
-          "run_id": 40416842076,
-          "conclusion": "success",
-          "head_sha": "cf580cca388ba8f79441dfec4b508450ea830020",
-          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40416842076"
-        },
-        "sitemap": {
-          "run_id": 40416841888,
-          "conclusion": "success",
-          "head_sha": "cf580cca388ba8f79441dfec4b508450ea830020",
-          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40416841888"
-        },
-        "arabic_editorial": {
-          "run_id": 40416841988,
-          "conclusion": "success",
-          "head_sha": "cf580cca388ba8f79441dfec4b508450ea830020",
-          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40416841988",
-          "scope_note": "Workflow passed, but its mobile renderer currently targets fixed non-Qur’anic pages; it is not exact evidence for this reflection."
-        },
-        "social_cards": {
-          "run_id": 40416841929,
-          "conclusion": "success",
-          "head_sha": "cf580cca388ba8f79441dfec4b508450ea830020",
-          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40416841929"
-        },
-        "pages": {
-          "run_id": 40416920989,
-          "conclusion": "success",
-          "head_sha": "c7b3b6c6fa8aeaca4f83aa2abb9ba7679f0032b3",
-          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40416920989"
-        }
-      },
-      "live_smoke_check": {
-        "ar": true,
-        "en": true,
-        "canonical_and_hreflang": true,
-        "rtl_ltr": true,
-        "tts_controls": true,
-        "covers_1200x630": true,
-        "four_indexes_visible": true,
-        "sitemap_single_loc_each": true
-      },
-      "remaining_gate": null,
-      "completed_at": "2026-10-27T05:09:00+04:00",
-      "exact_mobile_test_commit": "a13cdad44405a7c2bdc3f3d769b5ec8a8c16d710",
-      "exact_mobile_test": {
-        "workflow_run_id": 40430113647,
-        "job_id": 121945443136,
-        "conclusion": "success",
-        "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40430113647",
-        "artifact_id": 12702275217,
-        "artifact_url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40430113647/artifacts/12702275217",
-        "viewports": [
-          320,
-          375,
-          390,
-          430
-        ],
-        "languages": [
-          "ar",
-          "en"
-        ],
-        "assertions": [
-          "no horizontal overflow",
-          "H1 visible",
-          "correct lang and dir",
-          "local assets load",
-          "tables scroll safely",
-          "listen control present"
-        ],
-        "cases_passed": 8
-      },
-      "pages_after_mobile_test": {
-        "run_id": 40430114463,
-        "head_sha": "a13cdad44405a7c2bdc3f3d769b5ec8a8c16d710",
-        "conclusion": "success",
-        "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40430114463"
-      }
-    },
-    "live_verification": {
-      "status": "passed_after_live_editorial_correction",
-      "verified_at": "2026-10-27T05:16:00+04:00",
-      "deployed_head": "467b766ba7d8087614b45e311e6a01a281ce46cb",
-      "content_fix_commit": "4b8e47f8fc152022aeca253db99819600d4b07fb",
-      "pages_run": {
-        "run_id": 40431095695,
-        "conclusion": "success",
-        "head_sha": "467b766ba7d8087614b45e311e6a01a281ce46cb",
-        "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40431095695"
-      },
-      "editorial_run": {
-        "run_id": 40431026568,
-        "conclusion": "success",
-        "head_sha": "4b8e47f8fc152022aeca253db99819600d4b07fb",
-        "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40431026568"
-      },
-      "correction": {
-        "issue": "English hero summary belonged to a previous reflection.",
-        "resolution": "Replaced it with a faithful Al-Hujurat summary and re-ran Actions and Pages.",
-        "live_confirmed": true
-      },
-      "pages": {
-        "ar": {
-          "url": "https://tamayuz10x.com/reflection-al-hujurat-suspicion-surveillance-trust.html",
-          "lang": "ar",
-          "dir": "rtl",
-          "canonical": true,
-          "hreflang": true,
-          "tts": true,
-          "image_1200x630": true,
-          "article_schema": true,
-          "breadcrumb_schema": true,
-          "no_overflow": true
-        },
-        "en": {
-          "url": "https://tamayuz10x.com/en/reflection-al-hujurat-suspicion-surveillance-trust.html",
-          "lang": "en",
-          "dir": "ltr",
-          "canonical": true,
-          "hreflang": true,
-          "tts": true,
-          "image_1200x630": true,
-          "article_schema": true,
-          "breadcrumb_schema": true,
-          "no_overflow": true,
-          "corrected_summary_live": true
-        }
-      },
-      "indexes": {
-        "articles.html": {
-          "unique_cards": 1
-        },
-        "quranic-reflections.html": {
-          "unique_cards": 1
-        },
-        "en/articles.html": {
-          "unique_cards": 1
-        },
-        "en/quranic-reflections.html": {
-          "unique_cards": 1
-        }
-      },
-      "sitemap": {
-        "ar_loc_count": 1,
-        "en_loc_count": 1
-      }
-    },
-    "publication_report": {
-      "status": "saved",
-      "path": "automation/quran-reflections/reflection-al-hujurat-suspicion-surveillance-trust/publication-report.md",
-      "completed_at": "2026-10-27T05:20:00+04:00"
-    },
-    "completed_at": "2026-10-27T05:20:00+04:00"
+    "duplicate_check": {
+      "status": "passed_repository_and_registry; live_urls_unreachable_via_current_search_connector",
+      "checked_at": "2026-10-28T17:58:00+04:00",
+      "repository_date_matches": 0,
+      "repository_slug_matches": 0,
+      "registry_topic_matches": 0,
+      "expected_url_ar": "https://tamayuz10x.com/reflection-al-mutaffifin-demanding-full-measure-giving-less.html",
+      "expected_url_en": "https://tamayuz10x.com/en/reflection-al-mutaffifin-demanding-full-measure-giving-less.html"
+    }
   },
   "stage_order": [
     "capability_check",
@@ -391,18 +66,22 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "No unfinished stage. Keep this cycle closed; a future daily trigger may start a new Qur’anic reflection only after the date and duplicate guards pass.",
+  "next_action": "Complete topic_selection: validate three angles against the topic registry, select one thesis and central question, save research-notes.md, then checkpoint before research.",
   "last_run": {
-    "mode": "coordinator_resume",
-    "status": "completed",
-    "started_at": "2026-10-27T05:00:00+04:00",
-    "starting_head": "bab533289154a71dd25a927be78f904fc6415e83",
-    "last_checkpoint": "completed",
-    "last_checkpoint_at": "2026-10-27T05:20:00+04:00",
-    "notes": "Completed exact bilingual mobile QA, corrected a stale English hero summary discovered during live verification, re-ran Actions and Pages, verified both live pages, four indexes and sitemap uniqueness, saved the publication report, and released the lease."
+    "mode": "coordinator_daily_start",
+    "status": "in_progress",
+    "started_at": "2026-10-28T17:58:00+04:00",
+    "starting_head": "c5697f62d8231a2de0c3c404a9a55072833f9a88",
+    "last_checkpoint": "duplicate_check",
+    "last_checkpoint_at": "2026-10-28T17:58:00+04:00",
+    "notes": "Started the 2026-10-28 cycle after capability, state, registry, repository and expected-URL duplicate checks. Live URL checks were attempted but the search connector could not access the site; they must be retried before publication."
   },
   "workflow_id": "quran_reflections",
-  "run_lease": null,
+  "run_lease": {
+    "owner": "central-resume-coordinator-2026-10-28",
+    "acquired_at": "2026-10-28T17:58:00+04:00",
+    "expires_at": "2026-10-28T19:48:00+04:00"
+  },
   "checkpoint_policy": {
     "checkpoint_after_every_stage": true,
     "run_lease_minutes": 110,
@@ -765,24 +444,11 @@
     },
     "completed_at": "2026-10-27T05:20:00+04:00"
   },
-  "run_date": "2026-10-26",
+  "run_date": "2026-10-28",
   "completed_stages": [
     "capability_check",
     "load_checkpoint",
-    "duplicate_check",
-    "topic_selection",
-    "research",
-    "quran_verification",
-    "arabic_draft",
-    "independent_critique",
-    "english_draft",
-    "bilingual_parity",
-    "quality_gate",
-    "repository_publish",
-    "actions_and_pages",
-    "live_verification",
-    "completion_report",
-    "completed"
+    "duplicate_check"
   ],
   "duplicate_check": {
     "status": "passed",
