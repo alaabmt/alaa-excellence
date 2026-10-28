@@ -55,3 +55,19 @@ BLOCKED pending original-English draft, bilingual parity review, final repositor
 - Native-English translation smell test: PASS.
 
 No factual or certainty mismatch found.
+
+
+## Actual mobile Chromium and live review — 2026-10-28
+
+- Arabic editorial gate run 40743663973 rendered the target at actual mobile Chromium widths and completed successfully: PASS.
+- Approved editorial disclaimer run 40743663972: PASS.
+- Site health 40743664128: PASS.
+- Sitemap 40743663752: PASS.
+- Article date integrity 40743663970: PASS.
+- GitHub Pages run 40743876118 deployed head 10b16f55f22b2b7211eb01aa3c9e4edb0adfe9bc: PASS.
+- Live Arabic page: correct H1/byline/canonical; 3 tables, 3 asides, 2 references; no horizontal overflow: PASS.
+- Live English page: correct H1/byline/canonical; 3 tables, 3 asides, 2 references; no horizontal overflow: PASS.
+- Specialist hubs: exactly one story card per language; 1200×630 covers: PASS.
+- General article indexes: zero links to this slug in both languages: PASS.
+
+Decision: PASS for publication; final exact-head closure checkpoint remains to be verified.

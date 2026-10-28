@@ -1,7 +1,7 @@
 {
   "article": "article-agentic-ai-long-horizon-computer-workflows.html",
   "headline": "عندما ينجز الوكيل نصف العمل ولا يكمل المهمة: ماذا كشف اختبار من 108 مهام طويلة؟",
-  "reviewed_at": "2026-10-28T22:30:00+04:00",
+  "reviewed_at": "2026-10-28T22:48:00+04:00",
   "reviewer": "AI editorial review (not a human reader test)",
   "summary": "اختبرت الدراسة 108 مهام حاسوبية طويلة. حقق أفضل إعداد 54.8% من التقدم الجزئي، لكنه أكمل العمل كاملاً في 20.6% فقط؛ وعند أطول 17 مهمة لم يكتمل أي منها.",
   "gates": {
@@ -10,10 +10,10 @@
     "summary": "PASS",
     "terminology": "PASS",
     "evidence": "PASS",
-    "mobile": "NOT VERIFIED",
+    "mobile": "PASS",
     "language": "PASS"
   },
-  "mobile_evidence": "Pending actual Chromium mobile-width verification in the Arabic editorial gate.",
+  "mobile_evidence": "GitHub Actions Arabic editorial gate run 40743663973 rendered actual Chromium mobile widths and completed successfully.",
   "source_evidence": [
     {
       "claim": "108 long-horizon tasks, 31 self-hosted services, seven domains and 21 subcategories",
@@ -52,7 +52,7 @@
       "assessment": "Explicitly labelled hypothetical"
     }
   ],
-  "decision": "BLOCKED pending actual mobile viewport/browser verification and successful exact-head GitHub Actions and Pages confirmation",
+  "decision": "PASS after actual mobile Chromium, repository gates, GitHub Pages deployment and bilingual live verification.",
   "terminology_evidence": "Computer-use agent, strict completion, partial credit, long horizon, hidden state, dynamic environment and model-based evaluation are defined.",
   "language_evidence": "Problem-first Arabic passed a 20–30 second comprehension simulation; exact numerator/denominator is supplied where source data permit, and rounded equivalents are labelled."
 }
