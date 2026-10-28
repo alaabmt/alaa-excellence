@@ -5,7 +5,7 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-28T18:23:00+04:00",
+  "updated_at": "2026-10-28T18:59:52+04:00",
   "workflow_status": "in_progress",
   "current_stage": "quran_verification",
   "current_article": {
@@ -139,16 +139,22 @@
   },
   "next_action": "Draft the original Arabic reflection using the verified Al-Mutaffifin 83:1–6 evidence, one bounded hypothetical service example, and the mandatory clarity/TTS standards; save draft-ar.md and checkpoint before critique.",
   "last_run": {
-    "mode": "coordinator_daily_start",
+    "mode": "coordinator_resume",
     "status": "in_progress",
     "started_at": "2026-10-28T17:58:00+04:00",
     "starting_head": "c5697f62d8231a2de0c3c404a9a55072833f9a88",
     "last_checkpoint": "quran_verification",
     "last_checkpoint_at": "2026-10-28T18:23:00+04:00",
-    "notes": "Completed topic selection, research and independent Qur'anic verification for Al-Mutaffifin 83:1–6. No blocking text, tafsir or creed errors were found. The live duplicate check must be retried before publication because the search connector could not access the site."
+    "notes": "Completed topic selection, research and independent Qur'anic verification for Al-Mutaffifin 83:1–6. No blocking text, tafsir or creed errors were found. The live duplicate check must be retried before publication because the search connector could not access the site.",
+    "resumed_at": "2026-10-28T18:59:52+04:00",
+    "resumed_by": "central-coordinator"
   },
   "workflow_id": "quran_reflections",
-  "run_lease": null,
+  "run_lease": {
+    "owner": "central-coordinator",
+    "acquired_at": "2026-10-28T18:59:52+04:00",
+    "expires_at": "2026-10-28T20:49:52+04:00"
+  },
   "checkpoint_policy": {
     "checkpoint_after_every_stage": true,
     "run_lease_minutes": 110,
