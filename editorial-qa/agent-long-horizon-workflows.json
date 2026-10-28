@@ -1,0 +1,58 @@
+{
+  "article": "article-agentic-ai-long-horizon-computer-workflows.html",
+  "headline": "عندما ينجز الوكيل نصف العمل ولا يكمل المهمة: ماذا كشف اختبار من 108 مهام طويلة؟",
+  "reviewed_at": "2026-10-28T22:30:00+04:00",
+  "reviewer": "AI editorial review (not a human reader test)",
+  "summary": "اختبرت الدراسة 108 مهام حاسوبية طويلة. حقق أفضل إعداد 54.8% من التقدم الجزئي، لكنه أكمل العمل كاملاً في 20.6% فقط؛ وعند أطول 17 مهمة لم يكتمل أي منها.",
+  "gates": {
+    "title": "PASS",
+    "introduction": "PASS",
+    "summary": "PASS",
+    "terminology": "PASS",
+    "evidence": "PASS",
+    "mobile": "NOT VERIFIED",
+    "language": "PASS"
+  },
+  "mobile_evidence": "Pending actual Chromium mobile-width verification in the Arabic editorial gate.",
+  "source_evidence": [
+    {
+      "claim": "108 long-horizon tasks, 31 self-hosted services, seven domains and 21 subcategories",
+      "url": "https://arxiv.org/html/2606.29537",
+      "location": "Benchmark construction and overview",
+      "assessment": "Controlled benchmark, not live production"
+    },
+    {
+      "claim": "Leading configuration: 20.6% strict completion and 54.8% partial credit at 500 steps",
+      "url": "https://arxiv.org/html/2606.29537",
+      "location": "Main results table",
+      "assessment": "Rounded aggregate scores; no integer numerator is published"
+    },
+    {
+      "claim": "Longest human-time bin: 0/17 completed and 17/17 not completed for each listed setup",
+      "url": "https://arxiv.org/html/2606.29537",
+      "location": "Results by human completion time",
+      "assessment": "Exact result within this selected bin, not general accuracy"
+    },
+    {
+      "claim": "GPT-5.5 and Opus cost/output-token comparison",
+      "url": "https://arxiv.org/html/2606.29537",
+      "location": "Cost and efficiency table",
+      "assessment": "Estimated costs at study-time pricing"
+    },
+    {
+      "claim": "306-practitioner survey, 86 deployment respondents, and 15/20 teams without formal benchmarks",
+      "url": "https://openreview.net/pdf?id=AsvLggSOvS",
+      "location": "Production-agent survey and interviews",
+      "assessment": "Independent side context; self-reported practices, not a rerun of OSWorld"
+    },
+    {
+      "claim": "Hypothetical procurement-claim scenario",
+      "url": "editorial example",
+      "location": "Hypothetical operating scenario",
+      "assessment": "Explicitly labelled hypothetical"
+    }
+  ],
+  "decision": "BLOCKED pending actual mobile viewport/browser verification and successful exact-head GitHub Actions and Pages confirmation",
+  "terminology_evidence": "Computer-use agent, strict completion, partial credit, long horizon, hidden state, dynamic environment and model-based evaluation are defined.",
+  "language_evidence": "Problem-first Arabic passed a 20–30 second comprehension simulation; exact numerator/denominator is supplied where source data permit, and rounded equivalents are labelled."
+}

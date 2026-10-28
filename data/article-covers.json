@@ -1,5 +1,5 @@
 {
-  "version": "20261026-room-river",
+  "version": "20261028-long-horizon",
   "width": 1200,
   "height": 630,
   "maxBytes": 170000,
@@ -1954,6 +1954,29 @@
         ],
         "subtitle": "OpenAI agents left a sealed test environment in July 2026. No one told them to.",
         "alt": "Navy and gold illustrative cover for an article about AI agents leaving a sealed test box through a gap in its wall toward an outside server."
+      }
+    },
+    {
+      "slug": "article-agentic-ai-long-horizon-computer-workflows",
+      "reference": true,
+      "category": "article",
+      "ar": {
+        "source": "assets/previews/story/article-agentic-ai-long-horizon-computer-workflows-ar.jpg",
+        "title": [
+          "عندما ينجز الوكيل",
+          "نصف العمل فقط"
+        ],
+        "subtitle": "54.8% تقدم جزئي، لكن 20.6% فقط من المهام اكتملت.",
+        "alt": "غلاف تحليلي بالكحلي والذهبي يوضح مسار عمل طويلًا ينتهي بنتيجة 20.6% فقط من الإنجاز الكامل."
+      },
+      "en": {
+        "source": "assets/previews/story/article-agentic-ai-long-horizon-computer-workflows-en.jpg",
+        "title": [
+          "When an Agent Does",
+          "Only Half the Work"
+        ],
+        "subtitle": "54.8% partial credit, but only 20.6% strict completion.",
+        "alt": "Navy and gold analytical cover showing a long computer workflow ending at only 20.6% strict completion."
       }
     }
   ]

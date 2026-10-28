@@ -7,9 +7,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-28T22:26:00+04:00",
+  "updated_at": "2026-10-28T22:33:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "quality_gate",
+  "current_stage": "repository_publish",
   "run_lease": {
     "owner": "scheduled-agentic-ai-2026-10-28",
     "acquired_at": "2026-10-28T22:07:00+04:00",
@@ -73,13 +73,15 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Build both article pages, social cards, specialist-hub cards, publication data, sitemap and Arabic gate target; run static checks before candidate publication.",
+  "next_action": "Validate the candidate pages and metadata; wait for Actions and Pages, then perform actual mobile Chromium and live exact-head verification.",
   "last_run": {
     "mode": "scheduled_daily",
     "status": "in_progress",
     "started_at": "2026-10-28T22:02:41+04:00",
     "completed_at": null,
-    "notes": "Reconciled the externally published 2026-10-27 Agentic AI article and restored specialist-only indexing before starting the 2026-10-28 item."
+    "notes": "Reconciled the externally published 2026-10-27 Agentic AI article and restored specialist-only indexing before starting the 2026-10-28 item.",
+    "current_item": "article-agentic-ai-long-horizon-computer-workflows",
+    "checkpoint": "Candidate repository publication prepared with bilingual pages, specialist-hub cards, social covers, sitemap, publication data and Arabic gate target."
   },
   "blocker": null,
   "last_completed_item": {
