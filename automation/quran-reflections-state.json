@@ -5,9 +5,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-28T20:57:35+04:00",
+  "updated_at": "2026-10-28T20:58:39+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "english_draft",
+  "current_stage": "bilingual_parity",
   "current_article": {
     "article_id": "quran-reflection-2026-10-28-al-mutaffifin-fair-measure",
     "publication_date": "2026-10-28",
@@ -106,14 +106,14 @@
       "commit": "df439c8e42b6890b41c147f52ac36853d6ad8adf"
     },
     "arabic_draft": {
-      "status": "revised_and_cleared",
+      "status": "parity_cleared",
       "path": "automation/quran-reflections/reflection-al-mutaffifin-demanding-full-measure-giving-less/draft-ar.md",
-      "word_count": 1357,
-      "commit": "d0813e4d291428f6201b62c95af310fadacb2515",
+      "word_count": 1382,
+      "commit": "790d201538282a0e0d1f8f5c42a093f471cf3dcd",
       "completed_at": "2026-10-28T19:01:50+04:00",
       "mobile_gate": "NOT VERIFIED until final HTML",
       "tts_gate": "NOT VERIFIED until final HTML",
-      "revision_count": 4
+      "revision_count": 5
     },
     "independent_critique": {
       "status": "passed_after_required_revisions",
@@ -126,12 +126,22 @@
       "tts_gate": "NOT VERIFIED until final HTML"
     },
     "english_draft": {
-      "status": "drafted_pending_bilingual_parity",
+      "status": "parity_cleared",
       "path": "automation/quran-reflections/reflection-al-mutaffifin-demanding-full-measure-giving-less/draft-en.md",
-      "word_count": 1824,
+      "word_count": 1856,
       "quran_translation": "Sahih International",
-      "commit": "0db88c855160976d4658d2dd8e17993d54e9ec45",
+      "commit": "bc766173ee0b3e70dff6f05812a3a4609fd88218",
       "completed_at": "2026-10-28T20:03:42+04:00",
+      "mobile_gate": "NOT VERIFIED until final HTML",
+      "tts_gate": "NOT VERIFIED until final HTML"
+    },
+    "bilingual_parity": {
+      "status": "passed_after_aligned_tafsir_citation_revision",
+      "review_path": "automation/quran-reflections/reflection-al-mutaffifin-demanding-full-measure-giving-less/quality-review.md",
+      "commit": "0c9bc8bb6efac1a687a39db9652eb0e683569d07",
+      "revision_count": 1,
+      "same_source_urls": 5,
+      "completed_at": "2026-10-28T20:58:39+04:00",
       "mobile_gate": "NOT VERIFIED until final HTML",
       "tts_gate": "NOT VERIFIED until final HTML"
     }
@@ -167,15 +177,15 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Run bilingual parity between draft-ar.md and draft-en.md: verify claim, source, caution, hypothetical-example, theological-center, question, and reference equivalence; revise either draft if needed and record the result in quality-review.md before the final quality gate.",
+  "next_action": "Run the final manuscript quality gate out of 100 with a minimum score of 90 and blocking checks for Qur’anic text, tafsir, creed, clarity, evidence, language and bilingual parity; append the scored result to quality-review.md before any repository publication work.",
   "last_run": {
     "mode": "coordinator_resume",
     "status": "in_progress",
     "started_at": "2026-10-28T17:58:00+04:00",
     "starting_head": "c5697f62d8231a2de0c3c404a9a55072833f9a88",
-    "last_checkpoint": "english_draft",
-    "last_checkpoint_at": "2026-10-28T20:03:42+04:00",
-    "notes": "Saved the 1,824-word natural editorial English draft using Sahih International. It preserves the verified evidence, tafsir/reflection boundary, hypothetical service example, and eschatological center. Bilingual parity remains required.",
+    "last_checkpoint": "bilingual_parity",
+    "last_checkpoint_at": "2026-10-28T20:58:39+04:00",
+    "notes": "Bilingual parity passed after adding one aligned Al-Qurtubi observation to both drafts so each meets the guide's three-location tafsir citation floor. Claims, sources, cautions, hypothetical boundary, theology and closing question are equivalent.",
     "resumed_at": "2026-10-28T20:57:35+04:00",
     "resumed_by": "central-coordinator"
   },
@@ -557,7 +567,8 @@
     "quran_verification",
     "arabic_draft",
     "independent_critique",
-    "english_draft"
+    "english_draft",
+    "bilingual_parity"
   ],
   "duplicate_check": {
     "status": "passed",
