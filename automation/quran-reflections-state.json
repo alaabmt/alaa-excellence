@@ -5,9 +5,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-28T20:01:24+04:00",
+  "updated_at": "2026-10-28T20:02:36+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "arabic_draft",
+  "current_stage": "independent_critique",
   "current_article": {
     "article_id": "quran-reflection-2026-10-28-al-mutaffifin-fair-measure",
     "publication_date": "2026-10-28",
@@ -106,11 +106,22 @@
       "commit": "df439c8e42b6890b41c147f52ac36853d6ad8adf"
     },
     "arabic_draft": {
-      "status": "drafted_pending_independent_critique",
+      "status": "revised_and_cleared",
       "path": "automation/quran-reflections/reflection-al-mutaffifin-demanding-full-measure-giving-less/draft-ar.md",
-      "word_count": 1342,
-      "commit": "fff84a5794cae5bf0ef939d82bdeca1775567118",
+      "word_count": 1357,
+      "commit": "d0813e4d291428f6201b62c95af310fadacb2515",
       "completed_at": "2026-10-28T19:01:50+04:00",
+      "mobile_gate": "NOT VERIFIED until final HTML",
+      "tts_gate": "NOT VERIFIED until final HTML",
+      "revision_count": 4
+    },
+    "independent_critique": {
+      "status": "passed_after_required_revisions",
+      "path": "automation/quran-reflections/reflection-al-mutaffifin-demanding-full-measure-giving-less/quality-review.md",
+      "commit": "350bd54fbe3268b1859902f8015fbae359f9ac0c",
+      "blocking_errors": [],
+      "revisions_applied": 4,
+      "completed_at": "2026-10-28T20:02:36+04:00",
       "mobile_gate": "NOT VERIFIED until final HTML",
       "tts_gate": "NOT VERIFIED until final HTML"
     }
@@ -146,15 +157,15 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Run an independent critique of draft-ar.md for Qur’anic accuracy, tafsir/reflection boundaries, creed, novice clarity, Arabic editorial quality, and the bounded hypothetical example; apply required revisions and save quality-review.md before starting the English draft.",
+  "next_action": "Draft the natural editorial English version from the cleared Arabic manuscript and verified evidence, using Sahih International for Qur’anic translation; preserve the tafsir/reflection boundary, the hypothetical service example, and the eschatological center, then save draft-en.md and checkpoint before bilingual parity.",
   "last_run": {
     "mode": "coordinator_resume",
     "status": "in_progress",
     "started_at": "2026-10-28T17:58:00+04:00",
     "starting_head": "c5697f62d8231a2de0c3c404a9a55072833f9a88",
-    "last_checkpoint": "arabic_draft",
-    "last_checkpoint_at": "2026-10-28T19:01:50+04:00",
-    "notes": "Saved the 1,342-word original Arabic draft for Al-Mutaffifin 83:1–6. It preserves the direct tafsir meaning, labels the service case as hypothetical reflection, centers resurrection and standing before Allah, and leaves mobile/RTL/TTS verification pending until final HTML.",
+    "last_checkpoint": "independent_critique",
+    "last_checkpoint_at": "2026-10-28T20:02:36+04:00",
+    "notes": "Independent Arabic critique passed after four required revisions: repaired tafsir citations, qualified reflective inference, clarified contemporary service-language basis, and preserved mobile/RTL/TTS as not verified until final HTML.",
     "resumed_at": "2026-10-28T20:01:24+04:00",
     "resumed_by": "central-coordinator"
   },
@@ -534,7 +545,8 @@
     "topic_selection",
     "research",
     "quran_verification",
-    "arabic_draft"
+    "arabic_draft",
+    "independent_critique"
   ],
   "duplicate_check": {
     "status": "passed",
