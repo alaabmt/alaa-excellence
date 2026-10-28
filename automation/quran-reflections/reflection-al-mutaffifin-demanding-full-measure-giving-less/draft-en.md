@@ -27,6 +27,8 @@ Unfairness is not always defended openly. It is often normalized through familia
 
 The person absorbing the cost may experience it differently. An incomplete instruction may require another trip. A missed deadline may cost a day of work. An unexplained decision may leave someone unable to correct a genuine error. A shortfall is not measured only by how small it appears to the person who caused it. Its effect is carried by the person whose due was reduced.
 
+Al-Qurtubi notes the term’s connection to a slight deficiency in measure. That sharpens the question: the amount may look small to us, but its smallness does not erase the other person’s due.[4]
+
 The word `yastawfun`—taking in full—draws attention to the insistence on receiving the complete measure. As a reflection, the contrast prompts a difficult question: do we not understand the meaning of completeness very well when we are the ones who benefit from it? Read in that light, the move from `yastawfun` to `yukhsirun`—causing loss—reveals more than a calculation error. It warns of the possibility that we may recognize the value of a right for ourselves while failing to honor it for others.
 
 The hardest question is not whether we support justice in principle. Most people will say that they do. The harder question is whether our definition of justice remains stable when it costs us time, effort, an admission of error, or a small advantage.
