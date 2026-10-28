@@ -5,9 +5,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-28T20:02:36+04:00",
+  "updated_at": "2026-10-28T20:03:42+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "independent_critique",
+  "current_stage": "english_draft",
   "current_article": {
     "article_id": "quran-reflection-2026-10-28-al-mutaffifin-fair-measure",
     "publication_date": "2026-10-28",
@@ -124,6 +124,16 @@
       "completed_at": "2026-10-28T20:02:36+04:00",
       "mobile_gate": "NOT VERIFIED until final HTML",
       "tts_gate": "NOT VERIFIED until final HTML"
+    },
+    "english_draft": {
+      "status": "drafted_pending_bilingual_parity",
+      "path": "automation/quran-reflections/reflection-al-mutaffifin-demanding-full-measure-giving-less/draft-en.md",
+      "word_count": 1824,
+      "quran_translation": "Sahih International",
+      "commit": "0db88c855160976d4658d2dd8e17993d54e9ec45",
+      "completed_at": "2026-10-28T20:03:42+04:00",
+      "mobile_gate": "NOT VERIFIED until final HTML",
+      "tts_gate": "NOT VERIFIED until final HTML"
     }
   },
   "stage_order": [
@@ -157,24 +167,20 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Draft the natural editorial English version from the cleared Arabic manuscript and verified evidence, using Sahih International for Qur’anic translation; preserve the tafsir/reflection boundary, the hypothetical service example, and the eschatological center, then save draft-en.md and checkpoint before bilingual parity.",
+  "next_action": "Run bilingual parity between draft-ar.md and draft-en.md: verify claim, source, caution, hypothetical-example, theological-center, question, and reference equivalence; revise either draft if needed and record the result in quality-review.md before the final quality gate.",
   "last_run": {
     "mode": "coordinator_resume",
     "status": "in_progress",
     "started_at": "2026-10-28T17:58:00+04:00",
     "starting_head": "c5697f62d8231a2de0c3c404a9a55072833f9a88",
-    "last_checkpoint": "independent_critique",
-    "last_checkpoint_at": "2026-10-28T20:02:36+04:00",
-    "notes": "Independent Arabic critique passed after four required revisions: repaired tafsir citations, qualified reflective inference, clarified contemporary service-language basis, and preserved mobile/RTL/TTS as not verified until final HTML.",
+    "last_checkpoint": "english_draft",
+    "last_checkpoint_at": "2026-10-28T20:03:42+04:00",
+    "notes": "Saved the 1,824-word natural editorial English draft using Sahih International. It preserves the verified evidence, tafsir/reflection boundary, hypothetical service example, and eschatological center. Bilingual parity remains required.",
     "resumed_at": "2026-10-28T20:01:24+04:00",
     "resumed_by": "central-coordinator"
   },
   "workflow_id": "quran_reflections",
-  "run_lease": {
-    "owner": "central-coordinator",
-    "acquired_at": "2026-10-28T20:01:24+04:00",
-    "expires_at": "2026-10-28T21:51:24+04:00"
-  },
+  "run_lease": null,
   "checkpoint_policy": {
     "checkpoint_after_every_stage": true,
     "run_lease_minutes": 110,
@@ -546,7 +552,8 @@
     "research",
     "quran_verification",
     "arabic_draft",
-    "independent_critique"
+    "independent_critique",
+    "english_draft"
   ],
   "duplicate_check": {
     "status": "passed",
