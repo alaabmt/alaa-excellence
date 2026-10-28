@@ -7,9 +7,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-28T22:12:00+04:00",
+  "updated_at": "2026-10-28T22:14:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "metric_reconstruction",
+  "current_stage": "arabic_draft",
   "run_lease": {
     "owner": "scheduled-agentic-ai-2026-10-28",
     "acquired_at": "2026-10-28T22:07:00+04:00",
@@ -73,7 +73,7 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Create metrics-check.md with all denominators, rounding rules, cost comparisons, and exact non-completion wording.",
+  "next_action": "Draft the Arabic article from the primary and secondary sources, preserving every denominator, simulation boundary and rounding caveat.",
   "last_run": {
     "mode": "scheduled_daily",
     "status": "in_progress",
