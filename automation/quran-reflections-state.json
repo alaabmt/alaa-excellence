@@ -5,9 +5,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-28T17:58:00+04:00",
+  "updated_at": "2026-10-28T18:08:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "duplicate_check",
+  "current_stage": "topic_selection",
   "current_article": {
     "article_id": "quran-reflection-2026-10-28-al-mutaffifin-fair-measure",
     "publication_date": "2026-10-28",
@@ -18,12 +18,14 @@
     "working_title_en": "What Do We See in the Measure When the Shortfall Benefits Us?",
     "status": "in_progress",
     "topic_selection": {
-      "status": "pending",
+      "status": "completed",
       "candidates": [
         "Al-Mutaffifin 83:1–6 — demanding a full measure while giving less",
         "Al-Ma’idah 5:2 — the boundary of cooperation",
         "An-Nahl 16:90 — justice, excellence and giving beyond minimum duty"
-      ]
+      ],
+      "selected": "Al-Mutaffifin 83:1–6 — demanding a full measure while giving less",
+      "central_question": "What becomes visible in our standards when the shortfall benefits us rather than harms us?"
     },
     "duplicate_check": {
       "status": "passed_repository_and_registry; live_urls_unreachable_via_current_search_connector",
@@ -33,7 +35,8 @@
       "registry_topic_matches": 0,
       "expected_url_ar": "https://tamayuz10x.com/reflection-al-mutaffifin-demanding-full-measure-giving-less.html",
       "expected_url_en": "https://tamayuz10x.com/en/reflection-al-mutaffifin-demanding-full-measure-giving-less.html"
-    }
+    },
+    "research_notes_path": "automation/quran-reflections/reflection-al-mutaffifin-demanding-full-measure-giving-less/research-notes.md"
   },
   "stage_order": [
     "capability_check",
@@ -66,15 +69,15 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Complete topic_selection: validate three angles against the topic registry, select one thesis and central question, save research-notes.md, then checkpoint before research.",
+  "next_action": "Complete research and independent Qur'anic verification for Al-Mutaffifin 83:1–6, including a successful Al-Sa'di read or a documented source limitation, then checkpoint before the Arabic draft.",
   "last_run": {
     "mode": "coordinator_daily_start",
     "status": "in_progress",
     "started_at": "2026-10-28T17:58:00+04:00",
     "starting_head": "c5697f62d8231a2de0c3c404a9a55072833f9a88",
-    "last_checkpoint": "duplicate_check",
-    "last_checkpoint_at": "2026-10-28T17:58:00+04:00",
-    "notes": "Started the 2026-10-28 cycle after capability, state, registry, repository and expected-URL duplicate checks. Live URL checks were attempted but the search connector could not access the site; they must be retried before publication."
+    "last_checkpoint": "topic_selection",
+    "last_checkpoint_at": "2026-10-28T18:08:00+04:00",
+    "notes": "Selected Al-Mutaffifin 83:1–6 after registry and repository duplicate checks; saved the thesis, central question, boundaries, sources and hypothetical application in research-notes.md."
   },
   "workflow_id": "quran_reflections",
   "run_lease": {
@@ -448,7 +451,8 @@
   "completed_stages": [
     "capability_check",
     "load_checkpoint",
-    "duplicate_check"
+    "duplicate_check",
+    "topic_selection"
   ],
   "duplicate_check": {
     "status": "passed",
