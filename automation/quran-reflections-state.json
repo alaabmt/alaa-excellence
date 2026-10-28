@@ -5,9 +5,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-28T22:10:00+04:00",
-  "workflow_status": "in_progress",
-  "current_stage": "actions_and_pages",
+  "updated_at": "2026-10-28T22:15:00+04:00",
+  "workflow_status": "blocked",
+  "current_stage": "live_verification",
   "current_article": {
     "article_id": "quran-reflection-2026-10-28-al-mutaffifin-fair-measure",
     "publication_date": "2026-10-28",
@@ -158,7 +158,7 @@
       "tts_gate": "NOT VERIFIED until final HTML"
     },
     "publishing": {
-      "status": "repository_published_pending_checks",
+      "status": "actions_passed_live_tts_pending",
       "arabic_path": "reflection-al-mutaffifin-demanding-full-measure-giving-less.html",
       "english_path": "en/reflection-al-mutaffifin-demanding-full-measure-giving-less.html",
       "arabic_page_commit": "2d7481db8f60aa3f48648182251ade101783f3a1",
@@ -171,8 +171,8 @@
       ],
       "topic_registry": "data/quranic-reflection-topics.json",
       "sitemap": "sitemap.xml",
-      "checks": "pending",
-      "live": "NOT VERIFIED"
+      "checks": "passed",
+      "live": "pages_and_indexes_verified; actual TTS playback NOT VERIFIED"
     },
     "repository_publish": {
       "status": "completed",
@@ -200,6 +200,123 @@
       ],
       "checks_status": "pending_actions_and_live_verification",
       "reconciliation_note": "Canonical publication paths copied into repository_publish so exact bilingual mobile QA can resolve the current article without replaying publication."
+    },
+    "actions_and_pages": {
+      "status": "completed",
+      "checked_at": "2026-10-28T22:15:00+04:00",
+      "report_path": "automation/quran-reflections/reflection-al-mutaffifin-demanding-full-measure-giving-less/actions-and-pages-report.md",
+      "repair_commits": {
+        "state_schema": "cb84bd9084e184d03442a689f1fb47b6daaa2f5a",
+        "publication_records": "526829b653e1d34c0bc8132fb1a071a7939be3a2",
+        "visible_dates": "c269bd07632da6a87614f77fe4b48046304e45da",
+        "generated_social_assets": "05eacfad2433c7bfee08f3a023016e7227f56110",
+        "mobile_wrap": "5d3f32f22a0ec0eeac12091ac040b967eb4f7966"
+      },
+      "required_checks": {
+        "site_health": {
+          "run_id": 40742136729,
+          "conclusion": "success",
+          "head_sha": "5d3f32f22a0ec0eeac12091ac040b967eb4f7966",
+          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40742136729"
+        },
+        "article_date_integrity": {
+          "run_id": 40742136785,
+          "conclusion": "success",
+          "head_sha": "5d3f32f22a0ec0eeac12091ac040b967eb4f7966",
+          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40742136785"
+        },
+        "sitemap": {
+          "run_id": 40742136798,
+          "conclusion": "success",
+          "head_sha": "5d3f32f22a0ec0eeac12091ac040b967eb4f7966",
+          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40742136798"
+        },
+        "social_cards": {
+          "run_id": 40742136707,
+          "conclusion": "success",
+          "head_sha": "5d3f32f22a0ec0eeac12091ac040b967eb4f7966",
+          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40742136707"
+        },
+        "arabic_editorial": {
+          "run_id": 40742136885,
+          "conclusion": "success",
+          "head_sha": "5d3f32f22a0ec0eeac12091ac040b967eb4f7966",
+          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40742136885"
+        },
+        "pages": {
+          "run_id": 40742455891,
+          "conclusion": "success",
+          "head_sha": "cee988ae918521442dbc5fe5e2e566c7d9841370",
+          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40742455891"
+        }
+      },
+      "exact_mobile_test": {
+        "conclusion": "success",
+        "artifact_id": 12838898678,
+        "viewports": [
+          320,
+          375,
+          390,
+          430
+        ],
+        "languages": [
+          "ar",
+          "en"
+        ],
+        "cases_passed": 8
+      },
+      "completed_at": "2026-10-28T22:15:00+04:00"
+    },
+    "live_verification": {
+      "status": "blocked_on_actual_tts_playback",
+      "checked_at": "2026-10-28T22:15:00+04:00",
+      "pages": {
+        "ar": {
+          "url": "https://tamayuz10x.com/reflection-al-mutaffifin-demanding-full-measure-giving-less.html",
+          "loaded": true,
+          "lang": "ar",
+          "dir": "rtl",
+          "canonical": true,
+          "hreflang": true,
+          "listen_control": true,
+          "social_image": true,
+          "mobile_workflow_passed": true
+        },
+        "en": {
+          "url": "https://tamayuz10x.com/en/reflection-al-mutaffifin-demanding-full-measure-giving-less.html",
+          "loaded": true,
+          "lang": "en",
+          "dir": "ltr",
+          "canonical": true,
+          "hreflang": true,
+          "listen_control": true,
+          "social_image_1200": true,
+          "mobile_workflow_passed": true
+        }
+      },
+      "indexes": {
+        "articles.html": {
+          "unique_cards": 1
+        },
+        "quranic-reflections.html": {
+          "unique_cards": 1
+        },
+        "en/articles.html": {
+          "unique_cards": 1
+        },
+        "en/quranic-reflections.html": {
+          "unique_cards": 1
+        }
+      },
+      "sitemap": {
+        "ar_loc_count": 1,
+        "en_loc_count": 1
+      },
+      "tts": {
+        "controls_present": true,
+        "actual_playback_verified": false,
+        "blocker": "Available cloud browser reports window.speechSynthesis unavailable; clicking Arabic Listen did not start playback."
+      }
     }
   },
   "stage_order": [
@@ -233,24 +350,20 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Verify GitHub Actions Site health QA, Arabic editorial gate, article date integrity, social cards and Pages deployment on final head; resolve failures; perform real mobile/RTL/TTS checks and HTTP live checks of both pages and indexes. Do not claim completed until verified.",
+  "next_action": "Decision required: provide a browser/OS with Web Speech synthesis enabled for real Arabic and English playback verification, or explicitly accept the successful Listen-control/DOM checks plus the eight-case mobile Action as sufficient TTS evidence. Then save live_verification, publication-report.md and completion_report without republishing.",
   "last_run": {
     "mode": "coordinator_resume",
-    "status": "in_progress",
+    "status": "blocked",
     "started_at": "2026-10-28T17:58:00+04:00",
     "starting_head": "c5697f62d8231a2de0c3c404a9a55072833f9a88",
-    "last_checkpoint": "repository_publish",
-    "last_checkpoint_at": "2026-10-28T21:53:53+04:00",
-    "notes": "Reconciled the already-published bilingual page paths into current_article.repository_publish after the exact mobile Action failed to find the canonical state fields. No publication replayed.",
+    "last_checkpoint": "actions_and_pages",
+    "last_checkpoint_at": "2026-10-28T22:15:00+04:00",
+    "notes": "All repository, Actions, Pages, mobile/RTL, social-card, date, index and sitemap checks passed. Live verification is blocked only on actual TTS playback because the available cloud browser exposes no Web Speech synthesis engine.",
     "resumed_at": "2026-10-28T21:59:40+04:00",
     "resumed_by": "central-coordinator"
   },
   "workflow_id": "quran_reflections",
-  "run_lease": {
-    "owner": "central-coordinator",
-    "acquired_at": "2026-10-28T21:59:40+04:00",
-    "expires_at": "2026-10-28T23:49:40+04:00"
-  },
+  "run_lease": null,
   "checkpoint_policy": {
     "checkpoint_after_every_stage": true,
     "run_lease_minutes": 110,
@@ -626,7 +739,8 @@
     "english_draft",
     "bilingual_parity",
     "quality_gate",
-    "repository_publish"
+    "repository_publish",
+    "actions_and_pages"
   ],
   "duplicate_check": {
     "status": "passed",
@@ -644,7 +758,12 @@
     ],
     "finding": "No Qur’anic reflection cycle, registry entry, Quran-index card or reflection page dated 2026-10-26 exists. The date occurrences in general article records belong to the Netherlands 10X case, not a reflection."
   },
-  "blocker": null,
+  "blocker": {
+    "type": "capability",
+    "stage": "live_verification",
+    "decision_required": "Provide a browser/OS with Web Speech synthesis enabled for actual Arabic and English playback verification, or explicitly accept control/structure validation plus the eight successful mobile cases as the TTS gate.",
+    "evidence": "The live cloud browser loads both Listen controls, but window.speechSynthesis is unavailable and the Arabic control did not enter a playing state."
+  },
   "verified_quranic_references": [
     {
       "surah": "Al-Hujurat",
