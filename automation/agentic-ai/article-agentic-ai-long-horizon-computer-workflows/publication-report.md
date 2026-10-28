@@ -38,4 +38,12 @@
 
 ## Final closure
 
-Pending one exact-head closure commit and exact-head Actions/Pages recheck; no public completion claim before that check.
+Exact-head checkpoint ee17742753bd157af8b2c34a8e7d2b85d0992a5b passed Arabic editorial gate run 40744299843 and GitHub Pages run 40744298988. The state-only completion commit that releases the lease must also pass those two exact-head checks before the public completion claim.
+
+
+## Exact-head checkpoint
+
+- Commit: ee17742753bd157af8b2c34a8e7d2b85d0992a5b
+- Arabic editorial gate: https://github.com/alaabmt/alaa-excellence/actions/runs/40744299843 — success.
+- GitHub Pages: https://github.com/alaabmt/alaa-excellence/actions/runs/40744298988 — success.
+- Live Arabic and English pages remained correct after deployment.

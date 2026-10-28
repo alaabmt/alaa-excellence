@@ -7,14 +7,10 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-28T22:49:00+04:00",
-  "workflow_status": "in_progress",
-  "current_stage": "actions_and_pages",
-  "run_lease": {
-    "owner": "scheduled-agentic-ai-2026-10-28",
-    "acquired_at": "2026-10-28T22:07:00+04:00",
-    "expires_at": "2026-10-28T23:57:00+04:00"
-  },
+  "updated_at": "2026-10-28T22:53:00+04:00",
+  "workflow_status": "completed",
+  "current_stage": "completed",
+  "run_lease": null,
   "current_item": {
     "slug": "article-agentic-ai-long-horizon-computer-workflows",
     "publication_date": "2026-10-28",
@@ -23,15 +19,29 @@
     "research_status": "completed",
     "evidence_pack_status": "completed",
     "arabic_draft": {
-      "status": "drafted",
+      "status": "published_verified",
       "path": "article-agentic-ai-long-horizon-computer-workflows.html"
     },
     "english_draft": {
-      "status": "drafted",
+      "status": "published_verified",
       "path": "en/article-agentic-ai-long-horizon-computer-workflows.html"
     },
     "publishing": {
-      "status": "not_started"
+      "status": "published_and_verified",
+      "arabic_url": "https://tamayuz10x.com/article-agentic-ai-long-horizon-computer-workflows.html",
+      "english_url": "https://tamayuz10x.com/en/article-agentic-ai-long-horizon-computer-workflows.html",
+      "candidate_commit": "29bad645cf58dfecf5215254e3e7341fbff4bff0",
+      "deployed_head": "10b16f55f22b2b7211eb01aa3c9e4edb0adfe9bc",
+      "exact_head_verification_commit": "ee17742753bd157af8b2c34a8e7d2b85d0992a5b",
+      "mobile_gate_run_id": 40744299843,
+      "pages_run_id": 40744298988,
+      "checks": {
+        "site_health_run_id": 40743664128,
+        "disclaimer_run_id": 40743663972,
+        "sitemap_run_id": 40743663752,
+        "article_date_run_id": 40743663970,
+        "social_cards_run_id": 40743663816
+      }
     }
   },
   "stage_order": [
@@ -73,47 +83,48 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Commit the verified publication report, then require successful Arabic editorial gate and GitHub Pages on the exact final head before marking completed and releasing the lease.",
+  "next_action": "On the next scheduled run, start a new item only if no Agentic AI article has already started or published for that Asia/Dubai date.",
   "last_run": {
     "mode": "scheduled_daily",
-    "status": "in_progress",
+    "status": "completed",
     "started_at": "2026-10-28T22:02:41+04:00",
-    "completed_at": null,
+    "completed_at": "2026-10-28T22:53:00+04:00",
     "notes": "Reconciled the externally published 2026-10-27 Agentic AI article and restored specialist-only indexing before starting the 2026-10-28 item.",
     "current_item": "article-agentic-ai-long-horizon-computer-workflows",
-    "checkpoint": "Candidate published; mobile Chromium, repository gates, Pages deployment and bilingual live verification passed on deployed head 10b16f55f22b2b7211eb01aa3c9e4edb0adfe9bc."
+    "checkpoint": "Completed after exact-head Arabic editorial gate run 40744299843 and Pages run 40744298988 succeeded, with live bilingual verification and specialist-only hub placement."
   },
   "blocker": null,
   "last_completed_item": {
-    "slug": "article-agentic-ai-openai-agents-sandbox-escape",
-    "publication_date": "2026-10-27",
-    "title_ar": "كيف خرج وكلاء أذكياء من بيئة اختبار أوبن إيه آي واخترقوا شركة أخرى؟",
-    "title_en": "How Did AI Agents Escape an OpenAI Test Environment and Break Into Another Company?",
-    "research_status": "published_outside_checkpoint_protocol",
-    "evidence_pack_status": "repository_article_contains_citations",
+    "slug": "article-agentic-ai-long-horizon-computer-workflows",
+    "publication_date": "2026-10-28",
+    "title_ar": "عندما ينجز الوكيل نصف العمل ولا يكمل المهمة: ماذا كشف اختبار من 108 مهام طويلة؟",
+    "title_en": "When an Agent Does Half the Work but Finishes Only One Task in Five",
+    "research_status": "completed",
+    "evidence_pack_status": "completed",
     "arabic_draft": {
-      "status": "verified_in_repository",
-      "path": "article-agentic-ai-openai-agents-sandbox-escape.html"
+      "status": "published_verified",
+      "path": "article-agentic-ai-long-horizon-computer-workflows.html"
     },
     "english_draft": {
-      "status": "verified_in_repository",
-      "path": "en/article-agentic-ai-openai-agents-sandbox-escape.html"
+      "status": "published_verified",
+      "path": "en/article-agentic-ai-long-horizon-computer-workflows.html"
     },
     "publishing": {
-      "status": "reconciled",
-      "arabic_url": "https://tamayuz10x.com/article-agentic-ai-openai-agents-sandbox-escape.html",
-      "english_url": "https://tamayuz10x.com/en/article-agentic-ai-openai-agents-sandbox-escape.html",
-      "publication_commit": "5144fe54ae33cbeb8ffc58cc8d93821db219bc53",
-      "mobile_gate_run_id": 40555671986,
-      "mobile_gate_run_number": 286,
+      "status": "published_and_verified",
+      "arabic_url": "https://tamayuz10x.com/article-agentic-ai-long-horizon-computer-workflows.html",
+      "english_url": "https://tamayuz10x.com/en/article-agentic-ai-long-horizon-computer-workflows.html",
+      "candidate_commit": "29bad645cf58dfecf5215254e3e7341fbff4bff0",
+      "deployed_head": "10b16f55f22b2b7211eb01aa3c9e4edb0adfe9bc",
+      "exact_head_verification_commit": "ee17742753bd157af8b2c34a8e7d2b85d0992a5b",
+      "mobile_gate_run_id": 40744299843,
+      "pages_run_id": 40744298988,
       "checks": {
-        "site_health_run_id": 40555672089,
-        "disclaimer_run_id": 40555671930,
-        "sitemap_run_id": 40555671903,
-        "social_cards_run_id": 40555672201,
-        "article_date_run_id": 40555672129
-      },
-      "reconciliation_note": "Published pages and specialist-hub records exist. General-index cards were removed on 2026-10-28 to restore the specialist-only policy. No durable automation artifact folder existed for this externally published item."
+        "site_health_run_id": 40743664128,
+        "disclaimer_run_id": 40743663972,
+        "sitemap_run_id": 40743663752,
+        "article_date_run_id": 40743663970,
+        "social_cards_run_id": 40743663816
+      }
     }
   }
 }
