@@ -5,9 +5,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-28T17:37:07.576Z",
-  "workflow_status": "reconciling",
-  "current_stage": "repository_publish",
+  "updated_at": "2026-10-28T17:53:53.447Z",
+  "workflow_status": "in_progress",
+  "current_stage": "actions_and_pages",
   "current_article": {
     "article_id": "quran-reflection-2026-10-28-al-mutaffifin-fair-measure",
     "publication_date": "2026-10-28",
@@ -158,22 +158,21 @@
       "tts_gate": "NOT VERIFIED until final HTML"
     },
     "publishing": {
-      "status": "partial_repository_publication",
+      "status": "repository_published_pending_checks",
       "arabic_path": "reflection-al-mutaffifin-demanding-full-measure-giving-less.html",
       "english_path": "en/reflection-al-mutaffifin-demanding-full-measure-giving-less.html",
-      "arabic_commit": "2d7481db8f60aa3f48648182251ade101783f3a1",
-      "english_commit": "9edf479a74eb441fb79c395d8977dbd4bf4ea152",
-      "arabic_reflections_index_commit": "b234ffaf433fd5af23d41d8bf76b19f84a5ee0d5",
-      "pending": [
+      "arabic_page_commit": "2d7481db8f60aa3f48648182251ade101783f3a1",
+      "english_page_commit": "9edf479a74eb441fb79c395d8977dbd4bf4ea152",
+      "indexes": [
+        "quranic-reflections.html",
         "en/quranic-reflections.html",
         "articles.html",
-        "en/articles.html",
-        "data/quranic-reflection-topics.json",
-        "sitemap.xml",
-        "assets and QA",
-        "Actions and Pages",
-        "live verification"
-      ]
+        "en/articles.html"
+      ],
+      "topic_registry": "data/quranic-reflection-topics.json",
+      "sitemap": "sitemap.xml",
+      "checks": "pending",
+      "live": "NOT VERIFIED"
     }
   },
   "stage_order": [
@@ -207,7 +206,7 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Reconcile partial publication on main. Two HTML pages and Arabic reflections index have been committed; do NOT recreate. Complete English reflections index, both general article indexes, topic registry, sitemap, social assets, then validate HTML/mobile/RTL/TTS, Actions, Pages and live URLs. GitHub connector safety blocked further index writes.",
+  "next_action": "Verify GitHub Actions Site health QA, Arabic editorial gate, article date integrity, social cards and Pages deployment on final head; resolve failures; perform real mobile/RTL/TTS checks and HTTP live checks of both pages and indexes. Do not claim completed until verified.",
   "last_run": {
     "mode": "coordinator_resume",
     "status": "in_progress",
@@ -595,7 +594,8 @@
     "independent_critique",
     "english_draft",
     "bilingual_parity",
-    "quality_gate"
+    "quality_gate",
+    "repository_publish"
   ],
   "duplicate_check": {
     "status": "passed",
@@ -613,11 +613,7 @@
     ],
     "finding": "No Qur’anic reflection cycle, registry entry, Quran-index card or reflection page dated 2026-10-26 exists. The date occurrences in general article records belong to the Netherlands 10X case, not a reflection."
   },
-  "blocker": {
-    "type": "github_connector_write_safety",
-    "details": "GitHub connector blocked updates to en/quranic-reflections.html; do not retry blindly.",
-    "retryable": true
-  },
+  "blocker": null,
   "verified_quranic_references": [
     {
       "surah": "Al-Hujurat",
