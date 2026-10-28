@@ -5,9 +5,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-28T18:17:00+04:00",
+  "updated_at": "2026-10-28T18:23:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "research",
+  "current_stage": "quran_verification",
   "current_article": {
     "article_id": "quran-reflection-2026-10-28-al-mutaffifin-fair-measure",
     "publication_date": "2026-10-28",
@@ -65,7 +65,46 @@
         "status": "reviewed"
       }
     ],
-    "research_commit": "9e8a4cf48859b3273b40acb72885d5504505bac1"
+    "research_commit": "9e8a4cf48859b3273b40acb72885d5504505bac1",
+    "quranic_focus": {
+      "surah": "Al-Mutaffifin",
+      "surah_ar": "المطففين",
+      "ayahs": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "status": "verified"
+    },
+    "verified_quranic_references": [
+      {
+        "surah": "Al-Mutaffifin",
+        "surah_ar": "المطففين",
+        "ayahs": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "status": "verified",
+        "primary_text_urls": [
+          "https://legacy.quran.com/83/1-7"
+        ],
+        "translation": "Sahih International",
+        "verified_at": "2026-10-28T18:22:00+04:00"
+      }
+    ],
+    "quran_verification": {
+      "status": "passed",
+      "blocking_errors": [],
+      "path": "automation/quran-reflections/reflection-al-mutaffifin-demanding-full-measure-giving-less/research-notes.md",
+      "commit": "df439c8e42b6890b41c147f52ac36853d6ad8adf"
+    }
   },
   "stage_order": [
     "capability_check",
@@ -98,22 +137,18 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Perform and record the independent Qur'anic verification for Al-Mutaffifin 83:1–6, then checkpoint before drafting Arabic.",
+  "next_action": "Draft the original Arabic reflection using the verified Al-Mutaffifin 83:1–6 evidence, one bounded hypothetical service example, and the mandatory clarity/TTS standards; save draft-ar.md and checkpoint before critique.",
   "last_run": {
     "mode": "coordinator_daily_start",
     "status": "in_progress",
     "started_at": "2026-10-28T17:58:00+04:00",
     "starting_head": "c5697f62d8231a2de0c3c404a9a55072833f9a88",
-    "last_checkpoint": "research",
-    "last_checkpoint_at": "2026-10-28T18:17:00+04:00",
-    "notes": "Selected Al-Mutaffifin 83:1–6 after registry and repository duplicate checks; saved the thesis, central question, boundaries, sources and hypothetical application in research-notes.md."
+    "last_checkpoint": "quran_verification",
+    "last_checkpoint_at": "2026-10-28T18:23:00+04:00",
+    "notes": "Completed topic selection, research and independent Qur'anic verification for Al-Mutaffifin 83:1–6. No blocking text, tafsir or creed errors were found. The live duplicate check must be retried before publication because the search connector could not access the site."
   },
   "workflow_id": "quran_reflections",
-  "run_lease": {
-    "owner": "central-resume-coordinator-2026-10-28",
-    "acquired_at": "2026-10-28T17:58:00+04:00",
-    "expires_at": "2026-10-28T19:48:00+04:00"
-  },
+  "run_lease": null,
   "checkpoint_policy": {
     "checkpoint_after_every_stage": true,
     "run_lease_minutes": 110,
@@ -482,7 +517,8 @@
     "load_checkpoint",
     "duplicate_check",
     "topic_selection",
-    "research"
+    "research",
+    "quran_verification"
   ],
   "duplicate_check": {
     "status": "passed",
