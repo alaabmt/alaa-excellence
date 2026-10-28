@@ -39,3 +39,19 @@ No conceptual rewrite required. Preserve the phrase “مكافئ مهمة بع�
 ## Publication status at this checkpoint
 
 BLOCKED pending original-English draft, bilingual parity review, final repository checks, actual mobile Chromium evidence, exact-head Actions/Pages success and live verification.
+
+
+## Bilingual semantic parity and English originality
+
+- Core problem and operational example aligned: PASS.
+- 108-task denominator, 20.6% strict score, 54.8% partial score and 34.2-point gap aligned: PASS.
+- Rounded-equivalent caveat aligned: PASS.
+- 0/17 and 17/17 exact longest-bin result aligned: PASS.
+- GPT-5.5/Opus cost and token comparisons aligned: PASS.
+- Simulation/production distinction aligned: PASS.
+- Secondary 306/86/20 sample framing and 15/20 benchmark-set result aligned: PASS.
+- Evidence limits and eight institutional decisions aligned: PASS.
+- English paragraph order, transitions and headline syntax were rebuilt for natural editorial English rather than mirroring Arabic: PASS.
+- Native-English translation smell test: PASS.
+
+No factual or certainty mismatch found.
