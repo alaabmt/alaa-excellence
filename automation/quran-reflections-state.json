@@ -5,7 +5,7 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-28T17:29:40.235Z",
+  "updated_at": "2026-10-28T17:36:17.114Z",
   "workflow_status": "reconciling",
   "current_stage": "repository_publish",
   "current_article": {
@@ -202,7 +202,11 @@
     "resumed_by": "central-coordinator"
   },
   "workflow_id": "quran_reflections",
-  "run_lease": null,
+  "run_lease": {
+    "owner": "manual-publication",
+    "acquired_at": "2026-10-28T17:36:17.114Z",
+    "expires_at": "2026-10-28T19:26:17.114Z"
+  },
   "checkpoint_policy": {
     "checkpoint_after_every_stage": true,
     "run_lease_minutes": 110,
