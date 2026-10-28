@@ -7,84 +7,31 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-26T22:20:00+04:00",
-  "workflow_status": "completed",
-  "current_stage": "completed",
-  "run_lease": null,
+  "updated_at": "2026-10-28T22:07:00+04:00",
+  "workflow_status": "in_progress",
+  "current_stage": "study_selection",
+  "run_lease": {
+    "owner": "scheduled-agentic-ai-2026-10-28",
+    "acquired_at": "2026-10-28T22:07:00+04:00",
+    "expires_at": "2026-10-28T23:57:00+04:00"
+  },
   "current_item": {
-    "slug": "article-agentic-ai-multi-agent-scientific-analysis-cost",
-    "publication_date": "2026-10-26",
-    "title_ar": "عندما لا يصل الوكيل إلى رقم قابل للحساب: هل يبرر فريق من الوكلاء كلفة أعلى بـ4.5 مرات؟",
-    "title_en": "When One Agent Never Reaches the Number: Is a Multi-Agent Workflow Worth 4.5× the Time?",
-    "research_status": "completed",
-    "evidence_pack_status": "completed",
+    "slug": "article-agentic-ai-long-horizon-computer-workflows",
+    "publication_date": "2026-10-28",
+    "title_ar": "عندما ينجز الوكيل نصف العمل ولا يكمل المهمة: ماذا كشف اختبار من 108 مهام طويلة؟",
+    "title_en": "When an Agent Does Half the Work but Finishes Only One Task in Five",
+    "research_status": "in_progress",
+    "evidence_pack_status": "not_started",
     "arabic_draft": {
-      "status": "verified",
-      "path": "article-agentic-ai-multi-agent-scientific-analysis-cost.html"
+      "status": "not_started",
+      "path": "article-agentic-ai-long-horizon-computer-workflows.html"
     },
     "english_draft": {
-      "status": "verified",
-      "path": "en/article-agentic-ai-multi-agent-scientific-analysis-cost.html"
+      "status": "not_started",
+      "path": "en/article-agentic-ai-long-horizon-computer-workflows.html"
     },
     "publishing": {
-      "status": "verified",
-      "arabic_url": "https://tamayuz10x.com/article-agentic-ai-multi-agent-scientific-analysis-cost.html",
-      "english_url": "https://tamayuz10x.com/en/article-agentic-ai-multi-agent-scientific-analysis-cost.html",
-      "publication_commit": "4feb028fab50cf5bbb686a8c62dffabf5f75f96f",
-      "repair_commit": "6fe302b67621410fa641bcf8d55379dce2e3026f",
-      "social_assets_commit": "0c23fae8b1b5704f27028be6f5fd2aba396306ad",
-      "verification_commit": "62d7e1c16c0f67a3f2e54978bc8dca42a8a900a2",
-      "mobile_gate_run_id": 40375883575,
-      "mobile_gate_run_number": 259,
-      "pages_run_id": 40375881631,
-      "pages_run_number": 2262,
-      "checks": {
-        "site_health_run_id": 40375529497,
-        "disclaimer_run_id": 40375529716,
-        "sitemap_run_id": 40375529558,
-        "social_cards_run_id": 40375529667,
-        "article_date_run_id": 40375529515
-      },
-      "repository_checks": {
-        "article_pages": 2,
-        "specialist_hub_cards": 2,
-        "general_index_slug_occurrences": 0,
-        "sitemap_entries": 2,
-        "social_images": "2 x 1200x630"
-      },
-      "live_verification": {
-        "arabic": {
-          "status": "200 and rendered",
-          "title": true,
-          "author": true,
-          "canonical": "correct",
-          "cover": "1200x630 complete",
-          "tables": 3,
-          "side_boxes": 1,
-          "share_links": "canonical and correct",
-          "listening_control": true,
-          "no_horizontal_overflow": true
-        },
-        "english": {
-          "status": "200 and rendered",
-          "title": true,
-          "author": true,
-          "canonical": "correct",
-          "cover": "1200x630 complete",
-          "tables": 3,
-          "side_boxes": 1,
-          "share_links": "canonical and correct",
-          "listening_control": true,
-          "no_horizontal_overflow": true
-        },
-        "hubs": {
-          "arabic_cards": 1,
-          "english_cards": 1,
-          "arabic_general_links": 0,
-          "english_general_links": 0
-        },
-        "verified_at": "2026-10-26T22:20:00+04:00"
-      }
+      "status": "not_started"
     }
   },
   "stage_order": [
@@ -126,89 +73,45 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "At the next scheduled run, begin a new article only if no Agentic AI item has already started or published for that Asia/Dubai date.",
+  "next_action": "Create and checkpoint research-notes.md for OSWorld 2.0 after verifying the primary paper, then proceed to the Evidence Pack.",
   "last_run": {
     "mode": "scheduled_daily",
-    "status": "completed",
-    "started_at": "2026-10-26T22:00:33+04:00",
-    "completed_at": "2026-10-26T22:20:00+04:00",
-    "notes": "Published and verified both language pages, specialist-only hub cards, metadata, sitemap and social covers. All repository gates, exact-head Arabic mobile/RTL gate, exact-head GitHub Pages deployment and live browser checks passed."
+    "status": "in_progress",
+    "started_at": "2026-10-28T22:02:41+04:00",
+    "completed_at": null,
+    "notes": "Reconciled the externally published 2026-10-27 Agentic AI article and restored specialist-only indexing before starting the 2026-10-28 item."
   },
   "blocker": null,
   "last_completed_item": {
-    "slug": "article-agentic-ai-multi-agent-scientific-analysis-cost",
-    "publication_date": "2026-10-26",
-    "title_ar": "عندما لا يصل الوكيل إلى رقم قابل للحساب: هل يبرر فريق من الوكلاء كلفة أعلى بـ4.5 مرات؟",
-    "title_en": "When One Agent Never Reaches the Number: Is a Multi-Agent Workflow Worth 4.5× the Time?",
-    "research_status": "completed",
-    "evidence_pack_status": "completed",
+    "slug": "article-agentic-ai-openai-agents-sandbox-escape",
+    "publication_date": "2026-10-27",
+    "title_ar": "كيف خرج وكلاء أذكياء من بيئة اختبار أوبن إيه آي واخترقوا شركة أخرى؟",
+    "title_en": "How Did AI Agents Escape an OpenAI Test Environment and Break Into Another Company?",
+    "research_status": "published_outside_checkpoint_protocol",
+    "evidence_pack_status": "repository_article_contains_citations",
     "arabic_draft": {
-      "status": "verified",
-      "path": "article-agentic-ai-multi-agent-scientific-analysis-cost.html"
+      "status": "verified_in_repository",
+      "path": "article-agentic-ai-openai-agents-sandbox-escape.html"
     },
     "english_draft": {
-      "status": "verified",
-      "path": "en/article-agentic-ai-multi-agent-scientific-analysis-cost.html"
+      "status": "verified_in_repository",
+      "path": "en/article-agentic-ai-openai-agents-sandbox-escape.html"
     },
     "publishing": {
-      "status": "verified",
-      "arabic_url": "https://tamayuz10x.com/article-agentic-ai-multi-agent-scientific-analysis-cost.html",
-      "english_url": "https://tamayuz10x.com/en/article-agentic-ai-multi-agent-scientific-analysis-cost.html",
-      "publication_commit": "4feb028fab50cf5bbb686a8c62dffabf5f75f96f",
-      "repair_commit": "6fe302b67621410fa641bcf8d55379dce2e3026f",
-      "social_assets_commit": "0c23fae8b1b5704f27028be6f5fd2aba396306ad",
-      "verification_commit": "62d7e1c16c0f67a3f2e54978bc8dca42a8a900a2",
-      "mobile_gate_run_id": 40375883575,
-      "mobile_gate_run_number": 259,
-      "pages_run_id": 40375881631,
-      "pages_run_number": 2262,
+      "status": "reconciled",
+      "arabic_url": "https://tamayuz10x.com/article-agentic-ai-openai-agents-sandbox-escape.html",
+      "english_url": "https://tamayuz10x.com/en/article-agentic-ai-openai-agents-sandbox-escape.html",
+      "publication_commit": "5144fe54ae33cbeb8ffc58cc8d93821db219bc53",
+      "mobile_gate_run_id": 40555671986,
+      "mobile_gate_run_number": 286,
       "checks": {
-        "site_health_run_id": 40375529497,
-        "disclaimer_run_id": 40375529716,
-        "sitemap_run_id": 40375529558,
-        "social_cards_run_id": 40375529667,
-        "article_date_run_id": 40375529515
+        "site_health_run_id": 40555672089,
+        "disclaimer_run_id": 40555671930,
+        "sitemap_run_id": 40555671903,
+        "social_cards_run_id": 40555672201,
+        "article_date_run_id": 40555672129
       },
-      "repository_checks": {
-        "article_pages": 2,
-        "specialist_hub_cards": 2,
-        "general_index_slug_occurrences": 0,
-        "sitemap_entries": 2,
-        "social_images": "2 x 1200x630"
-      },
-      "live_verification": {
-        "arabic": {
-          "status": "200 and rendered",
-          "title": true,
-          "author": true,
-          "canonical": "correct",
-          "cover": "1200x630 complete",
-          "tables": 3,
-          "side_boxes": 1,
-          "share_links": "canonical and correct",
-          "listening_control": true,
-          "no_horizontal_overflow": true
-        },
-        "english": {
-          "status": "200 and rendered",
-          "title": true,
-          "author": true,
-          "canonical": "correct",
-          "cover": "1200x630 complete",
-          "tables": 3,
-          "side_boxes": 1,
-          "share_links": "canonical and correct",
-          "listening_control": true,
-          "no_horizontal_overflow": true
-        },
-        "hubs": {
-          "arabic_cards": 1,
-          "english_cards": 1,
-          "arabic_general_links": 0,
-          "english_general_links": 0
-        },
-        "verified_at": "2026-10-26T22:20:00+04:00"
-      }
+      "reconciliation_note": "Published pages and specialist-hub records exist. General-index cards were removed on 2026-10-28 to restore the specialist-only policy. No durable automation artifact folder existed for this externally published item."
     }
   }
 }
