@@ -5,17 +5,17 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-28T18:59:52+04:00",
+  "updated_at": "2026-10-28T19:01:50+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "quran_verification",
+  "current_stage": "arabic_draft",
   "current_article": {
     "article_id": "quran-reflection-2026-10-28-al-mutaffifin-fair-measure",
     "publication_date": "2026-10-28",
     "slug": "reflection-al-mutaffifin-demanding-full-measure-giving-less",
     "topic_ar": "المطففين 83:1–6 — أن نطلب حقنا كاملًا ثم ننقص حقوق الآخرين",
     "topic_en": "Al-Mutaffifin 83:1–6 — demanding our due in full while diminishing what others receive",
-    "working_title_ar": "ماذا نرى في الميزان عندما يكون النقص لصالحنا؟",
-    "working_title_en": "What Do We See in the Measure When the Shortfall Benefits Us?",
+    "working_title_ar": "لماذا نطلب حقنا كاملًا ثم ننقص حقوق الآخرين؟",
+    "working_title_en": "Why Do We Demand Our Due in Full While Giving Others Less?",
     "status": "in_progress",
     "topic_selection": {
       "status": "completed",
@@ -104,6 +104,15 @@
       "blocking_errors": [],
       "path": "automation/quran-reflections/reflection-al-mutaffifin-demanding-full-measure-giving-less/research-notes.md",
       "commit": "df439c8e42b6890b41c147f52ac36853d6ad8adf"
+    },
+    "arabic_draft": {
+      "status": "drafted_pending_independent_critique",
+      "path": "automation/quran-reflections/reflection-al-mutaffifin-demanding-full-measure-giving-less/draft-ar.md",
+      "word_count": 1342,
+      "commit": "fff84a5794cae5bf0ef939d82bdeca1775567118",
+      "completed_at": "2026-10-28T19:01:50+04:00",
+      "mobile_gate": "NOT VERIFIED until final HTML",
+      "tts_gate": "NOT VERIFIED until final HTML"
     }
   },
   "stage_order": [
@@ -137,24 +146,20 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Draft the original Arabic reflection using the verified Al-Mutaffifin 83:1–6 evidence, one bounded hypothetical service example, and the mandatory clarity/TTS standards; save draft-ar.md and checkpoint before critique.",
+  "next_action": "Run an independent critique of draft-ar.md for Qur’anic accuracy, tafsir/reflection boundaries, creed, novice clarity, Arabic editorial quality, and the bounded hypothetical example; apply required revisions and save quality-review.md before starting the English draft.",
   "last_run": {
     "mode": "coordinator_resume",
     "status": "in_progress",
     "started_at": "2026-10-28T17:58:00+04:00",
     "starting_head": "c5697f62d8231a2de0c3c404a9a55072833f9a88",
-    "last_checkpoint": "quran_verification",
-    "last_checkpoint_at": "2026-10-28T18:23:00+04:00",
-    "notes": "Completed topic selection, research and independent Qur'anic verification for Al-Mutaffifin 83:1–6. No blocking text, tafsir or creed errors were found. The live duplicate check must be retried before publication because the search connector could not access the site.",
+    "last_checkpoint": "arabic_draft",
+    "last_checkpoint_at": "2026-10-28T19:01:50+04:00",
+    "notes": "Saved the 1,342-word original Arabic draft for Al-Mutaffifin 83:1–6. It preserves the direct tafsir meaning, labels the service case as hypothetical reflection, centers resurrection and standing before Allah, and leaves mobile/RTL/TTS verification pending until final HTML.",
     "resumed_at": "2026-10-28T18:59:52+04:00",
     "resumed_by": "central-coordinator"
   },
   "workflow_id": "quran_reflections",
-  "run_lease": {
-    "owner": "central-coordinator",
-    "acquired_at": "2026-10-28T18:59:52+04:00",
-    "expires_at": "2026-10-28T20:49:52+04:00"
-  },
+  "run_lease": null,
   "checkpoint_policy": {
     "checkpoint_after_every_stage": true,
     "run_lease_minutes": 110,
@@ -524,7 +529,8 @@
     "duplicate_check",
     "topic_selection",
     "research",
-    "quran_verification"
+    "quran_verification",
+    "arabic_draft"
   ],
   "duplicate_check": {
     "status": "passed",
