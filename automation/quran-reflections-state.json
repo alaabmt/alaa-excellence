@@ -5,7 +5,7 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-28T21:59:40+04:00",
+  "updated_at": "2026-10-28T22:10:00+04:00",
   "workflow_status": "in_progress",
   "current_stage": "actions_and_pages",
   "current_article": {
@@ -173,6 +173,33 @@
       "sitemap": "sitemap.xml",
       "checks": "pending",
       "live": "NOT VERIFIED"
+    },
+    "repository_publish": {
+      "status": "completed",
+      "completed_at": "2026-10-28T21:53:53+04:00",
+      "checkpoint_commit": "98c84d0963a7e3e89ba30e39a9fd7594dc213db9",
+      "arabic_page": {
+        "path": "reflection-al-mutaffifin-demanding-full-measure-giving-less.html",
+        "commit": "2d7481db8f60aa3f48648182251ade101783f3a1"
+      },
+      "english_page": {
+        "path": "en/reflection-al-mutaffifin-demanding-full-measure-giving-less.html",
+        "commit": "9edf479a74eb441fb79c395d8977dbd4bf4ea152"
+      },
+      "indexes": [
+        "quranic-reflections.html",
+        "en/quranic-reflections.html",
+        "articles.html",
+        "en/articles.html"
+      ],
+      "records": [
+        "data/quranic-reflection-topics.json",
+        "data/article-covers.json",
+        "data/article-publication-dates.json",
+        "sitemap.xml"
+      ],
+      "checks_status": "pending_actions_and_live_verification",
+      "reconciliation_note": "Canonical publication paths copied into repository_publish so exact bilingual mobile QA can resolve the current article without replaying publication."
     }
   },
   "stage_order": [
@@ -212,9 +239,9 @@
     "status": "in_progress",
     "started_at": "2026-10-28T17:58:00+04:00",
     "starting_head": "c5697f62d8231a2de0c3c404a9a55072833f9a88",
-    "last_checkpoint": "quality_gate",
-    "last_checkpoint_at": "2026-10-28T20:59:30+04:00",
-    "notes": "Direct live destination checks failed with inaccessible tool responses; no repository publication write attempted. Set reconciling rather than claiming absent pages or replaying publication.",
+    "last_checkpoint": "repository_publish",
+    "last_checkpoint_at": "2026-10-28T21:53:53+04:00",
+    "notes": "Reconciled the already-published bilingual page paths into current_article.repository_publish after the exact mobile Action failed to find the canonical state fields. No publication replayed.",
     "resumed_at": "2026-10-28T21:59:40+04:00",
     "resumed_by": "central-coordinator"
   },
