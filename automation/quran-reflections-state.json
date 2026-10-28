@@ -5,7 +5,7 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-28T20:03:42+04:00",
+  "updated_at": "2026-10-28T20:57:35+04:00",
   "workflow_status": "in_progress",
   "current_stage": "english_draft",
   "current_article": {
@@ -176,11 +176,15 @@
     "last_checkpoint": "english_draft",
     "last_checkpoint_at": "2026-10-28T20:03:42+04:00",
     "notes": "Saved the 1,824-word natural editorial English draft using Sahih International. It preserves the verified evidence, tafsir/reflection boundary, hypothetical service example, and eschatological center. Bilingual parity remains required.",
-    "resumed_at": "2026-10-28T20:01:24+04:00",
+    "resumed_at": "2026-10-28T20:57:35+04:00",
     "resumed_by": "central-coordinator"
   },
   "workflow_id": "quran_reflections",
-  "run_lease": null,
+  "run_lease": {
+    "owner": "central-coordinator",
+    "acquired_at": "2026-10-28T20:57:35+04:00",
+    "expires_at": "2026-10-28T22:47:35+04:00"
+  },
   "checkpoint_policy": {
     "checkpoint_after_every_stage": true,
     "run_lease_minutes": 110,
