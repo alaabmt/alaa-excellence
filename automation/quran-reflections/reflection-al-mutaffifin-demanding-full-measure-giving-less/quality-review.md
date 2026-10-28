@@ -89,3 +89,50 @@ No blocking error remains in the Qur’anic text, verse numbering, tafsir summar
 ## Final critique outcome
 
 **Arabic manuscript cleared for English drafting. Blocking errors: none. Required revisions: 4, all applied.**
+
+## Bilingual parity review
+
+### Decision
+
+**PASS after one aligned bilingual revision.**
+
+The English version reads as independently authored editorial English rather than a sentence-by-sentence translation. Differences in paragraph rhythm and explanatory length do not change the claims, certainty, boundaries or conclusion.
+
+### Parity matrix
+
+| Element | Arabic | English | Result |
+|---|---|---|---|
+| Central question | Demanding our due in full while diminishing what others receive | Same double-standard question | PASS |
+| Qur’anic focus | Al-Mutaffifin 83:1–6 | Al-Mutaffifin 83:1–6, Sahih International | PASS |
+| Direct tafsir meaning | Short measure/weight; taking fully and giving less | Same direct meaning | PASS |
+| Historical disagreement | Revelation reports differ; thesis does not depend on one view | Same caution | PASS |
+| Tafsir sources | Al-Tabari, Ibn Kathir, Al-Qurtubi, Al-Sa‘di | Same four sources and reference order | PASS |
+| Tafsir citation coverage | Three explicit locations after revision | Three corresponding locations after revision | PASS |
+| Reflection boundary | Modern service asymmetry is reflection, not lexical/legal meaning | Same explicit boundary | PASS |
+| Hypothetical example | One fictional public-service team | Same fictional service team | PASS |
+| Applicant responsibility | Rules remain necessary; justice is not disorder | Same qualification | PASS |
+| Creed center | Resurrection and standing before Allah | Same eschatological center | PASS |
+| 10X boundary | No numeric promise or management-framework claim | Same limitation | PASS |
+| Closing question | What do we inspect when owed to us but permit to diminish when owed by us? | Same meaning | PASS |
+| References | Five, same order and destinations | Five, same order and destinations | PASS |
+
+### Revision applied for parity and guide compliance
+
+The connected reflection-writing guide expects explicit tafsir citation in three to six places. Both drafts initially had only two explicit tafsir locations. A short, proportionate Al-Qurtubi observation about the term’s connection to a slight deficiency was added to both versions in corresponding positions.
+
+- Arabic revision commit: `790d201538282a0e0d1f8f5c42a093f471cf3dcd`
+- English revision commit: `bc766173ee0b3e70dff6f05812a3a4609fd88218`
+- Arabic length after revision: 1,382 words, within the 900–1,400-word guide range.
+- English length after revision: 1,856 words.
+- Tafsir exposition remains below the guide’s approximate 15% ceiling.
+- One contemporary example remains in both versions.
+
+### Presentation gates
+
+- Manuscript parity: **PASS**
+- Arabic RTL and narrow-screen rendering: **NOT VERIFIED until final HTML**
+- English narrow-screen rendering: **NOT VERIFIED until final HTML**
+- TTS pronunciation and control behavior: **NOT VERIFIED until final HTML**
+
+Bilingual parity blocking errors: **none**.
+
