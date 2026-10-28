@@ -81,3 +81,32 @@ A hypothetical public-service team requires applicants to submit every document 
 - Duplicate check: passed for repository and registry; live URLs require retry before publication.
 - Topic selection: completed.
 - Research: evidence gathered; independent Qur’anic verification remains required before drafting.
+
+
+## Completed research — 2026-10-28
+
+The source set confirms two connected movements:
+
+1. Verses 1–3 identify the concrete injustice: receiving one’s due in full while reducing what is owed to others in measure or weight.
+2. Verses 4–6 move directly to resurrection, the tremendous Day, and humanity standing before the Lord of the worlds. The moral problem is therefore not only faulty procedure; it is accountable action before Allah.
+
+### Cross-source synthesis
+
+- Al-Tabari and Ibn Kathir converge on the core meaning of diminishing others’ due while taking fully for oneself.
+- Al-Qurtubi adds the linguistic connection to a small deficiency and records differing reports about the surah’s place of revelation. The article will state that the dating reports differ and will avoid making the disputed historical report carry the thesis.
+- Al-Sa‘di explicitly connects persistence in short measure with failure to live in awareness of resurrection and being held to account for small and great deeds.
+- No source reviewed turns the verses into a general modern management model. The service example remains a bounded contemporary reflection.
+
+### Research sources reviewed
+
+- Qur’anic text and Sahih International, Al-Mutaffifin 83:1–7: https://legacy.quran.com/83/1-7
+- Tafsir al-Tabari 83:1: https://quran.ksu.edu.sa/tafseer/tabary/sura83-aya1.html
+- Tafsir al-Tabari 83:4: https://quran.ksu.edu.sa/tafseer/tabary/sura83-aya4.html
+- Tafsir Ibn Kathir 83:1: https://quran.ksu.edu.sa/tafseer/katheer/sura83-aya1.html
+- Tafsir Ibn Kathir 83:4: https://quran.ksu.edu.sa/tafseer/katheer/sura83-aya4.html
+- Tafsir al-Qurtubi 83:1: https://quran.ksu.edu.sa/tafseer/qortobi/sura83-aya1.html
+- Tafsir al-Qurtubi 83:4: https://quran.ksu.edu.sa/tafseer/qortobi/sura83-aya4.html
+- Tafsir al-Sa‘di 83:1: https://quran.ksu.edu.sa/tafseer/saadi/sura83-aya1.html
+- Tafsir al-Sa‘di 83:4: https://quran.ksu.edu.sa/tafseer/saadi/sura83-aya4.html
+
+Research status: **completed**. Qur’anic verification is recorded separately below before drafting.
