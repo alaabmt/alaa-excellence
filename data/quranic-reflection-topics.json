@@ -1,7 +1,20 @@
 {
   "purpose": "سجل موضوعات التأملات القرآنية لتجنب تكرار القصة أو الزاوية (دليل مهارات كتابة التأملات القرآنية، البند 10، الخطوة 9)",
-  "updated": "2026-10-27T01:07:00+04:00",
+  "updated": "2026-10-28",
   "reflections": [
+    {
+      "slug": "reflection-al-mutaffifin-demanding-full-measure-giving-less",
+      "title_ar": "لماذا نطلب حقنا كاملًا ثم ننقص حقوق الآخرين؟",
+      "title_en": "Why Do We Demand Our Due in Full While Giving Others Less?",
+      "date": "2026-10-28",
+      "verses": [
+        "المطففين: 1–6"
+      ],
+      "angle": "ازدواج معيار استيفاء الحقوق وإنقاص حقوق الآخرين، واستحضار الحساب بين يدي الله",
+      "url_ar": "https://tamayuz10x.com/reflection-al-mutaffifin-demanding-full-measure-giving-less.html",
+      "url_en": "https://tamayuz10x.com/en/reflection-al-mutaffifin-demanding-full-measure-giving-less.html",
+      "publication_status": "repository_pages_committed; indexes_and_live_verification_pending"
+    },
     {
       "slug": "reflection-al-hujurat-suspicion-surveillance-trust",
       "title_ar": "متى تتحول الرغبة في معرفة ما يخفيه الناس إلى ظلم؟",
