@@ -5,7 +5,7 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-28T17:22:55.197Z",
+  "updated_at": "2026-10-28T17:23:07.892Z",
   "workflow_status": "in_progress",
   "current_stage": "quality_gate",
   "current_article": {
@@ -189,7 +189,7 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Before any publication write, repeat duplicate and destination checks against the checkpoint, data/quranic-reflection-topics.json, Arabic and English repository pages, the four article/reflection indexes, sitemap.xml, and the two expected live URLs; then create the bilingual HTML pages, records, indexes and required assets, checkpointing repository_publish before Actions/Pages verification.",
+  "next_action": "Resume repository_publish: reconcile expected live Arabic/English destinations (web connector was inaccessible), then create bilingual HTML pages, topic record, four indexes, sitemap and required assets without duplicating existing content; checkpoint each completed stage before Actions/Pages.",
   "last_run": {
     "mode": "coordinator_resume",
     "status": "in_progress",
@@ -197,16 +197,12 @@
     "starting_head": "c5697f62d8231a2de0c3c404a9a55072833f9a88",
     "last_checkpoint": "quality_gate",
     "last_checkpoint_at": "2026-10-28T20:59:30+04:00",
-    "notes": "Bilingual parity passed after one aligned tafsir-citation revision. Final manuscript quality gate scored 97/100 with no blocking errors. Mobile, RTL, TTS, metadata, Actions, Pages and live checks remain NOT VERIFIED until publication artifacts exist.",
+    "notes": "Prepublication duplicate preflight saved at automation/quran-reflections/reflection-al-mutaffifin-demanding-full-measure-giving-less/publication-preflight.md. Repository pages, topic registry and five indexes do not contain the slug. Live URL checks were inconclusive (connector inaccessible). No publication writes made; manuscript quality_gate remains the last completed stage.",
     "resumed_at": "2026-10-28T20:57:35+04:00",
     "resumed_by": "central-coordinator"
   },
   "workflow_id": "quran_reflections",
-  "run_lease": {
-    "owner": "central-coordinator",
-    "acquired_at": "2026-10-28T17:22:55.197Z",
-    "expires_at": "2026-10-28T19:12:55.197Z"
-  },
+  "run_lease": null,
   "checkpoint_policy": {
     "checkpoint_after_every_stage": true,
     "run_lease_minutes": 110,
