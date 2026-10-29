@@ -7,131 +7,15 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-26T12:29:58.375+04:00",
-  "workflow_status": "completed",
-  "current_stage": "completed",
-  "run_lease": null,
-  "current_item": {
-    "slug": "case-netherlands-room-for-the-river-adaptive-flood-management",
-    "publication_date": "2026-10-26",
-    "title_working_ar": "كيف أعطت هولندا النهر مساحة بدل أن تواصل رفع السدود؟",
-    "title_working_en": "How the Netherlands Gave Rivers More Space Instead of Raising Dikes",
-    "candidate_status": "published_live_verified",
-    "artifact_root": "automation/10x-cases/case-netherlands-room-for-the-river-adaptive-flood-management/",
-    "candidate_notes": {
-      "path": "automation/10x-cases/case-netherlands-room-for-the-river-adaptive-flood-management/candidate-notes.md",
-      "commit": "c25b4a735973756094012f3264034f7a7720fe60"
-    },
-    "evidence_pack": {
-      "status": "passed_with_explicit_systemwide_limits",
-      "path": "automation/10x-cases/case-netherlands-room-for-the-river-adaptive-flood-management/evidence-pack.md",
-      "commit": "5d3ec5565fcddda4d7b457145ad9367fffa27289",
-      "confidence": {
-        "policy_shift": "high",
-        "programme_execution": "high",
-        "programme_scope_cost": "high",
-        "nijmegen_hydraulic_result": "high",
-        "institutional_mechanism": "high",
-        "national_flood_risk_reduction": "insufficient",
-        "ecosystem_benefits": "modelled_not_observed"
-      }
-    },
-    "analysis": {
-      "status": "passed",
-      "path": "automation/10x-cases/case-netherlands-room-for-the-river-adaptive-flood-management/backcasting-and-10x-analysis.md",
-      "commit": "d848359492e95eeca8c470edcb96a064899a080d",
-      "pillars_supported": [
-        1,
-        2,
-        3,
-        5,
-        6,
-        7,
-        8
-      ],
-      "pillar_gap": [
-        4
-      ]
-    },
-    "arabic_draft": {
-      "status": "revised_after_critique",
-      "path": "automation/10x-cases/case-netherlands-room-for-the-river-adaptive-flood-management/draft-ar.md",
-      "commit": "b080b7e53038b2fa3a0b8646180d877691a1aee8"
-    },
-    "company_insider_critique": {
-      "status": "passed_with_required_revisions_applied",
-      "path": "automation/10x-cases/case-netherlands-room-for-the-river-adaptive-flood-management/company-insider-critique.md",
-      "commit": "8f46b0ce7e5a2f98b93780f80ae039717a5ae998",
-      "required_revisions": 7,
-      "remaining_gaps": 5
-    },
-    "english_draft": {
-      "status": "drafted_with_critique_applied",
-      "path": "automation/10x-cases/case-netherlands-room-for-the-river-adaptive-flood-management/draft-en.md",
-      "commit": "b937150c2bb44cbba468d4973ae4877e15f72b08"
-    },
-    "bilingual_parity": {
-      "status": "passed",
-      "path": "automation/10x-cases/case-netherlands-room-for-the-river-adaptive-flood-management/bilingual-parity-review.md",
-      "commit": "5a9cf9c8475e926d43352a9d4912078f575dd13a"
-    },
-    "final_quality_gate": {
-      "status": "passed_after_blocking_revisions",
-      "score": 96,
-      "path": "automation/10x-cases/case-netherlands-room-for-the-river-adaptive-flood-management/quality-review.md",
-      "commit": "3b759dd3e8980df5a65eeeab48d57064bac751c5",
-      "arabic_revision_commit": "8dd62d0b1f90e3b1b3bbe2cbfda769cda76b4017",
-      "english_revision_commit": "87abbf33e1e99c22bf1e830c99a840ae2d8eba89",
-      "parity_revision_commit": "791faa1877c4599410dcf791fde3cb09df7dfb82",
-      "video_decision": "omitted_unverified",
-      "blocking_errors": []
-    },
-    "covers": {
-      "source": "repository_social_card_generator",
-      "dimensions": "1200x630",
-      "sizes_bytes": {
-        "ar": 155251,
-        "en": 158897
-      },
-      "paths": [
-        "assets/previews/story/case-netherlands-room-for-the-river-adaptive-flood-management-ar.jpg",
-        "assets/previews/story/case-netherlands-room-for-the-river-adaptive-flood-management-en.jpg"
-      ],
-      "generation_run": "https://github.com/alaabmt/alaa-excellence/actions/runs/40291927866",
-      "sync_commit": "5f0d73cf0742a0968c08d973b5f7a63b6887e58c"
-    },
-    "publishing": {
-      "status": "published_live_verified",
-      "arabic_path": "case-netherlands-room-for-the-river-adaptive-flood-management.html",
-      "english_path": "en/case-netherlands-room-for-the-river-adaptive-flood-management.html",
-      "arabic_url": "https://tamayuz10x.com/case-netherlands-room-for-the-river-adaptive-flood-management.html",
-      "english_url": "https://tamayuz10x.com/en/case-netherlands-room-for-the-river-adaptive-flood-management.html",
-      "first_publication_commit": "f3da8a1df103d7983e6b6b036a0d5f35a518dea7",
-      "sitemap_reconciliation_commit": "ed568030d53d903174a6896c84e6de1f9151f5e0",
-      "cover_sync_commit": "5f0d73cf0742a0968c08d973b5f7a63b6887e58c",
-      "automated_checks": "passed_primary_publication_commit",
-      "pages": "passed_exact_checkpoint_head",
-      "actions": "passed",
-      "final_content_head": "ded9bdcaf96684410e4b501497581ba39bef97cc",
-      "arabic_editorial_gate_run": "https://github.com/alaabmt/alaa-excellence/actions/runs/40292254682",
-      "pages_run": "https://github.com/alaabmt/alaa-excellence/actions/runs/40292255234",
-      "live_verification": "passed",
-      "page_verification": "passed_ar_en_titles_body_references_disclosure",
-      "metadata_verification": "passed_canonical_hreflang_schema_og",
-      "index_verification": "passed_ar_en_single_card",
-      "sitemap_verification": "passed_ar_en_single_loc",
-      "image_verification": "passed_1200x630_ar_en",
-      "video_verification": "omitted_unverified_no_embed_present",
-      "desktop_rendering": "passed_no_horizontal_overflow",
-      "mobile_verification": "responsive_structure_present_live_device_emulation_not_run",
-      "browser_console": "no_site_origin_errors; browser-extension-only errors observed",
-      "final_live_verified_content_head": "ded9bdcaf96684410e4b501497581ba39bef97cc"
-    },
-    "publication_report": {
-      "path": "automation/10x-cases/case-netherlands-room-for-the-river-adaptive-flood-management/publication-report.md",
-      "commit": "d63cb936c63999323a8eb67ea5688ef553c7856a"
-    }
+  "updated_at": "2026-10-29T07:28:00+04:00",
+  "workflow_status": "in_progress",
+  "current_stage": "candidate_scan",
+  "run_lease": {
+    "owner": "chatgpt-work-tenx-daily-2026-10-29T0727",
+    "acquired_at": "2026-10-29T07:28:00+04:00",
+    "expires_at": "2026-10-29T09:18:00+04:00"
   },
+  "current_item": null,
   "stage_order": [
     "capability_check",
     "load_checkpoint",
@@ -171,17 +55,13 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "No unfinished stage. The next 10X case cycle may only be started by its primary schedule after fresh duplicate checks.",
+  "next_action": "Research fresh UAE, regional and global institutional transformation candidates; exclude published cases and select only a candidate that clears the evidence threshold.",
   "last_run": {
     "mode": "daily_primary_run",
-    "status": "completed",
-    "started_at": "2026-10-26T07:34:24+04:00",
-    "completed_at": "2026-10-26T12:29:58.375+04:00",
-    "notes": "Published and live-verified the bilingual Netherlands Room for the River case, including generated 1200×630 covers, indexes, dates, sitemap, automated checks, exact-head Pages deployment and live metadata/content verification.",
-    "resumed_at": "2026-10-26T12:16:44+04:00",
-    "resumed_by": "central-coordinator",
-    "last_checkpoint": "completed",
-    "last_checkpoint_at": "2026-10-26T12:29:58.375+04:00"
+    "status": "in_progress",
+    "started_at": "2026-10-29T07:27:10+04:00",
+    "completed_at": null,
+    "notes": "Capability and required repository guides checked; previous Room for the River cycle completed; no 10X case dated 2026-10-29 found in state, registry or repository search."
   },
   "last_completed_item": {
     "slug": "case-netherlands-room-for-the-river-adaptive-flood-management",
@@ -304,23 +184,10 @@
       "commit": "d63cb936c63999323a8eb67ea5688ef553c7856a"
     }
   },
-  "run_date": "2026-10-26",
+  "run_date": "2026-10-29",
   "completed_stages": [
     "capability_check",
     "load_checkpoint",
-    "duplicate_check",
-    "candidate_scan",
-    "evidence_pack",
-    "backcasting_and_10x_analysis",
-    "arabic_draft",
-    "company_insider_critique",
-    "english_draft",
-    "bilingual_parity",
-    "final_quality_gate",
-    "repository_publish",
-    "actions_and_pages",
-    "live_verification",
-    "completion_report",
-    "completed"
+    "duplicate_check"
   ]
 }
