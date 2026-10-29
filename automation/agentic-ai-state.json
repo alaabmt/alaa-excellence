@@ -7,9 +7,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-29T22:12:00+04:00",
+  "updated_at": "2026-10-29T22:17:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "study_selection",
+  "current_stage": "evidence_pack",
   "run_lease": {
     "owner": "scheduled-agentic-ai-2026-10-29",
     "acquired_at": "2026-10-29T22:06:00+04:00",
@@ -21,7 +21,7 @@
     "title_ar": "هل يتبع وكيل الذكاء الاصطناعي دليل الشركة؟ اختبار 65 مهمة مهنية",
     "title_en": "Can an AI Agent Follow the Company Handbook? Evidence from 65 Workplace Tasks",
     "research_status": "selected",
-    "evidence_pack_status": "not_started",
+    "evidence_pack_status": "completed",
     "arabic_draft": {
       "status": "not_started",
       "path": "article-agentic-ai-company-handbook-policy-compliance.html"
@@ -73,7 +73,7 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Create the Evidence Pack from direct primary sources, separating reported values, reconstructed counts, author interpretations and evidence limits.",
+  "next_action": "Reconstruct every publishable percentage and numerator/denominator, document rounding and non-reconstructable values in metrics-check.md.",
   "last_run": {
     "mode": "scheduled_daily",
     "status": "in_progress",
@@ -81,7 +81,7 @@
     "completed_at": null,
     "notes": "Capability, protocol and duplicate checks completed. No Agentic AI article was found for 2026-10-29.",
     "current_item": "article-agentic-ai-company-handbook-policy-compliance",
-    "checkpoint": "Primary study selected and research notes saved."
+    "checkpoint": "Evidence Pack completed from direct primary sources."
   },
   "blocker": null,
   "last_completed_item": {
