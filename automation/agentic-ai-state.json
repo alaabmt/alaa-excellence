@@ -7,9 +7,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-29T22:39:00+04:00",
+  "updated_at": "2026-10-29T22:42:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "english_draft",
+  "current_stage": "bilingual_parity",
   "run_lease": {
     "owner": "scheduled-agentic-ai-2026-10-29",
     "acquired_at": "2026-10-29T22:06:00+04:00",
@@ -73,7 +73,7 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Run bilingual semantic parity and native-English translation-smell review; checkpoint any revisions before candidate construction.",
+  "next_action": "Build bilingual article pages, 1200×630 social covers, specialist-hub cards, publication data, sitemap and Arabic editorial-gate target; run static checks before candidate publication.",
   "last_run": {
     "mode": "scheduled_daily",
     "status": "in_progress",
@@ -81,7 +81,7 @@
     "completed_at": null,
     "notes": "Capability, protocol and duplicate checks completed. No Agentic AI article was found for 2026-10-29.",
     "current_item": "article-agentic-ai-company-handbook-policy-compliance",
-    "checkpoint": "Original English draft written directly from the Evidence Pack."
+    "checkpoint": "Bilingual semantic parity and native-English review passed."
   },
   "blocker": null,
   "last_completed_item": {

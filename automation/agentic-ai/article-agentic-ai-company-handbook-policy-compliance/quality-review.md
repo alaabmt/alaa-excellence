@@ -91,3 +91,25 @@ Simulated perspective: enterprise compliance and internal-controls leader. This 
 ## Publication decision at this checkpoint
 
 BLOCKED pending original-English draft, bilingual parity review, candidate-page construction, actual mobile Chromium, exact-head GitHub Actions/Pages success and live verification.
+
+
+## Bilingual semantic parity and native-English review
+
+- Concrete HR authorization conflict and its documented benchmark status: PASS.
+- AI-agent, standing-instruction, SOP and strict-pass definitions: PASS.
+- 65-task / five-domain composition: PASS.
+- Four trials per task and 260-trial denominator per configuration: PASS.
+- 824 criteria and 592/824 versus 232/824 split: PASS.
+- 36.2% and reconstructed 94/260 pass, 166/260 fail: PASS.
+- 34.2% / 89/260 and 23.5% / 61/260 comparisons: PASS.
+- Approximate near-miss result preserved without invented numerator: PASS.
+- Legitimate policy-author amendments and authority-hierarchy nuance: PASS.
+- Four qualitative failure patterns and lack of prevalence denominators: PASS.
+- Secondary 86-practitioner / 20-case production sample isolated as context: PASS.
+- Hypothetical procurement example labelled in both versions: PASS.
+- Evidence limits and eight institutional decisions aligned: PASS.
+- Reference set and certainty language aligned: PASS.
+- English headline, transitions and paragraph syntax read as independently authored editorial English: PASS.
+- Native-editor translation-smell test: PASS.
+
+No factual, numerical, structural or certainty mismatch found. Both versions remain BLOCKED only by candidate construction, actual mobile rendering, exact-head Actions/Pages and live verification.
