@@ -1,0 +1,68 @@
+{
+  "article": "article-agentic-ai-human-agent-ad-experiment.html",
+  "english_pair": "en/article-agentic-ai-human-agent-ad-experiment.html",
+  "headline": "ماذا حدث حين عمل الناس مع وكيل ذكاء اصطناعي بدل زميل بشري؟ تجربة على 2,234 مشاركًا",
+  "reviewed_at": "2026-10-29",
+  "reviewer": "AI editorial review (simulated comprehension test, not a human reader test)",
+  "format": "دراسة مفسَّرة (Agentic AI pilot 7/7)",
+  "summary": "وزّع باحثان عشوائيًا 2,234 مشاركًا على العمل مع وكيل ذكاء اصطناعي أو مع إنسان، فزاد إنتاج الفرد بنحو النصف، لكن أداء الإعلانات في حملة حقيقية لم يتغير، والورقة أولية ولا تقارن بمن يعمل وحده.",
+  "introduction_answers": {
+    "المشكلة": "قائد يفكر في إعطاء فريقه وكيل ذكاء اصطناعي ولا يعرف أثره في الإنتاج والجودة.",
+    "الجهة": "باحثان من جامعة جونز هوبكنز ومعهد MIT، و2,234 مشاركًا أمريكيًا.",
+    "التغيير": "عمل المشارك مع وكيل بدل زميل بشري: أنتج أكثر بنحو النصف، دون تغير في أداء الحملة الفعلية."
+  },
+  "gates": {
+    "title": "PASS",
+    "introduction": "PASS",
+    "summary": "PASS",
+    "terminology": "PASS",
+    "evidence": "PASS",
+    "mobile": "NOT VERIFIED",
+    "language": "PASS"
+  },
+  "mobile_evidence": {
+    "method": "Playwright headless Chromium at 320/375/390/430 px (ar and en); no horizontal overflow; Arabic table starts at the right-most column; listening test with mocked speechSynthesis (getVoices returns []) made the H1 .tenx-reading-now and showed .tenx-floating-audio.is-active",
+    "scope": "browser-width rendering only, not a physical phone",
+    "real_device_verification": "NOT VERIFIED"
+  },
+  "word_count": {
+    "ar_minutes": 7,
+    "en_minutes": 7,
+    "note": "AR about 1,026 and EN about 1,190 words by the site-engagement counting rule; the live script labels both 7 minutes"
+  },
+  "source_evidence": [
+    {
+      "claim": "2,234 participants (1,258 with agent, 976 human-human), 11,024 ads, October 15-18 2024, 40 minutes, $9, GPT-4o, agent cannot submit final ad",
+      "url": "https://arxiv.org/html/2503.18238v4",
+      "location": "Sections 3.1-3.5",
+      "assessment": "Preprint v4 (15 Oct 2026), opened in full; no peer-reviewed version found in Crossref/OpenAlex/SSRN metadata"
+    },
+    {
+      "claim": "About 50% more ads per worker; team-level fewer ads; text +0.32, image -0.11 on 7-point scale by 1,168 raters; less diverse copy",
+      "url": "https://arxiv.org/html/2503.18238v4",
+      "location": "Section 4, Tables 2, A2, A16",
+      "assessment": "Randomized outcome; no human-alone arm"
+    },
+    {
+      "claim": "Field campaign on X: 4,932,373 impressions, 7,546 clicks, 21 Jan-9 Feb 2025; no significant treatment difference; text quality ~3.5% higher CTR per point vs mean 0.14%",
+      "url": "https://arxiv.org/html/2503.18238v4",
+      "location": "Section 4 field results, Table 3",
+      "assessment": "Quality-to-performance link is observational"
+    },
+    {
+      "claim": "56% more messages, 73% fewer direct edits, 58% vs 50% delegation; v3 had 62% and 62%",
+      "url": "https://arxiv.org/html/2503.18238v3",
+      "location": "Section 4.3 in v3 and v4",
+      "assessment": "Figures changed between versions"
+    },
+    {
+      "claim": "Funding and approvals: MIT Sloan Initiative on the Digital Economy support, MIT IRB approval, preregistration on OSF",
+      "url": "https://arxiv.org/html/2503.18238v4",
+      "location": "Methodology and Acknowledgments",
+      "assessment": "OSF registrations not opened; stated by authors"
+    }
+  ],
+  "decision": "Draft for owner review only; not merged. Mobile gate NOT VERIFIED on a real device.",
+  "terminology_evidence": "AI agent, preprint, randomized experiment, click-through rate and delegation are defined in text or glossary.",
+  "language_evidence": "Native Arabic with full sentences; summary sentence 33 words; no label-colon headings; English rebuilt independently."
+}

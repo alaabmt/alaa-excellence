@@ -1999,6 +1999,27 @@
         "subtitle": "54.8% partial credit, but only 20.6% strict completion.",
         "alt": "Navy and gold analytical cover showing a long computer workflow ending at only 20.6% strict completion."
       }
+    },
+    {
+      "slug": "article-agentic-ai-human-agent-ad-experiment",
+      "background": "assets/previews/story-backgrounds/article-agentic-ai-human-agent-ad-experiment.jpg",
+      "category": "article",
+      "ar": {
+        "title": [
+          "ماذا حدث حين عمل الناس",
+          "مع وكيل بدل زميل بشري؟"
+        ],
+        "subtitle": "زاد إنتاج الفرد بنحو النصف في تجربة على 2,234 مشاركًا، لكن أداء الحملة لم يتغير.",
+        "alt": "غلاف توضيحي بالكحلي والذهبي لدراسة عن العمل مع وكيل ذكاء اصطناعي، يظهر فيه شريكان حول بطاقة إعلان تجمع نصًا وصورة."
+      },
+      "en": {
+        "title": [
+          "What Happened When People",
+          "Worked With an AI Agent?"
+        ],
+        "subtitle": "In a 2,234-person experiment, output rose by about half, but campaign results did not change.",
+        "alt": "Navy and gold illustrative cover for a study of working with an AI agent, showing two collaborators around an ad card that combines text and an image."
+      }
     }
   ]
 }

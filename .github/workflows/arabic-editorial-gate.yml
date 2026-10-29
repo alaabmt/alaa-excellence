@@ -37,6 +37,14 @@ jobs:
         run: python3 scripts/check_arabic_editorial.py article-agentic-ai-alphaevolve-compute-scheduling.html editorial-qa/alphaevolve.json
       - name: Check today's Agentic AI editorial gates
         run: python3 scripts/check_arabic_editorial.py article-agentic-ai-long-horizon-computer-workflows.html editorial-qa/agent-long-horizon-workflows.json
+      - name: Render the human-agent experiment article at actual mobile widths
+        env:
+          ARABIC_ARTICLE: article-agentic-ai-human-agent-ad-experiment.html
+          EDITORIAL_REPORT: editorial-qa/agent-human-agent-ad-experiment.json
+          MOBILE_ARTIFACT_PREFIX: agent-human-agent-ad-experiment
+        run: python3 scripts/check_arabic_mobile.py
+      - name: Check the human-agent experiment editorial gates
+        run: python3 scripts/check_arabic_editorial.py article-agentic-ai-human-agent-ad-experiment.html editorial-qa/agent-human-agent-ad-experiment.json
       - name: Preserve mobile screenshots and QA result
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
@@ -47,4 +55,5 @@ jobs:
             editorial-qa/alphaevolve.json
             editorial-qa/agent-long-horizon-workflows.json
             editorial-qa/oe-defaults.json
+            editorial-qa/agent-human-agent-ad-experiment.json
           if-no-files-found: error
