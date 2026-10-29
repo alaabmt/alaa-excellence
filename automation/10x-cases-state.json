@@ -7,9 +7,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-29T08:27:00+04:00",
+  "updated_at": "2026-10-29T08:32:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "bilingual_parity",
+  "current_stage": "final_quality_gate",
   "run_lease": {
     "owner": "chatgpt-work-tenx-daily-2026-10-29T0727",
     "acquired_at": "2026-10-29T07:28:00+04:00",
@@ -73,6 +73,11 @@
       "status": "drafted_with_critique_applied",
       "path": "automation/10x-cases/case-costa-rica-payments-for-environmental-services/draft-en.md",
       "commit": "30305f39628307223f1c653e218be453b3a44dce"
+    },
+    "bilingual_parity": {
+      "status": "passed",
+      "path": "automation/10x-cases/case-costa-rica-payments-for-environmental-services/bilingual-parity-review.md",
+      "commit": "87485434e2c1601d2b7d0b6e3a554ef5da370c6f"
     }
   },
   "stage_order": [
@@ -114,7 +119,7 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Run claim-by-claim Arabic-English parity review for facts, numbers, inference, omissions, video and disclosures; revise any mismatch.",
+  "next_action": "Run the final editorial, evidence, legal, copyright, SEO, video and technical quality gate. Publication is blocked by any material failure.",
   "last_run": {
     "mode": "daily_primary_run",
     "status": "in_progress",
@@ -253,6 +258,7 @@
     "backcasting_and_10x_analysis",
     "arabic_draft",
     "company_insider_critique",
-    "english_draft"
+    "english_draft",
+    "bilingual_parity"
   ]
 }
