@@ -7,14 +7,10 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-30T02:59:45+04:00",
-  "workflow_status": "in_progress",
+  "updated_at": "2026-10-30T03:04:30+04:00",
+  "workflow_status": "retry_waiting",
   "current_stage": "live_verification",
-  "run_lease": {
-    "owner": "central-coordinator",
-    "acquired_at": "2026-10-30T02:59:45+04:00",
-    "expires_at": "2026-10-30T04:49:45+04:00"
-  },
+  "run_lease": null,
   "current_item": {
     "slug": "case-costa-rica-payments-for-environmental-services",
     "publication_date": "2026-10-29",
@@ -169,10 +165,10 @@
   "next_action": "Resume live_verification only: run an actual 390px-class mobile or narrow-viewport visual check for both Arabic and English public pages, confirm no horizontal overflow and readable title, evidence blocks, video, disclosure and references; then create publication-report.md and mark completed. Do not republish.",
   "last_run": {
     "mode": "coordinator_resume",
-    "status": "in_progress",
+    "status": "retry_waiting",
     "started_at": "2026-10-30T02:59:45+04:00",
     "completed_at": null,
-    "notes": "Resuming only the pending actual 390px-class live mobile verification. No republish or content mutation.",
+    "notes": "Actual 390px-class live mobile verification remains unavailable: the cloud browser advertises Browser Capabilities: None (no viewport sizing/device emulation), and local Chromium is not running. No republish or content mutation was performed.",
     "resumed_at": "2026-10-30T02:59:45+04:00",
     "resumed_by": "central-coordinator",
     "last_checkpoint": "actions_and_pages",
@@ -318,8 +314,8 @@
   "blocker": {
     "type": "temporary_capability_limit",
     "stage": "live_verification",
-    "detail": "No permitted execution surface can currently provide an actual 390px-class viewport for both live pages. Cloud browser has no viewport sizing/device emulation; local Chromium DevTools is blocked by organization policy.",
+    "detail": "No permitted execution surface can currently provide an actual 390px-class viewport for both live pages. Cloud browser has no viewport sizing/device emulation; local Chromium is not running, and the latest verified local DevTools attempt was blocked by organization policy.",
     "retry_condition": "A permitted browser/device that can render both Arabic and English public pages at an actual 390px-class viewport, or an execution surface with allowed device emulation.",
-    "last_retry_at": "2026-10-30T01:59:10+04:00"
+    "last_retry_at": "2026-10-30T03:04:30+04:00"
   }
 }
