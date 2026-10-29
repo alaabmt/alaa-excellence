@@ -5,6 +5,27 @@
   "maxBytes": 170000,
   "cards": [
     {
+      "slug": "case-costa-rica-payments-for-environmental-services",
+      "background": "assets/previews/story-backgrounds/case-costa-rica-payments-for-environmental-services.jpg",
+      "category": "case",
+      "ar": {
+        "title": [
+          "كيف دفعت كوستاريكا",
+          "مقابل بقاء الغابة واقفة؟"
+        ],
+        "subtitle": "حوّلت قيمة الغابة إلى عقود، وبقي أثر الدفع متفاوتًا.",
+        "alt": "غلاف أصلي لحالة كوستاريكا، يظهر حدًا بين غابة استوائية قائمة وأرض متجددة حول مجرى مائي."
+      },
+      "en": {
+        "title": [
+          "How Costa Rica Paid",
+          "to Keep Forests Standing"
+        ],
+        "subtitle": "Forest value became contractible, while payment impact remained uneven.",
+        "alt": "Original cover for the Costa Rica case, showing a boundary between standing tropical forest and regenerating land around a river."
+      }
+    },
+    {
       "slug": "reflection-al-mutaffifin-demanding-full-measure-giving-less",
       "background": "assets/previews/story-backgrounds/reflection-al-baqarah-write-it-down.jpg",
       "category": "reflection",
