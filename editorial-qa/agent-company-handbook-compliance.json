@@ -1,7 +1,7 @@
 {
   "article": "article-agentic-ai-company-handbook-policy-compliance.html",
   "headline": "هل يتبع وكيل الذكاء الاصطناعي دليل الشركة؟ اختبار 65 مهمة مهنية",
-  "reviewed_at": "2026-10-29T22:44:00+04:00",
+  "reviewed_at": "2026-10-29T23:00:00+04:00",
   "reviewer": "AI editorial simulation (not a human reader test)",
   "summary": "اختبر الباحثون وكلاء على 65 مهمة تحكمها أدلة شركة طويلة. نجح أفضل إعداد في 94 من 260 محاولة فقط، وكشفت المسارات أن إيجاد القاعدة لا يضمن تطبيقها.",
   "gates": {
@@ -10,10 +10,10 @@
     "summary": "PASS",
     "terminology": "PASS",
     "evidence": "PASS",
-    "mobile": "NOT VERIFIED",
+    "mobile": "PASS",
     "language": "PASS"
   },
-  "mobile_evidence": "Pending actual Chromium mobile-width verification in the Arabic editorial gate.",
+  "mobile_evidence": "GitHub Arabic editorial gate run 40928632067 rendered the candidate at actual Chromium mobile widths; no overflow was detected. Live desktop Chromium also reported scrollWidth equal to clientWidth.",
   "source_evidence": [
     {
       "claim": "65 tasks, ten fictional companies, five domains, unique 20–124 page handbooks",
@@ -52,7 +52,15 @@
       "assessment": "Explicitly labelled hypothetical"
     }
   ],
-  "decision": "BLOCKED pending actual mobile Chromium, exact-head Actions/Pages and live verification",
+  "decision": "PASS — editorial, evidence, bilingual parity, mobile rendering and live-page verification complete; exact-head completion checks remain tracked in the publication checkpoint.",
   "terminology_evidence": "AI agent, standing instruction, SOP, strict pass@1, deterministic criterion and medical billing are defined.",
-  "language_evidence": "Problem-first Arabic passed a 20–30 second simulation; all reconstructable percentages carry numerator and denominator."
+  "language_evidence": "Problem-first Arabic passed a 20–30 second simulation; all reconstructable percentages carry numerator and denominator.",
+  "live_evidence": {
+    "deployed_head": "abb76dfef9a532cc90b70f87559c5d72995649d4",
+    "pages_run_id": 40928752660,
+    "arabic_url": "https://tamayuz10x.com/article-agentic-ai-company-handbook-policy-compliance.html",
+    "english_url": "https://tamayuz10x.com/en/article-agentic-ai-company-handbook-policy-compliance.html",
+    "specialist_hubs": "one card per language; 1200×630 cover loaded",
+    "general_indexes": "zero links"
+  }
 }
