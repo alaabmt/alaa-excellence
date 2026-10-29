@@ -7,9 +7,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-29T07:40:00+04:00",
+  "updated_at": "2026-10-29T07:52:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "evidence_pack",
+  "current_stage": "backcasting_and_10x_analysis",
   "run_lease": {
     "owner": "chatgpt-work-tenx-daily-2026-10-29T0727",
     "acquired_at": "2026-10-29T07:28:00+04:00",
@@ -20,11 +20,25 @@
     "publication_date": "2026-10-29",
     "title_working_ar": "كيف دفعت كوستاريكا مقابل بقاء الغابة واقفة؟",
     "title_working_en": "How Costa Rica Paid to Keep Forests Standing",
-    "candidate_status": "selected_for_evidence_review",
+    "candidate_status": "evidence_passed_with_causal_limits",
     "artifact_root": "automation/10x-cases/case-costa-rica-payments-for-environmental-services/",
     "candidate_notes": {
       "path": "automation/10x-cases/case-costa-rica-payments-for-environmental-services/candidate-notes.md",
       "commit": "452e8c168f65ef1fd09927d8ef3e3bbf03ea0cd3"
+    },
+    "evidence_pack": {
+      "status": "passed_with_explicit_causal_and_equity_limits",
+      "path": "automation/10x-cases/case-costa-rica-payments-for-environmental-services/evidence-pack.md",
+      "commit": "e34d1dca9d75efed1005ed6ba8b2fc9ce5972f4a",
+      "confidence": {
+        "institutional_redesign": "high",
+        "funding_mechanism": "high",
+        "programme_scale": "high_with_period_caveats",
+        "verified_emission_reductions": "high",
+        "incremental_pes_effect": "medium_high_heterogeneous",
+        "pes_alone_caused_national_recovery": "rejected",
+        "equitable_access": "mixed"
+      }
     }
   },
   "stage_order": [
@@ -66,7 +80,7 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Build a claim-level Evidence Pack; separate declared goals, contracted scope, implementation, verified outcomes and causal limits. Reject if independent evidence is insufficient.",
+  "next_action": "Produce future-back backcasting and analyse only evidence-supported official 10X pillars, with explicit gaps.",
   "last_run": {
     "mode": "daily_primary_run",
     "status": "in_progress",
@@ -200,6 +214,7 @@
     "capability_check",
     "load_checkpoint",
     "duplicate_check",
-    "candidate_scan"
+    "candidate_scan",
+    "evidence_pack"
   ]
 }
