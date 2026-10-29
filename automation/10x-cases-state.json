@@ -7,14 +7,10 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-29T08:57:37+04:00",
-  "workflow_status": "in_progress",
+  "updated_at": "2026-10-29T09:04:00+04:00",
+  "workflow_status": "retry_waiting",
   "current_stage": "live_verification",
-  "run_lease": {
-    "owner": "central-coordinator",
-    "acquired_at": "2026-10-29T08:57:37+04:00",
-    "expires_at": "2026-10-29T10:47:37+04:00"
-  },
+  "run_lease": null,
   "current_item": {
     "slug": "case-costa-rica-payments-for-environmental-services",
     "publication_date": "2026-10-29",
@@ -123,7 +119,7 @@
       "image_verification": "passed_1200x630_ar_en",
       "video_verification": "passed_official_world_bank_embed_after_10x_question_before_disclosure",
       "desktop_rendering": "passed_no_horizontal_overflow",
-      "mobile_verification": "blocked_browser_security_policy_disallows_narrow_viewport_configuration",
+      "mobile_verification": "retry_waiting_actual_390px_live_render_unavailable_in_current_browser_capabilities",
       "browser_console": "no_site_origin_errors; browser-extension-only metadata errors observed"
     }
   },
@@ -169,10 +165,10 @@
   "next_action": "Resume live_verification only: run an actual 390px-class mobile or narrow-viewport visual check for both Arabic and English public pages, confirm no horizontal overflow and readable title, evidence blocks, video, disclosure and references; then create publication-report.md and mark completed. Do not republish.",
   "last_run": {
     "mode": "coordinator_resume",
-    "status": "in_progress",
+    "status": "retry_waiting",
     "started_at": "2026-10-29T07:27:10+04:00",
     "completed_at": null,
-    "notes": "Repository publication, Actions, exact-head Pages, live pages, metadata, video, bilingual indexes, sitemap and 1200x630 social cards passed. Initial social-card generation failure was repaired by registering the reviewed cover and the rerun passed. Completion is withheld because the browser security policy blocked configuring an actual narrow/mobile viewport.",
+    "notes": "Live Arabic page and all required sections were readable in the connected browser at desktop width, but the mandatory actual 390px-class responsive render remains unverified. Cloud-browser policy/capabilities blocked viewport resizing; native Chromium could not reach the domain. Lease released; no republish or content mutation.",
     "resumed_at": "2026-10-29T08:57:37+04:00",
     "resumed_by": "central-coordinator",
     "last_checkpoint": "actions_and_pages",
@@ -314,5 +310,11 @@
     "final_quality_gate",
     "repository_publish",
     "actions_and_pages"
-  ]
+  ],
+  "blocker": {
+    "type": "temporary_capability_limit",
+    "stage": "live_verification",
+    "detail": "The connected cloud browser loaded both public-site content but exposes a fixed 1363px viewport and no permitted viewport-resize capability. The native Chromium window could be made available for visual testing but could not reach tamayuz10x.com (ERR_CONNECTION_REFUSED). Browser security policy also rejected a data-URL 390px iframe and explicitly prohibited alternate-protocol workarounds. No page or publication was replayed.",
+    "retry_condition": "A future run must provide an actual 390px-class responsive viewport with access to the live public URLs."
+  }
 }
