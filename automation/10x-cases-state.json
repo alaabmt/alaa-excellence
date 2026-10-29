@@ -7,15 +7,26 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-29T07:28:00+04:00",
+  "updated_at": "2026-10-29T07:40:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "candidate_scan",
+  "current_stage": "evidence_pack",
   "run_lease": {
     "owner": "chatgpt-work-tenx-daily-2026-10-29T0727",
     "acquired_at": "2026-10-29T07:28:00+04:00",
     "expires_at": "2026-10-29T09:18:00+04:00"
   },
-  "current_item": null,
+  "current_item": {
+    "slug": "case-costa-rica-payments-for-environmental-services",
+    "publication_date": "2026-10-29",
+    "title_working_ar": "كيف دفعت كوستاريكا مقابل بقاء الغابة واقفة؟",
+    "title_working_en": "How Costa Rica Paid to Keep Forests Standing",
+    "candidate_status": "selected_for_evidence_review",
+    "artifact_root": "automation/10x-cases/case-costa-rica-payments-for-environmental-services/",
+    "candidate_notes": {
+      "path": "automation/10x-cases/case-costa-rica-payments-for-environmental-services/candidate-notes.md",
+      "commit": "452e8c168f65ef1fd09927d8ef3e3bbf03ea0cd3"
+    }
+  },
   "stage_order": [
     "capability_check",
     "load_checkpoint",
@@ -55,13 +66,13 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Research fresh UAE, regional and global institutional transformation candidates; exclude published cases and select only a candidate that clears the evidence threshold.",
+  "next_action": "Build a claim-level Evidence Pack; separate declared goals, contracted scope, implementation, verified outcomes and causal limits. Reject if independent evidence is insufficient.",
   "last_run": {
     "mode": "daily_primary_run",
     "status": "in_progress",
     "started_at": "2026-10-29T07:27:10+04:00",
     "completed_at": null,
-    "notes": "Capability and required repository guides checked; previous Room for the River cycle completed; no 10X case dated 2026-10-29 found in state, registry or repository search."
+    "notes": "Candidate scan completed. Costa Rica Payments for Environmental Services selected for evidence review; Brazil Pix, UK DFS and Australia organ-donation reform held or rejected for overlap/evidence maturity."
   },
   "last_completed_item": {
     "slug": "case-netherlands-room-for-the-river-adaptive-flood-management",
@@ -188,6 +199,7 @@
   "completed_stages": [
     "capability_check",
     "load_checkpoint",
-    "duplicate_check"
+    "duplicate_check",
+    "candidate_scan"
   ]
 }
