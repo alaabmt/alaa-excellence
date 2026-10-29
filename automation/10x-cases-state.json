@@ -7,14 +7,10 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-29T14:07:23+04:00",
-  "workflow_status": "in_progress",
+  "updated_at": "2026-10-29T14:07:38+04:00",
+  "workflow_status": "retry_waiting",
   "current_stage": "live_verification",
-  "run_lease": {
-    "owner": "central-coordinator",
-    "acquired_at": "2026-10-29T14:07:23+04:00",
-    "expires_at": "2026-10-29T15:57:23+04:00"
-  },
+  "run_lease": null,
   "current_item": {
     "slug": "case-costa-rica-payments-for-environmental-services",
     "publication_date": "2026-10-29",
@@ -169,10 +165,10 @@
   "next_action": "Resume live_verification only: run an actual 390px-class mobile or narrow-viewport visual check for both Arabic and English public pages, confirm no horizontal overflow and readable title, evidence blocks, video, disclosure and references; then create publication-report.md and mark completed. Do not republish.",
   "last_run": {
     "mode": "coordinator_resume",
-    "status": "in_progress",
+    "status": "retry_waiting",
     "started_at": "2026-10-29T07:27:10+04:00",
     "completed_at": null,
-    "notes": "Lease acquired to retry the pending actual 390px-class live verification only. No republish or content mutation.",
+    "notes": "Current cloud-browser capability was rechecked and still exposes no viewport sizing or device-emulation support, so the required actual 390px-class live render remains unverified. Lease released; no republish or content mutation.",
     "resumed_at": "2026-10-29T14:07:23+04:00",
     "resumed_by": "central-coordinator",
     "last_checkpoint": "actions_and_pages",
@@ -319,6 +315,7 @@
     "type": "temporary_capability_limit",
     "stage": "live_verification",
     "detail": "The connected cloud browser loaded both public-site content but exposes a fixed 1363px viewport and no permitted viewport-resize capability. The native Chromium window could be made available for visual testing but could not reach tamayuz10x.com (ERR_CONNECTION_REFUSED). Browser security policy also rejected a data-URL 390px iframe and explicitly prohibited alternate-protocol workarounds. No page or publication was replayed.",
-    "retry_condition": "A future run must provide an actual 390px-class responsive viewport with access to the live public URLs."
+    "retry_condition": "A future run must provide an actual 390px-class responsive viewport with access to the live public URLs.",
+    "last_retry_at": "2026-10-29T14:07:38+04:00"
   }
 }
