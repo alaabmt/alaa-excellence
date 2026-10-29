@@ -85,12 +85,12 @@ Simulated perspective: enterprise compliance and internal-controls leader. This 
 | One-sentence summary | PASS | 28-word summary without invented facts |
 | Terminology | PASS | Required terms defined at first use |
 | Numbers/evidence | PASS | Denominators, reconstructions and simulation limits explicit |
-| Actual mobile layout | NOT VERIFIED | Requires candidate page rendered in actual Chromium mobile widths |
+| Actual mobile layout | PASS | GitHub Arabic editorial gate run 40928632067 rendered the candidate in actual Chromium mobile widths without overflow |
 | Language | PASS | Original Arabic, no meta-writing language or meaning-changing error |
 
 ## Publication decision at this checkpoint
 
-BLOCKED pending original-English draft, bilingual parity review, candidate-page construction, actual mobile Chromium, exact-head GitHub Actions/Pages success and live verification.
+PASS for editorial, evidence, bilingual-parity and live-delivery gates. Candidate checks succeeded; Pages run 40928752660 deployed head `abb76dfef9a532cc90b70f87559c5d72995649d4`; live Arabic and English pages, specialist cards and 1200×630 covers were verified in Chromium. Final workflow closure remains pending exact-head checks on the completion commit.
 
 
 ## Bilingual semantic parity and native-English review
@@ -113,3 +113,14 @@ BLOCKED pending original-English draft, bilingual parity review, candidate-page 
 - Native-editor translation-smell test: PASS.
 
 No factual, numerical, structural or certainty mismatch found. Both versions remain BLOCKED only by candidate construction, actual mobile rendering, exact-head Actions/Pages and live verification.
+
+
+## Published-page verification
+
+- Arabic editorial gate (actual Chromium mobile widths): PASS — run 40928632067.
+- Candidate site-health, disclaimer, date, sitemap, terminology and social-card workflows: PASS.
+- Pages deployment of post-cover-sync head `abb76dfef9a532cc90b70f87559c5d72995649d4`: PASS — run 40928752660.
+- Arabic live page: correct H1, immediate author byline, canonical URL, four tables, three side boxes, two direct references and no horizontal overflow.
+- English live page: matching evidence and limits, immediate English byline, canonical URL, four tables, three side boxes, two direct references and no horizontal overflow.
+- Specialist hubs: exactly one card on each language page; both cover images loaded at 1200×630.
+- General article indexes: zero links to the new article.
