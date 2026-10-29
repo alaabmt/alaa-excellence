@@ -1,0 +1,58 @@
+{
+  "article": "article-agentic-ai-company-handbook-policy-compliance.html",
+  "headline": "هل يتبع وكيل الذكاء الاصطناعي دليل الشركة؟ اختبار 65 مهمة مهنية",
+  "reviewed_at": "2026-10-29T22:44:00+04:00",
+  "reviewer": "AI editorial simulation (not a human reader test)",
+  "summary": "اختبر الباحثون وكلاء على 65 مهمة تحكمها أدلة شركة طويلة. نجح أفضل إعداد في 94 من 260 محاولة فقط، وكشفت المسارات أن إيجاد القاعدة لا يضمن تطبيقها.",
+  "gates": {
+    "title": "PASS",
+    "introduction": "PASS",
+    "summary": "PASS",
+    "terminology": "PASS",
+    "evidence": "PASS",
+    "mobile": "NOT VERIFIED",
+    "language": "PASS"
+  },
+  "mobile_evidence": "Pending actual Chromium mobile-width verification in the Arabic editorial gate.",
+  "source_evidence": [
+    {
+      "claim": "65 tasks, ten fictional companies, five domains, unique 20–124 page handbooks",
+      "url": "https://arxiv.org/html/2607.25398v3",
+      "location": "Sections 3.1–3.3",
+      "assessment": "Controlled simulation, not live enterprise deployment"
+    },
+    {
+      "claim": "824 deterministic criteria split 592/824 expected-output and 232/824 incorrect-behavior",
+      "url": "https://arxiv.org/html/2607.25398v3",
+      "location": "Section 3.5",
+      "assessment": "Programmatic final-state checks; no LLM judge"
+    },
+    {
+      "claim": "65 tasks × four trials = 260 outcomes per configuration; leader 36.2%",
+      "url": "https://arxiv.org/html/2607.25398v3",
+      "location": "Sections 3.5, 4 and Table 2",
+      "assessment": "94/260 pass and 166/260 fail are arithmetic reconstructions from rounded percentage"
+    },
+    {
+      "claim": "Failure patterns and HR/medical-billing trajectories",
+      "url": "https://arxiv.org/html/2607.25398v3",
+      "location": "Section 6",
+      "assessment": "Qualitative examples; no prevalence denominator for each pattern"
+    },
+    {
+      "claim": "86 deployment practitioners, 20 cases, 68% step limit and 74% human evaluation",
+      "url": "https://proceedings.mlr.press/v306/pan26a.html",
+      "location": "Abstract",
+      "assessment": "Independent side context; source-reported rounded percentages"
+    },
+    {
+      "claim": "Hypothetical procurement payment scenario",
+      "url": "editorial example",
+      "location": "Hypothetical operating example",
+      "assessment": "Explicitly labelled hypothetical"
+    }
+  ],
+  "decision": "BLOCKED pending actual mobile Chromium, exact-head Actions/Pages and live verification",
+  "terminology_evidence": "AI agent, standing instruction, SOP, strict pass@1, deterministic criterion and medical billing are defined.",
+  "language_evidence": "Problem-first Arabic passed a 20–30 second simulation; all reconstructable percentages carry numerator and denominator."
+}
