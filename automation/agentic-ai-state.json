@@ -7,9 +7,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-29T22:45:00+04:00",
+  "updated_at": "2026-10-29T23:05:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "repository_publish",
+  "current_stage": "completion_report",
   "run_lease": {
     "owner": "scheduled-agentic-ai-2026-10-29",
     "acquired_at": "2026-10-29T22:06:00+04:00",
@@ -23,15 +23,21 @@
     "research_status": "selected",
     "evidence_pack_status": "completed",
     "arabic_draft": {
-      "status": "candidate_ready",
+      "status": "published_verified",
       "path": "article-agentic-ai-company-handbook-policy-compliance.html"
     },
     "english_draft": {
-      "status": "candidate_ready",
+      "status": "published_verified",
       "path": "en/article-agentic-ai-company-handbook-policy-compliance.html"
     },
     "publishing": {
-      "status": "candidate_prepared"
+      "status": "published_and_live_verified",
+      "arabic_url": "https://tamayuz10x.com/article-agentic-ai-company-handbook-policy-compliance.html",
+      "english_url": "https://tamayuz10x.com/en/article-agentic-ai-company-handbook-policy-compliance.html",
+      "candidate_commit": "f3fec6aab6075d460217bef69fbee9a8add943c7",
+      "deployed_head": "abb76dfef9a532cc90b70f87559c5d72995649d4",
+      "mobile_gate_run_id": 40928632067,
+      "pages_run_id": 40928752660
     }
   },
   "stage_order": [
@@ -73,7 +79,7 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Commit the candidate pages and assets, run static checks, then wait for GitHub Actions and Pages before live verification.",
+  "next_action": "Wait for Arabic editorial and Pages success on this checkpoint head, then commit completed state, release the lease, and verify that exact final head.",
   "last_run": {
     "mode": "scheduled_daily",
     "status": "in_progress",
@@ -81,7 +87,7 @@
     "completed_at": null,
     "notes": "Capability, protocol and duplicate checks completed. No Agentic AI article was found for 2026-10-29.",
     "current_item": "article-agentic-ai-company-handbook-policy-compliance",
-    "checkpoint": "Candidate pages, specialist-hub cards, social covers, metadata, sitemap and Arabic gate target prepared."
+    "checkpoint": "Candidate and cover-sync head deployed; actual mobile Chromium and live bilingual/specialist-only checks passed. Awaiting exact-head completion closure."
   },
   "blocker": null,
   "last_completed_item": {
