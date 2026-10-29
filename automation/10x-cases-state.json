@@ -7,14 +7,10 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-29T19:02:22+04:00",
-  "workflow_status": "in_progress",
+  "updated_at": "2026-10-29T19:03:48+04:00",
+  "workflow_status": "retry_waiting",
   "current_stage": "live_verification",
-  "run_lease": {
-    "owner": "central-coordinator",
-    "acquired_at": "2026-10-29T19:02:22+04:00",
-    "expires_at": "2026-10-29T20:52:22+04:00"
-  },
+  "run_lease": null,
   "current_item": {
     "slug": "case-costa-rica-payments-for-environmental-services",
     "publication_date": "2026-10-29",
@@ -169,10 +165,10 @@
   "next_action": "Resume live_verification only: run an actual 390px-class mobile or narrow-viewport visual check for both Arabic and English public pages, confirm no horizontal overflow and readable title, evidence blocks, video, disclosure and references; then create publication-report.md and mark completed. Do not republish.",
   "last_run": {
     "mode": "coordinator_resume",
-    "status": "in_progress",
+    "status": "retry_waiting",
     "started_at": "2026-10-29T07:27:10+04:00",
     "completed_at": null,
-    "notes": "Lease acquired to retry only the required actual 390px-class live visual verification. No republish or content mutation.",
+    "notes": "Cloud-browser capability still advertises no viewport sizing or device emulation. Native Chromium was opened for a real narrow-window path but the live domain returned ERR_CONNECTION_REFUSED. Lease released; no republish or content mutation.",
     "resumed_at": "2026-10-29T19:02:22+04:00",
     "resumed_by": "central-coordinator",
     "last_checkpoint": "actions_and_pages",
@@ -318,8 +314,8 @@
   "blocker": {
     "type": "temporary_capability_limit",
     "stage": "live_verification",
-    "detail": "The connected cloud browser still exposes no viewport sizing or device emulation capability, so an actual 390px-class live render cannot be performed in this run. No page or publication was replayed.",
+    "detail": "The connected cloud browser still exposes no viewport sizing or device emulation capability. Native Chromium opened successfully but tamayuz10x.com returned ERR_CONNECTION_REFUSED, so an actual 390px-class live render could not be performed. No page or publication was replayed.",
     "retry_condition": "A future run must provide an actual 390px-class responsive viewport with access to the live public URLs.",
-    "last_retry_at": "2026-10-29T17:59:37+04:00"
+    "last_retry_at": "2026-10-29T19:03:48+04:00"
   }
 }
