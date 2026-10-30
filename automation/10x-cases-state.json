@@ -7,14 +7,10 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-30T07:35:00+04:00",
-  "workflow_status": "in_progress",
+  "updated_at": "2026-10-30T07:42:00+04:00",
+  "workflow_status": "retry_waiting",
   "current_stage": "live_verification",
-  "run_lease": {
-    "owner": "chatgpt-work-tenx-resume-2026-10-30T0733",
-    "acquired_at": "2026-10-30T07:35:00+04:00",
-    "expires_at": "2026-10-30T09:25:00+04:00"
-  },
+  "run_lease": null,
   "current_item": {
     "slug": "case-costa-rica-payments-for-environmental-services",
     "publication_date": "2026-10-29",
@@ -123,7 +119,7 @@
       "image_verification": "passed_1200x630_ar_en",
       "video_verification": "passed_official_world_bank_embed_after_10x_question_before_disclosure",
       "desktop_rendering": "passed_no_horizontal_overflow",
-      "mobile_verification": "retry_waiting_actual_390px_live_render_unavailable_in_current_browser_capabilities",
+      "mobile_verification": "retry_waiting_actual_390px_live_render_unavailable_in_current_browser_capabilities_after_2026-10-30_retry",
       "browser_console": "no_site_origin_errors; browser-extension-only metadata errors observed"
     }
   },
@@ -166,13 +162,13 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Resume live_verification only: run an actual 390px-class mobile or narrow-viewport visual check for both Arabic and English public pages, confirm no horizontal overflow and readable title, evidence blocks, video, disclosure and references; then create publication-report.md and mark completed. Do not republish.",
+  "next_action": "Resume live_verification only when an approved browser/device surface can render both public pages at an actual 390px-class viewport. Verify visual readability, RTL/LTR, no horizontal overflow, title, evidence blocks, video, disclosure, references and both social cards; then create publication-report.md and mark completed. Do not republish and do not create a temporary workflow.",
   "last_run": {
     "mode": "daily_primary_resume",
-    "status": "in_progress",
+    "status": "retry_waiting",
     "started_at": "2026-10-30T07:33:07+04:00",
-    "completed_at": null,
-    "notes": "Resuming only the pending actual mobile/narrow live verification for the already-published Costa Rica PES case; no new case will be started."
+    "completed_at": "2026-10-30T07:42:00+04:00",
+    "notes": "Resumed the pending mobile gate without starting or publishing a new case. Repository and Drive standards were rechecked; no existing approved repository workflow provides actual narrow-viewport visual QA, and the available browser surface exposes no viewport/device emulation capability. The mandatory mobile gate remains NOT VERIFIED; all prior live publication evidence is preserved."
   },
   "last_completed_item": {
     "slug": "case-netherlands-room-for-the-river-adaptive-flood-management",
