@@ -7,10 +7,14 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-30T06:05:00+04:00",
+  "updated_at": "2026-10-30T06:59:00+04:00",
   "workflow_status": "retry_waiting",
   "current_stage": "live_verification",
-  "run_lease": null,
+  "run_lease": {
+    "owner": "central-coordinator",
+    "acquired_at": "2026-10-30T06:59:00+04:00",
+    "expires_at": "2026-10-30T08:49:00+04:00"
+  },
   "current_item": {
     "slug": "case-costa-rica-payments-for-environmental-services",
     "publication_date": "2026-10-29",
@@ -165,14 +169,15 @@
   "next_action": "Resume live_verification only: run an actual 390px-class mobile or narrow-viewport visual check for both Arabic and English public pages, confirm no horizontal overflow and readable title, evidence blocks, video, disclosure and references; then create publication-report.md and mark completed. Do not republish.",
   "last_run": {
     "mode": "coordinator_resume",
-    "status": "retry_waiting",
-    "started_at": "2026-10-30T06:02:00+04:00",
+    "status": "in_progress",
+    "started_at": "2026-10-30T06:59:00+04:00",
     "completed_at": null,
-    "notes": "Actual 390px-class live mobile verification remains unavailable: the cloud browser advertises Browser Capabilities: None (no viewport sizing/device emulation), and local Chromium is not running. No republish or content mutation was performed.",
-    "resumed_at": "2026-10-30T06:02:00+04:00",
+    "notes": "Lease acquired to retry live_verification only; no publication replay authorized.",
+    "resumed_at": "2026-10-30T06:59:00+04:00",
     "resumed_by": "central-coordinator",
     "last_checkpoint": "actions_and_pages",
-    "last_checkpoint_at": "2026-10-29T07:52:00+04:00"
+    "last_checkpoint_at": "2026-10-29T07:52:00+04:00",
+    "starting_head": "main"
   },
   "last_completed_item": {
     "slug": "case-netherlands-room-for-the-river-adaptive-flood-management",
