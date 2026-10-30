@@ -7,10 +7,14 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-30T08:07:00+04:00",
+  "updated_at": "2026-10-30T09:05:00+04:00",
   "workflow_status": "retry_waiting",
   "current_stage": "live_verification",
-  "run_lease": null,
+  "run_lease": {
+    "owner": "central-coordinator",
+    "acquired_at": "2026-10-30T09:05:00+04:00",
+    "expires_at": "2026-10-30T10:55:00+04:00"
+  },
   "current_item": {
     "slug": "case-costa-rica-payments-for-environmental-services",
     "publication_date": "2026-10-29",
@@ -165,13 +169,13 @@
   "next_action": "Resume live_verification only when an approved browser/device surface can render both public pages at an actual 390px-class viewport. Verify visual readability, RTL/LTR, no horizontal overflow, title, evidence blocks, video, disclosure, references and both social cards; then create publication-report.md and mark completed. Do not republish and do not create a temporary workflow.",
   "last_run": {
     "mode": "coordinator_resume",
-    "status": "retry_waiting",
-    "started_at": "2026-10-30T08:06:00+04:00",
+    "status": "in_progress",
+    "started_at": "2026-10-30T09:05:00+04:00",
     "completed_at": null,
-    "notes": "Actual 390px-class live mobile verification remains unavailable: the cloud browser advertises Browser Capabilities: None (no viewport sizing/device emulation), and launching local Chromium produced no runnable window. No republish, content mutation or temporary workflow was performed.",
-    "resumed_at": "2026-10-30T08:06:00+04:00",
+    "notes": "Lease acquired to retry live_verification only; no publication replay authorized.",
+    "resumed_at": "2026-10-30T09:05:00+04:00",
     "resumed_by": "central-coordinator",
-    "starting_head": "edd927b37cf3d03d2f27eb3c1cec9fa517fc2129",
+    "starting_head": "e03031b1ce7c9d8e6fe7455fc6515b9c7819c5a3",
     "last_checkpoint": "actions_and_pages"
   },
   "last_completed_item": {
