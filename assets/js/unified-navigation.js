@@ -8,7 +8,7 @@ const items=ar?[
 const centers=ar?[
 ['/ai-center.html','مركز تميّز 10X للذكاء الاصطناعي'],['/fmea.html','مركز تميّز 10X لهندسة الوقاية (FMEA)'],['/excellence-leadership.html','مركز تميّز 10X للتميّز والقيادة'],['/healthcare-excellence.html','مركز تميّز 10X للتميّز الصحي'],['/quranic-reflections.html','مركز تميّز 10X للتأملات القرآنية']
 ]:[['/en/ai-center.html','Tamayuz 10X Artificial Intelligence Center'],['/en/fmea.html','Tamayuz 10X Preventive Engineering Center (FMEA)'],['/en/excellence-leadership.html','Tamayuz 10X Excellence & Leadership Center'],['/en/healthcare-excellence.html','Tamayuz 10X Healthcare Excellence Center'],['/en/quranic-reflections.html','Tamayuz 10X Qur’anic Reflections Center']];
-function init(){const header=document.querySelector('header.site-header,header.sitehead,header.header');if(!header)return;
+function init(){let header=document.querySelector('header.site-header,header.sitehead,header.header');if(!header){header=document.createElement('header');header.className='tx-standalone-header';header.setAttribute('aria-label',ar?'التنقل العام للموقع':'Site navigation');const brand=document.createElement('a');brand.href=ar?'/':'/en/';brand.className='tx-standalone-brand';brand.textContent=ar?'التميّز 10X':'Tamayuz 10X';header.append(brand);document.body.insertBefore(header,document.body.firstChild);}
 if(header.querySelector('#tx-unified-nav'))return;
 const old=header.querySelector('.main-nav,nav.nav,nav.reflection-nav,nav[aria-label="التنقل الرئيسي"]');
 header.querySelectorAll('.menu-toggle').forEach(b=>b.remove());
@@ -24,7 +24,7 @@ nav.addEventListener('keydown',e=>{if(e.key==='Escape'){nav.classList.remove('tx
 document.addEventListener('click',e=>{if(!nav.contains(e.target)){nav.classList.remove('tx-open');trigger.setAttribute('aria-expanded','false')}});
 }
 const css=document.createElement('style');css.id='tx-unified-nav-css';css.textContent=`
-header .main-nav,header nav.nav,header nav.reflection-nav,header .menu-toggle{display:none!important}
+header .main-nav,header nav.nav,header nav.reflection-nav,header .menu-toggle{display:none!important}\nheader.tx-standalone-header{display:block;background:#fff;border-bottom:1px solid #e4e8ed;padding:0!important;margin:0!important;position:relative;z-index:1000}\nheader.tx-standalone-header .tx-standalone-brand{display:block;padding:12px 20px;text-decoration:none;color:#183d60;font-weight:800;font-size:18px}
 #tx-unified-nav{position:relative;z-index:999;background:#fff;border-top:1px solid #e4e8ed;border-bottom:1px solid #e4e8ed;font-family:system-ui,-apple-system,"Segoe UI",Tahoma,Arial,sans-serif;direction:inherit}
 #tx-unified-nav *{box-sizing:border-box}
 #tx-unified-nav .tx-nav-panel{max-width:1200px;margin:auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:0 12px;padding:5px 16px}
