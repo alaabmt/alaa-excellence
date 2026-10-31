@@ -2,7 +2,7 @@
 
 **Format:** LinkedIn document (carousel), 8 slides, 1080×1350, two separate posts: Arabic (`carousel-ar.pdf`) and English (`carousel-en.pdf`). The English version is written as original English, not a translation.
 **Website article:** https://tamayuz10x.com/article-oe-evidence-standardized-handoffs.html and https://tamayuz10x.com/en/article-oe-evidence-standardized-handoffs.html (PR #85, squash merge 64fc8f7, live 2026-10-31).
-**Status:** Approved by the owner on 2026-10-31. Article live; Arabic post published; English post scheduled.
+**Status:** Approved by the owner on 2026-10-31. Article live; Arabic and English posts published.
 
 | File | Purpose |
 |---|---|
@@ -39,4 +39,4 @@ All numbers checked against the PubMed abstracts on 28 Oct 2026.
 |---|---|---|
 | Website article (AR + EN) | Live 2026-10-31 (PR #85) | https://tamayuz10x.com/article-oe-evidence-standardized-handoffs.html · https://tamayuz10x.com/en/article-oe-evidence-standardized-handoffs.html |
 | LinkedIn Arabic carousel | Published 2026-10-31, `urn:li:ugcPost:7522189378920591360`, document title «حين يكون التسليم واحدًا للجميع» | https://www.linkedin.com/feed/update/urn:li:ugcPost:7522189378920591360/ |
-| LinkedIn English carousel | Scheduled about two hours after the Arabic post | — |
+| LinkedIn English carousel | Published 2026-10-31, `urn:li:ugcPost:7522220081196720128`, document title "When every shift hands over the same way" | https://www.linkedin.com/feed/update/urn:li:ugcPost:7522220081196720128/ |
