@@ -30,6 +30,9 @@ The post text is a small promise of knowledge that invites the reader to open th
 4. End with a call to read that is tied to the idea: «📖 اقرأ … كاملًا: «<article title>»». The script adds the link.
 Do not use internal labels (The 10X Move, عدسة 10X, دليل الأثر), clichés, exaggeration, numbers or claims that are not in the article. The approved model is the Dhul-Qarnayn reflection caption of 16 October 2026: «عرض القوم على ذي القرنين المال ليحلّ مشكلتهم عنهم، فطلب منهم شيئًا آخر: أن يعينوه بقوتهم. لماذا لم يكتفِ بأن يحلّها وحده؟ …».
 
+### Arabic editorial review (owner decision, 31 October 2026)
+Before rendering, run `arabic-editorial-reviewer` («مراجع التحرير العربي») on the Arabic **lesson line and caption text only** (never on the verse, which is guarded by `verify_verse.py`). Its instructions live on `main`: `git show origin/main:.claude/agents/arabic-editorial-reviewer.md`; if the agent type is unavailable, spawn a general-purpose agent with that file's text as its instructions. Do not send the card while its OVERALL is BLOCK; rewrite and review again, at most two rounds, then send the best version with a clear warning. Paste its OVERALL line in the delivery message.
+
 ## 4. Render
 1. Spec in your scratchpad: `{"out_dir": "...", "slug": "<slug>", "theme": "<theme from config.json → reflection_theme>", "ar": {"verse": "...", "verse_ref": "...", "wisdom": "...", "teaser": "...", "title": "<article H1>", "series": "تأملات قرآنية في القيادة"}}`. There is no English card and no author photo.
 2. `node automation/daily-wisdom/render_reflection.mjs <spec.json>`. Check `tajawal_loaded: true`, then open the PNG and look at it. The verse must be fully visible, the diacritics clear, and the reference digits in the right order.
