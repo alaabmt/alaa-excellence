@@ -10,22 +10,22 @@ const centers=ar?[
 ]:[['/en/ai-center.html','Tamayuz 10X Artificial Intelligence Center'],['/en/fmea.html','Tamayuz 10X Preventive Engineering Center (FMEA)'],['/en/excellence-leadership.html','Tamayuz 10X Excellence & Leadership Center'],['/en/healthcare-excellence.html','Tamayuz 10X Healthcare Excellence Center'],['/en/quranic-reflections.html','Tamayuz 10X Qur’anic Reflections Center']];
 function init(){const header=document.querySelector('header.site-header,header.sitehead,header.header');if(!header)return;
 if(header.querySelector('#tx-unified-nav'))return;
-const old=header.querySelector('.main-nav,nav.nav');if(old){old.hidden=true;old.style.setProperty('display','none','important')}
-header.querySelectorAll('.menu-toggle').forEach(b=>{b.hidden=true;b.style.setProperty('display','none','important');b.setAttribute('aria-hidden','true')});
+const old=header.querySelector('.main-nav,nav.nav');
+header.querySelectorAll('.menu-toggle').forEach(b=>b.remove());
 const nav=document.createElement('nav');nav.id='tx-unified-nav';nav.setAttribute('aria-label',ar?'القائمة الرئيسية':'Main navigation');
 const trigger=document.createElement('button');trigger.type='button';trigger.className='tx-nav-toggle';trigger.setAttribute('aria-expanded','false');trigger.setAttribute('aria-controls','tx-nav-panel');trigger.textContent=ar?'☰ القائمة':'☰ Menu';
 const panel=document.createElement('div');panel.id='tx-nav-panel';panel.className='tx-nav-panel';
 const current=location.pathname.replace(/index\.html$/,'').replace(/\/$/,'/')||'/';
 function link([href,label]){const a=document.createElement('a');a.href=href;a.textContent=label;if(current===href){a.setAttribute('aria-current','page');a.className='tx-current'}return a}
-items.forEach((item,i)=>{if(i===4){const details=document.createElement('details');details.className='tx-centers';const summary=document.createElement('summary');summary.textContent=item[1];details.append(summary);const submenu=document.createElement('div');submenu.className='tx-submenu';submenu.append(link(item));centers.forEach(c=>submenu.append(link(c)));details.append(submenu);if(centers.some(c=>c[0]===current)||item[0]===current){details.classList.add('tx-active');details.open=true}panel.append(details)}else panel.append(link(item))});
-nav.append(trigger,panel);if(old)old.after(nav);else header.append(nav);
+items.forEach((item,i)=>{if(i===4){const details=document.createElement('details');details.className='tx-centers';const summary=document.createElement('summary');summary.textContent=item[1];details.append(summary);const submenu=document.createElement('div');submenu.className='tx-submenu';submenu.append(link(item));centers.forEach(c=>submenu.append(link(c)));details.append(submenu);if(centers.some(c=>c[0]===current)||item[0]===current){details.classList.add('tx-active')}panel.append(details)}else panel.append(link(item))});
+nav.append(trigger,panel);if(old)old.replaceWith(nav);else header.append(nav);
 trigger.addEventListener('click',()=>{const open=nav.classList.toggle('tx-open');trigger.setAttribute('aria-expanded',String(open))});
 nav.addEventListener('keydown',e=>{if(e.key==='Escape'){nav.classList.remove('tx-open');trigger.setAttribute('aria-expanded','false');trigger.focus()}});
 document.addEventListener('click',e=>{if(!nav.contains(e.target)){nav.classList.remove('tx-open');trigger.setAttribute('aria-expanded','false')}});
 }
 const css=document.createElement('style');css.id='tx-unified-nav-css';css.textContent=`
-header .main-nav[hidden],header nav.nav[hidden],header .menu-toggle[hidden]{display:none!important}
-#tx-unified-nav{position:relative;z-index:90;background:#fff;border-top:1px solid #e4e8ed;border-bottom:1px solid #e4e8ed;font-family:system-ui,-apple-system,"Segoe UI",Tahoma,Arial,sans-serif;direction:inherit}
+header .main-nav,header nav.nav,header .menu-toggle{display:none!important}
+#tx-unified-nav{position:relative;z-index:999;background:#fff;border-top:1px solid #e4e8ed;border-bottom:1px solid #e4e8ed;font-family:system-ui,-apple-system,"Segoe UI",Tahoma,Arial,sans-serif;direction:inherit}
 #tx-unified-nav *{box-sizing:border-box}
 #tx-unified-nav .tx-nav-panel{max-width:1200px;margin:auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:0 12px;padding:5px 16px}
 #tx-unified-nav a,#tx-unified-nav summary{display:block;text-decoration:none;color:#19364e;font-size:13px;line-height:1.5;padding:12px 9px;cursor:pointer}
