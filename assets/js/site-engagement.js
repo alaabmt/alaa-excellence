@@ -1,3 +1,5 @@
+/* Shared navigation bootstrap for editorial pages without main.js. */
+(()=>{if(document.querySelector('script[src*="unified-navigation.js"]'))return;const sc=document.createElement('script');sc.src='/assets/js/unified-navigation.js?v=20261101-6';sc.defer=true;document.head.appendChild(sc)})();
 (() => {
   if (window.__tenxEngagementLoaded) return;
   window.__tenxEngagementLoaded = true;
