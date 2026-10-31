@@ -12,7 +12,7 @@ function init(){let header=document.querySelector('header.site-header,header.sit
 if(header.querySelector('#tx-unified-nav'))return;
 const old=header.querySelector('.main-nav,nav.nav,nav.reflection-nav,nav[aria-label="التنقل الرئيسي"]');
 header.querySelectorAll('.menu-toggle').forEach(b=>b.remove());
-const nav=document.createElement('nav');nav.id='tx-unified-nav';nav.setAttribute('aria-label',ar?'القائمة الرئيسية':'Main navigation');
+header.classList.add('tx-nav-ready');const nav=document.createElement('nav');nav.id='tx-unified-nav';nav.setAttribute('aria-label',ar?'القائمة الرئيسية':'Main navigation');
 const trigger=document.createElement('button');trigger.type='button';trigger.className='tx-nav-toggle';trigger.setAttribute('aria-expanded','false');trigger.setAttribute('aria-controls','tx-nav-panel');trigger.textContent=ar?'☰ القائمة':'☰ Menu';
 const panel=document.createElement('div');panel.id='tx-nav-panel';panel.className='tx-nav-panel';
 const current=location.pathname.replace(/index\.html$/,'').replace(/\/$/,'/')||'/';
