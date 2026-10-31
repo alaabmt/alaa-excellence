@@ -453,3 +453,6 @@ ensureBooksNavigation();
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded',loadStudio);
   else loadStudio();
 })();
+
+/* Load shared navigation on all legacy pages using main.js. */
+(()=>{if(document.querySelector('script[data-tx-unified-nav]'))return;const script=document.createElement('script');script.src='/assets/js/unified-navigation.js?v=20261101-1';script.dataset.txUnifiedNav='1';document.head.appendChild(script)})();
