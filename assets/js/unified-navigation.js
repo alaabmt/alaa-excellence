@@ -10,7 +10,7 @@ const centers=ar?[
 ]:[['/en/ai-center.html','Tamayuz 10X Artificial Intelligence Center'],['/en/fmea.html','Tamayuz 10X Preventive Engineering Center (FMEA)'],['/en/excellence-leadership.html','Tamayuz 10X Excellence & Leadership Center'],['/en/healthcare-excellence.html','Tamayuz 10X Healthcare Excellence Center'],['/en/quranic-reflections.html','Tamayuz 10X Qur’anic Reflections Center']];
 function init(){const header=document.querySelector('header.site-header,header.sitehead,header.header');if(!header)return;
 if(header.querySelector('#tx-unified-nav'))return;
-const old=header.querySelector('.main-nav,nav.nav');
+const old=header.querySelector('.main-nav,nav.nav,nav.reflection-nav,nav[aria-label="التنقل الرئيسي"]');
 header.querySelectorAll('.menu-toggle').forEach(b=>b.remove());
 const nav=document.createElement('nav');nav.id='tx-unified-nav';nav.setAttribute('aria-label',ar?'القائمة الرئيسية':'Main navigation');
 const trigger=document.createElement('button');trigger.type='button';trigger.className='tx-nav-toggle';trigger.setAttribute('aria-expanded','false');trigger.setAttribute('aria-controls','tx-nav-panel');trigger.textContent=ar?'☰ القائمة':'☰ Menu';
@@ -24,7 +24,7 @@ nav.addEventListener('keydown',e=>{if(e.key==='Escape'){nav.classList.remove('tx
 document.addEventListener('click',e=>{if(!nav.contains(e.target)){nav.classList.remove('tx-open');trigger.setAttribute('aria-expanded','false')}});
 }
 const css=document.createElement('style');css.id='tx-unified-nav-css';css.textContent=`
-header .main-nav,header nav.nav,header .menu-toggle{display:none!important}
+header .main-nav,header nav.nav,header nav.reflection-nav,header .menu-toggle{display:none!important}
 #tx-unified-nav{position:relative;z-index:999;background:#fff;border-top:1px solid #e4e8ed;border-bottom:1px solid #e4e8ed;font-family:system-ui,-apple-system,"Segoe UI",Tahoma,Arial,sans-serif;direction:inherit}
 #tx-unified-nav *{box-sizing:border-box}
 #tx-unified-nav .tx-nav-panel{max-width:1200px;margin:auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:0 12px;padding:5px 16px}
@@ -41,8 +41,8 @@ header .main-nav,header nav.nav,header .menu-toggle{display:none!important}
 @media(max-width:850px){
 #tx-unified-nav{padding:0 16px;border-top:3px solid #236488}
 #tx-unified-nav .tx-nav-toggle{display:block;width:100%;min-height:48px;text-align:start;border:0;background:#fff;color:#17354e;font:700 16px system-ui,-apple-system,"Segoe UI",Tahoma,Arial,sans-serif;cursor:pointer}
-#tx-unified-nav .tx-nav-panel{display:none;padding:4px 0 12px;max-height:70vh;overflow-y:auto;flex-direction:column;align-items:stretch;gap:0}
-#tx-unified-nav.tx-open .tx-nav-panel{display:flex}
+#tx-unified-nav .tx-nav-panel{display:none!important;padding:4px 0 12px;max-height:70vh;overflow-y:auto;flex-direction:column;align-items:stretch;gap:0}
+#tx-unified-nav.tx-open .tx-nav-panel{display:flex!important}
 #tx-unified-nav .tx-nav-panel>a,#tx-unified-nav .tx-centers>summary{font-size:15px;padding:13px 12px;border-bottom:1px solid #e8edf1;min-height:48px}
 #tx-unified-nav .tx-submenu{position:static;min-width:0;border:0;box-shadow:none;border-radius:0;background:#f6f9fb;padding:2px 8px}
 #tx-unified-nav .tx-submenu a{font-size:14px;padding:12px 14px;min-height:44px}
