@@ -10,14 +10,14 @@ const centers=ar?[
 ]:[['/en/ai-center.html','Tamayuz 10X Artificial Intelligence Center'],['/en/fmea.html','Tamayuz 10X Preventive Engineering Center (FMEA)'],['/en/excellence-leadership.html','Tamayuz 10X Excellence & Leadership Center'],['/en/healthcare-excellence.html','Tamayuz 10X Healthcare Excellence Center'],['/en/quranic-reflections.html','Tamayuz 10X Qur’anic Reflections Center']];
 function init(){const header=document.querySelector('header.site-header,header.sitehead,header.header');if(!header)return;
 if(header.querySelector('#tx-unified-nav'))return;
-const old=header.querySelector('.main-nav,nav.nav');if(old)old.hidden=true;
-header.querySelectorAll('.menu-toggle').forEach(b=>{b.hidden=true;b.setAttribute('aria-hidden','true')});
+const old=header.querySelector('.main-nav,nav.nav');if(old){old.hidden=true;old.style.setProperty('display','none','important')}
+header.querySelectorAll('.menu-toggle').forEach(b=>{b.hidden=true;b.style.setProperty('display','none','important');b.setAttribute('aria-hidden','true')});
 const nav=document.createElement('nav');nav.id='tx-unified-nav';nav.setAttribute('aria-label',ar?'القائمة الرئيسية':'Main navigation');
 const trigger=document.createElement('button');trigger.type='button';trigger.className='tx-nav-toggle';trigger.setAttribute('aria-expanded','false');trigger.setAttribute('aria-controls','tx-nav-panel');trigger.textContent=ar?'☰ القائمة':'☰ Menu';
 const panel=document.createElement('div');panel.id='tx-nav-panel';panel.className='tx-nav-panel';
-const current=location.pathname.replace(/\/$/,'/')||'/';
+const current=location.pathname.replace(/index\.html$/,'').replace(/\/$/,'/')||'/';
 function link([href,label]){const a=document.createElement('a');a.href=href;a.textContent=label;if(current===href){a.setAttribute('aria-current','page');a.className='tx-current'}return a}
-items.forEach((item,i)=>{if(i===4){const details=document.createElement('details');details.className='tx-centers';const summary=document.createElement('summary');summary.textContent=item[1];details.append(summary);const submenu=document.createElement('div');submenu.className='tx-submenu';submenu.append(link(item));centers.forEach(c=>submenu.append(link(c)));details.append(submenu);if(centers.some(c=>c[0]===current)||item[0]===current)details.classList.add('tx-active');panel.append(details)}else panel.append(link(item))});
+items.forEach((item,i)=>{if(i===4){const details=document.createElement('details');details.className='tx-centers';const summary=document.createElement('summary');summary.textContent=item[1];details.append(summary);const submenu=document.createElement('div');submenu.className='tx-submenu';submenu.append(link(item));centers.forEach(c=>submenu.append(link(c)));details.append(submenu);if(centers.some(c=>c[0]===current)||item[0]===current){details.classList.add('tx-active');details.open=true}panel.append(details)}else panel.append(link(item))});
 nav.append(trigger,panel);if(old)old.after(nav);else header.append(nav);
 trigger.addEventListener('click',()=>{const open=nav.classList.toggle('tx-open');trigger.setAttribute('aria-expanded',String(open))});
 nav.addEventListener('keydown',e=>{if(e.key==='Escape'){nav.classList.remove('tx-open');trigger.setAttribute('aria-expanded','false');trigger.focus()}});
@@ -39,7 +39,7 @@ header .main-nav[hidden],header nav.nav[hidden],header .menu-toggle[hidden]{disp
 #tx-unified-nav .tx-submenu a{padding:11px 12px;white-space:normal}
 #tx-unified-nav .tx-nav-toggle{display:none}
 @media(max-width:850px){
-#tx-unified-nav{padding:0 16px}
+#tx-unified-nav{padding:0 16px;border-top:3px solid #236488}
 #tx-unified-nav .tx-nav-toggle{display:block;width:100%;min-height:48px;text-align:start;border:0;background:#fff;color:#17354e;font:700 16px system-ui,-apple-system,"Segoe UI",Tahoma,Arial,sans-serif;cursor:pointer}
 #tx-unified-nav .tx-nav-panel{display:none;padding:4px 0 12px;max-height:70vh;overflow-y:auto;flex-direction:column;align-items:stretch;gap:0}
 #tx-unified-nav.tx-open .tx-nav-panel{display:flex}
