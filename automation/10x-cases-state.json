@@ -7,10 +7,14 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-29T20:00:28+04:00",
+  "updated_at": "2026-10-30T10:01:00+04:00",
   "workflow_status": "retry_waiting",
   "current_stage": "live_verification",
-  "run_lease": null,
+  "run_lease": {
+    "owner": "central-coordinator",
+    "acquired_at": "2026-10-30T10:01:00+04:00",
+    "expires_at": "2026-10-30T11:51:00+04:00"
+  },
   "current_item": {
     "slug": "case-costa-rica-payments-for-environmental-services",
     "publication_date": "2026-10-29",
@@ -162,17 +166,17 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Resume live_verification only: run an actual 390px-class mobile or narrow-viewport visual check for both Arabic and English public pages, confirm no horizontal overflow and readable title, evidence blocks, video, disclosure and references; then create publication-report.md and mark completed. Do not republish.",
+  "next_action": "Resume live_verification only when an approved browser/device surface can render both public pages at an actual 390px-class viewport. Verify visual readability, RTL/LTR, no horizontal overflow, title, evidence blocks, video, disclosure, references and both social cards; then create publication-report.md and mark completed. Do not republish and do not create a temporary workflow.",
   "last_run": {
     "mode": "coordinator_resume",
-    "status": "retry_waiting",
-    "started_at": "2026-10-29T07:27:10+04:00",
+    "status": "in_progress",
+    "started_at": "2026-10-30T10:01:00+04:00",
     "completed_at": null,
-    "notes": "Cloud-browser capability was rechecked and still advertises no viewport sizing or device emulation, so the required actual 390px-class live render remains unverified. Lease released; no republish or content mutation.",
-    "resumed_at": "2026-10-29T20:00:06+04:00",
+    "notes": "Lease acquired to retry live_verification only; no publication replay authorized.",
+    "resumed_at": "2026-10-30T10:01:00+04:00",
     "resumed_by": "central-coordinator",
-    "last_checkpoint": "actions_and_pages",
-    "last_checkpoint_at": "2026-10-29T07:52:00+04:00"
+    "starting_head": "422e4d0a2e14dd63fd8d0fd3153cc92c3bed589f",
+    "last_checkpoint": "actions_and_pages"
   },
   "last_completed_item": {
     "slug": "case-netherlands-room-for-the-river-adaptive-flood-management",
@@ -314,8 +318,8 @@
   "blocker": {
     "type": "temporary_capability_limit",
     "stage": "live_verification",
-    "detail": "The connected cloud browser still exposes no viewport sizing or device emulation capability, so an actual 390px-class live render cannot be performed in this run. No page or publication was replayed.",
-    "retry_condition": "A future run must provide an actual 390px-class responsive viewport with access to the live public URLs.",
-    "last_retry_at": "2026-10-29T20:00:28+04:00"
+    "detail": "No approved execution surface can currently render both public pages at an actual 390px-class viewport. Cloud browser advertises Browser Capabilities: None (no viewport sizing/device emulation), and launching local Chromium produced no runnable window; the latest verified local DevTools attempt was blocked by organization policy.",
+    "retry_condition": "An approved browser/device that can render both Arabic and English public pages at an actual 390px-class viewport, or an execution surface with allowed device emulation.",
+    "last_retry_at": "2026-10-30T09:07:00+04:00"
   }
 }

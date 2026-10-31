@@ -1,5 +1,5 @@
 {
-  "version": "20261028-long-horizon",
+  "version": "20261029-handbook",
   "width": 1200,
   "height": 630,
   "maxBytes": 170000,
@@ -1722,6 +1722,27 @@
       }
     },
     {
+      "slug": "article-oe-evidence-standardized-handoffs",
+      "background": "assets/previews/story-backgrounds/article-oe-evidence-standardized-handoffs.jpg",
+      "category": "article",
+      "ar": {
+        "title": [
+          "حين يكون التسليم",
+          "واحدًا للجميع"
+        ],
+        "subtitle": "توحيد التسليم بين المناوبات وحدود أثره",
+        "alt": "غلاف توضيحي بالكحلي والذهبي لمقال عن تسليم المرضى بين المناوبات، يظهر فيه طرفان بينهما بطاقة من خمسة أسطر."
+      },
+      "en": {
+        "title": [
+          "When Every Shift",
+          "Hands Over the Same Way"
+        ],
+        "subtitle": "Standard handoffs, and the limits of their effect.",
+        "alt": "Navy and gold editorial cover for an article about patient handoffs between shifts, showing two sides connected by a card with five lines."
+      }
+    },
+    {
       "slug": "article-oe-evidence-defaults-shape-practice",
       "background": "assets/previews/story-backgrounds/article-oe-evidence-defaults-shape-practice.jpg",
       "category": "article",
@@ -1998,6 +2019,29 @@
         ],
         "subtitle": "54.8% partial credit, but only 20.6% strict completion.",
         "alt": "Navy and gold analytical cover showing a long computer workflow ending at only 20.6% strict completion."
+      }
+    },
+    {
+      "slug": "article-agentic-ai-company-handbook-policy-compliance",
+      "reference": true,
+      "category": "article",
+      "ar": {
+        "source": "assets/previews/story/article-agentic-ai-company-handbook-policy-compliance-ar.jpg",
+        "title": [
+          "هل يتبع وكيل الذكاء الاصطناعي",
+          "دليل الشركة؟"
+        ],
+        "subtitle": "65 مهمة، 260 محاولة، و824 معياراً حتمياً.",
+        "alt": "غلاف تحليلي بالكحلي والذهبي يصور دليل شركة وختم التزام صارم بنسبة 36.2% أمام مسار إجراء متوقف."
+      },
+      "en": {
+        "source": "assets/previews/story/article-agentic-ai-company-handbook-policy-compliance-en.jpg",
+        "title": [
+          "Can an AI Agent Follow",
+          "the Company Handbook?"
+        ],
+        "subtitle": "65 tasks, 260 trials, and 824 deterministic checks.",
+        "alt": "Navy and gold analytical cover showing a company handbook and a 36.2% strict-compliance seal beside a blocked action path."
       }
     },
     {

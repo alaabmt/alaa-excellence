@@ -7,40 +7,43 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-28T22:53:00+04:00",
+  "updated_at": "2026-10-29T23:10:00+04:00",
   "workflow_status": "completed",
   "current_stage": "completed",
   "run_lease": null,
   "current_item": {
-    "slug": "article-agentic-ai-long-horizon-computer-workflows",
-    "publication_date": "2026-10-28",
-    "title_ar": "عندما ينجز الوكيل نصف العمل ولا يكمل المهمة: ماذا كشف اختبار من 108 مهام طويلة؟",
-    "title_en": "When an Agent Does Half the Work but Finishes Only One Task in Five",
+    "slug": "article-agentic-ai-company-handbook-policy-compliance",
+    "publication_date": "2026-10-29",
+    "title_ar": "هل يتبع وكيل الذكاء الاصطناعي دليل الشركة؟ اختبار 65 مهمة مهنية",
+    "title_en": "Can an AI Agent Follow the Company Handbook? Evidence from 65 Workplace Tasks",
     "research_status": "completed",
     "evidence_pack_status": "completed",
     "arabic_draft": {
       "status": "published_verified",
-      "path": "article-agentic-ai-long-horizon-computer-workflows.html"
+      "path": "article-agentic-ai-company-handbook-policy-compliance.html"
     },
     "english_draft": {
       "status": "published_verified",
-      "path": "en/article-agentic-ai-long-horizon-computer-workflows.html"
+      "path": "en/article-agentic-ai-company-handbook-policy-compliance.html"
     },
     "publishing": {
       "status": "published_and_verified",
-      "arabic_url": "https://tamayuz10x.com/article-agentic-ai-long-horizon-computer-workflows.html",
-      "english_url": "https://tamayuz10x.com/en/article-agentic-ai-long-horizon-computer-workflows.html",
-      "candidate_commit": "29bad645cf58dfecf5215254e3e7341fbff4bff0",
-      "deployed_head": "10b16f55f22b2b7211eb01aa3c9e4edb0adfe9bc",
-      "exact_head_verification_commit": "ee17742753bd157af8b2c34a8e7d2b85d0992a5b",
-      "mobile_gate_run_id": 40744299843,
-      "pages_run_id": 40744298988,
+      "arabic_url": "https://tamayuz10x.com/article-agentic-ai-company-handbook-policy-compliance.html",
+      "english_url": "https://tamayuz10x.com/en/article-agentic-ai-company-handbook-policy-compliance.html",
+      "candidate_commit": "f3fec6aab6075d460217bef69fbee9a8add943c7",
+      "deployed_head": "abb76dfef9a532cc90b70f87559c5d72995649d4",
+      "mobile_gate_run_id": 40928632067,
+      "pages_run_id": 40928752660,
+      "exact_head_verification_commit": "5d61c0c2eb6474db6f893f7a5f2acb7df7f26060",
+      "exact_head_mobile_gate_run_id": 40929243723,
+      "exact_head_pages_run_id": 40929243971,
       "checks": {
-        "site_health_run_id": 40743664128,
-        "disclaimer_run_id": 40743663972,
-        "sitemap_run_id": 40743663752,
-        "article_date_run_id": 40743663970,
-        "social_cards_run_id": 40743663816
+        "site_health_run_id": 40928631762,
+        "disclaimer_run_id": 40928631877,
+        "sitemap_run_id": 40928632094,
+        "article_date_run_id": 40928631895,
+        "social_cards_run_id": 40928632165,
+        "terminology_run_id": 40928632106
       }
     }
   },
@@ -83,47 +86,50 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "On the next scheduled run, start a new item only if no Agentic AI article has already started or published for that Asia/Dubai date.",
+  "next_action": "On the next daily run, first confirm no Agentic AI article has already started or been published for the current Asia/Dubai date.",
   "last_run": {
     "mode": "scheduled_daily",
     "status": "completed",
-    "started_at": "2026-10-28T22:02:41+04:00",
-    "completed_at": "2026-10-28T22:53:00+04:00",
-    "notes": "Reconciled the externally published 2026-10-27 Agentic AI article and restored specialist-only indexing before starting the 2026-10-28 item.",
-    "current_item": "article-agentic-ai-long-horizon-computer-workflows",
-    "checkpoint": "Completed after exact-head Arabic editorial gate run 40744299843 and Pages run 40744298988 succeeded, with live bilingual verification and specialist-only hub placement."
+    "started_at": "2026-10-29T22:04:44+04:00",
+    "completed_at": "2026-10-29T23:10:00+04:00",
+    "notes": "Published and live-verified the bilingual company-handbook policy-compliance article. Exact-head Arabic editorial and Pages checks succeeded; specialist-only placement and live 1200×630 covers verified.",
+    "current_item": "article-agentic-ai-company-handbook-policy-compliance",
+    "checkpoint": "Completed."
   },
   "blocker": null,
   "last_completed_item": {
-    "slug": "article-agentic-ai-long-horizon-computer-workflows",
-    "publication_date": "2026-10-28",
-    "title_ar": "عندما ينجز الوكيل نصف العمل ولا يكمل المهمة: ماذا كشف اختبار من 108 مهام طويلة؟",
-    "title_en": "When an Agent Does Half the Work but Finishes Only One Task in Five",
+    "slug": "article-agentic-ai-company-handbook-policy-compliance",
+    "publication_date": "2026-10-29",
+    "title_ar": "هل يتبع وكيل الذكاء الاصطناعي دليل الشركة؟ اختبار 65 مهمة مهنية",
+    "title_en": "Can an AI Agent Follow the Company Handbook? Evidence from 65 Workplace Tasks",
     "research_status": "completed",
     "evidence_pack_status": "completed",
     "arabic_draft": {
       "status": "published_verified",
-      "path": "article-agentic-ai-long-horizon-computer-workflows.html"
+      "path": "article-agentic-ai-company-handbook-policy-compliance.html"
     },
     "english_draft": {
       "status": "published_verified",
-      "path": "en/article-agentic-ai-long-horizon-computer-workflows.html"
+      "path": "en/article-agentic-ai-company-handbook-policy-compliance.html"
     },
     "publishing": {
       "status": "published_and_verified",
-      "arabic_url": "https://tamayuz10x.com/article-agentic-ai-long-horizon-computer-workflows.html",
-      "english_url": "https://tamayuz10x.com/en/article-agentic-ai-long-horizon-computer-workflows.html",
-      "candidate_commit": "29bad645cf58dfecf5215254e3e7341fbff4bff0",
-      "deployed_head": "10b16f55f22b2b7211eb01aa3c9e4edb0adfe9bc",
-      "exact_head_verification_commit": "ee17742753bd157af8b2c34a8e7d2b85d0992a5b",
-      "mobile_gate_run_id": 40744299843,
-      "pages_run_id": 40744298988,
+      "arabic_url": "https://tamayuz10x.com/article-agentic-ai-company-handbook-policy-compliance.html",
+      "english_url": "https://tamayuz10x.com/en/article-agentic-ai-company-handbook-policy-compliance.html",
+      "candidate_commit": "f3fec6aab6075d460217bef69fbee9a8add943c7",
+      "deployed_head": "abb76dfef9a532cc90b70f87559c5d72995649d4",
+      "mobile_gate_run_id": 40928632067,
+      "pages_run_id": 40928752660,
+      "exact_head_verification_commit": "5d61c0c2eb6474db6f893f7a5f2acb7df7f26060",
+      "exact_head_mobile_gate_run_id": 40929243723,
+      "exact_head_pages_run_id": 40929243971,
       "checks": {
-        "site_health_run_id": 40743664128,
-        "disclaimer_run_id": 40743663972,
-        "sitemap_run_id": 40743663752,
-        "article_date_run_id": 40743663970,
-        "social_cards_run_id": 40743663816
+        "site_health_run_id": 40928631762,
+        "disclaimer_run_id": 40928631877,
+        "sitemap_run_id": 40928632094,
+        "article_date_run_id": 40928631895,
+        "social_cards_run_id": 40928632165,
+        "terminology_run_id": 40928632106
       }
     }
   }
