@@ -29,8 +29,8 @@ const bidi = (lang, s) => lang === 'ar'
 function page(lang, d) {
   const rtl = lang === 'ar';
   const t = rtl
-    ? { sig: 'من تحليل الدكتور علاء محمد عيسى', brand: '<bdi><b>التميّز 10X</b></bdi> · <bdi dir="ltr">tamayuz10x.com</bdi>' }
-    : { sig: 'From the analysis of Dr. Alaa Mohammed Eissa', brand: '<b>Tamayuz 10X</b> · tamayuz10x.com' };
+    ? { sig: 'من تحليل الدكتور علاء محمد أحمد', brand: '<bdi><b>التميّز 10X</b></bdi> · <bdi dir="ltr">tamayuz10x.com</bdi>' }
+    : { sig: 'Analysis by Dr. Alaa Mohamed Ahmed', brand: '<b>Tamayuz 10X</b> · tamayuz10x.com' };
   const hook = d.hook ?? d.wisdom ?? '';
   const value = d.value ?? '';
   const titleShort = d.title_short ?? d.title ?? '';

@@ -29,7 +29,7 @@ A hook card has five parts. Fields per language: `hook`, `value`, `title_short`,
 1. **Hook** (large text; the main element): 1–2 short sentences taken from the article itself: a concrete scene, a person/organization/situation, a surprising turn, or a real question the article answers. **The first sentence names a person, an organization or a situation, never an abstract concept.** Not a yes/no rhetorical question whose answer is obvious. Not a generic claim. If the article's scene is hypothetical (a teaching example), frame it as such («تخيّل…», «لنفترض…», "Picture…").
 2. **Value line** (one sentence): the idea a reader keeps even if they never open the article. It must stand alone and be true to the article.
 3. **Short card title** (`title_short`): at most about 8 Arabic words / 9 English words, faithful to the article. The article's H1 is not changed; it is used in the caption.
-4. **Signature** (fixed, drawn by `render.mjs`): «من تحليل الدكتور علاء محمد عيسى» / "From the analysis of Dr. Alaa Mohammed Eissa". Never write «دراسة الدكتور علاء» or imply the owner ran the study.
+4. **Signature** (fixed, drawn by `render.mjs`): «من تحليل الدكتور علاء محمد أحمد» / "Analysis by Dr. Alaa Mohamed Ahmed". Never write «دراسة الدكتور علاء» or imply the owner ran the study.
 5. **Call to read + link**: in the caption only (`teaser`), never on the image.
 
 **Hard limits:** card image text (hook + value + title + signature) at most about 40 Arabic words; the hook is rendered at `font_px` ≥ 40 (the renderer reports it and fails below 40); nothing clipped; Arabic RTL shaped correctly.
@@ -50,6 +50,19 @@ Language rules:
 - Arabic: modern, natural فصحى written as Arabic from the start (Executive Analytical Arabic, Tamayuz 10X). Full sentences; no «label: explanation» pattern; correct hamzas.
 - English: original editorial English in US spelling, written from the idea and not from the Arabic; no contractions on the card. Would a native English editor guess it was translated? If yes, rewrite.
 - Terms: Failure Mode is always «أوجه الفشل». FMEA in Arabic is exactly «منهجية هندسة الوقاية (FMEA)». The risk triad in Arabic is exactly «ثلاثية تحديد الخطر (Severity, Occurrence, Detection — S/O/D)»; never «ثلاثية تقييم الخطر» or «ثالوث الخطر». Preventive-engineering cards should avoid technical terms where possible.
+
+
+### Plain-language gate — required (owner decision, 31 October 2026)
+The owner judged the first sample cards unclear in both languages. Before the reviewers, test every hook, value line, short title and teaser with this gate and rewrite until all items pass:
+1. Every sentence has a subject and a verb and says one thing. No noun-phrase lists («شركة أرباحها جيدة… ونقدها يضعف»; "good profits on paper, weakening cash").
+2. Arabic sentences: about 15 words or fewer. English sentences: about 18 words or fewer, in plain contemporary American English for second-language readers.
+3. No idioms («على الورق», "on paper") and no report jargon («لوحة المؤشرات», "dashboard") unless the article defines it on the card. The first mention of an abbreviation (for example FMEA) is expanded in the English text: FMEA (failure mode and effects analysis); in Arabic use exactly «منهجية هندسة الوقاية (FMEA)».
+4. The hook states the situation and what is at stake. A reader who knows nothing about the topic can say what went wrong or what is surprising.
+5. The value line is something a reader can do or understand without the article. It is not generic advice («cannot rely on one number»).
+6. The short title says what the post is (a study, a case, an analysis) and what it is about.
+7. Cold-reader test: read the card as if you know nothing about the topic. Can you say in one sentence what the card says and why it matters? If not, rewrite.
+8. In English, do not translate the Arabic word by word; rebuild the sentence. Use «Analysis by Dr. Alaa Mohamed Ahmed» (fixed signature), never «From the analysis of».
+Signature name (owner decision, 31 October 2026): «د. علاء محمد أحمد» / "Dr. Alaa Mohamed Ahmed", the form used on the site (about.html).
 
 ### Editorial standards (summary of the owner's Google Drive standards)
 The full standards are in the owner's Google Drive: `10X_ENGLISH_EDITORIAL_TRANSLATION_AND_HUMAN_STYLE_STANDARD.md` and `Arabic_Editorial_and_Publishing_Agent.md`. If this session can read Google Drive, read both before writing. If it cannot, apply this summary strictly.

@@ -146,7 +146,7 @@
 1. **الخطّاف / Hook** (the large text): 1–2 short sentences from the article itself: a concrete scene, a person, an organization or a situation, a surprising turn, or a real question the article answers. **The first sentence names a person, an organization or a situation, not an abstract concept.**
 2. **سطر القيمة / Value line**: one sentence: the idea a reader keeps even if they never open the article. It stands alone.
 3. **العنوان القصير / Short title**: at most about 8 Arabic words / 9 English words; faithful to the article; the article's H1 is not changed.
-4. **التوقيع / Signature** (fixed): «من تحليل الدكتور علاء محمد عيسى» / "From the analysis of Dr. Alaa Mohammed Eissa". Never «دراسة الدكتور علاء»: he did not run the studies.
+4. **التوقيع / Signature** (fixed): «من تحليل الدكتور علاء محمد أحمد» / "Analysis by Dr. Alaa Mohamed Ahmed". Never «دراسة الدكتور علاء»: he did not run the studies.
 5. **الدعوة إلى القراءة / Call to read** goes in the post caption, not on the image. The caption starts from the same hook, says in one line what the article answers (without giving the full answer), then the call to read; the script adds the link.
 
 Limits: image text at most about 40 Arabic words; hook at 40 px or larger; nothing clipped.
