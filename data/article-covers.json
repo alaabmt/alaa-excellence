@@ -1722,6 +1722,27 @@
       }
     },
     {
+      "slug": "article-oe-evidence-standardized-handoffs",
+      "background": "assets/previews/story-backgrounds/article-oe-evidence-standardized-handoffs.jpg",
+      "category": "article",
+      "ar": {
+        "title": [
+          "حين يكون التسليم",
+          "واحدًا للجميع"
+        ],
+        "subtitle": "توحيد التسليم بين المناوبات وحدود أثره",
+        "alt": "غلاف توضيحي بالكحلي والذهبي لمقال عن تسليم المرضى بين المناوبات، يظهر فيه طرفان بينهما بطاقة من خمسة أسطر."
+      },
+      "en": {
+        "title": [
+          "When Every Shift",
+          "Hands Over the Same Way"
+        ],
+        "subtitle": "Standard handoffs, and the limits of their effect.",
+        "alt": "Navy and gold editorial cover for an article about patient handoffs between shifts, showing two sides connected by a card with five lines."
+      }
+    },
+    {
       "slug": "article-oe-evidence-defaults-shape-practice",
       "background": "assets/previews/story-backgrounds/article-oe-evidence-defaults-shape-practice.jpg",
       "category": "article",
