@@ -7,39 +7,43 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-26T12:29:58.375+04:00",
-  "workflow_status": "completed",
-  "current_stage": "completed",
-  "run_lease": null,
+  "updated_at": "2026-10-30T10:01:00+04:00",
+  "workflow_status": "retry_waiting",
+  "current_stage": "live_verification",
+  "run_lease": {
+    "owner": "central-coordinator",
+    "acquired_at": "2026-10-30T10:01:00+04:00",
+    "expires_at": "2026-10-30T11:51:00+04:00"
+  },
   "current_item": {
-    "slug": "case-netherlands-room-for-the-river-adaptive-flood-management",
-    "publication_date": "2026-10-26",
-    "title_working_ar": "كيف أعطت هولندا النهر مساحة بدل أن تواصل رفع السدود؟",
-    "title_working_en": "How the Netherlands Gave Rivers More Space Instead of Raising Dikes",
-    "candidate_status": "published_live_verified",
-    "artifact_root": "automation/10x-cases/case-netherlands-room-for-the-river-adaptive-flood-management/",
+    "slug": "case-costa-rica-payments-for-environmental-services",
+    "publication_date": "2026-10-29",
+    "title_working_ar": "كيف دفعت كوستاريكا مقابل بقاء الغابة واقفة؟",
+    "title_working_en": "How Costa Rica Paid to Keep Forests Standing",
+    "candidate_status": "repository_published_pending_actual_mobile_verification",
+    "artifact_root": "automation/10x-cases/case-costa-rica-payments-for-environmental-services/",
     "candidate_notes": {
-      "path": "automation/10x-cases/case-netherlands-room-for-the-river-adaptive-flood-management/candidate-notes.md",
-      "commit": "c25b4a735973756094012f3264034f7a7720fe60"
+      "path": "automation/10x-cases/case-costa-rica-payments-for-environmental-services/candidate-notes.md",
+      "commit": "452e8c168f65ef1fd09927d8ef3e3bbf03ea0cd3"
     },
     "evidence_pack": {
-      "status": "passed_with_explicit_systemwide_limits",
-      "path": "automation/10x-cases/case-netherlands-room-for-the-river-adaptive-flood-management/evidence-pack.md",
-      "commit": "5d3ec5565fcddda4d7b457145ad9367fffa27289",
+      "status": "passed_with_explicit_causal_and_equity_limits",
+      "path": "automation/10x-cases/case-costa-rica-payments-for-environmental-services/evidence-pack.md",
+      "commit": "e34d1dca9d75efed1005ed6ba8b2fc9ce5972f4a",
       "confidence": {
-        "policy_shift": "high",
-        "programme_execution": "high",
-        "programme_scope_cost": "high",
-        "nijmegen_hydraulic_result": "high",
-        "institutional_mechanism": "high",
-        "national_flood_risk_reduction": "insufficient",
-        "ecosystem_benefits": "modelled_not_observed"
+        "institutional_redesign": "high",
+        "funding_mechanism": "high",
+        "programme_scale": "high_with_period_caveats",
+        "verified_emission_reductions": "high",
+        "incremental_pes_effect": "medium_high_heterogeneous",
+        "pes_alone_caused_national_recovery": "rejected",
+        "equitable_access": "mixed"
       }
     },
     "analysis": {
       "status": "passed",
-      "path": "automation/10x-cases/case-netherlands-room-for-the-river-adaptive-flood-management/backcasting-and-10x-analysis.md",
-      "commit": "d848359492e95eeca8c470edcb96a064899a080d",
+      "path": "automation/10x-cases/case-costa-rica-payments-for-environmental-services/backcasting-and-10x-analysis.md",
+      "commit": "97e8ea808795835854f37ffb15cb1aa2b765f1c1",
       "pillars_supported": [
         1,
         2,
@@ -55,81 +59,72 @@
     },
     "arabic_draft": {
       "status": "revised_after_critique",
-      "path": "automation/10x-cases/case-netherlands-room-for-the-river-adaptive-flood-management/draft-ar.md",
-      "commit": "b080b7e53038b2fa3a0b8646180d877691a1aee8"
+      "path": "automation/10x-cases/case-costa-rica-payments-for-environmental-services/draft-ar.md",
+      "commit": "af0469cd70dc43c086b301383e2c7188a7b46409"
     },
     "company_insider_critique": {
       "status": "passed_with_required_revisions_applied",
-      "path": "automation/10x-cases/case-netherlands-room-for-the-river-adaptive-flood-management/company-insider-critique.md",
-      "commit": "8f46b0ce7e5a2f98b93780f80ae039717a5ae998",
-      "required_revisions": 7,
-      "remaining_gaps": 5
+      "path": "automation/10x-cases/case-costa-rica-payments-for-environmental-services/company-insider-critique.md",
+      "commit": "d4165253cab2a616ef161740af8aaefab325b1ca",
+      "required_revisions": 4,
+      "remaining_gaps": 6
     },
     "english_draft": {
       "status": "drafted_with_critique_applied",
-      "path": "automation/10x-cases/case-netherlands-room-for-the-river-adaptive-flood-management/draft-en.md",
-      "commit": "b937150c2bb44cbba468d4973ae4877e15f72b08"
+      "path": "automation/10x-cases/case-costa-rica-payments-for-environmental-services/draft-en.md",
+      "commit": "30305f39628307223f1c653e218be453b3a44dce"
     },
     "bilingual_parity": {
       "status": "passed",
-      "path": "automation/10x-cases/case-netherlands-room-for-the-river-adaptive-flood-management/bilingual-parity-review.md",
-      "commit": "5a9cf9c8475e926d43352a9d4912078f575dd13a"
+      "path": "automation/10x-cases/case-costa-rica-payments-for-environmental-services/bilingual-parity-review.md",
+      "commit": "87485434e2c1601d2b7d0b6e3a554ef5da370c6f"
     },
     "final_quality_gate": {
-      "status": "passed_after_blocking_revisions",
+      "status": "passed_for_repository_publication_live_mobile_pending",
       "score": 96,
-      "path": "automation/10x-cases/case-netherlands-room-for-the-river-adaptive-flood-management/quality-review.md",
-      "commit": "3b759dd3e8980df5a65eeeab48d57064bac751c5",
-      "arabic_revision_commit": "8dd62d0b1f90e3b1b3bbe2cbfda769cda76b4017",
-      "english_revision_commit": "87abbf33e1e99c22bf1e830c99a840ae2d8eba89",
-      "parity_revision_commit": "791faa1877c4599410dcf791fde3cb09df7dfb82",
-      "video_decision": "omitted_unverified",
-      "blocking_errors": []
+      "path": "automation/10x-cases/case-costa-rica-payments-for-environmental-services/quality-review.md",
+      "commit": "95dab8aa2bf9b41749e5f98806ae21a30c66b6de",
+      "blocking_errors": [],
+      "postdeploy_blockers": [
+        "actual_mobile_narrow_render"
+      ]
     },
     "covers": {
-      "source": "repository_social_card_generator",
+      "source": "original_ai_generated_editorial_background_with_bilingual_composition",
       "dimensions": "1200x630",
-      "sizes_bytes": {
-        "ar": 155251,
-        "en": 158897
-      },
       "paths": [
-        "assets/previews/story/case-netherlands-room-for-the-river-adaptive-flood-management-ar.jpg",
-        "assets/previews/story/case-netherlands-room-for-the-river-adaptive-flood-management-en.jpg"
+        "assets/previews/story/case-costa-rica-payments-for-environmental-services-ar.jpg",
+        "assets/previews/story/case-costa-rica-payments-for-environmental-services-en.jpg"
       ],
-      "generation_run": "https://github.com/alaabmt/alaa-excellence/actions/runs/40291927866",
-      "sync_commit": "5f0d73cf0742a0968c08d973b5f7a63b6887e58c"
+      "commit": "8a69444c491a63bed614b3bf94fd528df69275c6"
     },
     "publishing": {
-      "status": "published_live_verified",
-      "arabic_path": "case-netherlands-room-for-the-river-adaptive-flood-management.html",
-      "english_path": "en/case-netherlands-room-for-the-river-adaptive-flood-management.html",
-      "arabic_url": "https://tamayuz10x.com/case-netherlands-room-for-the-river-adaptive-flood-management.html",
-      "english_url": "https://tamayuz10x.com/en/case-netherlands-room-for-the-river-adaptive-flood-management.html",
-      "first_publication_commit": "f3da8a1df103d7983e6b6b036a0d5f35a518dea7",
-      "sitemap_reconciliation_commit": "ed568030d53d903174a6896c84e6de1f9151f5e0",
-      "cover_sync_commit": "5f0d73cf0742a0968c08d973b5f7a63b6887e58c",
-      "automated_checks": "passed_primary_publication_commit",
-      "pages": "passed_exact_checkpoint_head",
+      "status": "published_live_verified_except_actual_mobile_narrow_render",
+      "arabic_path": "case-costa-rica-payments-for-environmental-services.html",
+      "english_path": "en/case-costa-rica-payments-for-environmental-services.html",
+      "arabic_url": "https://tamayuz10x.com/case-costa-rica-payments-for-environmental-services.html",
+      "english_url": "https://tamayuz10x.com/en/case-costa-rica-payments-for-environmental-services.html",
+      "first_publication_commit": "bc45e74e5e577e76a3218cc08e7263241d07acab",
       "actions": "passed",
-      "final_content_head": "ded9bdcaf96684410e4b501497581ba39bef97cc",
-      "arabic_editorial_gate_run": "https://github.com/alaabmt/alaa-excellence/actions/runs/40292254682",
-      "pages_run": "https://github.com/alaabmt/alaa-excellence/actions/runs/40292255234",
-      "live_verification": "passed",
+      "pages": "passed_exact_final_content_head",
+      "sitemap_reconciliation_commit": "ca342b806f0253ce1f6df3f8051167613e6dd255",
+      "cover_manifest_commit": "83835a1d16742292bddf6e1738a2d0b9be4ae304",
+      "cover_sync_commit": "db48cd5ad5829d4ed90a4ccf657951677c9996a6",
+      "final_content_head": "db48cd5ad5829d4ed90a4ccf657951677c9996a6",
+      "automated_checks": "passed_after_repairing_initial_social_card_manifest_failure",
+      "social_card_failed_run": "https://github.com/alaabmt/alaa-excellence/actions/runs/40813701120",
+      "social_card_success_run": "https://github.com/alaabmt/alaa-excellence/actions/runs/40813857518",
+      "pages_run": "https://github.com/alaabmt/alaa-excellence/actions/runs/40814106232",
+      "live_verification": "passed_except_actual_mobile_narrow_render",
       "page_verification": "passed_ar_en_titles_body_references_disclosure",
-      "metadata_verification": "passed_canonical_hreflang_schema_og",
+      "metadata_verification": "passed_canonical_hreflang_schema_og_twitter",
       "index_verification": "passed_ar_en_single_card",
-      "sitemap_verification": "passed_ar_en_single_loc",
+      "sitemap_verification": "passed_ar_en_single_loc_lastmod_2026-10-29",
       "image_verification": "passed_1200x630_ar_en",
-      "video_verification": "omitted_unverified_no_embed_present",
+      "video_verification": "passed_official_world_bank_embed_after_10x_question_before_disclosure",
       "desktop_rendering": "passed_no_horizontal_overflow",
-      "mobile_verification": "responsive_structure_present_live_device_emulation_not_run",
-      "browser_console": "no_site_origin_errors; browser-extension-only errors observed",
-      "final_live_verified_content_head": "ded9bdcaf96684410e4b501497581ba39bef97cc"
-    },
-    "publication_report": {
-      "path": "automation/10x-cases/case-netherlands-room-for-the-river-adaptive-flood-management/publication-report.md",
-      "commit": "d63cb936c63999323a8eb67ea5688ef553c7856a"
+      "mobile_verification": "retry_waiting_actual_390px_live_render_unavailable_in_current_browser_capabilities",
+      "browser_console": "no_site_origin_errors; browser-extension-only metadata errors observed"
     }
   },
   "stage_order": [
@@ -171,17 +166,17 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "No unfinished stage. The next 10X case cycle may only be started by its primary schedule after fresh duplicate checks.",
+  "next_action": "Resume live_verification only when an approved browser/device surface can render both public pages at an actual 390px-class viewport. Verify visual readability, RTL/LTR, no horizontal overflow, title, evidence blocks, video, disclosure, references and both social cards; then create publication-report.md and mark completed. Do not republish and do not create a temporary workflow.",
   "last_run": {
-    "mode": "daily_primary_run",
-    "status": "completed",
-    "started_at": "2026-10-26T07:34:24+04:00",
-    "completed_at": "2026-10-26T12:29:58.375+04:00",
-    "notes": "Published and live-verified the bilingual Netherlands Room for the River case, including generated 1200×630 covers, indexes, dates, sitemap, automated checks, exact-head Pages deployment and live metadata/content verification.",
-    "resumed_at": "2026-10-26T12:16:44+04:00",
+    "mode": "coordinator_resume",
+    "status": "in_progress",
+    "started_at": "2026-10-30T10:01:00+04:00",
+    "completed_at": null,
+    "notes": "Lease acquired to retry live_verification only; no publication replay authorized.",
+    "resumed_at": "2026-10-30T10:01:00+04:00",
     "resumed_by": "central-coordinator",
-    "last_checkpoint": "completed",
-    "last_checkpoint_at": "2026-10-26T12:29:58.375+04:00"
+    "starting_head": "422e4d0a2e14dd63fd8d0fd3153cc92c3bed589f",
+    "last_checkpoint": "actions_and_pages"
   },
   "last_completed_item": {
     "slug": "case-netherlands-room-for-the-river-adaptive-flood-management",
@@ -304,7 +299,7 @@
       "commit": "d63cb936c63999323a8eb67ea5688ef553c7856a"
     }
   },
-  "run_date": "2026-10-26",
+  "run_date": "2026-10-29",
   "completed_stages": [
     "capability_check",
     "load_checkpoint",
@@ -318,9 +313,13 @@
     "bilingual_parity",
     "final_quality_gate",
     "repository_publish",
-    "actions_and_pages",
-    "live_verification",
-    "completion_report",
-    "completed"
-  ]
+    "actions_and_pages"
+  ],
+  "blocker": {
+    "type": "temporary_capability_limit",
+    "stage": "live_verification",
+    "detail": "No approved execution surface can currently render both public pages at an actual 390px-class viewport. Cloud browser advertises Browser Capabilities: None (no viewport sizing/device emulation), and launching local Chromium produced no runnable window; the latest verified local DevTools attempt was blocked by organization policy.",
+    "retry_condition": "An approved browser/device that can render both Arabic and English public pages at an actual 390px-class viewport, or an execution surface with allowed device emulation.",
+    "last_retry_at": "2026-10-30T09:07:00+04:00"
+  }
 }

@@ -19,9 +19,9 @@ jobs:
         run: python3 scripts/check_arabic_mobile.py
       - name: Render today's Agentic AI article at actual mobile widths
         env:
-          ARABIC_ARTICLE: article-agentic-ai-multi-agent-scientific-analysis-cost.html
-          EDITORIAL_REPORT: editorial-qa/agent-multi-agent-science-cost.json
-          MOBILE_ARTIFACT_PREFIX: agent-multi-agent-science-cost
+          ARABIC_ARTICLE: article-agentic-ai-company-handbook-policy-compliance.html
+          EDITORIAL_REPORT: editorial-qa/agent-company-handbook-compliance.json
+          MOBILE_ARTIFACT_PREFIX: agent-company-handbook-compliance
         run: python3 scripts/check_arabic_mobile.py
       - name: Render current Qur'anic reflection at actual mobile widths
         run: python3 scripts/check_quran_reflection_mobile.py
@@ -43,8 +43,8 @@ jobs:
         run: python3 scripts/check_arabic_editorial.py article-oe-evidence-defaults-shape-practice.html editorial-qa/oe-defaults.json
       - name: Check AlphaEvolve editorial gates using generated mobile evidence
         run: python3 scripts/check_arabic_editorial.py article-agentic-ai-alphaevolve-compute-scheduling.html editorial-qa/alphaevolve.json
-      - name: Check today's seven editorial gates
-        run: python3 scripts/check_arabic_editorial.py article-agentic-ai-multi-agent-scientific-analysis-cost.html editorial-qa/agent-multi-agent-science-cost.json
+      - name: Check today's Agentic AI editorial gates
+        run: python3 scripts/check_arabic_editorial.py article-agentic-ai-company-handbook-policy-compliance.html editorial-qa/agent-company-handbook-compliance.json
       - name: Preserve mobile screenshots and QA result
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
@@ -53,7 +53,7 @@ jobs:
           path: |
             editorial-qa/mobile-artifacts/
             editorial-qa/alphaevolve.json
-            editorial-qa/agent-multi-agent-science-cost.json
+            editorial-qa/agent-company-handbook-compliance.json
             editorial-qa/oe-defaults.json
             editorial-qa/oe-handoffs.json
           if-no-files-found: error

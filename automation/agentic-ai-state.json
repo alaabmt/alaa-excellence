@@ -7,83 +7,43 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-26T22:20:00+04:00",
+  "updated_at": "2026-10-29T23:10:00+04:00",
   "workflow_status": "completed",
   "current_stage": "completed",
   "run_lease": null,
   "current_item": {
-    "slug": "article-agentic-ai-multi-agent-scientific-analysis-cost",
-    "publication_date": "2026-10-26",
-    "title_ar": "عندما لا يصل الوكيل إلى رقم قابل للحساب: هل يبرر فريق من الوكلاء كلفة أعلى بـ4.5 مرات؟",
-    "title_en": "When One Agent Never Reaches the Number: Is a Multi-Agent Workflow Worth 4.5× the Time?",
+    "slug": "article-agentic-ai-company-handbook-policy-compliance",
+    "publication_date": "2026-10-29",
+    "title_ar": "هل يتبع وكيل الذكاء الاصطناعي دليل الشركة؟ اختبار 65 مهمة مهنية",
+    "title_en": "Can an AI Agent Follow the Company Handbook? Evidence from 65 Workplace Tasks",
     "research_status": "completed",
     "evidence_pack_status": "completed",
     "arabic_draft": {
-      "status": "verified",
-      "path": "article-agentic-ai-multi-agent-scientific-analysis-cost.html"
+      "status": "published_verified",
+      "path": "article-agentic-ai-company-handbook-policy-compliance.html"
     },
     "english_draft": {
-      "status": "verified",
-      "path": "en/article-agentic-ai-multi-agent-scientific-analysis-cost.html"
+      "status": "published_verified",
+      "path": "en/article-agentic-ai-company-handbook-policy-compliance.html"
     },
     "publishing": {
-      "status": "verified",
-      "arabic_url": "https://tamayuz10x.com/article-agentic-ai-multi-agent-scientific-analysis-cost.html",
-      "english_url": "https://tamayuz10x.com/en/article-agentic-ai-multi-agent-scientific-analysis-cost.html",
-      "publication_commit": "4feb028fab50cf5bbb686a8c62dffabf5f75f96f",
-      "repair_commit": "6fe302b67621410fa641bcf8d55379dce2e3026f",
-      "social_assets_commit": "0c23fae8b1b5704f27028be6f5fd2aba396306ad",
-      "verification_commit": "62d7e1c16c0f67a3f2e54978bc8dca42a8a900a2",
-      "mobile_gate_run_id": 40375883575,
-      "mobile_gate_run_number": 259,
-      "pages_run_id": 40375881631,
-      "pages_run_number": 2262,
+      "status": "published_and_verified",
+      "arabic_url": "https://tamayuz10x.com/article-agentic-ai-company-handbook-policy-compliance.html",
+      "english_url": "https://tamayuz10x.com/en/article-agentic-ai-company-handbook-policy-compliance.html",
+      "candidate_commit": "f3fec6aab6075d460217bef69fbee9a8add943c7",
+      "deployed_head": "abb76dfef9a532cc90b70f87559c5d72995649d4",
+      "mobile_gate_run_id": 40928632067,
+      "pages_run_id": 40928752660,
+      "exact_head_verification_commit": "5d61c0c2eb6474db6f893f7a5f2acb7df7f26060",
+      "exact_head_mobile_gate_run_id": 40929243723,
+      "exact_head_pages_run_id": 40929243971,
       "checks": {
-        "site_health_run_id": 40375529497,
-        "disclaimer_run_id": 40375529716,
-        "sitemap_run_id": 40375529558,
-        "social_cards_run_id": 40375529667,
-        "article_date_run_id": 40375529515
-      },
-      "repository_checks": {
-        "article_pages": 2,
-        "specialist_hub_cards": 2,
-        "general_index_slug_occurrences": 0,
-        "sitemap_entries": 2,
-        "social_images": "2 x 1200x630"
-      },
-      "live_verification": {
-        "arabic": {
-          "status": "200 and rendered",
-          "title": true,
-          "author": true,
-          "canonical": "correct",
-          "cover": "1200x630 complete",
-          "tables": 3,
-          "side_boxes": 1,
-          "share_links": "canonical and correct",
-          "listening_control": true,
-          "no_horizontal_overflow": true
-        },
-        "english": {
-          "status": "200 and rendered",
-          "title": true,
-          "author": true,
-          "canonical": "correct",
-          "cover": "1200x630 complete",
-          "tables": 3,
-          "side_boxes": 1,
-          "share_links": "canonical and correct",
-          "listening_control": true,
-          "no_horizontal_overflow": true
-        },
-        "hubs": {
-          "arabic_cards": 1,
-          "english_cards": 1,
-          "arabic_general_links": 0,
-          "english_general_links": 0
-        },
-        "verified_at": "2026-10-26T22:20:00+04:00"
+        "site_health_run_id": 40928631762,
+        "disclaimer_run_id": 40928631877,
+        "sitemap_run_id": 40928632094,
+        "article_date_run_id": 40928631895,
+        "social_cards_run_id": 40928632165,
+        "terminology_run_id": 40928632106
       }
     }
   },
@@ -126,88 +86,50 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "At the next scheduled run, begin a new article only if no Agentic AI item has already started or published for that Asia/Dubai date.",
+  "next_action": "On the next daily run, first confirm no Agentic AI article has already started or been published for the current Asia/Dubai date.",
   "last_run": {
     "mode": "scheduled_daily",
     "status": "completed",
-    "started_at": "2026-10-26T22:00:33+04:00",
-    "completed_at": "2026-10-26T22:20:00+04:00",
-    "notes": "Published and verified both language pages, specialist-only hub cards, metadata, sitemap and social covers. All repository gates, exact-head Arabic mobile/RTL gate, exact-head GitHub Pages deployment and live browser checks passed."
+    "started_at": "2026-10-29T22:04:44+04:00",
+    "completed_at": "2026-10-29T23:10:00+04:00",
+    "notes": "Published and live-verified the bilingual company-handbook policy-compliance article. Exact-head Arabic editorial and Pages checks succeeded; specialist-only placement and live 1200×630 covers verified.",
+    "current_item": "article-agentic-ai-company-handbook-policy-compliance",
+    "checkpoint": "Completed."
   },
   "blocker": null,
   "last_completed_item": {
-    "slug": "article-agentic-ai-multi-agent-scientific-analysis-cost",
-    "publication_date": "2026-10-26",
-    "title_ar": "عندما لا يصل الوكيل إلى رقم قابل للحساب: هل يبرر فريق من الوكلاء كلفة أعلى بـ4.5 مرات؟",
-    "title_en": "When One Agent Never Reaches the Number: Is a Multi-Agent Workflow Worth 4.5× the Time?",
+    "slug": "article-agentic-ai-company-handbook-policy-compliance",
+    "publication_date": "2026-10-29",
+    "title_ar": "هل يتبع وكيل الذكاء الاصطناعي دليل الشركة؟ اختبار 65 مهمة مهنية",
+    "title_en": "Can an AI Agent Follow the Company Handbook? Evidence from 65 Workplace Tasks",
     "research_status": "completed",
     "evidence_pack_status": "completed",
     "arabic_draft": {
-      "status": "verified",
-      "path": "article-agentic-ai-multi-agent-scientific-analysis-cost.html"
+      "status": "published_verified",
+      "path": "article-agentic-ai-company-handbook-policy-compliance.html"
     },
     "english_draft": {
-      "status": "verified",
-      "path": "en/article-agentic-ai-multi-agent-scientific-analysis-cost.html"
+      "status": "published_verified",
+      "path": "en/article-agentic-ai-company-handbook-policy-compliance.html"
     },
     "publishing": {
-      "status": "verified",
-      "arabic_url": "https://tamayuz10x.com/article-agentic-ai-multi-agent-scientific-analysis-cost.html",
-      "english_url": "https://tamayuz10x.com/en/article-agentic-ai-multi-agent-scientific-analysis-cost.html",
-      "publication_commit": "4feb028fab50cf5bbb686a8c62dffabf5f75f96f",
-      "repair_commit": "6fe302b67621410fa641bcf8d55379dce2e3026f",
-      "social_assets_commit": "0c23fae8b1b5704f27028be6f5fd2aba396306ad",
-      "verification_commit": "62d7e1c16c0f67a3f2e54978bc8dca42a8a900a2",
-      "mobile_gate_run_id": 40375883575,
-      "mobile_gate_run_number": 259,
-      "pages_run_id": 40375881631,
-      "pages_run_number": 2262,
+      "status": "published_and_verified",
+      "arabic_url": "https://tamayuz10x.com/article-agentic-ai-company-handbook-policy-compliance.html",
+      "english_url": "https://tamayuz10x.com/en/article-agentic-ai-company-handbook-policy-compliance.html",
+      "candidate_commit": "f3fec6aab6075d460217bef69fbee9a8add943c7",
+      "deployed_head": "abb76dfef9a532cc90b70f87559c5d72995649d4",
+      "mobile_gate_run_id": 40928632067,
+      "pages_run_id": 40928752660,
+      "exact_head_verification_commit": "5d61c0c2eb6474db6f893f7a5f2acb7df7f26060",
+      "exact_head_mobile_gate_run_id": 40929243723,
+      "exact_head_pages_run_id": 40929243971,
       "checks": {
-        "site_health_run_id": 40375529497,
-        "disclaimer_run_id": 40375529716,
-        "sitemap_run_id": 40375529558,
-        "social_cards_run_id": 40375529667,
-        "article_date_run_id": 40375529515
-      },
-      "repository_checks": {
-        "article_pages": 2,
-        "specialist_hub_cards": 2,
-        "general_index_slug_occurrences": 0,
-        "sitemap_entries": 2,
-        "social_images": "2 x 1200x630"
-      },
-      "live_verification": {
-        "arabic": {
-          "status": "200 and rendered",
-          "title": true,
-          "author": true,
-          "canonical": "correct",
-          "cover": "1200x630 complete",
-          "tables": 3,
-          "side_boxes": 1,
-          "share_links": "canonical and correct",
-          "listening_control": true,
-          "no_horizontal_overflow": true
-        },
-        "english": {
-          "status": "200 and rendered",
-          "title": true,
-          "author": true,
-          "canonical": "correct",
-          "cover": "1200x630 complete",
-          "tables": 3,
-          "side_boxes": 1,
-          "share_links": "canonical and correct",
-          "listening_control": true,
-          "no_horizontal_overflow": true
-        },
-        "hubs": {
-          "arabic_cards": 1,
-          "english_cards": 1,
-          "arabic_general_links": 0,
-          "english_general_links": 0
-        },
-        "verified_at": "2026-10-26T22:20:00+04:00"
+        "site_health_run_id": 40928631762,
+        "disclaimer_run_id": 40928631877,
+        "sitemap_run_id": 40928632094,
+        "article_date_run_id": 40928631895,
+        "social_cards_run_id": 40928632165,
+        "terminology_run_id": 40928632106
       }
     }
   }

@@ -1,9 +1,51 @@
 {
-  "version": "20261026-room-river",
+  "version": "20261029-handbook",
   "width": 1200,
   "height": 630,
   "maxBytes": 170000,
   "cards": [
+    {
+      "slug": "case-costa-rica-payments-for-environmental-services",
+      "background": "assets/previews/story-backgrounds/case-costa-rica-payments-for-environmental-services.jpg",
+      "category": "case",
+      "ar": {
+        "title": [
+          "كيف دفعت كوستاريكا",
+          "مقابل بقاء الغابة واقفة؟"
+        ],
+        "subtitle": "حوّلت قيمة الغابة إلى عقود، وبقي أثر الدفع متفاوتًا.",
+        "alt": "غلاف أصلي لحالة كوستاريكا، يظهر حدًا بين غابة استوائية قائمة وأرض متجددة حول مجرى مائي."
+      },
+      "en": {
+        "title": [
+          "How Costa Rica Paid",
+          "to Keep Forests Standing"
+        ],
+        "subtitle": "Forest value became contractible, while payment impact remained uneven.",
+        "alt": "Original cover for the Costa Rica case, showing a boundary between standing tropical forest and regenerating land around a river."
+      }
+    },
+    {
+      "slug": "reflection-al-mutaffifin-demanding-full-measure-giving-less",
+      "background": "assets/previews/story-backgrounds/reflection-al-baqarah-write-it-down.jpg",
+      "category": "reflection",
+      "ar": {
+        "title": [
+          "لماذا نطلب حقنا كاملًا",
+          "ثم ننقص حقوق الآخرين؟"
+        ],
+        "subtitle": "سورة المطففين تكشف معيارًا لا يتغير بتغير موقعنا.",
+        "alt": "غلاف رمزي بالكحلي والذهبي لتأمل سورة المطففين 83:1–6، يظهر ميزانًا مستقيمًا ومكيالين متقابلين للدلالة على عدالة الأخذ والعطاء."
+      },
+      "en": {
+        "title": [
+          "Why Demand Our Due in Full",
+          "While Giving Others Less?"
+        ],
+        "subtitle": "Al-Mutaffifin exposes a standard that must not change with our position.",
+        "alt": "Navy and gold symbolic cover for a reflection on Al-Mutaffifin 83:1–6, showing a level balance and paired measures to represent fairness in taking and giving."
+      }
+    },
     {
       "slug": "reflection-al-hujurat-suspicion-surveillance-trust",
       "background": "assets/previews/story-backgrounds/reflection-al-baqarah-write-it-down.jpg",
@@ -1954,6 +1996,52 @@
         ],
         "subtitle": "OpenAI agents left a sealed test environment in July 2026. No one told them to.",
         "alt": "Navy and gold illustrative cover for an article about AI agents leaving a sealed test box through a gap in its wall toward an outside server."
+      }
+    },
+    {
+      "slug": "article-agentic-ai-long-horizon-computer-workflows",
+      "reference": true,
+      "category": "article",
+      "ar": {
+        "source": "assets/previews/story/article-agentic-ai-long-horizon-computer-workflows-ar.jpg",
+        "title": [
+          "عندما ينجز الوكيل",
+          "نصف العمل فقط"
+        ],
+        "subtitle": "54.8% تقدم جزئي، لكن 20.6% فقط من المهام اكتملت.",
+        "alt": "غلاف تحليلي بالكحلي والذهبي يوضح مسار عمل طويلًا ينتهي بنتيجة 20.6% فقط من الإنجاز الكامل."
+      },
+      "en": {
+        "source": "assets/previews/story/article-agentic-ai-long-horizon-computer-workflows-en.jpg",
+        "title": [
+          "When an Agent Does",
+          "Only Half the Work"
+        ],
+        "subtitle": "54.8% partial credit, but only 20.6% strict completion.",
+        "alt": "Navy and gold analytical cover showing a long computer workflow ending at only 20.6% strict completion."
+      }
+    },
+    {
+      "slug": "article-agentic-ai-company-handbook-policy-compliance",
+      "reference": true,
+      "category": "article",
+      "ar": {
+        "source": "assets/previews/story/article-agentic-ai-company-handbook-policy-compliance-ar.jpg",
+        "title": [
+          "هل يتبع وكيل الذكاء الاصطناعي",
+          "دليل الشركة؟"
+        ],
+        "subtitle": "65 مهمة، 260 محاولة، و824 معياراً حتمياً.",
+        "alt": "غلاف تحليلي بالكحلي والذهبي يصور دليل شركة وختم التزام صارم بنسبة 36.2% أمام مسار إجراء متوقف."
+      },
+      "en": {
+        "source": "assets/previews/story/article-agentic-ai-company-handbook-policy-compliance-en.jpg",
+        "title": [
+          "Can an AI Agent Follow",
+          "the Company Handbook?"
+        ],
+        "subtitle": "65 tasks, 260 trials, and 824 deterministic checks.",
+        "alt": "Navy and gold analytical cover showing a company handbook and a 36.2% strict-compliance seal beside a blocked action path."
       }
     }
   ]
