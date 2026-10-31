@@ -455,4 +455,4 @@ ensureBooksNavigation();
 })();
 
 /* Load shared navigation on all legacy pages using main.js. */
-(()=>{if(document.querySelector('script[data-tx-unified-nav]'))return;const script=document.createElement('script');script.src='/assets/js/unified-navigation.js?v=20261101-3';script.dataset.txUnifiedNav='1';document.head.appendChild(script)})();
+(()=>{if(document.querySelector('script[data-tx-unified-nav]'))return;const script=document.createElement('script');script.src='/assets/js/unified-navigation.js?v=20261101-4';script.dataset.txUnifiedNav='1';document.head.appendChild(script)})();
