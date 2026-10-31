@@ -52,7 +52,8 @@ def caption(spec, article):
     verse = f"﴿{ar['verse']}﴾ — {ref}\n\n" if ar.get("verse") else ""
     if ar.get("teaser"):
         return f"{verse}{ar['teaser']}\n\n{SITE}/{article}"
-    return f"{verse}{ar['wisdom']}\n\nمن مقال: {ar['title']}\n{SITE}/{article}"
+    card = "\n\n".join(x for x in (ar.get("hook"), ar.get("value")) if x) or ar["wisdom"]
+    return f"{verse}{card}\n\nمن مقال: {ar['title']}\n{SITE}/{article}"
 
 
 def multipart(fields, file_field, file_path):

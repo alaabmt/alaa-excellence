@@ -1,6 +1,6 @@
 # مهارة: كتابة حكمة قصيرة مميزة للبطاقة — Skill: Writing a distinctive short wisdom for a card
 
-**الإصدار / Version:** 1.0 — 19 أكتوبر 2026 · **ينطبق على / Applies to:** بطاقات الحكمة الصباحية (عربي + إنجليزي). بطاقة التأمل القرآني لها مهارتها الخاصة في `PROMPT_REFLECTIONS.md`.
+**الإصدار / Version:** 2.0 — 31 أكتوبر 2026 (أُضيفت الفقرة 11: بطاقة الخطّاف، وهي الصيغة المعتمدة للبطاقة اليومية؛ الأقسام 1–5 و7–9 تاريخية) · 1.0 — 19 أكتوبر 2026 · **ينطبق على / Applies to:** بطاقات الحكمة الصباحية (عربي + إنجليزي). بطاقة التأمل القرآني لها مهارتها الخاصة في `PROMPT_REFLECTIONS.md`.
 
 ---
 
@@ -135,3 +135,63 @@
 8. **قبل الإرسال:** اسأل «هل يفهمها من لم يقرأ العنوان؟ وهل تدفعه إلى فتح المقال؟». إن كان الجواب لا، أعد الكتابة.
 
 **Approved example (23 Oct 2026):** «أخطر ما في وجود الحماية أن نظن كل عطل مكشوفًا في وقته. ففي مفتاح كهربائي بطائرة، يلتقط جهاز الحماية عطلًا فور وقوعه، ولا يكشف آخر إلا متأخرًا. فاسأل عن كل عطل: متى يُرى؟» — "Protection can lull us into assuming every fault is caught in time. On an aircraft's power switch, the safeguard may flag one fault instantly and notice another only later. For each fault, ask when it will be seen."
+
+---
+
+## 11. بطاقة الخطّاف — Hook card (قرار المالك، 31 أكتوبر 2026 — Owner decision, 31 Oct 2026)
+
+**تحلّ هذه الفقرة محلّ الأقسام 1–5 و7–9 للبطاقة اليومية.** تبقى الفقرتان 6 (الصدق قبل البراعة) و10 (دروس المالك) سارية. The daily card is no longer a standalone wisdom line. It is a **hook card**: it makes the reader want to open the article and still gives value on its own. Why the change: the last four cards followed one formula (an abstract opening, then a closing «فاسأل…»).
+
+### 11.1 أجزاء البطاقة — The five parts
+1. **الخطّاف / Hook** (the large text): 1–2 short sentences from the article itself: a concrete scene, a person, an organization or a situation, a surprising turn, or a real question the article answers. **The first sentence names a person, an organization or a situation, not an abstract concept.**
+2. **سطر القيمة / Value line**: one sentence: the idea a reader keeps even if they never open the article. It stands alone.
+3. **العنوان القصير / Short title**: at most about 8 Arabic words / 9 English words; faithful to the article; the article's H1 is not changed.
+4. **التوقيع / Signature** (fixed): «من تحليل الدكتور علاء محمد عيسى» / "From the analysis of Dr. Alaa Mohammed Eissa". Never «دراسة الدكتور علاء»: he did not run the studies.
+5. **الدعوة إلى القراءة / Call to read** goes in the post caption, not on the image. The caption starts from the same hook, says in one line what the article answers (without giving the full answer), then the call to read; the script adds the link.
+
+Limits: image text at most about 40 Arabic words; hook at 40 px or larger; nothing clipped.
+
+### 11.2 كيف تجد الخطّاف — How to find the hook
+Read the article looking for, in this order: (a) a named organization, person, place or situation that the article describes; (b) the moment something surprising happens (a result that contradicts the plan, a cost that falls on the wrong party, a gap between a number and reality); (c) a real question the article itself answers. Quote the sentence in the article that supports it. If no sentence supports it, it is not a hook, it is an invention. If the article's scene is a teaching example, say so in the hook («تخيّل…», «لنفترض…», "Picture…", "Suppose…"). Then test: could a reader who has never heard of the topic tell, from the hook alone, **who or what** it is about and **why it is odd or at stake**?
+
+### 11.3 ستة أنواع من الخطّافات — Six hook types (rotate; never repeat the type of either of the last two log entries)
+| النوع / Type | متى | مثال عربي | English example |
+|---|---|---|---|
+| **scene** مشهد | حين يحمل المقال موقفًا بشريًا أو تنظيميًا | «تخيّل شركة أرباحها جيدة على الورق ونقدها يضعف، والمدقق على وشك التوقيع.» | "Picture a company with good profits on paper, weakening cash, and an auditor about to sign." |
+| **paradox** مفارقة | حين يتعارض شيئان يبدوان متلازمين | «كانت غابات كوستاريكا تنظّم المياه لصالح الجميع. أما كلفة إبقائها فكانت على صاحب الأرض.» | "Costa Rica's forests regulated water for everyone. The cost of leaving them standing fell on the landowner." |
+| **correction** تصحيح | حين يشيع فهم ناقص يصححه المقال | «قد يظن مستشفى أن جدول مخاطره يصف ما هو قائم اليوم. لكن بعض ما فيه خطة لم تُنفَّذ بعد.» | "A hospital may assume its risk table describes what is in place today. Some of what it lists is only a plan." |
+| **image** صورة | حين تُشرح فكرة مجردة بشيء يُرى | «في مفتاح كهربائي بطائرة، قد يلتقط جهاز الحماية عطلًا فور وقوعه ولا يرى آخر إلا متأخرًا.» | "On an aircraft's power switch, a safeguard may catch one fault the moment it happens and notice another only late." |
+| **question** سؤال | نادرًا، حين يكون السؤال الحقيقي هو ما يجيب عنه المقال (لا نعم/لا بديهي) | «لماذا يعطي مدققان درجة خطر مختلفة للحساب نفسه؟» | "Why can two auditors give the same account different risk scores?" |
+| **warning** تحذير | حين يكون الخطأ شائعًا وخفيًا | «حين تُسجَّل خطة التحسين في الجدول كأنها نُفّذت، يبدو الخطر أقل مما هو.» | "When a planned fix is logged as if it were done, the risk looks smaller than it is." |
+
+(The scene and paradox examples are the two real test cards of 31 Oct 2026; the others are illustrative and must be re-checked against the actual article before any use.)
+
+### 11.4 سطر القيمة — The value line
+One sentence that works if the article is never opened: a lesson or rule, stated plainly, no stronger than the article. Not a restatement of the hook; not a slogan. Examples: «الإشارة المقلقة تنفع حين تتحول إلى سؤال يُتحقق منه، لا حين تبقى رقمًا في لوحة المؤشرات.» · "A warning sign helps only when it becomes a question someone checks, not a number on a dashboard."
+
+### 11.5 ممنوعات — Forbidden patterns
+- Closing the card or the hook with «فاسأل…» / "ask yourself…" or any generic imperative closing question; ending on a moral.
+- Opening on an abstract concept («الحماية الموجودة…», «القيمة المؤسسية…») or on «في عالم سريع التغير…», «من المهم أن…» / "In today's fast-moving world…".
+- A yes/no rhetorical question whose answer is obvious («هل تريد أن تنجح؟»); a generic claim that fits any article.
+- Any organization name, result, proof or number the article does not give. At most **one** number per card, only when the article states it with its source and the fidelity checker passes it.
+- Turning a hypothetical example into a real event; turning a study's proposal into proof; implying the owner ran the study.
+- The same hook type as either of the last two cards; the same scene as an earlier card of the same article.
+- Label-and-explanation prose in Arabic («الفكرة: …»); English that mirrors Arabic word order.
+
+### 11.6 العربية والإنجليزية
+Arabic: full, natural sentences; the hook sets the scene in plain words a manager understands at first reading; name every referent (see section 10). English: written from the idea, US spelling, concrete nouns, no contractions on the card; it may order the scene differently from the Arabic as long as it keeps the same article material and the same certainty.
+
+### 11.7 قائمة الفحص — Hook-card checklist
+1. الجملة الأولى تسمّي شخصًا أو جهة أو موقفًا، لا مفهومًا مجردًا؟ · First sentence names a person, organization or situation?
+2. كل عنصر في الخطّاف مسند بجملة في المقال (أو مؤطَّر بوضوح كمثال افتراضي)؟ · Every element supported by the article, or clearly framed as hypothetical?
+3. هل يفهم قارئ لم يقرأ العنوان **عمّ يتحدث المقال ولماذا يقرؤه**؟ · Would a cold reader know what the article is about and why to read it?
+4. سطر القيمة يصلح وحده ولا يزيد على المقال؟ · Value line stands alone, no stronger than the article?
+5. العنوان القصير أمين للمقال، ≤ 8 كلمات عربية / 9 إنجليزية؟ · Short title faithful and short?
+6. نوع الخطّاف يختلف عن آخر نوعين في السجل؟ · Hook type differs from the last two log entries?
+7. لا «فاسأل…» ولا ختام موعظي ولا استهلال مجرد ولا كليشيه؟ · No «فاسأل…», no moral, no abstract opening, no cliché?
+8. أرقام: لا شيء، أو رقم واحد ذكره المقال بمصدره؟ · No numbers, or one number the article itself sources?
+9. نص البطاقة ≤ ~40 كلمة عربية؛ الخطّاف بحجم ≥ 40px؟ · Card text within the limit?
+10. المنشور: يبدأ من الخطّاف نفسه، ثم سطر عمّا يجيب عنه المقال دون كشف الجواب، ثم الدعوة إلى القراءة؟ · Caption: same hook, one line on what the article answers, then the call to read?
+11. التوقيع كما هو، دون «دراسة الدكتور علاء»؟ · Signature as fixed?
+12. الإنجليزية تبدو مكتوبة بالإنجليزية أصلًا؟ · English reads as originally written?
+13. تختلف عن كل بطاقة سابقة للمقال نفسه وفي السجل؟ · Different from earlier cards?

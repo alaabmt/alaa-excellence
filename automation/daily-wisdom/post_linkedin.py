@@ -58,13 +58,18 @@ def escape(text):
     return "".join("\\" + c if c in RESERVED else c for c in text)
 
 
+def card_text(d):
+    """Text of a card for alt text and fallback captions: hook card (hook + value) or legacy wisdom."""
+    return " ".join(x for x in (d.get("hook"), d.get("value")) if x) or d["wisdom"]
+
+
 def commentary(spec, article):
     ar, en = spec["ar"], spec["en"]
     if ar.get("teaser") and en.get("teaser"):
         return escape("\n".join([ar["teaser"], f"{SITE}/{article}", "", en["teaser"], f"{SITE}/en/{article}"]))
     lines = [
-        ar["wisdom"], "",
-        en["wisdom"], "",
+        card_text(ar), "",
+        card_text(en), "",
         f"من مقال: {ar['title']}", f"{SITE}/{article}", "",
         f"From the article: {en['title']}", f"{SITE}/en/{article}",
     ]
@@ -97,7 +102,7 @@ def main():
 
     spec = json.loads(Path(a.spec).read_text(encoding="utf-8"))
     out = Path(spec["out_dir"])
-    images = [(out / f"{spec['slug']}-ar.png", spec["ar"]["wisdom"]), (out / f"{spec['slug']}-en.png", spec["en"]["wisdom"])]
+    images = [(out / f"{spec['slug']}-ar.png", card_text(spec["ar"])), (out / f"{spec['slug']}-en.png", card_text(spec["en"]))]
     for png, _ in images:
         if not png.exists():
             sys.exit(f"Missing card: {png}")

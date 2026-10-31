@@ -1,6 +1,8 @@
-# Daily Wisdom Card — run instructions
+# Daily Hook Card — run instructions
 
-Each run (once a day, 09:00 Dubai) produces **one wisdom** taken from **one** Tamayuz 10X article, rendered as two cards (Arabic and English), and sends them to the owner with the ready post texts for LinkedIn (both cards) and the Facebook Page (Arabic card only). The owner gives **one** approval for both. Posts go out **only after the owner's explicit approval in this session** (step 7). Never post anything to any other website, social network or external service.
+> **Owner decision, 31 October 2026:** the daily card is no longer a standalone wisdom line. It is a **hook card**: a concrete hook taken from the article that makes the reader want to open it, plus one value line that is worth keeping even if the article is never opened. The call to read and the link live in the post caption, not on the image. Same visual identity, same slot, same approval flow. (Files and fields keep their old names where the scripts need them, for example `daily-wisdom/` and `log.jsonl`.)
+
+Each run (once a day, 09:00 Dubai) produces **one hook card** taken from **one** Tamayuz 10X article, rendered as two cards (Arabic and English), and sends them to the owner with the ready post texts for LinkedIn (both cards) and the Facebook Page (Arabic card only). The owner gives **one** approval for both. Posts go out **only after the owner's explicit approval in this session** (step 7). Never post anything to any other website, social network or external service.
 
 - Repository: `alaabmt/alaa-excellence`
 - State branch (config, renderer, log): `ccr-87550695-nqef73`. The owner allows pushes to this branch **only** for appending to `automation/daily-wisdom/log.jsonl`.
@@ -13,32 +15,46 @@ Each run (once a day, 09:00 Dubai) produces **one wisdom** taken from **one** Ta
 4. If `log.jsonl` already has a line with this slug, stop. That slot is already done.
 
 ## 2. Choose the article
-1. Focus = `config.json → months["YYYY-MM"]`. If that key is missing, use `default_focus`. Expand the `files` globs for that focus in the repository root. These are the Arabic pages. The English page has the same file name under `en/`.
-2. Among those files, choose the article with the **fewest** log entries for this focus. On a tie, choose the one used least recently. Never choose the same article as the previous log line, unless the focus has only one article.
-3. Extract the text: `python3 -I automation/daily-wisdom/extract_text.py <file>`. Do this for the Arabic page and, when it exists, the English page. Use the article title from the page `<h1>` (the first heading line), not the `<title>` suffixes.
-4. Read every earlier log entry for this article. The new wisdom must express a **different idea**.
+1. **Recent first.** Read `data/article-publication-dates.json` on `origin/main` (`git show origin/main:data/article-publication-dates.json`). If any Arabic page of `config.json → months` focus (or, for a new Preventive Engineering article, any `article-preventive-engineering-*.html`) was published in the **last 3 days** (Dubai date) and has **no** entry in `log.jsonl`, choose it (newest first). New Preventive Engineering articles are expected daily from 1 November 2026.
+2. **Otherwise rotate.** Focus = `config.json → months["YYYY-MM"]` (fallback `default_focus`). Expand the `files` globs for that focus in the repository root (Arabic pages; the English page has the same name under `en/`). Choose the article with the **fewest** log entries; on a tie, the one used least recently. When the counts are close, **prefer an article with a human or organizational story** (a named organization, person, place or situation) over a purely technical one.
+3. Never choose the same article as the previous log line, unless it is the only one in the focus.
+4. Extract the text: `python3 -I automation/daily-wisdom/extract_text.py <file>` for the Arabic page and, when it exists, the English page. Take the article title from the page `<h1>`, not the `<title>` suffixes.
+5. Read every earlier log entry for this article. The new hook must come from a **different scene or angle** than any earlier card of the same article.
 
-## 3. Write the wisdom
-**First read `automation/daily-wisdom/WISDOM_WRITING_SKILL.md` and apply it, including section 10 (owner-approved lessons: name the referent, strong clear hook, one concrete example, practical closing question; test with a reader who has not read the article).** Write three candidates with three different hooks, test them with its checklist, keep the best one, and record the hook type in the log as `"hook"` (paradox / correction / image / scene / question / warning). Never use the same hook type as the previous log entry. The rest of this section lists the fixed rules.
-A wisdom is **one idea**, stated as a lesson that also holds outside the article. It is not a summary of the article.
+## 3. Write the hook card
+**First read `automation/daily-wisdom/WISDOM_WRITING_SKILL.md`, section 11 (hook card), and apply it.** Section 11 replaces sections 1–5 and 7–9 of that file for daily cards; sections 6 (truth before cleverness) and 10 (owner lessons: name the referent, test with a reader who has not read the article) still apply.
 
-Length: not short and not long.
-- Arabic: 18–35 words, in one or two sentences.
-- English: 20–38 words, in one or two sentences.
+A hook card has five parts. Fields per language: `hook`, `value`, `title_short`, `teaser` (the caption), plus the fixed signature drawn by the renderer.
 
-Content rules:
-- The idea must come clearly from the article's own argument. Do not add claims, numbers, percentages, organization names or results. Do not state or imply that anything was proven unless the article says so.
-- No statistics at all. A wisdom carries an idea, not data.
-- No talk about the reader or the writing ("in this article", "you will learn"…). No clichés such as «في عالم سريع التغير».
-- Arabic: modern, natural فصحى that reads as written in Arabic from the start (Executive Analytical Arabic — Tamayuz 10X style). Use correct spelling and hamzas.
-- English: an original editorial line in US spelling. It is not a translation of the Arabic. It keeps the same idea and the same level of certainty. Apply this test: would a native English editor guess it was translated? If yes, rewrite it.
-- The Arabic term for Failure Mode is always «أوجه الفشل», never «وجوه الفشل».
-- Preventive engineering focus: it is better to avoid technical terms. If FMEA is mentioned in Arabic, write exactly «منهجية هندسة الوقاية (FMEA)». If the three risk dimensions are named together in Arabic, write exactly «ثلاثية تحديد الخطر (Severity, Occurrence, Detection — S/O/D)». Never use «ثلاثية تقييم الخطر» or «ثالوث الخطر».
-- Quranic reflections focus: do not quote or paraphrase verses on the card. Give the leadership lesson as the article states it. Do not give any verse a meaning that the article does not give it.
-- The wisdom must not repeat or closely paraphrase any earlier wisdom in `log.jsonl`.
+1. **Hook** (large text; the main element): 1–2 short sentences taken from the article itself: a concrete scene, a person/organization/situation, a surprising turn, or a real question the article answers. **The first sentence names a person, an organization or a situation, never an abstract concept.** Not a yes/no rhetorical question whose answer is obvious. Not a generic claim. If the article's scene is hypothetical (a teaching example), frame it as such («تخيّل…», «لنفترض…», "Picture…").
+2. **Value line** (one sentence): the idea a reader keeps even if they never open the article. It must stand alone and be true to the article.
+3. **Short card title** (`title_short`): at most about 8 Arabic words / 9 English words, faithful to the article. The article's H1 is not changed; it is used in the caption.
+4. **Signature** (fixed, drawn by `render.mjs`): «من تحليل الدكتور علاء محمد عيسى» / "From the analysis of Dr. Alaa Mohammed Eissa". Never write «دراسة الدكتور علاء» or imply the owner ran the study.
+5. **Call to read + link**: in the caption only (`teaser`), never on the image.
+
+**Hard limits:** card image text (hook + value + title + signature) at most about 40 Arabic words; the hook is rendered at `font_px` ≥ 40 (the renderer reports it and fails below 40); nothing clipped; Arabic RTL shaped correctly.
+
+**Rotation and bans:**
+- Hook types: scene / paradox / correction / image / question / warning. **Do not repeat the type of either of the last TWO log entries.** Record the type in the log as `"hook"`.
+- Forbidden: ending the card, the hook or the value line with «فاسأل…» or any generic imperative closing question; «في عالم سريع التغير»-style clichés; opening on an abstract concept.
+- **Numbers:** at most **one** number per card, only if the article itself states it with its source and the fidelity checker passes it. Otherwise no numbers.
+- **Truth:** everything comes from the article. No claim stronger than the article, no organization name, result or proof that the article does not give. Do not state or imply that anything was proven unless the article says so.
+- Quranic reflections focus: do not quote or paraphrase verses on the card; give the leadership lesson as the article states it.
+- The new card must not repeat or closely paraphrase an earlier hook or value line in `log.jsonl`.
+
+Process: write three candidate hooks of three different (allowed) types, test them with the section 11 checklist, keep the best, then write the value line, the short title and the caption.
+
+Length: hook 8–20 Arabic words (6–22 English); value line 8–18 words; total image text within the limit above.
+
+Language rules:
+- Arabic: modern, natural فصحى written as Arabic from the start (Executive Analytical Arabic, Tamayuz 10X). Full sentences; no «label: explanation» pattern; correct hamzas.
+- English: original editorial English in US spelling, written from the idea and not from the Arabic; no contractions on the card. Would a native English editor guess it was translated? If yes, rewrite.
+- Terms: Failure Mode is always «أوجه الفشل». FMEA in Arabic is exactly «منهجية هندسة الوقاية (FMEA)». The risk triad in Arabic is exactly «ثلاثية تحديد الخطر (Severity, Occurrence, Detection — S/O/D)»; never «ثلاثية تقييم الخطر» or «ثالوث الخطر». Preventive-engineering cards should avoid technical terms where possible.
 
 ### Editorial standards (summary of the owner's Google Drive standards)
 The full standards are in the owner's Google Drive: `10X_ENGLISH_EDITORIAL_TRANSLATION_AND_HUMAN_STYLE_STANDARD.md` and `Arabic_Editorial_and_Publishing_Agent.md`. If this session can read Google Drive, read both before writing. If it cannot, apply this summary strictly.
+
+(The approved examples below come from the earlier wisdom-line format. Use them as references for Arabic and English quality and for the owner's taste, not as the card format.)
 
 Arabic:
 - Write as if the text were written in Arabic first: no literal translation, no filler, no repeated words or roots in the same sentence (for example «لا يُستدام… يُستدام»).
@@ -57,35 +73,34 @@ English (Publication Translation mode):
 - Read-aloud test: if the sentence is hard to say naturally, rewrite it. Ask: if the Arabic disappeared, would this read as an original English line by a senior editor? If not, rewrite.
 
 ### Post caption (teaser) — required
-The post text is a small promise of knowledge that invites the reader to open the article (master manual §10), not a copy of the card. Write `ar.teaser` (Arabic, 45–90 words) and `en.teaser` (English, 45–90 words, original editorial English under the same rules, ending with "Read the full article: <English title>"):
-1. Open with the scene, tension, paradox or question that makes the article worth reading, drawn from the article itself.
-2. One or two questions the article answers, without giving the full answer.
-3. One short line on why it matters to a leader or an organization.
-4. End with a call to read that is tied to the idea: «📖 اقرأ … كاملًا: «<article title>»». The script adds the link.
-Do not use internal labels (The 10X Move, عدسة 10X, دليل الأثر), clichés, exaggeration, numbers or claims that are not in the article. The approved model is the Dhul-Qarnayn reflection caption of 16 October 2026: «عرض القوم على ذي القرنين المال ليحلّ مشكلتهم عنهم، فطلب منهم شيئًا آخر: أن يعينوه بقوتهم. لماذا لم يكتفِ بأن يحلّها وحده؟ …».
+The caption is where the call to read lives. Write `ar.teaser` (Arabic, 35–75 words) and `en.teaser` (English, 35–75 words, original editorial English), in this order, separated by blank lines:
+1. **The same hook as the card** (verbatim or lightly extended; never a different story).
+2. **One line** saying what the article answers, without giving the full answer (for example «تروي الحالة كيف … وأين …»).
+3. **The call to read**, tied to the article: «📖 اقرأ المقال كاملًا: «<article H1>»» / "Read the full article: <English H1>" (for a case: «اقرأ الحالة كاملة» / "Read the full case"). The scripts add the link line after it.
+No internal labels (The 10X Move, عدسة 10X, دليل الأثر), no clichés, no exaggeration, no claim or number that is not in the article. Everything in the caption is checked by the fidelity checker.
 
-### Independent review gate — required (owner decision, 25 October 2026)
-After the checklist and before rendering, run **two** read-only review agents with the Agent tool. Neither edits files nor posts.
-1. `wisdom-card-clarity-reviewer` («مراجع وضوح بطاقات الحكمة», `.claude/agents/wisdom-card-clarity-reviewer.md`): cold-read test. Give it **only** the final Arabic wisdom, English wisdom and the two teasers, never the article, your reasoning or your verdict.
-2. `wisdom-card-fidelity-checker` («فاحص أمانة بطاقات الحكمة للمقال», `.claude/agents/wisdom-card-fidelity-checker.md`): gives it the same four texts plus the article text (or its path). It checks that nothing claims more than the article says.
-Both return the fixed `FORMAT: v1` report with PASS or BLOCK per text and an OVERALL line. Do not send any card while either OVERALL is BLOCK: rewrite and review again, at most **two** rewrite rounds. If it still blocks after two rounds, send the best version with a clear warning to the owner and the unresolved reviewer points. Paste both OVERALL verdicts (and any non-blocking notes) in the delivery message, and add `"review": {"clarity": "PASS|BLOCK", "fidelity": "PASS|BLOCK", "rounds": n}` to the log line. When the agents' instructions change, rerun `automation/daily-wisdom/reviewer_tests.md` and make sure every case matches its expected verdict.
+### Independent review gate — required (owner decision, 25 October 2026; updated 31 October 2026)
+After the checklist and before rendering, run read-only review agents with the Agent tool. They neither edit files nor post.
+1. `wisdom-card-fidelity-checker` («فاحص أمانة بطاقات الحكمة للمقال», `.claude/agents/wisdom-card-fidelity-checker.md`): **always required, for every card.** It guards truth. Give it the eight texts (AR_HOOK, AR_VALUE, EN_HOOK, EN_VALUE, AR_POST, EN_POST, plus AR_TITLE_SHORT and EN_TITLE_SHORT) and the article text (or its path). It BLOCKs any hook, value line, short title or caption line that the article does not support.
+2. `wisdom-card-clarity-reviewer` («مراجع وضوح بطاقات الحكمة», `.claude/agents/wisdom-card-clarity-reviewer.md`): cold-read test. **Required until 14 November 2026 inclusive; after that date it becomes optional** (run it when a card feels unclear or when the owner asks). Give it **only** the same eight texts, never the article, your reasoning or your verdict. A hook card is PASS only if a cold reader understands what the article is about and why to read it.
+Both return the fixed `FORMAT: v2` report with PASS or BLOCK per text and an OVERALL line. Do not send any card while an applicable OVERALL is BLOCK: rewrite and review again, at most **two** rewrite rounds. If it still blocks after two rounds, send the best version with a clear warning to the owner and the unresolved reviewer points. Paste the OVERALL verdicts (and any non-blocking notes) in the delivery message, and add `"review": {"clarity": "PASS|BLOCK|SKIPPED", "fidelity": "PASS|BLOCK", "rounds": n}` to the log line. When the agents' instructions change, rerun `automation/daily-wisdom/reviewer_tests.md` and make sure every case matches its expected verdict.
 
-Before rendering, check every item: one idea? Supported by the article? Word counts in range? No numbers? English reads as natively written? Different from the log? If any check fails, rewrite.
+Before rendering, check every item of WISDOM_WRITING_SKILL.md section 11.7. If any check fails, rewrite.
 
 ## 4. Render
-1. Write `spec.json` in your scratchpad: `{"out_dir": "<scratchpad dir>", "slug": "<slug>", "ar": {"wisdom": "...", "teaser": "...", "title": "<Arabic H1>", "series": "<label_ar>"}, "en": {"wisdom": "...", "teaser": "...", "title": "<English H1>", "series": "<label_en>"}}`. If the English page does not exist, write an English title that faithfully renders the Arabic title.
+1. Write `spec.json` in your scratchpad: `{"out_dir": "<scratchpad dir>", "slug": "<slug>", "ar": {"hook": "...", "value": "...", "title_short": "...", "teaser": "...", "title": "<Arabic H1>", "series": "<label_ar>"}, "en": {"hook": "...", "value": "...", "title_short": "...", "teaser": "...", "title": "<English H1>", "series": "<label_en>"}}`. `hook`, `value`, `title_short` and `series` are drawn on the card; `teaser` and `title` are used by the post scripts (caption and call to read). If the English page does not exist, write an English title that faithfully renders the Arabic title. Old specs with `"wisdom"` still render (the wisdom becomes the hook).
 2. Run `node automation/daily-wisdom/render.mjs <spec.json>`.
-3. Each output line must show `"tajawal_loaded": true` and `font_px` ≥ 40. Open both PNGs and look at them. Check that nothing is clipped, the Arabic is shaped right-to-left, and there are no mixed-direction errors. Fix the problem and render again if needed.
+3. Each output line must show `"tajawal_loaded": true`, `font_px` ≥ 40, `"clipped": false` and `card_words` (Arabic card at most about 40). The script exits with code 2 if the hook would need to go below 40 px, text is clipped, or the font is missing. Open both PNGs and look at them. Check that the Arabic is shaped right-to-left and there are no mixed-direction errors. Fix and render again if needed.
 
 ## 5. Deliver
-Send both PNGs with `SendUserFile`, using `status: "proactive"` and `display: "render"`. The caption is the Arabic wisdom, then the English wisdom, then the article links: `https://tamayuz10x.com/<file>` and `https://tamayuz10x.com/en/<file>`.
-End the run with a short final message that has the same two texts, ready to copy as post captions, plus the links.
+Send both PNGs with `SendUserFile`, using `status: "proactive"` and `display: "render"`. The attachment caption is the Arabic hook and value line, then the English hook and value line, then the article links: `https://tamayuz10x.com/<file>` and `https://tamayuz10x.com/en/<file>`.
+End the run with a short final message that has the two post captions (teasers), ready to copy, plus the links.
 
 End the delivery message with this question, in Arabic: «هل توافق على النشر في لينكدإن وصفحة فيسبوك؟ اكتب: نعم، انشر — أو: لا — أو اطلب تعديلًا.» Before the question, show both post texts: run `post_linkedin.py post ... --dry-run` and `post_facebook.py post ... --dry-run` and paste their text. Then stop and wait for the owner's reply.
 
 ## 6. Log
-1. Right after delivery, append one JSON line to `automation/daily-wisdom/log.jsonl`: `{"slug","focus","article","hook","ar","en","created_at","linkedin":"pending","facebook":"pending"}`. `created_at` is in ISO 8601 format with the +04:00 offset.
-2. Commit only that file with the message `Daily wisdom log: <slug>`. Push with `git push -u origin ccr-87550695-nqef73`. If the push is rejected because another run pushed first, run `git pull --rebase origin ccr-87550695-nqef73` and push again. Retry up to 4 times on network errors (2s, 4s, 8s, 16s).
+1. Right after delivery, append one JSON line to `automation/daily-wisdom/log.jsonl`: `{"slug","focus","article","hook","hook_text":{"ar","en"},"title_short":{"ar","en"},"ar","en","created_at","review","linkedin":"pending","facebook":"pending"}`. `hook` is the hook type (scene / paradox / correction / image / question / warning); `hook_text` holds the two hooks; `title_short` the two short titles; `ar` and `en` stay as in the old schema and now hold **hook + " " + value line** (so older readers of the log keep working). Old lines stay valid; `hook_text` and `title_short` are absent on them. `created_at` is in ISO 8601 format with the +04:00 offset.
+2. Commit only that file with the message `Daily wisdom log: <slug>` (hook-card runs use the same message). Push with `git push -u origin ccr-87550695-nqef73`. If the push is rejected because another run pushed first, run `git pull --rebase origin ccr-87550695-nqef73` and push again. Retry up to 4 times on network errors (2s, 4s, 8s, 16s).
 3. Do not change any other file. Do not open a pull request.
 
 ## 7. Owner decision (later turn in the same session)

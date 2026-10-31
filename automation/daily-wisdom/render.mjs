@@ -1,7 +1,8 @@
 // Usage: node render.mjs spec.json
-// spec: {"out_dir": "...", "slug": "2026-10-16-0900", "style" (optional, defaults to config.card_style), "ar": {...}, "en": {...}}
-// each language: {"wisdom": "...", "title": "article title", "series": "series label",
-//                 "verse" (optional, Arabic only): exact verse text without ﴿﴾, "verse_ref" (optional)}
+// spec: {"out_dir": "...", "slug": "2026-11-01-0900", "style" (optional, defaults to config.card_style_by_slot / card_style), "ar": {...}, "en": {...}}
+// each language (hook card): {"hook": "...", "value": "...", "title_short": "...", "series": "series label",
+//                             "teaser": "post caption (used by the post scripts, not drawn)", "title": "full article H1 (used in the caption)"}
+// Legacy specs with "wisdom" instead of "hook" still render (the wisdom becomes the hook, no value line).
 import { readFileSync, writeFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -18,13 +19,22 @@ const hhmm = (spec.slug.match(/(\d{2})(\d{2})$/) || []).slice(1).join(':');
 const style = spec.style || (config.card_style_by_slot || {})[hhmm] || config.card_style || 'plain';
 const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
+// Wrap Latin-script runs inside Arabic text so mixed direction renders in reading order (e.g. FMEA, S/O/D).
+const bidi = (lang, s) => lang === 'ar'
+  ? esc(s).replace(/[A-Za-z][A-Za-z0-9\-\/]*(?: [A-Za-z][A-Za-z0-9\-\/]*)*/g, m => `<bdi dir="ltr">${m}</bdi>`)
+  : esc(s);
+
+// Hook card (owner decision 31 Oct 2026): hook (large) -> value line -> short title -> signature.
+// Old specs that only carry "wisdom" still render: the wisdom is shown as the hook, with no value line.
 function page(lang, d) {
   const rtl = lang === 'ar';
   const t = rtl
-    ? { from: 'من مقال', name: 'د. علاء محمد أحمد', brand: '<bdi><b>التميّز 10X</b></bdi> · <bdi dir="ltr">tamayuz10x.com</bdi>', mark: '”' }
-    : { from: 'From the article', name: 'Dr. Alaa Mohammad Ahmad', brand: '<b>Tamayuz 10X</b> · tamayuz10x.com', mark: '“' };
+    ? { sig: 'من تحليل الدكتور علاء محمد عيسى', brand: '<bdi><b>التميّز 10X</b></bdi> · <bdi dir="ltr">tamayuz10x.com</bdi>' }
+    : { sig: 'From the analysis of Dr. Alaa Mohammed Eissa', brand: '<b>Tamayuz 10X</b> · tamayuz10x.com' };
+  const hook = d.hook ?? d.wisdom ?? '';
+  const value = d.value ?? '';
+  const titleShort = d.title_short ?? d.title ?? '';
   const portrait = style === 'portrait';
-  // In Arabic the text starts at the right, so the photo sits on the left; English mirrors it.
   const fadeTo = rtl ? 'right' : 'left';
   const css = `
 *{box-sizing:border-box;margin:0;padding:0}
@@ -33,18 +43,13 @@ body{font-family:'Tajawal',sans-serif;background:linear-gradient(160deg,#071a2f 
 .top{padding:64px 80px 0;position:relative;z-index:2}
 .eyebrow{color:#f3d98f;font-weight:800;font-size:28px;letter-spacing:${rtl ? '0' : '.5px'}}
 .main{flex:1;position:relative;display:flex;min-height:0}
-.q{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:center;padding:10px 80px 40px;overflow:hidden;${portrait ? 'width:640px;padding-inline-end:20px' : 'flex:1'}}
-.mark{font-family:Georgia,serif;color:#c9a24a;font-size:150px;line-height:.8;height:90px}
-.w{font-weight:${rtl ? 800 : 700};line-height:${rtl ? 1.75 : 1.45};font-size:${portrait ? 54 : 64}px}
-@font-face{font-family:'AmiriQ';src:url('file://${amiri}')}
-.verse{font-family:'AmiriQ',serif;color:#f3d98f;font-size:${portrait ? 40 : 46}px;line-height:1.9;margin:0 0 6px}
-.vref{font-size:22px;color:#b9cde0;margin-bottom:26px}
-.rule{width:120px;height:5px;background:#c9a24a;border-radius:3px;margin:36px 0 22px}
-.src{font-size:24px;line-height:1.6;color:#b9cde0}
-.src b{color:#fff;font-weight:700}
-.name{font-size:30px;font-weight:900;color:#f3d98f;margin-bottom:6px}
-.sig{display:flex;align-items:center;gap:26px;margin-top:40px}
-.avatar{flex:0 0 150px;height:150px;border-radius:50%;border:5px solid #c9a24a;box-shadow:0 0 0 8px rgba(201,162,74,.18);background:url('file://${photo}') no-repeat;background-size:470px auto;background-position:-161px -66px}
+.q{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:center;padding:10px 80px 40px;overflow:hidden;${portrait ? 'width:660px;padding-inline-end:20px' : 'flex:1'}}
+.bar{width:90px;height:8px;background:#c9a24a;border-radius:4px;margin-bottom:34px}
+.h{font-weight:${rtl ? 800 : 700};line-height:${rtl ? 1.7 : 1.35};font-size:${portrait ? 58 : 68}px}
+.v{margin-top:34px;font-weight:500;color:#dbe7f3;line-height:${rtl ? 1.75 : 1.5};font-size:${portrait ? 34 : 38}px;padding-inline-start:22px;border-inline-start:5px solid #c9a24a}
+.ttl{margin-top:38px;font-size:30px;font-weight:800;color:#f3d98f;line-height:1.5}
+.sig{display:flex;align-items:center;gap:22px;margin-top:22px;font-size:24px;color:#b9cde0;font-weight:500}
+.avatar{flex:0 0 96px;height:96px;border-radius:50%;border:4px solid #c9a24a;box-shadow:0 0 0 6px rgba(201,162,74,.18);background:url('file://${photo}') no-repeat;background-size:300px auto;background-position:-103px -42px}
 .photo{position:absolute;bottom:0;${rtl ? 'left' : 'right'}:0;width:560px;height:100%;z-index:1;
   background:url('file://${photo}') no-repeat center bottom/cover;
   -webkit-mask-image:linear-gradient(to ${fadeTo},#000 45%,transparent 100%),linear-gradient(to bottom,transparent 0%,#000 22%);
@@ -53,22 +58,17 @@ body{font-family:'Tajawal',sans-serif;background:linear-gradient(160deg,#071a2f 
 .foot .t{font-size:26px;color:#42586c;font-weight:700}
 .foot .t b{color:#0c3155;font-weight:900}
 .foot img{height:112px}`;
-  const verse = d.verse
-    ? `<p class="verse">﴿${esc(d.verse)}﴾</p>${d.verse_ref ? `<p class="vref">${esc(d.verse_ref).replace(/[0-9٠-٩]+(?:\s*[–-]\s*[0-9٠-٩]+)?/g, m => `<bdi dir="ltr">${m}</bdi>`)}</p>` : ''}`
-    : '';
-  const quote = verse
-    ? `${verse}<p class="w" id="w">${esc(d.wisdom)}</p>`
-    : `<div class="mark">${t.mark}</div><p class="w" id="w">${esc(d.wisdom)}</p>`;
-  const credit = style === 'plain'
-    ? `<div class="rule"></div><p class="src">${t.from}: <b>${esc(d.title)}</b></p>`
-    : portrait
-    ? `<div class="rule"></div><p class="name">${t.name}</p><p class="src">${t.from}: <b>${esc(d.title)}</b></p>`
-    : `<div class="sig"><div class="avatar"></div><div><p class="name">${t.name}</p><p class="src">${t.from}: <b>${esc(d.title)}</b></p></div></div>`;
+  const sig = style === 'signature'
+    ? `<div class="sig"><div class="avatar"></div><span>${t.sig}</span></div>`
+    : `<p class="sig" style="margin-top:14px">${t.sig}</p>`;
   return `<!doctype html><html lang="${lang}" dir="${rtl ? 'rtl' : 'ltr'}"><head><meta charset="utf-8">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap">
 <style>${css}</style></head><body>
-<div class="top"><span class="eyebrow">${esc(d.series)}</span></div>
-<div class="main">${portrait ? '<div class="photo"></div>' : ''}<div class="q" id="q">${quote}${credit}</div></div>
+<div class="top"><span class="eyebrow">${esc(d.series ?? '')}</span></div>
+<div class="main">${portrait ? '<div class="photo"></div>' : ''}<div class="q" id="q"><div class="bar"></div>
+<p class="h" id="w">${bidi(lang, hook)}</p>
+${value ? `<p class="v" id="v">${bidi(lang, value)}</p>` : ''}
+<p class="ttl">${bidi(lang, titleShort)}</p>${sig}</div></div>
 <div class="foot"><span class="t">${t.brand}</span><img src="file://${logo}" alt=""></div>
 </body></html>`;
 }
@@ -81,15 +81,25 @@ for (const lang of ['ar', 'en']) {
   writeFileSync(html, page(lang, spec[lang]));
   await p.goto('file://' + html, { waitUntil: 'networkidle' });
   await p.evaluate(() => document.fonts.ready);
-  const size = await p.evaluate(() => {
-    const q = document.getElementById('q'), w = document.getElementById('w');
+  const fit = await p.evaluate(() => {
+    const q = document.getElementById('q'), w = document.getElementById('w'), v = document.getElementById('v');
     let s = parseFloat(getComputedStyle(w).fontSize);
-    while (q.scrollHeight > q.clientHeight && s > 32) { s -= 2; w.style.fontSize = s + 'px'; }
-    return s;
+    const v0 = v ? parseFloat(getComputedStyle(v).fontSize) : 0, s0 = s;
+    while (q.scrollHeight > q.clientHeight && s > 40) {
+      s -= 2; w.style.fontSize = s + 'px';
+      if (v) v.style.fontSize = Math.max(28, Math.round(v0 * s / s0)) + 'px';
+    }
+    const clipped = q.scrollHeight > q.clientHeight + 1;
+    const wide = [...q.children].some(c => c.scrollWidth > c.clientWidth + 1);
+    const text = [...q.querySelectorAll('.h,.v,.ttl,.sig')].map(e => e.textContent).join(' ');
+    const words = text.split(/\s+/).filter(Boolean).length;
+    return { s, clipped, wide, words };
   });
+  const size = fit.s;
   const fontOk = await p.evaluate(() => document.fonts.check("700 40px Tajawal"));
   const png = resolve(spec.out_dir, `${spec.slug}-${lang}.png`);
   await p.screenshot({ path: png, clip: { x: 0, y: 0, width: 1080, height: 1350 } });
-  console.log(JSON.stringify({ lang, style, png, font_px: size, tajawal_loaded: fontOk }));
+  console.log(JSON.stringify({ lang, style, png, font_px: size, card_words: fit.words, clipped: fit.clipped || fit.wide, tajawal_loaded: fontOk }));
+  if (fit.clipped || fit.wide || size < 40 || !fontOk) process.exitCode = 2;
 }
 await browser.close();
