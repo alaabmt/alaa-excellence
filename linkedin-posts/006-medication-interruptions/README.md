@@ -3,7 +3,7 @@
 **Format:** LinkedIn document (carousel), 8 slides, 1080×1350, two separate posts: Arabic (`carousel-ar.pdf`) and English (`carousel-en.pdf`). The English version is written as original English, not a translation.
 **Website article:** https://tamayuz10x.com/article-oe-evidence-medication-interruptions.html and https://tamayuz10x.com/en/article-oe-evidence-medication-interruptions.html (PR #89, squash merge b6fd60e, live 2026-11-01).
 **Editorial review:** article text reviewed with the owner's `arabic-editorial-reviewer` and `english-editorial-reviewer` agents (`.claude/agents/`); all BLOCK/FIX findings fixed.
-**Status:** Approved by the owner on 2026-11-01. Article live; Arabic post published; English post scheduled.
+**Status:** Approved by the owner on 2026-11-01. Article live; Arabic and English posts published.
 
 | File | Purpose |
 |---|---|
@@ -41,4 +41,6 @@ Checked on 1 Nov 2026. PubMed was unavailable (server error); abstracts were rea
 |---|---|---|
 | Website article (AR + EN) | Live 2026-11-01 (PR #89; the same PR also fixed three bare "FMEA" labels in the `articles.html` navigation) | https://tamayuz10x.com/article-oe-evidence-medication-interruptions.html · https://tamayuz10x.com/en/article-oe-evidence-medication-interruptions.html |
 | LinkedIn Arabic carousel | Published 2026-11-01, `urn:li:ugcPost:7522555113287389184`, document title «سترة «لا تقاطعني» لم تخفّض الأخطاء» | https://www.linkedin.com/feed/update/urn:li:ugcPost:7522555113287389184/ |
-| LinkedIn English carousel | Scheduled about two hours after the Arabic post | — |
+| LinkedIn English carousel | Published 2026-11-01, `urn:li:ugcPost:7522585802938146816`, document title "A do-not-interrupt vest did not cut errors" (includes the corrected last-slide limit line) | https://www.linkedin.com/feed/update/urn:li:ugcPost:7522585802938146816/ |
+
+**Correction note (2026-11-01):** after the Arabic post went out, the last-slide line «شملت الدراسات مستشفى عربيًا واحدًا» was found to overstate the evidence (the reviews' included studies were not checked). The source PDFs now say that only one of the five cited studies took place in an Arab hospital. The English post was published with the corrected slide; the Arabic post on LinkedIn still shows the old line (LinkedIn does not allow replacing a published document).
