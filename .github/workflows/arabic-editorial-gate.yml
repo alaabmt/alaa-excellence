@@ -25,6 +25,14 @@ jobs:
         run: python3 scripts/check_arabic_mobile.py
       - name: Render current Qur'anic reflection at actual mobile widths
         run: python3 scripts/check_quran_reflection_mobile.py
+      - name: Render the OE evidence interruptions article at actual mobile widths
+        env:
+          ARABIC_ARTICLE: article-oe-evidence-medication-interruptions.html
+          EDITORIAL_REPORT: editorial-qa/oe-interruptions.json
+          MOBILE_ARTIFACT_PREFIX: oe-interruptions
+        run: python3 scripts/check_arabic_mobile.py
+      - name: Check OE evidence interruptions editorial gates
+        run: python3 scripts/check_arabic_editorial.py article-oe-evidence-medication-interruptions.html editorial-qa/oe-interruptions.json
       - name: Render the OE evidence handoffs article at actual mobile widths
         env:
           ARABIC_ARTICLE: article-oe-evidence-standardized-handoffs.html
@@ -56,4 +64,5 @@ jobs:
             editorial-qa/agent-company-handbook-compliance.json
             editorial-qa/oe-defaults.json
             editorial-qa/oe-handoffs.json
+            editorial-qa/oe-interruptions.json
           if-no-files-found: error

@@ -1,0 +1,67 @@
+{
+  "article": "article-oe-evidence-medication-interruptions.html",
+  "headline": "ماذا حدث حين حاولت المستشفيات منع مقاطعة الممرضين في أثناء إعطاء الأدوية؟",
+  "reviewed_at": "2026-11-01",
+  "reviewer": "AI editorial review using the owner's arabic-editorial-reviewer and english-editorial-reviewer agents (not a human reader test)",
+  "introduction_answers": {
+    "problem": "يُقاطَع الممرضون كثيرًا في أثناء جولة الأدوية، وترتبط المقاطعة بأخطاء أكثر في أغلب الدراسات.",
+    "who": "الممرضون في المستشفيات، ومرضاهم.",
+    "change": "جرّبت مستشفيات سترة «لا تقاطعني»، فلم تجد تجربة وُزّعت فيها الوحدات بالقرعة أنها خفّضت الأخطاء."
+  },
+  "summary": "جرّبت مستشفيات فرنسية سترة «لا تقاطعني» لتقليل أخطاء إعطاء الدواء، فلم تجد تجربة عشوائية أثرًا لها، وتشير الدراسات إلى أن مصادر المقاطعة أوسع مما تمنعه سترة.",
+  "gates": {
+    "title": "PASS",
+    "introduction": "PASS",
+    "summary": "PASS",
+    "terminology": "PASS",
+    "evidence": "PASS",
+    "mobile": "PASS",
+    "language": "PASS"
+  },
+  "terminology_evidence": "Interruption, medication administration error, opportunity for error, randomized and cluster randomized trial, systematic review and scoping review are explained at first use or in the glossary; English terms are in parentheses after the Arabic.",
+  "language_evidence": "Reviewed by the arabic-editorial-reviewer agent (two BLOCK rounds fixed) and the english-editorial-reviewer agent (BLOCK on 'precise work' calque fixed); editorial simulation, not a human reader test.",
+  "mobile_evidence": {
+    "method": "Playwright Chromium browser, 320/375/390/430px viewports",
+    "results": "editorial-qa/mobile-artifacts/oe-interruptions-results.json",
+    "screenshots": [
+      "editorial-qa/mobile-artifacts/oe-interruptions-320.png",
+      "editorial-qa/mobile-artifacts/oe-interruptions-375.png",
+      "editorial-qa/mobile-artifacts/oe-interruptions-390.png",
+      "editorial-qa/mobile-artifacts/oe-interruptions-430.png"
+    ],
+    "scope": "Automated rendered-layout verification; screenshots retained for human visual review"
+  },
+  "source_evidence": [
+    {
+      "claim": "22 quantitative studies in 9 countries; 16 (73%) significant positive association between interruptions and medication administration errors; definitions varied",
+      "url": "https://doi.org/10.1111/jan.70032",
+      "location": "Abstract: Results",
+      "assessment": "Scoping review (Schroers et al., J Adv Nurs 2025)"
+    },
+    {
+      "claim": "1,000-bed teaching hospital, Saudi Arabia; 28 nurses, 15 medication rounds; 182 interruptions; frequent sources nurses, doctors and impediments",
+      "url": "https://doi.org/10.1111/jnu.12765",
+      "location": "Abstract: Design, Results",
+      "assessment": "Small descriptive observational and interview study (Eid et al., 2022)"
+    },
+    {
+      "claim": "51 studies; pharmacists interrupted from fewer than 5 to more than 20 times per hour; phone calls, customer questions, staff questions outside their scope",
+      "url": "https://doi.org/10.1016/j.sapharm.2025.05.001",
+      "location": "Abstract: Results",
+      "assessment": "Scoping review (Ayanaw et al., 2025)"
+    },
+    {
+      "claim": "29 units, 4 French hospitals, 178 nurses, 1,346 patients, 383 rounds; error rate 7.09% vs 6.23% of opportunities for error (p=0.192); interruption rate = doses with at least one interruption / all doses: pre 13.4% vs 23.78%, during 15.04% vs 20.75%; authors: no impact on errors or interruption rates; main error wrong dosage form; most errors no clinical impact",
+      "url": "https://doi.org/10.1186/s12912-021-00671-7",
+      "location": "Abstract and Results (full text PMC8383384, Table 3)",
+      "assessment": "Cluster randomized controlled trial, data collected March-July 2017"
+    },
+    {
+      "claim": "14 studies; preventive strategies may reduce external interruptions, nurse-to-nurse interruptions remained common; responsive strategies improved handling; effect on errors inconclusive",
+      "url": "https://doi.org/10.1111/wvn.70067",
+      "location": "Abstract: Results",
+      "assessment": "Systematic review without meta-analysis (Zhang et al., 2025)"
+    }
+  ],
+  "decision": "CI candidate PASS only; authoritative approval is successful GitHub Actions job"
+}

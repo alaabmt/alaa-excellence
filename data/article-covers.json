@@ -1722,6 +1722,27 @@
       }
     },
     {
+      "slug": "article-oe-evidence-medication-interruptions",
+      "background": "assets/previews/story-backgrounds/article-oe-evidence-medication-interruptions.jpg",
+      "category": "article",
+      "ar": {
+        "title": [
+          "سترة «لا تقاطعني»",
+          "لم تخفّض الأخطاء"
+        ],
+        "subtitle": "المقاطعة في أثناء إعطاء الأدوية وأسبابها",
+        "alt": "غلاف توضيحي بالكحلي والذهبي لمقال عن مقاطعة الممرضين في أثناء إعطاء الأدوية، يظهر فيه كوب أدوية تحيط به إشارات تنبيه."
+      },
+      "en": {
+        "title": [
+          "A “Do Not Interrupt” Vest",
+          "Did Not Cut Errors"
+        ],
+        "subtitle": "Why the interruptions persist.",
+        "alt": "Navy and gold editorial cover for an article about interruptions during medication rounds, showing a medicine cup surrounded by alert signs."
+      }
+    },
+    {
       "slug": "article-oe-evidence-standardized-handoffs",
       "background": "assets/previews/story-backgrounds/article-oe-evidence-standardized-handoffs.jpg",
       "category": "article",
