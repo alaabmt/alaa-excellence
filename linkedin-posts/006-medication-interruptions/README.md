@@ -1,9 +1,9 @@
 # LinkedIn Post 006 — سترة «لا تقاطعني» لم تخفّض الأخطاء / A do-not-interrupt vest did not cut errors
 
 **Format:** LinkedIn document (carousel), 8 slides, 1080×1350, two separate posts: Arabic (`carousel-ar.pdf`) and English (`carousel-en.pdf`). The English version is written as original English, not a translation.
-**Website article:** https://tamayuz10x.com/article-oe-evidence-medication-interruptions.html and https://tamayuz10x.com/en/article-oe-evidence-medication-interruptions.html (draft PR #89, not live yet).
+**Website article:** https://tamayuz10x.com/article-oe-evidence-medication-interruptions.html and https://tamayuz10x.com/en/article-oe-evidence-medication-interruptions.html (PR #89, squash merge b6fd60e, live 2026-11-01).
 **Editorial review:** article text reviewed with the owner's `arabic-editorial-reviewer` and `english-editorial-reviewer` agents (`.claude/agents/`); all BLOCK/FIX findings fixed.
-**Status:** Draft, waiting for the owner's approval. Not published.
+**Status:** Approved by the owner on 2026-11-01. Article live; Arabic post published; English post scheduled.
 
 | File | Purpose |
 |---|---|
@@ -34,3 +34,11 @@ Checked on 1 Nov 2026. PubMed was unavailable (server error); abstracts were rea
 [5] Zhang W, et al. Effectiveness of interventions for reducing interruptions during medication administration: a systematic review. *Worldviews Evid Based Nurs* 2025;22(4):e70067. doi:10.1111/wvn.70067
 
 **Evidence limits:** the only randomized trial collected data in 2017 and tested the vest and poster only; the reviews could not pool results because definitions differed; association is not causation; the Saudi study is small and descriptive; no setting outside health care was tested.
+
+## Publication
+
+| Item | Status | Link |
+|---|---|---|
+| Website article (AR + EN) | Live 2026-11-01 (PR #89; the same PR also fixed three bare "FMEA" labels in the `articles.html` navigation) | https://tamayuz10x.com/article-oe-evidence-medication-interruptions.html · https://tamayuz10x.com/en/article-oe-evidence-medication-interruptions.html |
+| LinkedIn Arabic carousel | Published 2026-11-01, `urn:li:ugcPost:7522555113287389184`, document title «سترة «لا تقاطعني» لم تخفّض الأخطاء» | https://www.linkedin.com/feed/update/urn:li:ugcPost:7522555113287389184/ |
+| LinkedIn English carousel | Scheduled about two hours after the Arabic post | — |
