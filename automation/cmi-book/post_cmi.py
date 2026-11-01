@@ -1,4 +1,4 @@
-"""Publish one day of the 30-day "Mastering Case Mix Index" LinkedIn series.
+"""Publish one post of the open-ended "Mastering Case Mix Index" LinkedIn series.
 
 Usage:
   python3 -I post_cmi.py next                 # print the next unposted day number (or 0 when finished)
@@ -61,7 +61,7 @@ def main():
         return
     n = a.day
     if not 1 <= n <= len(DATA["posts"]):
-        sys.exit("day must be 1-30")
+        sys.exit(f"post number must be 1-{len(DATA['posts'])}")
     imgs = cards(n)
     for p in imgs:
         if not p.exists():
@@ -78,7 +78,7 @@ def main():
         print(json.dumps({"dry_run": True, "day": n, "chars": len(text), "commentary": text}, ensure_ascii=False, indent=1))
         return
     owner, _ = pl.person_urn()
-    alts = [f"Mastering Case Mix Index, day {n} of 30 (English card)", f"Mastering Case Mix Index, day {n} of 30 (Arabic card)"]
+    alts = [f"Mastering Case Mix Index, insight {n} (English card)", f"Mastering Case Mix Index, insight {n} (Arabic card)"]
     media = [{"id": pl.upload(owner, p), "altText": alt} for p, alt in zip(imgs, alts)]
     body = {"author": owner, "commentary": text, "visibility": pl.CONFIG.get("visibility", "PUBLIC"),
             "distribution": {"feedDistribution": "MAIN_FEED", "targetEntities": [], "thirdPartyDistributionChannels": []},

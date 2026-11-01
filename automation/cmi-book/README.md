@@ -1,7 +1,7 @@
-# سلسلة «Mastering Case Mix Index» على LinkedIn (30 يومًا)
+# سلسلة «Mastering Case Mix Index» على LinkedIn
 
-- `cards/`: ستون بطاقة (Day01_EN.png … Day30_AR.png) بمقاس 1080×1350.
-- `posts.json`: نص المنشورات الثلاثين (الإنجليزية أولًا ثم العربية)، ورابط أمازون، والوسوم.
+- `cards/`: بطاقتان لكل منشور (DayNN_EN.png و DayNN_AR.png) بمقاس 1080×1350.
+- `posts.json`: نصوص المنشورات (الإنجليزية أولًا ثم العربية)، ورابط أمازون، والوسوم.
 - `post_cmi.py`: ينشر يومًا واحدًا على حساب LinkedIn الشخصي بصورتين (الإنجليزية ثم العربية)، ويستعمل أدوات `automation/daily-wisdom/post_linkedin.py` والرمز المحفوظ في Network secrets.
 - `log.jsonl`: سجل الأيام المنشورة؛ يمنع نشر اليوم نفسه مرتين، ويحدد اليوم التالي.
 
