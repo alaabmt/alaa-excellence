@@ -91,7 +91,7 @@ ar.append(('',f"""<div class="kicker">المصادر وحدود الدليل</di
   <ul class="clean" style="margin-top:2px">
     <li style="font-size:22px;padding:6px 0">جُمعت بيانات التجربة الفرنسية عام <span class="ltr">2017</span>، واختبرت السترة واللافتة فقط.</li>
     <li style="font-size:22px;padding:6px 0">اختلفت تعريفات الدراسات في المراجعات، فلم تُجمع نتائجها في تحليل واحد.</li>
-    <li style="font-size:22px;padding:6px 0">شملت الدراسات مستشفى عربيًا واحدًا، وتعميمها على قطاعات أخرى استنتاج.</li>
+    <li style="font-size:22px;padding:6px 0">من بين الدراسات الخمس دراسة واحدة فقط في مستشفى عربي، وتعميمها على قطاعات أخرى استنتاج.</li>
   </ul>
   <p class="small" style="margin-top:6px;font-size:18px;line-height:1.5"><b>تنويه تحريري:</b> الآراء والتحليلات الواردة في هذا المقال تمثل رأي الكاتب وتحليله المهني استنادًا إلى المصادر المشار إليها، ولا تمثل بالضرورة المواقف الرسمية للجهات المذكورة. وللاطلاع على المعلومات والمراجع الأصلية والكاملة والأحدث، يُرجى الرجوع مباشرة إلى المصادر الأصلية والوثائق الرسمية الواردة في قائمة المراجع.</p>
   {REFS}
@@ -145,7 +145,7 @@ en.append(('',f"""<div class="kicker">Sources and limits</div>
   <ul class="clean" style="margin-top:2px">
     <li style="font-size:22px;padding:6px 0">The French trial collected its data in 2017 and tested only the vest and poster.</li>
     <li style="font-size:22px;padding:6px 0">The reviews drew on studies with different definitions, so results were not pooled.</li>
-    <li style="font-size:22px;padding:6px 0">The studies included one Arab hospital. Applying the idea to other sectors is an inference.</li>
+    <li style="font-size:22px;padding:6px 0">Of the five studies, only one took place in an Arab hospital. Applying the idea to other sectors is an inference.</li>
   </ul>
   <p class="small" style="margin-top:6px;font-size:18px;line-height:1.5"><b>Editorial disclaimer:</b> The views and analyses presented in this article represent the author’s professional interpretation based on the cited sources and do not necessarily represent the official positions of the organizations mentioned. For the original, complete and most current information, please consult the primary sources and official documents listed in the references.</p>
   {REFS}
