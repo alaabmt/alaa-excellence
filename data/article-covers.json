@@ -2085,6 +2085,27 @@
         "subtitle": "In a 2,234-person experiment, output rose by about half, but campaign results did not change.",
         "alt": "Navy and gold illustrative cover for a study of working with an AI agent, showing two collaborators around an ad card that combines text and an image."
       }
+    },
+    {
+      "slug": "article-preventive-engineering-sterilization-hfmea",
+      "background": "assets/previews/story-backgrounds/article-preventive-engineering-sterilization-hfmea.jpg",
+      "category": "prevention",
+      "ar": {
+        "title": [
+          "ماذا حدث لعيوب",
+          "التعقيم بالبخار؟"
+        ],
+        "subtitle": "مركز تعقيم في مستشفى صيني يطبّق منهجية هندسة الوقاية (FMEA)",
+        "alt": "غلاف سلسلة منهجية هندسة الوقاية (FMEA) بالكحلي والذهبي بعنوان «ماذا حدث لعيوب التعقيم بالبخار؟»، عن تطبيق المنهجية في مركز تعقيم بمستشفى."
+      },
+      "en": {
+        "title": [
+          "What Happened to",
+          "Sterilization Defects?"
+        ],
+        "subtitle": "FMEA in a hospital sterile supply department.",
+        "alt": "Navy and gold FMEA · Failure Mode & Effects Analysis cover titled “What Happened to Sterilization Defects?” about applying FMEA in a hospital sterile supply department."
+      }
     }
   ]
 }
