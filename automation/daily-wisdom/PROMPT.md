@@ -29,7 +29,7 @@ A hook card has five parts. Fields per language: `hook`, `value`, `title_short`,
 1. **Hook** (large text; the main element): 1–2 short sentences taken from the article itself: a concrete scene, a person/organization/situation, a surprising turn, or a real question the article answers. **The first sentence names a person, an organization or a situation, never an abstract concept.** Not a yes/no rhetorical question whose answer is obvious. Not a generic claim. If the article's scene is hypothetical (a teaching example), frame it as such («تخيّل…», «لنفترض…», "Picture…").
 2. **Value line** (one sentence): the idea a reader keeps even if they never open the article. It must stand alone and be true to the article.
 3. **Short card title** (`title_short`): at most about 8 Arabic words / 9 English words, faithful to the article. The article's H1 is not changed; it is used in the caption.
-4. **Signature** (fixed, drawn by `render.mjs`): «من تحليل الدكتور علاء محمد أحمد» / "Analysis by Dr. Alaa Mohamed Ahmed". Never write «دراسة الدكتور علاء» or imply the owner ran the study.
+4. **Signature** (fixed, drawn by `render.mjs`): «من تحليل الدكتور علاء محمد أحمد» / "Analysis by Dr. Alaa Mohammad Ahmed". Never write «دراسة الدكتور علاء» or imply the owner ran the study.
 5. **Call to read + link**: in the caption only (`teaser`), never on the image.
 
 **Hard limits:** card image text (hook + value + title + signature) at most about 40 Arabic words; the hook is rendered at `font_px` ≥ 40 (the renderer reports it and fails below 40); nothing clipped; Arabic RTL shaped correctly.
@@ -61,8 +61,8 @@ The owner judged the first sample cards unclear in both languages. Before the re
 5. The value line is something a reader can do or understand without the article. It is not generic advice («cannot rely on one number»).
 6. The short title says what the post is (a study, a case, an analysis) and what it is about.
 7. Cold-reader test: read the card as if you know nothing about the topic. Can you say in one sentence what the card says and why it matters? If not, rewrite.
-8. In English, do not translate the Arabic word by word; rebuild the sentence. Use «Analysis by Dr. Alaa Mohamed Ahmed» (fixed signature), never «From the analysis of».
-Signature name (owner decision, 31 October 2026): «د. علاء محمد أحمد» / "Dr. Alaa Mohamed Ahmed", the form used on the site (about.html).
+8. In English, do not translate the Arabic word by word; rebuild the sentence. Use «Analysis by Dr. Alaa Mohammad Ahmed» (fixed signature), never «From the analysis of».
+Signature name (owner decision, 31 October 2026): «د. علاء محمد أحمد» / "Dr. Alaa Mohammad Ahmed", the form used on the site (about.html).
 
 ### Editorial standards (summary of the owner's Google Drive standards)
 The full standards are in the owner's Google Drive: `10X_ENGLISH_EDITORIAL_TRANSLATION_AND_HUMAN_STYLE_STANDARD.md` and `Arabic_Editorial_and_Publishing_Agent.md`. If this session can read Google Drive, read both before writing. If it cannot, apply this summary strictly.
