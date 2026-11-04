@@ -7,9 +7,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-04T22:40:00+04:00",
+  "updated_at": "2026-11-04T22:48:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "arabic_draft",
+  "current_stage": "beginner_critique",
   "run_lease": {
     "owner": "scheduled-agentic-ai-2026-11-04",
     "acquired_at": "2026-11-04T22:02:00+04:00",
@@ -23,7 +23,7 @@
     "research_status": "selected",
     "evidence_pack_status": "completed",
     "arabic_draft": {
-      "status": "drafted",
+      "status": "reviewed",
       "path": "automation/agentic-ai/article-agentic-ai-hidden-failures-trajectory-audit/draft-ar.md"
     },
     "english_draft": {
@@ -73,7 +73,7 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Run the 20–30 second novice-comprehension simulation and company-insider critique; revise Arabic before English drafting.",
+  "next_action": "Write the original English edition from the primary sources, preserving facts, limits and references without translating the Arabic syntax.",
   "last_run": {
     "mode": "scheduled_daily",
     "status": "in_progress",
@@ -81,7 +81,7 @@
     "completed_at": null,
     "notes": "Capability, protocol and duplicate checks completed. No Agentic AI article was found for 2026-11-04.",
     "current_item": "article-agentic-ai-hidden-failures-trajectory-audit",
-    "checkpoint": "Original Arabic draft committed from primary sources."
+    "checkpoint": "Arabic draft passed the novice and company-insider review; mobile remains NOT VERIFIED."
   },
   "blocker": null,
   "last_completed_item": {
