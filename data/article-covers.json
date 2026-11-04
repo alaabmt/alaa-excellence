@@ -2085,6 +2085,27 @@
         "subtitle": "In a 2,234-person experiment, output rose by about half, but campaign results did not change.",
         "alt": "Navy and gold illustrative cover for a study of working with an AI agent, showing two collaborators around an ad card that combines text and an image."
       }
+    },
+    {
+      "slug": "article-preventive-engineering-pcb-defects-fmea",
+      "background": "assets/previews/story-backgrounds/article-preventive-engineering-pcb-defects-fmea.jpg",
+      "category": "prevention",
+      "ar": {
+        "title": [
+          "ماذا حدث لعيوب",
+          "لوحات الدوائر؟"
+        ],
+        "subtitle": "مصنع إلكترونيات هندي يطبّق منهجية هندسة الوقاية (FMEA)",
+        "alt": "غلاف سلسلة منهجية هندسة الوقاية (FMEA) بالكحلي والذهبي بعنوان «ماذا حدث لعيوب لوحات الدوائر؟»، عن تطبيق المنهجية في مصنع إلكترونيات."
+      },
+      "en": {
+        "title": [
+          "What Happened to",
+          "Circuit-Board Defects?"
+        ],
+        "subtitle": "FMEA in an Indian electronics factory.",
+        "alt": "Navy and gold FMEA · Failure Mode & Effects Analysis cover titled “What Happened to Circuit-Board Defects?” about applying FMEA in an electronics factory."
+      }
     }
   ]
 }
