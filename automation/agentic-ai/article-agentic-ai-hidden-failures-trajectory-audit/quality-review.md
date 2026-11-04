@@ -83,12 +83,12 @@ Simulated perspective: enterprise internal-controls and operations leader. This 
 | One-sentence summary | PASS | 28 words without invented facts |
 | Terminology | PASS | Required terms defined at first use |
 | Numbers/evidence | PASS | Numerators, denominators and uncertainty explicit |
-| Actual mobile layout | NOT VERIFIED | Requires candidate page rendered in actual Chromium mobile widths |
+| Actual mobile layout | PASS | Arabic editorial gate rendered the live candidate in Chromium mobile widths; no horizontal overflow |
 | Language | PASS | Original Arabic; no meta-writing or meaning-changing error |
 
 ## Publication decision at this checkpoint
 
-BLOCKED pending original-English draft, bilingual parity review, candidate-page construction, actual mobile Chromium, exact-head GitHub Actions/Pages success and live verification.
+PASS — bilingual pages, evidence boxes, mobile rendering, GitHub Actions, Pages and live specialist-only placement verified.
 
 ## Bilingual semantic parity and native-English review
 
@@ -108,4 +108,13 @@ BLOCKED pending original-English draft, bilingual parity review, candidate-page 
 - English structure, transitions and idiom read as independently authored editorial English: PASS.
 - Native-editor translation-smell test: PASS.
 
-No factual, numerical, structural or certainty mismatch found. Both versions remain blocked only by candidate construction, actual mobile rendering, exact-head Actions/Pages and live verification.
+No factual, numerical, structural or certainty mismatch found. Both versions passed candidate construction, actual Chromium mobile rendering, exact-head Actions/Pages and live verification.
+
+## Final live verification — 2026-11-04
+
+- Arabic and English: one H1; required byline immediately below; canonical and ar/en/x-default alternates present.
+- Three results tables and a distinct secondary-evidence side box in each language.
+- Covers loaded at 1200×630; desktop live pages reported zero horizontal overflow.
+- Chromium mobile gate: PASS (run 41887079808).
+- One article card in each specialist Agentic AI 10X hub; zero links in the two general article indexes.
+- Pages deployment on reconciled bot head c474bb111845f552fa7e5bb548ce6c161490bdec: PASS (run 41887204298).

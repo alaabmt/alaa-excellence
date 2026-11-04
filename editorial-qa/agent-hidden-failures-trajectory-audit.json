@@ -1,7 +1,7 @@
 {
   "article": "article-agentic-ai-hidden-failures-trajectory-audit.html",
   "headline": "كيف ينجح وكيل الذكاء الاصطناعي ظاهرياً وهو يحذف البيانات؟ تدقيق 2,518 مساراً",
-  "reviewed_at": "2026-11-04T23:15:00+04:00",
+  "reviewed_at": "2026-11-04T22:29:00+04:00",
   "reviewer": "AI editorial simulation (not a human reader test)",
   "summary": "دقّق الباحثون 2,518 مساراً لوكلاء يعملون عبر أدوات. كشفوا أن نتيجة ناجحة قد تخفي حذفاً دائماً، وأن معظم المسارات المحددة بأول خطأ لم تتعافَ منه.",
   "gates": {
@@ -10,10 +10,10 @@
     "summary": "PASS",
     "terminology": "PASS",
     "evidence": "PASS",
-    "mobile": "NOT VERIFIED",
+    "mobile": "PASS",
     "language": "PASS"
   },
-  "mobile_evidence": "Pending actual Chromium mobile-width verification in the Arabic editorial gate.",
+  "mobile_evidence": "Arabic editorial gate run 41887079808 used Chromium at mobile widths and passed; live desktop pages also reported zero horizontal overflow.",
   "source_evidence": [
     {
       "claim": "2,518 trajectories across three benchmark domains",
@@ -40,7 +40,21 @@
       "assessment": "Independent side context"
     }
   ],
-  "decision": "BLOCKED pending actual mobile Chromium, exact-head Actions/Pages and live verification",
+  "decision": "PASS — publish",
   "terminology_evidence": "Agent, trajectory, first mistake, Cohen’s kappa, parameter and best-of-N are defined.",
-  "language_evidence": "Problem-first Arabic passed a 20–30 second simulation; all reconstructable percentages carry a numerator and denominator."
+  "language_evidence": "Problem-first Arabic passed a 20–30 second simulation; all reconstructable percentages carry a numerator and denominator.",
+  "live_verification": {
+    "arabic": true,
+    "english": true,
+    "specialist_hub_cards": {
+      "ar": 1,
+      "en": 1
+    },
+    "general_index_links": {
+      "ar": 0,
+      "en": 0
+    },
+    "cover_dimensions": "1200x630",
+    "pages_run_id": 41887204298
+  }
 }
