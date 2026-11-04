@@ -89,3 +89,23 @@ Simulated perspective: enterprise internal-controls and operations leader. This 
 ## Publication decision at this checkpoint
 
 BLOCKED pending original-English draft, bilingual parity review, candidate-page construction, actual mobile Chromium, exact-head GitHub Actions/Pages success and live verification.
+
+## Bilingual semantic parity and native-English review
+
+- Documented deletion scene and benchmark boundary: PASS.
+- Agent, trajectory, first-mistake, kappa, parameter and best-of-N definitions: PASS.
+- 2,518 corpus and 1,851/565/102 split: PASS.
+- 1,423 Traverse split and 885/538 outcome labels: PASS.
+- 6,967 mistakes and action/planning counts: PASS.
+- 1,122 first-mistake base and all reconstructed complements: PASS.
+- 65-action safety audit and reconstruction caveats: PASS.
+- 306/541 judge-localization denominators: PASS.
+- Scout fixed-pool selection, task denominators and lack of integer allocation: PASS.
+- Separate READY 16-system/750-case box: PASS.
+- Hypothetical procurement example labelled in both versions: PASS.
+- Evidence limits and ten institutional decisions aligned: PASS.
+- Reference set and certainty language aligned: PASS.
+- English structure, transitions and idiom read as independently authored editorial English: PASS.
+- Native-editor translation-smell test: PASS.
+
+No factual, numerical, structural or certainty mismatch found. Both versions remain blocked only by candidate construction, actual mobile rendering, exact-head Actions/Pages and live verification.
