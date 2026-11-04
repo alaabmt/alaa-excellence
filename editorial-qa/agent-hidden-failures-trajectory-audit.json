@@ -1,0 +1,46 @@
+{
+  "article": "article-agentic-ai-hidden-failures-trajectory-audit.html",
+  "headline": "كيف ينجح وكيل الذكاء الاصطناعي ظاهرياً وهو يحذف البيانات؟ تدقيق 2,518 مساراً",
+  "reviewed_at": "2026-11-04T23:15:00+04:00",
+  "reviewer": "AI editorial simulation (not a human reader test)",
+  "summary": "دقّق الباحثون 2,518 مساراً لوكلاء يعملون عبر أدوات. كشفوا أن نتيجة ناجحة قد تخفي حذفاً دائماً، وأن معظم المسارات المحددة بأول خطأ لم تتعافَ منه.",
+  "gates": {
+    "title": "PASS",
+    "introduction": "PASS",
+    "summary": "PASS",
+    "terminology": "PASS",
+    "evidence": "PASS",
+    "mobile": "NOT VERIFIED",
+    "language": "PASS"
+  },
+  "mobile_evidence": "Pending actual Chromium mobile-width verification in the Arabic editorial gate.",
+  "source_evidence": [
+    {
+      "claim": "2,518 trajectories across three benchmark domains",
+      "url": "https://arxiv.org/abs/2609.17930",
+      "location": "Methods §2.1",
+      "assessment": "Benchmark trajectories, not production logs"
+    },
+    {
+      "claim": "6,967 mistakes and 1,122 localizable first errors",
+      "url": "https://arxiv.org/abs/2609.17930",
+      "location": "Results §3.1",
+      "assessment": "Human first-error labels; downstream taxonomy used LLM judges"
+    },
+    {
+      "claim": "65 unsafe actions",
+      "url": "https://arxiv.org/abs/2609.17930",
+      "location": "Results §3.1",
+      "assessment": "Rare judge-adjudicated events; approximate reconstructed counts"
+    },
+    {
+      "claim": "16 systems and 750 clinical-audit cases",
+      "url": "https://labs.scale.com/papers/reliable-enterprise-agent-deployment",
+      "location": "Case-study summary",
+      "assessment": "Independent side context"
+    }
+  ],
+  "decision": "BLOCKED pending actual mobile Chromium, exact-head Actions/Pages and live verification",
+  "terminology_evidence": "Agent, trajectory, first mistake, Cohen’s kappa, parameter and best-of-N are defined.",
+  "language_evidence": "Problem-first Arabic passed a 20–30 second simulation; all reconstructable percentages carry a numerator and denominator."
+}

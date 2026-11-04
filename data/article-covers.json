@@ -1,5 +1,5 @@
 {
-  "version": "20261029-handbook",
+  "version": "20261104-hidden-failures",
   "width": 1200,
   "height": 630,
   "maxBytes": 170000,
@@ -2084,6 +2084,29 @@
         ],
         "subtitle": "In a 2,234-person experiment, output rose by about half, but campaign results did not change.",
         "alt": "Navy and gold illustrative cover for a study of working with an AI agent, showing two collaborators around an ad card that combines text and an image."
+      }
+    },
+    {
+      "slug": "article-agentic-ai-hidden-failures-trajectory-audit",
+      "reference": true,
+      "category": "article",
+      "ar": {
+        "source": "assets/previews/story/article-agentic-ai-hidden-failures-trajectory-audit-ar.jpg",
+        "title": [
+          "كيف يخفي النجاح الظاهري",
+          "خطأً مدمراً؟"
+        ],
+        "subtitle": "تدقيق 2,518 مساراً كشف أن أول خطأ قد يختفي حتى النهاية.",
+        "alt": "غلاف تحليلي بالكحلي والذهبي يظهر مسار وكيل ينتهي بعلامة نجاح بينما تتساقط منه ملفات محذوفة."
+      },
+      "en": {
+        "source": "assets/previews/story/article-agentic-ai-hidden-failures-trajectory-audit-en.jpg",
+        "title": [
+          "When “Success” Hides",
+          "a Destructive Error"
+        ],
+        "subtitle": "An audit of 2,518 trajectories traced where long runs first went wrong.",
+        "alt": "Navy and gold analytical cover showing an agent path ending in a success mark while deleted files fall away."
       }
     }
   ]
