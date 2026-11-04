@@ -7,13 +7,13 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-30T10:01:00+04:00",
-  "workflow_status": "retry_waiting",
+  "updated_at": "2026-11-04T11:58:31+04:00",
+  "workflow_status": "in_progress",
   "current_stage": "live_verification",
   "run_lease": {
     "owner": "central-coordinator",
-    "acquired_at": "2026-10-30T10:01:00+04:00",
-    "expires_at": "2026-10-30T11:51:00+04:00"
+    "acquired_at": "2026-11-04T11:58:31+04:00",
+    "expires_at": "2026-11-04T13:48:31+04:00"
   },
   "current_item": {
     "slug": "case-costa-rica-payments-for-environmental-services",
@@ -170,12 +170,12 @@
   "last_run": {
     "mode": "coordinator_resume",
     "status": "in_progress",
-    "started_at": "2026-10-30T10:01:00+04:00",
+    "started_at": "2026-11-04T11:58:31+04:00",
     "completed_at": null,
     "notes": "Lease acquired to retry live_verification only; no publication replay authorized.",
-    "resumed_at": "2026-10-30T10:01:00+04:00",
+    "resumed_at": "2026-11-04T11:58:31+04:00",
     "resumed_by": "central-coordinator",
-    "starting_head": "422e4d0a2e14dd63fd8d0fd3153cc92c3bed589f",
+    "starting_head": "1e8570ce73c7db820cc18211a7763756526f9d00",
     "last_checkpoint": "actions_and_pages"
   },
   "last_completed_item": {
