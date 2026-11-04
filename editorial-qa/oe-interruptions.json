@@ -1,6 +1,6 @@
 {
   "article": "article-oe-evidence-medication-interruptions.html",
-  "headline": "ماذا حدث حين حاولت المستشفيات منع مقاطعة الممرضين في أثناء إعطاء الأدوية؟",
+  "headline": "ماذا حدث حين حاولت مستشفيات منع مقاطعة الممرضين في أثناء إعطاء الأدوية؟",
   "reviewed_at": "2026-11-01",
   "reviewer": "AI editorial review using the owner's arabic-editorial-reviewer and english-editorial-reviewer agents (not a human reader test)",
   "introduction_answers": {
@@ -19,7 +19,7 @@
     "language": "PASS"
   },
   "terminology_evidence": "Interruption, medication administration error, opportunity for error, randomized and cluster randomized trial, systematic review and scoping review are explained at first use or in the glossary; English terms are in parentheses after the Arabic.",
-  "language_evidence": "Reviewed by the arabic-editorial-reviewer agent (two BLOCK rounds fixed) and the english-editorial-reviewer agent (BLOCK on 'precise work' calque fixed); editorial simulation, not a human reader test.",
+  "language_evidence": "Arabic rewritten twice after the owner said the published Arabic was weak and partly unclear; second rewrite applies every BLOCK/FIX from a strict sentence-by-sentence arabic-editorial-reviewer pass. English reviewed with english-editorial-reviewer. Editorial simulation, not a human reader test.",
   "mobile_evidence": {
     "method": "Playwright Chromium browser, 320/375/390/430px viewports",
     "results": "editorial-qa/mobile-artifacts/oe-interruptions-results.json",
