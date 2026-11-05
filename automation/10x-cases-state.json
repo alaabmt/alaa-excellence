@@ -7,14 +7,10 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-05T08:58:44+04:00",
-  "workflow_status": "in_progress",
+  "updated_at": "2026-11-05T08:59:46+04:00",
+  "workflow_status": "retry_waiting",
   "current_stage": "live_verification",
-  "run_lease": {
-    "owner": "central-coordinator",
-    "acquired_at": "2026-11-05T08:58:44+04:00",
-    "expires_at": "2026-11-05T10:48:44+04:00"
-  },
+  "run_lease": null,
   "current_item": {
     "slug": "case-costa-rica-payments-for-environmental-services",
     "publication_date": "2026-10-29",
@@ -169,13 +165,14 @@
   "next_action": "Resume live_verification only when an approved browser/device surface can render both public pages at an actual 390px-class viewport. Verify visual readability, RTL/LTR, no horizontal overflow, title, evidence blocks, video, disclosure, references and both social cards; then create publication-report.md and mark completed. Do not republish and do not create a temporary workflow.",
   "last_run": {
     "mode": "coordinator_resume",
-    "status": "in_progress",
+    "status": "retry_waiting",
     "started_at": "2026-11-05T08:58:44+04:00",
+    "completed_at": "2026-11-05T08:59:46+04:00",
+    "notes": "Live 390px-class verification remains unavailable. The approved cloud browser still exposes no viewport sizing or device emulation capability. The English public page remains reachable; the Arabic page is not accessible through the current search connector. No publication or external content write was replayed.",
     "resumed_at": "2026-11-05T08:58:44+04:00",
     "resumed_by": "central-coordinator",
     "starting_head": "98c2f4db95cd74e4b02b87d95548655a706d26b4",
-    "last_checkpoint": "actions_and_pages",
-    "notes": "Lease acquired to recheck approved 390px-class browser/device capability. No publication or external content write will be replayed."
+    "last_checkpoint": "actions_and_pages"
   },
   "last_completed_item": {
     "slug": "case-netherlands-room-for-the-river-adaptive-flood-management",
@@ -319,6 +316,6 @@
     "stage": "live_verification",
     "detail": "No approved execution surface can currently render both public pages at an actual 390px-class viewport. The available cloud browser exposes no viewport sizing or device emulation capability.",
     "retry_condition": "An approved browser/device that can render both Arabic and English public pages at an actual 390px-class viewport, or an execution surface with allowed device emulation.",
-    "last_retry_at": "2026-11-05T08:01:25+04:00"
+    "last_retry_at": "2026-11-05T08:59:46+04:00"
   }
 }
