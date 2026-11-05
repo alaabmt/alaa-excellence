@@ -7,14 +7,10 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-05T17:58:47.880+04:00",
-  "workflow_status": "in_progress",
+  "updated_at": "2026-11-05T18:01:01.377+04:00",
+  "workflow_status": "retry_waiting",
   "current_stage": "live_verification",
-  "run_lease": {
-    "owner": "central-coordinator",
-    "acquired_at": "2026-11-05T17:58:47.880+04:00",
-    "expires_at": "2026-11-05T19:48:47.880+04:00"
-  },
+  "run_lease": null,
   "current_item": {
     "slug": "case-costa-rica-payments-for-environmental-services",
     "publication_date": "2026-10-29",
@@ -169,13 +165,14 @@
   "next_action": "Resume live_verification only when an approved browser/device surface can render both public pages at an actual 390px-class viewport. Verify visual readability, RTL/LTR, no horizontal overflow, title, evidence blocks, video, disclosure, references and both social cards; then create publication-report.md and mark completed. Do not republish and do not create a temporary workflow.",
   "last_run": {
     "mode": "coordinator_resume",
-    "status": "in_progress",
+    "status": "retry_waiting",
     "started_at": "2026-11-05T17:58:47.880+04:00",
     "resumed_at": "2026-11-05T17:58:47.880+04:00",
     "resumed_by": "central-coordinator",
     "starting_head": "55f3331c29546cc1d03fe3b2b4f881592d47b4b6",
     "last_checkpoint": "actions_and_pages",
-    "notes": "Lease acquired to recheck whether an approved execution surface now combines public-site connectivity with an actual 390px-class viewport. No publication write will be replayed."
+    "notes": "Capability recheck completed without replaying publication. Local Chromium could not connect to the public site; the cloud browser has no actual 390px viewport/device emulation control. Public indexing was reconfirmed. Lease released for the next safe retry.",
+    "ended_at": "2026-11-05T18:01:01.377+04:00"
   },
   "last_completed_item": {
     "slug": "case-netherlands-room-for-the-river-adaptive-flood-management",
@@ -317,8 +314,8 @@
   "blocker": {
     "type": "temporary_capability_limit",
     "stage": "live_verification",
-    "detail": "No single approved execution surface currently has both public-site connectivity and an actual 390px viewport. During the 2026-11-05 17:00 Asia/Dubai retry, local Chromium again returned ERR_CONNECTION_REFUSED for tamayuz10x.com; the connected cloud browser exposed no viewport sizing or device emulation capability. Web search independently confirmed the English public page and current article content remain live and indexed.",
+    "detail": "No single approved execution surface currently has both public-site connectivity and an actual 390px viewport. During the 2026-11-05T18:01 Asia/Dubai retry, local Chromium again returned ERR_CONNECTION_REFUSED for tamayuz10x.com; the connected cloud browser exposed no viewport sizing or device emulation capability. Web search independently confirmed the English public page and current article content remain live and indexed.",
     "retry_condition": "An approved browser/device with public-site connectivity that can render both Arabic and English pages at an actual 390px-class viewport, or a cloud browser surface with allowed device emulation.",
-    "last_retry_at": "2026-11-05T17:05:44.160+04:00"
+    "last_retry_at": "2026-11-05T18:01:01.377+04:00"
   }
 }
