@@ -32,3 +32,21 @@
 ## Publication decision at this checkpoint
 
 BLOCKED pending original-English draft, bilingual semantic parity, candidate HTML, actual mobile Chromium, exact-head Actions/Pages and live verification.
+
+## Bilingual semantic parity and native-English review
+
+- Opening problem and simulation boundary: PASS.
+- Agent and ERP first-use definitions: PASS.
+- 100 problems, six model families, 1,200 trajectories and 7,200 rounds: PASS.
+- Solo/Arena 600/600 split and 700 simulator executions: PASS.
+- All six mean valuations and paired changes: PASS.
+- 21/100 agreement, 79/100 disagreement and Gemini 22/100→0/100 bottom-rank result: PASS.
+- 4,557 intervention denominator and five-category counts: PASS.
+- Secondary paper's 14-versus-15 discrepancy: disclosed in both versions.
+- Hypothetical retail example: labelled and semantically aligned.
+- Evidence limits and ten institutional decisions: aligned.
+- References and certainty language: aligned.
+- English reads as independently authored executive English; no translation-pattern smell: PASS.
+- Arabic remains natural, problem-first and free of meta-writing: PASS.
+
+No factual, numerical or certainty mismatch found. Publication remains blocked only by candidate construction, mobile Chromium, exact-head Actions/Pages and live verification.
