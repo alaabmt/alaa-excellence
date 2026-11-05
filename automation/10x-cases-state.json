@@ -7,10 +7,14 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-05T07:00:28+04:00",
-  "workflow_status": "retry_waiting",
+  "updated_at": "2026-11-05T08:00:10+04:00",
+  "workflow_status": "in_progress",
   "current_stage": "live_verification",
-  "run_lease": null,
+  "run_lease": {
+    "owner": "central-coordinator",
+    "acquired_at": "2026-11-05T08:00:10+04:00",
+    "expires_at": "2026-11-05T09:50:10+04:00"
+  },
   "current_item": {
     "slug": "case-costa-rica-payments-for-environmental-services",
     "publication_date": "2026-10-29",
@@ -165,14 +169,13 @@
   "next_action": "Resume live_verification only when an approved browser/device surface can render both public pages at an actual 390px-class viewport. Verify visual readability, RTL/LTR, no horizontal overflow, title, evidence blocks, video, disclosure, references and both social cards; then create publication-report.md and mark completed. Do not republish and do not create a temporary workflow.",
   "last_run": {
     "mode": "coordinator_resume",
-    "status": "retry_waiting",
-    "started_at": "2026-11-05T06:59:59+04:00",
-    "completed_at": "2026-11-05T07:00:28+04:00",
-    "notes": "Live 390px-class verification remains unavailable. The approved cloud browser exposes no viewport sizing or device emulation capability. No publication or external content write was replayed.",
-    "resumed_at": "2026-11-05T06:59:59+04:00",
+    "status": "in_progress",
+    "started_at": "2026-11-05T08:00:10+04:00",
+    "resumed_at": "2026-11-05T08:00:10+04:00",
     "resumed_by": "central-coordinator",
-    "starting_head": "6952f125d0fde89b1a6ca49d94270d7c0c25f5f1",
-    "last_checkpoint": "actions_and_pages"
+    "starting_head": "879522b58c56b18ba1077dfb3256de5c0ebfd54e",
+    "last_checkpoint": "actions_and_pages",
+    "notes": "Lease acquired to recheck approved 390px-class browser/device capability. No publication or external content write will be replayed."
   },
   "last_completed_item": {
     "slug": "case-netherlands-room-for-the-river-adaptive-flood-management",
