@@ -7,14 +7,10 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-05T11:01:54+04:00",
-  "workflow_status": "in_progress",
+  "updated_at": "2026-11-05T11:03:16+04:00",
+  "workflow_status": "retry_waiting",
   "current_stage": "live_verification",
-  "run_lease": {
-    "owner": "central-coordinator",
-    "acquired_at": "2026-11-05T11:01:54+04:00",
-    "expires_at": "2026-11-05T12:51:54+04:00"
-  },
+  "run_lease": null,
   "current_item": {
     "slug": "case-costa-rica-payments-for-environmental-services",
     "publication_date": "2026-10-29",
@@ -169,13 +165,14 @@
   "next_action": "Resume live_verification only when an approved browser/device surface can render both public pages at an actual 390px-class viewport. Verify visual readability, RTL/LTR, no horizontal overflow, title, evidence blocks, video, disclosure, references and both social cards; then create publication-report.md and mark completed. Do not republish and do not create a temporary workflow.",
   "last_run": {
     "mode": "coordinator_resume",
-    "status": "in_progress",
+    "status": "retry_waiting",
     "started_at": "2026-11-05T11:01:54+04:00",
+    "completed_at": "2026-11-05T11:03:16+04:00",
+    "notes": "Actual 390px verification remains unavailable. A local Chromium surface was launched to attempt device emulation, but the live site returned ERR_CONNECTION_REFUSED on that surface. The cloud search connector still reaches the English public page, while the cloud browser exposes no viewport sizing or device emulation capability. No publication write was replayed.",
     "resumed_at": "2026-11-05T11:01:54+04:00",
     "resumed_by": "central-coordinator",
     "starting_head": "7ce6a9c87843b2a75ff31ad3275b192915eeaeb7",
-    "last_checkpoint": "actions_and_pages",
-    "notes": "Lease acquired to attempt actual 390px-class verification using an approved local Chromium surface and device emulation if available. No publication write will be replayed."
+    "last_checkpoint": "actions_and_pages"
   },
   "last_completed_item": {
     "slug": "case-netherlands-room-for-the-river-adaptive-flood-management",
@@ -317,8 +314,8 @@
   "blocker": {
     "type": "temporary_capability_limit",
     "stage": "live_verification",
-    "detail": "No approved execution surface can currently render both public pages at an actual 390px-class viewport. The available cloud browser exposes no viewport sizing or device emulation capability.",
-    "retry_condition": "An approved browser/device that can render both Arabic and English public pages at an actual 390px-class viewport, or an execution surface with allowed device emulation.",
-    "last_retry_at": "2026-11-05T09:58:13+04:00"
+    "detail": "No single approved execution surface currently has both public-site connectivity and an actual 390px viewport. Local Chromium can provide a desktop surface but the site returns ERR_CONNECTION_REFUSED there; the cloud browser can reach public pages but exposes no viewport sizing or device emulation capability.",
+    "retry_condition": "An approved browser/device with public-site connectivity that can render both Arabic and English pages at an actual 390px-class viewport, or a cloud browser surface with allowed device emulation.",
+    "last_retry_at": "2026-11-05T11:03:16+04:00"
   }
 }
