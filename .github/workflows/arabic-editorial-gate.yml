@@ -21,7 +21,7 @@ jobs:
         env:
           ARABIC_ARTICLE: article-agentic-ai-erpbench-market-ecology.html
           EDITORIAL_REPORT: editorial-qa/agent-erpbench-market-ecology.json
-          MOBILE_ARTIFACT_PREFIX: agent-hidden-failures-trajectory-audit
+          MOBILE_ARTIFACT_PREFIX: agent-erpbench-market-ecology
         run: python3 scripts/check_arabic_mobile.py
       - name: Render current Qur'anic reflection at actual mobile widths
         run: python3 scripts/check_quran_reflection_mobile.py
