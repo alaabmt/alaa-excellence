@@ -18,7 +18,7 @@
 | 10X decisions | PASS | Ten implementable testing and governance decisions |
 | Glossary | PASS | Eight short definitions |
 | Meta-writing | PASS | No reader-directed description of the writing process |
-| Actual mobile Chromium | NOT VERIFIED | Requires candidate HTML and workflow execution |
+| Actual mobile Chromium | PASS | GitHub Actions run 42082749511 rendered the target article at the configured mobile widths and succeeded |
 
 ## Beginner critique
 
@@ -50,3 +50,15 @@ BLOCKED pending original-English draft, bilingual semantic parity, candidate HTM
 - Arabic remains natural, problem-first and free of meta-writing: PASS.
 
 No factual, numerical or certainty mismatch found. Publication remains blocked only by candidate construction, mobile Chromium, exact-head Actions/Pages and live verification.
+
+
+## Final publication sign-off
+
+- Candidate and mobile-table correction: PASS.
+- Arabic editorial and actual-mobile gate: PASS — run 42082749511.
+- Reconciled GitHub Pages deployment: PASS — run 42082979602 on head `984c84a7d4291dc40e33f25ce7342626c7b7a457`.
+- Live Arabic and English pages: PASS — one H1, author immediately below title, four tables, correct paired citations, no desktop horizontal overflow.
+- Specialist hubs only: PASS — four in-card links per specialist card; zero links in `articles.html` and `en/articles.html`.
+- Structured Article data, canonical, hreflang and 1200×630 social images: PASS.
+
+**Final decision:** PUBLISH. The story, measures, terminology, evidence limits and bilingual parity are clear enough for a novice reader and verified live.
