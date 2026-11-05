@@ -7,10 +7,14 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-05T11:03:16+04:00",
-  "workflow_status": "retry_waiting",
+  "updated_at": "2026-11-05T11:59:33+04:00",
+  "workflow_status": "in_progress",
   "current_stage": "live_verification",
-  "run_lease": null,
+  "run_lease": {
+    "owner": "central-coordinator",
+    "acquired_at": "2026-11-05T11:59:33+04:00",
+    "expires_at": "2026-11-05T13:49:33+04:00"
+  },
   "current_item": {
     "slug": "case-costa-rica-payments-for-environmental-services",
     "publication_date": "2026-10-29",
@@ -165,14 +169,13 @@
   "next_action": "Resume live_verification only when an approved browser/device surface can render both public pages at an actual 390px-class viewport. Verify visual readability, RTL/LTR, no horizontal overflow, title, evidence blocks, video, disclosure, references and both social cards; then create publication-report.md and mark completed. Do not republish and do not create a temporary workflow.",
   "last_run": {
     "mode": "coordinator_resume",
-    "status": "retry_waiting",
-    "started_at": "2026-11-05T11:01:54+04:00",
-    "completed_at": "2026-11-05T11:03:16+04:00",
-    "notes": "Actual 390px verification remains unavailable. A local Chromium surface was launched to attempt device emulation, but the live site returned ERR_CONNECTION_REFUSED on that surface. The cloud search connector still reaches the English public page, while the cloud browser exposes no viewport sizing or device emulation capability. No publication write was replayed.",
-    "resumed_at": "2026-11-05T11:01:54+04:00",
+    "status": "in_progress",
+    "started_at": "2026-11-05T11:59:33+04:00",
+    "resumed_at": "2026-11-05T11:59:33+04:00",
     "resumed_by": "central-coordinator",
-    "starting_head": "7ce6a9c87843b2a75ff31ad3275b192915eeaeb7",
-    "last_checkpoint": "actions_and_pages"
+    "starting_head": "786aef25ac1efbb0608518497d735632f2908ec0",
+    "last_checkpoint": "actions_and_pages",
+    "notes": "Lease acquired to recheck whether any approved surface now combines public-site connectivity with a 390px-class viewport. No publication write will be replayed."
   },
   "last_completed_item": {
     "slug": "case-netherlands-room-for-the-river-adaptive-flood-management",
