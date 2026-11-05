@@ -7,10 +7,14 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-05T13:08:17+04:00",
-  "workflow_status": "retry_waiting",
+  "updated_at": "2026-11-05T14:04:54+04:00",
+  "workflow_status": "in_progress",
   "current_stage": "live_verification",
-  "run_lease": null,
+  "run_lease": {
+    "owner": "central-coordinator",
+    "acquired_at": "2026-11-05T14:04:54+04:00",
+    "expires_at": "2026-11-05T15:54:54+04:00"
+  },
   "current_item": {
     "slug": "case-costa-rica-payments-for-environmental-services",
     "publication_date": "2026-10-29",
@@ -165,14 +169,13 @@
   "next_action": "Resume live_verification only when an approved browser/device surface can render both public pages at an actual 390px-class viewport. Verify visual readability, RTL/LTR, no horizontal overflow, title, evidence blocks, video, disclosure, references and both social cards; then create publication-report.md and mark completed. Do not republish and do not create a temporary workflow.",
   "last_run": {
     "mode": "coordinator_resume",
-    "status": "retry_waiting",
-    "started_at": "2026-11-05T13:06:19+04:00",
-    "resumed_at": "2026-11-05T13:06:19+04:00",
+    "status": "in_progress",
+    "started_at": "2026-11-05T14:04:54+04:00",
+    "resumed_at": "2026-11-05T14:04:54+04:00",
     "resumed_by": "central-coordinator",
-    "starting_head": "c32c67a8c900d291f13bafd23fff0b9a81f03c4f",
+    "starting_head": "bef91382d3df6ff81a176fc2a9239451303d7a5a",
     "last_checkpoint": "actions_and_pages",
-    "notes": "Capability recheck confirmed the same temporary limit: local Chromium has a real desktop surface but tamayuz10x.com returns ERR_CONNECTION_REFUSED; the cloud browser can reach the published English page via search but advertises no viewport sizing or device-emulation capability. No publication, delivery, or completed stage was replayed.",
-    "ended_at": "2026-11-05T13:08:17+04:00"
+    "notes": "Lease acquired to recheck whether an approved execution surface now combines public-site connectivity with an actual 390px-class viewport. No publication write will be replayed."
   },
   "last_completed_item": {
     "slug": "case-netherlands-room-for-the-river-adaptive-flood-management",
