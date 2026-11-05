@@ -1,0 +1,40 @@
+{
+  "article": "article-agentic-ai-erpbench-market-ecology.html",
+  "headline": "لماذا تغيّر أفضل وكيل أعمال عندما تغيّر المنافسون؟ تجربة على 100 سوق افتراضي",
+  "reviewed_at": "2026-11-05T22:53:00+04:00",
+  "reviewer": "AI editorial simulation (not a human reader test)",
+  "summary": "اختبرت الدراسة الوكلاء أنفسهم في 100 مشكلة أعمال مرتين، فغيّر المنافسون المتكيفون هوية الوكيل الأفضل في 79 مشكلة من 100.",
+  "gates": {
+    "title": "PASS",
+    "introduction": "PASS",
+    "summary": "PASS",
+    "terminology": "PASS",
+    "evidence": "PASS",
+    "mobile": "NOT VERIFIED",
+    "language": "PASS"
+  },
+  "mobile_evidence": "Pending actual Chromium mobile-width verification in the Arabic editorial gate.",
+  "source_evidence": [
+    {
+      "claim": "100 matched problems, six model families and 1,200 trajectories",
+      "url": "https://arxiv.org/abs/2609.04667",
+      "location": "Methods §§3.2, 4.1",
+      "assessment": "Controlled simulation, not production"
+    },
+    {
+      "claim": "Same winner in 21/100 problems",
+      "url": "https://arxiv.org/abs/2609.04667",
+      "location": "Results §4.5",
+      "assessment": "Paired ecology comparison"
+    },
+    {
+      "claim": "4,557 displayed execution interventions",
+      "url": "https://arxiv.org/abs/2609.04667",
+      "location": "Results §4.4",
+      "assessment": "Diagnostic events, not causal errors"
+    }
+  ],
+  "decision": "BLOCKED pending actual mobile Chromium, exact-head Actions/Pages and live verification",
+  "terminology_evidence": "Agent, ERP, terminal valuation, confidence interval and fallback are defined.",
+  "language_evidence": "Problem-first Arabic passed the 20–30 second simulation; all reconstructable percentages carry a numerator and denominator."
+}

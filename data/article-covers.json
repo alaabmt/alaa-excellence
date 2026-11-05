@@ -1,5 +1,5 @@
 {
-  "version": "20261104-hidden-failures",
+  "version": "20261105-erpbench",
   "width": 1200,
   "height": 630,
   "maxBytes": 170000,
@@ -2107,6 +2107,29 @@
         ],
         "subtitle": "An audit of 2,518 trajectories traced where long runs first went wrong.",
         "alt": "Navy and gold analytical cover showing an agent path ending in a success mark while deleted files fall away."
+      }
+    },
+    {
+      "slug": "article-agentic-ai-erpbench-market-ecology",
+      "reference": true,
+      "category": "article",
+      "ar": {
+        "source": "assets/previews/story/article-agentic-ai-erpbench-market-ecology-ar.jpg",
+        "title": [
+          "لماذا تغيّر",
+          "الوكيل الأفضل؟"
+        ],
+        "subtitle": "100 سوق افتراضي بخصوم مختلفين.",
+        "alt": "غلاف تحليلي بالكحلي والذهبي يظهر مسارين تنافسيين ينتهيان بترتيبين مختلفين للوكلاء."
+      },
+      "en": {
+        "source": "assets/previews/story/article-agentic-ai-erpbench-market-ecology-en.jpg",
+        "title": [
+          "Why Did the Best",
+          "Agent Change?"
+        ],
+        "subtitle": "100 simulated markets, different competitors.",
+        "alt": "Navy and gold analytical cover showing two competitive paths ending with different agent rankings."
       }
     }
   ]
