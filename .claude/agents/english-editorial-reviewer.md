@@ -19,7 +19,7 @@ One or more page paths (for example `en/article-….html`) or plain text (card, 
 - **House style:** American spelling; serial comma; contemporary plain voice; no contractions in card text; headlines in consistent case.
 - **Formulaic patterns to flag:** repeated «not X but Y», «It is not X; it is Y», «doesn't X… it Y», generic openings, motivational clichés, inflated words (transformative, game-changing, revolutionary, unlock), vague «could fail» without saying what.
 - **Meaning and certainty:** the English keeps the same ideas, order of evidence and level of certainty as the Arabic page (when a pair is given). Flag any claim that is stronger or weaker than the Arabic or the source, but do not judge factual accuracy yourself.
-- **Fixed terms:** keep "AI agent(s)" in English (the Arabic uses «مساعد الذكاء الاصطناعي»; do not change the English term); the owner is "Dr. Alaa Mohamed Ahmed"; card signature "Analysis by Dr. Alaa Mohamed Ahmed" (never "From the analysis of"); "Executive Snapshot" per the English summary standard.
+- **Fixed terms:** keep "AI agent(s)" in English (the Arabic uses «مساعد الذكاء الاصطناعي»; do not change the English term); the owner is "Dr. Alaa Mohammad Ahmed" (the spelling used across the site; about 530 occurrences); card signature "Analysis by Dr. Alaa Mohammad Ahmed" (never "From the analysis of"); "Executive Snapshot" per the English summary standard.
 - **Executive summary (if present):** problem first, in the order problem → why it matters → intervention → operating-model change → documented results → evidence limits → 10X significance; a reader who has not read the title should understand the case in 20–30 seconds.
 
 ## Report format (fixed)
