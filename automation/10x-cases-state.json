@@ -7,14 +7,10 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-06T09:06:46.652+04:00",
-  "workflow_status": "in_progress",
+  "updated_at": "2026-11-06T09:07:47.163+04:00",
+  "workflow_status": "retry_waiting",
   "current_stage": "live_verification",
-  "run_lease": {
-    "owner": "central-coordinator",
-    "acquired_at": "2026-11-06T09:06:46.652+04:00",
-    "expires_at": "2026-11-06T10:56:46.652+04:00"
-  },
+  "run_lease": null,
   "current_item": {
     "slug": "case-costa-rica-payments-for-environmental-services",
     "publication_date": "2026-10-29",
@@ -169,13 +165,15 @@
   "next_action": "Resume live_verification only when an approved browser/device surface can render both public pages at an actual 390px-class viewport. Verify visual readability, RTL/LTR, no horizontal overflow, title, evidence blocks, video, disclosure, references and both social cards; then create publication-report.md and mark completed. Do not republish and do not create a temporary workflow.",
   "last_run": {
     "mode": "coordinator_resume",
-    "status": "in_progress",
+    "status": "retry_waiting",
     "started_at": "2026-11-06T09:06:46.652+04:00",
     "resumed_at": "2026-11-06T09:06:46.652+04:00",
     "resumed_by": "central-coordinator",
     "starting_head": "4f4df23cbadcf8bbc955821d8ba2f615c2cb5c3b",
     "last_checkpoint": "actions_and_pages",
-    "notes": "Lease acquired to recheck the exact 390px live mobile gate. No publication write will be replayed."
+    "notes": "Capability recheck completed without replaying publication. The cloud browser passed desktop readback at 1363px and advertised no viewport/device-emulation capability; a native Chromium launch produced no usable window. The same next_action is preserved.",
+    "observed_head_before_release": "9bdfd856738c50c9573d6524a7d221cf7fc0f9da",
+    "ended_at": "2026-11-06T09:07:47.163+04:00"
   },
   "last_completed_item": {
     "slug": "case-netherlands-room-for-the-river-adaptive-flood-management",
@@ -317,8 +315,8 @@
   "blocker": {
     "type": "temporary_capability_limit",
     "stage": "live_verification",
-    "detail": "The approved cloud browser still exposes no viewport sizing or device-emulation capability, so the mandatory actual 390px-class live display check cannot be executed. In this retry both Arabic and English public pages loaded successfully at a 1363px inner viewport with correct RTL/LTR, exact H1 titles, references, one YouTube element and language-specific social-card URLs; the Arabic 1200x630 cover also loaded. No publication action was replayed.",
+    "detail": "The approved cloud browser advertises no browser capabilities, including no viewport sizing or device emulation, so the mandatory actual 390px-class live display check cannot be executed. In this retry both Arabic and English public pages loaded successfully at a 1363px inner viewport with correct RTL/LTR, exact H1 titles, references, one YouTube element and the correct language-specific social-card URLs. A native Chromium launch exposed no usable window. No publication action was replayed.",
     "retry_condition": "An approved browser/device with public-site connectivity that can render both Arabic and English pages at an actual 390px-class viewport, or a cloud browser surface with allowed device emulation.",
-    "last_retry_at": "2026-11-06T08:06:45.104+04:00"
+    "last_retry_at": "2026-11-06T09:07:47.163+04:00"
   }
 }
