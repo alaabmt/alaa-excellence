@@ -5,6 +5,29 @@
   "maxBytes": 170000,
   "cards": [
     {
+      "slug": "case-bangladesh-cyclone-preparedness-community-warning",
+      "reference": true,
+      "category": "case",
+      "ar": {
+        "source": "assets/previews/story/case-bangladesh-cyclone-preparedness-community-warning-ar.jpg",
+        "title": [
+          "بنغلاديش",
+          "من الإنذار إلى الاستجابة"
+        ],
+        "subtitle": "شبكة مجتمعية تربط التحذير بالإخلاء، مع فجوات في الفهم.",
+        "alt": "غلاف أصلي لحالة بنغلاديش، من الإنذار إلى الاستجابة المجتمعية."
+      },
+      "en": {
+        "source": "assets/previews/story/case-bangladesh-cyclone-preparedness-community-warning-en.jpg",
+        "title": [
+          "Bangladesh",
+          "Warnings into Action"
+        ],
+        "subtitle": "A volunteer network connects alerts with evacuation.",
+        "alt": "Original Bangladesh case cover: from cyclone warnings to community action."
+      }
+    },
+    {
       "slug": "case-costa-rica-payments-for-environmental-services",
       "background": "assets/previews/story-backgrounds/case-costa-rica-payments-for-environmental-services.jpg",
       "category": "case",
