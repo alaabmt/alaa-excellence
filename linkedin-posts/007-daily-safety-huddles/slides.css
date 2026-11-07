@@ -1,0 +1,50 @@
+:root{--navy:#10233F;--navy2:#1B3358;--cream:#F4EFE7;--ink:#14161A;--muted:#5B6270;--amber:#E8A33D;--rust:#C8532B;--line:#D9D0C2}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#888}
+.slide{width:1080px;height:1350px;position:relative;overflow:hidden;padding:96px 88px 120px;page-break-after:always;display:flex;flex-direction:column;background:var(--cream);color:var(--ink)}
+.slide.dark{background:var(--navy);color:#F4EFE7}
+.slide.amber{background:var(--amber);color:var(--ink)}
+.kicker{font-family:var(--sans);font-size:26px;letter-spacing:.06em;text-transform:uppercase;font-weight:600;color:var(--rust)}
+.dark .kicker{color:var(--amber)}
+.amber .kicker{color:var(--navy)}
+h1{font-family:var(--serif);font-weight:700;font-size:92px;line-height:1.08;margin-top:36px}
+h2{font-family:var(--serif);font-weight:700;font-size:72px;line-height:1.12;margin-top:28px}
+.dim{opacity:.55}
+.hl{color:var(--amber)}
+.rust{color:var(--rust)}
+p,li{font-family:var(--sans);font-size:36px;line-height:1.5}
+.lead{font-size:38px;margin-top:40px;max-width:880px}
+.small{font-size:26px;line-height:1.5;color:var(--muted)}
+.dark .small{color:#B9C2D3}
+.amber .small{color:#3A3326}
+.grow{flex:1}
+.footer{position:absolute;bottom:52px;left:88px;right:88px;display:flex;justify-content:space-between;align-items:center;font-family:var(--sans);font-size:24px;border-top:2px solid var(--line);padding-top:22px;color:var(--muted)}
+.dark .footer{border-color:#2E4468;color:#B9C2D3}
+.amber .footer{border-color:#C98A2C;color:#3A3326}
+.stat{display:flex;align-items:baseline;gap:32px;padding:34px 0;border-bottom:2px solid var(--line)}
+.stat .n{font-family:var(--serif);font-weight:700;font-size:132px;line-height:1;min-width:300px;color:var(--rust)}
+.stat p{font-size:34px}
+.bars{margin-top:56px;display:flex;flex-direction:column;gap:44px}
+.bar .lab{font-family:var(--sans);font-size:32px;margin-bottom:14px}
+.bar .track{height:96px;background:#E6DED2;border-radius:6px;position:relative}
+.bar .fill{height:100%;border-radius:6px;display:flex;align-items:center;padding:0 28px;font-family:var(--serif);font-weight:700;font-size:56px;color:#fff}
+.big{font-family:var(--serif);font-weight:700;font-size:300px;line-height:1;margin-top:40px;color:var(--navy)}
+ul.clean{list-style:none;margin-top:36px}
+ul.clean li{padding:22px 0;border-bottom:2px solid rgba(0,0,0,.12)}
+.dark ul.clean li{border-color:#2E4468}
+.num{font-family:var(--serif);font-weight:700;color:var(--amber);font-size:54px;display:block;line-height:1;margin-bottom:10px}
+.q{font-family:var(--serif);font-size:50px;line-height:1.3;margin-top:44px;padding:36px 40px;border-inline-start:8px solid var(--amber);background:var(--navy2)}
+.swipe{font-family:var(--sans);font-size:30px;font-weight:600;color:var(--amber);margin-top:auto;margin-bottom:40px}
+.ref{font-family:var(--sans);font-size:26px;line-height:1.5;margin-top:22px}
+.box{margin-top:44px;padding:36px 40px;background:#fff;border-radius:10px}
+.rule{width:140px;height:8px;background:var(--amber);margin-top:44px}
+.ltr{direction:ltr;unicode-bidi:isolate}
+/* Tamayuz 10X brand */
+.logo{display:none}
+.slide:not(.dark):not(.amber) .logo.color,.dark .logo.ondark,.amber .logo.navy{display:block}
+.footer .brand{display:flex;align-items:center;gap:18px}
+.footer .brand .logo{height:46px;width:auto}
+.cover-logo .logo{height:190px;width:auto;margin-bottom:40px}
+.end-logo{margin-top:auto;margin-bottom:30px;display:flex;align-items:center;gap:28px}
+.end-logo .logo{height:120px;width:auto}
+.end-logo span{font-family:var(--sans);font-size:28px;color:var(--muted)}
