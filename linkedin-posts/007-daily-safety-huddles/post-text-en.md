@@ -7,9 +7,9 @@
 
 Many hospital teams now hold a safety huddle: a short, structured meeting, often daily, where staff name what could harm patients and agree how to prevent it.
 
-In Toronto, researchers ran a trial in four academic hospitals, each starting the huddles at a time chosen at random. The rate of adverse events fell by 12% after doctors started them. An adverse event is harm caused by care itself, not by illness.
+In Toronto, researchers ran a trial in four academic hospitals, with each hospital starting the huddles at a randomly chosen time. The rate of adverse events fell by 12% after doctors started them. An adverse event is harm caused by care itself, not by illness.
 
-But in a UK project across 92 wards, the huddles were sustained on only 64, and an average huddle included 4.9 of its 9 intended elements. None of these studies took place in an Arab hospital.
+But in a UK project across 92 wards, the huddles were sustained on only 64, and an average huddle included 4.9 of its 9 intended elements. None of the five studies behind the article took place in an Arab hospital.
 
 In my reading, a huddle is likely to help when decision-makers attend, risks can be raised without fear, and agreed actions are carried out.
 

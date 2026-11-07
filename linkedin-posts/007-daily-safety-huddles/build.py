@@ -44,7 +44,7 @@ ar.append(('dark',f"""<div class="cover-logo">{imgs("logo")}</div>
   <div class="kicker">التميّز التشغيلي · من الدراسات العلمية</div>
   <h1 style="font-size:66px">تعقد فرق في مستشفيات كثيرة اجتماعًا قصيرًا عن سلامة المرضى.</h1>
   <h1 class="dim" style="margin-top:12px;font-size:50px;line-height:1.5">وفي تجربة بأربعة مستشفيات جامعية، انخفض معدل الأحداث الضارة، أي الأضرار التي تسببها الرعاية نفسها، بنسبة {L('12%')}.</h1>
-  <p class="lead">لكن كثيرًا من هذه الاجتماعات لا يُعقد كما خُطّط له. وهذا ما وجدته خمس دراسات نُشرت بين عامي {L('2021')} و{L('2026')}.</p>
+  <p class="lead">لكن كثيرًا من هذه الاجتماعات لا يُعقد كما خُطّط له. وهذا ما تعرضه خمس دراسات نُشرت بين عامي {L('2021')} و{L('2026')}.</p>
   <div class="swipe">← اسحب للمتابعة</div>""",NAME))
 ar.append(('',f"""<div class="kicker">الفكرة</div>
   <h2>ما الاجتماع القصير للسلامة؟</h2>
@@ -55,29 +55,29 @@ ar.append(('',f"""<div class="kicker">الفكرة</div>
 ar.append(('',f"""<div class="kicker">تجربة تورونتو</div>
   <h2>شملت التجربة أربعة مستشفيات جامعية، والأطباء وحدهم</h2>
   <div style="margin-top:22px">
-    <div class="stat"><span class="n" {SL}>12%</span><p>هي نسبة انخفاض معدل الأحداث الضارة بعد أن بدأ الأطباء الاجتماعات، بحسب مراجعة ملفات {L('912')} مريضًا.</p></div>
+    <div class="stat"><span class="n" {SL}>12%</span><p>هي نسبة انخفاض معدل الأحداث الضارة بعد أن بدأ الأطباء الاجتماعات، بحسب مراجعة ملفات {L('912')}&nbsp;مريضًا.</p></div>
     <div class="stat"><span class="n" {SL}>64%</span><p>من إجابات الأطباء كانت إيجابية في أسئلة الاستبيان الخاصة بالحديث عن الأخطاء، بعد أن كانت {L('36%')}.</p></div>
   </div>
   <p class="small" style="margin-top:20px">ولم يكن حضور الأطباء كاملًا، فقد تراوح بين {L('30%')} و{L('85%')} بحسب المستشفى.</p>""",C1))
 ar.append(('',f"""<div class="kicker">المشروع البريطاني</div>
   <h2>كثيرًا ما يُعقد الاجتماع ناقصًا</h2>
   <div style="margin-top:22px">
-    <div class="stat"><span class="n" {SL}>64</span><p>هو عدد الأجنحة التي استمرت فيها الاجتماعات، من أصل {L('92')} جناحًا في خمسة مستشفيات.</p></div>
-    <div class="stat"><span class="n" {SL}>4.9</span><p>هو متوسط ما تضمّنه الاجتماع الواحد من {L('9')} عناصر يُفترض أن يشملها.</p></div>
+    <div class="stat"><span class="n" {SL}>64</span><p>هو عدد الأجنحة التي استمرت فيها الاجتماعات، من أصل {L('92')}&nbsp;جناحًا في خمسة مستشفيات.</p></div>
+    <div class="stat"><span class="n" {SL}>4.9</span><p>هو متوسط ما تضمّنه الاجتماع الواحد من {L('9')}&nbsp;عناصر يُفترض أن يشملها.</p></div>
   </div>
   <p class="small" style="margin-top:20px">وكانت الفرق تُغفل عادةً أمرين: عرض رسم بياني يبيّن الأضرار مع مرور الوقت، ومراجعة ما وقع منها سابقًا.</p>""",C2))
 ar.append(('',f"""<div class="kicker">من يحضر؟</div>
-  <h2>في العناية المركزة البريطانية، يحضر الممرضون بانتظام، أما الأطباء فحضورهم أقل بكثير</h2>
-  <p class="lead" style="font-size:30px">في استبيان أجابت عنه {L('74')} وحدة عناية مركزة بريطانية، قالت {L('71')} منها إنها تعقد هذه الاجتماعات.</p>
+  <h2>أفادت أكثر الوحدات المجيبة بأن الممرضين يحضرون بانتظام، وقلّة منها قالت ذلك عن الأطباء</h2>
+  <p class="lead" style="font-size:30px">في استبيان أجابت عنه {L('74')}&nbsp;وحدة عناية مركزة بريطانية، قالت {L('71')}&nbsp;منها إنها تعقد هذه الاجتماعات.</p>
   <div style="margin-top:10px">
-    <div class="stat"><span class="n" {SL}>89%</span><p>أفادت {L('63')} وحدة بأن الممرضين يحضرون بانتظام.</p></div>
-    <div class="stat"><span class="n" {SL}>32%</span><p>ولم تُفِد بذلك عن الأطباء إلا {L('8')} وحدات.</p></div>
+    <div class="stat"><span class="n" {SL}>89%</span><p>أفادت {L('63')}&nbsp;وحدة بأن الممرضين يحضرون بانتظام.</p></div>
+    <div class="stat"><span class="n" {SL}>32%</span><p>ولم تُفِد بذلك عن الأطباء إلا {L('8')}&nbsp;وحدات.</p></div>
   </div>
   <p class="small" style="margin-top:14px">النسبتان محسوبتان من أعداد مختلفة من الوحدات التي أجابت.</p>
   <p class="small" style="margin-top:14px">وذكرت الوحدات عيوبًا: يأخذ الاجتماع وقتًا، وقد يبدو بلا فائدة، وقد يقطع رعاية المرضى، وقد يغيب فيه الأمان النفسي، أي شعور العاملين بأنهم يستطيعون الحديث عن الخطأ دون خوف.</p>""",C3))
 ar.append(('amber',f"""<div class="kicker">المتابعة</div>
-  <h2 style="margin-top:20px">في تايوان، حُلّت كل المشكلات التي طُرحت في الاجتماعات</h2>
-  <p class="lead" style="font-size:36px">في جناح للأمراض الباطنية، طُرحت {L('81')} مشكلة في {L('44')} اجتماعًا، وحُلّ أكثرها خلال ساعات.</p>
+  <h2 style="margin-top:20px">في جناح بتايوان، حُلّت كل المشكلات التي طُرحت في الاجتماعات</h2>
+  <p class="lead" style="font-size:36px">وهو جناح للأمراض الباطنية، طُرحت فيه {L('81')}&nbsp;مشكلة في {L('44')}&nbsp;اجتماعًا، وحُلّ أكثرها خلال ساعات.</p>
   <p class="lead" style="font-size:36px;margin-top:36px">ويُرجّح الكاتب، استنتاجًا من الدراسات الخمس، أن الاجتماع ينفع حين يحضره من يملك القرار، ويُطرح فيه الخطر دون خوف، ويُتابَع ما يُتفق عليه حتى يُنفّذ.</p>
   <p class="small" style="margin-top:28px">هذا استنتاج لم تقسه الدراسات.</p>""",C4))
 ar.append(('dark',f"""<div class="kicker">ما يستنتجه الكاتب من الدراسات</div>
@@ -87,7 +87,7 @@ ar.append(('dark',f"""<div class="kicker">ما يستنتجه الكاتب من 
     <li><span class="num">2</span>ويحرص على حضور الأطباء وسائر المهن، لا الممرضين وحدهم.</li>
     <li><span class="num">3</span>ويقيس أمرين: هل يُعقد الاجتماع كاملًا، وهل تقلّ الأضرار.</li>
   </ul>
-  <p class="small" style="margin-top:10px">الخطوة 3 استنتاج من الكاتب، لا نتيجة مختبرة.</p>
+  <p class="small" style="margin-top:10px">الخطوات كلها استنتاج من الكاتب، والثالثة لم تختبرها أي دراسة.</p>
   <div class="q" style="font-size:34px;margin-top:20px;padding:22px 32px">بعد ثلاث سنوات، أتريد أن يكون اجتماع فريقك موعدًا يُنسى ما قيل فيه، أم مكانًا تُكتشف فيه المخاطر ويُتفق على ما يمنعها؟</div>""",NAME))
 ar.append(('',f"""<div class="kicker">المصادر وحدود الدليل</div>
   <h2 style="font-size:46px">حدود هذه الأدلة</h2>
@@ -104,15 +104,15 @@ en=[]
 en.append(('dark',f"""<div class="cover-logo">{imgs("logo")}</div>
   <div class="kicker">Operational Excellence · What the research says</div>
   <h1 style="font-size:72px">Many hospital teams now hold short safety huddles.</h1>
-  <h1 class="dim" style="margin-top:16px;font-size:50px">In one trial in four academic hospitals, the rate of adverse events, meaning harm caused by care itself, fell by 12% after doctors started them.</h1>
-  <p class="lead">But many huddles are not run as planned. Here is what five studies, published from 2021 to 2026, found.</p>
+  <h1 class="dim" style="margin-top:16px;font-size:50px">In one trial in four academic hospitals, adverse events fell by 12% after doctors started them.</h1>
+  <p class="lead">But many huddles are not run as planned. Here is what five studies, published from 2021 to 2026, show.</p>
   <div class="swipe">Swipe →</div>""",EN_NAME))
 en.append(('',f"""<div class="kicker">The idea</div>
   <h2>What is a safety huddle?</h2>
   <p class="lead">A short, structured meeting, often held daily. The team names what could harm patients and agrees how to prevent it.</p>
   <div class="box"><p>An adverse event is harm caused by care itself, not by illness.</p></div>""",C2))
 en.append(('',f"""<div class="kicker">The Toronto trial</div>
-  <h2>The trial covered four academic hospitals, and doctors only</h2>
+  <h2>The trial covered doctors in four academic hospitals</h2>
   <div style="margin-top:22px">
     <div class="stat"><span class="n" {SL}>12%</span><p>drop in the rate of adverse events after doctors started huddles, based on the records of 912 patients.</p></div>
     <div class="stat"><span class="n" {SL}>64%</span><p>of doctors' answers on communication about error were positive, up from 36%.</p></div>
@@ -126,19 +126,19 @@ en.append(('',f"""<div class="kicker">The UK project</div>
   </div>
   <p class="small" style="margin-top:20px">Teams routinely left out two things: a chart showing harm over time, and a review of harm that had already happened.</p>""",C2))
 en.append(('',f"""<div class="kicker">Who attends?</div>
-  <h2>In UK intensive care units, doctors attend far less often than nurses</h2>
+  <h2 style="font-size:52px">Most responding units said nurses attended regularly. Few said the same about doctors.</h2>
   <p class="lead" style="font-size:30px">In a survey of 74 UK intensive care units, 71 said they held safety huddles.</p>
   <div style="margin-top:10px">
     <div class="stat"><span class="n" {SL}>89%</span><p>of responding units (63) reported that nurses attended regularly.</p></div>
     <div class="stat"><span class="n" {SL}>32%</span><p>of responding units (only 8) said the same about doctors.</p></div>
   </div>
   <p class="small" style="margin-top:14px">The two percentages are based on different numbers of responding units.</p>
-  <p class="small" style="margin-top:14px">Units listed drawbacks: huddles take time, can seem pointless, can interrupt patient care, and may lack psychological safety: the sense among staff that they can speak up about a mistake without fear.</p>""",C3))
+  <p class="small" style="margin-top:14px">Units listed drawbacks: huddles take time, can seem pointless, can interrupt patient care, and may lack psychological safety. That means staff feel they can speak up about a mistake without fear.</p>""",C3))
 en.append(('amber',f"""<div class="kicker">Follow-up</div>
-  <h2 style="margin-top:20px">In Taiwan, every problem raised in the huddles was resolved</h2>
-  <p class="lead" style="font-size:36px">On a medical ward, 81 problems were raised in 44 huddles, and most were resolved within hours.</p>
+  <h2 style="margin-top:20px">On one ward in Taiwan, every problem raised in the huddles was resolved</h2>
+  <p class="lead" style="font-size:36px">It was a medical ward, where 81 problems were raised in 44 huddles. Most were resolved within hours.</p>
   <p class="lead" style="font-size:36px;margin-top:36px">From the five studies, the author infers that a huddle is likely to help when decision-makers attend, risks can be raised without fear, and agreed actions are carried out.</p>
-  <p class="small" style="margin-top:28px">This inference was not measured in the studies.</p>""",C4))
+  <p class="small" style="margin-top:28px">The studies did not test this.</p>""",C4))
 en.append(('dark',f"""<div class="kicker">The author's reading of the studies</div>
   <h2>What can leaders do?</h2>
   <ul class="clean">
@@ -146,7 +146,7 @@ en.append(('dark',f"""<div class="kicker">The author's reading of the studies</d
     <li style="font-size:33px"><span class="num">2</span>Make sure doctors and other professional groups attend, not only nurses.</li>
     <li style="font-size:33px"><span class="num">3</span>Measure two things: whether the huddle runs in full, and whether harm goes down.</li>
   </ul>
-  <p class="small" style="margin-top:10px">Step 3 is the author's inference, not a tested result.</p>
+  <p class="small" style="margin-top:10px">All three steps are the author's inference, and no study tested step 3.</p>
   <div class="q" style="font-size:34px;margin-top:24px;padding:22px 32px">Three years from now, do you want your team's huddle to be a routine people forget, or the place where risks are caught early and the team agrees how to prevent harm?</div>""",EN_NAME))
 en.append(('',f"""<div class="kicker">Sources and limits</div>
   <h2 style="font-size:48px">What this evidence can and cannot tell us</h2>
