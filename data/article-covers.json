@@ -2154,6 +2154,27 @@
         "subtitle": "100 simulated markets, different competitors.",
         "alt": "Navy and gold analytical cover showing two competitive paths ending with different agent rankings."
       }
+    },
+    {
+      "slug": "article-agentic-ai-weekly-radar-nov-07",
+      "background": "assets/previews/story-backgrounds/article-agentic-ai-weekly-radar-nov-07.jpg",
+      "category": "article",
+      "ar": {
+        "title": [
+          "من يملك كل مساعد",
+          "في مؤسستك؟"
+        ],
+        "subtitle": "أربع شركات أعلنت في يوم واحد أدوات لتسجيل مساعدي الذكاء الاصطناعي ومراقبتهم.",
+        "alt": "غلاف توضيحي بالكحلي والذهبي لمقال رصد أسبوعي، تظهر فيه شاشة رادار عليها خمس نقاط وإحداها محاطة بدائرة مراجعة."
+      },
+      "en": {
+        "title": [
+          "Who Owns Every AI Agent",
+          "in Your Organization?"
+        ],
+        "subtitle": "Four companies announced tools in one day to register and monitor AI agents.",
+        "alt": "Navy and gold illustrative cover for a weekly radar article, showing a radar screen with five blips, one of them circled for review."
+      }
     }
   ]
 }
