@@ -1,7 +1,52 @@
 {
   "purpose": "سجل موضوعات التأملات القرآنية لتجنب تكرار القصة أو الزاوية (دليل مهارات كتابة التأملات القرآنية، البند 10، الخطوة 9)",
-  "updated": "2026-10-25T02:18:00+04:00",
+  "updated": "2026-10-28",
   "reflections": [
+    {
+      "slug": "reflection-al-mutaffifin-demanding-full-measure-giving-less",
+      "title_ar": "لماذا نطلب حقنا كاملًا ثم ننقص حقوق الآخرين؟",
+      "title_en": "Why Do We Demand Our Due in Full While Giving Others Less?",
+      "date": "2026-10-28",
+      "verses": [
+        "المطففين: 1–6"
+      ],
+      "angle": "ازدواج معيار استيفاء الحقوق وإنقاص حقوق الآخرين، واستحضار الحساب بين يدي الله",
+      "url_ar": "https://tamayuz10x.com/reflection-al-mutaffifin-demanding-full-measure-giving-less.html",
+      "url_en": "https://tamayuz10x.com/en/reflection-al-mutaffifin-demanding-full-measure-giving-less.html",
+      "publication_status": "repository_pages_committed; indexes_and_live_verification_pending"
+    },
+    {
+      "slug": "reflection-al-hujurat-suspicion-surveillance-trust",
+      "title_ar": "متى تتحول الرغبة في معرفة ما يخفيه الناس إلى ظلم؟",
+      "title_en": "When Does the Desire to Know What People Conceal Become an Injustice?",
+      "date": "2026-10-26",
+      "verses": [
+        "الحجرات: 12"
+      ],
+      "angle": "تأمل في حماية كرامة الإنسان عند غيابه: كيف قد ينتقل الظن غير المسنود إلى تتبع للمستور ثم إلى غيبة، مع إبقاء الفرق بين التحقق المشروع المتناسب والتجسس ظاهرًا.",
+      "core_idea": "لا يتحول الاحتمال إلى حقيقة، ولا تمنح القدرة التقنية إذنًا مفتوحًا؛ فالبحث المسؤول يبدأ بدليل ظاهر ويجمع أقل قدر لازم ويحفظ حق الرد وكرامة الغائب.",
+      "contemporary_application": "مثال افتراضي لمؤسسة واجهت تسريبًا محدودًا، وتقارن بين مراقبة دائمة شاملة وتحقيق محدد ومصرح به ومتناسب مع الخطر.",
+      "url_ar": "https://tamayuz10x.com/reflection-al-hujurat-suspicion-surveillance-trust.html",
+      "url_en": "https://tamayuz10x.com/en/reflection-al-hujurat-suspicion-surveillance-trust.html",
+      "github_commit": "33c743dfea7fa3c44cf73e5b1902a1d0ec9c2bbd",
+      "publication_status": "repository_published; social_assets_and_actions_pending"
+    },
+    {
+      "slug": "reflection-al-balad-the-steep-path",
+      "title_ar": "ماذا يعني اقتحام العقبة في سورة البلد؟",
+      "title_en": "What Does It Mean to Cross the Steep Path in Surah Al-Balad?",
+      "date": "2026-10-25",
+      "verses": [
+        "البلد: 11–17"
+      ],
+      "angle": "تأمل في العقبة بوصفها طريقًا شاقًا تفسره الآيات بتحرير الإنسان وإطعام الجائع ورعاية اليتيم والمسكين، مع إبقاء اختلاف المفسرين وحدود التطبيق المعاصر ظاهرة.",
+      "core_idea": "لا يكفي فعل خير يسهل تنفيذه أو إظهاره؛ اقتحام العقبة يختبر هل بلغت الرحمة موضع الحاجة الأشد داخل إيمان يصونه الصبر والتواصي بالمرحمة.",
+      "contemporary_application": "برنامج غذائي افتراضي يحجب التسجيل الرقمي الكامل بعض الأسر الأشد حاجة؛ تعيد المؤسسة تصميم الوصول وتقيس من بقي خارج الخدمة، دون تقديم المثال تفسيرًا للآيات.",
+      "url_ar": "https://tamayuz10x.com/reflection-al-balad-the-steep-path.html",
+      "url_en": "https://tamayuz10x.com/en/reflection-al-balad-the-steep-path.html",
+      "github_commit": "9c6da1be12428319eca1ac8fb4634aa34f782f9d",
+      "publication_status": "repository_published; actions_and_pages_pending"
+    },
     {
       "slug": "reflection-az-zumar-follow-the-best",
       "title_ar": "هل يكفي أن نسمع، أم نتبع أحسن ما سمعنا؟",

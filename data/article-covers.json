@@ -1,9 +1,116 @@
 {
-  "version": "20261025-london-ulez",
+  "version": "20261105-erpbench",
   "width": 1200,
   "height": 630,
   "maxBytes": 170000,
   "cards": [
+    {
+      "slug": "case-bangladesh-cyclone-preparedness-community-warning",
+      "reference": true,
+      "category": "case",
+      "ar": {
+        "source": "assets/previews/story/case-bangladesh-cyclone-preparedness-community-warning-ar.jpg",
+        "title": [
+          "بنغلاديش",
+          "من الإنذار إلى الاستجابة"
+        ],
+        "subtitle": "شبكة مجتمعية تربط التحذير بالإخلاء، مع فجوات في الفهم.",
+        "alt": "غلاف أصلي لحالة بنغلاديش، من الإنذار إلى الاستجابة المجتمعية."
+      },
+      "en": {
+        "source": "assets/previews/story/case-bangladesh-cyclone-preparedness-community-warning-en.jpg",
+        "title": [
+          "Bangladesh",
+          "Warnings into Action"
+        ],
+        "subtitle": "A volunteer network connects alerts with evacuation.",
+        "alt": "Original Bangladesh case cover: from cyclone warnings to community action."
+      }
+    },
+    {
+      "slug": "case-costa-rica-payments-for-environmental-services",
+      "background": "assets/previews/story-backgrounds/case-costa-rica-payments-for-environmental-services.jpg",
+      "category": "case",
+      "ar": {
+        "title": [
+          "كيف دفعت كوستاريكا",
+          "مقابل بقاء الغابة واقفة؟"
+        ],
+        "subtitle": "حوّلت قيمة الغابة إلى عقود، وبقي أثر الدفع متفاوتًا.",
+        "alt": "غلاف أصلي لحالة كوستاريكا، يظهر حدًا بين غابة استوائية قائمة وأرض متجددة حول مجرى مائي."
+      },
+      "en": {
+        "title": [
+          "How Costa Rica Paid",
+          "to Keep Forests Standing"
+        ],
+        "subtitle": "Forest value became contractible, while payment impact remained uneven.",
+        "alt": "Original cover for the Costa Rica case, showing a boundary between standing tropical forest and regenerating land around a river."
+      }
+    },
+    {
+      "slug": "reflection-al-mutaffifin-demanding-full-measure-giving-less",
+      "background": "assets/previews/story-backgrounds/reflection-al-baqarah-write-it-down.jpg",
+      "category": "reflection",
+      "ar": {
+        "title": [
+          "لماذا نطلب حقنا كاملًا",
+          "ثم ننقص حقوق الآخرين؟"
+        ],
+        "subtitle": "سورة المطففين تكشف معيارًا لا يتغير بتغير موقعنا.",
+        "alt": "غلاف رمزي بالكحلي والذهبي لتأمل سورة المطففين 83:1–6، يظهر ميزانًا مستقيمًا ومكيالين متقابلين للدلالة على عدالة الأخذ والعطاء."
+      },
+      "en": {
+        "title": [
+          "Why Demand Our Due in Full",
+          "While Giving Others Less?"
+        ],
+        "subtitle": "Al-Mutaffifin exposes a standard that must not change with our position.",
+        "alt": "Navy and gold symbolic cover for a reflection on Al-Mutaffifin 83:1–6, showing a level balance and paired measures to represent fairness in taking and giving."
+      }
+    },
+    {
+      "slug": "reflection-al-hujurat-suspicion-surveillance-trust",
+      "background": "assets/previews/story-backgrounds/reflection-al-baqarah-write-it-down.jpg",
+      "category": "reflection",
+      "ar": {
+        "title": [
+          "متى يصبح البحث",
+          "في المستور ظلمًا؟"
+        ],
+        "subtitle": "حدود تحمي الأمن والخصوصية وكرامة الغائب.",
+        "alt": "غلاف رمزي بالكحلي والذهبي لتأمل الحجرات 49:12، يظهر عدسة بحث أمام حد يحمي خصوصية الإنسان وكرامته."
+      },
+      "en": {
+        "title": [
+          "When Does Seeking",
+          "the Concealed Become Unjust?"
+        ],
+        "subtitle": "Boundaries that protect security, privacy, and an absent person’s dignity.",
+        "alt": "Navy and gold symbolic cover for a reflection on Al-Hujurat 49:12, showing a search lens meeting a boundary that protects privacy and dignity."
+      }
+    },
+    {
+      "slug": "case-netherlands-room-for-the-river-adaptive-flood-management",
+      "background": "assets/previews/story-backgrounds/case-dewa-hydro-insight-smart-water.jpg",
+      "category": "case",
+      "ar": {
+        "title": [
+          "حين أعطت هولندا",
+          "النهر مساحة"
+        ],
+        "subtitle": "34 موقعًا أعادت تصميم الحماية حول نهر متغير.",
+        "alt": "غلاف لحالة مساحة للنهر في هولندا، يظهر مجرى نهري واسعًا وسدودًا متراجعة ضمن مشهد مائي متكيف."
+      },
+      "en": {
+        "title": [
+          "When the Netherlands",
+          "Gave Rivers More Room"
+        ],
+        "subtitle": "A 34-location portfolio redesigned flood protection.",
+        "alt": "Cover for the Netherlands Room for the River case, showing a widened river corridor and set-back dikes in an adaptive waterscape."
+      }
+    },
     {
       "slug": "case-london-ulez-clean-air-operating-model",
       "reference": true,
@@ -23,6 +130,27 @@
         ],
         "subtitle": "When emissions performance entered the road-use decision",
         "alt": "Original cover for London's ULEZ case, showing traffic and a red bus within a restrained urban detection and data layer."
+      }
+    },
+    {
+      "slug": "reflection-al-balad-the-steep-path",
+      "background": "assets/previews/story-backgrounds/reflection-al-baqarah-write-it-down.jpg",
+      "category": "reflection",
+      "ar": {
+        "title": [
+          "ماذا يعني اقتحام",
+          "العقبة؟"
+        ],
+        "subtitle": "الرحمة المكلفة تبلغ من أثقلته القيود أو الجوع أو اليتم أو الفقر.",
+        "alt": "غلاف رمزي بالكحلي والذهبي لتأمل سورة البلد، يظهر مسارًا صاعدًا نحو ضوء تحيط به رموز التحرير والغذاء والرحمة."
+      },
+      "en": {
+        "title": [
+          "What Does It Mean to Cross",
+          "the Steep Path?"
+        ],
+        "subtitle": "Costly compassion reaches people burdened by bondage, hunger, orphanhood, or poverty.",
+        "alt": "Navy and gold symbolic cover for a reflection on Surah Al-Balad, showing an ascending path toward light with symbols of liberation, food, and compassion."
       }
     },
     {
@@ -200,10 +328,10 @@
       "ar": {
         "title": [
           "كم من العمل ينجزه",
-          "الوكيل الذكي وحده؟"
+          "المساعد الذكي وحده؟"
         ],
-        "subtitle": "أنجز أفضل وكيل نحو ثلث المهام في شركة محاكاة",
-        "alt": "غلاف توضيحي بالكحلي والذهبي لدراسة عن وكلاء الذكاء الاصطناعي، يظهر فيه مبنى شركة أُضيء ثلث نوافذه ووكيل ذكي وقائمة نقاط تحقق."
+        "subtitle": "أنجز أفضل مساعد ذكي نحو ثلث المهام في شركة محاكاة",
+        "alt": "غلاف توضيحي بالكحلي والذهبي لدراسة عن مساعدي الذكاء الاصطناعي، يظهر فيه مبنى شركة أُضيء ثلث نوافذه ومساعد ذكي وقائمة نقاط تحقق."
       },
       "en": {
         "title": [
@@ -220,11 +348,11 @@
       "category": "article",
       "ar": {
         "title": [
-          "كيف غيّر وكيل ذكي",
+          "كيف غيّر مساعد ذكي",
           "بحث غوغل عن الثغرات؟"
         ],
-        "subtitle": "أُصلح 80 من 85 بلاغًا قدّمها وكيل غوغل.",
-        "alt": "غلاف توضيحي بالكحلي والذهبي لمقال عن وكيل ذكي يفتش في شيفرة برمجية، يظهر فيه نافذة شيفرة وعدسة مكبّرة وعلامة مراجعة بشرية."
+        "subtitle": "أُصلح 80 من 85 بلاغًا قدّمها مساعد ذكي من غوغل.",
+        "alt": "غلاف توضيحي بالكحلي والذهبي لمقال عن مساعد ذكي يفتش في شيفرة برمجية، يظهر فيه نافذة شيفرة وعدسة مكبّرة وعلامة مراجعة بشرية."
       },
       "en": {
         "title": [
@@ -352,8 +480,8 @@
           "قال له توقف",
           "فحذف قاعدة البيانات"
         ],
-        "subtitle": "الأمر المكتوب لا يضبط ما يستطيع الوكيل فعله",
-        "alt": "غلاف توضيحي بالكحلي والذهبي لمقال عن وكيل ذكي حذف قاعدة بيانات، يظهر فيه رمز قاعدة بيانات ومفتاح إيقاف."
+        "subtitle": "الأمر المكتوب لا يضبط ما يستطيع المساعد الذكي فعله",
+        "alt": "غلاف توضيحي بالكحلي والذهبي لمقال عن مساعد ذكي حذف قاعدة بيانات، يظهر فيه رمز قاعدة بيانات ومفتاح إيقاف."
       },
       "en": {
         "title": [
@@ -684,11 +812,11 @@
       "category": "article",
       "ar": {
         "title": [
-          "الوكيل الذكي في الطب",
+          "المساعد الذكي في الطب",
           "متى يجب أن يتوقف؟"
         ],
         "subtitle": "استقلالية تعرف حدودها وتُبقي القرار البشري",
-        "alt": "غلاف توضيحي بالكحلي والذهبي: سماعة طبية ولوح رقمي في عيادة، بعنوان «الوكيل الذكي في الطب متى يجب أن يتوقف؟»."
+        "alt": "غلاف توضيحي بالكحلي والذهبي: سماعة طبية ولوح رقمي في عيادة، بعنوان «المساعد الذكي في الطب متى يجب أن يتوقف؟»."
       },
       "en": {
         "title": [
@@ -708,7 +836,7 @@
           "من الإجابة",
           "إلى إنجاز المهمة"
         ],
-        "subtitle": "كيف تغيّر وكلاء الذكاء الاصطناعي طريقة العمل؟",
+        "subtitle": "كيف غيّر مساعدو الذكاء الاصطناعي طريقة العمل؟",
         "alt": "غلاف توضيحي بالكحلي والذهبي: حاسوب وملفات عمل على مكتب، بعنوان «من الإجابة إلى إنجاز المهمة»."
       },
       "en": {
@@ -1617,6 +1745,48 @@
       }
     },
     {
+      "slug": "article-oe-evidence-medication-interruptions",
+      "background": "assets/previews/story-backgrounds/article-oe-evidence-medication-interruptions.jpg",
+      "category": "article",
+      "ar": {
+        "title": [
+          "سترة «لا تقاطعني»",
+          "لم تخفّض الأخطاء"
+        ],
+        "subtitle": "المقاطعة في أثناء إعطاء الأدوية وأسبابها",
+        "alt": "غلاف توضيحي بالكحلي والذهبي لمقال عن مقاطعة الممرضين في أثناء إعطاء الأدوية، يظهر فيه كوب أدوية تحيط به إشارات تنبيه."
+      },
+      "en": {
+        "title": [
+          "A “Do Not Interrupt” Vest",
+          "Did Not Cut Errors"
+        ],
+        "subtitle": "Why the interruptions persist.",
+        "alt": "Navy and gold editorial cover for an article about interruptions during medication rounds, showing a medicine cup surrounded by alert signs."
+      }
+    },
+    {
+      "slug": "article-oe-evidence-standardized-handoffs",
+      "background": "assets/previews/story-backgrounds/article-oe-evidence-standardized-handoffs.jpg",
+      "category": "article",
+      "ar": {
+        "title": [
+          "حين يكون التسليم",
+          "واحدًا للجميع"
+        ],
+        "subtitle": "توحيد التسليم بين المناوبات وحدود أثره",
+        "alt": "غلاف توضيحي بالكحلي والذهبي لمقال عن تسليم المرضى بين المناوبات، يظهر فيه طرفان بينهما بطاقة من خمسة أسطر."
+      },
+      "en": {
+        "title": [
+          "When Every Shift",
+          "Hands Over the Same Way"
+        ],
+        "subtitle": "Standard handoffs, and the limits of their effect.",
+        "alt": "Navy and gold editorial cover for an article about patient handoffs between shifts, showing two sides connected by a card with five lines."
+      }
+    },
+    {
       "slug": "article-oe-evidence-defaults-shape-practice",
       "background": "assets/previews/story-backgrounds/article-oe-evidence-defaults-shape-practice.jpg",
       "category": "article",
@@ -1686,10 +1856,10 @@
       "ar": {
         "title": [
           "حين لا يريد المطورون",
-          "العمل بلا وكيل ذكي"
+          "العمل بلا مساعد ذكي"
         ],
         "subtitle": "لماذا أصبح قياس الإنتاجية أصعب؟",
-        "alt": "غلاف توضيحي بالكحلي والذهبي لمقال عن قياس إنتاجية وكلاء البرمجة، يظهر فيه نافذة شيفرة وعدسة فحص وعلامة مراجعة بشرية."
+        "alt": "غلاف توضيحي بالكحلي والذهبي لمقال عن قياس إنتاجية مساعدي البرمجة، يظهر فيه نافذة شيفرة وعدسة فحص وعلامة مراجعة بشرية."
       },
       "en": {
         "title": [
@@ -1727,11 +1897,11 @@
       "category": "article",
       "ar": {
         "title": [
-          "حين استعاد الوكيل",
+          "حين استعاد المساعد الذكي",
           "قدرة حاسوبية عالقة"
         ],
         "subtitle": "من محاكاة الجدولة إلى تشغيل فعلي في مراكز البيانات",
-        "alt": "غلاف توضيحي بالكحلي والذهبي لمقال عن وكيل يطور خوارزمية جدولة لمراكز البيانات، يظهر فيه مبنى حوسبة وشبكة موارد وقاعدة تحقق."
+        "alt": "غلاف توضيحي بالكحلي والذهبي لمقال عن مساعد يطور خوارزمية جدولة لمراكز البيانات، يظهر فيه مبنى حوسبة وشبكة موارد وقاعدة تحقق."
       },
       "en": {
         "title": [
@@ -1770,10 +1940,10 @@
       "ar": {
         "title": [
           "هل موافقة الإنسان على",
-          "الوكيل رقابة حقيقية؟"
+          "المساعد الذكي رقابة حقيقية؟"
         ],
         "subtitle": "يقبل المستخدمون 93% من طلبات الإذن بحسب أنثروبيك، فهل ما زالت الموافقة رقابة؟",
-        "alt": "غلاف توضيحي بالكحلي والذهبي لمقال عن رقابة الإنسان على وكيل ذكي، تظهر فيه قائمة طلبات وافق عليها المراجع كلها عدا طلبًا واحدًا أُوقف بزر إيقاف مؤقت."
+        "alt": "غلاف توضيحي بالكحلي والذهبي لمقال عن رقابة الإنسان على مساعد ذكي، تظهر فيه قائمة طلبات وافق عليها المراجع كلها عدا طلبًا واحدًا أُوقف بزر إيقاف مؤقت."
       },
       "en": {
         "title": [
@@ -1791,10 +1961,10 @@
       "ar": {
         "title": [
           "هل يبني الذكاء الاصطناعي",
-          "وكيل خدمة موثوقًا؟"
+          "مساعد خدمة عملاء موثوقًا؟"
         ],
         "subtitle": "في 53 مهمة بناء، بلغ أفضل متوسط آلي 23.9 من 100.",
-        "alt": "غلاف توضيحي بالكحلي والذهبي لوكيل برمجي يبني نظام خدمة عملاء أمام لوحة تقييم تعرض 53 مهمة ودرجة 23.9 من 100."
+        "alt": "غلاف توضيحي بالكحلي والذهبي لمساعد برمجي يبني نظام خدمة عملاء أمام لوحة تقييم تعرض 53 مهمة ودرجة 23.9 من 100."
       },
       "en": {
         "title": [
@@ -1806,6 +1976,186 @@
       }
     },
     {
+      "slug": "article-agentic-ai-web-agent-evaluation-audit",
+      "reference": true,
+      "category": "article",
+      "ar": {
+        "source": "assets/previews/story/article-agentic-ai-web-agent-evaluation-audit-ar.jpg",
+        "title": [
+          "أنجز المهمة…",
+          "لكن الاختبار قال: فشل"
+        ],
+        "subtitle": "مراجعة بشرية لـ165 مهمة تفصل بين حكم الآلة وما تثبته البيئة.",
+        "alt": "غلاف لمراجعة موثقة لمساعدي الويب يظهر اختلاف حكم الاختبار عن النتيجة المثبتة."
+      },
+      "en": {
+        "source": "assets/previews/story/article-agentic-ai-web-agent-evaluation-audit-en.jpg",
+        "title": [
+          "The Task Was Done.",
+          "The Test Said “Failed.”"
+        ],
+        "subtitle": "A human audit of 165 tasks separates evaluator verdicts from environment evidence.",
+        "alt": "Cover for an evidence-based web-agent audit showing a test verdict diverging from the verified result."
+      }
+    },
+    {
+      "slug": "article-agentic-ai-multi-agent-scientific-analysis-cost",
+      "reference": true,
+      "category": "article",
+      "ar": {
+        "source": "assets/previews/story/article-agentic-ai-multi-agent-scientific-analysis-cost-ar.jpg",
+        "title": [
+          "عندما لا يصل المساعد الذكي",
+          "إلى رقم قابل للحساب"
+        ],
+        "subtitle": "9 من 10 إعدادات تقدمت، لكن أقواها احتاج 4.5× الزمن.",
+        "alt": "غلاف تحليلي يوضح مساعداً واحداً يتفرع إلى فريق من المساعدين ثم يصل إلى درجة مركبة 32 من 100."
+      },
+      "en": {
+        "source": "assets/previews/story/article-agentic-ai-multi-agent-scientific-analysis-cost-en.jpg",
+        "title": [
+          "When One Agent",
+          "Never Reaches the Number"
+        ],
+        "subtitle": "9 of 10 workflows improved, but the strongest took 4.5× the time.",
+        "alt": "Analytical cover showing one agent branching into a team before reaching a composite score of 32 out of 100."
+      }
+    },
+    {
+      "slug": "article-agentic-ai-openai-agents-sandbox-escape",
+      "background": "assets/previews/story-backgrounds/article-agentic-ai-openai-agents-sandbox-escape.jpg",
+      "category": "article",
+      "ar": {
+        "title": [
+          "كيف اخترق مساعدون أذكياء",
+          "شركة أخرى أثناء اختبار؟"
+        ],
+        "subtitle": "خرج مساعدو أوبن إيه آي من بيئة اختبار مغلقة في يوليو 2026، ولم يأمرهم أحد بذلك.",
+        "alt": "غلاف توضيحي بالكحلي والذهبي لمقال عن مساعدين أذكياء يخرجون من صندوق اختبار مغلق عبر ثغرة في جداره إلى خادم خارجي."
+      },
+      "en": {
+        "title": [
+          "How AI Agents Broke Into",
+          "Another Firm During a Test"
+        ],
+        "subtitle": "OpenAI agents left a sealed test environment in July 2026. No one told them to.",
+        "alt": "Navy and gold illustrative cover for an article about AI agents leaving a sealed test box through a gap in its wall toward an outside server."
+      }
+    },
+    {
+      "slug": "article-agentic-ai-long-horizon-computer-workflows",
+      "reference": true,
+      "category": "article",
+      "ar": {
+        "source": "assets/previews/story/article-agentic-ai-long-horizon-computer-workflows-ar.jpg",
+        "title": [
+          "عندما ينجز المساعد الذكي",
+          "نصف العمل فقط"
+        ],
+        "subtitle": "54.8% تقدم جزئي، لكن 20.6% فقط من المهام اكتملت.",
+        "alt": "غلاف تحليلي بالكحلي والذهبي يوضح مسار عمل طويلًا ينتهي بنتيجة 20.6% فقط من الإنجاز الكامل."
+      },
+      "en": {
+        "source": "assets/previews/story/article-agentic-ai-long-horizon-computer-workflows-en.jpg",
+        "title": [
+          "When an Agent Does",
+          "Only Half the Work"
+        ],
+        "subtitle": "54.8% partial credit, but only 20.6% strict completion.",
+        "alt": "Navy and gold analytical cover showing a long computer workflow ending at only 20.6% strict completion."
+      }
+    },
+    {
+      "slug": "article-agentic-ai-company-handbook-policy-compliance",
+      "reference": true,
+      "category": "article",
+      "ar": {
+        "source": "assets/previews/story/article-agentic-ai-company-handbook-policy-compliance-ar.jpg",
+        "title": [
+          "هل يتبع مساعد الذكاء الاصطناعي",
+          "دليل الشركة؟"
+        ],
+        "subtitle": "65 مهمة، 260 محاولة، و824 معياراً حتمياً.",
+        "alt": "غلاف تحليلي بالكحلي والذهبي يصور دليل شركة وختم التزام صارم بنسبة 36.2% أمام مسار إجراء متوقف."
+      },
+      "en": {
+        "source": "assets/previews/story/article-agentic-ai-company-handbook-policy-compliance-en.jpg",
+        "title": [
+          "Can an AI Agent Follow",
+          "the Company Handbook?"
+        ],
+        "subtitle": "65 tasks, 260 trials, and 824 deterministic checks.",
+        "alt": "Navy and gold analytical cover showing a company handbook and a 36.2% strict-compliance seal beside a blocked action path."
+      }
+    },
+    {
+      "slug": "article-agentic-ai-human-agent-ad-experiment",
+      "background": "assets/previews/story-backgrounds/article-agentic-ai-human-agent-ad-experiment.jpg",
+      "category": "article",
+      "ar": {
+        "title": [
+          "ماذا حدث حين عمل الناس",
+          "مع مساعد ذكاء اصطناعي؟"
+        ],
+        "subtitle": "زاد إنتاج الفرد بنحو النصف في تجربة على 2,234 مشاركًا، لكن أداء الحملة لم يتغير.",
+        "alt": "غلاف توضيحي بالكحلي والذهبي لدراسة عن العمل مع مساعد ذكاء اصطناعي، يظهر فيه شريكان حول بطاقة إعلان تجمع نصًا وصورة."
+      },
+      "en": {
+        "title": [
+          "What Happened When People",
+          "Worked With an AI Agent?"
+        ],
+        "subtitle": "In a 2,234-person experiment, output rose by about half, but campaign results did not change.",
+        "alt": "Navy and gold illustrative cover for a study of working with an AI agent, showing two collaborators around an ad card that combines text and an image."
+      }
+    },
+    {
+      "slug": "article-agentic-ai-hidden-failures-trajectory-audit",
+      "reference": true,
+      "category": "article",
+      "ar": {
+        "source": "assets/previews/story/article-agentic-ai-hidden-failures-trajectory-audit-ar.jpg",
+        "title": [
+          "كيف يخفي النجاح الظاهري",
+          "خطأً مدمراً؟"
+        ],
+        "subtitle": "تدقيق 2,518 مساراً كشف أن أول خطأ قد يختفي حتى النهاية.",
+        "alt": "غلاف تحليلي بالكحلي والذهبي يظهر مسار وكيل ينتهي بعلامة نجاح بينما تتساقط منه ملفات محذوفة."
+      },
+      "en": {
+        "source": "assets/previews/story/article-agentic-ai-hidden-failures-trajectory-audit-en.jpg",
+        "title": [
+          "When “Success” Hides",
+          "a Destructive Error"
+        ],
+        "subtitle": "An audit of 2,518 trajectories traced where long runs first went wrong.",
+        "alt": "Navy and gold analytical cover showing an agent path ending in a success mark while deleted files fall away."
+      }
+    },
+    {
+      "slug": "article-agentic-ai-erpbench-market-ecology",
+      "reference": true,
+      "category": "article",
+      "ar": {
+        "source": "assets/previews/story/article-agentic-ai-erpbench-market-ecology-ar.jpg",
+        "title": [
+          "لماذا تغيّر",
+          "الوكيل الأفضل؟"
+        ],
+        "subtitle": "100 سوق افتراضي بخصوم مختلفين.",
+        "alt": "غلاف تحليلي بالكحلي والذهبي يظهر مسارين تنافسيين ينتهيان بترتيبين مختلفين للوكلاء."
+      },
+      "en": {
+        "source": "assets/previews/story/article-agentic-ai-erpbench-market-ecology-en.jpg",
+        "title": [
+          "Why Did the Best",
+          "Agent Change?"
+        ],
+        "subtitle": "100 simulated markets, different competitors.",
+        "alt": "Navy and gold analytical cover showing two competitive paths ending with different agent rankings."
+      }
+    },
+    {
       "slug": "article-agentic-ai-weekly-radar-oct-25",
       "background": "assets/previews/story-backgrounds/article-agentic-ai-weekly-radar-oct-25.jpg",
       "category": "article",
@@ -1814,7 +2164,7 @@
           "ماذا يراقب القائد",
           "وماذا يجرّب وماذا يوقف؟"
         ],
-        "subtitle": "لكل تطور من التطورات الخمسة في الوكلاء الأذكياء قرار مختلف للقائد.",
+        "subtitle": "لكل تطور من التطورات الخمسة في مساعدي الذكاء الاصطناعي قرار مختلف للقائد.",
         "alt": "غلاف توضيحي بالكحلي والذهبي لمقال رصد أسبوعي، تظهر فيه شاشة رادار عليها خمس نقاط وإحداها محاطة بدائرة مراجعة."
       },
       "en": {

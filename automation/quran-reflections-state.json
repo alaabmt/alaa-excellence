@@ -5,121 +5,318 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-25T19:15:00+04:00",
-  "workflow_status": "in_progress",
-  "current_stage": "english_draft",
+  "updated_at": "2026-10-28T22:15:00+04:00",
+  "workflow_status": "blocked",
+  "current_stage": "live_verification",
   "current_article": {
-    "article_id": "quran-reflection-2026-10-25-al-balad-the-steep-path",
-    "publication_date": "2026-10-25",
-    "slug": "reflection-al-balad-the-steep-path",
-    "topic_ar": "العقبة: لماذا يصف القرآن الخير المكلف بطريق يحتاج إلى اقتحام؟",
-    "topic_en": "The steep path: why the Qur'an describes costly goodness as a path that must be crossed",
-    "working_title_ar": "ماذا يعني اقتحام العقبة في سورة البلد؟",
-    "working_title_en": "Why Does the Qur’an Describe Goodness as a Steep Path?",
-    "status": "arabic_revised_and_critique_passed",
-    "quranic_focus": {
-      "surah": "Al-Balad",
-      "surah_ar": "البلد",
-      "ayahs": [
-        11,
-        12,
-        13,
-        14,
-        15,
-        16
-      ],
-      "context_ayahs": [
-        8,
-        9,
-        10,
-        17,
-        18
-      ],
-      "status": "verified"
-    },
-    "research_notes_path": "automation/quran-reflections/reflection-al-balad-the-steep-path/research-notes.md",
-    "research_status": "completed",
+    "article_id": "quran-reflection-2026-10-28-al-mutaffifin-fair-measure",
+    "publication_date": "2026-10-28",
+    "slug": "reflection-al-mutaffifin-demanding-full-measure-giving-less",
+    "topic_ar": "المطففين 83:1–6 — أن نطلب حقنا كاملًا ثم ننقص حقوق الآخرين",
+    "topic_en": "Al-Mutaffifin 83:1–6 — demanding our due in full while diminishing what others receive",
+    "working_title_ar": "لماذا نطلب حقنا كاملًا ثم ننقص حقوق الآخرين؟",
+    "working_title_en": "Why Do We Demand Our Due in Full While Giving Others Less?",
+    "status": "in_progress",
     "topic_selection": {
       "status": "completed",
       "candidates": [
-        "Al-Balad 90:11–17 — the steep path and costly goodness",
-        "Al-Hujurat 49:12 — suspicion, surveillance and unseen trust",
-        "Al-Mutaffifin 83:1–3 — small distortions that corrode trust"
+        "Al-Mutaffifin 83:1–6 — demanding a full measure while giving less",
+        "Al-Ma’idah 5:2 — the boundary of cooperation",
+        "An-Nahl 16:90 — justice, excellence and giving beyond minimum duty"
       ],
-      "selected": "Al-Balad 90:11–17 — the steep path and costly goodness",
-      "artifact_commit": "38443c4497625d55012b6093fbbbe4db8e423ef5"
+      "selected": "Al-Mutaffifin 83:1–6 — demanding a full measure while giving less",
+      "central_question": "What becomes visible in our standards when the shortfall benefits us rather than harms us?"
     },
-    "research_commit": "8c477f7da206979894c424ee5d424bee7aec62c1",
+    "duplicate_check": {
+      "status": "passed_repository_and_registry; live_urls_unreachable_via_current_search_connector",
+      "checked_at": "2026-10-28T17:58:00+04:00",
+      "repository_date_matches": 0,
+      "repository_slug_matches": 0,
+      "registry_topic_matches": 0,
+      "expected_url_ar": "https://tamayuz10x.com/reflection-al-mutaffifin-demanding-full-measure-giving-less.html",
+      "expected_url_en": "https://tamayuz10x.com/en/reflection-al-mutaffifin-demanding-full-measure-giving-less.html"
+    },
+    "research_notes_path": "automation/quran-reflections/reflection-al-mutaffifin-demanding-full-measure-giving-less/research-notes.md",
+    "research_status": "completed",
     "research_sources": [
       {
         "type": "Qur'an text and Sahih International translation",
-        "url": "https://legacy.quran.com/90/11-17",
+        "url": "https://legacy.quran.com/83/1-7",
         "status": "reviewed"
       },
       {
-        "type": "Tafsir al-Tabari 90:11,13,14,17",
-        "url": "https://quran.ksu.edu.sa/tafseer/tabary/sura90-aya11.html",
+        "type": "Tafsir al-Tabari 83:1 and 83:4",
+        "url": "https://quran.ksu.edu.sa/tafseer/tabary/sura83-aya1.html",
         "status": "reviewed"
       },
       {
-        "type": "Tafsir Ibn Kathir 90:11,13,17",
-        "url": "https://quran.ksu.edu.sa/tafseer/katheer/sura90-aya11.html",
+        "type": "Tafsir Ibn Kathir 83:1 and 83:4",
+        "url": "https://quran.ksu.edu.sa/tafseer/katheer/sura83-aya1.html",
         "status": "reviewed"
       },
       {
-        "type": "Tafsir al-Qurtubi 90:11,13,17",
-        "url": "https://quran.ksu.edu.sa/tafseer/qortobi/sura90-aya11.html",
+        "type": "Tafsir al-Qurtubi 83:1 and 83:4",
+        "url": "https://quran.ksu.edu.sa/tafseer/qortobi/sura83-aya1.html",
         "status": "reviewed"
       },
       {
-        "type": "Tafsir al-Sa'di 90:11,13,17",
-        "url": "https://quran.ksu.edu.sa/tafseer/saadi/sura90-aya11.html",
+        "type": "Tafsir al-Sa'di 83:1 and 83:4",
+        "url": "https://quran.ksu.edu.sa/tafseer/saadi/sura83-aya1.html",
         "status": "reviewed"
       }
     ],
+    "research_commit": "9e8a4cf48859b3273b40acb72885d5504505bac1",
+    "quranic_focus": {
+      "surah": "Al-Mutaffifin",
+      "surah_ar": "المطففين",
+      "ayahs": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "status": "verified"
+    },
     "verified_quranic_references": [
       {
-        "surah": "Al-Balad",
-        "surah_ar": "البلد",
+        "surah": "Al-Mutaffifin",
+        "surah_ar": "المطففين",
         "ayahs": [
-          11,
-          12,
-          13,
-          14,
-          15,
-          16,
-          17
-        ],
-        "context_ayahs": [
-          8,
-          9,
-          10,
-          18
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
         ],
         "status": "verified",
         "primary_text_urls": [
-          "https://legacy.quran.com/90/11-17"
+          "https://legacy.quran.com/83/1-7"
         ],
         "translation": "Sahih International",
-        "verified_at": "2026-10-25T17:24:00+04:00"
+        "verified_at": "2026-10-28T18:22:00+04:00"
       }
     ],
-    "quran_verification_commit": "f0d3d42faba405f97c29dde7eaa9dc16d149e00b",
+    "quran_verification": {
+      "status": "passed",
+      "blocking_errors": [],
+      "path": "automation/quran-reflections/reflection-al-mutaffifin-demanding-full-measure-giving-less/research-notes.md",
+      "commit": "df439c8e42b6890b41c147f52ac36853d6ad8adf"
+    },
     "arabic_draft": {
-      "status": "revised_and_cleared",
-      "path": "automation/quran-reflections/reflection-al-balad-the-steep-path/draft-ar.md",
-      "initial_commit": "c8711f8125a2becb054f020202fe7d64ebb3bb4d",
-      "blob_sha": "de0a909c5d164b6df8f692adcee0b870e15386b8",
-      "completed_at": "2026-10-25T18:18:00+04:00",
-      "revision_commit": "0492f4b34050a2c68159a7b4e3711e73049ff74d"
+      "status": "parity_cleared",
+      "path": "automation/quran-reflections/reflection-al-mutaffifin-demanding-full-measure-giving-less/draft-ar.md",
+      "word_count": 1382,
+      "commit": "790d201538282a0e0d1f8f5c42a093f471cf3dcd",
+      "completed_at": "2026-10-28T19:01:50+04:00",
+      "mobile_gate": "NOT VERIFIED until final HTML",
+      "tts_gate": "NOT VERIFIED until final HTML",
+      "revision_count": 5
     },
     "independent_critique": {
-      "status": "passed_after_non_blocking_revisions",
-      "path": "automation/quran-reflections/reflection-al-balad-the-steep-path/quality-review.md",
-      "commit": "f5f230131bb985a45b30a2548ee3ee09e6277d15",
-      "blob_sha": "24ba6e5673968d7f6a9f98f370fc3966f3f460e1",
-      "completed_at": "2026-10-25T19:15:00+04:00",
-      "mobile_gate": "NOT VERIFIED until final HTML"
+      "status": "passed_after_required_revisions",
+      "path": "automation/quran-reflections/reflection-al-mutaffifin-demanding-full-measure-giving-less/quality-review.md",
+      "commit": "350bd54fbe3268b1859902f8015fbae359f9ac0c",
+      "blocking_errors": [],
+      "revisions_applied": 4,
+      "completed_at": "2026-10-28T20:02:36+04:00",
+      "mobile_gate": "NOT VERIFIED until final HTML",
+      "tts_gate": "NOT VERIFIED until final HTML"
+    },
+    "english_draft": {
+      "status": "parity_cleared",
+      "path": "automation/quran-reflections/reflection-al-mutaffifin-demanding-full-measure-giving-less/draft-en.md",
+      "word_count": 1856,
+      "quran_translation": "Sahih International",
+      "commit": "bc766173ee0b3e70dff6f05812a3a4609fd88218",
+      "completed_at": "2026-10-28T20:03:42+04:00",
+      "mobile_gate": "NOT VERIFIED until final HTML",
+      "tts_gate": "NOT VERIFIED until final HTML"
+    },
+    "bilingual_parity": {
+      "status": "passed_after_aligned_tafsir_citation_revision",
+      "review_path": "automation/quran-reflections/reflection-al-mutaffifin-demanding-full-measure-giving-less/quality-review.md",
+      "commit": "0c9bc8bb6efac1a687a39db9652eb0e683569d07",
+      "revision_count": 1,
+      "same_source_urls": 5,
+      "completed_at": "2026-10-28T20:58:39+04:00",
+      "mobile_gate": "NOT VERIFIED until final HTML",
+      "tts_gate": "NOT VERIFIED until final HTML"
+    },
+    "quality_gate": {
+      "status": "passed",
+      "score": 97,
+      "threshold": 90,
+      "blocking_errors": [],
+      "review_path": "automation/quran-reflections/reflection-al-mutaffifin-demanding-full-measure-giving-less/quality-review.md",
+      "commit": "c33cfacbfbbb205eae795dd2cc20d6167e710285",
+      "completed_at": "2026-10-28T20:59:30+04:00",
+      "mobile_gate": "NOT VERIFIED until final HTML",
+      "rtl_gate": "NOT VERIFIED until final HTML",
+      "tts_gate": "NOT VERIFIED until final HTML"
+    },
+    "publishing": {
+      "status": "actions_passed_live_tts_pending",
+      "arabic_path": "reflection-al-mutaffifin-demanding-full-measure-giving-less.html",
+      "english_path": "en/reflection-al-mutaffifin-demanding-full-measure-giving-less.html",
+      "arabic_page_commit": "2d7481db8f60aa3f48648182251ade101783f3a1",
+      "english_page_commit": "9edf479a74eb441fb79c395d8977dbd4bf4ea152",
+      "indexes": [
+        "quranic-reflections.html",
+        "en/quranic-reflections.html",
+        "articles.html",
+        "en/articles.html"
+      ],
+      "topic_registry": "data/quranic-reflection-topics.json",
+      "sitemap": "sitemap.xml",
+      "checks": "passed",
+      "live": "pages_and_indexes_verified; actual TTS playback NOT VERIFIED"
+    },
+    "repository_publish": {
+      "status": "completed",
+      "completed_at": "2026-10-28T21:53:53+04:00",
+      "checkpoint_commit": "98c84d0963a7e3e89ba30e39a9fd7594dc213db9",
+      "arabic_page": {
+        "path": "reflection-al-mutaffifin-demanding-full-measure-giving-less.html",
+        "commit": "2d7481db8f60aa3f48648182251ade101783f3a1"
+      },
+      "english_page": {
+        "path": "en/reflection-al-mutaffifin-demanding-full-measure-giving-less.html",
+        "commit": "9edf479a74eb441fb79c395d8977dbd4bf4ea152"
+      },
+      "indexes": [
+        "quranic-reflections.html",
+        "en/quranic-reflections.html",
+        "articles.html",
+        "en/articles.html"
+      ],
+      "records": [
+        "data/quranic-reflection-topics.json",
+        "data/article-covers.json",
+        "data/article-publication-dates.json",
+        "sitemap.xml"
+      ],
+      "checks_status": "pending_actions_and_live_verification",
+      "reconciliation_note": "Canonical publication paths copied into repository_publish so exact bilingual mobile QA can resolve the current article without replaying publication."
+    },
+    "actions_and_pages": {
+      "status": "completed",
+      "checked_at": "2026-10-28T22:15:00+04:00",
+      "report_path": "automation/quran-reflections/reflection-al-mutaffifin-demanding-full-measure-giving-less/actions-and-pages-report.md",
+      "repair_commits": {
+        "state_schema": "cb84bd9084e184d03442a689f1fb47b6daaa2f5a",
+        "publication_records": "526829b653e1d34c0bc8132fb1a071a7939be3a2",
+        "visible_dates": "c269bd07632da6a87614f77fe4b48046304e45da",
+        "generated_social_assets": "05eacfad2433c7bfee08f3a023016e7227f56110",
+        "mobile_wrap": "5d3f32f22a0ec0eeac12091ac040b967eb4f7966"
+      },
+      "required_checks": {
+        "site_health": {
+          "run_id": 40742136729,
+          "conclusion": "success",
+          "head_sha": "5d3f32f22a0ec0eeac12091ac040b967eb4f7966",
+          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40742136729"
+        },
+        "article_date_integrity": {
+          "run_id": 40742136785,
+          "conclusion": "success",
+          "head_sha": "5d3f32f22a0ec0eeac12091ac040b967eb4f7966",
+          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40742136785"
+        },
+        "sitemap": {
+          "run_id": 40742136798,
+          "conclusion": "success",
+          "head_sha": "5d3f32f22a0ec0eeac12091ac040b967eb4f7966",
+          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40742136798"
+        },
+        "social_cards": {
+          "run_id": 40742136707,
+          "conclusion": "success",
+          "head_sha": "5d3f32f22a0ec0eeac12091ac040b967eb4f7966",
+          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40742136707"
+        },
+        "arabic_editorial": {
+          "run_id": 40742136885,
+          "conclusion": "success",
+          "head_sha": "5d3f32f22a0ec0eeac12091ac040b967eb4f7966",
+          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40742136885"
+        },
+        "pages": {
+          "run_id": 40742455891,
+          "conclusion": "success",
+          "head_sha": "cee988ae918521442dbc5fe5e2e566c7d9841370",
+          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40742455891"
+        }
+      },
+      "exact_mobile_test": {
+        "conclusion": "success",
+        "artifact_id": 12838898678,
+        "viewports": [
+          320,
+          375,
+          390,
+          430
+        ],
+        "languages": [
+          "ar",
+          "en"
+        ],
+        "cases_passed": 8
+      },
+      "completed_at": "2026-10-28T22:15:00+04:00"
+    },
+    "live_verification": {
+      "status": "blocked_on_actual_tts_playback",
+      "checked_at": "2026-10-28T22:15:00+04:00",
+      "pages": {
+        "ar": {
+          "url": "https://tamayuz10x.com/reflection-al-mutaffifin-demanding-full-measure-giving-less.html",
+          "loaded": true,
+          "lang": "ar",
+          "dir": "rtl",
+          "canonical": true,
+          "hreflang": true,
+          "listen_control": true,
+          "social_image": true,
+          "mobile_workflow_passed": true
+        },
+        "en": {
+          "url": "https://tamayuz10x.com/en/reflection-al-mutaffifin-demanding-full-measure-giving-less.html",
+          "loaded": true,
+          "lang": "en",
+          "dir": "ltr",
+          "canonical": true,
+          "hreflang": true,
+          "listen_control": true,
+          "social_image_1200": true,
+          "mobile_workflow_passed": true
+        }
+      },
+      "indexes": {
+        "articles.html": {
+          "unique_cards": 1
+        },
+        "quranic-reflections.html": {
+          "unique_cards": 1
+        },
+        "en/articles.html": {
+          "unique_cards": 1
+        },
+        "en/quranic-reflections.html": {
+          "unique_cards": 1
+        }
+      },
+      "sitemap": {
+        "ar_loc_count": 1,
+        "en_loc_count": 1
+      },
+      "tts": {
+        "controls_present": true,
+        "actual_playback_verified": false,
+        "blocker": "Available cloud browser reports window.speechSynthesis unavailable; clicking Arabic Listen did not start playback."
+      }
     }
   },
   "stage_order": [
@@ -153,23 +350,17 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Create an original English draft with the same Qur'anic scope, interpretive limits, hypothetical example, references and editorial notices; use Sahih International for quoted verse translations, then checkpoint english_draft before bilingual parity review.",
+  "next_action": "Decision required: provide a browser/OS with Web Speech synthesis enabled for real Arabic and English playback verification, or explicitly accept the successful Listen-control/DOM checks plus the eight-case mobile Action as sufficient TTS evidence. Then save live_verification, publication-report.md and completion_report without republishing.",
   "last_run": {
-    "mode": "coordinator_daily_start",
-    "status": "in_progress",
-    "started_at": "2026-10-25T17:04:58+04:00",
-    "starting_head": null,
-    "notes": "Started the single allowed Qur'anic reflection cycle for 25 October after capability, checkpoint, registry and repository duplicate checks.",
-    "last_checkpoint": "independent_critique",
-    "last_checkpoint_at": "2026-10-25T19:15:00+04:00",
-    "topic_selection_commit": "38443c4497625d55012b6093fbbbe4db8e423ef5",
-    "research_commit": "8c477f7da206979894c424ee5d424bee7aec62c1",
-    "quran_verification_commit": "f0d3d42faba405f97c29dde7eaa9dc16d149e00b",
-    "resumed_at": "2026-10-25T19:02:43+04:00",
-    "resumed_by": "central-coordinator",
-    "arabic_draft_commit": "c8711f8125a2becb054f020202fe7d64ebb3bb4d",
-    "arabic_revision_commit": "0492f4b34050a2c68159a7b4e3711e73049ff74d",
-    "independent_critique_commit": "f5f230131bb985a45b30a2548ee3ee09e6277d15"
+    "mode": "coordinator_resume",
+    "status": "blocked",
+    "started_at": "2026-10-28T17:58:00+04:00",
+    "starting_head": "c5697f62d8231a2de0c3c404a9a55072833f9a88",
+    "last_checkpoint": "actions_and_pages",
+    "last_checkpoint_at": "2026-10-28T22:15:00+04:00",
+    "notes": "All repository, Actions, Pages, mobile/RTL, social-card, date, index and sitemap checks passed. Live verification is blocked only on actual TTS playback because the available cloud browser exposes no Web Speech synthesis engine.",
+    "resumed_at": "2026-10-28T21:59:40+04:00",
+    "resumed_by": "central-coordinator"
   },
   "workflow_id": "quran_reflections",
   "run_lease": null,
@@ -184,271 +375,358 @@
   },
   "coordinator_recovery": true,
   "last_completed_article": {
-    "article_id": "quran-reflection-2026-10-24-az-zumar-follow-the-best",
-    "publication_date": "2026-10-24",
-    "slug": "reflection-az-zumar-follow-the-best",
-    "topic_ar": "الاستماع المسؤول: سماع الأقوال ثم اتباع أحسنها",
-    "topic_en": "Responsible listening: hearing different words and following the best of them",
-    "working_title_ar": "هل يكفي أن نسمع، أم نتبع أحسن ما سمعنا؟",
-    "working_title_en": "Is Listening Enough, or Do We Follow the Best of What We Hear?",
+    "article_id": "quran-reflection-2026-10-26-al-hujurat-suspicion-surveillance-trust",
+    "publication_date": "2026-10-26",
+    "slug": "reflection-al-hujurat-suspicion-surveillance-trust",
+    "topic_ar": "سوء الظن والتجسس والغيبة: ما الذي تحميه الآية في كرامة الإنسان حين يغيب؟",
+    "topic_en": "Suspicion, spying and backbiting: what the verse protects in a person's dignity when they are absent",
+    "working_title_ar": "متى تتحول الرغبة في معرفة ما يخفيه الناس إلى ظلم؟",
+    "working_title_en": "When Does the Desire to Know What People Conceal Become an Injustice?",
     "status": "completed_published_live_verified",
     "quranic_focus": {
-      "surah": "Az-Zumar",
-      "surah_ar": "الزمر",
+      "surah": "Al-Hujurat",
+      "surah_ar": "الحجرات",
       "ayahs": [
-        18
+        12
       ],
       "context_ayahs": [
-        17,
-        19
+        10,
+        11,
+        13
       ],
       "status": "verified"
     },
-    "research_notes_path": "automation/quran-reflections/reflection-az-zumar-follow-the-best/research-notes.md",
+    "research_notes_path": "automation/quran-reflections/reflection-al-hujurat-suspicion-surveillance-trust/research-notes.md",
     "research_status": "completed",
     "topic_selection": {
       "status": "completed",
       "candidates": [
-        "Az-Zumar 39:18 — listening, discernment and following what is best",
-        "Al-Balad 90:11–16 — the steep path and costly goodness",
-        "Al-Hujurat 49:12 — suspicion, surveillance and unseen trust"
+        "Al-Hujurat 49:12 — suspicion, spying and the dignity of what remains unseen",
+        "Al-Mutaffifin 83:1–6 — demanding a full measure while giving less",
+        "Al-Ma’idah 5:2 — the boundary of cooperation"
       ],
-      "selected": "Az-Zumar 39:18 — listening, discernment and following what is best",
-      "artifact_commit": "d2deaf1cd13861986ed878cb7d9919479959d8e4"
+      "selected": "Al-Hujurat 49:12 — suspicion, spying and the dignity of what remains unseen"
     },
     "research_sources": [
       {
         "type": "Qur'an text and Sahih International translation",
-        "url": "https://legacy.quran.com/39/17-18",
+        "url": "https://legacy.quran.com/49/12",
         "status": "reviewed"
       },
       {
-        "type": "Tafsir al-Tabari 39:17",
-        "url": "https://quran.ksu.edu.sa/tafseer/tabary/sura39-aya17.html",
+        "type": "Immediate context, Al-Hujurat 49:10–13",
+        "url": "https://quran.com/49/10-13",
         "status": "reviewed"
       },
       {
-        "type": "Tafsir al-Tabari 39:18",
-        "url": "https://quran.ksu.edu.sa/tafseer/tabary/sura39-aya18.html",
+        "type": "Tafsir al-Tabari 49:12",
+        "url": "https://quran.ksu.edu.sa/tafseer/tabary/sura49-aya12.html",
         "status": "reviewed"
       },
       {
-        "type": "Tafsir Ibn Kathir 39:17",
-        "url": "https://quran.ksu.edu.sa/tafseer/katheer/sura39-aya17.html",
+        "type": "Tafsir Ibn Kathir 49:12",
+        "url": "https://quran.ksu.edu.sa/tafseer/katheer/sura49-aya12.html",
         "status": "reviewed"
       },
       {
-        "type": "Tafsir Ibn Kathir 39:18",
-        "url": "https://quran.ksu.edu.sa/tafseer/katheer/sura39-aya18.html",
+        "type": "Tafsir al-Qurtubi 49:12",
+        "url": "https://quran.ksu.edu.sa/tafseer/qortobi/sura49-aya12.html",
         "status": "reviewed"
       },
       {
-        "type": "Tafsir al-Qurtubi 39:17",
-        "url": "https://quran.ksu.edu.sa/tafseer/qortobi/sura39-aya17.html",
-        "status": "reviewed"
-      },
-      {
-        "type": "Tafsir al-Qurtubi 39:18",
-        "url": "https://quran.ksu.edu.sa/tafseer/qortobi/sura39-aya18.html",
-        "status": "reviewed"
-      },
-      {
-        "type": "Tafsir al-Sa'di 39:18",
-        "url": "https://quran.ksu.edu.sa/tafseer/saadi/sura39-aya18.html",
+        "type": "Tafsir al-Sa'di 49:12",
+        "url": "https://quran.ksu.edu.sa/tafseer/saadi/sura49-aya12.html",
         "status": "reviewed"
       }
     ],
+    "research_commit": "de0024836493abc5f48c13a1bf3c9d302f998eae",
     "verified_quranic_references": [
       {
-        "surah": "Az-Zumar",
-        "surah_ar": "الزمر",
+        "surah": "Al-Hujurat",
+        "surah_ar": "الحجرات",
         "ayahs": [
-          18
+          12
         ],
         "context_ayahs": [
-          17,
-          19
+          10,
+          11,
+          13
         ],
         "status": "verified",
         "primary_text_urls": [
-          "https://legacy.quran.com/39/17-18",
-          "https://legacy.quran.com/39/17-23"
+          "https://legacy.quran.com/49/12",
+          "https://legacy.quran.com/49/10-13"
         ],
         "translation": "Sahih International",
-        "verified_at": "2026-10-24T17:45:00+04:00"
+        "verified_at": "2026-10-26T22:02:09+04:00"
       }
     ],
     "arabic_draft": {
       "status": "revised_and_cleared",
-      "path": "automation/quran-reflections/reflection-az-zumar-follow-the-best/draft-ar.md",
-      "initial_commit": "46da29cd66622e4ce08f4e072db3a4036a05e95c",
-      "completed_at": "2026-10-24T18:24:00+04:00",
-      "revision_commit": "ebdcb68c95795f679e71315ab7e5f44ca673d118",
-      "parity_revision_commit": "cd14a17992f88b2484d9ffe5318d89e8708718d4"
+      "path": "automation/quran-reflections/reflection-al-hujurat-suspicion-surveillance-trust/draft-ar.md",
+      "word_count": 1274,
+      "completed_at": "2026-10-26T23:02:00+04:00",
+      "revision_count": 2
     },
     "independent_critique": {
       "status": "passed_after_non_blocking_revisions",
-      "path": "automation/quran-reflections/reflection-az-zumar-follow-the-best/quality-review.md",
-      "commit": "b2f3950dbdba4c53492dad44a4c42359829da6b8",
-      "completed_at": "2026-10-24T19:24:00+04:00"
+      "path": "automation/quran-reflections/reflection-al-hujurat-suspicion-surveillance-trust/quality-review.md",
+      "blocking_errors": [],
+      "revisions_applied": 2,
+      "completed_at": "2026-10-26T23:08:00+04:00",
+      "mobile_gate": "NOT VERIFIED until final HTML",
+      "tts_gate": "NOT VERIFIED until final HTML"
     },
     "english_draft": {
       "status": "parity_cleared",
-      "path": "automation/quran-reflections/reflection-az-zumar-follow-the-best/draft-en.md",
-      "commit": "220dc6a17c04b363adde8b07d942d72eba7e3d72",
+      "path": "automation/quran-reflections/reflection-al-hujurat-suspicion-surveillance-trust/draft-en.md",
+      "word_count": 1515,
       "quran_translation": "Sahih International",
-      "completed_at": "2026-10-24T20:18:00+04:00",
-      "parity_revision_commit": "88cbb14e17d7417dc1bc5f94596bd963f2447020"
+      "completed_at": "2026-10-26T23:15:00+04:00"
     },
     "bilingual_parity": {
-      "status": "passed_after_alignment",
-      "review_path": "automation/quran-reflections/reflection-az-zumar-follow-the-best/quality-review.md",
-      "review_commit": "4f4f358ec877a76eb8e72eb0dfc5901e4977e32b",
-      "same_source_urls": 8,
-      "completed_at": "2026-10-24T21:24:00+04:00"
+      "status": "passed_after_heading_alignment",
+      "review_path": "automation/quran-reflections/reflection-al-hujurat-suspicion-surveillance-trust/quality-review.md",
+      "revision_count": 1,
+      "same_source_urls": 5,
+      "completed_at": "2026-10-27T00:06:00+04:00",
+      "mobile_gate": "NOT VERIFIED until final HTML"
     },
     "quality_gate": {
       "status": "passed",
       "score": 98,
       "threshold": 90,
       "blocking_errors": [],
-      "review_path": "automation/quran-reflections/reflection-az-zumar-follow-the-best/quality-review.md",
-      "commit": "fe9878e2084ce86de5e553caffe42a3760f5702d",
-      "completed_at": "2026-10-24T22:18:00+04:00"
+      "review_path": "automation/quran-reflections/reflection-al-hujurat-suspicion-surveillance-trust/quality-review.md",
+      "completed_at": "2026-10-27T00:12:00+04:00",
+      "mobile_gate": "NOT VERIFIED until final HTML",
+      "rtl_gate": "NOT VERIFIED until final HTML",
+      "tts_gate": "NOT VERIFIED until final HTML"
     },
     "repository_publish": {
       "status": "completed",
-      "first_publication_commit": "786c24894c4bef772bfbdb96bffa044e9d259290",
-      "topic_registry_commit": "3c8e14878a05fcf57abf65027219d97d8c295404",
-      "sitemap_reconciliation_commit": "9e0fbb0700b6730e78063a25b62cd1b132c291a1",
-      "social_assets_commit": "341b77e6aadf4c2930e8d8aef9f42ef0beed146c",
-      "registry_reconciliation_commit": "82e78a376643666431df9236bf622ac497cbc4d4",
-      "report_path": "automation/quran-reflections/reflection-az-zumar-follow-the-best/repository-publish-report.md",
-      "report_commit": "6a6c56868292dd9b0e7531fda8ab45d802394182",
-      "paths": {
-        "ar": "reflection-az-zumar-follow-the-best.html",
-        "en": "en/reflection-az-zumar-follow-the-best.html",
-        "image_ar": "assets/previews/story/reflection-az-zumar-follow-the-best-ar.jpg",
-        "image_en": "assets/previews/story/reflection-az-zumar-follow-the-best-en.jpg",
-        "cover_manifest": "data/article-covers.json"
+      "completed_at": "2026-10-27T03:03:00+04:00",
+      "report_path": "automation/quran-reflections/reflection-al-hujurat-suspicion-surveillance-trust/repository-publish-report.md",
+      "text_commit": "33c743dfea7fa3c44cf73e5b1902a1d0ec9c2bbd",
+      "sitemap_reconciliation_commit": "990f9a61a1be6ffa62bbf880ba88707659f6fb92",
+      "social_assets_commit": "336cab1d5243fe64d6904e38ff17fc343ea0c92a",
+      "topic_and_checkpoint_commit": "a9dc4b7d37e600dcb77b870470860b5fa98b60c6",
+      "arabic_page": {
+        "path": "reflection-al-hujurat-suspicion-surveillance-trust.html"
       },
-      "urls": {
-        "ar": "https://tamayuz10x.com/reflection-az-zumar-follow-the-best.html",
-        "en": "https://tamayuz10x.com/en/reflection-az-zumar-follow-the-best.html"
+      "english_page": {
+        "path": "en/reflection-al-hujurat-suspicion-surveillance-trust.html"
       },
-      "social_assets": {
-        "ar": {
-          "blob_sha": "6753eee0933a94c1a3c6eb36f4005aea884a37f7",
+      "indexes": [
+        "articles.html",
+        "en/articles.html",
+        "quranic-reflections.html",
+        "en/quranic-reflections.html"
+      ],
+      "records": [
+        "data/quranic-reflection-topics.json",
+        "data/article-covers.json",
+        "data/article-publication-dates.json",
+        "sitemap.xml"
+      ],
+      "social_assets": [
+        {
+          "path": "assets/previews/story/reflection-al-hujurat-suspicion-surveillance-trust-ar.jpg",
           "width": 1200,
           "height": 630,
-          "verified_present": true
+          "size_bytes": 151376
         },
-        "en": {
-          "blob_sha": "eac945a85929be9df4cff0992ab53a7dd5284e60",
+        {
+          "path": "assets/previews/story/reflection-al-hujurat-suspicion-surveillance-trust-en.jpg",
           "width": 1200,
           "height": 630,
-          "verified_present": true
+          "size_bytes": 150612
         }
+      ],
+      "checks": {
+        "title_and_h1": true,
+        "canonical_and_reciprocal_hreflang": true,
+        "article_and_breadcrumb_schema": true,
+        "rtl_ltr": true,
+        "language_isolation": true,
+        "tts_structure": true,
+        "topic_registry_single": true,
+        "index_card_single_each": true,
+        "publication_dates_match": true,
+        "sitemap_single_each": true
       },
-      "verification": "Paired pages, canonical, reciprocal hreflang, Article schema, four indexes, topic registry, cover and date manifests, two sitemap locations and both generated 1200x630 JPEG assets were structurally verified in the repository. Actions and exact-head Pages deployment remain to be reconciled."
+      "duplicate_check": "passed before publication and after generated bot commits"
     },
     "actions_and_pages": {
       "status": "completed",
-      "reconciliation_trigger_commit": "c3c40064853a59b69ad5fefe24bf94742f3a25af",
-      "sitemap_descendant_commit": "25396c15163507a5b562450566aa0a35e77f378e",
-      "reconciled_descendant_head": "5cecb5738eb03a4fd860cf73eb94c5ddf37eabbf",
-      "report_path": "automation/quran-reflections/reflection-az-zumar-follow-the-best/actions-and-pages-report.md",
-      "report_commit": "4c150a4d2b7423401135588eac969bd42d001dc8",
-      "prior_site_health_failure": {
-        "run_id": 40132778087,
-        "head_sha": "786c24894c4bef772bfbdb96bffa044e9d259290",
-        "reason": "Historical publication commit preceded generated social assets; rerunning that historical commit correctly reproduced the six then-missing Az-Zumar image references."
-      },
+      "checked_at": "2026-10-27T03:29:00+04:00",
+      "reconciliation_trigger_commit": "cf580cca388ba8f79441dfec4b508450ea830020",
+      "sitemap_descendant_commit": "1f6e07e49ce2533acd78035a07d1ce19761fbaf2",
+      "social_cards_descendant_commit": "c7b3b6c6fa8aeaca4f83aa2abb9ba7679f0032b3",
+      "exact_content_head": "c7b3b6c6fa8aeaca4f83aa2abb9ba7679f0032b3",
+      "report_path": "automation/quran-reflections/reflection-al-hujurat-suspicion-surveillance-trust/actions-and-pages-report.md",
       "required_checks": {
         "site_health": {
-          "run_id": 40137135561,
-          "head_sha": "c3c40064853a59b69ad5fefe24bf94742f3a25af",
+          "run_id": 40416842011,
           "conclusion": "success",
-          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40137135561"
+          "head_sha": "cf580cca388ba8f79441dfec4b508450ea830020",
+          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40416842011"
         },
         "article_date_integrity": {
-          "run_id": 40137135511,
-          "head_sha": "c3c40064853a59b69ad5fefe24bf94742f3a25af",
+          "run_id": 40416842076,
           "conclusion": "success",
-          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40137135511"
+          "head_sha": "cf580cca388ba8f79441dfec4b508450ea830020",
+          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40416842076"
         },
         "sitemap": {
-          "run_id": 40137135528,
-          "head_sha": "c3c40064853a59b69ad5fefe24bf94742f3a25af",
+          "run_id": 40416841888,
           "conclusion": "success",
-          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40137135528"
+          "head_sha": "cf580cca388ba8f79441dfec4b508450ea830020",
+          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40416841888"
         },
         "arabic_editorial": {
-          "run_id": 40137135519,
-          "head_sha": "c3c40064853a59b69ad5fefe24bf94742f3a25af",
+          "run_id": 40416841988,
           "conclusion": "success",
-          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40137135519"
+          "head_sha": "cf580cca388ba8f79441dfec4b508450ea830020",
+          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40416841988",
+          "scope_note": "Workflow passed, but its mobile renderer currently targets fixed non-Qur’anic pages; it is not exact evidence for this reflection."
         },
         "social_cards": {
-          "run_id": 40137135464,
-          "head_sha": "c3c40064853a59b69ad5fefe24bf94742f3a25af",
+          "run_id": 40416841929,
           "conclusion": "success",
-          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40137135464"
+          "head_sha": "cf580cca388ba8f79441dfec4b508450ea830020",
+          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40416841929"
         },
         "pages": {
-          "run_id": 40137210587,
-          "head_sha": "5cecb5738eb03a4fd860cf73eb94c5ddf37eabbf",
+          "run_id": 40416920989,
           "conclusion": "success",
-          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40137210587"
+          "head_sha": "c7b3b6c6fa8aeaca4f83aa2abb9ba7679f0032b3",
+          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40416920989"
         }
+      },
+      "live_smoke_check": {
+        "ar": true,
+        "en": true,
+        "canonical_and_hreflang": true,
+        "rtl_ltr": true,
+        "tts_controls": true,
+        "covers_1200x630": true,
+        "four_indexes_visible": true,
+        "sitemap_single_loc_each": true
+      },
+      "remaining_gate": null,
+      "completed_at": "2026-10-27T05:09:00+04:00",
+      "exact_mobile_test_commit": "a13cdad44405a7c2bdc3f3d769b5ec8a8c16d710",
+      "exact_mobile_test": {
+        "workflow_run_id": 40430113647,
+        "job_id": 121945443136,
+        "conclusion": "success",
+        "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40430113647",
+        "artifact_id": 12702275217,
+        "artifact_url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40430113647/artifacts/12702275217",
+        "viewports": [
+          320,
+          375,
+          390,
+          430
+        ],
+        "languages": [
+          "ar",
+          "en"
+        ],
+        "assertions": [
+          "no horizontal overflow",
+          "H1 visible",
+          "correct lang and dir",
+          "local assets load",
+          "tables scroll safely",
+          "listen control present"
+        ],
+        "cases_passed": 8
+      },
+      "pages_after_mobile_test": {
+        "run_id": 40430114463,
+        "head_sha": "a13cdad44405a7c2bdc3f3d769b5ec8a8c16d710",
+        "conclusion": "success",
+        "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40430114463"
       }
     },
     "live_verification": {
-      "status": "passed",
-      "verified_at": "2026-10-25T02:12:00+04:00",
-      "arabic_url": "https://tamayuz10x.com/reflection-az-zumar-follow-the-best.html",
-      "english_url": "https://tamayuz10x.com/en/reflection-az-zumar-follow-the-best.html",
-      "observed_titles": {
-        "ar": "هل يكفي أن نسمع، أم نتبع أحسن ما سمعنا؟ | التميّز 10X",
-        "en": "Is Listening Enough, or Do We Follow the Best of What We Hear? | Tamayuz 10X"
+      "status": "passed_after_live_editorial_correction",
+      "verified_at": "2026-10-27T05:16:00+04:00",
+      "deployed_head": "467b766ba7d8087614b45e311e6a01a281ce46cb",
+      "content_fix_commit": "4b8e47f8fc152022aeca253db99819600d4b07fb",
+      "pages_run": {
+        "run_id": 40431095695,
+        "conclusion": "success",
+        "head_sha": "467b766ba7d8087614b45e311e6a01a281ce46cb",
+        "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40431095695"
       },
-      "checks": {
-        "arabic_page": true,
-        "english_page": true,
-        "canonical": true,
-        "reciprocal_hreflang": true,
-        "metadata": true,
-        "article_schema_org": true,
-        "arabic_cover_1200x630": true,
-        "english_cover_1200x630": true,
-        "articles_index_ar_single_card": true,
-        "articles_index_en_single_card": true,
-        "quranic_index_ar_single_card": true,
-        "quranic_index_en_single_card": true,
-        "sitemap_one_loc_per_language": true
+      "editorial_run": {
+        "run_id": 40431026568,
+        "conclusion": "success",
+        "head_sha": "4b8e47f8fc152022aeca253db99819600d4b07fb",
+        "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40431026568"
       },
-      "sitemap_locs": [
-        "https://tamayuz10x.com/reflection-az-zumar-follow-the-best.html",
-        "https://tamayuz10x.com/en/reflection-az-zumar-follow-the-best.html"
-      ]
+      "correction": {
+        "issue": "English hero summary belonged to a previous reflection.",
+        "resolution": "Replaced it with a faithful Al-Hujurat summary and re-ran Actions and Pages.",
+        "live_confirmed": true
+      },
+      "pages": {
+        "ar": {
+          "url": "https://tamayuz10x.com/reflection-al-hujurat-suspicion-surveillance-trust.html",
+          "lang": "ar",
+          "dir": "rtl",
+          "canonical": true,
+          "hreflang": true,
+          "tts": true,
+          "image_1200x630": true,
+          "article_schema": true,
+          "breadcrumb_schema": true,
+          "no_overflow": true
+        },
+        "en": {
+          "url": "https://tamayuz10x.com/en/reflection-al-hujurat-suspicion-surveillance-trust.html",
+          "lang": "en",
+          "dir": "ltr",
+          "canonical": true,
+          "hreflang": true,
+          "tts": true,
+          "image_1200x630": true,
+          "article_schema": true,
+          "breadcrumb_schema": true,
+          "no_overflow": true,
+          "corrected_summary_live": true
+        }
+      },
+      "indexes": {
+        "articles.html": {
+          "unique_cards": 1
+        },
+        "quranic-reflections.html": {
+          "unique_cards": 1
+        },
+        "en/articles.html": {
+          "unique_cards": 1
+        },
+        "en/quranic-reflections.html": {
+          "unique_cards": 1
+        }
+      },
+      "sitemap": {
+        "ar_loc_count": 1,
+        "en_loc_count": 1
+      }
     },
     "publication_report": {
       "status": "saved",
-      "path": "automation/quran-reflections/reflection-az-zumar-follow-the-best/publication-report.md",
-      "commit": "9424622081037672e49064ab385791a9816050e0"
+      "path": "automation/quran-reflections/reflection-al-hujurat-suspicion-surveillance-trust/publication-report.md",
+      "completed_at": "2026-10-27T05:20:00+04:00"
     },
-    "publication_report_path": "automation/quran-reflections/reflection-az-zumar-follow-the-best/publication-report.md",
-    "publishing": {
-      "status": "published_live_verified",
-      "first_publication_commit": "786c24894c4bef772bfbdb96bffa044e9d259290",
-      "social_assets_commit": "5cecb5738eb03a4fd860cf73eb94c5ddf37eabbf",
-      "final_deployment_commit": "9424622081037672e49064ab385791a9816050e0",
-      "pages_run": "https://github.com/alaabmt/alaa-excellence/actions/runs/40137483758",
-      "arabic_url": "https://tamayuz10x.com/reflection-az-zumar-follow-the-best.html",
-      "english_url": "https://tamayuz10x.com/en/reflection-az-zumar-follow-the-best.html"
-    }
+    "completed_at": "2026-10-27T05:20:00+04:00"
   },
-  "run_date": "2026-10-25",
+  "run_date": "2026-10-28",
   "completed_stages": [
     "capability_check",
     "load_checkpoint",
@@ -457,11 +735,16 @@
     "research",
     "quran_verification",
     "arabic_draft",
-    "independent_critique"
+    "independent_critique",
+    "english_draft",
+    "bilingual_parity",
+    "quality_gate",
+    "repository_publish",
+    "actions_and_pages"
   ],
   "duplicate_check": {
     "status": "passed",
-    "checked_at": "2026-10-25T17:08:00+04:00",
+    "checked_at": "2026-10-26T21:55:48+04:00",
     "checked": [
       "checkpoint",
       "topic registry",
@@ -471,30 +754,35 @@
       "quranic-reflections.html",
       "en/quranic-reflections.html",
       "sitemap.xml",
-      "intended public URLs",
-      "exact-slug and exact-topic indexed web search"
+      "article-publication-dates.json"
     ],
-    "finding": "No 25 October article or cycle exists. No repository or indexed-live result matched Al-Balad 90:11–17, العقبة, steep path, the proposed slug, or the intended Arabic and English URLs. Direct URL retrieval was inaccessible, so repository, sitemap, index and exact indexed-search results are the affirmative duplicate evidence."
+    "finding": "No Qur’anic reflection cycle, registry entry, Quran-index card or reflection page dated 2026-10-26 exists. The date occurrences in general article records belong to the Netherlands 10X case, not a reflection."
   },
-  "blocker": null,
+  "blocker": {
+    "type": "capability",
+    "stage": "live_verification",
+    "decision_required": "Provide a browser/OS with Web Speech synthesis enabled for actual Arabic and English playback verification, or explicitly accept control/structure validation plus the eight successful mobile cases as the TTS gate.",
+    "evidence": "The live cloud browser loads both Listen controls, but window.speechSynthesis is unavailable and the Arabic control did not enter a playing state."
+  },
   "verified_quranic_references": [
     {
-      "surah": "Al-Kahf",
-      "surah_ar": "الكهف",
+      "surah": "Al-Hujurat",
+      "surah_ar": "الحجرات",
       "ayahs": [
-        23,
-        24
+        12
       ],
       "context_ayahs": [
-        22,
-        25
+        10,
+        11,
+        13
       ],
       "status": "verified",
       "primary_text_urls": [
-        "https://legacy.quran.com/18/23-24"
+        "https://legacy.quran.com/49/12",
+        "https://legacy.quran.com/49/10-13"
       ],
       "translation": "Sahih International",
-      "verified_at": "2026-10-23T18:10:00+04:00"
+      "verified_at": "2026-10-26T22:02:09+04:00"
     }
   ]
 }
