@@ -37,3 +37,13 @@ No Arabic/English publication drafts, parity audit, original social cards, techn
 
 ## Editorial decision
 **Hold publication; evidence pack needs verification of operational outcomes and complete insider/quality gates.** No claim of approval or published pages.
+
+## Verified direct 2019 source (added 2026-11-07)
+- UNDRR contemporaneous 2019-12-16 report https://www.undrr.org/news/bangladesh-goes-beyond-cyclones explicitly says CPP evacuated 2.1 million before Bulbul; the 2019 account reports 19 deaths. This is **reported programme-associated operational output**, not independently audited causal attribution. At the time CPP described ~55–56k volunteers and an **ambition** of 200k, not actual achieved 200k. The 76,020 figure is a later reported programme inventory and must not be backdated to 2019.
+- Red Crescent https://bdrcs.org/cyclone-preparedness-programm-cpp/ describes programme start 1972, joint government programme 1973, 3,801 units, 76,020 volunteers and warning/evacuation/first-aid operations. Source page is undated; numbers are reported inventory, not audited current headcount.
+- Independent academic study Chakma et al (2022), DOI https://doi.org/10.5595/001c.38750 surveyed 177 residents and 23 CPP volunteers in two subdistricts; ~49% of residents sampled could not interpret warning message. **Not a national rate**. It identifies budget, equipment, training and coordination weaknesses.
+- Peer-reviewed review Haque et al (2022) DOI https://doi.org/10.3390/ijerph192114503 includes CPP personnel among authors and is **not wholly independent**; it corroborates governance and gender parity but not causal mortality attribution.
+- Peer-reviewed cyclone trend study Islam (2025) DOI https://doi.org/10.1088/2515-7620/ada239 finds heterogeneous cyclone exposure, disaster reporting and preparedness constraints; do not compare cyclone death totals as equivalent hazards.
+- UNDP joint 2022 lessons report https://www.undp.org/bangladesh/publications/cyclone-preparedness-lessons-learnt-2019-and-2020 is institutional learning, not independent counterfactual evaluation.
+
+**Evidence-gate decision:** Sufficient to support an *institutional operating-model* case with directly sourced operating outputs and independently documented gaps, but **not** to support any claim of attributable mortality reduction or uniformly successful warning comprehension. Only publish if the final text explicitly preserves these distinctions.
