@@ -7,10 +7,14 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-07T08:14:47.361Z",
-  "workflow_status": "completed",
-  "current_stage": "completed",
-  "run_lease": null,
+  "updated_at": "2026-11-07T08:15:52.932Z",
+  "workflow_status": "in_progress",
+  "current_stage": "candidate_scan",
+  "run_lease": {
+    "owner": "chatgpt-next-case-inline-20261107",
+    "acquired_at": "2026-11-07T08:15:52.932Z",
+    "expires_at": "2026-11-07T10:05:52.932Z"
+  },
   "current_item": {
     "slug": "case-costa-rica-payments-for-environmental-services",
     "publication_date": "2026-10-29",
@@ -164,12 +168,12 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "At the next scheduled daily start, check today's Asia/Dubai publication and workflow state before selecting a new case; no duplicate Costa Rica publication.",
+  "next_action": "Scan unpublished candidates and build evidence pack before editorial acceptance; no publication until all gates pass.",
   "last_run": {
-    "mode": "mobile_qa_recovery",
-    "status": "completed",
-    "ended_at": "2026-11-07T08:14:47.361Z",
-    "notes": "Actual 390px mobile-sized Playwright Chromium live rendering verified for both languages; no overflow, page errors or missing video/disclosure; publication report saved. Await exact final-head Pages check."
+    "mode": "user_requested_existing_automation_inline",
+    "status": "in_progress",
+    "started_at": "2026-11-07T08:15:52.932Z",
+    "notes": "Existing scheduled automation run_now invoked; previous Costa Rica case completed; new run 2026-11-07."
   },
   "last_completed_item": {
     "slug": "case-costa-rica-payments-for-environmental-services",
@@ -285,24 +289,11 @@
       "commit": "2766ed6a6b9c5c647b849fd475c62a8cdcd3c293"
     }
   },
-  "run_date": "2026-10-29",
+  "run_date": "2026-11-07",
   "completed_stages": [
     "capability_check",
     "load_checkpoint",
-    "duplicate_check",
-    "candidate_scan",
-    "evidence_pack",
-    "backcasting_and_10x_analysis",
-    "arabic_draft",
-    "company_insider_critique",
-    "english_draft",
-    "bilingual_parity",
-    "final_quality_gate",
-    "repository_publish",
-    "actions_and_pages",
-    "live_verification",
-    "completion_report",
-    "completed"
+    "duplicate_check"
   ],
   "blocker": null
 }
