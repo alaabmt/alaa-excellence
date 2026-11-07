@@ -7,29 +7,25 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-07T08:17:30.030Z",
-  "workflow_status": "in_progress",
-  "current_stage": "evidence_pack",
-  "run_lease": {
-    "owner": "chatgpt-bangladesh-finalize-20261107",
-    "acquired_at": "2026-11-07T08:17:30.030Z",
-    "expires_at": "2026-11-07T10:07:30.030Z"
-  },
+  "updated_at": "2026-11-07T08:18:36.103Z",
+  "workflow_status": "retry_waiting",
+  "current_stage": "final_quality_gate",
+  "run_lease": null,
   "current_item": {
     "slug": "case-bangladesh-cyclone-preparedness-community-warning",
     "publication_date": null,
     "title_working_ar": "كيف حوّلت بنغلاديش الإنذار من رسالة مركزية إلى استجابة يقودها المجتمع؟",
     "title_working_en": "How Bangladesh Turned Cyclone Warnings into Community Action",
-    "candidate_status": "research_pending_evidence_gate",
+    "candidate_status": "editorial_drafts_complete_publication_gate_pending",
     "artifact_root": "automation/10x-cases/case-bangladesh-cyclone-preparedness-community-warning/",
     "candidate_notes": {
       "path": "automation/10x-cases/case-bangladesh-cyclone-preparedness-community-warning/candidate-notes.md",
       "commit": "644afa04b08bcf7eaf975ef829263b5cf32b3569"
     },
     "evidence_pack": {
-      "status": "research_gate_pending",
+      "status": "passed_with_explicit_attribution_limits",
       "path": "automation/10x-cases/case-bangladesh-cyclone-preparedness-community-warning/evidence-pack.md",
-      "commit": "78de1f77b83d4a6963f30f2223934e1eb6fe9665",
+      "commit": "15a85d1c49c2e1d1ee2700e57a17c3ef016ef8bc",
       "confidence": {
         "operating_model": "high",
         "programme_inventory": "high_reported",
@@ -37,6 +33,24 @@
         "mortality_attribution": "rejected",
         "equity": "mixed"
       }
+    },
+    "arabic_draft": {
+      "path": "automation/10x-cases/case-bangladesh-cyclone-preparedness-community-warning/arabic-draft.md",
+      "commit": "77997cbcd0e22368032ee2f24607ff1da0bd6bc4"
+    },
+    "english_draft": {
+      "path": "automation/10x-cases/case-bangladesh-cyclone-preparedness-community-warning/english-draft.md",
+      "commit": "a77983e79f7f87aa867911be2891a4d05480846e"
+    },
+    "company_insider_critique": {
+      "status": "passed_simulated",
+      "path": "automation/10x-cases/case-bangladesh-cyclone-preparedness-community-warning/company-insider-critique.md",
+      "commit": "d6b7678cf304e1047ea696e97d596535ad1a28ab"
+    },
+    "final_quality_gate": {
+      "status": "blocked_technical_unverified",
+      "path": "automation/10x-cases/case-bangladesh-cyclone-preparedness-community-warning/final-quality-gate.md",
+      "commit": "671f85b4ecb3c88f52c128bdeddda95b350fd3b3"
     }
   },
   "stage_order": [
@@ -78,12 +92,12 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Verify Bulbul evacuation original source and operational metrics; then finish evidence gate, bilingual drafts, insider critique, quality gate, original social cards, metadata, indexes, sitemap, Actions/Pages/live mobile QA. Do not publish before gate approval.",
+  "next_action": "Resume SAME Bangladesh case: create original Arabic and English social previews, integrate both drafts into existing case page template, update date registry and bilingual indexes and sitemap, verify technical QA, run Actions/Pages and live 390px browser tests. Re-read latest state and acquire lease before any writes. Do not publish until all mandatory technical gates PASS.",
   "last_run": {
-    "mode": "user_requested_publish",
+    "mode": "user_authorized_finish_without_approval",
     "status": "retry_waiting",
-    "ended_at": "2026-11-07T08:16:52.702Z",
-    "notes": "Resumed Bangladesh candidate, saved evidence pack, withheld publication pending mandatory gates."
+    "ended_at": "2026-11-07T08:18:36.103Z",
+    "notes": "Completed evidence pack and bilingual manuscript, simulated insider critique, recorded blocking QA. Await existing scheduled resume to complete publication safely."
   },
   "last_completed_item": {
     "slug": "case-costa-rica-payments-for-environmental-services",
@@ -204,10 +218,16 @@
     "capability_check",
     "load_checkpoint",
     "duplicate_check",
-    "candidate_scan"
+    "candidate_scan",
+    "evidence_pack",
+    "backcasting_and_10x_analysis",
+    "arabic_draft",
+    "english_draft",
+    "company_insider_critique",
+    "bilingual_parity"
   ],
   "blocker": {
-    "type": "quality_gate_incomplete",
-    "detail": "Evidence research exists but causal and operational claims require further validation; drafts and final QA not completed."
+    "type": "technical_publication_gates_not_verified",
+    "detail": "Bilingual manuscripts and critique saved; social cards, HTML integration, metadata, indexes, CI/Pages and mobile QA remain. No new public case pages."
   }
 }
