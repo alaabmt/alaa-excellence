@@ -7,14 +7,10 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-07T08:16:35.155Z",
-  "workflow_status": "in_progress",
+  "updated_at": "2026-11-07T08:16:52.702Z",
+  "workflow_status": "retry_waiting",
   "current_stage": "evidence_pack",
-  "run_lease": {
-    "owner": "chatgpt-bangladesh-evidence-20261107",
-    "acquired_at": "2026-11-07T08:16:35.155Z",
-    "expires_at": "2026-11-07T10:06:35.155Z"
-  },
+  "run_lease": null,
   "current_item": {
     "slug": "case-bangladesh-cyclone-preparedness-community-warning",
     "publication_date": null,
@@ -25,6 +21,18 @@
     "candidate_notes": {
       "path": "automation/10x-cases/case-bangladesh-cyclone-preparedness-community-warning/candidate-notes.md",
       "commit": "644afa04b08bcf7eaf975ef829263b5cf32b3569"
+    },
+    "evidence_pack": {
+      "status": "research_gate_pending",
+      "path": "automation/10x-cases/case-bangladesh-cyclone-preparedness-community-warning/evidence-pack.md",
+      "commit": "78de1f77b83d4a6963f30f2223934e1eb6fe9665",
+      "confidence": {
+        "operating_model": "high",
+        "programme_inventory": "high_reported",
+        "bulbul_evacuation": "medium_not_cpp_exclusive",
+        "mortality_attribution": "rejected",
+        "equity": "mixed"
+      }
     }
   },
   "stage_order": [
@@ -66,12 +74,12 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Build rigorous primary/independent Bangladesh CPP evidence pack, test causality, volunteer denominators and attributable results, then checkpoint before drafting. Do not publish without full gates.",
+  "next_action": "Verify Bulbul evacuation original source and operational metrics; then finish evidence gate, bilingual drafts, insider critique, quality gate, original social cards, metadata, indexes, sitemap, Actions/Pages/live mobile QA. Do not publish before gate approval.",
   "last_run": {
-    "mode": "user_requested_existing_automation_inline",
+    "mode": "user_requested_publish",
     "status": "retry_waiting",
-    "ended_at": "2026-11-07T08:16:10.644Z",
-    "notes": "Started existing workflow; saved candidate notes and research sources. No new page published."
+    "ended_at": "2026-11-07T08:16:52.702Z",
+    "notes": "Resumed Bangladesh candidate, saved evidence pack, withheld publication pending mandatory gates."
   },
   "last_completed_item": {
     "slug": "case-costa-rica-payments-for-environmental-services",
@@ -195,9 +203,7 @@
     "candidate_scan"
   ],
   "blocker": {
-    "type": "execution_window",
-    "stage": "evidence_pack",
-    "detail": "Candidate scan checkpointed, but comprehensive evidence and bilingual publishing gates are not yet completed. Continue same run, no duplicate publication.",
-    "retry_condition": "Resume existing workflow at evidence_pack"
+    "type": "quality_gate_incomplete",
+    "detail": "Evidence research exists but causal and operational claims require further validation; drafts and final QA not completed."
   }
 }
