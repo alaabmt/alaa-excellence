@@ -7,10 +7,14 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-07T08:16:10.644Z",
-  "workflow_status": "retry_waiting",
+  "updated_at": "2026-11-07T08:16:35.155Z",
+  "workflow_status": "in_progress",
   "current_stage": "evidence_pack",
-  "run_lease": null,
+  "run_lease": {
+    "owner": "chatgpt-bangladesh-evidence-20261107",
+    "acquired_at": "2026-11-07T08:16:35.155Z",
+    "expires_at": "2026-11-07T10:06:35.155Z"
+  },
   "current_item": {
     "slug": "case-bangladesh-cyclone-preparedness-community-warning",
     "publication_date": null,
