@@ -7,10 +7,14 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-06T09:07:47.163+04:00",
-  "workflow_status": "retry_waiting",
+  "updated_at": "2026-11-07T08:12:47.986Z",
+  "workflow_status": "in_progress",
   "current_stage": "live_verification",
-  "run_lease": null,
+  "run_lease": {
+    "owner": "chatgpt-mobile-qa-recovery-20261107",
+    "acquired_at": "2026-11-07T08:12:47.986Z",
+    "expires_at": "2026-11-07T10:02:47.986Z"
+  },
   "current_item": {
     "slug": "case-costa-rica-payments-for-environmental-services",
     "publication_date": "2026-10-29",
