@@ -87,7 +87,7 @@ ar.append(('dark',f"""<div class="kicker">ما يستنتجه الكاتب من 
     <li><span class="num">2</span>ويحرص على حضور الأطباء وسائر المهن، لا الممرضين وحدهم.</li>
     <li><span class="num">3</span>ويقيس أمرين: هل يُعقد الاجتماع كاملًا، وهل تقلّ الأضرار.</li>
   </ul>
-  <p class="small" style="margin-top:10px">الخطوات كلها استنتاج من الكاتب، والثالثة لم تختبرها أي دراسة.</p>
+  <p class="small" style="margin-top:10px">الخطوات الثلاث استنتاج من الكاتب، ولم تختبر أي دراسة أيًّا منها خطوةً يتخذها القائد.</p>
   <div class="q" style="font-size:34px;margin-top:20px;padding:22px 32px">بعد ثلاث سنوات، أتريد أن يكون اجتماع فريقك موعدًا يُنسى ما قيل فيه، أم مكانًا تُكتشف فيه المخاطر ويُتفق على ما يمنعها؟</div>""",NAME))
 ar.append(('',f"""<div class="kicker">المصادر وحدود الدليل</div>
   <h2 style="font-size:46px">حدود هذه الأدلة</h2>
@@ -136,7 +136,7 @@ en.append(('',f"""<div class="kicker">Who attends?</div>
   <p class="small" style="margin-top:14px">Units listed drawbacks: huddles take time, can seem pointless, can interrupt patient care, and may lack psychological safety. That means staff feel they can speak up about a mistake without fear.</p>""",C3))
 en.append(('amber',f"""<div class="kicker">Follow-up</div>
   <h2 style="margin-top:20px">On one ward in Taiwan, every problem raised in the huddles was resolved</h2>
-  <p class="lead" style="font-size:36px">It was a medical ward, where 81 problems were raised in 44 huddles. Most were resolved within hours.</p>
+  <p class="lead" style="font-size:36px">On this medical ward, 81 problems were raised in 44 huddles. Most were resolved within hours.</p>
   <p class="lead" style="font-size:36px;margin-top:36px">From the five studies, the author infers that a huddle is likely to help when decision-makers attend, risks can be raised without fear, and agreed actions are carried out.</p>
   <p class="small" style="margin-top:28px">The studies did not test this.</p>""",C4))
 en.append(('dark',f"""<div class="kicker">The author's reading of the studies</div>
@@ -146,7 +146,7 @@ en.append(('dark',f"""<div class="kicker">The author's reading of the studies</d
     <li style="font-size:33px"><span class="num">2</span>Make sure doctors and other professional groups attend, not only nurses.</li>
     <li style="font-size:33px"><span class="num">3</span>Measure two things: whether the huddle runs in full, and whether harm goes down.</li>
   </ul>
-  <p class="small" style="margin-top:10px">All three steps are the author's inference, and no study tested step 3.</p>
+  <p class="small" style="margin-top:10px">All three steps are the author's inference from the studies. None was tested as a leader action.</p>
   <div class="q" style="font-size:34px;margin-top:24px;padding:22px 32px">Three years from now, do you want your team's huddle to be a routine people forget, or the place where risks are caught early and the team agrees how to prevent harm?</div>""",EN_NAME))
 en.append(('',f"""<div class="kicker">Sources and limits</div>
   <h2 style="font-size:48px">What this evidence can and cannot tell us</h2>
