@@ -1,0 +1,30 @@
+{
+  "article": "article-agentic-ai-weekly-radar-nov-07.html",
+  "english_pair": "en/article-agentic-ai-weekly-radar-nov-07.html",
+  "headline": "من يملك كل مساعد ذكاء اصطناعي في مؤسستك؟ أسبوع من الإطلاقات يحاول الإجابة",
+  "reviewed_at": "2026-11-07",
+  "reviewer": "AI editorial drafting check (not a human reader test; Arabic/English reviewer agents NOT run)",
+  "format": "رصد الأسبوع (Agentic AI)",
+  "summary": "أعلنت أربع شركات في 4 نوفمبر 2026 أدوات وتمويلًا لتسجيل مساعدي الذكاء الاصطناعي ومراقبتهم وضبط صلاحياتهم. كل الأدلة إعلانات شركات أو أخبار صحفية عنها، ولا يوجد تقييم مستقل ولا حادثة موثقة هذا الأسبوع.",
+  "gates": {
+    "title": "NOT REVIEWED",
+    "introduction": "NOT REVIEWED",
+    "summary": "NOT REVIEWED",
+    "terminology": "PASS (automated terminology scan: no 'وكيل/وكلاء')",
+    "evidence": "PASS (each claim tied to an opened source; limits stated)",
+    "mobile": "NOT VERIFIED",
+    "language": "NOT REVIEWED"
+  },
+  "source_evidence": [
+    {"claim": "Agentic Fabric متاح عمومًا؛ نمذجة المالك والاعتمادات؛ تصديق دوري؛ مفتاح إيقاف في Protect (الباقة العليا)؛ 79% تشغّل مساعدين و2% تستخدم أدوات مخصصة", "url": "https://www.sailpoint.com/blog/whats-new-sailpoint-agentic-fabric-ga", "assessment": "مصدر أولي من الشركة بتاريخ 4 نوفمبر؛ الأرقام منسوبة إلى تقرير لم يُفتح؛ لا نسب كشف"},
+    {"claim": "Sysdig AI Defense: مقارنة سجل المساعد بنشاط النظام؛ كشف/إحالة/حجب؛ وضع تنبيه ثم فرض", "url": "https://www.securityweek.com/sysdig-adds-runtime-security-and-governance-for-ai-agents", "assessment": "صحافة متخصصة تنقل عن الشركة، 4 نوفمبر؛ السعر والتوفر العام غير مذكورين"},
+    {"claim": "وصف المنتج وعبارة الوصول المبكر والإحصاءات الذاتية بلا منهجية", "url": "https://www.sysdig.com/platform/ai-defense", "assessment": "صفحة تسويقية أولية؛ لا تحقق مستقل"},
+    {"claim": "فئة المساعدين الشخصيين؛ سماح/حجب في صفحات الإعلانات/حجب لكل مساعد؛ وصول مبكر لحماية الحسابات؛ حدّ تحديد الهوية", "url": "https://blog.cloudflare.com/personal-agents-visibility-control/", "assessment": "مصدر أولي من الشركة، 4 نوفمبر؛ لا أسماء مساعدين ولا أرقام"},
+    {"claim": "سنترا: 150 مليون دولار، بقيادة Capital One Ventures، إجمالي أكثر من 260 مليونًا", "url": "https://www.securityweek.com/agentic-data-security-firm-sentra-raises-150-million", "assessment": "صحافة متخصصة تنقل عن الشركة؛ لا أرقام عملاء؛ لم يُفتح بيان الشركة"}
+  ],
+  "known_limits": [
+    "كل المصادر إعلانات شركات تبيع الحلول أو أخبار عنها؛ لا تقييم مستقل ولا أرقام أداء.",
+    "استُبعدت إطلاقات أخرى (مثل Teammates من Perplexity) لأن المفتوح عنها تغطيات ثانوية فقط.",
+    "لم يُجرَ اختبار جوال فعلي ولا مراجعة بشرية، ولم تُشغَّل بعدُ مراجعات التحرير العربي والإنجليزي."
+  ]
+}
