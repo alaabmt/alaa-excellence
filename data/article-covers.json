@@ -2175,6 +2175,27 @@
         "subtitle": "Four companies announced tools in one day to register and monitor AI agents.",
         "alt": "Navy and gold illustrative cover for a weekly radar article, showing a radar screen with five blips, one of them circled for review."
       }
+    },
+    {
+      "slug": "article-preventive-engineering-steel-construction-fmea",
+      "background": "assets/previews/story-backgrounds/article-preventive-engineering-steel-construction-fmea.jpg",
+      "category": "prevention",
+      "ar": {
+        "title": [
+          "كيف تغيّرت",
+          "درجات الأخطار؟"
+        ],
+        "subtitle": "مشروع إنشاءات فولاذية يطبّق منهجية هندسة الوقاية (FMEA)",
+        "alt": "غلاف سلسلة منهجية هندسة الوقاية (FMEA) بالكحلي والذهبي بعنوان «كيف تغيّرت درجات الأخطار؟»، عن تطبيق المنهجية في مشروع إنشاءات فولاذية."
+      },
+      "en": {
+        "title": [
+          "How Did the",
+          "Risk Scores Change?"
+        ],
+        "subtitle": "FMEA at a steel construction project.",
+        "alt": "Navy and gold FMEA · Failure Mode & Effects Analysis cover titled “How Did the Risk Scores Change?” about applying FMEA at a steel construction project."
+      }
     }
   ]
 }
