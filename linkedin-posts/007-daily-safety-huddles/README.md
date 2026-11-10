@@ -3,7 +3,7 @@
 **Format:** LinkedIn document (carousel), 8 slides, 1080×1350, two separate posts: Arabic (`carousel-ar.pdf`) and English (`carousel-en.pdf`). The English version is written as original English, not a translation.
 **Website article:** https://tamayuz10x.com/article-oe-evidence-daily-safety-huddles.html and https://tamayuz10x.com/en/article-oe-evidence-daily-safety-huddles.html (PR #96, squash merge f26efd1, live 2026-11-10).
 **Editorial review:** article, slides and captions reviewed with the owner's `arabic-editorial-reviewer` and `english-editorial-reviewer` agents (`.claude/agents/`); all BLOCK/FIX findings fixed before delivery.
-**Status:** Approved by the owner on 2026-11-10. Article live; Arabic post published; English post scheduled about two hours later.
+**Status:** Approved by the owner on 2026-11-10. Article live; Arabic and English posts published.
 
 | File | Purpose |
 |---|---|
@@ -42,4 +42,4 @@ Checked on 7 Nov 2026 against the PubMed abstracts (efetch). DOIs were checked w
 |---|---|---|
 | Website article | Live 2026-11-10 (PR #96) | https://tamayuz10x.com/article-oe-evidence-daily-safety-huddles.html |
 | Arabic post | Published 2026-11-10 (urn:li:ugcPost:7525840875550322688) | https://www.linkedin.com/feed/update/urn:li:ugcPost:7525840875550322688/ |
-| English post | Scheduled about 2 hours after the Arabic post | — |
+| English post | Published 2026-11-10 (urn:li:ugcPost:7525871453632782338) | https://www.linkedin.com/feed/update/urn:li:ugcPost:7525871453632782338/ |
