@@ -5,6 +5,29 @@
   "maxBytes": 170000,
   "cards": [
     {
+      "slug": "case-bangladesh-cyclone-preparedness-community-warning",
+      "reference": true,
+      "category": "case",
+      "ar": {
+        "source": "assets/previews/story/case-bangladesh-cyclone-preparedness-community-warning-ar.jpg",
+        "title": [
+          "بنغلاديش",
+          "من الإنذار إلى الاستجابة"
+        ],
+        "subtitle": "شبكة مجتمعية تربط التحذير بالإخلاء، مع فجوات في الفهم.",
+        "alt": "غلاف أصلي لحالة بنغلاديش، من الإنذار إلى الاستجابة المجتمعية."
+      },
+      "en": {
+        "source": "assets/previews/story/case-bangladesh-cyclone-preparedness-community-warning-en.jpg",
+        "title": [
+          "Bangladesh",
+          "Warnings into Action"
+        ],
+        "subtitle": "A volunteer network connects alerts with evacuation.",
+        "alt": "Original Bangladesh case cover: from cyclone warnings to community action."
+      }
+    },
+    {
       "slug": "case-costa-rica-payments-for-environmental-services",
       "background": "assets/previews/story-backgrounds/case-costa-rica-payments-for-environmental-services.jpg",
       "category": "case",
@@ -2151,6 +2174,48 @@
         ],
         "subtitle": "100 simulated markets, different competitors.",
         "alt": "Navy and gold analytical cover showing two competitive paths ending with different agent rankings."
+      }
+    },
+    {
+      "slug": "article-agentic-ai-weekly-radar-nov-07",
+      "background": "assets/previews/story-backgrounds/article-agentic-ai-weekly-radar-nov-07.jpg",
+      "category": "article",
+      "ar": {
+        "title": [
+          "من يملك كل مساعد",
+          "في مؤسستك؟"
+        ],
+        "subtitle": "أربع شركات أعلنت في يوم واحد أدوات لتسجيل مساعدي الذكاء الاصطناعي ومراقبتهم.",
+        "alt": "غلاف توضيحي بالكحلي والذهبي لمقال رصد أسبوعي، تظهر فيه شاشة رادار عليها خمس نقاط وإحداها محاطة بدائرة مراجعة."
+      },
+      "en": {
+        "title": [
+          "Who Owns Every AI Agent",
+          "in Your Organization?"
+        ],
+        "subtitle": "Four companies announced tools in one day to register and monitor AI agents.",
+        "alt": "Navy and gold illustrative cover for a weekly radar article, showing a radar screen with five blips, one of them circled for review."
+      }
+    },
+    {
+      "slug": "article-preventive-engineering-steel-construction-fmea",
+      "background": "assets/previews/story-backgrounds/article-preventive-engineering-steel-construction-fmea.jpg",
+      "category": "prevention",
+      "ar": {
+        "title": [
+          "كيف تغيّرت",
+          "درجات الأخطار؟"
+        ],
+        "subtitle": "مشروع إنشاءات فولاذية يطبّق منهجية هندسة الوقاية (FMEA)",
+        "alt": "غلاف سلسلة منهجية هندسة الوقاية (FMEA) بالكحلي والذهبي بعنوان «كيف تغيّرت درجات الأخطار؟»، عن تطبيق المنهجية في مشروع إنشاءات فولاذية."
+      },
+      "en": {
+        "title": [
+          "How Did the",
+          "Risk Scores Change?"
+        ],
+        "subtitle": "FMEA at a steel construction project.",
+        "alt": "Navy and gold FMEA · Failure Mode & Effects Analysis cover titled “How Did the Risk Scores Change?” about applying FMEA at a steel construction project."
       }
     }
   ]
