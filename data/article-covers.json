@@ -2196,6 +2196,27 @@
         "subtitle": "FMEA at a steel construction project.",
         "alt": "Navy and gold FMEA · Failure Mode & Effects Analysis cover titled “How Did the Risk Scores Change?” about applying FMEA at a steel construction project."
       }
+    },
+    {
+      "slug": "article-preventive-engineering-olive-haccp-fmea",
+      "background": "assets/previews/story-backgrounds/article-preventive-engineering-olive-haccp-fmea.jpg",
+      "category": "prevention",
+      "ar": {
+        "title": [
+          "ماذا تكشف",
+          "الدرجة الثالثة؟"
+        ],
+        "subtitle": "أداتان لتقدير الخطر في مصنع زيتون إسباني",
+        "alt": "غلاف سلسلة منهجية هندسة الوقاية (FMEA) بالكحلي والذهبي بعنوان «ماذا تكشف الدرجة الثالثة؟»، عن مقارنة أداتين لتقدير الخطر في مصنع زيتون."
+      },
+      "en": {
+        "title": [
+          "What Does the",
+          "Third Score Show?"
+        ],
+        "subtitle": "Two risk tools at a Spanish olive plant.",
+        "alt": "Navy and gold FMEA · Failure Mode & Effects Analysis cover titled “What Does the Third Score Show?” about comparing two risk tools at an olive plant."
+      }
     }
   ]
 }
