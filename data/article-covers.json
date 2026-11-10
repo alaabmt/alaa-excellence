@@ -1745,6 +1745,27 @@
       }
     },
     {
+      "slug": "article-oe-evidence-daily-safety-huddles",
+      "background": "assets/previews/story-backgrounds/article-oe-evidence-daily-safety-huddles.jpg",
+      "category": "article",
+      "ar": {
+        "title": [
+          "اجتماع قصير ومنظم",
+          "عن سلامة المرضى"
+        ],
+        "subtitle": "ماذا تقول خمس دراسات؟",
+        "alt": "غلاف توضيحي بالكحلي والذهبي لمقال عن الاجتماع اليومي لسلامة المرضى، يظهر فيه دائرة من النقاط حول لوحة صغيرة."
+      },
+      "en": {
+        "title": [
+          "A Short, Structured Meeting",
+          "on Patient Safety"
+        ],
+        "subtitle": "What five studies show",
+        "alt": "Navy and gold editorial cover for an article about daily patient-safety meetings, showing a circle of dots around a small board."
+      }
+    },
+    {
       "slug": "article-oe-evidence-medication-interruptions",
       "background": "assets/previews/story-backgrounds/article-oe-evidence-medication-interruptions.jpg",
       "category": "article",
