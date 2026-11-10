@@ -2203,19 +2203,19 @@
       "category": "prevention",
       "ar": {
         "title": [
-          "ماذا تكشف",
-          "الدرجة الثالثة؟"
+          "هل تضيف",
+          "الدرجة الثالثة شيئًا؟"
         ],
         "subtitle": "أداتان لتقدير الخطر في مصنع زيتون إسباني",
-        "alt": "غلاف سلسلة منهجية هندسة الوقاية (FMEA) بالكحلي والذهبي بعنوان «ماذا تكشف الدرجة الثالثة؟»، عن مقارنة أداتين لتقدير الخطر في مصنع زيتون."
+        "alt": "غلاف سلسلة منهجية هندسة الوقاية (FMEA) بالكحلي والذهبي بعنوان «هل تضيف الدرجة الثالثة شيئًا؟»، عن مقارنة أداتين لتقدير الخطر في مصنع زيتون."
       },
       "en": {
         "title": [
-          "What Does the",
-          "Third Score Show?"
+          "Does the Third",
+          "Score Add Anything?"
         ],
         "subtitle": "Two risk tools at a Spanish olive plant.",
-        "alt": "Navy and gold FMEA · Failure Mode & Effects Analysis cover titled “What Does the Third Score Show?” about comparing two risk tools at an olive plant."
+        "alt": "Navy and gold FMEA · Failure Mode & Effects Analysis cover titled “Does the Third Score Add Anything?” about comparing two risk tools at an olive plant."
       }
     }
   ]
