@@ -5,9 +5,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-11T16:01:47.302Z",
+  "updated_at": "2026-11-11T16:03:39.879Z",
   "workflow_status": "in_progress",
-  "current_stage": "quality_gate",
+  "current_stage": "repository_publish",
   "current_article": {
     "article_id": "quran-reflection-2026-11-11-al-maidah-cooperation-boundary",
     "publication_date": "2026-11-11",
@@ -135,7 +135,9 @@
         "direct_source_urls": 5
       },
       "revision_count": 2,
-      "workflow_status_commit": "86dbb70ad9dc3ad01dc4bcd6f248ff59203a40d8"
+      "workflow_status_commit": "86dbb70ad9dc3ad01dc4bcd6f248ff59203a40d8",
+      "workflow_note_removed_commit": "58bf9c19709424bf08de930a5edb5bd530478cfe",
+      "latest_blob_sha": "9edabcb40c64d84aa524e66e8aa82598476b6e45"
     },
     "independent_critique": {
       "status": "passed_after_required_revisions",
@@ -173,6 +175,20 @@
       "completed_at": "2026-11-11T15:11:10.517Z",
       "mobile_gate": "NOT VERIFIED until final HTML",
       "tts_gate": "NOT VERIFIED until final HTML"
+    },
+    "quality_gate": {
+      "status": "passed",
+      "score": 98,
+      "threshold": 90,
+      "blocking_errors": [],
+      "review_path": "automation/quran-reflections/reflection-al-maidah-when-help-becomes-complicity/quality-review.md",
+      "review_commit": "5cd4336e0272adccbc4f395ceb326f3e07de4be2",
+      "arabic_blob_sha": "9edabcb40c64d84aa524e66e8aa82598476b6e45",
+      "english_blob_sha": "14158914446d548c0138f4d898e6424630889d0a",
+      "mobile_gate": "NOT VERIFIED until final HTML",
+      "rtl_gate": "NOT VERIFIED until final HTML",
+      "tts_gate": "NOT VERIFIED until final HTML",
+      "completed_at": "2026-11-11T16:03:39.879Z"
     }
   },
   "stage_order": [
@@ -206,21 +222,17 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Apply the final 100-point quality gate to both cleared drafts; record the score, deductions and any blockers in quality-review.md, and checkpoint quality_gate before repository_publish. Do not publish until the score is at least 90/100 and HTML/mobile/RTL/TTS publication prerequisites are explicitly carried forward.",
+  "next_action": "Before any public write, reconcile the checkpoint and latest main head against data/quranic-reflection-topics.json, data/article-publication-dates.json, the intended Arabic and English page paths, quranic-reflections.html, en/quranic-reflections.html, articles.html, en/articles.html, sitemap.xml, expected social assets, and both expected live URLs. If no existing publication is found, build and commit the paired HTML pages and required repository/index/data/sitemap/social updates; otherwise reconcile the existing artifacts without duplicating publication.",
   "last_run": {
     "mode": "coordinator_resume",
     "status": "checkpointed",
-    "last_checkpoint": "bilingual_parity",
-    "last_checkpoint_at": "2026-11-11T15:11:10.517Z",
-    "ended_at": "2026-11-11T15:11:10.517Z",
-    "notes": "Bilingual parity passed after one non-substantive Arabic workflow-status correction. Final quality scoring, HTML/mobile/RTL/TTS, repository publication, Actions/Pages and live verification remain incomplete. Lease released."
+    "last_checkpoint": "quality_gate",
+    "last_checkpoint_at": "2026-11-11T16:03:39.879Z",
+    "ended_at": "2026-11-11T16:03:39.879Z",
+    "notes": "Final quality gate passed at 98/100 with no blocking Qur'an, tafsir, creed, parity or methodological errors. Stale internal Arabic workflow note removed. Repository publication, final HTML mobile/RTL/TTS checks, Actions/Pages and live verification remain incomplete. Lease released."
   },
   "workflow_id": "quran_reflections",
-  "run_lease": {
-    "owner": "chatgpt-central-resume-20261111-quality",
-    "acquired_at": "2026-11-11T16:01:47.302Z",
-    "expires_at": "2026-11-11T17:51:47.302Z"
-  },
+  "run_lease": null,
   "checkpoint_policy": {
     "checkpoint_after_every_stage": true,
     "run_lease_minutes": 110,
@@ -594,7 +606,8 @@
     "arabic_draft",
     "independent_critique",
     "english_draft",
-    "bilingual_parity"
+    "bilingual_parity",
+    "quality_gate"
   ],
   "duplicate_check": {
     "status": "passed",
