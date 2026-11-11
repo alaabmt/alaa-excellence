@@ -1,7 +1,23 @@
 {
   "purpose": "سجل موضوعات التأملات القرآنية لتجنب تكرار القصة أو الزاوية (دليل مهارات كتابة التأملات القرآنية، البند 10، الخطوة 9)",
-  "updated": "2026-10-28",
+  "updated": "2026-11-11",
   "reflections": [
+    {
+      "slug": "reflection-al-maidah-when-help-becomes-complicity",
+      "title_ar": "متى تتحول المساعدة إلى مشاركة في الخطأ؟",
+      "title_en": "When Does Helping Become Participation in Wrongdoing?",
+      "date": "2026-11-11",
+      "verses": [
+        "المائدة: 2"
+      ],
+      "angle": "الحد الفاصل بين التعاون في البر والتقوى والمشاركة في الإثم والعدوان، مع مثال افتراضي لغاية نافعة تُطلب عبر وسيلة مؤذية",
+      "core_idea": "قيمة التعاون تتحدد بما تمكّنه المساهمة؛ فالهدف النافع لا يطهّر وسيلة تظلم إنسانًا أو تتجاوز حدًا، ويمكن رفض الخطوة المؤذية مع بناء بديل مشروع.",
+      "contemporary_application": "فريق خدمة عامة افتراضي يُطلب منه حذف خطوة تحقق لتسريع الإطلاق رغم خطرها على بيانات فئة ضعيفة، فيفصل بين دعم الغاية ودعم الاختصار المؤذي.",
+      "url_ar": "https://tamayuz10x.com/reflection-al-maidah-when-help-becomes-complicity.html",
+      "url_en": "https://tamayuz10x.com/en/reflection-al-maidah-when-help-becomes-complicity.html",
+      "quality_score": 98,
+      "publication_status": "repository_published; actions_pages_mobile_rtl_tts_and_live_verification_pending"
+    },
     {
       "slug": "reflection-al-mutaffifin-demanding-full-measure-giving-less",
       "title_ar": "لماذا نطلب حقنا كاملًا ثم ننقص حقوق الآخرين؟",
