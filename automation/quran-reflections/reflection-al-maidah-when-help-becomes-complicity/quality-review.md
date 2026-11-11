@@ -172,3 +172,74 @@ This is not publication approval. The final score, HTML/mobile/RTL checks, TTS b
 - GitHub Actions and exact-head Pages verification
 - Live Arabic and English page/index verification
 
+# Final 100-point quality gate
+
+**Gate date:** 11 November 2026 (Asia/Dubai)  
+**Threshold:** 90/100  
+**Result:** **98/100 — PASS**  
+**Blocking Qur’an, tafsir, creed, parity or methodological errors:** none
+
+| Category | Maximum | Score | Assessment |
+|---|---:|---:|---|
+| Qur’an text, surah, numbering and context | 20 | 20 | The Arabic excerpt is verified as Al-Ma’idah 5:2; both editions preserve the immediate 5:1–3 context and identify Sahih International. |
+| Tafsir and creed | 20 | 20 | Claims stay within the recorded explanations of al-Tabari, Ibn Kathir, al-Qurtubi and al-Sa‘di; no new legal ruling or claim about revelation is introduced. |
+| Separation of tafsir, reflection and application | 15 | 15 | The organizational case is explicitly hypothetical and the methodological notes distinguish contemporary reflection from tafsir and juristic judgment. |
+| Original Arabic and editorial clarity | 10 | 10 | Arabic passed independent critique after two precision revisions; the title, opening, terminology and conclusion remain clear and verse-centered. |
+| Natural English and translation attribution | 10 | 9 | English reads as original editorial prose and attributes the Qur’an excerpt; one point is retained for a final read-aloud pass after HTML conversion. |
+| Bilingual parity | 10 | 10 | Titles, section sequence, claims, caveats, alternatives and sources remain substantively equivalent. |
+| Contemporary application discipline | 5 | 5 | One bounded hypothetical example; the article does not equate every disagreement, mistake or indirect contribution with sin or aggression. |
+| References and traceability | 5 | 5 | The verse, immediate context and four tafsir sources are directly traceable in both editions. |
+| Originality, structure and conclusion | 5 | 4 | The angle is distinct and the ending returns to the verse; one point is retained to prevent extra HTML callouts from repeating the central distinction. |
+| **Total** | **100** | **98** | **PASS** |
+
+## Blocking checks
+
+- Arabic Qur’an text, surah and ayah number: **PASS**
+- Sahih International attribution: **PASS**
+- Immediate context of Al-Ma’idah 5:1–3: **PASS**
+- Tafsir attribution and limits: **PASS**
+- Creed and avoidance of governance claims attributed to revelation: **PASS**
+- Hypothetical example label: **PASS**
+- Qualifications on knowledge, intention, necessity, capacity and proximity: **PASS**
+- No invented institution, event result or empirical claim: **PASS**
+- Arabic and English naturalness: **PASS**
+- Bilingual meaning, caveats and references: **PASS**
+- Prior duplicate check: **PASS**, and must be repeated immediately before public-file writes
+
+## Novice-comprehension gate
+
+| Gate | Arabic | English | Evidence |
+|---|---|---|---|
+| Title clarity | PASS | PASS | Both titles directly name the boundary between helping and participating in wrongdoing. |
+| First 30 seconds | PASS | PASS | Both open with a useful public service, a removed safeguard and a vulnerable group exposed to risk. |
+| One-sentence comprehension | PASS | PASS | Both can be summarized as testing whether help serves a good purpose itself or enables a wrongful means. |
+| First-use terminology | PASS | PASS | The Qur’anic terms are explained through attributed tafsir; no unexplained specialist abbreviation appears. |
+| Numbers and evidence | PASS | PASS | No empirical percentage or institutional result is claimed; verse and reference numbers are sourced. |
+| Language editing | PASS | PASS | No meaning-changing error, literal translation residue or blocking ambiguity was found. |
+| Actual mobile rendering | NOT VERIFIED | NOT VERIFIED | Final HTML does not yet exist. |
+| RTL and mixed-direction links | NOT VERIFIED | Not applicable before HTML | Must be tested on the final Arabic page. |
+| TTS and listening controls | NOT VERIFIED | NOT VERIFIED | Must be tested on the final pages. |
+
+The novice test is an editorial simulation, not a human-reader study.
+
+## Gate-stage cleanup
+
+- Removed the stale internal `حالة التحرير` block from `draft-ar.md` in commit `58bf9c19709424bf08de930a5edb5bd530478cfe`.
+- The removed block was workflow metadata, not article content; no claim, citation, paragraph or methodological qualification changed.
+
+## Publication constraints
+
+This score authorizes preparation of repository publication files only. It is not a claim that the article is published or fully ready. Before any public write:
+
+1. Re-read the checkpoint and latest `main` head.
+2. Recheck the topic registry, intended Arabic and English page paths, four indexes, publication-date registry, sitemap and both expected live URLs.
+3. Reconcile any existing page, record or live URL before creating or updating files.
+4. Build paired Arabic and English pages with reciprocal canonical/hreflang, Article schema, author/date metadata, sources and visible methodological boundaries.
+5. Create and verify language-specific social images if the page template requires them.
+6. Run actual narrow-width, RTL, mixed-direction-link and TTS behavior tests.
+7. Wait for required Actions and GitHub Pages on the exact final head, then inspect the live pages and indexes.
+
+## Gate decision
+
+**PASS at 98/100.** The next permitted stage is `repository_publish` after a fresh duplicate-and-destination reconciliation. No public page, index, registry, sitemap or live destination was changed by this gate.
+
