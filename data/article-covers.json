@@ -2241,7 +2241,6 @@
     },
     {
       "slug": "article-agentic-ai-swelancer-million-dollar-software-work",
-      "background": "assets/previews/story-backgrounds/article-agentic-ai-workplace-tasks.jpg",
       "category": "article",
       "ar": {
         "title": [
@@ -2249,7 +2248,8 @@
           "عملاً برمجياً مدفوعاً؟"
         ],
         "subtitle": "1,488 مهمة حقيقية بقيمة مليون دولار تكشف ما تنجزه النماذج وما لا تثبته.",
-        "alt": "غلاف تحليلي بالكحلي والذهبي لمقال SWE-Lancer، يظهر مسار عمل برمجي من تذكرة إلى اختبار ثم اعتماد بشري."
+        "alt": "غلاف تحليلي بالكحلي والذهبي لمقال SWE-Lancer، يظهر مسار عمل برمجي من تذكرة إلى اختبار ثم اعتماد بشري.",
+        "source": "assets/previews/story/article-agentic-ai-workplace-tasks-ar.jpg"
       },
       "en": {
         "title": [
@@ -2257,8 +2257,10 @@
           "Paid Software Work?"
         ],
         "subtitle": "1,488 real tasks worth $1 million show what models complete—and what the benchmark cannot prove.",
-        "alt": "Navy and gold analytical cover for SWE-Lancer, showing a software task moving from ticket to test to human approval."
-      }
+        "alt": "Navy and gold analytical cover for SWE-Lancer, showing a software task moving from ticket to test to human approval.",
+        "source": "assets/previews/story/article-agentic-ai-workplace-tasks-en.jpg"
+      },
+      "reference": true
     }
   ]
 }
