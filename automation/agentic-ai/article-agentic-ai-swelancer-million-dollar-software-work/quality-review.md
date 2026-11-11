@@ -117,3 +117,79 @@ After these two edits, the Arabic draft passes the beginner-reader gate and can 
 ### Bilingual parity verdict
 
 The two drafts now preserve the same evidence, claims, dates, denominators, limits, hypothetical status, institutional decisions, glossary concepts, section sequence, and references. Their sentence structure and pacing remain naturally authored in each language. Content parity passes; page-level SEO, components, language switching, TTS, and responsive parity remain publication-stage gates.
+
+
+## Final editorial quality gate
+
+- **Arabic draft blob:** `77e221b2adf6844f0771ff3e3fdf69a29a6826d3`
+- **English draft blob:** `d00988a5982228711fb36f9e29d9a022cdcfe2ce`
+- **Gate type:** pre-HTML editorial and evidence gate
+- **Decision:** editorial PASS; publication/runtime gates remain NOT VERIFIED until final pages exist
+
+### Seven clarity gates
+
+| Gate | Arabic | English | Evidence / decision |
+|---|---|---|---|
+| Title clarity | PASS | PASS | Both titles identify AI, paid software work, and the $1m benchmark context without promising job replacement. |
+| Opening without title | PASS | PASS | First ~150 words identify a concrete software failure, the organization/team facing it, and the change being tested. |
+| One-sentence story | PASS | PASS | Clear summaries below; no new facts required. |
+| First-use terminology | PASS | PASS | Benchmark, agent, IC SWE, SWE Manager, E2E, pass@1, Diamond, denominator, payout credit, and post-mitigation are defined. |
+| Metrics and evidence | PASS | PASS | All approved metrics appear in both drafts; original and revised versions remain separate; denominators are explicit. |
+| Real mobile presentation | NOT VERIFIED | NOT VERIFIED | Markdown drafts are not final pages. Must be tested on final HTML at 320/375/390/430px. |
+| Language and editing | PASS | PASS | Arabic reads as original executive Arabic; English reads as original editorial English; automated meta-language scan found zero prohibited phrases. |
+
+### One-sentence comprehension summaries
+
+- **Arabic (محاكاة تحريرية):** اختبر الباحثون وكلاء ذكاء اصطناعي على 1,488 مهمة برمجية حقيقية بقيمة تاريخية مليون دولار، فنجحت النماذج جزئياً وبقيت أغلبية العمل خارج قدرتها في النتائج الأصلية.
+- **English (editorial simulation):** SWE-Lancer tested AI agents on 1,488 real software tasks worth $1 million in historical payouts; original leading models completed meaningful work but still failed most tasks.
+
+Both summaries preserve actor, action, purpose, result, and evidence boundary.
+
+### Automated draft checks
+
+| Check | Arabic | English |
+|---|---:|---:|
+| Approximate word count | 1,915 | 1,976 |
+| H2 sections | 11 | 11 |
+| Prohibited meta-editorial phrases | 0 | 0 |
+| Required approved numeric tokens missing | 0 | 0 |
+| Hypothetical pilot explicitly labeled | Yes | Yes |
+| Author directly below title | Yes | Yes |
+
+### Evidence and claim gate
+
+- Primary study identity and ICML/PMLR publication are correct.
+- Dataset and payout subtotals close exactly.
+- Original-paper model results are labeled as original and rounded where applicable.
+- July 17/28, 2025 revision dates are explicit.
+- The 53% / $87,708 result is IC-only and is not divided by an incompatible denominator.
+- “Nearly twice o1” remains qualitative because the exact revised o1 dollar value is not available in the inspected primary text.
+- Historical payout credit is not presented as wages, realized savings, or employee-replacement probability.
+- The hypothetical government pilot is clearly separated from study evidence.
+- Limitations cover repository concentration, bug-fix concentration, price interpretation, scaffold dependence, contamination, and task-versus-job boundaries.
+- All four references are direct primary sources.
+
+### Arabic editorial gates
+
+- Foreign abbreviations receive full names and Arabic functional explanations on first use.
+- Key foreign product and organization names are visually contained in parentheses.
+- No literal-English sentence structure was identified in the title or opening.
+- No spelling or grammar issue changes meaning.
+- A complete TTS layer is not yet present because final HTML has not been created.
+
+### Publication-stage gates that remain blocking
+
+1. Create paired Arabic and English HTML pages.
+2. Confirm H1, title, Open Graph, Twitter title, and Article.headline consistency.
+3. Confirm reciprocal canonical/hreflang and page-specific language switching.
+4. Add cards only to `agentic-ai-10x.html` and `en/agentic-ai-10x.html`.
+5. Update publication-date registry, sitemap, SEO, social assets, and structured data.
+6. Verify one author block and one share component per page.
+7. Test RTL/LTR and responsive layouts in real Chromium at 320/375/390/430px.
+8. Test actual Arabic and English TTS: title first, synchronized highlighting, floating controls, pause/resume/stop, and speed.
+9. Verify all repository checks and GitHub Pages success for the exact latest head.
+10. Verify both live pages, both Agentic AI hubs, sitemap, assets, and language counterparts before claiming publication.
+
+### Quality-gate verdict
+
+The drafts pass the final editorial, evidence, novice-comprehension, and bilingual-content gates. They are approved to advance to repository page construction. They are **not yet approved to be described as published, live, or fully quality-gated** until the final HTML, mobile, TTS, SEO, repository, exact-head Pages, and live-destination checks pass.
