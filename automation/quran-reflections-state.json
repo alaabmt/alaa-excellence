@@ -5,13 +5,13 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-11T19:02:44.443Z",
-  "workflow_status": "in_progress",
-  "current_stage": "actions_and_pages",
+  "updated_at": "2026-11-11T19:08:10.772Z",
+  "workflow_status": "blocked",
+  "current_stage": "live_verification",
   "current_article": {
     "article_id": "quran-reflection-2026-11-11-al-maidah-cooperation-boundary",
     "publication_date": "2026-11-11",
-    "status": "repository_published_pending_actions_and_live_verification",
+    "status": "actions_pages_and_live_structure_verified_tts_playback_blocked",
     "duplicate_check": {
       "status": "passed_no_today_quran_cycle_found",
       "checked_at": "2026-11-11T17:11:28+04:00",
@@ -194,7 +194,7 @@
     "english_html_path": "en/reflection-al-maidah-when-help-becomes-complicity.html",
     "publication_report_path": "automation/quran-reflections/reflection-al-maidah-when-help-becomes-complicity/publication-report.md",
     "repository_publication": {
-      "status": "committed_and_reconciled",
+      "status": "live_verified_except_actual_tts_playback",
       "quality_score": 98,
       "publication_date": "2026-11-11",
       "arabic_url": "https://tamayuz10x.com/reflection-al-maidah-when-help-becomes-complicity.html",
@@ -204,7 +204,7 @@
       "arabic_social_asset": "assets/previews/story/reflection-al-maidah-when-help-becomes-complicity-ar.svg",
       "english_social_asset": "assets/previews/story/reflection-al-maidah-when-help-becomes-complicity-en.svg",
       "publication_report_path": "automation/quran-reflections/reflection-al-maidah-when-help-becomes-complicity/publication-report.md",
-      "publication_report_commit": "9957de7db2c324b328ced52d82fc60e4e6c97230",
+      "publication_report_commit": "e6d98b6899041031489f4c6a22a61d8571c397c8",
       "content_commits": {
         "arabic_cover": "831a260d7fccacefbbd63d4043bfd78ff20061e5",
         "english_cover": "7af064469f9cb23e1bdf5a933a1096502c3c1643",
@@ -219,12 +219,12 @@
         "sitemap_bot": "c0bfcc0bdb487669a3000f6cd388f554f9da5a5b"
       },
       "repository_validation": "passed",
-      "mobile_gate": "NOT VERIFIED on final HTML",
-      "rtl_gate": "NOT VERIFIED on final HTML",
-      "tts_gate": "NOT VERIFIED on final HTML",
-      "actions_gate": "NOT VERIFIED",
-      "pages_gate": "NOT VERIFIED",
-      "live_gate": "NOT VERIFIED",
+      "mobile_gate": "passed_real_chromium_8_of_8_at_320_375_390_430_ar_en",
+      "rtl_gate": "passed_real_chromium",
+      "tts_gate": "blocked_actual_playback_web_speech_unavailable_in_verification_browser",
+      "actions_gate": "passed",
+      "pages_gate": "passed_exact_head_c12e32923ccf30f040d1e4a6fd713f3b5a83ac15",
+      "live_gate": "passed_except_actual_tts_playback",
       "completed_at": "2026-11-11T17:13:46.746Z"
     },
     "repository_publish": {
@@ -238,6 +238,118 @@
         "url": "https://tamayuz10x.com/en/reflection-al-maidah-when-help-becomes-complicity.html"
       },
       "compatibility_note": "Canonical CI input for scripts/check_quran_reflection_mobile.py; mirrors repository_publication paths."
+    },
+    "actions_and_pages": {
+      "status": "completed",
+      "completed_at": "2026-11-11T19:08:10.772Z",
+      "head_sha": "c12e32923ccf30f040d1e4a6fd713f3b5a83ac15",
+      "repair_commit": "c12e32923ccf30f040d1e4a6fd713f3b5a83ac15",
+      "arabic_editorial": {
+        "run_id": 43083480059,
+        "job_id": 130741758808,
+        "conclusion": "success",
+        "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/43083480059"
+      },
+      "pages": {
+        "run_id": 43083478967,
+        "conclusion": "success",
+        "head_sha": "c12e32923ccf30f040d1e4a6fd713f3b5a83ac15",
+        "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/43083478967"
+      },
+      "exact_mobile_test": {
+        "conclusion": "success",
+        "viewports": [
+          320,
+          375,
+          390,
+          430
+        ],
+        "languages": [
+          "ar",
+          "en"
+        ],
+        "cases_passed": 8,
+        "assertions": [
+          "no horizontal overflow",
+          "H1 visible",
+          "correct lang and dir",
+          "local assets load",
+          "tables scroll safely",
+          "listen control present"
+        ]
+      }
+    },
+    "live_verification": {
+      "status": "blocked_on_actual_tts_playback",
+      "checked_at": "2026-11-11T19:08:10.772Z",
+      "deployed_head": "c12e32923ccf30f040d1e4a6fd713f3b5a83ac15",
+      "pages": {
+        "ar": {
+          "url": "https://tamayuz10x.com/reflection-al-maidah-when-help-becomes-complicity.html",
+          "loaded": true,
+          "lang": "ar",
+          "dir": "rtl",
+          "canonical": true,
+          "hreflang": true,
+          "metadata": true,
+          "article_schema": true,
+          "breadcrumb_schema": true,
+          "author_image": true,
+          "share_box_count": 1,
+          "social_asset": true,
+          "mobile_workflow_passed": true
+        },
+        "en": {
+          "url": "https://tamayuz10x.com/en/reflection-al-maidah-when-help-becomes-complicity.html",
+          "loaded": true,
+          "lang": "en",
+          "dir": "ltr",
+          "canonical": true,
+          "hreflang": true,
+          "metadata": true,
+          "article_schema": true,
+          "breadcrumb_schema": true,
+          "author_image": true,
+          "share_box_count": 1,
+          "social_asset": true,
+          "mobile_workflow_passed": true
+        }
+      },
+      "indexes": {
+        "articles.html": {
+          "slug_links": 2
+        },
+        "quranic-reflections.html": {
+          "slug_links": 2
+        },
+        "en/articles.html": {
+          "slug_links": 2
+        },
+        "en/quranic-reflections.html": {
+          "slug_links": 2
+        }
+      },
+      "sitemap": {
+        "slug_occurrences": 2,
+        "ar_loc_count": 1,
+        "en_loc_count": 1
+      },
+      "social_assets": {
+        "ar": {
+          "loaded": true,
+          "title": "متى تتحول المساعدة إلى مشاركة في الخطأ؟"
+        },
+        "en": {
+          "loaded": true,
+          "title": "When Does Helping Become Participation in Wrongdoing?"
+        }
+      },
+      "tts": {
+        "structural_control_present_in_ci": true,
+        "speech_synthesis_available_in_verification_browser": false,
+        "actual_playback_verified": false,
+        "blocker": "The available cloud browser does not expose window.speechSynthesis; actual playback, title-first order, synchronized highlighting, floating controls, pause/resume/stop, and speed could not be verified."
+      }
     }
   },
   "stage_order": [
@@ -271,20 +383,17 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "On the exact latest main head, inspect required GitHub Actions and Pages; run actual narrow-width checks for both pages including Arabic RTL and mixed-direction links; verify title metadata, reciprocal links, social assets, author/share/listen components and TTS/listening behavior. If Actions create a newer bot commit, treat that as the new exact head. Do not declare live success until Pages succeeds for that head and both live pages plus all four index entries are verified.",
+  "next_action": "On a browser/device that exposes Web Speech, test both live pages for actual Arabic and English playback, title-first order, synchronized highlighting, floating controls, pause/resume/stop, and speed. If all pass, update the publication report and complete the workflow. Otherwise obtain an explicit decision to accept structural listen-control plus passing mobile CI in place of actual playback for this cycle.",
   "last_run": {
     "mode": "coordinator_resume",
-    "status": "in_progress",
+    "status": "blocked",
     "started_at": "2026-11-11T17:59:27.058Z",
-    "last_checkpoint": "repository_publish",
-    "notes": "Reconciled CI state schema: added repository_publish page-path aliases required by the bilingual Quran mobile checker. Awaiting exact-head rerun."
+    "ended_at": "2026-11-11T19:08:10.772Z",
+    "last_checkpoint": "actions_and_pages",
+    "notes": "Actions, exact-head Pages, 8/8 real-Chromium mobile checks, both live pages, four indexes, sitemap, and social assets verified. Actual TTS playback remains blocked because Web Speech is unavailable in the verification browser."
   },
   "workflow_id": "quran_reflections",
-  "run_lease": {
-    "owner": "chatgpt-central-resume-20261111-actions-pages",
-    "acquired_at": "2026-11-11T17:59:27.058Z",
-    "expires_at": "2026-11-11T19:49:27.058Z"
-  },
+  "run_lease": null,
   "checkpoint_policy": {
     "checkpoint_after_every_stage": true,
     "run_lease_minutes": 110,
@@ -660,7 +769,8 @@
     "english_draft",
     "bilingual_parity",
     "quality_gate",
-    "repository_publish"
+    "repository_publish",
+    "actions_and_pages"
   ],
   "duplicate_check": {
     "status": "passed",
@@ -678,7 +788,11 @@
     ],
     "finding": "No Qur’anic reflection cycle, registry entry, Quran-index card or reflection page dated 2026-10-26 exists. The date occurrences in general article records belong to the Netherlands 10X case, not a reflection."
   },
-  "blocker": null,
+  "blocker": {
+    "code": "actual_tts_playback_unverifiable",
+    "decision_required": "Provide/enable a browser or device with Web Speech for the required live playback test, or explicitly accept the structural listen-control and successful CI evidence as a documented exception for this cycle.",
+    "evidence": "window.speechSynthesis is unavailable in the current verification browser; CI proves the listen control exists but cannot prove playback behavior."
+  },
   "verified_quranic_references": [
     {
       "surah": "Al-Hujurat",
