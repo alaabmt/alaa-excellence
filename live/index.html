@@ -39,9 +39,9 @@ async function presenterPage(){
    $("share-presenter").onclick=async()=>{const link=location.origin+"/live/?session="+encodeURIComponent(s.id)+"#presenter="+encodeURIComponent(presenter);try{await navigator.clipboard.writeText(link);notice(t("Private presenter link copied.","تم نسخ رابط المقدم الخاص."))}catch(_){notice(link)}};
    const control=async(next,show)=>{const questionId=$("question").value;if(!questionId){notice(t("Add a question in your dashboard before opening voting.","أضف سؤالاً من لوحة التحكم قبل فتح التصويت."),true);return}try{const res=await api("control",{session_id:s.id,presenter_token:presenter,key:admin,question_id:questionId,state:next,show_results:show});active=res;await presenterPage()}catch(e){notice(e.message,true)}};
    $("open").onclick=()=>control("open",false);
-   $("close").onclick=()=>control("closed",s.show_results);
-   $("reveal").onclick=()=>control(s.state,true);
-   $("hide").onclick=()=>control(s.state,false);
+   $("close").onclick=()=>control("closed",active?.session?.show_results||false);
+   $("reveal").onclick=()=>control(active?.session?.state||"closed",true);
+   $("hide").onclick=()=>control(active?.session?.state||"closed",false);
    $("end").onclick=()=>{if(confirm(t("End this session?","إنهاء الجلسة؟")))control("ended",true)};
   }
   const select=$("question");
