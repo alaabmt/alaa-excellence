@@ -5,9 +5,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-11T17:18:00+04:00",
+  "updated_at": "2026-11-11T17:31:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "research",
+  "current_stage": "quran_verification",
   "current_article": {
     "article_id": "quran-reflection-2026-11-11-al-maidah-cooperation-boundary",
     "publication_date": "2026-11-11",
@@ -46,7 +46,40 @@
       "artifact_commit": "1c5cc84dec46bacd48ccbc71d68183d5bc049aaa"
     },
     "research_notes_path": "automation/quran-reflections/reflection-al-maidah-when-help-becomes-complicity/research-notes.md",
-    "research_status": "pending"
+    "research_status": "completed",
+    "research_sources": [
+      {
+        "type": "Qur'an text and Sahih International translation",
+        "url": "https://legacy.quran.com/05/02",
+        "status": "reviewed"
+      },
+      {
+        "type": "Immediate Qur'anic context, Al-Ma'idah 5:1–3",
+        "url": "https://legacy.quran.com/05/1-3",
+        "status": "reviewed"
+      },
+      {
+        "type": "Tafsir al-Tabari 5:2",
+        "url": "https://quran.ksu.edu.sa/tafseer/tabary/sura5-aya2.html",
+        "status": "reviewed"
+      },
+      {
+        "type": "Tafsir Ibn Kathir 5:2",
+        "url": "https://quran.ksu.edu.sa/tafseer/katheer/sura5-aya2.html",
+        "status": "reviewed"
+      },
+      {
+        "type": "Tafsir al-Qurtubi 5:2",
+        "url": "https://quran.ksu.edu.sa/tafseer/qortobi/sura5-aya2.html",
+        "status": "reviewed"
+      },
+      {
+        "type": "Tafsir al-Sa'di 5:2",
+        "url": "https://quran.ksu.edu.sa/tafseer/saadi/sura5-aya2.html",
+        "status": "reviewed"
+      }
+    ],
+    "research_commit": "1e8e3ebbaa4d2ce5ebf0636389756ecad29443f1"
   },
   "stage_order": [
     "capability_check",
@@ -79,15 +112,15 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Research Al-Ma’idah 5:2 and its immediate context in the Qur’an and trusted tafsir (al-Tabari, Ibn Kathir, al-Qurtubi and al-Sa‘di), record direct sources and evidence limits in research-notes.md, then checkpoint the research stage before Qur’anic verification.",
+  "next_action": "Verify Al-Ma’idah 5:2 letter-for-letter against the primary Qur’an source, confirm the surah/ayah reference, immediate context and Sahih International attribution, record any blocking errors in research-notes.md, then checkpoint quran_verification before drafting.",
   "last_run": {
     "mode": "coordinator_daily_exception",
     "status": "in_progress",
     "started_at": "2026-11-11T17:11:28+04:00",
     "starting_head": "bbfb79522138ad1e439661c3239205c504f86baa",
-    "last_checkpoint": "topic_selection",
-    "last_checkpoint_at": "2026-11-11T17:18:00+04:00",
-    "notes": "Started one 2026-11-11 Asia/Dubai cycle after duplicate checks. Selected Al-Ma’idah 5:2 on the boundary of cooperation and committed the topic-selection artifact."
+    "last_checkpoint": "research",
+    "last_checkpoint_at": "2026-11-11T17:31:00+04:00",
+    "notes": "Selected Al-Ma’idah 5:2 and completed research across the Qur’anic text, immediate context, al-Tabari, Ibn Kathir, al-Qurtubi and al-Sa‘di. Contemporary application and jurisprudential limits are recorded."
   },
   "workflow_id": "quran_reflections",
   "run_lease": {
@@ -462,7 +495,8 @@
     "capability_check",
     "load_checkpoint",
     "duplicate_check",
-    "topic_selection"
+    "topic_selection",
+    "research"
   ],
   "duplicate_check": {
     "status": "passed",
