@@ -1,5 +1,5 @@
 {
-  "version": "20261105-erpbench",
+  "version": "20261111-swelancer",
   "width": 1200,
   "height": 630,
   "maxBytes": 170000,
@@ -2237,6 +2237,27 @@
         ],
         "subtitle": "Electronic medical record at a Chinese hospital.",
         "alt": "Navy and gold FMEA · Failure Mode & Effects Analysis cover titled “Did FMEA Reduce Front-Page Errors?” about an electronic medical record at a Chinese hospital."
+      }
+    },
+    {
+      "slug": "article-agentic-ai-swelancer-million-dollar-software-work",
+      "background": "assets/previews/story-backgrounds/article-agentic-ai-workplace-tasks.jpg",
+      "category": "article",
+      "ar": {
+        "title": [
+          "هل ينجز الوكيل",
+          "عملاً برمجياً مدفوعاً؟"
+        ],
+        "subtitle": "1,488 مهمة حقيقية بقيمة مليون دولار تكشف ما تنجزه النماذج وما لا تثبته.",
+        "alt": "غلاف تحليلي بالكحلي والذهبي لمقال SWE-Lancer، يظهر مسار عمل برمجي من تذكرة إلى اختبار ثم اعتماد بشري."
+      },
+      "en": {
+        "title": [
+          "Can an AI Agent Complete",
+          "Paid Software Work?"
+        ],
+        "subtitle": "1,488 real tasks worth $1 million show what models complete—and what the benchmark cannot prove.",
+        "alt": "Navy and gold analytical cover for SWE-Lancer, showing a software task moving from ticket to test to human approval."
       }
     }
   ]
