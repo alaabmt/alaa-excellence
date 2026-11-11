@@ -2,6 +2,15 @@
 
 > **Owner decision, 11 November 2026 (overrides the 31 October wording below wherever they differ):** the card is **marketing for the article, not a wisdom**. The owner judged the standalone value/wisdom line unclear. The second line on the card is now a **read line** (`value` field, name kept for the renderer): it points to the article's title as the short summary of the article, says in plain words what question the title asks and why it matters to the reader, and invites the reader to read. No standalone lesson, rule or moral on the card. The card's job is: hook → title → «اقرأ». A short call to read on the image is allowed («اقرأ المقال»/"Read the article"); the link stays in the caption.
 
+> **Owner decision, 11 November 2026 (marketing rules, after an expert marketing critique):** the card and caption are written to get the article read. Apply all of these:
+> 1. **Stake on the card.** The hook shows what is at stake for the reader (money, patient safety, time, reputation) in its first sentence, not only in the caption. Hook ≤ about 22 Arabic / 26 English words; hook + read line ≤ about 35 Arabic words. The card is read in two seconds on a phone.
+> 2. **Read line promises a specific payoff.** It tells the reader what they will find out by reading («اعرف أيّ الأخطاء انخفض فعلًا، وما الذي لا تثبته الأرقام»). Never meta text about the card or the title («العنوان أدناه…», "The title below…"), never a wisdom.
+> 3. **Short card title.** The article's own question, cut to about 11 Arabic / 10 English words; keep the place (for example «في مستشفى صيني») so the scope stays true.
+> 4. **Caption opens on the reader, not the card.** The first line (the only line shown before «See more») names the target reader and why it concerns them («إذا كانت مدفوعات مستشفاك تُحسب من السجل الطبي، فهذه الحالة تخصّك»). Do not repeat the card hook word for word; tell the scene in other words in the second paragraph.
+> 5. **Specific call to read.** The paragraph before the call to read says what the reader will learn (which result, which limit), without giving the answer, then «📖 اقرأ المقال كاملًا: «H1»».
+> 6. **Honesty still wins.** Every promise must be delivered by the article; the fidelity checker tests the caption opener and the payoff line like any other claim.
+> (Open options, not yet decided by the owner: separate Arabic and English LinkedIn posts; link in the first comment instead of the post body. Both need script changes.)
+
 > **Owner decision, 31 October 2026:** the daily card is no longer a standalone wisdom line. It is a **hook card**: a concrete hook taken from the article that makes the reader want to open it, plus one value line that is worth keeping even if the article is never opened. The call to read and the link live in the post caption, not on the image. Same visual identity, same slot, same approval flow. (Files and fields keep their old names where the scripts need them, for example `daily-wisdom/` and `log.jsonl`.)
 
 Each run (once a day, 09:00 Dubai) produces **one hook card** taken from **one** Tamayuz 10X article, rendered as two cards (Arabic and English), and sends them to the owner with the ready post texts for LinkedIn (both cards) and the Facebook Page (Arabic card only). The owner gives **one** approval for both. Posts go out **only after the owner's explicit approval in this session** (step 7). Never post anything to any other website, social network or external service.
@@ -89,7 +98,7 @@ English (Publication Translation mode):
 
 ### Post caption (teaser) — required
 The caption is where the call to read lives. Write `ar.teaser` (Arabic, 35–75 words) and `en.teaser` (English, 35–75 words, original editorial English), in this order, separated by blank lines:
-1. **The same hook as the card** (verbatim or lightly extended; never a different story).
+1. **A first line that names the target reader and why the article concerns them** (owner decision 11 Nov 2026), then the card's scene told in other words (the same story, never a different one).
 2. **One line** saying what the article answers, without giving the full answer (for example «تروي الحالة كيف … وأين …»).
 3. **The call to read**, tied to the article: «📖 اقرأ المقال كاملًا: «<article H1>»» / "Read the full article: <English H1>" (for a case: «اقرأ الحالة كاملة» / "Read the full case"). The scripts add the link line after it.
 No internal labels (The 10X Move, عدسة 10X, دليل الأثر), no clichés, no exaggeration, no claim or number that is not in the article. Everything in the caption is checked by the fidelity checker.
