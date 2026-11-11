@@ -5,13 +5,13 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-11T17:11:28+04:00",
+  "updated_at": "2026-11-11T17:18:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "topic_selection",
+  "current_stage": "research",
   "current_article": {
-    "article_id": "quran-reflection-2026-11-11-pending-topic",
+    "article_id": "quran-reflection-2026-11-11-al-maidah-cooperation-boundary",
     "publication_date": "2026-11-11",
-    "status": "planning",
+    "status": "in_progress",
     "duplicate_check": {
       "status": "passed_no_today_quran_cycle_found",
       "checked_at": "2026-11-11T17:11:28+04:00",
@@ -27,7 +27,26 @@
         "recent GitHub commits",
         "live quranic-reflections indexes"
       ]
-    }
+    },
+    "slug": "reflection-al-maidah-when-help-becomes-complicity",
+    "topic_ar": "المائدة 5:2 — الحد الفاصل بين التعاون في البر والمشاركة في الإثم",
+    "topic_en": "Al-Ma’idah 5:2 — the boundary between cooperation in good and participation in wrongdoing",
+    "working_title_ar": "متى تتحول المساعدة إلى مشاركة في الخطأ؟",
+    "working_title_en": "When Does Helping Become Participation in Wrongdoing?",
+    "topic_selection": {
+      "status": "completed",
+      "candidates": [
+        "Al-Ma’idah 5:2 — the boundary of cooperation",
+        "Al-Ahzab 33:70–71 — words that remain upright",
+        "Al-Hadid 57:22–23 — how we receive loss and gain"
+      ],
+      "selected": "Al-Ma’idah 5:2 — the boundary of cooperation",
+      "central_question": "How do we recognize the point at which helping a person or advancing a useful goal begins to support a wrongful means?",
+      "completed_at": "2026-11-11T17:18:00+04:00",
+      "artifact_commit": "1c5cc84dec46bacd48ccbc71d68183d5bc049aaa"
+    },
+    "research_notes_path": "automation/quran-reflections/reflection-al-maidah-when-help-becomes-complicity/research-notes.md",
+    "research_status": "pending"
   },
   "stage_order": [
     "capability_check",
@@ -60,15 +79,15 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Select three distinct Qur’anic reflection angles, choose one after checking the published-topic registry, then create and commit research-notes.md before beginning research.",
+  "next_action": "Research Al-Ma’idah 5:2 and its immediate context in the Qur’an and trusted tafsir (al-Tabari, Ibn Kathir, al-Qurtubi and al-Sa‘di), record direct sources and evidence limits in research-notes.md, then checkpoint the research stage before Qur’anic verification.",
   "last_run": {
     "mode": "coordinator_daily_exception",
     "status": "in_progress",
     "started_at": "2026-11-11T17:11:28+04:00",
     "starting_head": "bbfb79522138ad1e439661c3239205c504f86baa",
-    "last_checkpoint": "duplicate_check",
-    "last_checkpoint_at": "2026-11-11T17:11:28+04:00",
-    "notes": "Started one 2026-11-11 Asia/Dubai cycle after repository, registry, index, sitemap, commit-history and live-index duplicate checks found no Qur’anic reflection started or published today."
+    "last_checkpoint": "topic_selection",
+    "last_checkpoint_at": "2026-11-11T17:18:00+04:00",
+    "notes": "Started one 2026-11-11 Asia/Dubai cycle after duplicate checks. Selected Al-Ma’idah 5:2 on the boundary of cooperation and committed the topic-selection artifact."
   },
   "workflow_id": "quran_reflections",
   "run_lease": {
@@ -442,7 +461,8 @@
   "completed_stages": [
     "capability_check",
     "load_checkpoint",
-    "duplicate_check"
+    "duplicate_check",
+    "topic_selection"
   ],
   "duplicate_check": {
     "status": "passed",
