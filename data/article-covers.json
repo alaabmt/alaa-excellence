@@ -2217,6 +2217,27 @@
         "subtitle": "FMEA at a steel construction project.",
         "alt": "Navy and gold FMEA · Failure Mode & Effects Analysis cover titled “How Did the Risk Scores Change?” about applying FMEA at a steel construction project."
       }
+    },
+    {
+      "slug": "article-preventive-engineering-emr-front-page-fmea",
+      "background": "assets/previews/story-backgrounds/article-preventive-engineering-emr-front-page-fmea.jpg",
+      "category": "prevention",
+      "ar": {
+        "title": [
+          "هل خفّضت المنهجية",
+          "أخطاء الصفحة الأولى؟"
+        ],
+        "subtitle": "سجل طبي إلكتروني في مستشفى صيني",
+        "alt": "غلاف سلسلة منهجية هندسة الوقاية (FMEA) بالكحلي والذهبي بعنوان «هل خفّضت المنهجية أخطاء الصفحة الأولى؟»، عن سجل طبي إلكتروني في مستشفى صيني."
+      },
+      "en": {
+        "title": [
+          "Did FMEA Reduce",
+          "Front-Page Errors?"
+        ],
+        "subtitle": "Electronic medical record at a Chinese hospital.",
+        "alt": "Navy and gold FMEA · Failure Mode & Effects Analysis cover titled “Did FMEA Reduce Front-Page Errors?” about an electronic medical record at a Chinese hospital."
+      }
     }
   ]
 }
