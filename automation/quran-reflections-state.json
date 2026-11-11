@@ -5,7 +5,7 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-11T17:13:46.746Z",
+  "updated_at": "2026-11-11T17:59:27.058Z",
   "workflow_status": "in_progress",
   "current_stage": "actions_and_pages",
   "current_article": {
@@ -262,14 +262,17 @@
   "next_action": "On the exact latest main head, inspect required GitHub Actions and Pages; run actual narrow-width checks for both pages including Arabic RTL and mixed-direction links; verify title metadata, reciprocal links, social assets, author/share/listen components and TTS/listening behavior. If Actions create a newer bot commit, treat that as the new exact head. Do not declare live success until Pages succeeds for that head and both live pages plus all four index entries are verified.",
   "last_run": {
     "mode": "coordinator_resume",
-    "status": "checkpointed",
+    "status": "in_progress",
+    "started_at": "2026-11-11T17:59:27.058Z",
     "last_checkpoint": "repository_publish",
-    "last_checkpoint_at": "2026-11-11T17:13:46.746Z",
-    "ended_at": "2026-11-11T17:13:46.746Z",
-    "notes": "Paired pages, language-specific SVG cover/social assets, four indexes, topic/date registries, sitemap and publication report were committed and reconciled without duplication. Actions, Pages, real mobile/RTL/TTS and live checks remain pending. Lease released."
+    "notes": "Lease acquired for actions_and_pages verification on the exact latest main head."
   },
   "workflow_id": "quran_reflections",
-  "run_lease": null,
+  "run_lease": {
+    "owner": "chatgpt-central-resume-20261111-actions-pages",
+    "acquired_at": "2026-11-11T17:59:27.058Z",
+    "expires_at": "2026-11-11T19:49:27.058Z"
+  },
   "checkpoint_policy": {
     "checkpoint_after_every_stage": true,
     "run_lease_minutes": 110,
