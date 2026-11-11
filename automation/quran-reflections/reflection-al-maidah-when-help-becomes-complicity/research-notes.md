@@ -165,3 +165,46 @@ These are contemporary reflections, not the verse’s tafsir and not a universal
 ## Research decision
 
 **PASS for progression to Qur’anic verification.** The primary text, immediate context, four trusted tafsir sources, translation attribution and limits of the contemporary application are recorded. No drafting has begun.
+
+## Qur’anic verification gate
+
+Checked: 2026-11-11 (Asia/Dubai)
+
+### Reference
+
+- Surah: Al-Ma’idah / المائدة
+- Surah number: 5
+- Ayah: 2
+- Immediate context reviewed: 5:1–3
+- English translation for direct quotation: Sahih International
+
+### Verified Arabic text
+
+> يَـٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوا۟ لَا تُحِلُّوا۟ شَعَـٰٓئِرَ ٱللَّهِ وَلَا ٱلشَّهْرَ ٱلْحَرَامَ وَلَا ٱلْهَدْىَ وَلَا ٱلْقَلَـٰٓئِدَ وَلَآ ءَآمِّينَ ٱلْبَيْتَ ٱلْحَرَامَ يَبْتَغُونَ فَضْلًۭا مِّن رَّبِّهِمْ وَرِضْوَٰنًۭا ۚ وَإِذَا حَلَلْتُمْ فَٱصْطَادُوا۟ ۚ وَلَا يَجْرِمَنَّكُمْ شَنَـَٔانُ قَوْمٍ أَن صَدُّوكُمْ عَنِ ٱلْمَسْجِدِ ٱلْحَرَامِ أَن تَعْتَدُوا۟ ۘ وَتَعَاوَنُوا۟ عَلَى ٱلْبِرِّ وَٱلتَّقْوَىٰ ۖ وَلَا تَعَاوَنُوا۟ عَلَى ٱلْإِثْمِ وَٱلْعُدْوَٰنِ ۚ وَٱتَّقُوا۟ ٱللَّهَ ۖ إِنَّ ٱللَّهَ شَدِيدُ ٱلْعِقَابِ ٢
+
+The text, surah name, surah number and ayah number were cross-checked against:
+
+- https://quran.com/al-maidah/translations/en-sahih-international
+- https://legacy.quran.com/05/02
+
+### Context and attribution checks
+
+- 5:1 introduces fulfilment of obligations and rules associated with lawful animals and hunting while in ihram.
+- 5:2 contains the selected cooperation clause inside commands respecting sacred rites and restraining retaliation from becoming transgression.
+- 5:3 continues with dietary prohibitions, necessity and the completion of the religion.
+- The article must not detach the cooperation clause from the verse’s call to restraint and fear of Allah.
+- Any English Qur’an quotation will be labelled **Sahih International**.
+- Tafsir statements will be attributed to their sources; the hypothetical institutional application will be explicitly labelled contemporary reflection.
+
+### Blocking-error check
+
+- Incorrect Qur’anic wording: none found.
+- Incorrect surah or ayah number: none found.
+- Translation source missing or ambiguous: no; Sahih International selected.
+- Context omitted in a way that reverses the meaning: no in the research plan.
+- Tafsir and contemporary reflection conflated: no in the research notes.
+- Theological or legal claim beyond the sources: none approved; jurisprudential edge cases are explicitly reserved.
+
+### Gate decision
+
+**PASS.** The Qur’anic reference is verified and no blocking error remains at this stage. This decision authorizes the Arabic drafting stage only; it does not approve a draft, quality gate or publication.
