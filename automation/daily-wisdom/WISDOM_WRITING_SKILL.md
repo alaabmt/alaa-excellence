@@ -144,7 +144,7 @@
 
 ### 11.1 أجزاء البطاقة — The five parts
 1. **الخطّاف / Hook** (the large text): 1–2 short sentences from the article itself: a concrete scene, a person, an organization or a situation, a surprising turn, or a real question the article answers. **The first sentence names a person, an organization or a situation, not an abstract concept.**
-2. **سطر القيمة / Value line**: one sentence: the idea a reader keeps even if they never open the article. It stands alone.
+2. **سطر الدعوة / Read line** (قرار المالك 11 نوفمبر 2026، يحلّ محلّ سطر القيمة): يقدّم عنوان المقال بوصفه ملخّصه، ويقول بلغة بسيطة ما السؤال الذي يطرحه العنوان ولماذا يهمّ القارئ، ثم يدعوه إلى القراءة. ليس حكمة ولا درسًا ولا موعظة، ولا يكشف جواب المقال. · Presents the title as the article's summary, says what it asks and why it matters, invites reading; never a wisdom or moral; never gives away the answer.
 3. **العنوان القصير / Short title**: at most about 8 Arabic words / 9 English words; faithful to the article; the article's H1 is not changed.
 4. **التوقيع / Signature** (fixed): «من تحليل الدكتور علاء محمد أحمد» / "Analysis by Dr. Alaa Mohammad Ahmed". Never «دراسة الدكتور علاء»: he did not run the studies.
 5. **الدعوة إلى القراءة / Call to read** goes in the post caption, not on the image. The caption starts from the same hook, says in one line what the article answers (without giving the full answer), then the call to read; the script adds the link.
@@ -166,7 +166,10 @@ Read the article looking for, in this order: (a) a named organization, person, p
 
 (The scene and paradox examples are the two real test cards of 31 Oct 2026; the others are illustrative and must be re-checked against the actual article before any use.)
 
-### 11.4 سطر القيمة — The value line
+### 11.4 سطر الدعوة — The read line (owner decision, 11 Nov 2026)
+The card is marketing for the article, not a wisdom. The text below describes the old value line and is superseded: write a read line that points to the title, says what question it asks and why the reader should care, and invites reading («اقرأ المقال»). Example: «يلخّص العنوان سؤال الدراسة: هل خفّضت المنهجية الأخطاء فعلًا؟ يجيب المقال بالأرقام وحدودها.» · "The title sums up the study's question: did the method really cut errors? The article answers with the numbers and their limits."
+
+(Superseded:)
 One sentence that works if the article is never opened: a lesson or rule, stated plainly, no stronger than the article. Not a restatement of the hook; not a slogan. Examples: «الإشارة المقلقة تنفع حين تتحول إلى سؤال يُتحقق منه، لا حين تبقى رقمًا في لوحة المؤشرات.» · "A warning sign helps only when it becomes a question someone checks, not a number on a dashboard."
 
 ### 11.5 ممنوعات — Forbidden patterns
@@ -185,7 +188,7 @@ Arabic: full, natural sentences; the hook sets the scene in plain words a manage
 1. الجملة الأولى تسمّي شخصًا أو جهة أو موقفًا، لا مفهومًا مجردًا؟ · First sentence names a person, organization or situation?
 2. كل عنصر في الخطّاف مسند بجملة في المقال (أو مؤطَّر بوضوح كمثال افتراضي)؟ · Every element supported by the article, or clearly framed as hypothetical?
 3. هل يفهم قارئ لم يقرأ العنوان **عمّ يتحدث المقال ولماذا يقرؤه**؟ · Would a cold reader know what the article is about and why to read it?
-4. سطر القيمة يصلح وحده ولا يزيد على المقال؟ · Value line stands alone, no stronger than the article?
+4. سطر الدعوة يعرّف بالعنوان وسؤاله وأهميته ويدعو إلى القراءة، بلا حكمة ولا كشف للجواب؟ · Read line presents the title, its question and why it matters, invites reading, no wisdom, no spoiler?
 5. العنوان القصير أمين للمقال، ≤ 8 كلمات عربية / 9 إنجليزية؟ · Short title faithful and short?
 6. نوع الخطّاف يختلف عن آخر نوعين في السجل؟ · Hook type differs from the last two log entries?
 7. لا «فاسأل…» ولا ختام موعظي ولا استهلال مجرد ولا كليشيه؟ · No «فاسأل…», no moral, no abstract opening, no cliché?
