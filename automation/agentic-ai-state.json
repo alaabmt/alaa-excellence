@@ -7,28 +7,33 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-11T20:05:09.360Z",
+  "updated_at": "2026-11-11T20:07:24.436Z",
   "workflow_status": "in_progress",
-  "current_stage": "duplicate_check",
+  "current_stage": "evidence_pack",
   "run_lease": {
     "owner": "chatgpt-central-resume-20261112-agentic-study-selection",
     "acquired_at": "2026-11-11T20:05:09.360Z",
     "expires_at": "2026-11-11T21:55:09.360Z"
   },
   "current_item": {
-    "slug": null,
+    "slug": "article-agentic-ai-swelancer-million-dollar-software-work",
     "publication_date": "2026-11-11",
-    "title_ar": null,
-    "title_en": null,
-    "research_status": "pending",
+    "title_ar": "هل يستطيع مساعد الذكاء الاصطناعي إنجاز عمل مهندس برمجيات مدفوع الأجر؟ اختبار أعمال حقيقية بقيمة مليون دولار",
+    "title_en": "Can an AI Agent Complete Paid Software Work? Evidence from $1 Million in Real Freelance Tasks",
+    "primary_study": "SWE-Lancer: Can Frontier LLMs Earn $1 Million from Real-World Freelance Software Engineering?",
+    "primary_study_url": "https://proceedings.mlr.press/v267/miserendino25a.html",
+    "research_status": "study_selected",
+    "research_notes_path": "automation/agentic-ai/article-agentic-ai-swelancer-million-dollar-software-work/research-notes.md",
+    "study_selection_commit": "be07b52731dfb53424ba06947f89835f46e16116",
     "evidence_pack_status": "pending",
+    "evidence_pack_path": "automation/agentic-ai/article-agentic-ai-swelancer-million-dollar-software-work/evidence-pack.md",
     "arabic_draft": {
       "status": "pending",
-      "path": null
+      "path": "automation/agentic-ai/article-agentic-ai-swelancer-million-dollar-software-work/draft-ar.md"
     },
     "english_draft": {
       "status": "pending",
-      "path": null
+      "path": "automation/agentic-ai/article-agentic-ai-swelancer-million-dollar-software-work/draft-en.md"
     },
     "publishing": {
       "status": "pending"
@@ -73,15 +78,15 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Select a new primary study for the 2026-11-11 Agentic AI article; reject any duplicate topic already present in the specialized hubs.",
+  "next_action": "Build the SWE-Lancer Evidence Pack from the ICML/PMLR paper, official OpenAI release, updated July 2025 evaluation sources, and the released evaluation repository. Reconstruct every reported count, denominator, dollar value, task split, model/result date, and evidence limitation before drafting.",
   "last_run": {
     "mode": "coordinator_resume",
     "status": "in_progress",
     "started_at": "2026-11-11T20:05:09.360Z",
     "completed_at": null,
-    "notes": "Expired scheduled lease reconciled; resuming from study selection without repeating duplicate checks.",
-    "current_item": null,
-    "checkpoint": "duplicate_check"
+    "notes": "Selected SWE-Lancer after repository and hub duplicate checks. Saved research-notes.md with primary sources, overlap rejections, and evidence limits.",
+    "current_item": "article-agentic-ai-swelancer-million-dollar-software-work",
+    "checkpoint": "study_selection"
   },
   "blocker": null,
   "last_completed_item": {
@@ -121,5 +126,11 @@
       "exact_head_mobile_gate_run_id": 42083369136,
       "exact_head_pages_run_id": 42083368821
     }
-  }
+  },
+  "completed_stages": [
+    "capability_check",
+    "load_checkpoint",
+    "duplicate_check",
+    "study_selection"
+  ]
 }
