@@ -5,7 +5,7 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-11T16:03:39.879Z",
+  "updated_at": "2026-11-11T17:06:51.080Z",
   "workflow_status": "in_progress",
   "current_stage": "repository_publish",
   "current_article": {
@@ -232,7 +232,11 @@
     "notes": "Final quality gate passed at 98/100 with no blocking Qur'an, tafsir, creed, parity or methodological errors. Stale internal Arabic workflow note removed. Repository publication, final HTML mobile/RTL/TTS checks, Actions/Pages and live verification remain incomplete. Lease released."
   },
   "workflow_id": "quran_reflections",
-  "run_lease": null,
+  "run_lease": {
+    "owner": "chatgpt-central-resume-20261111-publish",
+    "acquired_at": "2026-11-11T17:06:51.080Z",
+    "expires_at": "2026-11-11T18:56:51.080Z"
+  },
   "checkpoint_policy": {
     "checkpoint_after_every_stage": true,
     "run_lease_minutes": 110,
