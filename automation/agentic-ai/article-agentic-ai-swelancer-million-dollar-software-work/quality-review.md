@@ -56,3 +56,64 @@ After reading the opening, the first benchmark explanation, and the quick-check 
 2. Expand the averaged pass@1 sentence for a reader unfamiliar with repeated evaluation runs.
 
 After these two edits, the Arabic draft passes the beginner-reader gate and can advance to independent English drafting.
+
+
+## Bilingual semantic parity review
+
+- **Arabic draft reviewed:** `draft-ar.md` at commit `cc48eb17e686c2d92675eaa0694220b2af399063`
+- **English draft reviewed:** `draft-en.md` at commit `9642a6903de2064a715f6e1213801f6724f1619f`
+- **Review type:** bilingual editorial comparison against `evidence-pack.md` and `metrics-check.md`
+- **Content-parity decision:** PASS after Arabic alignment revisions
+- **Responsive/page-component parity:** pending final HTML and real mobile verification; not claimed at the draft stage
+
+### Parity matrix
+
+| Element | Arabic | English | Result |
+|---|---|---|---|
+| Concrete software-work opening | Government/company operational failures | Software-team operational failures | PASS — equivalent problem, native phrasing |
+| Benchmark definition | Organized test; 1,488 tasks; $1m historical payout | Same | PASS |
+| Author attribution | الدكتور علاء محمد أحمد directly below title | Dr. Alaa Mohammad Ahmed directly below title | PASS |
+| Full task split | 764 IC / 724 manager | Same | PASS |
+| Full payout split | $414,775 / $585,225 and 41.48% / 58.52% | Same | PASS after Arabic revision |
+| Original Diamond | 237 IC worth $236,300; 265 manager worth $264,500; 502 total; $500,800 | Same | PASS after Arabic revision |
+| Public share | 33.74% of tasks; 50.08% of payout | Same | PASS |
+| Original leading results | 36.1% / 41.5%; o1 29.7% / 33.1%; GPT-4o 23.3% / 27.7% | Same | PASS |
+| Task-family results | 26.2% IC; 44.9% manager | Same | PASS |
+| Full-set result | 33.7%; about $403k; 40.3% | Same | PASS |
+| July revision | 237 → 198; 39 dropped; 16.46%; $500,800 → $453,800 | Same | PASS |
+| Corrected result | 53% over three pass@1 runs; exact $87,708; IC-only | Same | PASS |
+| o1 comparison limit | “nearly twice,” exact revised o1 value unavailable | Same | PASS after Arabic revision |
+| Invalid calculations | No 53% exact solved count; no IC earn rate using combined denominator | Same | PASS |
+| Hypothetical pilot | 100 tickets, 20 selected, human gate, eight accepted example | Same | PASS |
+| Evidence limits | One company/codebase; bug-fix concentration; price caveat; scaffold; contamination; task ≠ job | Same | PASS |
+| Bug-fix shares | 87.76% IC; 93.58% manager | Same | PASS after Arabic precision revision |
+| Five 10X decisions | Task portfolio; two denominators; testing; savings boundary; versioning | Same | PASS |
+| Comprehension check | Five equivalent questions | Same | PASS |
+| Glossary | Core terms plus post-mitigation | Same | PASS after Arabic revision |
+| References | Same four primary sources and dates | Same | PASS |
+| Section order | Problem → benchmark → split → original results → update → hypothetical pilot → limits → 10X → check → glossary → conclusion → references | Same | PASS |
+| Language naturalness | Original Arabic executive prose | Original English editorial prose | PASS; neither is a line-by-line translation |
+
+### Revisions made for parity and first-use clarity
+
+1. Added the exact IC and manager payout shares to the Arabic dataset breakdown.
+2. Added the exact original Diamond per-type payouts to Arabic.
+3. Added the unavailable-exact-o1 limitation to Arabic.
+4. Replaced rounded bug-fix shares in Arabic with the exact values used in English.
+5. Expanded first-use definitions for IC SWE and SWE Manager in Arabic.
+6. Standardized foreign-name presentation in key Arabic first uses.
+7. Added the post-mitigation glossary entry to Arabic.
+
+### Version-boundary audit
+
+- Original full benchmark: 1,488 tasks and $1,000,000.
+- Original Diamond: 502 tasks and $500,800.
+- July 2025 offline public IC release: 198 retained tasks, 39 dropped.
+- Corrected July combined Diamond maximum: $453,800.
+- Corrected deep-research result: 53% and $87,708, IC-only, averaged across three pass@1 runs.
+- No numerator is paired with a denominator from another version.
+- No exact solved-task count is inferred from the averaged 53%.
+
+### Bilingual parity verdict
+
+The two drafts now preserve the same evidence, claims, dates, denominators, limits, hypothetical status, institutional decisions, glossary concepts, section sequence, and references. Their sentence structure and pacing remain naturally authored in each language. Content parity passes; page-level SEO, components, language switching, TTS, and responsive parity remain publication-stage gates.
