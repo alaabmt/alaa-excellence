@@ -5,9 +5,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-11T18:03:06+04:00",
+  "updated_at": "2026-11-11T18:13:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "arabic_draft",
+  "current_stage": "independent_critique",
   "current_article": {
     "article_id": "quran-reflection-2026-11-11-al-maidah-cooperation-boundary",
     "publication_date": "2026-11-11",
@@ -118,6 +118,22 @@
       "path": "automation/quran-reflections/reflection-al-maidah-when-help-becomes-complicity/research-notes.md",
       "commit": "5a7f140a5ec6fe2a4d31191abdae3bb4972661a7",
       "completed_at": "2026-11-11T17:36:00+04:00"
+    },
+    "arabic_draft": {
+      "status": "completed_pending_independent_critique",
+      "path": "automation/quran-reflections/reflection-al-maidah-when-help-becomes-complicity/draft-ar.md",
+      "word_count": 1343,
+      "commit": "43e7a0e8e02cb377996d28a18fd7ecf30c4a3699",
+      "completed_at": "2026-11-11T18:13:00+04:00",
+      "mobile_gate": "NOT VERIFIED until final HTML",
+      "tts_gate": "NOT VERIFIED until final HTML",
+      "self_check": {
+        "title_clear": true,
+        "opening_scenario_labeled_hypothetical": true,
+        "tafsir_reflection_application_separated": true,
+        "meta_editorial_phrases_found": 0,
+        "direct_source_urls": 5
+      }
     }
   },
   "stage_order": [
@@ -151,15 +167,15 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Write the complete original Arabic draft in automation/quran-reflections/reflection-al-maidah-when-help-becomes-complicity/draft-ar.md using the verified research, clearly separate tafsir from reflection and the hypothetical application, apply the Arabic clarity and novice-comprehension gates, then checkpoint arabic_draft before independent critique.",
+  "next_action": "Perform an independent critique of draft-ar.md for Qur’anic and tafsir accuracy, separation of tafsir/reflection/application, Arabic clarity, novice comprehension, repetition, title and opening effectiveness, and evidence limits. Save quality-review.md and required revisions before any English drafting.",
   "last_run": {
     "mode": "coordinator_resume",
     "status": "in_progress",
     "started_at": "2026-11-11T18:03:06+04:00",
     "starting_head": "530f6ff5494958e0d486ed4da27795b258c6222b",
-    "last_checkpoint": "quran_verification",
-    "last_checkpoint_at": "2026-11-11T17:36:00+04:00",
-    "notes": "Resuming only the Arabic drafting stage from the verified Al-Ma’idah 5:2 checkpoint."
+    "last_checkpoint": "arabic_draft",
+    "last_checkpoint_at": "2026-11-11T18:13:00+04:00",
+    "notes": "Completed a 1,343-word original Arabic draft. Qur’anic focus, tafsir attribution, hypothetical application and methodological limits are explicit. HTML mobile and actual TTS gates remain NOT VERIFIED and are not claimed."
   },
   "workflow_id": "quran_reflections",
   "run_lease": {
@@ -536,7 +552,8 @@
     "duplicate_check",
     "topic_selection",
     "research",
-    "quran_verification"
+    "quran_verification",
+    "arabic_draft"
   ],
   "duplicate_check": {
     "status": "passed",
