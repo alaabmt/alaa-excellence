@@ -7,7 +7,7 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-11T22:11:31.000Z",
+  "updated_at": "2026-11-11T22:19:00.000Z",
   "workflow_status": "in_progress",
   "current_stage": "repository_publish",
   "run_lease": {
@@ -39,7 +39,9 @@
       "commit": "9642a6903de2064a715f6e1213801f6724f1619f"
     },
     "publishing": {
-      "status": "pending"
+      "status": "social_cover_manifest_committed",
+      "cover_manifest_commit": "987da331ec1cdac1c35f40fce3f9d9c1b0942e24",
+      "social_assets_status": "awaiting_generation_reconciliation"
     },
     "metrics_check_status": "completed",
     "metrics_check_path": "automation/agentic-ai/article-agentic-ai-swelancer-million-dollar-software-work/metrics-check.md",
@@ -101,15 +103,15 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Before any publication write, inspect the latest main head, repository history, current Agentic AI hubs, publication-date registry, sitemap, social-asset manifest/patterns, paired article templates, and live intended URLs to prevent duplication. Then build the paired Arabic/English HTML pages and required repository integrations. Do not claim publication until Actions, exact-head Pages, and live verification pass.",
+  "next_action": "Reconcile the GitHub Actions social-card run for cover manifest commit 987da331ec1cdac1c35f40fce3f9d9c1b0942e24. Confirm both generated JPEGs exist on the latest main, then re-read the state and main before creating the paired HTML pages and repository integrations.",
   "last_run": {
     "mode": "coordinator_resume",
     "status": "in_progress",
     "started_at": "2026-11-11T22:03:38.000Z",
     "completed_at": null,
-    "notes": "Completed the final pre-HTML editorial quality gate. Both drafts pass title, opening, one-sentence story, terminology, evidence, language, bilingual content parity, and novice comprehension checks. Mobile, TTS, SEO/page-component, exact-head Pages, and live gates remain explicitly pending.",
+    "notes": "Editorial quality gate remains passed. The bilingual SWE-Lancer cover manifest entry was committed; generated social assets must be reconciled before article pages are written.",
     "current_item": "article-agentic-ai-swelancer-million-dollar-software-work",
-    "checkpoint": "quality_gate"
+    "checkpoint": "repository_publish:cover_manifest_committed"
   },
   "blocker": null,
   "last_completed_item": {
