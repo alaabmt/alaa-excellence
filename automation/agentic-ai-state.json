@@ -7,9 +7,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-11T22:03:38.000Z",
+  "updated_at": "2026-11-11T22:08:12.000Z",
   "workflow_status": "in_progress",
-  "current_stage": "bilingual_parity",
+  "current_stage": "quality_gate",
   "run_lease": {
     "owner": "chatgpt-central-resume-20261112-agentic-parity",
     "acquired_at": "2026-11-11T22:03:38.000Z",
@@ -29,9 +29,9 @@
     "evidence_pack_path": "automation/agentic-ai/article-agentic-ai-swelancer-million-dollar-software-work/evidence-pack.md",
     "evidence_pack_commit": "4d78b20b66cc9c08d358f3f06e97e6ab2aeabc3e",
     "arabic_draft": {
-      "status": "drafted_and_beginner_reviewed",
+      "status": "drafted_beginner_reviewed_and_parity_aligned",
       "path": "automation/agentic-ai/article-agentic-ai-swelancer-million-dollar-software-work/draft-ar.md",
-      "commit": "9b24a8dcefc8c0412665b12cca617b03aa8f3f0a"
+      "commit": "cc48eb17e686c2d92675eaa0694220b2af399063"
     },
     "english_draft": {
       "status": "drafted",
@@ -46,7 +46,9 @@
     "metrics_check_commit": "0e043e6520eb4c15175afacc0fd6c5317b7faa35",
     "beginner_critique_status": "completed",
     "quality_review_path": "automation/agentic-ai/article-agentic-ai-swelancer-million-dollar-software-work/quality-review.md",
-    "beginner_critique_commit": "f718de433fa207ecb56596f73d3252043e952ce0"
+    "beginner_critique_commit": "f718de433fa207ecb56596f73d3252043e952ce0",
+    "bilingual_parity_status": "completed",
+    "bilingual_parity_review_commit": "ae632ed7b02337e07d36e837af5b8f09ac6cca1d"
   },
   "stage_order": [
     "capability_check",
@@ -87,15 +89,15 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Compare draft-ar.md and draft-en.md for semantic parity. Verify every count, payout, percentage, date, version boundary, limitation, hypothetical label, author attribution, glossary concept, institutional decision, and reference. Record the parity matrix in quality-review.md and revise either draft if needed.",
+  "next_action": "Run the final editorial quality gate on both drafts. Record PASS/FAIL/NOT VERIFIED for title, opening, one-sentence story, terminology, metrics/evidence, natural language, meta-language, references, and publication readiness. Treat mobile, RTL/LTR, TTS playback, page components, SEO, and exact-head deployment as NOT VERIFIED until final HTML exists and real checks run.",
   "last_run": {
     "mode": "coordinator_resume",
     "status": "in_progress",
     "started_at": "2026-11-11T22:03:38.000Z",
     "completed_at": null,
-    "notes": "Resuming from the bilingual_parity checkpoint after the prior lease expired.",
+    "notes": "Completed bilingual semantic parity. Added missing Arabic payout shares, per-type Diamond values, the revised o1 evidence limit, exact bug-fix shares, full first-use term definitions, and the post-mitigation glossary entry. Recorded the parity matrix in quality-review.md.",
     "current_item": "article-agentic-ai-swelancer-million-dollar-software-work",
-    "checkpoint": "english_draft"
+    "checkpoint": "bilingual_parity"
   },
   "blocker": null,
   "last_completed_item": {
@@ -145,6 +147,7 @@
     "metric_reconstruction",
     "arabic_draft",
     "beginner_critique",
-    "english_draft"
+    "english_draft",
+    "bilingual_parity"
   ]
 }
