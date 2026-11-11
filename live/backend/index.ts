@@ -25,6 +25,17 @@ Deno.serve(async(req)=>{
    const {data}=await db.from("live_presentations").select("id,title,locale,created_at").order("created_at",{ascending:false}).limit(100);
    return reply({presentations:data||[]});
   }
+  if(action==="review_results"){
+   const id=safe(b.session_id,40);
+   const {data:s}=await db.from("live_sessions").select("id,presentation_id,join_code").eq("id",id).maybeSingle();
+   if(!s)return reply({error:"Session not found"},404);
+   const {data:questions,error:qe}=await db.from("live_questions").select("id,prompt,kind,options,position").eq("presentation_id",s.presentation_id).order("position");
+   if(qe)return reply({error:"Could not load questions"},500);
+   const {data:votes,error:ve}=await db.from("live_votes").select("question_id,answer").eq("session_id",id).limit(10000);
+   if(ve)return reply({error:"Could not load votes"},500);
+   const summary=(questions||[]).map(q=>{const rows=(votes||[]).filter(v=>v.question_id===q.id);const counts=new Map<string,number>();for(const v of rows)counts.set(v.answer,(counts.get(v.answer)||0)+1);const labels=q.kind==="choice"?(q.options||[]):q.kind==="rating"?["1","2","3","4","5"]:[...counts.keys()];return {id:q.id,prompt:q.prompt,position:q.position,kind:q.kind,total:rows.length,answers:labels.map((label:string)=>({label,votes:counts.get(label)||0}))}});
+   return reply({code:s.join_code,questions:summary});
+  }
   if(action==="list_sessions"){
    const {data,error}=await db.from("live_sessions").select("id,join_code,state,presentation_id,created_at").order("created_at",{ascending:false}).limit(100);
    return error?reply({error:"Could not list sessions"},500):reply({sessions:data||[]});
