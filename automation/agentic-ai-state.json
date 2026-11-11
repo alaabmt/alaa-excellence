@@ -7,9 +7,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-11T20:15:16.000Z",
+  "updated_at": "2026-11-11T20:17:42.000Z",
   "workflow_status": "in_progress",
-  "current_stage": "beginner_critique",
+  "current_stage": "english_draft",
   "run_lease": {
     "owner": "chatgpt-central-resume-20261112-agentic-study-selection",
     "acquired_at": "2026-11-11T20:05:09.360Z",
@@ -29,9 +29,9 @@
     "evidence_pack_path": "automation/agentic-ai/article-agentic-ai-swelancer-million-dollar-software-work/evidence-pack.md",
     "evidence_pack_commit": "4d78b20b66cc9c08d358f3f06e97e6ab2aeabc3e",
     "arabic_draft": {
-      "status": "drafted",
+      "status": "drafted_and_beginner_reviewed",
       "path": "automation/agentic-ai/article-agentic-ai-swelancer-million-dollar-software-work/draft-ar.md",
-      "commit": "42fedc3daf167229a023723bbcfccbf86d8fcdde"
+      "commit": "9b24a8dcefc8c0412665b12cca617b03aa8f3f0a"
     },
     "english_draft": {
       "status": "pending",
@@ -42,7 +42,10 @@
     },
     "metrics_check_status": "completed",
     "metrics_check_path": "automation/agentic-ai/article-agentic-ai-swelancer-million-dollar-software-work/metrics-check.md",
-    "metrics_check_commit": "0e043e6520eb4c15175afacc0fd6c5317b7faa35"
+    "metrics_check_commit": "0e043e6520eb4c15175afacc0fd6c5317b7faa35",
+    "beginner_critique_status": "completed",
+    "quality_review_path": "automation/agentic-ai/article-agentic-ai-swelancer-million-dollar-software-work/quality-review.md",
+    "beginner_critique_commit": "f718de433fa207ecb56596f73d3252043e952ce0"
   },
   "stage_order": [
     "capability_check",
@@ -83,15 +86,15 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Run the required beginner-reader critique and 20–30 second comprehension test on draft-ar.md. Record confusing terms, story breaks, denominator/version risks, and concrete revisions; revise the Arabic draft before marking the critique complete.",
+  "next_action": "Write an original English article in draft-en.md directly from the evidence pack and metrics check, not as a line-by-line translation. Preserve semantic parity with the Arabic facts, limitations, dates, denominators, author attribution, 10X decisions, glossary, and primary references.",
   "last_run": {
     "mode": "coordinator_resume",
     "status": "in_progress",
     "started_at": "2026-11-11T20:05:09.360Z",
     "completed_at": null,
-    "notes": "Completed the verified Arabic SWE-Lancer draft with a concrete opening, beginner definitions, original-versus-revised result separation, an explicitly hypothetical institutional example, evidence limitations, 10X decisions, comprehension check, glossary, and primary references.",
+    "notes": "Completed the beginner-reader critique and 20–30 second comprehension test. Clarified deep research/post-mitigation terminology and explained how the three averaged pass@1 runs work. The Arabic draft now passes the beginner clarity gate.",
     "current_item": "article-agentic-ai-swelancer-million-dollar-software-work",
-    "checkpoint": "arabic_draft"
+    "checkpoint": "beginner_critique"
   },
   "blocker": null,
   "last_completed_item": {
@@ -139,6 +142,7 @@
     "study_selection",
     "evidence_pack",
     "metric_reconstruction",
-    "arabic_draft"
+    "arabic_draft",
+    "beginner_critique"
   ]
 }
