@@ -5,7 +5,7 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-11T17:36:00+04:00",
+  "updated_at": "2026-11-11T18:03:06+04:00",
   "workflow_status": "in_progress",
   "current_stage": "arabic_draft",
   "current_article": {
@@ -153,17 +153,20 @@
   },
   "next_action": "Write the complete original Arabic draft in automation/quran-reflections/reflection-al-maidah-when-help-becomes-complicity/draft-ar.md using the verified research, clearly separate tafsir from reflection and the hypothetical application, apply the Arabic clarity and novice-comprehension gates, then checkpoint arabic_draft before independent critique.",
   "last_run": {
-    "mode": "coordinator_daily_exception",
-    "status": "checkpointed",
-    "started_at": "2026-11-11T17:11:28+04:00",
-    "starting_head": "bbfb79522138ad1e439661c3239205c504f86baa",
+    "mode": "coordinator_resume",
+    "status": "in_progress",
+    "started_at": "2026-11-11T18:03:06+04:00",
+    "starting_head": "530f6ff5494958e0d486ed4da27795b258c6222b",
     "last_checkpoint": "quran_verification",
     "last_checkpoint_at": "2026-11-11T17:36:00+04:00",
-    "notes": "Completed duplicate check, topic selection, research and Qur’anic verification for Al-Ma’idah 5:2. No blocking Qur’anic, contextual, attribution or tafsir/reflection-separation error was found. Lease released at the safe checkpoint; Arabic drafting has not begun.",
-    "ended_at": "2026-11-11T17:36:00+04:00"
+    "notes": "Resuming only the Arabic drafting stage from the verified Al-Ma’idah 5:2 checkpoint."
   },
   "workflow_id": "quran_reflections",
-  "run_lease": null,
+  "run_lease": {
+    "owner": "central-coordinator-20261111T180306+0400",
+    "acquired_at": "2026-11-11T18:03:06+04:00",
+    "expires_at": "2026-11-11T19:53:06+04:00"
+  },
   "checkpoint_policy": {
     "checkpoint_after_every_stage": true,
     "run_lease_minutes": 110,
