@@ -5,9 +5,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-11T14:22:52.800Z",
+  "updated_at": "2026-11-11T14:23:48.465Z",
   "workflow_status": "in_progress",
-  "current_stage": "english_draft",
+  "current_stage": "bilingual_parity",
   "current_article": {
     "article_id": "quran-reflection-2026-11-11-al-maidah-cooperation-boundary",
     "publication_date": "2026-11-11",
@@ -145,6 +145,14 @@
       "completed_at": "2026-11-11T18:22:00+04:00",
       "mobile_gate": "NOT VERIFIED until final HTML",
       "tts_gate": "NOT VERIFIED until final HTML"
+    },
+    "english_draft": {
+      "status": "draft_completed_pending_parity",
+      "path": "automation/quran-reflections/reflection-al-maidah-when-help-becomes-complicity/draft-en.md",
+      "word_count": 1523,
+      "quran_translation": "Sahih International",
+      "commit": "4d47d1d6f8ccfcb7bc35934494f7c27cea052a1e",
+      "completed_at": "2026-11-11T14:23:48.465Z"
     }
   },
   "stage_order": [
@@ -178,23 +186,17 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Create the original editorial English draft in automation/quran-reflections/reflection-al-maidah-when-help-becomes-complicity/draft-en.md from the cleared Arabic argument and verified sources, attribute Sahih International, preserve the tafsir/reflection/application boundaries and evidence limits, then checkpoint english_draft before bilingual parity review.",
+  "next_action": "Review draft-en.md against cleared draft-ar.md section by section for meaning, Qur'anic citation, tafsir attribution, methodological qualifications, source URLs and native editorial English; save parity findings to quality-review.md and checkpoint bilingual_parity before quality_gate.",
   "last_run": {
     "mode": "coordinator_resume",
     "status": "checkpointed",
-    "started_at": "2026-11-11T18:03:06+04:00",
-    "starting_head": "530f6ff5494958e0d486ed4da27795b258c6222b",
-    "last_checkpoint": "independent_critique",
-    "last_checkpoint_at": "2026-11-11T18:22:00+04:00",
-    "notes": "Completed the Arabic draft and independent critique. Two required precision revisions were applied; no blocking Arabic, Qur’anic, tafsir-attribution or novice-comprehension error remains. Mobile/RTL and actual TTS remain NOT VERIFIED until final HTML. Lease released at the safe checkpoint.",
-    "ended_at": "2026-11-11T18:22:00+04:00"
+    "last_checkpoint": "english_draft",
+    "last_checkpoint_at": "2026-11-11T14:23:48.465Z",
+    "ended_at": "2026-11-11T14:23:48.465Z",
+    "notes": "Original English draft committed. Bilingual parity, quality, HTML/mobile/TTS, Actions and live checks remain unverified. Lease released."
   },
   "workflow_id": "quran_reflections",
-  "run_lease": {
-    "owner": "chatgpt-coordinator-resume",
-    "acquired_at": "2026-11-11T14:22:52.800Z",
-    "expires_at": "2026-11-11T16:12:52.800Z"
-  },
+  "run_lease": null,
   "checkpoint_policy": {
     "checkpoint_after_every_stage": true,
     "run_lease_minutes": 110,
