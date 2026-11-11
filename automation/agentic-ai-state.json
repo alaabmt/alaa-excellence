@@ -7,13 +7,13 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-11T21:59:01+04:00",
+  "updated_at": "2026-11-11T20:05:09.360Z",
   "workflow_status": "in_progress",
   "current_stage": "duplicate_check",
   "run_lease": {
-    "owner": "scheduled-agentic-ai-2026-11-11",
-    "acquired_at": "2026-11-11T21:59:01+04:00",
-    "expires_at": "2026-11-11T23:49:01+04:00"
+    "owner": "chatgpt-central-resume-20261112-agentic-study-selection",
+    "acquired_at": "2026-11-11T20:05:09.360Z",
+    "expires_at": "2026-11-11T21:55:09.360Z"
   },
   "current_item": {
     "slug": null,
@@ -75,11 +75,11 @@
   },
   "next_action": "Select a new primary study for the 2026-11-11 Agentic AI article; reject any duplicate topic already present in the specialized hubs.",
   "last_run": {
-    "mode": "scheduled_daily",
+    "mode": "coordinator_resume",
     "status": "in_progress",
-    "started_at": "2026-11-11T21:59:01+04:00",
+    "started_at": "2026-11-11T20:05:09.360Z",
     "completed_at": null,
-    "notes": "Capability, mandatory-standard, state and duplicate checks completed. No Agentic AI article dated 2026-11-11 exists in the publication registry or specialized hubs.",
+    "notes": "Expired scheduled lease reconciled; resuming from study selection without repeating duplicate checks.",
     "current_item": null,
     "checkpoint": "duplicate_check"
   },
