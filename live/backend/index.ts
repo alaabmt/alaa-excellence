@@ -25,6 +25,10 @@ Deno.serve(async(req)=>{
    const {data}=await db.from("live_presentations").select("id,title,locale,created_at").order("created_at",{ascending:false}).limit(100);
    return reply({presentations:data||[]});
   }
+  if(action==="list_sessions"){
+   const {data,error}=await db.from("live_sessions").select("id,join_code,state,presentation_id,created_at").order("created_at",{ascending:false}).limit(100);
+   return error?reply({error:"Could not list sessions"},500):reply({sessions:data||[]});
+  }
   if(action==="add_question"){
    
    const pid=safe(b.presentation_id,40),prompt=safe(b.prompt,500),kind=["choice","rating","text"].includes(b.kind)?b.kind:"choice";
