@@ -5,7 +5,7 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-11T18:22:00+04:00",
+  "updated_at": "2026-11-11T14:22:52.800Z",
   "workflow_status": "in_progress",
   "current_stage": "english_draft",
   "current_article": {
@@ -190,7 +190,11 @@
     "ended_at": "2026-11-11T18:22:00+04:00"
   },
   "workflow_id": "quran_reflections",
-  "run_lease": null,
+  "run_lease": {
+    "owner": "chatgpt-coordinator-resume",
+    "acquired_at": "2026-11-11T14:22:52.800Z",
+    "expires_at": "2026-11-11T16:12:52.800Z"
+  },
   "checkpoint_policy": {
     "checkpoint_after_every_stage": true,
     "run_lease_minutes": 110,
