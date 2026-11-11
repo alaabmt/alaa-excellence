@@ -5,8 +5,8 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-11T17:06:51.080Z",
-  "workflow_status": "in_progress",
+  "updated_at": "2026-11-11T17:12:19.039Z",
+  "workflow_status": "reconciling",
   "current_stage": "repository_publish",
   "current_article": {
     "article_id": "quran-reflection-2026-11-11-al-maidah-cooperation-boundary",
@@ -222,14 +222,13 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Before any public write, reconcile the checkpoint and latest main head against data/quranic-reflection-topics.json, data/article-publication-dates.json, the intended Arabic and English page paths, quranic-reflections.html, en/quranic-reflections.html, articles.html, en/articles.html, sitemap.xml, expected social assets, and both expected live URLs. If no existing publication is found, build and commit the paired HTML pages and required repository/index/data/sitemap/social updates; otherwise reconcile the existing artifacts without duplicating publication.",
+  "next_action": "Reconcile every repository publication destination after partial sequential writes: verify the Arabic and English pages, two social assets, four indexes, topic registry, publication-date registry and sitemap; create or repair only missing or inconsistent targets, then write publication-report.md and checkpoint repository_publish.",
   "last_run": {
     "mode": "coordinator_resume",
-    "status": "checkpointed",
+    "status": "reconciling",
     "last_checkpoint": "quality_gate",
     "last_checkpoint_at": "2026-11-11T16:03:39.879Z",
-    "ended_at": "2026-11-11T16:03:39.879Z",
-    "notes": "Final quality gate passed at 98/100 with no blocking Qur'an, tafsir, creed, parity or methodological errors. Stale internal Arabic workflow note removed. Repository publication, final HTML mobile/RTL/TTS checks, Actions/Pages and live verification remain incomplete. Lease released."
+    "notes": "Sequential publication writes reached a pre-existing sitemap entry. Do not replay writes; inspect every target and reconcile the latest main state."
   },
   "workflow_id": "quran_reflections",
   "run_lease": {
