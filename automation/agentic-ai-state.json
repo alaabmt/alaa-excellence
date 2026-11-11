@@ -7,9 +7,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-11T20:11:22.000Z",
+  "updated_at": "2026-11-11T20:12:58.000Z",
   "workflow_status": "in_progress",
-  "current_stage": "metric_reconstruction",
+  "current_stage": "arabic_draft",
   "run_lease": {
     "owner": "chatgpt-central-resume-20261112-agentic-study-selection",
     "acquired_at": "2026-11-11T20:05:09.360Z",
@@ -22,7 +22,7 @@
     "title_en": "Can an AI Agent Complete Paid Software Work? Evidence from $1 Million in Real Freelance Tasks",
     "primary_study": "SWE-Lancer: Can Frontier LLMs Earn $1 Million from Real-World Freelance Software Engineering?",
     "primary_study_url": "https://proceedings.mlr.press/v267/miserendino25a.html",
-    "research_status": "evidence_pack_completed",
+    "research_status": "metric_reconstruction_completed",
     "research_notes_path": "automation/agentic-ai/article-agentic-ai-swelancer-million-dollar-software-work/research-notes.md",
     "study_selection_commit": "be07b52731dfb53424ba06947f89835f46e16116",
     "evidence_pack_status": "completed",
@@ -38,7 +38,10 @@
     },
     "publishing": {
       "status": "pending"
-    }
+    },
+    "metrics_check_status": "completed",
+    "metrics_check_path": "automation/agentic-ai/article-agentic-ai-swelancer-million-dollar-software-work/metrics-check.md",
+    "metrics_check_commit": "0e043e6520eb4c15175afacc0fd6c5317b7faa35"
   },
   "stage_order": [
     "capability_check",
@@ -79,15 +82,15 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Create metrics-check.md. Reconstruct and verify all SWE-Lancer counts, denominators, task shares, payout shares, revision deltas, model pass rates, earn rates, dates, and rounding boundaries. Keep the original full set, original Diamond split, and revised July 2025 Diamond evaluation strictly separate before drafting.",
+  "next_action": "Draft the full Arabic article in draft-ar.md using the verified evidence and metrics. Explain the benchmark for a beginner, keep the original ICML results separate from the corrected July 2025 result, distinguish benchmark payout credit from real wages, and avoid workforce-replacement claims.",
   "last_run": {
     "mode": "coordinator_resume",
     "status": "in_progress",
     "started_at": "2026-11-11T20:05:09.360Z",
     "completed_at": null,
-    "notes": "Saved the SWE-Lancer Evidence Pack from the ICML/PMLR paper, official OpenAI release, July 2025 system-card update, and released evaluation repository. Separated original-paper results from corrected July 2025 results and recorded evidence limitations.",
+    "notes": "Completed the SWE-Lancer Evidence Pack and metrics reconstruction. Verified all task and payout subtotals, original-paper model results, July 2025 revision deltas, dates, rounding boundaries, and prohibited cross-version calculations.",
     "current_item": "article-agentic-ai-swelancer-million-dollar-software-work",
-    "checkpoint": "evidence_pack"
+    "checkpoint": "metric_reconstruction"
   },
   "blocker": null,
   "last_completed_item": {
@@ -133,6 +136,7 @@
     "load_checkpoint",
     "duplicate_check",
     "study_selection",
-    "evidence_pack"
+    "evidence_pack",
+    "metric_reconstruction"
   ]
 }
