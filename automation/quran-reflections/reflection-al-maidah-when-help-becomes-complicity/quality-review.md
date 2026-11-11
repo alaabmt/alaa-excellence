@@ -115,3 +115,60 @@ The draft explicitly reserves complex questions involving indirect causation, ne
 - Repository publication deduplication
 - GitHub Actions and exact-head Pages verification
 - Live Arabic and English page/index verification
+
+# Bilingual parity review — Al-Ma’idah 5:2
+
+## Review scope
+
+- Arabic artifact: `draft-ar.md`, critique-cleared revision `1243d918bcb6614076c2b2c776400694cbb439a3`, with workflow-status cleanup `86dbb70ad9dc3ad01dc4bcd6f248ff59203a40d8`
+- English artifact: `draft-en.md`, original editorial draft `4d47d1d6f8ccfcb7bc35934494f7c27cea052a1e`
+- Review date: 2026-11-11 (Asia/Dubai)
+- Review basis: section-by-section meaning, Qur’anic citation, tafsir attribution, methodological qualifications, direct sources, and native English editorial quality.
+
+## Decision
+
+**PASS after one non-substantive workflow-status correction.**
+
+The two drafts preserve the same argument, evidence, qualifications, application and conclusion. No substantive Arabic or English revision is required before the final quality gate. The corrected Arabic status line no longer says that English drafting has not begun.
+
+This is not publication approval. The final score, HTML/mobile/RTL checks, TTS behavior, repository publication, Actions/Pages and live verification remain incomplete.
+
+## Section-by-section parity
+
+| Arabic section | English section | Finding |
+|---|---|---|
+| Opening scenario | Opening paragraphs | PASS — same public-service safeguard dilemma, explicitly hypothetical, with the same extension to family, colleague and friend requests. |
+| تعاون تحدّه التقوى | Cooperation has a moral direction | PASS — same verse focus, immediate context and four attributed tafsir summaries. |
+| الهدف النافع لا يطهّر كل وسيلة | A good end does not settle the question of means | PASS — preserves the distinction between worthwhile ends and wrongful means, plus the qualifications on knowledge, intention, capacity, necessity and proximity. |
+| ماذا يفعل الفريق حين يكتشف الحد؟ | Finding another way to help | PASS — preserves refusal, limited launch, delayed feature, temporary human review, honest rescheduling, escalation and documentation options. |
+| حين تصبح القدرة أمانة | When shared capability becomes a trust | PASS — keeps institutional application explicitly separate from classical tafsir and avoids presenting the verse as a governance manual. |
+| السؤال الذي يسبق قول «سأساعد» | Before saying yes | PASS — returns to the same practical question and cooperation boundary without adding a new claim. |
+| ملاحظة منهجية | Methodological note | PASS — both reserve coercion, necessity, mixed harms and benefits, and indirect responsibility for qualified scholarly consideration. |
+
+## Qur’anic citation and source audit
+
+- Arabic quotes the verified clause of Al-Ma’idah 5:2 and labels the ayah correctly.
+- English uses the corresponding Sahih International excerpt and identifies it as an excerpt.
+- Both drafts distinguish the quoted clause from the longer immediate context in 5:1–3.
+- Al-Tabari, Ibn Kathir, al-Qurtubi and al-Sa‘di are attributed consistently in both languages.
+- The English references preserve every Arabic source group and add the direct 5:2 translation URL alongside the immediate-context URL.
+- No unsupported numerical claim, institution, measured result or modern attribution was introduced.
+
+## Native-English editorial review
+
+- The English reads as an original editorial article rather than a sentence-by-sentence mirror.
+- Sentence and paragraph structure are adapted naturally while preserving the Arabic reasoning sequence.
+- American English is consistent; transliterated names and Qur’anic terminology are stable.
+- No literal Arabic idiom, translator commentary, inflated certainty or policy claim was found.
+- The title and headings are natural English equivalents rather than mechanically literal labels.
+
+## Outstanding gates
+
+- Final quality score ≥90/100 across both drafts
+- Final HTML title, metadata and source consistency
+- Real mobile/RTL verification
+- TTS source and actual listen-control behavior
+- Repository publication deduplication
+- GitHub Actions and exact-head Pages verification
+- Live Arabic and English page/index verification
+
