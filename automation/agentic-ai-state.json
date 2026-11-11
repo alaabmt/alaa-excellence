@@ -7,46 +7,31 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-05T22:24:00+04:00",
-  "workflow_status": "completed",
-  "current_stage": "completed",
-  "run_lease": null,
+  "updated_at": "2026-11-11T21:59:01+04:00",
+  "workflow_status": "in_progress",
+  "current_stage": "duplicate_check",
+  "run_lease": {
+    "owner": "scheduled-agentic-ai-2026-11-11",
+    "acquired_at": "2026-11-11T21:59:01+04:00",
+    "expires_at": "2026-11-11T23:49:01+04:00"
+  },
   "current_item": {
-    "slug": "article-agentic-ai-erpbench-market-ecology",
-    "publication_date": "2026-11-05",
-    "title_ar": "لماذا تغيّر أفضل وكيل أعمال عندما تغيّر المنافسون؟ تجربة على 100 سوق افتراضي",
-    "title_en": "Why Did the Best Business Agent Change When Its Competitors Changed? Evidence from 100 Simulated Markets",
-    "research_status": "completed",
-    "evidence_pack_status": "completed",
+    "slug": null,
+    "publication_date": "2026-11-11",
+    "title_ar": null,
+    "title_en": null,
+    "research_status": "pending",
+    "evidence_pack_status": "pending",
     "arabic_draft": {
-      "status": "published_verified",
-      "path": "article-agentic-ai-erpbench-market-ecology.html"
+      "status": "pending",
+      "path": null
     },
     "english_draft": {
-      "status": "published_verified",
-      "path": "en/article-agentic-ai-erpbench-market-ecology.html"
+      "status": "pending",
+      "path": null
     },
     "publishing": {
-      "status": "published_and_verified",
-      "arabic_url": "https://tamayuz10x.com/article-agentic-ai-erpbench-market-ecology.html",
-      "english_url": "https://tamayuz10x.com/en/article-agentic-ai-erpbench-market-ecology.html",
-      "candidate_commit": "63bd43bc4940f8c18506e7b45dfd782604c6a322",
-      "content_commit": "5d0b08a750b1e28371a82fa5ec1f1be4e339cff9",
-      "deployed_head": "984c84a7d4291dc40e33f25ce7342626c7b7a457",
-      "mobile_gate_run_id": 42082749511,
-      "pages_run_id": 42082979602,
-      "checks": {
-        "site_health_run_id": 42082749430,
-        "sitemap_run_id": 42082749413,
-        "article_date_run_id": 42082749242,
-        "disclaimer_run_id": 42082749231,
-        "social_cards_run_id": 42082749136
-      },
-      "live_verification": "passed",
-      "publication_report": "automation/agentic-ai/article-agentic-ai-erpbench-market-ecology/publication-report.md",
-      "exact_head_verification_commit": "f03e17cd3054c206e84c88f8ab4ece03a3617830",
-      "exact_head_mobile_gate_run_id": 42083369136,
-      "exact_head_pages_run_id": 42083368821
+      "status": "pending"
     }
   },
   "stage_order": [
@@ -88,15 +73,15 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "On the next scheduled run, perform the Asia/Dubai duplicate check before selecting a new study.",
+  "next_action": "Select a new primary study for the 2026-11-11 Agentic AI article; reject any duplicate topic already present in the specialized hubs.",
   "last_run": {
     "mode": "scheduled_daily",
-    "status": "completed",
-    "started_at": "2026-11-05T21:59:00+04:00",
-    "completed_at": "2026-11-05T22:24:00+04:00",
-    "notes": "ERPBench bilingual article published and verified live. Exact-head Arabic mobile gate and GitHub Pages succeeded on checkpoint f03e17cd3054c206e84c88f8ab4ece03a3617830.",
-    "current_item": "article-agentic-ai-erpbench-market-ecology",
-    "checkpoint": "completed"
+    "status": "in_progress",
+    "started_at": "2026-11-11T21:59:01+04:00",
+    "completed_at": null,
+    "notes": "Capability, mandatory-standard, state and duplicate checks completed. No Agentic AI article dated 2026-11-11 exists in the publication registry or specialized hubs.",
+    "current_item": null,
+    "checkpoint": "duplicate_check"
   },
   "blocker": null,
   "last_completed_item": {
