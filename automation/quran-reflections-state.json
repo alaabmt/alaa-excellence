@@ -5,7 +5,7 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-11T17:59:27.058Z",
+  "updated_at": "2026-11-11T19:02:44.443Z",
   "workflow_status": "in_progress",
   "current_stage": "actions_and_pages",
   "current_article": {
@@ -226,6 +226,18 @@
       "pages_gate": "NOT VERIFIED",
       "live_gate": "NOT VERIFIED",
       "completed_at": "2026-11-11T17:13:46.746Z"
+    },
+    "repository_publish": {
+      "status": "committed",
+      "arabic_page": {
+        "path": "reflection-al-maidah-when-help-becomes-complicity.html",
+        "url": "https://tamayuz10x.com/reflection-al-maidah-when-help-becomes-complicity.html"
+      },
+      "english_page": {
+        "path": "en/reflection-al-maidah-when-help-becomes-complicity.html",
+        "url": "https://tamayuz10x.com/en/reflection-al-maidah-when-help-becomes-complicity.html"
+      },
+      "compatibility_note": "Canonical CI input for scripts/check_quran_reflection_mobile.py; mirrors repository_publication paths."
     }
   },
   "stage_order": [
@@ -265,7 +277,7 @@
     "status": "in_progress",
     "started_at": "2026-11-11T17:59:27.058Z",
     "last_checkpoint": "repository_publish",
-    "notes": "Lease acquired for actions_and_pages verification on the exact latest main head."
+    "notes": "Reconciled CI state schema: added repository_publish page-path aliases required by the bilingual Quran mobile checker. Awaiting exact-head rerun."
   },
   "workflow_id": "quran_reflections",
   "run_lease": {
