@@ -5,13 +5,13 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-11T17:12:19.039Z",
-  "workflow_status": "reconciling",
-  "current_stage": "repository_publish",
+  "updated_at": "2026-11-11T17:13:46.746Z",
+  "workflow_status": "in_progress",
+  "current_stage": "actions_and_pages",
   "current_article": {
     "article_id": "quran-reflection-2026-11-11-al-maidah-cooperation-boundary",
     "publication_date": "2026-11-11",
-    "status": "in_progress",
+    "status": "repository_published_pending_actions_and_live_verification",
     "duplicate_check": {
       "status": "passed_no_today_quran_cycle_found",
       "checked_at": "2026-11-11T17:11:28+04:00",
@@ -189,6 +189,43 @@
       "rtl_gate": "NOT VERIFIED until final HTML",
       "tts_gate": "NOT VERIFIED until final HTML",
       "completed_at": "2026-11-11T16:03:39.879Z"
+    },
+    "arabic_html_path": "reflection-al-maidah-when-help-becomes-complicity.html",
+    "english_html_path": "en/reflection-al-maidah-when-help-becomes-complicity.html",
+    "publication_report_path": "automation/quran-reflections/reflection-al-maidah-when-help-becomes-complicity/publication-report.md",
+    "repository_publication": {
+      "status": "committed_and_reconciled",
+      "quality_score": 98,
+      "publication_date": "2026-11-11",
+      "arabic_url": "https://tamayuz10x.com/reflection-al-maidah-when-help-becomes-complicity.html",
+      "english_url": "https://tamayuz10x.com/en/reflection-al-maidah-when-help-becomes-complicity.html",
+      "arabic_page_path": "reflection-al-maidah-when-help-becomes-complicity.html",
+      "english_page_path": "en/reflection-al-maidah-when-help-becomes-complicity.html",
+      "arabic_social_asset": "assets/previews/story/reflection-al-maidah-when-help-becomes-complicity-ar.svg",
+      "english_social_asset": "assets/previews/story/reflection-al-maidah-when-help-becomes-complicity-en.svg",
+      "publication_report_path": "automation/quran-reflections/reflection-al-maidah-when-help-becomes-complicity/publication-report.md",
+      "publication_report_commit": "9957de7db2c324b328ced52d82fc60e4e6c97230",
+      "content_commits": {
+        "arabic_cover": "831a260d7fccacefbbd63d4043bfd78ff20061e5",
+        "english_cover": "7af064469f9cb23e1bdf5a933a1096502c3c1643",
+        "arabic_page": "289b9bd997347ac4db54dd1d82cb0126c7c4979c",
+        "english_page": "f304a0b60ba30468b49aad12e1d32aeee5d48b75",
+        "arabic_hub": "ebfd1a637f43fff3817ef55f9f3790e54f91c0cb",
+        "english_hub": "508e75b4af5a2056fffee1c46971be4b9d7de036",
+        "arabic_articles_index": "f8cb5f2327376508972599e950d5dd8f5c2b689e",
+        "english_articles_index": "1efef4df26cbd53ee888a29e79fb0c83f229ee09",
+        "topic_registry": "f69d447da099dd341cf6b3f776f54d705f20ec51",
+        "date_registry": "9cfcf1fb8fa9e963e7c08a16cff1d57294e88ad4",
+        "sitemap_bot": "c0bfcc0bdb487669a3000f6cd388f554f9da5a5b"
+      },
+      "repository_validation": "passed",
+      "mobile_gate": "NOT VERIFIED on final HTML",
+      "rtl_gate": "NOT VERIFIED on final HTML",
+      "tts_gate": "NOT VERIFIED on final HTML",
+      "actions_gate": "NOT VERIFIED",
+      "pages_gate": "NOT VERIFIED",
+      "live_gate": "NOT VERIFIED",
+      "completed_at": "2026-11-11T17:13:46.746Z"
     }
   },
   "stage_order": [
@@ -222,20 +259,17 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Reconcile every repository publication destination after partial sequential writes: verify the Arabic and English pages, two social assets, four indexes, topic registry, publication-date registry and sitemap; create or repair only missing or inconsistent targets, then write publication-report.md and checkpoint repository_publish.",
+  "next_action": "On the exact latest main head, inspect required GitHub Actions and Pages; run actual narrow-width checks for both pages including Arabic RTL and mixed-direction links; verify title metadata, reciprocal links, social assets, author/share/listen components and TTS/listening behavior. If Actions create a newer bot commit, treat that as the new exact head. Do not declare live success until Pages succeeds for that head and both live pages plus all four index entries are verified.",
   "last_run": {
     "mode": "coordinator_resume",
-    "status": "reconciling",
-    "last_checkpoint": "quality_gate",
-    "last_checkpoint_at": "2026-11-11T16:03:39.879Z",
-    "notes": "Sequential publication writes reached a pre-existing sitemap entry. Do not replay writes; inspect every target and reconcile the latest main state."
+    "status": "checkpointed",
+    "last_checkpoint": "repository_publish",
+    "last_checkpoint_at": "2026-11-11T17:13:46.746Z",
+    "ended_at": "2026-11-11T17:13:46.746Z",
+    "notes": "Paired pages, language-specific SVG cover/social assets, four indexes, topic/date registries, sitemap and publication report were committed and reconciled without duplication. Actions, Pages, real mobile/RTL/TTS and live checks remain pending. Lease released."
   },
   "workflow_id": "quran_reflections",
-  "run_lease": {
-    "owner": "chatgpt-central-resume-20261111-publish",
-    "acquired_at": "2026-11-11T17:06:51.080Z",
-    "expires_at": "2026-11-11T18:56:51.080Z"
-  },
+  "run_lease": null,
   "checkpoint_policy": {
     "checkpoint_after_every_stage": true,
     "run_lease_minutes": 110,
@@ -610,7 +644,8 @@
     "independent_critique",
     "english_draft",
     "bilingual_parity",
-    "quality_gate"
+    "quality_gate",
+    "repository_publish"
   ],
   "duplicate_check": {
     "status": "passed",
