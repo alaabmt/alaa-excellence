@@ -50,7 +50,7 @@ async function presenterPage(){
   if(select){
    const old=previouslyChosen||select.value;
    select.innerHTML=v.questions.map(q=>'<option value="'+esc(q.id)+'">'+esc(q.position+1)+'. '+esc(q.prompt.slice(0,95))+'</option>').join("");
-   select.value=(old&&v.questions.some(q=>q.id===old)?old:selected?.id)||v.questions[0]?.id||"";
+   select.value=(selected?.id||(old&&v.questions.some(q=>q.id===old)?old:null))||v.questions[0]?.id||"";
    select.disabled=!v.questions.length;
   }
   const status=$("status");if(status){status.textContent=s.state==="open"?t("Voting open","التصويت مفتوح"):s.state==="closed"?t("Voting closed","التصويت مغلق"):s.state==="ended"?t("Session ended","انتهت الجلسة"):t("Waiting","انتظار");status.className="stage-pill "+(s.state==="open"?"open":s.state==="ended"?"ended":"")}
