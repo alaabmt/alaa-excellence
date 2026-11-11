@@ -5,9 +5,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-11T15:09:00.489Z",
+  "updated_at": "2026-11-11T15:11:10.517Z",
   "workflow_status": "in_progress",
-  "current_stage": "bilingual_parity",
+  "current_stage": "quality_gate",
   "current_article": {
     "article_id": "quran-reflection-2026-11-11-al-maidah-cooperation-boundary",
     "publication_date": "2026-11-11",
@@ -134,7 +134,8 @@
         "meta_editorial_phrases_found": 0,
         "direct_source_urls": 5
       },
-      "revision_count": 2
+      "revision_count": 2,
+      "workflow_status_commit": "86dbb70ad9dc3ad01dc4bcd6f248ff59203a40d8"
     },
     "independent_critique": {
       "status": "passed_after_required_revisions",
@@ -153,6 +154,25 @@
       "quran_translation": "Sahih International",
       "commit": "4d47d1d6f8ccfcb7bc35934494f7c27cea052a1e",
       "completed_at": "2026-11-11T14:23:48.465Z"
+    },
+    "bilingual_parity": {
+      "status": "passed_after_non_substantive_status_correction",
+      "review_path": "automation/quran-reflections/reflection-al-maidah-when-help-becomes-complicity/quality-review.md",
+      "review_commit": "d0100806f844f011321bf7b3c8022af347be78e8",
+      "arabic_path": "automation/quran-reflections/reflection-al-maidah-when-help-becomes-complicity/draft-ar.md",
+      "arabic_blob_sha": "ceadb12551e6a565a9d355a53384d626a2bc49e9",
+      "english_path": "automation/quran-reflections/reflection-al-maidah-when-help-becomes-complicity/draft-en.md",
+      "english_blob_sha": "14158914446d548c0138f4d898e6424630889d0a",
+      "substantive_revisions": 0,
+      "workflow_status_corrections": 1,
+      "quranic_citation": "passed",
+      "tafsir_attribution": "passed",
+      "methodological_qualifications": "passed",
+      "source_urls": "passed",
+      "native_english": "passed",
+      "completed_at": "2026-11-11T15:11:10.517Z",
+      "mobile_gate": "NOT VERIFIED until final HTML",
+      "tts_gate": "NOT VERIFIED until final HTML"
     }
   },
   "stage_order": [
@@ -186,21 +206,17 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Review draft-en.md against cleared draft-ar.md section by section for meaning, Qur'anic citation, tafsir attribution, methodological qualifications, source URLs and native editorial English; save parity findings to quality-review.md and checkpoint bilingual_parity before quality_gate.",
+  "next_action": "Apply the final 100-point quality gate to both cleared drafts; record the score, deductions and any blockers in quality-review.md, and checkpoint quality_gate before repository_publish. Do not publish until the score is at least 90/100 and HTML/mobile/RTL/TTS publication prerequisites are explicitly carried forward.",
   "last_run": {
     "mode": "coordinator_resume",
     "status": "checkpointed",
-    "last_checkpoint": "english_draft",
-    "last_checkpoint_at": "2026-11-11T14:23:48.465Z",
-    "ended_at": "2026-11-11T14:23:48.465Z",
-    "notes": "Original English draft committed. Bilingual parity, quality, HTML/mobile/TTS, Actions and live checks remain unverified. Lease released."
+    "last_checkpoint": "bilingual_parity",
+    "last_checkpoint_at": "2026-11-11T15:11:10.517Z",
+    "ended_at": "2026-11-11T15:11:10.517Z",
+    "notes": "Bilingual parity passed after one non-substantive Arabic workflow-status correction. Final quality scoring, HTML/mobile/RTL/TTS, repository publication, Actions/Pages and live verification remain incomplete. Lease released."
   },
   "workflow_id": "quran_reflections",
-  "run_lease": {
-    "owner": "chatgpt-central-resume-20261111",
-    "acquired_at": "2026-11-11T15:09:00.489Z",
-    "expires_at": "2026-11-11T16:59:00.489Z"
-  },
+  "run_lease": null,
   "checkpoint_policy": {
     "checkpoint_after_every_stage": true,
     "run_lease_minutes": 110,
@@ -572,7 +588,9 @@
     "research",
     "quran_verification",
     "arabic_draft",
-    "independent_critique"
+    "independent_critique",
+    "english_draft",
+    "bilingual_parity"
   ],
   "duplicate_check": {
     "status": "passed",
