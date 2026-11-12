@@ -2,7 +2,7 @@
 
 ## Outcome
 
-Published on 11 November 2026 (Asia/Dubai); repository, Pages and live-destination verification passed. Final quality completion remains blocked on article-specific mobile evidence and actual TTS playback.
+Published on 11 November 2026 (Asia/Dubai); repository, Pages and live-destination verification passed. Exact bilingual mobile verification now passes; final quality completion remains blocked only on actual TTS playback.
 
 - Arabic: https://tamayuz10x.com/article-agentic-ai-swelancer-million-dollar-software-work.html
 - English: https://tamayuz10x.com/en/article-agentic-ai-swelancer-million-dollar-software-work.html
@@ -36,7 +36,7 @@ Repository-wide site-health and social-card workflows remain red for unrelated p
 - Canonical and reciprocal ar/en/x-default hreflang links are correct.
 - BreadcrumbList structured data is present on both pages.
 - Dedicated 1200×630 JPG social images load successfully.
-- No horizontal overflow was observed at the available 1363px live viewport.
+- Real Playwright Chromium passed at 320, 375, 390 and 430px for both pages: Arabic RTL and English LTR, no horizontal overflow, visible H1, scroll-safe tables, and visible listen/stop/speed controls.\n- The retained artifact is `arabic-article-mobile-review` ID `13970272010` from workflow run `43276154202`; all eight screenshots and both JSON result files passed visual and automated review.
 - Exactly one article card is present in each Agentic AI 10X specialist hub and points to its language counterpart.
 - The sitemap contains each article URL exactly once.
 - Listen controls are present in both languages.
@@ -47,6 +47,17 @@ Repository-wide site-health and social-card workflows remain red for unrelated p
 1. Render this exact Arabic and English article in real Chromium at 320, 375, 390 and 430px and retain the RTL/LTR evidence.
 2. Test actual Arabic and English TTS in a Web Speech-capable browser: title first, synchronized highlighting, pause/resume/stop and speed.
 
+
+## Exact-article mobile verification — 12 November 2026
+
+- Workflow: https://github.com/alaabmt/alaa-excellence/actions/runs/43276154202
+- Commit: `032c54cfbf3352878f8dfd0be31f8b4cf3549562`
+- Retained artifact: `arabic-article-mobile-review` ID `13970272010`
+- Arabic results: 320/375/390/430px all PASS; viewport equals page width; RTL, H1, table scrolling and listen/stop/speed controls pass.
+- English results: 320/375/390/430px all PASS; viewport equals page width; LTR, H1, table scrolling and listen/stop/speed controls pass.
+- Visual inspection: PASS for title wrapping, author line, cover, listening panel and opening text at all eight captures.
+- Exact-head follow-up: editorial gate run `43276436718` and Pages run `43276436671` both succeeded on `9bbdaa78ce2aa976f1151f96884f96c24b8945d3`.
+
 ## Decision required
 
-Either provide/authorize a browser or device with Web Speech support and run the two remaining gates, or explicitly accept the structural listen-control check and repository evidence in place of actual TTS playback. Until then, the workflow remains blocked at `live_verification` and must not be reported as fully completed.
+Either provide/authorize a browser or device with Web Speech support and run the remaining gate, or explicitly accept the structural listen-control check and repository evidence in place of actual TTS playback. Until then, the workflow remains blocked at `live_verification` and must not be reported as fully completed.

@@ -193,3 +193,15 @@ Both summaries preserve actor, action, purpose, result, and evidence boundary.
 ### Quality-gate verdict
 
 The drafts pass the final editorial, evidence, novice-comprehension, and bilingual-content gates. They are approved to advance to repository page construction. They are **not yet approved to be described as published, live, or fully quality-gated** until the final HTML, mobile, TTS, SEO, repository, exact-head Pages, and live-destination checks pass.
+
+
+## Live mobile verification recovery — 12 November 2026
+
+- **Workflow run:** `43276154202` — success.
+- **Commit tested:** `032c54cfbf3352878f8dfd0be31f8b4cf3549562`.
+- **Artifact:** `arabic-article-mobile-review` ID `13970272010`.
+- **Arabic:** PASS at 320, 375, 390 and 430px; RTL correct; page width equals viewport; H1 visible; tables safe; listen/stop/speed controls present.
+- **English:** PASS at 320, 375, 390 and 430px; LTR correct; page width equals viewport; H1 visible; tables safe; listen/stop/speed controls present.
+- **Visual review:** PASS for the title, author attribution, cover, listening panel and opening paragraphs in all eight screenshots.
+- **Actual TTS playback:** NOT VERIFIED. The managed Chromium environment exposes no Web Speech API, so title-first speech, synchronized highlighting, floating playback state and pause/resume/stop/speed behavior cannot be proven here.
+- **Current decision:** mobile gate PASS; overall gate remains BLOCKED only on actual bilingual TTS or an explicit acceptance of structural verification.

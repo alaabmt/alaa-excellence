@@ -7,14 +7,10 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-12T21:57:24+04:00",
-  "workflow_status": "in_progress",
+  "updated_at": "2026-11-12T22:09:00+04:00",
+  "workflow_status": "blocked",
   "current_stage": "live_verification",
-  "run_lease": {
-    "owner": "scheduled-agentic-ai-2026-11-12-resume",
-    "acquired_at": "2026-11-12T21:57:24+04:00",
-    "expires_at": "2026-11-12T23:47:24+04:00"
-  },
+  "run_lease": null,
   "current_item": {
     "slug": "article-agentic-ai-swelancer-million-dollar-software-work",
     "publication_date": "2026-11-11",
@@ -83,19 +79,38 @@
         "unrelated_failures": [
           "Site health QA: live/index.html lacks shared navigation.",
           "Generate social share cards: the 2026-11-11 Qur'anic reflection still uses legacy SVG previews."
-        ]
+        ],
+        "latest_verified_head": {
+          "commit": "9bbdaa78ce2aa976f1151f96884f96c24b8945d3",
+          "arabic_editorial_run_id": 43276436718,
+          "pages_run_id": 43276436671,
+          "status": "success"
+        }
       },
       "live_verification": {
-        "status": "blocked_pending_article_mobile_and_tts",
-        "checked_at": "2026-11-12T00:20:25.314Z",
-        "live_pages": "passed",
+        "status": "blocked_pending_actual_bilingual_tts",
+        "checked_at": "2026-11-12T22:09:00+04:00",
+        "live_pages": "passed_http_200",
         "specialist_hubs": "passed_no_duplicate",
         "sitemap": "passed_one_url_each",
         "social_assets": "passed_1200x630_jpg",
-        "desktop_overflow": "passed_at_1363px",
-        "mobile_rtl_ltr": "not_verified_for_this_exact_article",
-        "tts_controls": "present_both_languages",
-        "tts_playback": "not_verifiable_managed_browser_has_no_web_speech_api"
+        "mobile_rtl_ltr": {
+          "status": "passed",
+          "workflow_run_id": 43276154202,
+          "artifact_id": 13970272010,
+          "commit": "032c54cfbf3352878f8dfd0be31f8b4cf3549562",
+          "widths_px": [
+            320,
+            375,
+            390,
+            430
+          ],
+          "arabic_results": "all_pass_rtl_no_horizontal_overflow",
+          "english_results": "all_pass_ltr_no_horizontal_overflow",
+          "visual_review": "passed_top_layout_title_cover_author_listen_controls_and_opening"
+        },
+        "tts_controls": "present_both_languages_all_four_widths",
+        "tts_playback": "not_verified_web_speech_api_unavailable_in_managed_browser"
       },
       "publication_report": {
         "path": "automation/agentic-ai/article-agentic-ai-swelancer-million-dollar-software-work/publication-report.md",
@@ -111,13 +126,11 @@
     "beginner_critique_commit": "f718de433fa207ecb56596f73d3252043e952ce0",
     "bilingual_parity_status": "completed",
     "bilingual_parity_review_commit": "ae632ed7b02337e07d36e837af5b8f09ac6cca1d",
-    "quality_gate_status": "blocked_pending_article_specific_mobile_and_actual_tts",
+    "quality_gate_status": "blocked_pending_actual_tts_only",
     "quality_gate_review_commit": "d11c39e4d27a6b6bcc73b998df4415eec4081f97",
     "quality_gate_score": 96,
     "quality_gate_pending": [
-      "mobile_rtl_ltr",
-      "tts_playback",
-      "live_verification"
+      "tts_playback"
     ]
   },
   "stage_order": [
@@ -159,17 +172,24 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Run this exact SWE-Lancer Arabic and English article in real Chromium at 320/375/390/430px, then test actual Arabic and English TTS in a Web Speech-capable browser (title first, synchronized highlighting, pause/resume/stop and speed). If actual playback cannot be supplied, obtain an explicit decision accepting the structural listen-control check instead. Reconcile live targets before any retry; do not republish.",
+  "next_action": "Do not republish. Test actual Arabic and English TTS in a Web Speech-capable browser/device: title first, synchronized highlighting, floating controls, pause/resume/stop and speed. If that environment cannot be supplied, obtain an explicit decision accepting structural listen-control verification. Reconcile live targets before any retry.",
   "last_run": {
     "mode": "scheduled_daily_resume",
-    "status": "in_progress",
+    "status": "blocked",
     "started_at": "2026-11-12T21:57:24+04:00",
-    "completed_at": null,
-    "notes": "Resuming the blocked SWE-Lancer live-verification checkpoint. No new article will be selected until the retained mobile and bilingual TTS gates are reconciled.",
+    "completed_at": "2026-11-12T22:09:00+04:00",
+    "notes": "Recovered the missing exact-article mobile evidence. Arabic and English passed Chromium at 320/375/390/430px with retained screenshots and result JSON. GitHub Actions and Pages succeeded. Actual bilingual Web Speech playback remains unverified because the managed browser exposes no Web Speech API.",
     "current_item": "article-agentic-ai-swelancer-million-dollar-software-work",
-    "checkpoint": "actions_and_pages"
+    "checkpoint": "live_verification"
   },
-  "blocker": null,
+  "blocker": {
+    "type": "verification_environment_and_decision",
+    "stage": "live_verification",
+    "reason": "Actual Arabic and English playback cannot be proven in the available managed browser because it exposes no Web Speech API. Structural controls and four-width mobile rendering passed.",
+    "decision_required": "Supply/authorize a Web Speech-capable browser or device, or explicitly accept structural listen-control verification instead of actual playback.",
+    "safe_to_retry": false,
+    "duplicate_prevention": "Re-check state, main, live pages, hubs, sitemap and assets; do not republish or recreate existing artifacts."
+  },
   "last_completed_item": {
     "slug": "article-agentic-ai-erpbench-market-ecology",
     "publication_date": "2026-11-05",
