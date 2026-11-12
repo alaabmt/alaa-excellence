@@ -18,7 +18,7 @@ Current backend \`tamayuz-live\` validates a real Supabase user JWT through \`au
 ## Production disaster recovery
 
 - The isolated PostgreSQL 17 synthetic database-loss/restore exercise passed: https://github.com/alaabmt/alaa-excellence/actions/runs/43306128962 ; synthetic RTO was 278 ms on a tiny fixture, not an outage measurement.
-- Live relies on GitHub Pages, the \`tamayuz-live\` Edge Function and seven \`public.live_*\` tables. The shared Auth account and identity linkage are dependencies. No GitHub rollback restores deleted votes.
+- Live relies on GitHub Pages, the \`tamayuz-live\` Edge Function and eight \`public.live_*\` tables. The shared Auth account and identity linkage are dependencies. No GitHub rollback restores deleted votes.
 - The Supabase organization is on Free; **automatic daily backups and PITR are not included**. Supabase recommends creating secure manual logical backups using its CLI: https://supabase.com/docs/guides/platform/backups
 - No genuine current production database backup with an independently verified SHA-256 has been retrieved; no full restore into a separate authenticated project was completed. **Recovery P0 remains NOT VERIFIED**.
 - Required evidence: a fresh encrypted private Live-only backup, protected off-site retention and restoration keys, complete RLS/functions/auth linkage and service integration in isolated infrastructure, actual measured RTO/RPO, explicit retention and loss tolerance, owner-verified recovery and independent artifact link. Never commit production dump, hashes of bearer credentials, owner email, join codes or answers to a public repository; never restore to the live production database for testing.
