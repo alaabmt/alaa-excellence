@@ -1,0 +1,24 @@
+name: Tamayuz Live authorization guard tests
+on:
+  push:
+    branches: [security/tamayuz-live-presenter-auth-20261112]
+    paths:
+      - 'live/backend/index.ts'
+      - 'live/index.html'
+      - 'tests/tamayuz-live-security.test.mjs'
+      - '.github/workflows/tamayuz-live-security-test.yml'
+  pull_request:
+    paths:
+      - 'live/backend/index.ts'
+      - 'live/index.html'
+      - 'tests/tamayuz-live-security.test.mjs'
+      - '.github/workflows/tamayuz-live-security-test.yml'
+permissions:
+  contents: read
+jobs:
+  security-static-checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - run: node --test tests/tamayuz-live-security.test.mjs
