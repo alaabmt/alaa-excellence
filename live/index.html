@@ -145,6 +145,19 @@ body.live-presenter-page:has(.presenter.widescreen) main{margin-top:8px!importan
 @media(max-width:800px){body.live-presenter-page .presenter .clinical-case{font-size:1rem!important}.clinical-section{padding:11px 0}.clinical-section.clinical-intro{padding:11px 12px}}
 
 .audience-wrap .clinical-case{font-size:1rem;line-height:1.5;margin-bottom:16px}.audience-wrap .clinical-heading{font-size:.95rem!important}.audience-wrap .clinical-challenge{margin-bottom:18px}
+
+/* Conference response palette: four restrained tones, green only after answer reveal. */
+#results .result-choice,.audience-results .result-choice{padding:9px 11px;border-radius:10px;border:1px solid #e7e5f0;background:#fff;transition:background .25s,border-color .25s,opacity .25s}
+#results .result-choice .bar,.audience-results .result-choice .bar{height:14px;border-radius:7px;background:#efedf6;overflow:hidden}
+#results .result-choice .fill,.audience-results .result-choice .fill{height:100%;border-radius:7px;transition:width .4s ease,background .25s}
+.result-tone-0 .fill{background:#6a57c9!important}.result-tone-1 .fill{background:#3886b5!important}.result-tone-2 .fill{background:#bd8746!important}.result-tone-3 .fill{background:#7c6ba5!important}
+#results .result-choice.result-correct,.audience-results .result-choice.result-correct{border:2px solid #27966b;background:#e9f8f0;opacity:1}
+#results .result-choice.result-correct .fill,.audience-results .result-choice.result-correct .fill{background:#25976a!important}
+#results .result-choice.result-muted,.audience-results .result-choice.result-muted{opacity:.48;background:#f6f6f8}
+#results .result-choice.result-muted .fill,.audience-results .result-choice.result-muted .fill{background:#a4a8b0!important}
+.result-choice-name{display:inline-flex;align-items:center;gap:9px;min-width:0}
+.result-check{display:inline-grid;place-items:center;flex:none;width:24px;height:24px;border-radius:50%;background:#228a61;color:white;font-weight:800;font-size:16px}
+@media(max-width:800px){#results .result-choice,.audience-results .result-choice{padding:8px 9px}.result-check{width:22px;height:22px}}
 </style></head><body><header><strong>LIVE · Personal Conference Tool</strong><div class="actions"><button id="home-link" class="secondary">Home</button><button id="language" class="secondary">العربية</button></div></header><main><div id="app" aria-live="polite"></div></main><footer>Personal conference polling · Tamayuz 10X</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" defer></script><script>
 (()=>{"use strict";
 const ENDPOINT="https://dqrsjhcfmpjhcxvtxosy.supabase.co/functions/v1/tamayuz-live";
@@ -187,6 +200,13 @@ function clinicalCaseMarkup(prompt){
  }
  if(current.text.length)sections.push(current);
  return '<div class="clinical-case">'+sections.map((part,i)=>'<section class="clinical-section '+(i===0&&!part.heading?'clinical-intro':'')+'">'+(part.heading?'<h3 class="clinical-heading">'+esc(part.heading)+'</h3>':i===0?'<h3 class="clinical-heading">'+t("Patient presentation","عرض الحالة")+'</h3>':'')+'<div class="clinical-copy">'+part.text.map(x=>'<p>'+esc(x)+'</p>').join("")+'</div></section>').join("")+(challenge?'<div class="clinical-challenge"><strong>'+esc(challenge)+'</strong></div>':'')+'</div>';
+}
+function resultChoiceMarkup(label,index,votes,total,answerRevealed,correctAnswer){
+ const pct=total?Math.round(100*votes/total):0;
+ const isCorrect=!!answerRevealed&&!!correctAnswer&&String(label).trim()===String(correctAnswer).trim();
+ const faded=!!answerRevealed&&!isCorrect;
+ const classes="stage-result result-choice result-tone-"+(index%4)+(isCorrect?" result-correct":faded?" result-muted":"");
+ return '<div class="'+classes+'"><div class="stage-result-label"><span class="result-choice-name">'+(isCorrect?'<span class="result-check" aria-label="'+t("Correct answer","الإجابة الصحيحة")+'">✓</span>':'')+esc(label)+'</span><strong>'+pct+'% · '+votes+'</strong></div><div class="bar"><div class="fill" style="width:'+pct+'%"></div></div></div>';
 }
 async function presenterPage(){
  if(busy)return;busy=true;
@@ -259,7 +279,7 @@ async function presenterPage(){
    else{
     const counts=new Map((v.aggregate||[]).map(x=>[String(x.answer),Number(x.votes)||0]));
     const labels=selected.kind==="choice"?(selected.options||[]):selected.kind==="rating"?["1","2","3","4","5"]:[...counts.keys()];
-    results.innerHTML='<div class="stage-count"><strong>'+total+'</strong><span>'+t("responses","إجابة")+'</span></div>'+labels.map((label,i)=>{const n=counts.get(String(label))||0,pct=total?Math.round(n*100/total):0;return '<div class="stage-result"><div class="stage-result-label"><span>'+esc(label)+'</span><strong>'+pct+'% · '+n+'</strong></div><div class="bar"><div class="fill" style="width:'+pct+'%"></div></div></div>'}).join("");
+    results.innerHTML='<div class="stage-count"><strong>'+total+'</strong><span>'+t("responses","إجابة")+'</span></div>'+labels.map((label,i)=>{const n=counts.get(String(label))||0,pct=total?Math.round(n*100/total):0;return resultChoiceMarkup(label,i,n,total,s.reveal_correct_answer,selected.correct_answer)}).join("");
    }
    if(selected&&s.show_results&&s.reveal_correct_answer&&selected.correct_answer){
     results.innerHTML+='<section class="answer-explanation"><h3>'+t("Correct answer","الإجابة الصحيحة")+': '+esc(selected.correct_answer)+'</h3>'+(selected.answer_justification?'<p><strong>'+t("Justification","التبرير")+':</strong> '+esc(selected.answer_justification)+'</p>':'')+(selected.answer_effect?'<p><strong>'+t("Effect","الأثر")+':</strong> '+esc(selected.answer_effect)+'</p>':'')+'</section>';
@@ -274,7 +294,7 @@ function audienceResults(v,q){
  const counts=new Map((v.aggregate||[]).map(x=>[String(x.answer),Number(x.votes)||0]));
  const labels=q.kind==="choice"?(q.options||[]):q.kind==="rating"?["1","2","3","4","5"]:[...counts.keys()];
  const total=v.count||0;
- return '<section class="audience-results" aria-label="'+t("Live results","النتائج المباشرة")+'"><h3>'+t("Results","النتائج")+' · '+total+' '+t("responses","إجابة")+'</h3>'+labels.map(label=>{const n=counts.get(String(label))||0,pct=total?Math.round(100*n/total):0;return '<div class="stage-result"><div class="stage-result-label"><span>'+esc(label)+'</span><strong>'+pct+'% · '+n+'</strong></div><div class="bar"><div class="fill" style="width:'+pct+'%"></div></div></div>'}).join("")+'</section>';
+ return '<section class="audience-results" aria-label="'+t("Live results","النتائج المباشرة")+'"><h3>'+t("Results","النتائج")+' · '+total+' '+t("responses","إجابة")+'</h3>'+labels.map((label,i)=>{const n=counts.get(String(label))||0;return resultChoiceMarkup(label,i,n,total,v.session.reveal_correct_answer,q.correct_answer)}).join("")+'</section>';
 }
 function audienceExplanation(v,q){
  if(!v.session.show_results||!v.session.reveal_correct_answer||!q.correct_answer)return "";
