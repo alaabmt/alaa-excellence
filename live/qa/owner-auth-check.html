@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="referrer" content="no-referrer">
+<title>Tamayuz Live | Owner Authorization Self-Check</title>
+<style>
+:root{font:16px/1.55 system-ui,-apple-system,sans-serif;color-scheme:light dark}
+body{max-width:760px;margin:2rem auto;padding:0 1rem}
+main{border:1px solid #8886;border-radius:14px;padding:1.5rem}
+button,.link{display:inline-block;border:1px solid #8886;background:#1261ae;color:white;padding:.65rem 1rem;border-radius:8px;cursor:pointer;margin:.4rem .3rem .4rem 0}
+.link{background:transparent;color:inherit}
+pre{white-space:pre-wrap;overflow-wrap:anywhere;border:1px solid #8886;border-radius:6px;padding:1rem}
+small{color:inherit;opacity:.85}button:disabled{opacity:.5}
+</style>
+<script src="/assets/js/unified-navigation.js" defer></script>
+</head>
+<body>
+<main>
+<h1>Tamayuz Live — Owner authorization check</h1>
+<p>This non-destructive test uses <strong>your current website login session</strong>. It verifies that the deployed Live backend accepts the authenticated owner's token and grants read-only owner operations. It never creates, deletes or modifies any presentation, vote, session, or account.</p>
+<p>No password, login token, account ID, question contents, or confidential session codes are included in the report. They remain in your browser and the existing Supabase authentication flow.</p>
+<p><a class="link" href="/account/login.html?lang=en&amp;next=%2Flive%2Fqa%2Fowner-auth-check.html">Sign in on the website</a>
+<a class="link" href="/live/">Return to Live</a></p>
+<button id="run" type="button">Run authenticated read-only checks</button>
+<button id="copy" type="button" disabled>Copy safe evidence</button>
+<p id="status" role="status" aria-live="polite"></p>
+<pre id="result" aria-label="Test results">Not yet tested. NO-GO remains until an actual owner session passes.</pre>
+<small>This is client-side evidence only; independent review of time, deployment version and genuine owner sign-in is required before conference certification.</small>
+</main>
+<script type="module">
+const EDGE="https://dqrsjhcfmpjhcxvtxosy.supabase.co/functions/v1/tamayuz-live";
+const btn=document.querySelector("#run"),copy=document.querySelector("#copy"),out=document.querySelector("#result"),status=document.querySelector("#status");
+let evidence=null;
+async function request(action,token=null,extra={}){
+ const headers={"content-type":"application/json"};
+ if(token)headers.authorization="Bearer "+token;
+ const started=performance.now();
+ const r=await fetch(EDGE,{method:"POST",headers,cache:"no-store",signal:AbortSignal.timeout(12000),body:JSON.stringify({action,...extra})});
+ const json=await r.json();
+ return {status:r.status,body:json,duration_ms:Math.round(performance.now()-started)};
+}
+btn.addEventListener("click",async()=>{
+ btn.disabled=true;copy.disabled=true;status.textContent="Checking the existing website session…";
+ try{
+  const {createAuthClient}=await import("/assets/js/assessment-auth-client.js");
+  const auth=await createAuthClient();
+  const {data,error}=await auth.auth.getSession();
+  if(error||!data?.session?.access_token){status.textContent="No active signed-in session. Sign in using the website first.";return}
+  const token=data.session.access_token;
+  const noBearer=await request("owner_status");
+  const reject=await request("list","tamayuz-live-intentionally-invalid-token");
+  const positive=await request("owner_status",token);
+  const listing=positive.status===200&&positive.body.owner===true?await request("list",token):null;
+  const sessions=listing?.status===200?await request("list_sessions",token):null;
+  let workspace=null,report=null;
+  if(listing?.body?.presentations?.length){
+    workspace=await request("presentation_workspace",token,{presentation_id:listing.body.presentations[0].id});
+  }
+  if(sessions?.body?.sessions?.length){
+    report=await request("review_results",token,{session_id:sessions.body.sessions[0].id});
+  }
+  const checks={
+   negative_anonymous_owner_status:noBearer.status===200&&noBearer.body.owner===false,
+   negative_invalid_jwt_owner_list:reject.status===403,
+   positive_owner_authorized:positive.status===200&&positive.body.owner===true&&positive.body.reason==="authorized",
+   positive_owner_presentation_list:!!listing&&listing.status===200&&Array.isArray(listing.body.presentations),
+   positive_owner_session_list:!!sessions&&sessions.status===200&&Array.isArray(sessions.body.sessions),
+   positive_presentation_workspace:workspace?workspace.status===200:listing?.body?.presentations?.length===0?null:false,
+   positive_owner_report:report?report.status===200:sessions?.body?.sessions?.length===0?null:false
+  };
+  const all=Object.values(checks).every(v=>v===true||v===null);
+  evidence={
+    test_type:"OWNER_SESSION_POSITIVE_READ_ONLY",
+    source:"owner's current signed-in browser session",
+    endpoint:EDGE,at_utc:new Date().toISOString(),
+    checks,pass:all,
+    production_write_operations:0,
+    secrets_or_identifiers_exported:false,
+    verified_by_independent_reviewer:false,
+    edge_deployment_version_verified_separately:false
+  };
+  status.textContent=all?"Checks passed in this browser. Independent certification is still required.":"An owner authorization check failed; inspect your login and report the failure.";
+  out.textContent=JSON.stringify(evidence,null,2);
+  copy.disabled=false;
+ }catch(e){
+   status.textContent="Check could not complete; no access was changed.";
+   out.textContent=JSON.stringify({status:"NOT_VERIFIED",failure_type:e?.name==="TimeoutError"?"timeout":"client_error"},null,2);
+ }finally{btn.disabled=false}
+});
+copy.addEventListener("click",async()=>{
+ if(evidence)await navigator.clipboard.writeText(JSON.stringify(evidence,null,2));
+ status.textContent="Safe evidence copied; no passwords or tokens were included.";
+});
+</script>
+</body>
+</html>
