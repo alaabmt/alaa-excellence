@@ -1,0 +1,64 @@
+name: Tamayuz Live Engineering Assurance (NOT conference certification)
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'live/**'
+      - 'tests/tamayuz-live-*'
+      - '.github/workflows/tamayuz-live-*'
+  pull_request:
+    paths:
+      - 'live/**'
+      - 'tests/tamayuz-live-*'
+      - '.github/workflows/tamayuz-live-*'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  engineering-assurance:
+    name: Live engineering policy and scope checks
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '24'
+      - name: Enforce Live-only paths across entire PR or push
+        if: github.event_name != 'workflow_dispatch'
+        env:
+          BASE_SHA: ${{ github.event_name == 'pull_request' && github.event.pull_request.base.sha || github.event.before }}
+          HEAD_SHA: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.sha || github.sha }}
+        run: |
+          set -euo pipefail
+          # --no-renames reveals BOTH ends of a rename, including out-of-scope deletions.
+          git diff --no-renames --name-only "$BASE_SHA" "$HEAD_SHA" > "$RUNNER_TEMP/live-changed-files.txt"
+          python3 live/qa/assurance_gate.py --scope-paths "$RUNNER_TEMP/live-changed-files.txt"
+      - name: Check fail-closed readiness and scope policy
+        run: python3 -m unittest discover -s live/qa -p 'test_*.py' -v
+      - name: Run Live-only static regression suite
+        run: node --test tests/tamayuz-live-*.test.mjs
+      - name: Publish explicitly NOT VERIFIED conference baseline
+        run: |
+          set +e
+          python3 live/qa/assurance_gate.py \
+            --evidence live/qa/readiness-evidence.example.json \
+            --report-json "$RUNNER_TEMP/live-readiness.json" \
+            --report-md "$RUNNER_TEMP/live-readiness.md"
+          code=$?
+          set -e
+          if [ "$code" -ne 3 ]; then
+            echo 'The evidence-free baseline MUST fail closed with NO-GO (exit 3).' >&2
+            exit 1
+          fi
+          cat "$RUNNER_TEMP/live-readiness.md" >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        if: always()
+        with:
+          name: tamayuz-live-uncertified-readiness-baseline
+          path: |
+            ${{ runner.temp }}/live-readiness.json
+            ${{ runner.temp }}/live-readiness.md
+          retention-days: 14
