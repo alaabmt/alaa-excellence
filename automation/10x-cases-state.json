@@ -7,9 +7,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-12T08:12:00+04:00",
+  "updated_at": "2026-11-12T08:20:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "backcasting_and_10x_analysis",
+  "current_stage": "arabic_draft",
   "run_lease": {
     "owner": "codex-tenx-primary-20261112-0734",
     "acquired_at": "2026-11-12T07:34:00+04:00",
@@ -38,6 +38,23 @@
         "avoidable_hospitalization_reduction": "rejected",
         "uniform_quality_equity": "rejected"
       }
+    },
+    "analysis": {
+      "status": "passed",
+      "path": "automation/10x-cases/case-brazil-family-health-strategy-community-primary-care/backcasting-and-10x-analysis.md",
+      "commit": "58a96bbcd72cac04a2257977c652d3eb9a8f5cd3",
+      "pillars_supported": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8
+      ],
+      "pillar_gap": [
+        6
+      ]
     }
   },
   "stage_order": [
@@ -79,14 +96,14 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Complete backcasting and evidence-supported 10X pillar analysis, documenting gaps and transferable conditions.",
+  "next_action": "Draft original Arabic case with problem-first narrative, executive snapshot, evidence limits, supported pillars only, disclosure and verified references.",
   "last_run": {
     "mode": "primary_scheduled_cycle",
     "status": "in_progress",
     "started_at": "2026-11-12T07:34:00+04:00",
     "starting_head": "b1f7cfcbd12f4a1444fad3c5c685d5f26091c1ac",
-    "last_checkpoint": "evidence_pack",
-    "notes": "Evidence Pack passed with explicit counterevidence; avoidable-hospitalization reduction and sole-causation claims rejected.",
+    "last_checkpoint": "backcasting_and_10x_analysis",
+    "notes": "Backcasting completed. Pillars 1,2,3,4,5,7,8 supported; pillar 6 excluded for insufficient pilot-learning-scale evidence.",
     "current_item": "case-brazil-family-health-strategy-community-primary-care"
   },
   "last_completed_item": {
@@ -156,7 +173,8 @@
     "load_checkpoint",
     "duplicate_check",
     "candidate_scan",
-    "evidence_pack"
+    "evidence_pack",
+    "backcasting_and_10x_analysis"
   ],
   "blocker": null
 }
