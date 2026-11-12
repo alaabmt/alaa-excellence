@@ -18,7 +18,7 @@ assert.equal(repoEnv,REPO,"Monitor must run only in the authorized Live reposito
 async function http(url,init={}){
   const start=performance.now();
   const response=await fetch(url,{...init,signal:AbortSignal.timeout(12000),redirect:"error",cache:"no-store"});
-  const body=(await response.text()).slice(0,100000);
+  const body=(await response.text()).slice(0,300000);
   return {status:response.status,body,ms:Math.round(performance.now()-start)};
 }
 async function probe(){
