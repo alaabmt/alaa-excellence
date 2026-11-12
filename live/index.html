@@ -812,7 +812,8 @@ function resultChoiceMarkup(label,index,votes,total,answerRevealed,correctAnswer
 async function presenterPage(){
  if(busy)return;busy=true;
  try{
-  const v=await api("present",{session_id:params.get("session"),presenter_token:presenter,key:admin});
+  const response=await fetch(ENDPOINT,{method:"POST",headers:{"content-type":"application/json"},cache:"no-store",body:JSON.stringify({action:"present",session_id:params.get("session"),presenter_token:presenter,key:admin})});
+  const v=await response.json();if(!response.ok||v.error)throw Error(v.error||"Presenter refresh failed");
   const s=v.session,selected=v.questions.find(q=>q.id===s.active_question_id);sessionStorage.setItem("live-presenter-session",s.id);
   const first=!$("presenter-root");
   const previouslyChosen=$("question")?.value;
@@ -893,7 +894,7 @@ async function presenterPage(){
   if($("qr")&&window.QRCode&&(!$("qr").querySelector("img")||!$("widescreen-join-qr")?.querySelector("img")))qr(s.code);
   const questionView=$("question-view");
   if(questionView)questionView.innerHTML=selected?'<p class="muted clinical-counter">'+t("QUESTION","السؤال")+' '+esc(selected.position+1)+' / '+v.questions.length+'</p>'+clinicalCaseMarkup(selected.prompt):'<div class="stage-empty"><h2>'+t("No active question","لا يوجد سؤال نشط")+'</h2><p>'+t("Add questions in your dashboard, then create a new session.","أضف الأسئلة في لوحة التحكم ثم أنشئ جلسة جديدة.")+'</p></div>';
-  const updateStatus=$("live-update-status");if(updateStatus)updateStatus.textContent=t("Results updated automatically · ","تحديث النتائج تلقائيًا · ")+new Date().toLocaleTimeString();
+  const updateStatus=$("live-update-status");if(updateStatus)updateStatus.textContent=t("Live results · ","النتائج المباشرة · ")+esc(s.code)+" · "+(v.count||0)+" "+t("responses · ","إجابة · ")+new Date().toLocaleTimeString();
   for(const answerButton of [$("answer-reveal"),$("widescreen-answer-reveal")]){if(answerButton){answerButton.textContent=s.reveal_correct_answer?t("Hide correct answer","إخفاء الإجابة الصحيحة"):t("Reveal correct answer","إظهار الإجابة الصحيحة");answerButton.disabled=!selected?.correct_answer||s.state==="ended";answerButton.setAttribute("aria-pressed",String(!!s.reveal_correct_answer))}}
   const results=$("results");
   if(results){
