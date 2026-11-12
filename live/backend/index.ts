@@ -42,12 +42,23 @@ Deno.serve(async(req)=>{
   }
   if(action==="add_question"){
    
-   const pid=safe(b.presentation_id,40),prompt=safe(b.prompt,500),kind=["choice","rating","text"].includes(b.kind)?b.kind:"choice";
+   const pid=safe(b.presentation_id,40),prompt=safe(b.prompt,6000),kind=["choice","rating","text"].includes(b.kind)?b.kind:"choice";
    const options=kind==="choice"&&Array.isArray(b.options)?b.options.slice(0,8).map((x:any)=>safe(x,120)).filter(Boolean):[];
    if(!prompt||(kind==="choice"&&options.length<2))return reply({error:"Question or options invalid"},400);
    const {data:existing}=await db.from("live_questions").select("position").eq("presentation_id",pid).order("position",{ascending:false}).limit(1);
    const {data,error}=await db.from("live_questions").insert({presentation_id:pid,prompt,kind,options,position:(existing?.[0]?.position??-1)+1}).select("id").single();
    return error?reply({error:"Cannot add question"},400):reply({question:data});
+  }
+  if(action==="list_questions"){
+   const pid=safe(b.presentation_id,40);
+   const {data,error}=await db.from("live_questions").select("id,prompt,kind,options,position").eq("presentation_id",pid).order("position");
+   return error?reply({error:"Cannot list questions"},400):reply({questions:data||[]});
+  }
+  if(action==="update_question"){
+   const id=safe(b.question_id,40),pid=safe(b.presentation_id,40),prompt=safe(b.prompt,6000);
+   if(!prompt)return reply({error:"Question cannot be empty"},400);
+   const {data,error}=await db.from("live_questions").update({prompt}).eq("id",id).eq("presentation_id",pid).select("id").maybeSingle();
+   return error?reply({error:"Cannot update question"},400):!data?reply({error:"Question not found"},404):reply({question:data});
   }
   if(action==="new_session"){
    
