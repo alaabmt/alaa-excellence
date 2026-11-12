@@ -23,7 +23,7 @@ Deno.serve(async(req)=>{
    return error?reply({error:"Could not create presentation"},500):reply({presentation:data});
   }
   if(action==="list"){
-   
+   if(!(await owner(req)))return reply({error:"Owner authorization required"},403);
    const {data}=await db.from("live_presentations").select("id,title,locale,created_at").order("created_at",{ascending:false}).limit(100);
    return reply({presentations:data||[]});
   }
@@ -63,6 +63,7 @@ Deno.serve(async(req)=>{
    return error||!data?reply({error:"Could not delete presentation"},400):reply({deleted:true});
   }
   if(action==="list_sessions"){
+   if(!(await owner(req)))return reply({error:"Owner authorization required"},403);
    const {data,error}=await db.from("live_sessions").select("id,join_code,state,presentation_id,created_at,label").order("created_at",{ascending:false}).limit(100);
    return error?reply({error:"Could not list sessions"},500):reply({sessions:data||[]});
   }
@@ -112,12 +113,9 @@ Deno.serve(async(req)=>{
    if(!(await owner(req)))return reply({error:"Owner authorization required"},403);
    const pid=safe(b.presentation_id,40),ids=b.question_ids;
    if(!Array.isArray(ids)||ids.length<1||ids.length>100||ids.some((x:any)=>typeof x!=="string")||new Set(ids).size!==ids.length)return reply({error:"Invalid question order"},400);
-   const {data:existing,error:readError}=await db.from("live_questions").select("id,position").eq("presentation_id",pid);
-   if(readError||!existing||existing.length!==ids.length||existing.some((x:any)=>!ids.includes(x.id)))return reply({error:"Question list has changed. Refresh and retry."},409);
-   // Temporary unique-free positions avoid collisions with old positions during reordering.
-   const tempBase=Math.max(10000,...existing.map((x:any)=>x.position+1000));
-   for(let i=0;i<ids.length;i++){const {error}=await db.from("live_questions").update({position:tempBase+i}).eq("id",ids[i]).eq("presentation_id",pid);if(error)return reply({error:"Could not reorder questions"},500);}
-   for(let i=0;i<ids.length;i++){const {error}=await db.from("live_questions").update({position:i}).eq("id",ids[i]).eq("presentation_id",pid);if(error)return reply({error:"Could not finalize question order"},500);}
+   // One database transaction: either all question positions change or none do.
+   const {error}=await db.rpc("live_reorder_questions",{p_presentation_id:pid,p_ids:ids});
+   if(error)return reply({error:"Question list has changed or reorder failed. Refresh and retry."},409);
    return reply({reordered:true});
   }
   if(action==="presentation_workspace"){
@@ -186,15 +184,11 @@ Deno.serve(async(req)=>{
   if(action==="reset_session_votes"){
    const id=safe(b.session_id,40),key=safe(b.key,128);
    if(!(await owner(req)))return reply({error:"Owner authorization required"},403);
-   const {data:s}=await db.from("live_sessions").select("id,revision").eq("id",id).maybeSingle();
-   if(!s)return reply({error:"Session not found"},404);
-   // Clear interactions first, then votes and participant registrations.
-   for(const table of ["live_interaction_events","live_votes","live_participants"]){
-    const {error}=await db.from(table).delete().eq("session_id",id);
-    if(error)return reply({error:"Could not reset "+table},500);
-   }
-   const {data:updated,error}=await db.from("live_sessions").update({state:"waiting",active_question_id:null,show_results:false,reveal_correct_answer:false,question_results_visibility:{},revision:s.revision+1}).eq("id",id).eq("revision",s.revision).select("id,state,revision").maybeSingle();
-   if(error||!updated)return reply({error:"Could not finalize reset; refresh and retry"},409);
+   // RPC owns a transaction and locks the session before deleting any rows.
+   const {data:rows,error}=await db.rpc("live_reset_session",{p_session_id:id});
+   if(error)return reply({error:"Reset failed; no partial reset was committed."},409);
+   const updated=rows?.[0];
+   if(!updated)return reply({error:"Session not found"},404);
    return reply({reset:true,session:updated});
   }
   if(action==="new_session"){
@@ -240,19 +234,28 @@ Deno.serve(async(req)=>{
    if(!s)return reply({error:"Session not found"},404);
    if(action==="view"){
     const token=safe(b.participant_token,128);
-    let voted=false;
-    if(s.active_question_id&&/^[a-f0-9]{48}$/.test(token)){
+    let voted=false,participant_valid=false;
+    if(/^[a-f0-9]{48}$/.test(token)){
      const {data:p}=await db.from("live_participants").select("id").eq("session_id",s.id).eq("token_hash",await hash(token)).maybeSingle();
-     if(p){const {data:vote}=await db.from("live_votes").select("id").eq("session_id",s.id).eq("question_id",s.active_question_id).eq("participant_id",p.id).limit(1).maybeSingle();voted=!!vote;}
+     participant_valid=!!p;
+     if(p&&s.active_question_id){const {data:vote}=await db.from("live_votes").select("id").eq("session_id",s.id).eq("question_id",s.active_question_id).eq("participant_id",p.id).limit(1).maybeSingle();voted=!!vote;}
     }
     const snapshot=await state(s,false);
-    return reply({session:snapshot.session,voted,questions:snapshot.questions.filter((q:any)=>q.id===s.active_question_id).map(({correct_answer,answer_justification,answer_effect,...safeQuestion}:any)=>safeQuestion),aggregate:[],count:null});
+    const questions=snapshot.questions.filter((q:any)=>q.id===s.active_question_id).map((q:any)=>{
+     if(s.reveal_correct_answer)return q;
+     const {correct_answer,answer_justification,answer_effect,...safeQuestion}=q;
+     return safeQuestion;
+    });
+    return reply({session:snapshot.session,voted,participant_valid,questions,aggregate:[],count:null});
    }
    if(s.state==="ended")return reply({error:"Session ended"},409);
-   const token=random();const {count}=await db.from("live_participants").select("id",{count:"exact",head:true}).eq("session_id",s.id);
-   if((count||0)>=600)return reply({error:"Session capacity reached"},429);
-   const {error}=await db.from("live_participants").insert({session_id:s.id,token_hash:await hash(token)});
-   return error?reply({error:"Cannot join"},500):reply({participant_token:token,session_id:s.id});
+   // The database locks the session row and checks capacity in one transaction.
+   const token=random();
+   const {data:registered,error}=await db.rpc("live_register_participant",{p_code:code,p_token_hash:await hash(token)});
+   if(error?.message?.includes("capacity"))return reply({error:"Session capacity reached"},429);
+   if(error?.message?.includes("ended"))return reply({error:"Session ended"},409);
+   if(error)return reply({error:"Cannot join"},500);
+   return reply({participant_token:token,session_id:registered});
   }
   if(action==="vote"){
    const code=safe(b.code,20).toUpperCase();const token=safe(b.participant_token,128);
