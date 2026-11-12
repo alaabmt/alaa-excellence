@@ -5,16 +5,16 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-11T19:08:10.772Z",
-  "workflow_status": "blocked",
-  "current_stage": "live_verification",
+  "updated_at": "2026-11-12T13:07:23Z",
+  "workflow_status": "in_progress",
+  "current_stage": "duplicate_check",
   "current_article": {
-    "article_id": "quran-reflection-2026-11-11-al-maidah-cooperation-boundary",
-    "publication_date": "2026-11-11",
-    "status": "actions_pages_and_live_structure_verified_tts_playback_blocked",
+    "article_id": "quran-reflection-2026-11-12-pending-topic",
+    "publication_date": "2026-11-12",
+    "status": "duplicate_check_completed_pending_topic_selection",
     "duplicate_check": {
       "status": "passed_no_today_quran_cycle_found",
-      "checked_at": "2026-11-11T17:11:28+04:00",
+      "checked_at": "2026-11-12T13:07:23Z",
       "evidence": [
         "automation/quran-reflections-state.json",
         "data/quranic-reflection-topics.json",
@@ -25,331 +25,10 @@
         "en/articles.html",
         "sitemap.xml",
         "recent GitHub commits",
-        "live quranic-reflections indexes"
-      ]
-    },
-    "slug": "reflection-al-maidah-when-help-becomes-complicity",
-    "topic_ar": "المائدة 5:2 — الحد الفاصل بين التعاون في البر والمشاركة في الإثم",
-    "topic_en": "Al-Ma’idah 5:2 — the boundary between cooperation in good and participation in wrongdoing",
-    "working_title_ar": "متى تتحول المساعدة إلى مشاركة في الخطأ؟",
-    "working_title_en": "When Does Helping Become Participation in Wrongdoing?",
-    "topic_selection": {
-      "status": "completed",
-      "candidates": [
-        "Al-Ma’idah 5:2 — the boundary of cooperation",
-        "Al-Ahzab 33:70–71 — words that remain upright",
-        "Al-Hadid 57:22–23 — how we receive loss and gain"
+        "live quranic-reflections and article indexes",
+        "public web search for 2026-11-12 Qur'anic reflection"
       ],
-      "selected": "Al-Ma’idah 5:2 — the boundary of cooperation",
-      "central_question": "How do we recognize the point at which helping a person or advancing a useful goal begins to support a wrongful means?",
-      "completed_at": "2026-11-11T17:18:00+04:00",
-      "artifact_commit": "1c5cc84dec46bacd48ccbc71d68183d5bc049aaa"
-    },
-    "research_notes_path": "automation/quran-reflections/reflection-al-maidah-when-help-becomes-complicity/research-notes.md",
-    "research_status": "completed",
-    "research_sources": [
-      {
-        "type": "Qur'an text and Sahih International translation",
-        "url": "https://legacy.quran.com/05/02",
-        "status": "reviewed"
-      },
-      {
-        "type": "Immediate Qur'anic context, Al-Ma'idah 5:1–3",
-        "url": "https://legacy.quran.com/05/1-3",
-        "status": "reviewed"
-      },
-      {
-        "type": "Tafsir al-Tabari 5:2",
-        "url": "https://quran.ksu.edu.sa/tafseer/tabary/sura5-aya2.html",
-        "status": "reviewed"
-      },
-      {
-        "type": "Tafsir Ibn Kathir 5:2",
-        "url": "https://quran.ksu.edu.sa/tafseer/katheer/sura5-aya2.html",
-        "status": "reviewed"
-      },
-      {
-        "type": "Tafsir al-Qurtubi 5:2",
-        "url": "https://quran.ksu.edu.sa/tafseer/qortobi/sura5-aya2.html",
-        "status": "reviewed"
-      },
-      {
-        "type": "Tafsir al-Sa'di 5:2",
-        "url": "https://quran.ksu.edu.sa/tafseer/saadi/sura5-aya2.html",
-        "status": "reviewed"
-      }
-    ],
-    "research_commit": "1e8e3ebbaa4d2ce5ebf0636389756ecad29443f1",
-    "quranic_focus": {
-      "surah": "Al-Ma’idah",
-      "surah_ar": "المائدة",
-      "ayahs": [
-        2
-      ],
-      "context_ayahs": [
-        1,
-        3
-      ],
-      "status": "verified"
-    },
-    "verified_quranic_references": [
-      {
-        "surah": "Al-Ma’idah",
-        "surah_ar": "المائدة",
-        "ayahs": [
-          2
-        ],
-        "context_ayahs": [
-          1,
-          3
-        ],
-        "status": "verified",
-        "primary_text_urls": [
-          "https://legacy.quran.com/05/02",
-          "https://quran.com/al-maidah/translations/en-sahih-international"
-        ],
-        "translation": "Sahih International",
-        "verified_at": "2026-11-11T17:36:00+04:00"
-      }
-    ],
-    "quran_verification": {
-      "status": "passed",
-      "blocking_errors": [],
-      "path": "automation/quran-reflections/reflection-al-maidah-when-help-becomes-complicity/research-notes.md",
-      "commit": "5a7f140a5ec6fe2a4d31191abdae3bb4972661a7",
-      "completed_at": "2026-11-11T17:36:00+04:00"
-    },
-    "arabic_draft": {
-      "status": "critique_cleared",
-      "path": "automation/quran-reflections/reflection-al-maidah-when-help-becomes-complicity/draft-ar.md",
-      "word_count": 1343,
-      "commit": "1243d918bcb6614076c2b2c776400694cbb439a3",
-      "completed_at": "2026-11-11T18:13:00+04:00",
-      "mobile_gate": "NOT VERIFIED until final HTML",
-      "tts_gate": "NOT VERIFIED until final HTML",
-      "self_check": {
-        "title_clear": true,
-        "opening_scenario_labeled_hypothetical": true,
-        "tafsir_reflection_application_separated": true,
-        "meta_editorial_phrases_found": 0,
-        "direct_source_urls": 5
-      },
-      "revision_count": 2,
-      "workflow_status_commit": "86dbb70ad9dc3ad01dc4bcd6f248ff59203a40d8",
-      "workflow_note_removed_commit": "58bf9c19709424bf08de930a5edb5bd530478cfe",
-      "latest_blob_sha": "9edabcb40c64d84aa524e66e8aa82598476b6e45"
-    },
-    "independent_critique": {
-      "status": "passed_after_required_revisions",
-      "path": "automation/quran-reflections/reflection-al-maidah-when-help-becomes-complicity/quality-review.md",
-      "commit": "7febc65ff6a1256176626c948c0bd95c76d93ca1",
-      "blocking_errors": [],
-      "revisions_applied": 2,
-      "completed_at": "2026-11-11T18:22:00+04:00",
-      "mobile_gate": "NOT VERIFIED until final HTML",
-      "tts_gate": "NOT VERIFIED until final HTML"
-    },
-    "english_draft": {
-      "status": "draft_completed_pending_parity",
-      "path": "automation/quran-reflections/reflection-al-maidah-when-help-becomes-complicity/draft-en.md",
-      "word_count": 1523,
-      "quran_translation": "Sahih International",
-      "commit": "4d47d1d6f8ccfcb7bc35934494f7c27cea052a1e",
-      "completed_at": "2026-11-11T14:23:48.465Z"
-    },
-    "bilingual_parity": {
-      "status": "passed_after_non_substantive_status_correction",
-      "review_path": "automation/quran-reflections/reflection-al-maidah-when-help-becomes-complicity/quality-review.md",
-      "review_commit": "d0100806f844f011321bf7b3c8022af347be78e8",
-      "arabic_path": "automation/quran-reflections/reflection-al-maidah-when-help-becomes-complicity/draft-ar.md",
-      "arabic_blob_sha": "ceadb12551e6a565a9d355a53384d626a2bc49e9",
-      "english_path": "automation/quran-reflections/reflection-al-maidah-when-help-becomes-complicity/draft-en.md",
-      "english_blob_sha": "14158914446d548c0138f4d898e6424630889d0a",
-      "substantive_revisions": 0,
-      "workflow_status_corrections": 1,
-      "quranic_citation": "passed",
-      "tafsir_attribution": "passed",
-      "methodological_qualifications": "passed",
-      "source_urls": "passed",
-      "native_english": "passed",
-      "completed_at": "2026-11-11T15:11:10.517Z",
-      "mobile_gate": "NOT VERIFIED until final HTML",
-      "tts_gate": "NOT VERIFIED until final HTML"
-    },
-    "quality_gate": {
-      "status": "passed",
-      "score": 98,
-      "threshold": 90,
-      "blocking_errors": [],
-      "review_path": "automation/quran-reflections/reflection-al-maidah-when-help-becomes-complicity/quality-review.md",
-      "review_commit": "5cd4336e0272adccbc4f395ceb326f3e07de4be2",
-      "arabic_blob_sha": "9edabcb40c64d84aa524e66e8aa82598476b6e45",
-      "english_blob_sha": "14158914446d548c0138f4d898e6424630889d0a",
-      "mobile_gate": "NOT VERIFIED until final HTML",
-      "rtl_gate": "NOT VERIFIED until final HTML",
-      "tts_gate": "NOT VERIFIED until final HTML",
-      "completed_at": "2026-11-11T16:03:39.879Z"
-    },
-    "arabic_html_path": "reflection-al-maidah-when-help-becomes-complicity.html",
-    "english_html_path": "en/reflection-al-maidah-when-help-becomes-complicity.html",
-    "publication_report_path": "automation/quran-reflections/reflection-al-maidah-when-help-becomes-complicity/publication-report.md",
-    "repository_publication": {
-      "status": "live_verified_except_actual_tts_playback",
-      "quality_score": 98,
-      "publication_date": "2026-11-11",
-      "arabic_url": "https://tamayuz10x.com/reflection-al-maidah-when-help-becomes-complicity.html",
-      "english_url": "https://tamayuz10x.com/en/reflection-al-maidah-when-help-becomes-complicity.html",
-      "arabic_page_path": "reflection-al-maidah-when-help-becomes-complicity.html",
-      "english_page_path": "en/reflection-al-maidah-when-help-becomes-complicity.html",
-      "arabic_social_asset": "assets/previews/story/reflection-al-maidah-when-help-becomes-complicity-ar.svg",
-      "english_social_asset": "assets/previews/story/reflection-al-maidah-when-help-becomes-complicity-en.svg",
-      "publication_report_path": "automation/quran-reflections/reflection-al-maidah-when-help-becomes-complicity/publication-report.md",
-      "publication_report_commit": "e6d98b6899041031489f4c6a22a61d8571c397c8",
-      "content_commits": {
-        "arabic_cover": "831a260d7fccacefbbd63d4043bfd78ff20061e5",
-        "english_cover": "7af064469f9cb23e1bdf5a933a1096502c3c1643",
-        "arabic_page": "289b9bd997347ac4db54dd1d82cb0126c7c4979c",
-        "english_page": "f304a0b60ba30468b49aad12e1d32aeee5d48b75",
-        "arabic_hub": "ebfd1a637f43fff3817ef55f9f3790e54f91c0cb",
-        "english_hub": "508e75b4af5a2056fffee1c46971be4b9d7de036",
-        "arabic_articles_index": "f8cb5f2327376508972599e950d5dd8f5c2b689e",
-        "english_articles_index": "1efef4df26cbd53ee888a29e79fb0c83f229ee09",
-        "topic_registry": "f69d447da099dd341cf6b3f776f54d705f20ec51",
-        "date_registry": "9cfcf1fb8fa9e963e7c08a16cff1d57294e88ad4",
-        "sitemap_bot": "c0bfcc0bdb487669a3000f6cd388f554f9da5a5b"
-      },
-      "repository_validation": "passed",
-      "mobile_gate": "passed_real_chromium_8_of_8_at_320_375_390_430_ar_en",
-      "rtl_gate": "passed_real_chromium",
-      "tts_gate": "blocked_actual_playback_web_speech_unavailable_in_verification_browser",
-      "actions_gate": "passed",
-      "pages_gate": "passed_exact_head_c12e32923ccf30f040d1e4a6fd713f3b5a83ac15",
-      "live_gate": "passed_except_actual_tts_playback",
-      "completed_at": "2026-11-11T17:13:46.746Z"
-    },
-    "repository_publish": {
-      "status": "committed",
-      "arabic_page": {
-        "path": "reflection-al-maidah-when-help-becomes-complicity.html",
-        "url": "https://tamayuz10x.com/reflection-al-maidah-when-help-becomes-complicity.html"
-      },
-      "english_page": {
-        "path": "en/reflection-al-maidah-when-help-becomes-complicity.html",
-        "url": "https://tamayuz10x.com/en/reflection-al-maidah-when-help-becomes-complicity.html"
-      },
-      "compatibility_note": "Canonical CI input for scripts/check_quran_reflection_mobile.py; mirrors repository_publication paths."
-    },
-    "actions_and_pages": {
-      "status": "completed",
-      "completed_at": "2026-11-11T19:08:10.772Z",
-      "head_sha": "c12e32923ccf30f040d1e4a6fd713f3b5a83ac15",
-      "repair_commit": "c12e32923ccf30f040d1e4a6fd713f3b5a83ac15",
-      "arabic_editorial": {
-        "run_id": 43083480059,
-        "job_id": 130741758808,
-        "conclusion": "success",
-        "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/43083480059"
-      },
-      "pages": {
-        "run_id": 43083478967,
-        "conclusion": "success",
-        "head_sha": "c12e32923ccf30f040d1e4a6fd713f3b5a83ac15",
-        "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/43083478967"
-      },
-      "exact_mobile_test": {
-        "conclusion": "success",
-        "viewports": [
-          320,
-          375,
-          390,
-          430
-        ],
-        "languages": [
-          "ar",
-          "en"
-        ],
-        "cases_passed": 8,
-        "assertions": [
-          "no horizontal overflow",
-          "H1 visible",
-          "correct lang and dir",
-          "local assets load",
-          "tables scroll safely",
-          "listen control present"
-        ]
-      }
-    },
-    "live_verification": {
-      "status": "blocked_on_actual_tts_playback",
-      "checked_at": "2026-11-11T19:08:10.772Z",
-      "deployed_head": "c12e32923ccf30f040d1e4a6fd713f3b5a83ac15",
-      "pages": {
-        "ar": {
-          "url": "https://tamayuz10x.com/reflection-al-maidah-when-help-becomes-complicity.html",
-          "loaded": true,
-          "lang": "ar",
-          "dir": "rtl",
-          "canonical": true,
-          "hreflang": true,
-          "metadata": true,
-          "article_schema": true,
-          "breadcrumb_schema": true,
-          "author_image": true,
-          "share_box_count": 1,
-          "social_asset": true,
-          "mobile_workflow_passed": true
-        },
-        "en": {
-          "url": "https://tamayuz10x.com/en/reflection-al-maidah-when-help-becomes-complicity.html",
-          "loaded": true,
-          "lang": "en",
-          "dir": "ltr",
-          "canonical": true,
-          "hreflang": true,
-          "metadata": true,
-          "article_schema": true,
-          "breadcrumb_schema": true,
-          "author_image": true,
-          "share_box_count": 1,
-          "social_asset": true,
-          "mobile_workflow_passed": true
-        }
-      },
-      "indexes": {
-        "articles.html": {
-          "slug_links": 2
-        },
-        "quranic-reflections.html": {
-          "slug_links": 2
-        },
-        "en/articles.html": {
-          "slug_links": 2
-        },
-        "en/quranic-reflections.html": {
-          "slug_links": 2
-        }
-      },
-      "sitemap": {
-        "slug_occurrences": 2,
-        "ar_loc_count": 1,
-        "en_loc_count": 1
-      },
-      "social_assets": {
-        "ar": {
-          "loaded": true,
-          "title": "متى تتحول المساعدة إلى مشاركة في الخطأ؟"
-        },
-        "en": {
-          "loaded": true,
-          "title": "When Does Helping Become Participation in Wrongdoing?"
-        }
-      },
-      "tts": {
-        "structural_control_present_in_ci": true,
-        "speech_synthesis_available_in_verification_browser": false,
-        "actual_playback_verified": false,
-        "blocker": "The available cloud browser does not expose window.speechSynthesis; actual playback, title-first order, synchronized highlighting, floating controls, pause/resume/stop, and speed could not be verified."
-      }
+      "note": "No repository or live-index evidence of a Qur'anic reflection started or published for 2026-11-12. The previous 2026-11-11 cycle is explicitly blocked on actual TTS playback, so the daily exception permits one new cycle."
     }
   },
   "stage_order": [
@@ -383,17 +62,22 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "On a browser/device that exposes Web Speech, test both live pages for actual Arabic and English playback, title-first order, synchronized highlighting, floating controls, pause/resume/stop, and speed. If all pass, update the publication report and complete the workflow. Otherwise obtain an explicit decision to accept structural listen-control plus passing mobile CI in place of actual playback for this cycle.",
+  "next_action": "Select one non-duplicate Qur'anic reflection topic from three candidate angles, save the topic-selection artifact/checkpoint, then begin research.",
   "last_run": {
-    "mode": "coordinator_resume",
-    "status": "blocked",
-    "started_at": "2026-11-11T17:59:27.058Z",
-    "ended_at": "2026-11-11T19:08:10.772Z",
-    "last_checkpoint": "actions_and_pages",
-    "notes": "Actions, exact-head Pages, 8/8 real-Chromium mobile checks, both live pages, four indexes, sitemap, and social assets verified. Actual TTS playback remains blocked because Web Speech is unavailable in the verification browser."
+    "mode": "coordinator_quran_daily_exception",
+    "status": "in_progress",
+    "started_at": "2026-11-12T13:07:23Z",
+    "last_checkpoint": "duplicate_check",
+    "notes": "Capability and ordered-state checks passed; no resumable candidate existed; daily Qur'anic exception opened after duplicate checks."
   },
   "workflow_id": "quran_reflections",
-  "run_lease": null,
+  "run_lease": {
+    "owner": "chatgpt-central-resume-20261112T130723Z",
+    "acquired_at": "2026-11-12T13:07:23Z",
+    "expires_at": "2026-11-12T14:57:23Z",
+    "duration_minutes": 110,
+    "base_head_sha": "e53e9e0d37d628dcd2458c2e5e7908a1fb91bee4"
+  },
   "checkpoint_policy": {
     "checkpoint_after_every_stage": true,
     "run_lease_minutes": 110,
@@ -756,309 +440,282 @@
     },
     "completed_at": "2026-10-27T05:20:00+04:00"
   },
-  "run_date": "2026-11-11",
+  "run_date": "2026-11-12",
   "completed_stages": [
     "capability_check",
     "load_checkpoint",
-    "duplicate_check",
-    "topic_selection",
-    "research",
-    "quran_verification",
-    "arabic_draft",
-    "independent_critique",
-    "english_draft",
-    "bilingual_parity",
-    "quality_gate",
-    "repository_publish",
-    "actions_and_pages"
+    "duplicate_check"
   ],
   "duplicate_check": {
-    "status": "passed",
-    "checked_at": "2026-10-26T21:55:48+04:00",
-    "checked": [
-      "checkpoint",
-      "topic registry",
-      "repository code search",
-      "articles.html",
-      "en/articles.html",
+    "status": "passed_no_today_quran_cycle_found",
+    "checked_at": "2026-11-12T13:07:23Z",
+    "evidence": [
+      "automation/quran-reflections-state.json",
+      "data/quranic-reflection-topics.json",
+      "data/article-publication-dates.json",
       "quranic-reflections.html",
       "en/quranic-reflections.html",
+      "articles.html",
+      "en/articles.html",
       "sitemap.xml",
-      "article-publication-dates.json"
+      "recent GitHub commits",
+      "live quranic-reflections and article indexes",
+      "public web search for 2026-11-12 Qur'anic reflection"
     ],
-    "finding": "No Qur’anic reflection cycle, registry entry, Quran-index card or reflection page dated 2026-10-26 exists. The date occurrences in general article records belong to the Netherlands 10X case, not a reflection."
+    "note": "No repository or live-index evidence of a Qur'anic reflection started or published for 2026-11-12. The previous 2026-11-11 cycle is explicitly blocked on actual TTS playback, so the daily exception permits one new cycle."
   },
-  "blocker": {
-    "code": "actual_tts_playback_unverifiable",
-    "decision_required": "Provide/enable a browser or device with Web Speech for the required live playback test, or explicitly accept the structural listen-control and successful CI evidence as a documented exception for this cycle.",
-    "evidence": "window.speechSynthesis is unavailable in the current verification browser; CI proves the listen control exists but cannot prove playback behavior."
-  },
-  "verified_quranic_references": [
-    {
-      "surah": "Al-Hujurat",
-      "surah_ar": "الحجرات",
-      "ayahs": [
-        12
-      ],
-      "context_ayahs": [
-        10,
-        11,
-        13
-      ],
-      "status": "verified",
-      "primary_text_urls": [
-        "https://legacy.quran.com/49/12",
-        "https://legacy.quran.com/49/10-13"
-      ],
-      "translation": "Sahih International",
-      "verified_at": "2026-10-26T22:02:09+04:00"
-    }
-  ],
+  "blocker": null,
+  "verified_quranic_references": [],
   "previous_blocked_article": {
-    "article_id": "quran-reflection-2026-10-28-al-mutaffifin-fair-measure",
-    "publication_date": "2026-10-28",
-    "slug": "reflection-al-mutaffifin-demanding-full-measure-giving-less",
-    "topic_ar": "المطففين 83:1–6 — أن نطلب حقنا كاملًا ثم ننقص حقوق الآخرين",
-    "topic_en": "Al-Mutaffifin 83:1–6 — demanding our due in full while diminishing what others receive",
-    "working_title_ar": "لماذا نطلب حقنا كاملًا ثم ننقص حقوق الآخرين؟",
-    "working_title_en": "Why Do We Demand Our Due in Full While Giving Others Less?",
-    "status": "in_progress",
+    "article_id": "quran-reflection-2026-11-11-al-maidah-cooperation-boundary",
+    "publication_date": "2026-11-11",
+    "status": "actions_pages_and_live_structure_verified_tts_playback_blocked",
+    "duplicate_check": {
+      "status": "passed_no_today_quran_cycle_found",
+      "checked_at": "2026-11-11T17:11:28+04:00",
+      "evidence": [
+        "automation/quran-reflections-state.json",
+        "data/quranic-reflection-topics.json",
+        "data/article-publication-dates.json",
+        "quranic-reflections.html",
+        "en/quranic-reflections.html",
+        "articles.html",
+        "en/articles.html",
+        "sitemap.xml",
+        "recent GitHub commits",
+        "live quranic-reflections indexes"
+      ]
+    },
+    "slug": "reflection-al-maidah-when-help-becomes-complicity",
+    "topic_ar": "المائدة 5:2 — الحد الفاصل بين التعاون في البر والمشاركة في الإثم",
+    "topic_en": "Al-Ma’idah 5:2 — the boundary between cooperation in good and participation in wrongdoing",
+    "working_title_ar": "متى تتحول المساعدة إلى مشاركة في الخطأ؟",
+    "working_title_en": "When Does Helping Become Participation in Wrongdoing?",
     "topic_selection": {
       "status": "completed",
       "candidates": [
-        "Al-Mutaffifin 83:1–6 — demanding a full measure while giving less",
         "Al-Ma’idah 5:2 — the boundary of cooperation",
-        "An-Nahl 16:90 — justice, excellence and giving beyond minimum duty"
+        "Al-Ahzab 33:70–71 — words that remain upright",
+        "Al-Hadid 57:22–23 — how we receive loss and gain"
       ],
-      "selected": "Al-Mutaffifin 83:1–6 — demanding a full measure while giving less",
-      "central_question": "What becomes visible in our standards when the shortfall benefits us rather than harms us?"
+      "selected": "Al-Ma’idah 5:2 — the boundary of cooperation",
+      "central_question": "How do we recognize the point at which helping a person or advancing a useful goal begins to support a wrongful means?",
+      "completed_at": "2026-11-11T17:18:00+04:00",
+      "artifact_commit": "1c5cc84dec46bacd48ccbc71d68183d5bc049aaa"
     },
-    "duplicate_check": {
-      "status": "passed_repository_and_registry; live_urls_unreachable_via_current_search_connector",
-      "checked_at": "2026-10-28T17:58:00+04:00",
-      "repository_date_matches": 0,
-      "repository_slug_matches": 0,
-      "registry_topic_matches": 0,
-      "expected_url_ar": "https://tamayuz10x.com/reflection-al-mutaffifin-demanding-full-measure-giving-less.html",
-      "expected_url_en": "https://tamayuz10x.com/en/reflection-al-mutaffifin-demanding-full-measure-giving-less.html"
-    },
-    "research_notes_path": "automation/quran-reflections/reflection-al-mutaffifin-demanding-full-measure-giving-less/research-notes.md",
+    "research_notes_path": "automation/quran-reflections/reflection-al-maidah-when-help-becomes-complicity/research-notes.md",
     "research_status": "completed",
     "research_sources": [
       {
         "type": "Qur'an text and Sahih International translation",
-        "url": "https://legacy.quran.com/83/1-7",
+        "url": "https://legacy.quran.com/05/02",
         "status": "reviewed"
       },
       {
-        "type": "Tafsir al-Tabari 83:1 and 83:4",
-        "url": "https://quran.ksu.edu.sa/tafseer/tabary/sura83-aya1.html",
+        "type": "Immediate Qur'anic context, Al-Ma'idah 5:1–3",
+        "url": "https://legacy.quran.com/05/1-3",
         "status": "reviewed"
       },
       {
-        "type": "Tafsir Ibn Kathir 83:1 and 83:4",
-        "url": "https://quran.ksu.edu.sa/tafseer/katheer/sura83-aya1.html",
+        "type": "Tafsir al-Tabari 5:2",
+        "url": "https://quran.ksu.edu.sa/tafseer/tabary/sura5-aya2.html",
         "status": "reviewed"
       },
       {
-        "type": "Tafsir al-Qurtubi 83:1 and 83:4",
-        "url": "https://quran.ksu.edu.sa/tafseer/qortobi/sura83-aya1.html",
+        "type": "Tafsir Ibn Kathir 5:2",
+        "url": "https://quran.ksu.edu.sa/tafseer/katheer/sura5-aya2.html",
         "status": "reviewed"
       },
       {
-        "type": "Tafsir al-Sa'di 83:1 and 83:4",
-        "url": "https://quran.ksu.edu.sa/tafseer/saadi/sura83-aya1.html",
+        "type": "Tafsir al-Qurtubi 5:2",
+        "url": "https://quran.ksu.edu.sa/tafseer/qortobi/sura5-aya2.html",
+        "status": "reviewed"
+      },
+      {
+        "type": "Tafsir al-Sa'di 5:2",
+        "url": "https://quran.ksu.edu.sa/tafseer/saadi/sura5-aya2.html",
         "status": "reviewed"
       }
     ],
-    "research_commit": "9e8a4cf48859b3273b40acb72885d5504505bac1",
+    "research_commit": "1e8e3ebbaa4d2ce5ebf0636389756ecad29443f1",
     "quranic_focus": {
-      "surah": "Al-Mutaffifin",
-      "surah_ar": "المطففين",
+      "surah": "Al-Ma’idah",
+      "surah_ar": "المائدة",
       "ayahs": [
+        2
+      ],
+      "context_ayahs": [
         1,
-        2,
-        3,
-        4,
-        5,
-        6
+        3
       ],
       "status": "verified"
     },
     "verified_quranic_references": [
       {
-        "surah": "Al-Mutaffifin",
-        "surah_ar": "المطففين",
+        "surah": "Al-Ma’idah",
+        "surah_ar": "المائدة",
         "ayahs": [
+          2
+        ],
+        "context_ayahs": [
           1,
-          2,
-          3,
-          4,
-          5,
-          6
+          3
         ],
         "status": "verified",
         "primary_text_urls": [
-          "https://legacy.quran.com/83/1-7"
+          "https://legacy.quran.com/05/02",
+          "https://quran.com/al-maidah/translations/en-sahih-international"
         ],
         "translation": "Sahih International",
-        "verified_at": "2026-10-28T18:22:00+04:00"
+        "verified_at": "2026-11-11T17:36:00+04:00"
       }
     ],
     "quran_verification": {
       "status": "passed",
       "blocking_errors": [],
-      "path": "automation/quran-reflections/reflection-al-mutaffifin-demanding-full-measure-giving-less/research-notes.md",
-      "commit": "df439c8e42b6890b41c147f52ac36853d6ad8adf"
+      "path": "automation/quran-reflections/reflection-al-maidah-when-help-becomes-complicity/research-notes.md",
+      "commit": "5a7f140a5ec6fe2a4d31191abdae3bb4972661a7",
+      "completed_at": "2026-11-11T17:36:00+04:00"
     },
     "arabic_draft": {
-      "status": "parity_cleared",
-      "path": "automation/quran-reflections/reflection-al-mutaffifin-demanding-full-measure-giving-less/draft-ar.md",
-      "word_count": 1382,
-      "commit": "790d201538282a0e0d1f8f5c42a093f471cf3dcd",
-      "completed_at": "2026-10-28T19:01:50+04:00",
+      "status": "critique_cleared",
+      "path": "automation/quran-reflections/reflection-al-maidah-when-help-becomes-complicity/draft-ar.md",
+      "word_count": 1343,
+      "commit": "1243d918bcb6614076c2b2c776400694cbb439a3",
+      "completed_at": "2026-11-11T18:13:00+04:00",
       "mobile_gate": "NOT VERIFIED until final HTML",
       "tts_gate": "NOT VERIFIED until final HTML",
-      "revision_count": 5
+      "self_check": {
+        "title_clear": true,
+        "opening_scenario_labeled_hypothetical": true,
+        "tafsir_reflection_application_separated": true,
+        "meta_editorial_phrases_found": 0,
+        "direct_source_urls": 5
+      },
+      "revision_count": 2,
+      "workflow_status_commit": "86dbb70ad9dc3ad01dc4bcd6f248ff59203a40d8",
+      "workflow_note_removed_commit": "58bf9c19709424bf08de930a5edb5bd530478cfe",
+      "latest_blob_sha": "9edabcb40c64d84aa524e66e8aa82598476b6e45"
     },
     "independent_critique": {
       "status": "passed_after_required_revisions",
-      "path": "automation/quran-reflections/reflection-al-mutaffifin-demanding-full-measure-giving-less/quality-review.md",
-      "commit": "350bd54fbe3268b1859902f8015fbae359f9ac0c",
+      "path": "automation/quran-reflections/reflection-al-maidah-when-help-becomes-complicity/quality-review.md",
+      "commit": "7febc65ff6a1256176626c948c0bd95c76d93ca1",
       "blocking_errors": [],
-      "revisions_applied": 4,
-      "completed_at": "2026-10-28T20:02:36+04:00",
+      "revisions_applied": 2,
+      "completed_at": "2026-11-11T18:22:00+04:00",
       "mobile_gate": "NOT VERIFIED until final HTML",
       "tts_gate": "NOT VERIFIED until final HTML"
     },
     "english_draft": {
-      "status": "parity_cleared",
-      "path": "automation/quran-reflections/reflection-al-mutaffifin-demanding-full-measure-giving-less/draft-en.md",
-      "word_count": 1856,
+      "status": "draft_completed_pending_parity",
+      "path": "automation/quran-reflections/reflection-al-maidah-when-help-becomes-complicity/draft-en.md",
+      "word_count": 1523,
       "quran_translation": "Sahih International",
-      "commit": "bc766173ee0b3e70dff6f05812a3a4609fd88218",
-      "completed_at": "2026-10-28T20:03:42+04:00",
-      "mobile_gate": "NOT VERIFIED until final HTML",
-      "tts_gate": "NOT VERIFIED until final HTML"
+      "commit": "4d47d1d6f8ccfcb7bc35934494f7c27cea052a1e",
+      "completed_at": "2026-11-11T14:23:48.465Z"
     },
     "bilingual_parity": {
-      "status": "passed_after_aligned_tafsir_citation_revision",
-      "review_path": "automation/quran-reflections/reflection-al-mutaffifin-demanding-full-measure-giving-less/quality-review.md",
-      "commit": "0c9bc8bb6efac1a687a39db9652eb0e683569d07",
-      "revision_count": 1,
-      "same_source_urls": 5,
-      "completed_at": "2026-10-28T20:58:39+04:00",
+      "status": "passed_after_non_substantive_status_correction",
+      "review_path": "automation/quran-reflections/reflection-al-maidah-when-help-becomes-complicity/quality-review.md",
+      "review_commit": "d0100806f844f011321bf7b3c8022af347be78e8",
+      "arabic_path": "automation/quran-reflections/reflection-al-maidah-when-help-becomes-complicity/draft-ar.md",
+      "arabic_blob_sha": "ceadb12551e6a565a9d355a53384d626a2bc49e9",
+      "english_path": "automation/quran-reflections/reflection-al-maidah-when-help-becomes-complicity/draft-en.md",
+      "english_blob_sha": "14158914446d548c0138f4d898e6424630889d0a",
+      "substantive_revisions": 0,
+      "workflow_status_corrections": 1,
+      "quranic_citation": "passed",
+      "tafsir_attribution": "passed",
+      "methodological_qualifications": "passed",
+      "source_urls": "passed",
+      "native_english": "passed",
+      "completed_at": "2026-11-11T15:11:10.517Z",
       "mobile_gate": "NOT VERIFIED until final HTML",
       "tts_gate": "NOT VERIFIED until final HTML"
     },
     "quality_gate": {
       "status": "passed",
-      "score": 97,
+      "score": 98,
       "threshold": 90,
       "blocking_errors": [],
-      "review_path": "automation/quran-reflections/reflection-al-mutaffifin-demanding-full-measure-giving-less/quality-review.md",
-      "commit": "c33cfacbfbbb205eae795dd2cc20d6167e710285",
-      "completed_at": "2026-10-28T20:59:30+04:00",
+      "review_path": "automation/quran-reflections/reflection-al-maidah-when-help-becomes-complicity/quality-review.md",
+      "review_commit": "5cd4336e0272adccbc4f395ceb326f3e07de4be2",
+      "arabic_blob_sha": "9edabcb40c64d84aa524e66e8aa82598476b6e45",
+      "english_blob_sha": "14158914446d548c0138f4d898e6424630889d0a",
       "mobile_gate": "NOT VERIFIED until final HTML",
       "rtl_gate": "NOT VERIFIED until final HTML",
-      "tts_gate": "NOT VERIFIED until final HTML"
+      "tts_gate": "NOT VERIFIED until final HTML",
+      "completed_at": "2026-11-11T16:03:39.879Z"
     },
-    "publishing": {
-      "status": "actions_passed_live_tts_pending",
-      "arabic_path": "reflection-al-mutaffifin-demanding-full-measure-giving-less.html",
-      "english_path": "en/reflection-al-mutaffifin-demanding-full-measure-giving-less.html",
-      "arabic_page_commit": "2d7481db8f60aa3f48648182251ade101783f3a1",
-      "english_page_commit": "9edf479a74eb441fb79c395d8977dbd4bf4ea152",
-      "indexes": [
-        "quranic-reflections.html",
-        "en/quranic-reflections.html",
-        "articles.html",
-        "en/articles.html"
-      ],
-      "topic_registry": "data/quranic-reflection-topics.json",
-      "sitemap": "sitemap.xml",
-      "checks": "passed",
-      "live": "pages_and_indexes_verified; actual TTS playback NOT VERIFIED"
+    "arabic_html_path": "reflection-al-maidah-when-help-becomes-complicity.html",
+    "english_html_path": "en/reflection-al-maidah-when-help-becomes-complicity.html",
+    "publication_report_path": "automation/quran-reflections/reflection-al-maidah-when-help-becomes-complicity/publication-report.md",
+    "repository_publication": {
+      "status": "live_verified_except_actual_tts_playback",
+      "quality_score": 98,
+      "publication_date": "2026-11-11",
+      "arabic_url": "https://tamayuz10x.com/reflection-al-maidah-when-help-becomes-complicity.html",
+      "english_url": "https://tamayuz10x.com/en/reflection-al-maidah-when-help-becomes-complicity.html",
+      "arabic_page_path": "reflection-al-maidah-when-help-becomes-complicity.html",
+      "english_page_path": "en/reflection-al-maidah-when-help-becomes-complicity.html",
+      "arabic_social_asset": "assets/previews/story/reflection-al-maidah-when-help-becomes-complicity-ar.svg",
+      "english_social_asset": "assets/previews/story/reflection-al-maidah-when-help-becomes-complicity-en.svg",
+      "publication_report_path": "automation/quran-reflections/reflection-al-maidah-when-help-becomes-complicity/publication-report.md",
+      "publication_report_commit": "e6d98b6899041031489f4c6a22a61d8571c397c8",
+      "content_commits": {
+        "arabic_cover": "831a260d7fccacefbbd63d4043bfd78ff20061e5",
+        "english_cover": "7af064469f9cb23e1bdf5a933a1096502c3c1643",
+        "arabic_page": "289b9bd997347ac4db54dd1d82cb0126c7c4979c",
+        "english_page": "f304a0b60ba30468b49aad12e1d32aeee5d48b75",
+        "arabic_hub": "ebfd1a637f43fff3817ef55f9f3790e54f91c0cb",
+        "english_hub": "508e75b4af5a2056fffee1c46971be4b9d7de036",
+        "arabic_articles_index": "f8cb5f2327376508972599e950d5dd8f5c2b689e",
+        "english_articles_index": "1efef4df26cbd53ee888a29e79fb0c83f229ee09",
+        "topic_registry": "f69d447da099dd341cf6b3f776f54d705f20ec51",
+        "date_registry": "9cfcf1fb8fa9e963e7c08a16cff1d57294e88ad4",
+        "sitemap_bot": "c0bfcc0bdb487669a3000f6cd388f554f9da5a5b"
+      },
+      "repository_validation": "passed",
+      "mobile_gate": "passed_real_chromium_8_of_8_at_320_375_390_430_ar_en",
+      "rtl_gate": "passed_real_chromium",
+      "tts_gate": "blocked_actual_playback_web_speech_unavailable_in_verification_browser",
+      "actions_gate": "passed",
+      "pages_gate": "passed_exact_head_c12e32923ccf30f040d1e4a6fd713f3b5a83ac15",
+      "live_gate": "passed_except_actual_tts_playback",
+      "completed_at": "2026-11-11T17:13:46.746Z"
     },
     "repository_publish": {
-      "status": "completed",
-      "completed_at": "2026-10-28T21:53:53+04:00",
-      "checkpoint_commit": "98c84d0963a7e3e89ba30e39a9fd7594dc213db9",
+      "status": "committed",
       "arabic_page": {
-        "path": "reflection-al-mutaffifin-demanding-full-measure-giving-less.html",
-        "commit": "2d7481db8f60aa3f48648182251ade101783f3a1"
+        "path": "reflection-al-maidah-when-help-becomes-complicity.html",
+        "url": "https://tamayuz10x.com/reflection-al-maidah-when-help-becomes-complicity.html"
       },
       "english_page": {
-        "path": "en/reflection-al-mutaffifin-demanding-full-measure-giving-less.html",
-        "commit": "9edf479a74eb441fb79c395d8977dbd4bf4ea152"
+        "path": "en/reflection-al-maidah-when-help-becomes-complicity.html",
+        "url": "https://tamayuz10x.com/en/reflection-al-maidah-when-help-becomes-complicity.html"
       },
-      "indexes": [
-        "quranic-reflections.html",
-        "en/quranic-reflections.html",
-        "articles.html",
-        "en/articles.html"
-      ],
-      "records": [
-        "data/quranic-reflection-topics.json",
-        "data/article-covers.json",
-        "data/article-publication-dates.json",
-        "sitemap.xml"
-      ],
-      "checks_status": "pending_actions_and_live_verification",
-      "reconciliation_note": "Canonical publication paths copied into repository_publish so exact bilingual mobile QA can resolve the current article without replaying publication."
+      "compatibility_note": "Canonical CI input for scripts/check_quran_reflection_mobile.py; mirrors repository_publication paths."
     },
     "actions_and_pages": {
       "status": "completed",
-      "checked_at": "2026-10-28T22:15:00+04:00",
-      "report_path": "automation/quran-reflections/reflection-al-mutaffifin-demanding-full-measure-giving-less/actions-and-pages-report.md",
-      "repair_commits": {
-        "state_schema": "cb84bd9084e184d03442a689f1fb47b6daaa2f5a",
-        "publication_records": "526829b653e1d34c0bc8132fb1a071a7939be3a2",
-        "visible_dates": "c269bd07632da6a87614f77fe4b48046304e45da",
-        "generated_social_assets": "05eacfad2433c7bfee08f3a023016e7227f56110",
-        "mobile_wrap": "5d3f32f22a0ec0eeac12091ac040b967eb4f7966"
+      "completed_at": "2026-11-11T19:08:10.772Z",
+      "head_sha": "c12e32923ccf30f040d1e4a6fd713f3b5a83ac15",
+      "repair_commit": "c12e32923ccf30f040d1e4a6fd713f3b5a83ac15",
+      "arabic_editorial": {
+        "run_id": 43083480059,
+        "job_id": 130741758808,
+        "conclusion": "success",
+        "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/43083480059"
       },
-      "required_checks": {
-        "site_health": {
-          "run_id": 40742136729,
-          "conclusion": "success",
-          "head_sha": "5d3f32f22a0ec0eeac12091ac040b967eb4f7966",
-          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40742136729"
-        },
-        "article_date_integrity": {
-          "run_id": 40742136785,
-          "conclusion": "success",
-          "head_sha": "5d3f32f22a0ec0eeac12091ac040b967eb4f7966",
-          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40742136785"
-        },
-        "sitemap": {
-          "run_id": 40742136798,
-          "conclusion": "success",
-          "head_sha": "5d3f32f22a0ec0eeac12091ac040b967eb4f7966",
-          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40742136798"
-        },
-        "social_cards": {
-          "run_id": 40742136707,
-          "conclusion": "success",
-          "head_sha": "5d3f32f22a0ec0eeac12091ac040b967eb4f7966",
-          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40742136707"
-        },
-        "arabic_editorial": {
-          "run_id": 40742136885,
-          "conclusion": "success",
-          "head_sha": "5d3f32f22a0ec0eeac12091ac040b967eb4f7966",
-          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40742136885"
-        },
-        "pages": {
-          "run_id": 40742455891,
-          "conclusion": "success",
-          "head_sha": "cee988ae918521442dbc5fe5e2e566c7d9841370",
-          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40742455891"
-        }
+      "pages": {
+        "run_id": 43083478967,
+        "conclusion": "success",
+        "head_sha": "c12e32923ccf30f040d1e4a6fd713f3b5a83ac15",
+        "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/43083478967"
       },
       "exact_mobile_test": {
         "conclusion": "success",
-        "artifact_id": 12838898678,
         "viewports": [
           320,
           375,
@@ -1069,60 +726,745 @@
           "ar",
           "en"
         ],
-        "cases_passed": 8
-      },
-      "completed_at": "2026-10-28T22:15:00+04:00"
+        "cases_passed": 8,
+        "assertions": [
+          "no horizontal overflow",
+          "H1 visible",
+          "correct lang and dir",
+          "local assets load",
+          "tables scroll safely",
+          "listen control present"
+        ]
+      }
     },
     "live_verification": {
       "status": "blocked_on_actual_tts_playback",
-      "checked_at": "2026-10-28T22:15:00+04:00",
+      "checked_at": "2026-11-11T19:08:10.772Z",
+      "deployed_head": "c12e32923ccf30f040d1e4a6fd713f3b5a83ac15",
       "pages": {
         "ar": {
-          "url": "https://tamayuz10x.com/reflection-al-mutaffifin-demanding-full-measure-giving-less.html",
+          "url": "https://tamayuz10x.com/reflection-al-maidah-when-help-becomes-complicity.html",
           "loaded": true,
           "lang": "ar",
           "dir": "rtl",
           "canonical": true,
           "hreflang": true,
-          "listen_control": true,
-          "social_image": true,
+          "metadata": true,
+          "article_schema": true,
+          "breadcrumb_schema": true,
+          "author_image": true,
+          "share_box_count": 1,
+          "social_asset": true,
           "mobile_workflow_passed": true
         },
         "en": {
-          "url": "https://tamayuz10x.com/en/reflection-al-mutaffifin-demanding-full-measure-giving-less.html",
+          "url": "https://tamayuz10x.com/en/reflection-al-maidah-when-help-becomes-complicity.html",
           "loaded": true,
           "lang": "en",
           "dir": "ltr",
           "canonical": true,
           "hreflang": true,
-          "listen_control": true,
-          "social_image_1200": true,
+          "metadata": true,
+          "article_schema": true,
+          "breadcrumb_schema": true,
+          "author_image": true,
+          "share_box_count": 1,
+          "social_asset": true,
           "mobile_workflow_passed": true
         }
       },
       "indexes": {
         "articles.html": {
-          "unique_cards": 1
+          "slug_links": 2
         },
         "quranic-reflections.html": {
-          "unique_cards": 1
+          "slug_links": 2
         },
         "en/articles.html": {
-          "unique_cards": 1
+          "slug_links": 2
         },
         "en/quranic-reflections.html": {
-          "unique_cards": 1
+          "slug_links": 2
         }
       },
       "sitemap": {
+        "slug_occurrences": 2,
         "ar_loc_count": 1,
         "en_loc_count": 1
       },
+      "social_assets": {
+        "ar": {
+          "loaded": true,
+          "title": "متى تتحول المساعدة إلى مشاركة في الخطأ؟"
+        },
+        "en": {
+          "loaded": true,
+          "title": "When Does Helping Become Participation in Wrongdoing?"
+        }
+      },
       "tts": {
-        "controls_present": true,
+        "structural_control_present_in_ci": true,
+        "speech_synthesis_available_in_verification_browser": false,
         "actual_playback_verified": false,
-        "blocker": "Available cloud browser reports window.speechSynthesis unavailable; clicking Arabic Listen did not start playback."
+        "blocker": "The available cloud browser does not expose window.speechSynthesis; actual playback, title-first order, synchronized highlighting, floating controls, pause/resume/stop, and speed could not be verified."
       }
     }
-  }
+  },
+  "blocked_article_history": [
+    {
+      "article_id": "quran-reflection-2026-10-28-al-mutaffifin-fair-measure",
+      "publication_date": "2026-10-28",
+      "slug": "reflection-al-mutaffifin-demanding-full-measure-giving-less",
+      "topic_ar": "المطففين 83:1–6 — أن نطلب حقنا كاملًا ثم ننقص حقوق الآخرين",
+      "topic_en": "Al-Mutaffifin 83:1–6 — demanding our due in full while diminishing what others receive",
+      "working_title_ar": "لماذا نطلب حقنا كاملًا ثم ننقص حقوق الآخرين؟",
+      "working_title_en": "Why Do We Demand Our Due in Full While Giving Others Less?",
+      "status": "in_progress",
+      "topic_selection": {
+        "status": "completed",
+        "candidates": [
+          "Al-Mutaffifin 83:1–6 — demanding a full measure while giving less",
+          "Al-Ma’idah 5:2 — the boundary of cooperation",
+          "An-Nahl 16:90 — justice, excellence and giving beyond minimum duty"
+        ],
+        "selected": "Al-Mutaffifin 83:1–6 — demanding a full measure while giving less",
+        "central_question": "What becomes visible in our standards when the shortfall benefits us rather than harms us?"
+      },
+      "duplicate_check": {
+        "status": "passed_repository_and_registry; live_urls_unreachable_via_current_search_connector",
+        "checked_at": "2026-10-28T17:58:00+04:00",
+        "repository_date_matches": 0,
+        "repository_slug_matches": 0,
+        "registry_topic_matches": 0,
+        "expected_url_ar": "https://tamayuz10x.com/reflection-al-mutaffifin-demanding-full-measure-giving-less.html",
+        "expected_url_en": "https://tamayuz10x.com/en/reflection-al-mutaffifin-demanding-full-measure-giving-less.html"
+      },
+      "research_notes_path": "automation/quran-reflections/reflection-al-mutaffifin-demanding-full-measure-giving-less/research-notes.md",
+      "research_status": "completed",
+      "research_sources": [
+        {
+          "type": "Qur'an text and Sahih International translation",
+          "url": "https://legacy.quran.com/83/1-7",
+          "status": "reviewed"
+        },
+        {
+          "type": "Tafsir al-Tabari 83:1 and 83:4",
+          "url": "https://quran.ksu.edu.sa/tafseer/tabary/sura83-aya1.html",
+          "status": "reviewed"
+        },
+        {
+          "type": "Tafsir Ibn Kathir 83:1 and 83:4",
+          "url": "https://quran.ksu.edu.sa/tafseer/katheer/sura83-aya1.html",
+          "status": "reviewed"
+        },
+        {
+          "type": "Tafsir al-Qurtubi 83:1 and 83:4",
+          "url": "https://quran.ksu.edu.sa/tafseer/qortobi/sura83-aya1.html",
+          "status": "reviewed"
+        },
+        {
+          "type": "Tafsir al-Sa'di 83:1 and 83:4",
+          "url": "https://quran.ksu.edu.sa/tafseer/saadi/sura83-aya1.html",
+          "status": "reviewed"
+        }
+      ],
+      "research_commit": "9e8a4cf48859b3273b40acb72885d5504505bac1",
+      "quranic_focus": {
+        "surah": "Al-Mutaffifin",
+        "surah_ar": "المطففين",
+        "ayahs": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "status": "verified"
+      },
+      "verified_quranic_references": [
+        {
+          "surah": "Al-Mutaffifin",
+          "surah_ar": "المطففين",
+          "ayahs": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "status": "verified",
+          "primary_text_urls": [
+            "https://legacy.quran.com/83/1-7"
+          ],
+          "translation": "Sahih International",
+          "verified_at": "2026-10-28T18:22:00+04:00"
+        }
+      ],
+      "quran_verification": {
+        "status": "passed",
+        "blocking_errors": [],
+        "path": "automation/quran-reflections/reflection-al-mutaffifin-demanding-full-measure-giving-less/research-notes.md",
+        "commit": "df439c8e42b6890b41c147f52ac36853d6ad8adf"
+      },
+      "arabic_draft": {
+        "status": "parity_cleared",
+        "path": "automation/quran-reflections/reflection-al-mutaffifin-demanding-full-measure-giving-less/draft-ar.md",
+        "word_count": 1382,
+        "commit": "790d201538282a0e0d1f8f5c42a093f471cf3dcd",
+        "completed_at": "2026-10-28T19:01:50+04:00",
+        "mobile_gate": "NOT VERIFIED until final HTML",
+        "tts_gate": "NOT VERIFIED until final HTML",
+        "revision_count": 5
+      },
+      "independent_critique": {
+        "status": "passed_after_required_revisions",
+        "path": "automation/quran-reflections/reflection-al-mutaffifin-demanding-full-measure-giving-less/quality-review.md",
+        "commit": "350bd54fbe3268b1859902f8015fbae359f9ac0c",
+        "blocking_errors": [],
+        "revisions_applied": 4,
+        "completed_at": "2026-10-28T20:02:36+04:00",
+        "mobile_gate": "NOT VERIFIED until final HTML",
+        "tts_gate": "NOT VERIFIED until final HTML"
+      },
+      "english_draft": {
+        "status": "parity_cleared",
+        "path": "automation/quran-reflections/reflection-al-mutaffifin-demanding-full-measure-giving-less/draft-en.md",
+        "word_count": 1856,
+        "quran_translation": "Sahih International",
+        "commit": "bc766173ee0b3e70dff6f05812a3a4609fd88218",
+        "completed_at": "2026-10-28T20:03:42+04:00",
+        "mobile_gate": "NOT VERIFIED until final HTML",
+        "tts_gate": "NOT VERIFIED until final HTML"
+      },
+      "bilingual_parity": {
+        "status": "passed_after_aligned_tafsir_citation_revision",
+        "review_path": "automation/quran-reflections/reflection-al-mutaffifin-demanding-full-measure-giving-less/quality-review.md",
+        "commit": "0c9bc8bb6efac1a687a39db9652eb0e683569d07",
+        "revision_count": 1,
+        "same_source_urls": 5,
+        "completed_at": "2026-10-28T20:58:39+04:00",
+        "mobile_gate": "NOT VERIFIED until final HTML",
+        "tts_gate": "NOT VERIFIED until final HTML"
+      },
+      "quality_gate": {
+        "status": "passed",
+        "score": 97,
+        "threshold": 90,
+        "blocking_errors": [],
+        "review_path": "automation/quran-reflections/reflection-al-mutaffifin-demanding-full-measure-giving-less/quality-review.md",
+        "commit": "c33cfacbfbbb205eae795dd2cc20d6167e710285",
+        "completed_at": "2026-10-28T20:59:30+04:00",
+        "mobile_gate": "NOT VERIFIED until final HTML",
+        "rtl_gate": "NOT VERIFIED until final HTML",
+        "tts_gate": "NOT VERIFIED until final HTML"
+      },
+      "publishing": {
+        "status": "actions_passed_live_tts_pending",
+        "arabic_path": "reflection-al-mutaffifin-demanding-full-measure-giving-less.html",
+        "english_path": "en/reflection-al-mutaffifin-demanding-full-measure-giving-less.html",
+        "arabic_page_commit": "2d7481db8f60aa3f48648182251ade101783f3a1",
+        "english_page_commit": "9edf479a74eb441fb79c395d8977dbd4bf4ea152",
+        "indexes": [
+          "quranic-reflections.html",
+          "en/quranic-reflections.html",
+          "articles.html",
+          "en/articles.html"
+        ],
+        "topic_registry": "data/quranic-reflection-topics.json",
+        "sitemap": "sitemap.xml",
+        "checks": "passed",
+        "live": "pages_and_indexes_verified; actual TTS playback NOT VERIFIED"
+      },
+      "repository_publish": {
+        "status": "completed",
+        "completed_at": "2026-10-28T21:53:53+04:00",
+        "checkpoint_commit": "98c84d0963a7e3e89ba30e39a9fd7594dc213db9",
+        "arabic_page": {
+          "path": "reflection-al-mutaffifin-demanding-full-measure-giving-less.html",
+          "commit": "2d7481db8f60aa3f48648182251ade101783f3a1"
+        },
+        "english_page": {
+          "path": "en/reflection-al-mutaffifin-demanding-full-measure-giving-less.html",
+          "commit": "9edf479a74eb441fb79c395d8977dbd4bf4ea152"
+        },
+        "indexes": [
+          "quranic-reflections.html",
+          "en/quranic-reflections.html",
+          "articles.html",
+          "en/articles.html"
+        ],
+        "records": [
+          "data/quranic-reflection-topics.json",
+          "data/article-covers.json",
+          "data/article-publication-dates.json",
+          "sitemap.xml"
+        ],
+        "checks_status": "pending_actions_and_live_verification",
+        "reconciliation_note": "Canonical publication paths copied into repository_publish so exact bilingual mobile QA can resolve the current article without replaying publication."
+      },
+      "actions_and_pages": {
+        "status": "completed",
+        "checked_at": "2026-10-28T22:15:00+04:00",
+        "report_path": "automation/quran-reflections/reflection-al-mutaffifin-demanding-full-measure-giving-less/actions-and-pages-report.md",
+        "repair_commits": {
+          "state_schema": "cb84bd9084e184d03442a689f1fb47b6daaa2f5a",
+          "publication_records": "526829b653e1d34c0bc8132fb1a071a7939be3a2",
+          "visible_dates": "c269bd07632da6a87614f77fe4b48046304e45da",
+          "generated_social_assets": "05eacfad2433c7bfee08f3a023016e7227f56110",
+          "mobile_wrap": "5d3f32f22a0ec0eeac12091ac040b967eb4f7966"
+        },
+        "required_checks": {
+          "site_health": {
+            "run_id": 40742136729,
+            "conclusion": "success",
+            "head_sha": "5d3f32f22a0ec0eeac12091ac040b967eb4f7966",
+            "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40742136729"
+          },
+          "article_date_integrity": {
+            "run_id": 40742136785,
+            "conclusion": "success",
+            "head_sha": "5d3f32f22a0ec0eeac12091ac040b967eb4f7966",
+            "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40742136785"
+          },
+          "sitemap": {
+            "run_id": 40742136798,
+            "conclusion": "success",
+            "head_sha": "5d3f32f22a0ec0eeac12091ac040b967eb4f7966",
+            "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40742136798"
+          },
+          "social_cards": {
+            "run_id": 40742136707,
+            "conclusion": "success",
+            "head_sha": "5d3f32f22a0ec0eeac12091ac040b967eb4f7966",
+            "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40742136707"
+          },
+          "arabic_editorial": {
+            "run_id": 40742136885,
+            "conclusion": "success",
+            "head_sha": "5d3f32f22a0ec0eeac12091ac040b967eb4f7966",
+            "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40742136885"
+          },
+          "pages": {
+            "run_id": 40742455891,
+            "conclusion": "success",
+            "head_sha": "cee988ae918521442dbc5fe5e2e566c7d9841370",
+            "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40742455891"
+          }
+        },
+        "exact_mobile_test": {
+          "conclusion": "success",
+          "artifact_id": 12838898678,
+          "viewports": [
+            320,
+            375,
+            390,
+            430
+          ],
+          "languages": [
+            "ar",
+            "en"
+          ],
+          "cases_passed": 8
+        },
+        "completed_at": "2026-10-28T22:15:00+04:00"
+      },
+      "live_verification": {
+        "status": "blocked_on_actual_tts_playback",
+        "checked_at": "2026-10-28T22:15:00+04:00",
+        "pages": {
+          "ar": {
+            "url": "https://tamayuz10x.com/reflection-al-mutaffifin-demanding-full-measure-giving-less.html",
+            "loaded": true,
+            "lang": "ar",
+            "dir": "rtl",
+            "canonical": true,
+            "hreflang": true,
+            "listen_control": true,
+            "social_image": true,
+            "mobile_workflow_passed": true
+          },
+          "en": {
+            "url": "https://tamayuz10x.com/en/reflection-al-mutaffifin-demanding-full-measure-giving-less.html",
+            "loaded": true,
+            "lang": "en",
+            "dir": "ltr",
+            "canonical": true,
+            "hreflang": true,
+            "listen_control": true,
+            "social_image_1200": true,
+            "mobile_workflow_passed": true
+          }
+        },
+        "indexes": {
+          "articles.html": {
+            "unique_cards": 1
+          },
+          "quranic-reflections.html": {
+            "unique_cards": 1
+          },
+          "en/articles.html": {
+            "unique_cards": 1
+          },
+          "en/quranic-reflections.html": {
+            "unique_cards": 1
+          }
+        },
+        "sitemap": {
+          "ar_loc_count": 1,
+          "en_loc_count": 1
+        },
+        "tts": {
+          "controls_present": true,
+          "actual_playback_verified": false,
+          "blocker": "Available cloud browser reports window.speechSynthesis unavailable; clicking Arabic Listen did not start playback."
+        }
+      }
+    },
+    {
+      "article_id": "quran-reflection-2026-11-11-al-maidah-cooperation-boundary",
+      "publication_date": "2026-11-11",
+      "status": "actions_pages_and_live_structure_verified_tts_playback_blocked",
+      "duplicate_check": {
+        "status": "passed_no_today_quran_cycle_found",
+        "checked_at": "2026-11-11T17:11:28+04:00",
+        "evidence": [
+          "automation/quran-reflections-state.json",
+          "data/quranic-reflection-topics.json",
+          "data/article-publication-dates.json",
+          "quranic-reflections.html",
+          "en/quranic-reflections.html",
+          "articles.html",
+          "en/articles.html",
+          "sitemap.xml",
+          "recent GitHub commits",
+          "live quranic-reflections indexes"
+        ]
+      },
+      "slug": "reflection-al-maidah-when-help-becomes-complicity",
+      "topic_ar": "المائدة 5:2 — الحد الفاصل بين التعاون في البر والمشاركة في الإثم",
+      "topic_en": "Al-Ma’idah 5:2 — the boundary between cooperation in good and participation in wrongdoing",
+      "working_title_ar": "متى تتحول المساعدة إلى مشاركة في الخطأ؟",
+      "working_title_en": "When Does Helping Become Participation in Wrongdoing?",
+      "topic_selection": {
+        "status": "completed",
+        "candidates": [
+          "Al-Ma’idah 5:2 — the boundary of cooperation",
+          "Al-Ahzab 33:70–71 — words that remain upright",
+          "Al-Hadid 57:22–23 — how we receive loss and gain"
+        ],
+        "selected": "Al-Ma’idah 5:2 — the boundary of cooperation",
+        "central_question": "How do we recognize the point at which helping a person or advancing a useful goal begins to support a wrongful means?",
+        "completed_at": "2026-11-11T17:18:00+04:00",
+        "artifact_commit": "1c5cc84dec46bacd48ccbc71d68183d5bc049aaa"
+      },
+      "research_notes_path": "automation/quran-reflections/reflection-al-maidah-when-help-becomes-complicity/research-notes.md",
+      "research_status": "completed",
+      "research_sources": [
+        {
+          "type": "Qur'an text and Sahih International translation",
+          "url": "https://legacy.quran.com/05/02",
+          "status": "reviewed"
+        },
+        {
+          "type": "Immediate Qur'anic context, Al-Ma'idah 5:1–3",
+          "url": "https://legacy.quran.com/05/1-3",
+          "status": "reviewed"
+        },
+        {
+          "type": "Tafsir al-Tabari 5:2",
+          "url": "https://quran.ksu.edu.sa/tafseer/tabary/sura5-aya2.html",
+          "status": "reviewed"
+        },
+        {
+          "type": "Tafsir Ibn Kathir 5:2",
+          "url": "https://quran.ksu.edu.sa/tafseer/katheer/sura5-aya2.html",
+          "status": "reviewed"
+        },
+        {
+          "type": "Tafsir al-Qurtubi 5:2",
+          "url": "https://quran.ksu.edu.sa/tafseer/qortobi/sura5-aya2.html",
+          "status": "reviewed"
+        },
+        {
+          "type": "Tafsir al-Sa'di 5:2",
+          "url": "https://quran.ksu.edu.sa/tafseer/saadi/sura5-aya2.html",
+          "status": "reviewed"
+        }
+      ],
+      "research_commit": "1e8e3ebbaa4d2ce5ebf0636389756ecad29443f1",
+      "quranic_focus": {
+        "surah": "Al-Ma’idah",
+        "surah_ar": "المائدة",
+        "ayahs": [
+          2
+        ],
+        "context_ayahs": [
+          1,
+          3
+        ],
+        "status": "verified"
+      },
+      "verified_quranic_references": [
+        {
+          "surah": "Al-Ma’idah",
+          "surah_ar": "المائدة",
+          "ayahs": [
+            2
+          ],
+          "context_ayahs": [
+            1,
+            3
+          ],
+          "status": "verified",
+          "primary_text_urls": [
+            "https://legacy.quran.com/05/02",
+            "https://quran.com/al-maidah/translations/en-sahih-international"
+          ],
+          "translation": "Sahih International",
+          "verified_at": "2026-11-11T17:36:00+04:00"
+        }
+      ],
+      "quran_verification": {
+        "status": "passed",
+        "blocking_errors": [],
+        "path": "automation/quran-reflections/reflection-al-maidah-when-help-becomes-complicity/research-notes.md",
+        "commit": "5a7f140a5ec6fe2a4d31191abdae3bb4972661a7",
+        "completed_at": "2026-11-11T17:36:00+04:00"
+      },
+      "arabic_draft": {
+        "status": "critique_cleared",
+        "path": "automation/quran-reflections/reflection-al-maidah-when-help-becomes-complicity/draft-ar.md",
+        "word_count": 1343,
+        "commit": "1243d918bcb6614076c2b2c776400694cbb439a3",
+        "completed_at": "2026-11-11T18:13:00+04:00",
+        "mobile_gate": "NOT VERIFIED until final HTML",
+        "tts_gate": "NOT VERIFIED until final HTML",
+        "self_check": {
+          "title_clear": true,
+          "opening_scenario_labeled_hypothetical": true,
+          "tafsir_reflection_application_separated": true,
+          "meta_editorial_phrases_found": 0,
+          "direct_source_urls": 5
+        },
+        "revision_count": 2,
+        "workflow_status_commit": "86dbb70ad9dc3ad01dc4bcd6f248ff59203a40d8",
+        "workflow_note_removed_commit": "58bf9c19709424bf08de930a5edb5bd530478cfe",
+        "latest_blob_sha": "9edabcb40c64d84aa524e66e8aa82598476b6e45"
+      },
+      "independent_critique": {
+        "status": "passed_after_required_revisions",
+        "path": "automation/quran-reflections/reflection-al-maidah-when-help-becomes-complicity/quality-review.md",
+        "commit": "7febc65ff6a1256176626c948c0bd95c76d93ca1",
+        "blocking_errors": [],
+        "revisions_applied": 2,
+        "completed_at": "2026-11-11T18:22:00+04:00",
+        "mobile_gate": "NOT VERIFIED until final HTML",
+        "tts_gate": "NOT VERIFIED until final HTML"
+      },
+      "english_draft": {
+        "status": "draft_completed_pending_parity",
+        "path": "automation/quran-reflections/reflection-al-maidah-when-help-becomes-complicity/draft-en.md",
+        "word_count": 1523,
+        "quran_translation": "Sahih International",
+        "commit": "4d47d1d6f8ccfcb7bc35934494f7c27cea052a1e",
+        "completed_at": "2026-11-11T14:23:48.465Z"
+      },
+      "bilingual_parity": {
+        "status": "passed_after_non_substantive_status_correction",
+        "review_path": "automation/quran-reflections/reflection-al-maidah-when-help-becomes-complicity/quality-review.md",
+        "review_commit": "d0100806f844f011321bf7b3c8022af347be78e8",
+        "arabic_path": "automation/quran-reflections/reflection-al-maidah-when-help-becomes-complicity/draft-ar.md",
+        "arabic_blob_sha": "ceadb12551e6a565a9d355a53384d626a2bc49e9",
+        "english_path": "automation/quran-reflections/reflection-al-maidah-when-help-becomes-complicity/draft-en.md",
+        "english_blob_sha": "14158914446d548c0138f4d898e6424630889d0a",
+        "substantive_revisions": 0,
+        "workflow_status_corrections": 1,
+        "quranic_citation": "passed",
+        "tafsir_attribution": "passed",
+        "methodological_qualifications": "passed",
+        "source_urls": "passed",
+        "native_english": "passed",
+        "completed_at": "2026-11-11T15:11:10.517Z",
+        "mobile_gate": "NOT VERIFIED until final HTML",
+        "tts_gate": "NOT VERIFIED until final HTML"
+      },
+      "quality_gate": {
+        "status": "passed",
+        "score": 98,
+        "threshold": 90,
+        "blocking_errors": [],
+        "review_path": "automation/quran-reflections/reflection-al-maidah-when-help-becomes-complicity/quality-review.md",
+        "review_commit": "5cd4336e0272adccbc4f395ceb326f3e07de4be2",
+        "arabic_blob_sha": "9edabcb40c64d84aa524e66e8aa82598476b6e45",
+        "english_blob_sha": "14158914446d548c0138f4d898e6424630889d0a",
+        "mobile_gate": "NOT VERIFIED until final HTML",
+        "rtl_gate": "NOT VERIFIED until final HTML",
+        "tts_gate": "NOT VERIFIED until final HTML",
+        "completed_at": "2026-11-11T16:03:39.879Z"
+      },
+      "arabic_html_path": "reflection-al-maidah-when-help-becomes-complicity.html",
+      "english_html_path": "en/reflection-al-maidah-when-help-becomes-complicity.html",
+      "publication_report_path": "automation/quran-reflections/reflection-al-maidah-when-help-becomes-complicity/publication-report.md",
+      "repository_publication": {
+        "status": "live_verified_except_actual_tts_playback",
+        "quality_score": 98,
+        "publication_date": "2026-11-11",
+        "arabic_url": "https://tamayuz10x.com/reflection-al-maidah-when-help-becomes-complicity.html",
+        "english_url": "https://tamayuz10x.com/en/reflection-al-maidah-when-help-becomes-complicity.html",
+        "arabic_page_path": "reflection-al-maidah-when-help-becomes-complicity.html",
+        "english_page_path": "en/reflection-al-maidah-when-help-becomes-complicity.html",
+        "arabic_social_asset": "assets/previews/story/reflection-al-maidah-when-help-becomes-complicity-ar.svg",
+        "english_social_asset": "assets/previews/story/reflection-al-maidah-when-help-becomes-complicity-en.svg",
+        "publication_report_path": "automation/quran-reflections/reflection-al-maidah-when-help-becomes-complicity/publication-report.md",
+        "publication_report_commit": "e6d98b6899041031489f4c6a22a61d8571c397c8",
+        "content_commits": {
+          "arabic_cover": "831a260d7fccacefbbd63d4043bfd78ff20061e5",
+          "english_cover": "7af064469f9cb23e1bdf5a933a1096502c3c1643",
+          "arabic_page": "289b9bd997347ac4db54dd1d82cb0126c7c4979c",
+          "english_page": "f304a0b60ba30468b49aad12e1d32aeee5d48b75",
+          "arabic_hub": "ebfd1a637f43fff3817ef55f9f3790e54f91c0cb",
+          "english_hub": "508e75b4af5a2056fffee1c46971be4b9d7de036",
+          "arabic_articles_index": "f8cb5f2327376508972599e950d5dd8f5c2b689e",
+          "english_articles_index": "1efef4df26cbd53ee888a29e79fb0c83f229ee09",
+          "topic_registry": "f69d447da099dd341cf6b3f776f54d705f20ec51",
+          "date_registry": "9cfcf1fb8fa9e963e7c08a16cff1d57294e88ad4",
+          "sitemap_bot": "c0bfcc0bdb487669a3000f6cd388f554f9da5a5b"
+        },
+        "repository_validation": "passed",
+        "mobile_gate": "passed_real_chromium_8_of_8_at_320_375_390_430_ar_en",
+        "rtl_gate": "passed_real_chromium",
+        "tts_gate": "blocked_actual_playback_web_speech_unavailable_in_verification_browser",
+        "actions_gate": "passed",
+        "pages_gate": "passed_exact_head_c12e32923ccf30f040d1e4a6fd713f3b5a83ac15",
+        "live_gate": "passed_except_actual_tts_playback",
+        "completed_at": "2026-11-11T17:13:46.746Z"
+      },
+      "repository_publish": {
+        "status": "committed",
+        "arabic_page": {
+          "path": "reflection-al-maidah-when-help-becomes-complicity.html",
+          "url": "https://tamayuz10x.com/reflection-al-maidah-when-help-becomes-complicity.html"
+        },
+        "english_page": {
+          "path": "en/reflection-al-maidah-when-help-becomes-complicity.html",
+          "url": "https://tamayuz10x.com/en/reflection-al-maidah-when-help-becomes-complicity.html"
+        },
+        "compatibility_note": "Canonical CI input for scripts/check_quran_reflection_mobile.py; mirrors repository_publication paths."
+      },
+      "actions_and_pages": {
+        "status": "completed",
+        "completed_at": "2026-11-11T19:08:10.772Z",
+        "head_sha": "c12e32923ccf30f040d1e4a6fd713f3b5a83ac15",
+        "repair_commit": "c12e32923ccf30f040d1e4a6fd713f3b5a83ac15",
+        "arabic_editorial": {
+          "run_id": 43083480059,
+          "job_id": 130741758808,
+          "conclusion": "success",
+          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/43083480059"
+        },
+        "pages": {
+          "run_id": 43083478967,
+          "conclusion": "success",
+          "head_sha": "c12e32923ccf30f040d1e4a6fd713f3b5a83ac15",
+          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/43083478967"
+        },
+        "exact_mobile_test": {
+          "conclusion": "success",
+          "viewports": [
+            320,
+            375,
+            390,
+            430
+          ],
+          "languages": [
+            "ar",
+            "en"
+          ],
+          "cases_passed": 8,
+          "assertions": [
+            "no horizontal overflow",
+            "H1 visible",
+            "correct lang and dir",
+            "local assets load",
+            "tables scroll safely",
+            "listen control present"
+          ]
+        }
+      },
+      "live_verification": {
+        "status": "blocked_on_actual_tts_playback",
+        "checked_at": "2026-11-11T19:08:10.772Z",
+        "deployed_head": "c12e32923ccf30f040d1e4a6fd713f3b5a83ac15",
+        "pages": {
+          "ar": {
+            "url": "https://tamayuz10x.com/reflection-al-maidah-when-help-becomes-complicity.html",
+            "loaded": true,
+            "lang": "ar",
+            "dir": "rtl",
+            "canonical": true,
+            "hreflang": true,
+            "metadata": true,
+            "article_schema": true,
+            "breadcrumb_schema": true,
+            "author_image": true,
+            "share_box_count": 1,
+            "social_asset": true,
+            "mobile_workflow_passed": true
+          },
+          "en": {
+            "url": "https://tamayuz10x.com/en/reflection-al-maidah-when-help-becomes-complicity.html",
+            "loaded": true,
+            "lang": "en",
+            "dir": "ltr",
+            "canonical": true,
+            "hreflang": true,
+            "metadata": true,
+            "article_schema": true,
+            "breadcrumb_schema": true,
+            "author_image": true,
+            "share_box_count": 1,
+            "social_asset": true,
+            "mobile_workflow_passed": true
+          }
+        },
+        "indexes": {
+          "articles.html": {
+            "slug_links": 2
+          },
+          "quranic-reflections.html": {
+            "slug_links": 2
+          },
+          "en/articles.html": {
+            "slug_links": 2
+          },
+          "en/quranic-reflections.html": {
+            "slug_links": 2
+          }
+        },
+        "sitemap": {
+          "slug_occurrences": 2,
+          "ar_loc_count": 1,
+          "en_loc_count": 1
+        },
+        "social_assets": {
+          "ar": {
+            "loaded": true,
+            "title": "متى تتحول المساعدة إلى مشاركة في الخطأ؟"
+          },
+          "en": {
+            "loaded": true,
+            "title": "When Does Helping Become Participation in Wrongdoing?"
+          }
+        },
+        "tts": {
+          "structural_control_present_in_ci": true,
+          "speech_synthesis_available_in_verification_browser": false,
+          "actual_playback_verified": false,
+          "blocker": "The available cloud browser does not expose window.speechSynthesis; actual playback, title-first order, synchronized highlighting, floating controls, pause/resume/stop, and speed could not be verified."
+        }
+      }
+    }
+  ]
 }
