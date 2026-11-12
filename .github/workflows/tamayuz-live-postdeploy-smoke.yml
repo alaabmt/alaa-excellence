@@ -1,0 +1,17 @@
+name: Tamayuz Live Postdeploy Auth Smoke
+on:
+  push:
+    branches:
+      - test/tamayuz-live-postdeploy-smoke-20261112
+    paths:
+      - '.github/workflows/tamayuz-live-postdeploy-smoke.yml'
+      - 'tests/tamayuz-live-postdeploy-smoke.test.mjs'
+permissions:
+  contents: read
+jobs:
+  live-security-smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - run: node --test tests/tamayuz-live-postdeploy-smoke.test.mjs
