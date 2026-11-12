@@ -5,7 +5,7 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-12T16:09:15.567Z",
+  "updated_at": "2026-11-12T16:56:56.787Z",
   "workflow_status": "in_progress",
   "current_stage": "quality_gate",
   "current_article": {
@@ -251,14 +251,19 @@
   "next_action": "Before any public write, reconcile the checkpoint, latest main, topic registry, intended Arabic and English page paths, four indexes, publication-date registry, sitemap, social assets, and both expected live URLs; then build and checkpoint the paired repository publication without duplicating any target.",
   "last_run": {
     "mode": "coordinator_resume",
-    "status": "progressed",
-    "started_at": "2026-11-12T16:06:36.713Z",
+    "status": "running",
+    "started_at": "2026-11-12T16:56:56.787Z",
     "last_checkpoint": "quality_gate",
-    "notes": "Checkpointed bilingual parity and the 99/100 final text quality gate. One non-substantive English reference-link normalization was applied. Lease released before repository publication.",
-    "ended_at": "2026-11-12T16:09:15.567Z"
+    "notes": "Acquired a 110-minute lease to reconcile and build the paired repository publication."
   },
   "workflow_id": "quran_reflections",
-  "run_lease": null,
+  "run_lease": {
+    "owner": "chatgpt-central-resume-20261112T165656787Z",
+    "acquired_at": "2026-11-12T16:56:56.787Z",
+    "expires_at": "2026-11-12T18:46:56.787Z",
+    "base_head_sha": "d8691299703401dae59655b2b4f490f68766ef8a",
+    "stage": "repository_publish"
+  },
   "checkpoint_policy": {
     "checkpoint_after_every_stage": true,
     "run_lease_minutes": 110,
