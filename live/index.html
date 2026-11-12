@@ -742,7 +742,41 @@ header .actions button:hover,header .actions button.secondary:hover{background:#
 .stage-display-tools button.secondary:hover,.stage-navigation button.secondary:hover{background:#cbdce9!important}
 body.live-presenter-page .presenter .stage-topline{background:transparent!important}
 body.live-presenter-page .presenter.widescreen .stage-topline{background:#eaf1f6!important}
-</style><script src="/assets/js/auth-config.js"></script></head><body><header><strong>LIVE · Personal Conference Tool</strong><div class="actions"><button id="home-link" class="secondary">Home</button><button id="language" class="secondary">العربية</button></div></header><main><div id="app" aria-live="polite"></div></main><footer>Personal conference polling · Tamayuz 10X</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" defer></script><script>
+
+/* User-selectable Tamayuz Prestige dark mode; light mode remains the default. */
+html[data-live-theme="dark"]{color-scheme:dark;--soft:#0c1c2c;--ink:#edf4fa;--stroke:#314b61;--muted:#b1c3d3;--violet:#34759b;--violet-dark:#235b80}
+html[data-live-theme="dark"],html[data-live-theme="dark"] body{background:#0c1c2c!important;color:#edf4fa!important}
+html[data-live-theme="dark"] header{background:#081827!important;color:#f5f8fb!important;border-bottom-color:#b59652!important}
+html[data-live-theme="dark"] header strong{color:#f5f8fb!important}
+html[data-live-theme="dark"] main,html[data-live-theme="dark"] #app,html[data-live-theme="dark"] .presenter,html[data-live-theme="dark"] .presenter-stage,html[data-live-theme="dark"] .stage-main,html[data-live-theme="dark"] .stage-side,html[data-live-theme="dark"] .audience-wrap{background:transparent!important;color:#edf4fa!important}
+html[data-live-theme="dark"] .panel,html[data-live-theme="dark"] .role-card,html[data-live-theme="dark"] .sc-section,html[data-live-theme="dark"] .sc-metric,html[data-live-theme="dark"] .sc-card,html[data-live-theme="dark"] .stage-result.result-choice,html[data-live-theme="dark"] .review-question,html[data-live-theme="dark"] .stage-empty{background:#162d40!important;color:#edf4fa!important;border-color:#314b61!important;box-shadow:0 8px 24px #030d1940!important}
+html[data-live-theme="dark"] h1,html[data-live-theme="dark"] h2,html[data-live-theme="dark"] h3,html[data-live-theme="dark"] .stage-title,html[data-live-theme="dark"] .stage-question,html[data-live-theme="dark"] .stage-result-label,html[data-live-theme="dark"] .result-choice-text,html[data-live-theme="dark"] .stage-count strong,html[data-live-theme="dark"] .sc-metric strong,html[data-live-theme="dark"] .sc-card-heading strong{color:#f3f7fb!important}
+html[data-live-theme="dark"] p,html[data-live-theme="dark"] label,html[data-live-theme="dark"] .stage-count,html[data-live-theme="dark"] .muted,html[data-live-theme="dark"] .stage-footer,html[data-live-theme="dark"] footer,html[data-live-theme="dark"] small,html[data-live-theme="dark"] .stage-help{color:#b1c3d3}
+html[data-live-theme="dark"] input,html[data-live-theme="dark"] select,html[data-live-theme="dark"] textarea{background:#102538!important;color:#f3f7fb!important;border-color:#416078!important}
+html[data-live-theme="dark"] input::placeholder,html[data-live-theme="dark"] textarea::placeholder{color:#9eb3c6}
+html[data-live-theme="dark"] button:not(.danger),html[data-live-theme="dark"] .actions button:not(.danger){background:#245a80!important;color:#fff!important}
+html[data-live-theme="dark"] button:not(.danger):hover{background:#34759b!important}
+html[data-live-theme="dark"] button.secondary,html[data-live-theme="dark"] .actions button.secondary{background:#29445b!important;color:#edf4fa!important}
+html[data-live-theme="dark"] .option{background:#19354a!important;color:#edf4fa!important;border-color:#416078!important}
+html[data-live-theme="dark"] .option:hover{background:#25485f!important;border-color:#b59652!important}
+html[data-live-theme="dark"] .option .letter,html[data-live-theme="dark"] .stage-pill:not(.open):not(.ended),html[data-live-theme="dark"] .role-note{background:#34465a!important;color:#f3e0b3!important}
+html[data-live-theme="dark"] .stage-pill.open{background:#173f3c!important;color:#a4ead3!important}
+html[data-live-theme="dark"] .stage-pill.ended{background:#512d39!important;color:#f5bec7!important}
+html[data-live-theme="dark"] .bar,html[data-live-theme="dark"] .stage-result .bar,html[data-live-theme="dark"] body.live-presenter-page .presenter #results .stage-result.result-choice .bar{background:#344b60!important}
+html[data-live-theme="dark"] .fill,html[data-live-theme="dark"] .stage-result .fill{background:#3986b1!important}
+html[data-live-theme="dark"] body.live-presenter-page .presenter #results .stage-result.result-choice .bar>.fill{background:#3986b1!important}
+html[data-live-theme="dark"] body.live-presenter-page .presenter #results .stage-result.result-choice:nth-of-type(4n+2) .bar>.fill{background:#65a9ca!important}
+html[data-live-theme="dark"] body.live-presenter-page .presenter #results .stage-result.result-choice:nth-of-type(4n+3) .bar>.fill{background:#b59652!important}
+html[data-live-theme="dark"] body.live-presenter-page .presenter #results .stage-result.result-choice:nth-of-type(4n+4) .bar>.fill{background:#4a9a98!important}
+html[data-live-theme="dark"] body.live-presenter-page .presenter.results-focus #question-view{background:#102538!important;border-color:#314b61!important;color:#edf4fa!important}
+html[data-live-theme="dark"] body.live-presenter-page .presenter.results-focus #question-view .clinical-section{border-bottom-color:#314b61!important}
+html[data-live-theme="dark"] body.live-presenter-page .presenter.results-focus #question-view .clinical-challenge{background:#34465a!important;color:#f3f7fb!important;border-left-color:#b59652!important}
+html[data-live-theme="dark"] body.live-presenter-page .presenter.widescreen .stage-topline{background:#0c1c2c!important}
+html[data-live-theme="dark"] a{color:#8dc9e9!important}
+html[data-live-theme="dark"] #qr{background:#fff!important}
+html[data-live-theme="dark"] #theme-toggle{border:1px solid #617a90!important;min-width:96px}
+html[data-live-theme="light"] #theme-toggle{border:1px solid #c8d5e0!important}
+</style><script src="/assets/js/auth-config.js"></script></head><body><header><strong>LIVE · Personal Conference Tool</strong><div class="actions"><button id="theme-toggle" class="secondary" type="button" aria-label="Switch color mode" aria-pressed="false">Dark mode</button><button id="home-link" class="secondary">Home</button><button id="language" class="secondary">العربية</button></div></header><main><div id="app" aria-live="polite"></div></main><footer>Personal conference polling · Tamayuz 10X</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" defer></script><script>
 (()=>{"use strict";
 const ENDPOINT="https://dqrsjhcfmpjhcxvtxosy.supabase.co/functions/v1/tamayuz-live";
 const $=id=>document.getElementById(id),esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
@@ -753,7 +787,17 @@ if(fragment.get("presenter"))sessionStorage.setItem("live-presenter",presenter);
 if(params.get("session")&&presenter)sessionStorage.setItem("live-presenter-session",params.get("session"));
 if(location.hash)history.replaceState(null,"",location.pathname+location.search);
 const t=(en,ar)=>lang==="ar"?ar:en;
-function layout(markup){document.documentElement.lang=lang;document.documentElement.dir=lang==="ar"?"rtl":"ltr";$("language").textContent=lang==="ar"?"English":"العربية";$("app").innerHTML=markup}
+const themeStorageKey="tamayuz-live-theme";
+let liveTheme=localStorage.getItem(themeStorageKey)==="dark"?"dark":"light";
+function applyLiveTheme(){
+ document.documentElement.setAttribute("data-live-theme",liveTheme);
+ const toggle=$("theme-toggle");
+ if(toggle){toggle.textContent=liveTheme==="dark"?(lang==="ar"?"الوضع الفاتح":"Light mode"):(lang==="ar"?"الوضع الداكن":"Dark mode");toggle.setAttribute("aria-pressed",String(liveTheme==="dark"));toggle.setAttribute("aria-label",liveTheme==="dark"?"Switch to light mode":"Switch to dark mode")}
+}
+$("theme-toggle").onclick=()=>{liveTheme=liveTheme==="dark"?"light":"dark";localStorage.setItem(themeStorageKey,liveTheme);applyLiveTheme()};
+applyLiveTheme();
+
+function layout(markup){document.documentElement.lang=lang;document.documentElement.dir=lang==="ar"?"rtl":"ltr";$("language").textContent=lang==="ar"?"English":"العربية";applyLiveTheme();$("app").innerHTML=markup}
 function notice(s,err=false){const e=$("notice");if(e){e.textContent=s;e.className=err?"error":"success"}}
 let liveAuthClient=null;
 async function websiteSession(){if(!liveAuthClient){const mod=await import("/assets/js/assessment-auth-client.js");liveAuthClient=await mod.createAuthClient()}const {data,error}=await liveAuthClient.auth.getSession();if(error)throw error;return data.session}
