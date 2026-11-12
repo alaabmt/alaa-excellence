@@ -7,13 +7,13 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-12T09:00:00+04:00",
+  "updated_at": "2026-11-12T09:05:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "bilingual_parity",
+  "current_stage": "final_quality_gate",
   "run_lease": {
     "owner": "codex-tenx-primary-20261112-0734",
     "acquired_at": "2026-11-12T07:34:00+04:00",
-    "expires_at": "2026-11-12T09:24:00+04:00"
+    "expires_at": "2026-11-12T10:55:00+04:00"
   },
   "current_item": {
     "slug": "case-brazil-family-health-strategy-community-primary-care",
@@ -72,6 +72,11 @@
       "status": "drafted_with_critique_applied",
       "path": "automation/10x-cases/case-brazil-family-health-strategy-community-primary-care/draft-en.md",
       "commit": "657ce3d2e9577e699e69b1d27e2634380d11fd7d"
+    },
+    "bilingual_parity": {
+      "status": "passed",
+      "path": "automation/10x-cases/case-brazil-family-health-strategy-community-primary-care/bilingual-parity-review.md",
+      "commit": "c41417e7bc59431c98729919b1be41d3f4c56884"
     }
   },
   "stage_order": [
@@ -113,14 +118,14 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Run bilingual parity review for section order, facts, numbers, limitations, references, media and 10X conclusions; revise any mismatch.",
+  "next_action": "Run final editorial and technical prepublication gate; publish only if evidence, clarity, parity, rights, metadata plan, mobile plan and repository integration all pass.",
   "last_run": {
     "mode": "primary_scheduled_cycle",
     "status": "in_progress",
     "started_at": "2026-11-12T07:34:00+04:00",
     "starting_head": "b1f7cfcbd12f4a1444fad3c5c685d5f26091c1ac",
-    "last_checkpoint": "english_draft",
-    "notes": "Natural English draft completed with the same evidence, limits, references and analytical conclusion.",
+    "last_checkpoint": "bilingual_parity",
+    "notes": "Bilingual parity passed. Lease renewed to complete quality gate and publication verification.",
     "current_item": "case-brazil-family-health-strategy-community-primary-care"
   },
   "last_completed_item": {
@@ -194,7 +199,8 @@
     "backcasting_and_10x_analysis",
     "arabic_draft",
     "company_insider_critique",
-    "english_draft"
+    "english_draft",
+    "bilingual_parity"
   ],
   "blocker": null
 }
