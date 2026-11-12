@@ -236,17 +236,18 @@ async function audiencePage(force=false){
    audienceSubmitting=true;
    const buttons=[...poll.querySelectorAll("button")];buttons.forEach(b=>b.disabled=true);
    notice(t("Submitting your answer...","جارٍ إرسال إجابتك..."));
+   let confirmed=false;
    try{
     const result=await api("vote",{code,participant_token:participant,answer});
     if(!result.accepted)throw Error(t("Vote not confirmed.","لم يتم تأكيد التصويت."));
-    sessionStorage.setItem(voteKey,"1");
+    confirmed=true;sessionStorage.setItem(voteKey,"1");
     audienceSnapshotKey="";
     // Update immediately rather than waiting for the next polling interval.
     poll.innerHTML='<h2>'+esc(q.prompt)+'</h2><p class="success" role="status">'+t("Your answer was received.","تم استلام إجابتك.")+'</p><div id="audience-live-results"></div>';
     notice(t("Answer received.","تم استلام الإجابة."));
    }catch(e){
     notice(e.message,true);buttons.forEach(b=>b.disabled=false);
-   }finally{audienceSubmitting=false;audiencePage(true)}
+   }finally{audienceSubmitting=false;if(confirmed)audiencePage(true)}
   };
   poll.querySelectorAll("[data-answer]").forEach(b=>b.onclick=()=>submit(b.dataset.answer));
   if($("send"))$("send").onclick=()=>submit($("answer").value);
