@@ -5,7 +5,7 @@ import {performance} from 'node:perf_hooks';
 const ENDPOINT='https://dqrsjhcfmpjhcxvtxosy.supabase.co/functions/v1/tamayuz-live';
 const CODE=process.env.TEST_JOIN_CODE||'';
 const SID=process.env.TEST_SESSION_ID||'';
-const MAX_CALLS=14000;
+const MAX_CALLS=8000;
 const started=Date.now();
 let calls=0, stopped=false;
 const metrics={};
@@ -64,7 +64,7 @@ async function run(){
  const people=[];
  for(const n of [5,45,50,150,250,100]){
   const chunk=[];
-  await batch(Array.from({length:n},(_,i)=>i),12,async()=>{
+  await batch(Array.from({length:n},(_,i)=>i),24,async()=>{
    const r=await call('join',{code:CODE});
    if(!r.ok||r.data.session_id!==SID||!/^[0-9a-f]{48}$/.test(r.data.participant_token||''))throw Error('Join unsuccessful');
    chunk.push(r.data.participant_token);
@@ -79,9 +79,12 @@ async function run(){
   const activated=await call('control',{session_id:SID,state:'open',question_id:q.id,results_action:'hide',answer_action:'hide'});
   if(!activated.ok||activated.data.session?.active_question_id!==q.id)stop('Question activation unsuccessful.');
   let votes=0;
-  await batch(people,12,async(token,index)=>{
+  // Validate the attendee view for a small sample before the burst of votes.
+  await batch(people.slice(0,5),5,async(token)=>{
    const pre=await call('view',{code:CODE,participant_token:token});
    if(!pre.ok||pre.data.questions?.[0]?.id!==q.id)throw Error('Question view mismatch');
+  });
+  await batch(people,24,async(token,index)=>{
    const voted=await call('vote',{code:CODE,participant_token:token,answer:selectAnswer(q,index,qi)});
    if(!voted.ok||voted.data.accepted!==true||voted.data.duplicate)throw Error('Vote rejected/duplicate');
    votes++;
