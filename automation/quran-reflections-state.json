@@ -5,13 +5,13 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-12T15:00:25.271Z",
+  "updated_at": "2026-11-12T15:02:13.123Z",
   "workflow_status": "in_progress",
-  "current_stage": "independent_critique",
+  "current_stage": "english_draft",
   "current_article": {
     "article_id": "quran-reflection-2026-11-12-al-ahzab-upright-speech",
     "publication_date": "2026-11-12",
-    "status": "arabic_critique_passed_pending_english_draft",
+    "status": "english_draft_completed_pending_bilingual_parity",
     "duplicate_check": {
       "status": "passed_no_today_quran_cycle_found",
       "checked_at": "2026-11-12T13:07:23Z",
@@ -155,6 +155,26 @@
       "completed_at": "2026-11-12T14:31:00Z",
       "mobile_gate": "NOT VERIFIED until final HTML",
       "tts_gate": "NOT VERIFIED until final HTML"
+    },
+    "english_draft": {
+      "status": "draft_completed_pending_parity",
+      "path": "automation/quran-reflections/reflection-al-ahzab-upright-speech/draft-en.md",
+      "word_count": 1751,
+      "quran_translation": "Sahih International",
+      "commit": "f57815a941c70051d7d5920745e45397bd5dccb2",
+      "blob_sha": "438b4c23d0c2509eb790679e5f3cbe2ef3fd0ab0",
+      "completed_at": "2026-11-12T15:02:13.123Z",
+      "self_check": {
+        "original_editorial_english": true,
+        "american_english": true,
+        "quran_quote_matches_verified_research": true,
+        "tafsir_attributions_preserved": true,
+        "hypothetical_example_labeled": true,
+        "methodological_qualifications_preserved": true,
+        "source_urls_preserved": true,
+        "mobile_gate": "NOT VERIFIED until final HTML",
+        "tts_gate": "NOT VERIFIED until final HTML"
+      }
     }
   },
   "stage_order": [
@@ -188,22 +208,17 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Write an original editorial English draft in draft-en.md from the critique-cleared Arabic argument and verified sources, using Sahih International for the Qur'an quotation and preserving every methodological qualification without mirroring Arabic sentence structure.",
+  "next_action": "Run a bilingual parity review between draft-ar.md and draft-en.md, verify Qur'an citation, tafsir attributions, scenario details, methodological qualifications, source URLs, and natural English, then record the result in quality-review.md before the quality gate.",
   "last_run": {
     "mode": "coordinator_resume",
-    "status": "running",
+    "status": "progressed",
     "started_at": "2026-11-12T15:00:25.271Z",
-    "last_checkpoint": "independent_critique",
-    "notes": "Acquired a 110-minute lease to resume the first unfinished stage: english_draft."
+    "last_checkpoint": "english_draft",
+    "notes": "Created and checkpointed the original English draft with Sahih International and preserved interpretive and methodological qualifications; lease released at a safe stage boundary.",
+    "ended_at": "2026-11-12T15:02:13.123Z"
   },
   "workflow_id": "quran_reflections",
-  "run_lease": {
-    "owner": "chatgpt-central-resume-20261112T150025271Z",
-    "acquired_at": "2026-11-12T15:00:25.271Z",
-    "expires_at": "2026-11-12T16:50:25.271Z",
-    "base_head_sha": "42081387995cef26eb1923eee14f1f65e001deeb",
-    "stage": "english_draft"
-  },
+  "run_lease": null,
   "checkpoint_policy": {
     "checkpoint_after_every_stage": true,
     "run_lease_minutes": 110,
@@ -575,7 +590,8 @@
     "research",
     "quran_verification",
     "arabic_draft",
-    "independent_critique"
+    "independent_critique",
+    "english_draft"
   ],
   "duplicate_check": {
     "status": "passed_no_today_quran_cycle_found",
