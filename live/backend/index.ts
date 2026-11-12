@@ -8,7 +8,7 @@ const hash=async(v:string)=>Array.from(new Uint8Array(await crypto.subtle.digest
 const safe=(s:unknown,n=500)=>typeof s==="string"?s.trim().slice(0,n):"";
 async function owner(k:string){if(!/^[a-f0-9]{64}$/.test(k))return false;const {data}=await db.from("live_config").select("id").eq("admin_token_hash",await hash(k)).maybeSingle();return !!data}
 async function sessionByToken(id:string,token:string){if(!/^[a-f0-9]{48}$/.test(token))return null;const {data}=await db.from("live_sessions").select("*").eq("id",id).eq("presenter_token_hash",await hash(token)).maybeSingle();return data}
-async function state(s:any,results=false){const {data:q}=await db.from("live_questions").select("id,prompt,kind,options,position").eq("presentation_id",s.presentation_id).order("position");let aggregate:any[]=[];let count=0;if(results&&s.active_question_id){const {data:v}=await db.from("live_votes").select("answer").eq("session_id",s.id).eq("question_id",s.active_question_id);count=v?.length||0;const map=new Map<string,number>();for(const x of v||[])map.set(x.answer,(map.get(x.answer)||0)+1);aggregate=[...map].map(([answer,votes])=>({answer,votes}));}return {session:{id:s.id,code:s.join_code,state:s.state,active_question_id:s.active_question_id,show_results:s.show_results,revision:s.revision},questions:q||[],aggregate,count}}
+async function state(s:any,results=false){const {data:q}=await db.from("live_questions").select("id,prompt,kind,options,position,correct_answer,answer_justification,answer_effect").eq("presentation_id",s.presentation_id).order("position");let aggregate:any[]=[];let count=0;if(results&&s.active_question_id){const {data:v}=await db.from("live_votes").select("answer").eq("session_id",s.id).eq("question_id",s.active_question_id);count=v?.length||0;const map=new Map<string,number>();for(const x of v||[])map.set(x.answer,(map.get(x.answer)||0)+1);aggregate=[...map].map(([answer,votes])=>({answer,votes}));}return {session:{id:s.id,code:s.join_code,state:s.state,active_question_id:s.active_question_id,show_results:s.show_results,reveal_correct_answer:s.reveal_correct_answer,revision:s.revision},questions:q||[],aggregate,count}}
 Deno.serve(async(req)=>{
  if(req.method==="OPTIONS")return new Response(null,{headers});
  if(req.method!=="POST")return reply({error:"Method not allowed"},405);
@@ -72,7 +72,9 @@ Deno.serve(async(req)=>{
    const {data:s}=await db.from("live_sessions").select("*").eq("id",id).single();if(!s)return reply({error:"Not found"},404);
    const next=safe(b.state,20);if(!["waiting","open","closed","ended"].includes(next))return reply({error:"Invalid state"},400);
    let active=s.active_question_id;if(b.question_id){const {data:q}=await db.from("live_questions").select("id").eq("id",b.question_id).eq("presentation_id",s.presentation_id).maybeSingle();if(!q)return reply({error:"Invalid question"},400);active=q.id;}
-   let visibility={...(s.question_results_visibility||{})};if(b.results_action==="show")visibility={__default:true};else if(b.results_action==="hide")visibility={__default:false};else if(Object.keys(visibility).length===0)visibility={__default:!!s.show_results};const visible=visibility[active]===undefined?visibility.__default===true:visibility[active]===true;const {data,error}=await db.from("live_sessions").update({state:next,active_question_id:active,show_results:visible,question_results_visibility:visibility,revision:s.revision+1}).eq("id",id).eq("revision",s.revision).select("*").maybeSingle();
+   let visibility={...(s.question_results_visibility||{})};if(b.results_action==="show")visibility={__default:true};else if(b.results_action==="hide")visibility={__default:false};else if(Object.keys(visibility).length===0)visibility={__default:!!s.show_results};const visible=visibility[active]===undefined?visibility.__default===true:visibility[active]===true;
+   const answerRevealed=b.answer_action==="show"?true:b.answer_action==="hide"?false:(active===s.active_question_id?!!s.reveal_correct_answer:false);
+   const {data,error}=await db.from("live_sessions").update({state:next,active_question_id:active,show_results:visible,reveal_correct_answer:answerRevealed,question_results_visibility:visibility,revision:s.revision+1}).eq("id",id).eq("revision",s.revision).select("*").maybeSingle();
    return error||!data?reply({error:"Concurrent update; retry after refresh"},409):reply(await state(data,true));
   }
   if(action==="present"){
@@ -85,7 +87,7 @@ Deno.serve(async(req)=>{
   if(action==="view"||action==="join"){
    const code=safe(b.code,20).toUpperCase();const {data:s}=await db.from("live_sessions").select("*").eq("join_code",code).maybeSingle();
    if(!s)return reply({error:"Session not found"},404);
-   if(action==="view"){const snapshot=await state(s,s.show_results);return reply({session:snapshot.session,questions:snapshot.questions.filter((q:any)=>q.id===s.active_question_id),aggregate:s.show_results?snapshot.aggregate:[],count:s.show_results?snapshot.count:null});}
+   if(action==="view"){const snapshot=await state(s,s.show_results);return reply({session:snapshot.session,questions:snapshot.questions.filter((q:any)=>q.id===s.active_question_id).map((q:any)=>s.reveal_correct_answer&&s.show_results?q:(({correct_answer,answer_justification,answer_effect,...safeQuestion}:any)=>safeQuestion)(q)),aggregate:s.show_results?snapshot.aggregate:[],count:s.show_results?snapshot.count:null});}
    if(s.state==="ended")return reply({error:"Session ended"},409);
    const token=random();const {count}=await db.from("live_participants").select("id",{count:"exact",head:true}).eq("session_id",s.id);
    if((count||0)>=600)return reply({error:"Session capacity reached"},429);
