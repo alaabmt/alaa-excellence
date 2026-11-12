@@ -1,0 +1,68 @@
+name: Tamayuz Live Isolated PostgreSQL Recovery Drill
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'live/qa/recovery/**'
+      - 'live/backend/sql/live_atomic_operations.sql'
+      - '.github/workflows/tamayuz-live-recovery-drill.yml'
+  pull_request:
+    paths:
+      - 'live/qa/recovery/**'
+      - 'live/backend/sql/live_atomic_operations.sql'
+      - '.github/workflows/tamayuz-live-recovery-drill.yml'
+permissions:
+  contents: read
+jobs:
+  isolated-recovery:
+    name: Isolated PostgreSQL 17 backup/restore (not production certification)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    services:
+      postgres:
+        image: postgres:17.6
+        env:
+          POSTGRES_PASSWORD: live-drill-ephemeral-test-only
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 8
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: PostgreSQL 17 restore in disposable runner only
+        env:
+          PGHOST: 127.0.0.1
+          PGUSER: postgres
+          PGPASSWORD: live-drill-ephemeral-test-only
+        run: |
+          set -euo pipefail
+          docker run --rm --network host \
+            -e PGHOST -e PGUSER -e PGPASSWORD -e GITHUB_SHA \
+            -e WORKSPACE=/work -e OUT_DIR=/out \
+            -v "$GITHUB_WORKSPACE:/work:ro" \
+            -v "$RUNNER_TEMP:/out" \
+            postgres:17.6 bash /work/live/qa/recovery/run-drill.sh
+      - name: Report accurate certification boundary
+        if: always()
+        run: |
+          if [[ -f "$RUNNER_TEMP/report.json" ]]; then
+            echo "## Tamayuz Live — synthetic PostgreSQL recovery rehearsal" >> "$GITHUB_STEP_SUMMARY"
+            echo "**Real production-backup restoration remains NOT VERIFIED.**" >> "$GITHUB_STEP_SUMMARY"
+            echo '~~~json' >> "$GITHUB_STEP_SUMMARY"
+            cat "$RUNNER_TEMP/report.json" >> "$GITHUB_STEP_SUMMARY"
+            echo '~~~' >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        if: always()
+        with:
+          name: tamayuz-live-ephemeral-postgres-recovery-evidence
+          path: |
+            ${{ runner.temp }}/report.json
+            ${{ runner.temp }}/manifest.txt
+            ${{ runner.temp }}/source-checks.log
+            ${{ runner.temp }}/restored-checks.log
+          retention-days: 30
