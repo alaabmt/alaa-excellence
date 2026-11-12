@@ -5,13 +5,13 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-12T16:56:56.787Z",
+  "updated_at": "2026-11-12T17:05:00.369Z",
   "workflow_status": "in_progress",
-  "current_stage": "quality_gate",
+  "current_stage": "repository_publish",
   "current_article": {
     "article_id": "quran-reflection-2026-11-12-al-ahzab-upright-speech",
     "publication_date": "2026-11-12",
-    "status": "quality_gate_passed_pending_repository_publish",
+    "status": "repository_published_pending_actions_and_pages",
     "duplicate_check": {
       "status": "passed_no_today_quran_cycle_found",
       "checked_at": "2026-11-12T13:07:23Z",
@@ -215,6 +215,83 @@
       "rtl_gate": "NOT VERIFIED until final HTML",
       "tts_gate": "NOT VERIFIED until final HTML",
       "completed_at": "2026-11-12T16:09:15.567Z"
+    },
+    "arabic_html_path": "reflection-al-ahzab-upright-speech.html",
+    "english_html_path": "en/reflection-al-ahzab-upright-speech.html",
+    "publication_report_path": "automation/quran-reflections/reflection-al-ahzab-upright-speech/repository-publish-report.md",
+    "repository_publish": {
+      "status": "committed",
+      "completed_at": "2026-11-12T17:04:20.769Z",
+      "publication_commit": "08da90922b404045be54eebadfb9fb95a98c8284",
+      "report_path": "automation/quran-reflections/reflection-al-ahzab-upright-speech/repository-publish-report.md",
+      "arabic_page": {
+        "path": "reflection-al-ahzab-upright-speech.html",
+        "url": "https://tamayuz10x.com/reflection-al-ahzab-upright-speech.html"
+      },
+      "english_page": {
+        "path": "en/reflection-al-ahzab-upright-speech.html",
+        "url": "https://tamayuz10x.com/en/reflection-al-ahzab-upright-speech.html"
+      },
+      "indexes": [
+        "articles.html",
+        "en/articles.html",
+        "quranic-reflections.html",
+        "en/quranic-reflections.html"
+      ],
+      "records": [
+        "data/quranic-reflection-topics.json",
+        "data/article-publication-dates.json",
+        "data/article-covers.json",
+        "sitemap.xml"
+      ],
+      "social_sources": [
+        "assets/previews/story/reflection-al-ahzab-upright-speech-ar.svg",
+        "assets/previews/story/reflection-al-ahzab-upright-speech-en.svg"
+      ],
+      "checks": {
+        "title_and_h1": true,
+        "canonical_and_reciprocal_hreflang": true,
+        "article_and_breadcrumb_schema": true,
+        "rtl_ltr": true,
+        "language_isolation": true,
+        "tts_structure": true,
+        "topic_registry_single": true,
+        "index_card_single_each": true,
+        "publication_dates_match": true,
+        "sitemap_single_each": true
+      },
+      "duplicate_check": "passed before atomic publication",
+      "automation_descendant_head": "6b6d7f9b63af9483cbeec61eff0a66d5fab92cd0",
+      "automation_commits": [
+        "58ac632dfaaa96bafd15b00b1e1d76a30cfca1a3",
+        "6b6d7f9b63af9483cbeec61eff0a66d5fab92cd0"
+      ],
+      "generated_social_assets": [
+        "assets/previews/story/reflection-al-ahzab-upright-speech-ar.jpg",
+        "assets/previews/story/reflection-al-ahzab-upright-speech-en.jpg"
+      ],
+      "sitemap_reconciled_by_automation": true
+    },
+    "repository_publication": {
+      "status": "repository_published_actions_pages_mobile_rtl_tts_and_live_verification_pending",
+      "quality_score": 99,
+      "publication_date": "2026-11-12",
+      "publication_commit": "08da90922b404045be54eebadfb9fb95a98c8284",
+      "arabic_url": "https://tamayuz10x.com/reflection-al-ahzab-upright-speech.html",
+      "english_url": "https://tamayuz10x.com/en/reflection-al-ahzab-upright-speech.html",
+      "arabic_page_path": "reflection-al-ahzab-upright-speech.html",
+      "english_page_path": "en/reflection-al-ahzab-upright-speech.html",
+      "arabic_social_asset": "assets/previews/story/reflection-al-ahzab-upright-speech-ar.svg",
+      "english_social_asset": "assets/previews/story/reflection-al-ahzab-upright-speech-en.svg",
+      "publication_report_path": "automation/quran-reflections/reflection-al-ahzab-upright-speech/repository-publish-report.md",
+      "repository_validation": "passed",
+      "mobile_gate": "pending_actions_and_exact_chromium",
+      "rtl_gate": "pending_actions_and_exact_chromium",
+      "tts_gate": "pending_actual_playback",
+      "actions_gate": "pending",
+      "pages_gate": "pending",
+      "live_gate": "pending",
+      "automation_descendant_head": "6b6d7f9b63af9483cbeec61eff0a66d5fab92cd0"
     }
   },
   "stage_order": [
@@ -248,22 +325,16 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Before any public write, reconcile the checkpoint, latest main, topic registry, intended Arabic and English page paths, four indexes, publication-date registry, sitemap, social assets, and both expected live URLs; then build and checkpoint the paired repository publication without duplicating any target.",
+  "next_action": "Re-read main and this checkpoint; reconcile any sitemap/social-card bot descendants without replaying the publication; inspect required GitHub Actions and Pages on the exact latest content head; then run exact 320/375/390/430 mobile and RTL checks, verify generated social JPGs and both live pages plus all four live indexes, and test actual TTS playback where Web Speech is available.",
   "last_run": {
     "mode": "coordinator_resume",
-    "status": "running",
+    "status": "stage_checkpointed",
     "started_at": "2026-11-12T16:56:56.787Z",
-    "last_checkpoint": "quality_gate",
-    "notes": "Acquired a 110-minute lease to reconcile and build the paired repository publication."
+    "last_checkpoint": "repository_publish",
+    "notes": "Atomic bilingual repository publication committed as 08da90922b404045be54eebadfb9fb95a98c8284; sitemap and social-card bot descendants reconciled through 6b6d7f9b63af9483cbeec61eff0a66d5fab92cd0; lease released at the stage boundary."
   },
   "workflow_id": "quran_reflections",
-  "run_lease": {
-    "owner": "chatgpt-central-resume-20261112T165656787Z",
-    "acquired_at": "2026-11-12T16:56:56.787Z",
-    "expires_at": "2026-11-12T18:46:56.787Z",
-    "base_head_sha": "d8691299703401dae59655b2b4f490f68766ef8a",
-    "stage": "repository_publish"
-  },
+  "run_lease": null,
   "checkpoint_policy": {
     "checkpoint_after_every_stage": true,
     "run_lease_minutes": 110,
@@ -638,7 +709,8 @@
     "independent_critique",
     "english_draft",
     "bilingual_parity",
-    "quality_gate"
+    "quality_gate",
+    "repository_publish"
   ],
   "duplicate_check": {
     "status": "passed_no_today_quran_cycle_found",
