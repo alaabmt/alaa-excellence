@@ -612,6 +612,19 @@ body.live-presenter-page .presenter.widescreen #results .stage-result.result-cho
 body.live-presenter-page .presenter.results-focus #results .stage-result.result-choice .bar>.fill{height:100%!important;min-height:88px!important;border-radius:22px!important;display:block!important}
 body.live-presenter-page .presenter #results .stage-result.result-choice .stage-result-label{font-size:clamp(1.5rem,2.3vw,2.8rem)!important;font-weight:850!important}
 @media(max-width:700px){body.live-presenter-page .presenter #results .stage-result.result-choice .bar{height:60px!important;min-height:60px!important}body.live-presenter-page .presenter #results .stage-result.result-choice .bar>.fill{min-height:60px!important}}
+
+/* Balanced projection: readable answer names, four visible choices, medium-height rounded bars. */
+body.live-presenter-page .presenter:not(.widescreen) #results .stage-result.result-choice .bar,
+body.live-presenter-page .presenter.widescreen #results .stage-result.result-choice .bar,
+body.live-presenter-page .presenter.results-focus #results .stage-result.result-choice .bar{height:50px!important;min-height:50px!important;max-height:50px!important;border-radius:15px!important;margin:10px 0 2px!important}
+body.live-presenter-page .presenter:not(.widescreen) #results .stage-result.result-choice .bar>.fill,
+body.live-presenter-page .presenter.widescreen #results .stage-result.result-choice .bar>.fill,
+body.live-presenter-page .presenter.results-focus #results .stage-result.result-choice .bar>.fill{height:100%!important;min-height:50px!important;max-height:50px!important;border-radius:15px!important}
+body.live-presenter-page .presenter #results .stage-result.result-choice .stage-result-label{font-size:clamp(1.8rem,2.6vw,3rem)!important;line-height:1.28!important;font-weight:850!important;margin-bottom:8px!important}
+body.live-presenter-page .presenter #results .stage-result.result-choice .result-choice-text{font-size:inherit!important;font-weight:850!important;line-height:1.3!important}
+body.live-presenter-page .presenter #results .stage-result.result-choice .result-choice-letter{font-size:1em!important}
+body.live-presenter-page .presenter #results .stage-result.result-choice{margin:10px 0!important;padding:14px 22px!important}
+@media(max-width:700px){body.live-presenter-page .presenter #results .stage-result.result-choice .bar{height:38px!important;min-height:38px!important;max-height:38px!important}body.live-presenter-page .presenter #results .stage-result.result-choice .bar>.fill{min-height:38px!important;max-height:38px!important}body.live-presenter-page .presenter #results .stage-result.result-choice .stage-result-label{font-size:1.2rem!important}}
 </style><script src="/assets/js/auth-config.js"></script></head><body><header><strong>LIVE · Personal Conference Tool</strong><div class="actions"><button id="home-link" class="secondary">Home</button><button id="language" class="secondary">العربية</button></div></header><main><div id="app" aria-live="polite"></div></main><footer>Personal conference polling · Tamayuz 10X</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" defer></script><script>
 (()=>{"use strict";
 const ENDPOINT="https://dqrsjhcfmpjhcxvtxosy.supabase.co/functions/v1/tamayuz-live";
