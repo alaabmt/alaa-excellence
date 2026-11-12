@@ -53,6 +53,33 @@ try{
   assert.equal(await page.locator("#poll .option").count(),0);
   await ctx.close();
 
+
+  // Verify the new owner self-check is really published, is mobile-safe,
+  // and never authenticates or mutates Live data without a signed-in owner.
+  for(const [name,width] of [["owner-desktop",1366],["owner-mobile",320]]){
+    const ctx=await browser.newContext({viewport:{width,height:760},locale:"en-US"});
+    const page=await ctx.newPage();
+    page.on("pageerror",e=>errors.push(name+": "+e.message));
+    let liveApiCalls=0;
+    page.on("request",request=>{
+      if(request.url().includes("/functions/v1/tamayuz-live"))liveApiCalls++;
+    });
+    const response=await page.goto(base+"qa/owner-auth-check.html",{waitUntil:"domcontentloaded",timeout:30000});
+    assert.equal(response.status(),200,name+": owner auth-check page missing");
+    await page.getByRole("heading",{name:"Tamayuz Live — Owner authorization check"}).waitFor();
+    assert.equal(await page.locator("#copy").isDisabled(),true,"No unverified evidence available");
+    assert.match(await page.locator("#result").innerText(),/Not yet tested\. NO-GO remains/);
+    assert.equal(liveApiCalls,0,name+": owner test performed automatic backend requests without owner consent");
+    await page.locator("#run").click();
+    await page.getByText("No active signed-in session. Sign in using the website first.").waitFor({timeout:15000});
+    assert.equal(await page.locator("#copy").isDisabled(),true,"Anonymous user must not receive positive evidence");
+    assert.equal(liveApiCalls,0,name+": anonymous check must not submit privileged operations");
+    if(width===320){
+      assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false,name+": horizontal overflow");
+    }
+    await ctx.close();
+  }
+
   assert.deepEqual(errors,[],"Live JavaScript errors on published site");
   console.log("Tamayuz Live PRODUCTION public UI smoke: desktop/mobile, RTL, theme, presenter privacy, invalid code PASS");
 }finally{await browser.close()}
