@@ -1,0 +1,23 @@
+name: Tamayuz Live Workspace Persistence Test
+on:
+  push:
+    branches:
+      - fix/tamayuz-live-restore-manage-desktop-20261112
+    paths:
+      - live/index.html
+      - tests/tamayuz-live-restore-workspace.test.mjs
+      - .github/workflows/tamayuz-live-workspace-persistence-test.yml
+  pull_request:
+    paths:
+      - live/index.html
+      - tests/tamayuz-live-restore-workspace.test.mjs
+      - .github/workflows/tamayuz-live-workspace-persistence-test.yml
+permissions:
+  contents: read
+jobs:
+  workspace-persistence:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - run: node --test tests/tamayuz-live-restore-workspace.test.mjs tests/tamayuz-live-navigation.test.mjs tests/tamayuz-live-ended-state.test.mjs tests/tamayuz-live-security.test.mjs
