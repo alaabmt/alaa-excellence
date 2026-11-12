@@ -85,7 +85,31 @@ body.live-presenter-page .presenter.widescreen .presenter-stage{grid-template-co
 body.live-presenter-page .presenter.widescreen .stage-question{font-size:clamp(1.2rem,1.6vw,1.85rem)!important;max-height:clamp(180px,35vh,340px)}
 body.live-presenter-page .presenter.widescreen .stage-main>.panel:first-child{min-height:0!important}
 @media(max-width:800px){body.live-presenter-page .presenter-stage{grid-template-columns:1fr!important}body.live-presenter-page .presenter .stage-question{font-size:1.15rem!important;max-height:35vh}}
-.answer-explanation{background:#f0ecff;border:2px solid #7564ed;border-radius:14px;padding:16px;margin:15px 0;color:#241a52}.answer-explanation h3{color:#4431c3;margin:0 0 10px;font-size:1.1rem}.answer-explanation p{line-height:1.5;margin:7px 0;font-size:.95rem}\n.audience-results .fill{transition:width .45s ease}.audience-results .stage-result{margin:12px 0}.audience-wrap .option:disabled{opacity:.65;cursor:wait}.audience-wrap #notice{min-height:1.5em}\n</style></head><body><header><strong>LIVE · Personal Conference Tool</strong><div class="actions"><button id="home-link" class="secondary">Home</button><button id="language" class="secondary">العربية</button></div></header><main><div id="app" aria-live="polite"></div></main><footer>Personal conference polling · Tamayuz 10X</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" defer></script><script>
+.answer-explanation{background:#f0ecff;border:2px solid #7564ed;border-radius:14px;padding:16px;margin:15px 0;color:#241a52}.answer-explanation h3{color:#4431c3;margin:0 0 10px;font-size:1.1rem}.answer-explanation p{line-height:1.5;margin:7px 0;font-size:.95rem}\n.audience-results .fill{transition:width .45s ease}.audience-results .stage-result{margin:12px 0}.audience-wrap .option:disabled{opacity:.65;cursor:wait}.audience-wrap #notice{min-height:1.5em}\n
+/* Mobile presenter: a long clinical case must scroll with the page, never inside a tiny question box. */
+@media (max-width:800px){
+ body.live-presenter-page,body.live-presenter-page #app,body.live-presenter-page main{overflow-x:clip!important}
+ body.live-presenter-page main{padding:0 12px!important;margin:12px auto!important}
+ body.live-presenter-page .presenter-stage{display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:12px!important}
+ body.live-presenter-page .presenter .stage-main>.panel:first-child{padding:18px 16px!important;min-height:0!important}
+ body.live-presenter-page .presenter .stage-question,
+ body.live-presenter-page .presenter.widescreen .stage-question{
+  max-height:none!important;height:auto!important;overflow:visible!important;
+  overscroll-behavior:auto!important;padding:0!important;
+  font-size:clamp(1rem,3.8vw,1.2rem)!important;line-height:1.55!important;
+  font-weight:600!important;white-space:pre-wrap!important;overflow-wrap:break-word!important;
+  margin:12px 0 20px!important
+ }
+ body.live-presenter-page .presenter .stage-topline{position:static!important;gap:10px!important}
+ body.live-presenter-page .presenter .stage-title{font-size:1.5rem!important}
+ body.live-presenter-page .presenter .stage-result-label{font-size:.92rem!important;gap:12px;align-items:start}
+ body.live-presenter-page .presenter .stage-result-label span{min-width:0;overflow-wrap:anywhere}
+ body.live-presenter-page .presenter .stage-result-label strong{flex-shrink:0;white-space:nowrap}
+ body.live-presenter-page .presenter .stage-count{margin-top:16px}
+ body.live-presenter-page .presenter .stage-display-tools{gap:8px}
+ body.live-presenter-page .presenter.widescreen .stage-topline{position:static!important}
+}
+</style></head><body><header><strong>LIVE · Personal Conference Tool</strong><div class="actions"><button id="home-link" class="secondary">Home</button><button id="language" class="secondary">العربية</button></div></header><main><div id="app" aria-live="polite"></div></main><footer>Personal conference polling · Tamayuz 10X</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" defer></script><script>
 (()=>{"use strict";
 const ENDPOINT="https://dqrsjhcfmpjhcxvtxosy.supabase.co/functions/v1/tamayuz-live";
 const $=id=>document.getElementById(id),esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
