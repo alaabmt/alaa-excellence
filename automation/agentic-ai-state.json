@@ -7,10 +7,14 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-12T00:20:25.314Z",
-  "workflow_status": "blocked",
+  "updated_at": "2026-11-12T21:57:24+04:00",
+  "workflow_status": "in_progress",
   "current_stage": "live_verification",
-  "run_lease": null,
+  "run_lease": {
+    "owner": "scheduled-agentic-ai-2026-11-12-resume",
+    "acquired_at": "2026-11-12T21:57:24+04:00",
+    "expires_at": "2026-11-12T23:47:24+04:00"
+  },
   "current_item": {
     "slug": "article-agentic-ai-swelancer-million-dollar-software-work",
     "publication_date": "2026-11-11",
@@ -157,22 +161,15 @@
   },
   "next_action": "Run this exact SWE-Lancer Arabic and English article in real Chromium at 320/375/390/430px, then test actual Arabic and English TTS in a Web Speech-capable browser (title first, synchronized highlighting, pause/resume/stop and speed). If actual playback cannot be supplied, obtain an explicit decision accepting the structural listen-control check instead. Reconcile live targets before any retry; do not republish.",
   "last_run": {
-    "mode": "coordinator_resume",
-    "status": "blocked",
-    "started_at": "2026-11-12T00:05:00.000Z",
-    "completed_at": "2026-11-12T00:20:25.314Z",
-    "notes": "Actions, exact-head Pages and live page/hub/sitemap/social-asset checks passed. Publication report saved. Blocked at live_verification because the exact article lacks retained 320/375/390/430 evidence and the managed browser exposes no Web Speech API for actual bilingual TTS playback.",
+    "mode": "scheduled_daily_resume",
+    "status": "in_progress",
+    "started_at": "2026-11-12T21:57:24+04:00",
+    "completed_at": null,
+    "notes": "Resuming the blocked SWE-Lancer live-verification checkpoint. No new article will be selected until the retained mobile and bilingual TTS gates are reconciled.",
     "current_item": "article-agentic-ai-swelancer-million-dollar-software-work",
     "checkpoint": "actions_and_pages"
   },
-  "blocker": {
-    "type": "verification_environment_and_decision",
-    "stage": "live_verification",
-    "reason": "The exact SWE-Lancer pages still need retained real-mobile RTL/LTR evidence, and the available managed browser has no Web Speech API, so actual Arabic/English playback and synchronized controls cannot be proven.",
-    "decision_required": "Provide or authorize a Web Speech-capable browser/device and run the remaining article-specific mobile/TTS gates, or explicitly accept structural listen-control verification in place of actual playback.",
-    "safe_to_retry": true,
-    "duplicate_prevention": "Re-check state, main, live pages, hubs, sitemap and assets; do not republish or recreate existing artifacts."
-  },
+  "blocker": null,
   "last_completed_item": {
     "slug": "article-agentic-ai-erpbench-market-ecology",
     "publication_date": "2026-11-05",
