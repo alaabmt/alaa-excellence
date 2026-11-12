@@ -18,8 +18,8 @@ jobs:
     if: github.ref == 'refs/heads/test/tamayuz-live-capacity-20261112'
     env:
       EXPLICIT_PRODUCTION_LOAD_TEST: 'YES'
-      TEST_JOIN_CODE: '7953A9FC3F'
-      TEST_SESSION_ID: 'aba3339c-803e-4935-a651-e2b2f5cee8b9'
+      TEST_JOIN_CODE: 'A3E6831879'
+      TEST_SESSION_ID: 'd4d0cfa7-5b36-4c7d-9709-349827dfaa5d'
     steps:
       - name: Checkout isolated test branch
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
