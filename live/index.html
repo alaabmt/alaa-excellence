@@ -899,13 +899,13 @@ async function presenterPage(){
   if(results){
    const total=v.count||0;
    if(!selected)results.innerHTML="";
-   else if(!s.show_results){const labels=selected.kind==="choice"?(selected.options||[]):selected.kind==="rating"?["1","2","3","4","5"]:[];results.innerHTML='<div class="stage-options"><h3>'+t("Answer options","خيارات الإجابة")+'</h3>'+(labels.length?labels.map((label,i)=>'<div class="stage-option"><strong>'+String.fromCharCode(65+i)+'.</strong><span>'+esc(label)+'</span></div>').join(""):'<p class="muted">'+t("Responses will appear when results are shown.","ستظهر الإجابات عند عرض النتائج.")+'</p>')+'</div>';}
+   
    else{
     const counts=new Map((v.aggregate||[]).map(x=>[String(x.answer),Number(x.votes)||0]));
     const labels=selected.kind==="choice"?(selected.options||[]):selected.kind==="rating"?["1","2","3","4","5"]:[...counts.keys()];
     results.innerHTML='<div class="stage-count"><strong>'+total+'</strong><span>'+t("responses","إجابة")+'</span></div>'+labels.map((label,i)=>{const n=counts.get(String(label))||0,pct=total?Math.round(n*100/total):0;return resultChoiceMarkup(label,i,n,total,s.reveal_correct_answer,selected.correct_answer)}).join("");
    }
-   if(selected&&s.show_results&&s.reveal_correct_answer&&selected.correct_answer){
+   if(selected&&s.reveal_correct_answer&&selected.correct_answer){
     results.innerHTML+='<section class="answer-explanation"><h3>'+t("Correct answer","الإجابة الصحيحة")+': '+esc(selected.correct_answer)+'</h3>'+(selected.answer_justification?'<p><strong>'+t("Justification","التبرير")+':</strong> '+esc(selected.answer_justification)+'</p>':'')+(selected.answer_effect?'<p><strong>'+t("Effect","الأثر")+':</strong> '+esc(selected.answer_effect)+'</p>':'')+'</section>';
    }
   }
