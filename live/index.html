@@ -581,6 +581,17 @@ body.live-presenter-page .presenter.results-focus #results .result-choice .fill{
 body.live-presenter-page .presenter.results-focus #results .result-percent{font-size:clamp(2.1rem,3.2vw,3.8rem)!important}
 body.live-presenter-page .presenter.results-focus .results-focus-toolbar button{background:#33216c!important;color:white!important;font-size:1.05rem!important;padding:12px 20px!important}
 @media(min-width:1050px){body.live-presenter-page .presenter.results-focus .stage-main>.panel:first-child{min-height:75vh!important}}
+
+/* Large-screen poll readability: bar fill matches the actual vote percentage. */
+body.live-presenter-page .presenter #results .result-choice .bar{width:100%!important;min-width:0!important;display:block!important;height:clamp(46px,4.8vw,72px)!important;background:#e7e4ef!important;border-radius:13px!important;overflow:hidden!important}
+body.live-presenter-page .presenter #results .result-choice .bar .fill{display:block!important;max-width:100%!important;min-width:0!important;height:100%!important;border-radius:11px!important;transition:width .45s ease!important;transform:none!important}
+body.live-presenter-page .presenter #results .result-choice .stage-result-label{font-size:clamp(1.55rem,2.35vw,2.8rem)!important;font-weight:800!important;line-height:1.35!important;gap:20px!important}
+body.live-presenter-page .presenter #results .result-choice .result-choice-name{display:flex!important;align-items:center!important;gap:16px!important;min-width:0!important}
+body.live-presenter-page .presenter #results .result-choice .result-choice-letter{display:inline-flex!important;align-items:center!important;justify-content:center!important;flex:0 0 auto!important;width:1.75em!important;height:1.75em!important;border-radius:12px!important;background:#eeeafe!important;color:#33216c!important;font-weight:900!important}
+body.live-presenter-page .presenter #results .result-choice .result-choice-text{font-size:inherit!important;font-weight:800!important}
+body.live-presenter-page .presenter #results .result-choice .result-percent{font-size:clamp(2.25rem,3.5vw,4rem)!important;font-weight:900!important}
+body.live-presenter-page .presenter #results .result-choice .result-votes{font-size:clamp(.95rem,1.2vw,1.25rem)!important;font-weight:800!important}
+@media(max-width:700px){body.live-presenter-page .presenter #results .result-choice .stage-result-label{font-size:1.15rem!important}body.live-presenter-page .presenter #results .result-choice .bar{height:32px!important}body.live-presenter-page .presenter #results .result-choice .result-percent{font-size:1.7rem!important}}
 </style><script src="/assets/js/auth-config.js"></script></head><body><header><strong>LIVE · Personal Conference Tool</strong><div class="actions"><button id="home-link" class="secondary">Home</button><button id="language" class="secondary">العربية</button></div></header><main><div id="app" aria-live="polite"></div></main><footer>Personal conference polling · Tamayuz 10X</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" defer></script><script>
 (()=>{"use strict";
 const ENDPOINT="https://dqrsjhcfmpjhcxvtxosy.supabase.co/functions/v1/tamayuz-live";
