@@ -5,13 +5,13 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-12T18:06:02.404Z",
-  "workflow_status": "in_progress",
-  "current_stage": "actions_and_pages",
+  "updated_at": "2026-11-12T18:07:38.245Z",
+  "workflow_status": "blocked",
+  "current_stage": "live_verification",
   "current_article": {
     "article_id": "quran-reflection-2026-11-12-al-ahzab-upright-speech",
     "publication_date": "2026-11-12",
-    "status": "actions_and_pages_completed_pending_live_verification",
+    "status": "actions_pages_and_live_structure_verified_tts_playback_blocked",
     "duplicate_check": {
       "status": "passed_no_today_quran_cycle_found",
       "checked_at": "2026-11-12T13:07:23Z",
@@ -273,7 +273,7 @@
       "sitemap_reconciled_by_automation": true
     },
     "repository_publication": {
-      "status": "repository_published_actions_pages_mobile_rtl_tts_and_live_verification_pending",
+      "status": "live_verified_except_actual_tts_playback",
       "quality_score": 99,
       "publication_date": "2026-11-12",
       "publication_commit": "08da90922b404045be54eebadfb9fb95a98c8284",
@@ -285,12 +285,12 @@
       "english_social_asset": "assets/previews/story/reflection-al-ahzab-upright-speech-en.svg",
       "publication_report_path": "automation/quran-reflections/reflection-al-ahzab-upright-speech/repository-publish-report.md",
       "repository_validation": "passed",
-      "mobile_gate": "pending_actions_and_exact_chromium",
-      "rtl_gate": "pending_actions_and_exact_chromium",
-      "tts_gate": "pending_actual_playback",
-      "actions_gate": "pending",
-      "pages_gate": "pending",
-      "live_gate": "pending",
+      "mobile_gate": "passed_real_chromium_8_of_8_at_320_375_390_430_ar_en",
+      "rtl_gate": "passed_real_chromium",
+      "tts_gate": "blocked_actual_playback_web_speech_unavailable_in_verification_browser",
+      "actions_gate": "passed_with_site_health_reconciled",
+      "pages_gate": "passed_exact_head_6da1be7a0286663dd86ebbc3e0c53b9536bd901e",
+      "live_gate": "passed_except_actual_tts_playback",
       "automation_descendant_head": "6b6d7f9b63af9483cbeec61eff0a66d5fab92cd0"
     },
     "actions_and_pages": {
@@ -360,6 +360,74 @@
         "assets/previews/story/reflection-al-ahzab-upright-speech-ar.jpg",
         "assets/previews/story/reflection-al-ahzab-upright-speech-en.jpg"
       ]
+    },
+    "live_verification": {
+      "status": "blocked_on_actual_tts_playback",
+      "checked_at": "2026-11-12T18:07:38.245Z",
+      "deployed_head": "9bbdaa78ce2aa976f1151f96884f96c24b8945d3",
+      "report_path": "automation/quran-reflections/reflection-al-ahzab-upright-speech/live-verification-report.md",
+      "pages": {
+        "ar": {
+          "url": "https://tamayuz10x.com/reflection-al-ahzab-upright-speech.html",
+          "loaded": true,
+          "title": "كيف يكون القول سديدًا حين يصعب الاعتراف بالخطأ؟ | التميّز 10X",
+          "lang": "ar",
+          "dir": "rtl",
+          "listen_control": true,
+          "article_content": true,
+          "share_links": true
+        },
+        "en": {
+          "url": "https://tamayuz10x.com/en/reflection-al-ahzab-upright-speech.html",
+          "loaded": true,
+          "title": "What Makes Speech Upright When Admitting Error Is Hard? | Tamayuz 10X",
+          "lang": "en",
+          "dir": "ltr",
+          "listen_control": true,
+          "article_content": true,
+          "share_links": true
+        }
+      },
+      "indexes": {
+        "articles.html": {
+          "title_present": true,
+          "slug_links": 2
+        },
+        "en/articles.html": {
+          "title_present": true,
+          "slug_links": 2
+        },
+        "quranic-reflections.html": {
+          "title_present": true,
+          "slug_links": 2
+        },
+        "en/quranic-reflections.html": {
+          "title_present": true,
+          "slug_links": 2
+        }
+      },
+      "sitemap": {
+        "arabic_loc_present": true,
+        "english_loc_present": true
+      },
+      "social_assets": {
+        "repository_files": [
+          "assets/previews/story/reflection-al-ahzab-upright-speech-ar.jpg",
+          "assets/previews/story/reflection-al-ahzab-upright-speech-en.jpg"
+        ],
+        "exact_mobile_assets_ok": true,
+        "direct_binary_open_in_search_tool": "unsupported",
+        "note": "Generated files exist on main, deployed Pages succeeded, and the exact-head bilingual mobile review reported assetsOk=true in all eight cases."
+      },
+      "tts": {
+        "controls_present": true,
+        "speech_synthesis_available_in_verification_browser": false,
+        "actual_playback_verified": false,
+        "arabic_click_started_playback": false,
+        "english_click_started_playback": false,
+        "blocker": "The available cloud Chrome does not expose window.speechSynthesis. Clicking Listen left speaking=false and did not change the control state in either language.",
+        "decision_required": "Provide a Web Speech-capable browser/device for actual Arabic and English playback verification, or explicitly approve completion without the actual-playback gate."
+      }
     }
   },
   "stage_order": [
@@ -393,22 +461,17 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Verify the live Arabic and English pages, all four live indexes, sitemap entries, generated social-card endpoints, and actual Arabic/English TTS playback in a Web Speech-capable browser. Do not republish or regenerate completed artifacts.",
+  "next_action": "Run actual Arabic and English playback verification on both live article URLs in a browser/device where window.speechSynthesis is available. Verify title-first order, synchronized highlighting, floating controls, pause/resume/stop, and speed. If this gate passes, save live_verification and completion_report; do not republish repository content.",
   "last_run": {
     "mode": "coordinator_resume",
-    "status": "running",
+    "status": "blocked",
     "started_at": "2026-11-12T17:59:01.271Z",
-    "last_checkpoint": "repository_publish",
-    "notes": "Acquired a 110-minute lease to reconcile Actions, Pages, mobile/RTL, social assets, live targets, and TTS without replaying repository publication."
+    "last_checkpoint": "actions_and_pages",
+    "blocked_at": "2026-11-12T18:07:38.245Z",
+    "notes": "Actions and Pages checkpoint saved. Live pages, indexes and sitemap are present. Actual bilingual TTS playback could not be verified because the available browser has no window.speechSynthesis."
   },
   "workflow_id": "quran_reflections",
-  "run_lease": {
-    "owner": "chatgpt-central-resume-20261112T175901271Z",
-    "acquired_at": "2026-11-12T17:59:01.271Z",
-    "expires_at": "2026-11-12T19:49:01.271Z",
-    "base_head_sha": "a72dc0dde06045831c056206c2a32a1f3a5db434",
-    "stage": "live_verification"
-  },
+  "run_lease": null,
   "checkpoint_policy": {
     "checkpoint_after_every_stage": true,
     "run_lease_minutes": 110,
