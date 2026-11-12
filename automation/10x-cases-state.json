@@ -7,9 +7,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-12T07:34:00+04:00",
+  "updated_at": "2026-11-12T07:49:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "capability_check",
+  "current_stage": "candidate_scan",
   "run_lease": {
     "owner": "codex-tenx-primary-20261112-0734",
     "acquired_at": "2026-11-12T07:34:00+04:00",
@@ -55,14 +55,14 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Load current manuals and standards, then complete the duplicate check for 2026-11-12 Asia/Dubai before candidate research.",
+  "next_action": "Scan UAE, regional and global candidates; select only a distinct evidence-qualified transformation and save candidate-notes.md.",
   "last_run": {
     "mode": "primary_scheduled_cycle",
     "status": "in_progress",
     "started_at": "2026-11-12T07:34:00+04:00",
     "starting_head": "b1f7cfcbd12f4a1444fad3c5c685d5f26091c1ac",
-    "last_checkpoint": "capability_check",
-    "notes": "Lease acquired; no candidate selected and no publication action taken."
+    "last_checkpoint": "duplicate_check",
+    "notes": "Current manuals and connected Drive standards loaded. Publication registry, Arabic/English indexes, sitemap and main checked: no 10X case has publication date 2026-11-12. No candidate or publication write yet."
   },
   "last_completed_item": {
     "slug": "case-bangladesh-cyclone-preparedness-community-warning",
@@ -127,7 +127,9 @@
   },
   "run_date": "2026-11-12",
   "completed_stages": [
-    "capability_check"
+    "capability_check",
+    "load_checkpoint",
+    "duplicate_check"
   ],
   "blocker": null
 }
