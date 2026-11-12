@@ -106,7 +106,6 @@ Deno.serve(async(req)=>{
    const {error}=await db.from("live_votes").insert({session_id:s.id,question_id:q.id,participant_id:p.id,answer});
    if(error?.code==="23505")return reply({accepted:true,duplicate:true});
    if(error)return reply({error:"Vote not accepted"},409);
-   await db.from("live_sessions").update({revision:s.revision+1}).eq("id",s.id).eq("revision",s.revision);
    return reply({accepted:true});
   }
   return reply({error:"Unknown action"},400);
