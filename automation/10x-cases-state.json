@@ -7,71 +7,15 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-07T08:34:15.755Z",
-  "workflow_status": "completed",
-  "current_stage": "completed",
-  "run_lease": null,
-  "current_item": {
-    "slug": "case-bangladesh-cyclone-preparedness-community-warning",
-    "publication_date": "2026-11-07",
-    "title_working_ar": "كيف حوّلت بنغلاديش الإنذار من رسالة مركزية إلى استجابة يقودها المجتمع؟",
-    "title_working_en": "How Bangladesh Turned Cyclone Warnings into Community Action",
-    "candidate_status": "published_live_verified",
-    "artifact_root": "automation/10x-cases/case-bangladesh-cyclone-preparedness-community-warning/",
-    "candidate_notes": {
-      "path": "automation/10x-cases/case-bangladesh-cyclone-preparedness-community-warning/candidate-notes.md",
-      "commit": "644afa04b08bcf7eaf975ef829263b5cf32b3569"
-    },
-    "evidence_pack": {
-      "status": "passed_with_explicit_attribution_limits",
-      "path": "automation/10x-cases/case-bangladesh-cyclone-preparedness-community-warning/evidence-pack.md",
-      "commit": "15a85d1c49c2e1d1ee2700e57a17c3ef016ef8bc",
-      "confidence": {
-        "operating_model": "high",
-        "programme_inventory": "high_reported",
-        "bulbul_evacuation": "medium_not_cpp_exclusive",
-        "mortality_attribution": "rejected",
-        "equity": "mixed"
-      }
-    },
-    "arabic_draft": {
-      "path": "automation/10x-cases/case-bangladesh-cyclone-preparedness-community-warning/arabic-draft.md",
-      "commit": "77997cbcd0e22368032ee2f24607ff1da0bd6bc4"
-    },
-    "english_draft": {
-      "path": "automation/10x-cases/case-bangladesh-cyclone-preparedness-community-warning/english-draft.md",
-      "commit": "a77983e79f7f87aa867911be2891a4d05480846e"
-    },
-    "company_insider_critique": {
-      "status": "passed_simulated",
-      "path": "automation/10x-cases/case-bangladesh-cyclone-preparedness-community-warning/company-insider-critique.md",
-      "commit": "d6b7678cf304e1047ea696e97d596535ad1a28ab"
-    },
-    "final_quality_gate": {
-      "status": "passed_postdeploy",
-      "path": "automation/10x-cases/case-bangladesh-cyclone-preparedness-community-warning/final-quality-gate.md",
-      "commit": "e17e4fee23be683975a58df4de3a5ae9a6443717"
-    },
-    "publishing": {
-      "status": "published_live_verified",
-      "arabic_url": "https://tamayuz10x.com/case-bangladesh-cyclone-preparedness-community-warning.html",
-      "english_url": "https://tamayuz10x.com/en/case-bangladesh-cyclone-preparedness-community-warning.html",
-      "initial_publication_commit": "84b6c48bacb3e3f8ce61f31d81cfb29e24865bb4",
-      "social_manifest_commit": "63c8c3616159cbd1457cac670b632b988555a698",
-      "latest_pages_verified_head": "73dbd0eb7faadad2f14cfe03c698610f5cd57467",
-      "pages_run": "https://github.com/alaabmt/alaa-excellence/actions/runs/42355930058",
-      "mobile_verification": "passed_real_390px_chromium_ar_en_no_horizontal_overflow",
-      "index_verification": "passed_ar_en_one_card",
-      "sitemap_verification": "passed_ar_en_one_url",
-      "image_verification": "passed_ar_en_1200x630_http200",
-      "metadata_verification": "passed_canonical_hreflang_og_twitter_schema",
-      "video_verification": "not_inserted_unverified"
-    },
-    "publication_report": {
-      "path": "automation/10x-cases/case-bangladesh-cyclone-preparedness-community-warning/publication-report.md",
-      "commit": "508b16434c509075af0b83e9d7d8cd23e6ed6fff"
-    }
+  "updated_at": "2026-11-12T07:34:00+04:00",
+  "workflow_status": "in_progress",
+  "current_stage": "capability_check",
+  "run_lease": {
+    "owner": "codex-tenx-primary-20261112-0734",
+    "acquired_at": "2026-11-12T07:34:00+04:00",
+    "expires_at": "2026-11-12T09:24:00+04:00"
   },
+  "current_item": null,
   "stage_order": [
     "capability_check",
     "load_checkpoint",
@@ -111,12 +55,14 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "At next scheduled daily cycle, check Asia/Dubai date and publication history, then start a distinct case only if no publication already exists for that date. Never republish Bangladesh.",
+  "next_action": "Load current manuals and standards, then complete the duplicate check for 2026-11-12 Asia/Dubai before candidate research.",
   "last_run": {
-    "mode": "user_authorized_finish_without_approval",
-    "status": "completed",
-    "ended_at": "2026-11-07T08:34:15.755Z",
-    "notes": "Bangladesh case published bilingual, social cards and indexes integrated, Pages and mobile verified; administrative checkpoint may create later Pages run."
+    "mode": "primary_scheduled_cycle",
+    "status": "in_progress",
+    "started_at": "2026-11-12T07:34:00+04:00",
+    "starting_head": "b1f7cfcbd12f4a1444fad3c5c685d5f26091c1ac",
+    "last_checkpoint": "capability_check",
+    "notes": "Lease acquired; no candidate selected and no publication action taken."
   },
   "last_completed_item": {
     "slug": "case-bangladesh-cyclone-preparedness-community-warning",
@@ -179,24 +125,9 @@
       "commit": "508b16434c509075af0b83e9d7d8cd23e6ed6fff"
     }
   },
-  "run_date": "2026-11-07",
+  "run_date": "2026-11-12",
   "completed_stages": [
-    "capability_check",
-    "load_checkpoint",
-    "duplicate_check",
-    "candidate_scan",
-    "evidence_pack",
-    "backcasting_and_10x_analysis",
-    "arabic_draft",
-    "company_insider_critique",
-    "english_draft",
-    "bilingual_parity",
-    "final_quality_gate",
-    "repository_publish",
-    "actions_and_pages",
-    "live_verification",
-    "completion_report",
-    "completed"
+    "capability_check"
   ],
   "blocker": null
 }
