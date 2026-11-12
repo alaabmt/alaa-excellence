@@ -245,6 +245,27 @@ body:has(.qm) main{max-width:1240px!important;padding:0 26px!important;margin:26
  .qm-number{width:37px!important;height:37px!important;font-size:.9rem!important}
  .qm-card-detail{padding:13px!important}
 }
+
+.qm-tabs{display:flex;gap:8px;border-bottom:1px solid #ddd8ef;margin:6px 0 22px;padding-bottom:8px;overflow-x:auto}
+.qm-tab{background:transparent;color:#50496c;border-radius:9px;padding:12px 19px;white-space:nowrap;font-weight:750}
+.qm-tab.is-active{background:#6550db;color:#fff;box-shadow:0 3px 9px #6550db24}
+#qm-questions-tab[hidden],#qm-sessions-tab[hidden],#qm-analytics-tab[hidden]{display:none!important}
+.qm-card-line{display:flex;align-items:center}.qm-card-line .qm-card-top{flex:1;min-width:0}.qm-order{display:flex;gap:3px;padding-right:10px}
+.qm-mini{padding:7px 11px;font-size:.88rem;border-radius:7px;min-width:32px}
+.qm-preview-toolbar{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:13px;flex-wrap:wrap}
+.qm-preview-toolbar .qm-selected{background:#6550db;color:#fff}
+.qm-preview-screen{border:1px solid #dedbed;background:#fff;border-radius:12px;padding:18px;margin:12px auto;max-width:740px}
+.qm-audience-preview{max-width:430px}.qm-presenter-preview{max-width:100%;font-size:1.07rem}
+.qm-session{display:flex;justify-content:space-between;gap:14px;align-items:center;border:1px solid #e7e4ef;padding:17px;border-radius:12px;margin:12px 0;flex-wrap:wrap}
+.qm-session strong{font-size:1.18rem;color:#32216c}.qm-session p{margin:5px 0;font-size:.86rem}
+.qm-analytics-stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px;margin:15px 0}
+.qm-analytics-stats>div{display:flex;flex-direction:column;background:#f3f0ff;border-radius:12px;padding:17px;gap:5px}
+.qm-analytics-stats strong{font-size:1.8rem;color:#33216c}.qm-analytics-stats span{color:#62647a}
+.qm-analytics-question{border-top:1px solid #e7e4ef;padding:17px 0;margin-top:12px}
+.qm-analytics-question p{font-size:.88rem;color:#62647a;line-height:1.5}
+.qm-analytics-answer{display:flex;justify-content:space-between;gap:14px;padding:8px 0;border-bottom:1px solid #f0eef6;font-size:.88rem}
+.qm-edit label{display:block;margin:12px 0;font-weight:700}.qm-edit textarea,.qm-edit select{display:block;margin-top:7px;font-weight:400}
+@media(max-width:700px){.qm-tabs{gap:3px}.qm-tab{padding:11px 12px;font-size:.9rem}.qm-card-line .qm-card-top{padding-right:4px!important}.qm-order{flex-direction:column;padding-right:6px}.qm-mini{padding:6px 8px}.qm-preview-screen{padding:11px}}
 </style></head><body><header><strong>LIVE · Personal Conference Tool</strong><div class="actions"><button id="home-link" class="secondary">Home</button><button id="language" class="secondary">العربية</button></div></header><main><div id="app" aria-live="polite"></div></main><footer>Personal conference polling · Tamayuz 10X</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" defer></script><script>
 (()=>{"use strict";
 const ENDPOINT="https://dqrsjhcfmpjhcxvtxosy.supabase.co/functions/v1/tamayuz-live";
@@ -272,45 +293,92 @@ function presenterAccess(){layout('<button class="secondary" id="back-home">'+t(
 async function dashboard(){layout('<h1>'+t("My presentations","عروضي التقديمية")+'</h1><div class="panel stack"><h2>'+t("Create presentation","إنشاء عرض")+'</h2>'+field(t("Conference title","عنوان المؤتمر"),"title")+ '<select id="locale"><option value="en">English</option><option value="ar">العربية</option></select><button id="create">'+t("Create","إنشاء")+'</button></div><div class="panel"><h2>'+t("Saved presentations","العروض المحفوظة")+'</h2><div id="presentations">'+t("Loading...","جارٍ التحميل...")+'</div></div><p id="notice"></p>');$("create").onclick=async()=>{try{const v=await api("create",{key:admin,title:$("title").value,locale:$("locale").value});sessionStorage.setItem("live-selected",v.presentation.id);await dashboard()}catch(e){notice(e.message,true)}};try{const v=await api("list",{key:admin});$("presentations").innerHTML=v.presentations.length?v.presentations.map(p=>'<div class="panel"><strong>'+esc(p.title)+'</strong><p class="muted">'+esc(p.locale)+'</p><button data-id="'+esc(p.id)+'">'+t("Manage questions and sessions","إدارة الأسئلة والجلسات")+'</button></div>').join(""):t("No presentations yet.","لا توجد عروض بعد.");$("presentations").querySelectorAll("button").forEach(b=>b.onclick=()=>{sessionStorage.setItem("live-selected",b.dataset.id);manage(b.dataset.id)})}catch(e){notice(e.message,true)}}
 async function manage(pid){
  params.set("admin","1");params.set("presentation",pid);history.replaceState(null,"",location.pathname+"?"+params.toString());
- layout('<div class="qm"><div class="qm-head"><div><button class="secondary qm-back" id="back">← '+t("Presentations","العروض")+'</button><p class="muted qm-eyebrow">TAMAYUZ LIVE</p><h1>'+t("Question Manager","إدارة الأسئلة")+'</h1><p class="muted">'+t("Organize, preview and edit your live questions.","نظّم أسئلتك المباشرة وعاينها وعدّلها.")+'</p></div><button id="start" class="qm-start">＋ '+t("Create live session","إنشاء جلسة مباشرة")+'</button></div><div class="qm-summary" id="qm-summary"></div><div class="qm-toolbar"><label class="qm-search-label"><span class="sr-only">'+t("Search questions","البحث عن الأسئلة")+'</span><input id="qm-search" type="search" placeholder="'+t("Search by question number or clinical text…","ابحث برقم السؤال أو النص السريري…")+'"></label><button id="qm-add-toggle" class="secondary">＋ '+t("Add question","إضافة سؤال")+'</button></div><section id="qm-add-panel" class="panel stack qm-editor" hidden><h2>'+t("Add a question","إضافة سؤال")+'</h2>'+field(t("Question","السؤال"),"prompt")+'<label>'+t("Question type","نوع السؤال")+'<select id="kind"><option value="choice">'+t("Multiple choice","اختيارات")+'</option><option value="rating">'+t("Rating 1–5","تقييم ١–٥")+'</option><option value="text">'+t("Open text","إجابة مفتوحة")+'</option></select></label><label>'+t("Options (one per line, for choice questions)","الخيارات (كل خيار في سطر)")+'<textarea id="options" rows="5"></textarea></label><button id="add">'+t("Save new question","حفظ السؤال الجديد")+'</button></section><section class="qm-list"><div class="qm-list-head"><h2>'+t("Saved questions","الأسئلة المحفوظة")+'</h2><span class="muted" id="qm-count"></span></div><div id="saved-questions" aria-live="polite">'+t("Loading questions…","جارٍ تحميل الأسئلة…")+'</div></section><p id="notice" role="status"></p></div>');
+ layout('<div class="qm"><div class="qm-head"><div><button class="secondary qm-back" id="back">← '+t("Presentations","العروض")+'</button><p class="muted qm-eyebrow">TAMAYUZ LIVE · WORKSPACE</p><h1 id="qm-title">'+t("Presentation workspace","مساحة عمل العرض")+'</h1><p class="muted">'+t("Prepare questions, manage sessions and review engagement.","جهّز الأسئلة وأدر الجلسات وراجع التفاعل.")+'</p></div><button id="start" class="qm-start">＋ '+t("Create live session","إنشاء جلسة مباشرة")+'</button></div><div class="qm-summary" id="qm-summary"></div><nav class="qm-tabs" aria-label="Workspace"><button class="qm-tab is-active" data-tab="questions">'+t("Questions","الأسئلة")+'</button><button class="qm-tab" data-tab="sessions">'+t("Live sessions","الجلسات المباشرة")+'</button><button class="qm-tab" data-tab="analytics">'+t("Analytics","التحليلات")+'</button></nav><section id="qm-questions-tab"><div class="qm-toolbar"><label class="qm-search-label"><span class="sr-only">'+t("Search questions","البحث عن الأسئلة")+'</span><input id="qm-search" type="search" placeholder="'+t("Search questions…","ابحث عن الأسئلة…")+'"></label><button id="qm-add-toggle" class="secondary">＋ '+t("Add question","إضافة سؤال")+'</button></div><section id="qm-add-panel" class="panel stack qm-editor" hidden><h2>'+t("Add a question","إضافة سؤال")+'</h2>'+field(t("Question","السؤال"),"prompt")+'<label>'+t("Question type","نوع السؤال")+'<select id="kind"><option value="choice">'+t("Multiple choice","اختيارات")+'</option><option value="rating">'+t("Rating 1–5","تقييم ١–٥")+'</option><option value="text">'+t("Open text","إجابة مفتوحة")+'</option></select></label><label>'+t("Options (one per line)","الخيارات (كل خيار في سطر)")+'<textarea id="options" rows="5"></textarea></label><button id="add">'+t("Save new question","حفظ السؤال الجديد")+'</button></section><section class="qm-list"><div class="qm-list-head"><h2>'+t("Saved questions","الأسئلة المحفوظة")+'</h2><span class="muted" id="qm-count"></span></div><div id="saved-questions" aria-live="polite">'+t("Loading…","جارٍ التحميل…")+'</div></section></section><section id="qm-sessions-tab" class="qm-list" hidden><h2>'+t("Live sessions","الجلسات المباشرة")+'</h2><div id="qm-sessions"></div></section><section id="qm-analytics-tab" class="qm-list" hidden><h2>'+t("Session analytics","تحليلات الجلسة")+'</h2><label>'+t("Select session","اختر الجلسة")+'<select id="qm-analytics-select"></select></label><div id="qm-analytics"></div></section><p id="notice" role="status"></p></div>');
  $("back").onclick=()=>{params.delete("presentation");history.replaceState(null,"",location.pathname+"?"+params.toString());dashboard()};
- $("qm-add-toggle").onclick=()=>{const el=$("qm-add-panel");el.hidden=!el.hidden;if(!el.hidden)$("prompt").focus()};
- let questions=[],expandedId=null,mode="preview",query="";
+ let questions=[],sessions=[],expandedId=null,mode="preview",query="",tab="questions",analytics=null,previewDevice="audience";
  const kindLabel=q=>q.kind==="choice"?t("Multiple choice","اختيارات متعددة"):q.kind==="rating"?t("Rating 1–5","تقييم ١–٥"):t("Open text","إجابة مفتوحة");
- const summary=q=>{const line=String(q.prompt||"").split(/\n/).map(s=>s.trim()).find(Boolean)||"";return line.length>135?line.slice(0,132)+"…":line};
- const questionCard=(q,i)=>{
-  const expanded=q.id===expandedId;
-  const opts=Array.isArray(q.options)?q.options:[];
-  const content=mode==="edit"?'<div class="qm-edit"><label>'+t("Clinical question text","نص السؤال السريري")+'<textarea data-edit-prompt="'+esc(q.id)+'" maxlength="6000" rows="11">'+esc(q.prompt)+'</textarea></label><p class="muted qm-hint">'+t("Saving updates the question wording only. Existing answer choices, correct answer and votes remain unchanged.","يحفظ التعديل نص السؤال فقط دون تغيير الخيارات أو الإجابة الصحيحة أو الأصوات.")+'</p><div class="qm-actions"><button data-save="'+esc(q.id)+'">'+t("Save changes","حفظ التغييرات")+'</button><button class="secondary" data-preview="'+esc(q.id)+'">'+t("Cancel","إلغاء")+'</button></div></div>':
-   '<div class="qm-preview"><div class="qm-preview-label">'+t("Audience preview","معاينة الجمهور")+'</div>'+clinicalCaseMarkup(q.prompt)+(opts.length?'<div class="qm-options">'+opts.map((o,j)=>'<div class="qm-option"><span class="qm-letter">'+String.fromCharCode(65+j)+'</span><span>'+esc(o)+'</span></div>').join("")+'</div>':'')+'<p class="muted qm-hint">'+t("Correct answer and explanation stay hidden in the audience preview.","تبقى الإجابة الصحيحة والتفسير مخفيين في معاينة الجمهور.")+'</p><div class="qm-actions"><button class="secondary" data-edit="'+esc(q.id)+'">✎ '+t("Edit question","تعديل السؤال")+'</button><button class="secondary" data-collapse="'+esc(q.id)+'">'+t("Close preview","إغلاق المعاينة")+'</button></div></div>';
-  return '<article class="qm-card"><button class="qm-card-top" data-expand="'+esc(q.id)+'" aria-expanded="'+expanded+'"><span class="qm-number">'+String(i+1).padStart(2,"0")+'</span><span class="qm-card-main"><strong>'+t("Question ","السؤال ")+(i+1)+'</strong><span class="qm-snippet">'+esc(summary(q))+'</span><small>'+kindLabel(q)+' · '+(opts.length?opts.length+" "+t("options","خيارات"):t("No options","بدون خيارات"))+'</small></span><span class="qm-chevron">'+(expanded?"⌃":"⌄")+'</span></button>'+(expanded?'<div class="qm-card-detail">'+content+'</div>':'')+'</article>';
+ const summary=q=>{const line=String(q.prompt||"").split(/\n/).map(s=>s.trim()).find(Boolean)||"";return line.length>125?line.slice(0,122)+"…":line};
+ const choices=q=>Array.isArray(q.options)?q.options:[];
+ const card=(q,i)=>{
+  const expanded=q.id===expandedId,opts=choices(q),correct=opts.includes(q.correct_answer)?q.correct_answer:"";
+  const edit=mode==="edit";
+  const body=edit?'<div class="qm-edit"><label>'+t("Clinical question","السؤال السريري")+'<textarea data-edit-prompt="'+esc(q.id)+'" maxlength="6000" rows="10">'+esc(q.prompt)+'</textarea></label>'+(q.kind==="choice"?'<label>'+t("Answer choices (one per line)","الخيارات (كل خيار في سطر)")+'<textarea data-edit-options="'+esc(q.id)+'" rows="6">'+esc(opts.join("\n"))+'</textarea></label><label>'+t("Correct answer","الإجابة الصحيحة")+'<select data-edit-correct="'+esc(q.id)+'"><option value="">'+t("Not configured","غير محددة")+'</option>'+opts.map(o=>'<option value="'+esc(o)+'" '+(o===correct?"selected":"")+'>'+esc(o)+'</option>').join("")+'</select></label>':'')+'<label>'+t("Answer justification","تبرير الإجابة")+'<textarea data-edit-justification="'+esc(q.id)+'" rows="4">'+esc(q.answer_justification||"")+'</textarea></label><label>'+t("Learning effect","الأثر التعليمي")+'<textarea data-edit-effect="'+esc(q.id)+'" rows="4">'+esc(q.answer_effect||"")+'</textarea></label><p class="muted qm-hint">'+t("Changing choices after votes have been recorded is blocked to protect results.","لا يمكن تغيير الخيارات بعد تسجيل الأصوات حفاظًا على النتائج.")+'</p><div class="qm-actions"><button data-save="'+esc(q.id)+'">'+t("Save all changes","حفظ جميع التغييرات")+'</button><button class="secondary" data-preview="'+esc(q.id)+'">'+t("Cancel","إلغاء")+'</button></div></div>':
+   '<div class="qm-preview"><div class="qm-preview-toolbar"><strong>'+t("Presentation preview","معاينة العرض")+'</strong><div><button class="secondary qm-mini '+(previewDevice==="audience"?"qm-selected":"")+'" data-device="audience">'+t("Audience","الجمهور")+'</button><button class="secondary qm-mini '+(previewDevice==="presenter"?"qm-selected":"")+'" data-device="presenter">'+t("Presenter","المقدم")+'</button></div></div><div class="qm-preview-screen '+(previewDevice==="presenter"?"qm-presenter-preview":"qm-audience-preview")+'">'+clinicalCaseMarkup(q.prompt)+(opts.length?'<div class="qm-options">'+opts.map((o,j)=>'<div class="qm-option"><span class="qm-letter">'+String.fromCharCode(65+j)+'</span><span>'+esc(o)+'</span></div>').join("")+'</div>':'')+'</div><p class="muted qm-hint">'+t("Preview uses saved content. Correct answers stay hidden.","تعرض المعاينة المحتوى المحفوظ مع إخفاء الإجابات الصحيحة.")+'</p><div class="qm-actions"><button class="secondary" data-edit="'+esc(q.id)+'">✎ '+t("Edit question","تعديل السؤال")+'</button><button class="secondary" data-collapse="'+esc(q.id)+'">'+t("Close","إغلاق")+'</button></div></div>';
+  return '<article class="qm-card"><div class="qm-card-line"><button class="qm-card-top" data-expand="'+esc(q.id)+'" aria-expanded="'+expanded+'"><span class="qm-number">'+String(i+1).padStart(2,"0")+'</span><span class="qm-card-main"><strong>'+t("Question ","السؤال ")+(i+1)+'</strong><span class="qm-snippet">'+esc(summary(q))+'</span><small>'+kindLabel(q)+' · '+opts.length+' '+t("options","خيارات")+(correct?' · '+t("Answer configured","الإجابة محددة"):'')+'</small></span><span class="qm-chevron">'+(expanded?"⌃":"⌄")+'</span></button><div class="qm-order"><button class="secondary qm-mini" data-move="'+esc(q.id)+'" data-dir="-1" '+(i===0?"disabled":"")+' title="'+t("Move up","تحريك لأعلى")+'">↑</button><button class="secondary qm-mini" data-move="'+esc(q.id)+'" data-dir="1" '+(i===questions.length-1?"disabled":"")+' title="'+t("Move down","تحريك لأسفل")+'">↓</button></div></div>'+(expanded?'<div class="qm-card-detail">'+body+'</div>':'')+'</article>';
  };
  function renderCards(){
   const needle=query.toLocaleLowerCase();
-  const filtered=questions.map((q,i)=>({q,i})).filter(({q,i})=>!needle||String(i+1)===needle||("question "+(i+1)).includes(needle)||String(q.prompt||"").toLocaleLowerCase().includes(needle)||(q.options||[]).some(o=>String(o).toLocaleLowerCase().includes(needle)));
-  $("qm-summary").innerHTML='<div><strong>'+questions.length+'</strong><span>'+t("Questions","أسئلة")+'</span></div><div><strong>'+questions.filter(q=>q.kind==="choice").length+'</strong><span>'+t("Multiple choice","اختيارات متعددة")+'</span></div><div><strong>'+t("Ready","جاهز")+'</strong><span>'+t("Live presentation","العرض المباشر")+'</span></div>';
+  const filtered=questions.map((q,i)=>({q,i})).filter(({q,i})=>!needle||String(i+1)===needle||("question "+(i+1)).includes(needle)||String(q.prompt||"").toLocaleLowerCase().includes(needle)||choices(q).some(o=>String(o).toLocaleLowerCase().includes(needle)));
+  $("qm-summary").innerHTML='<div><strong>'+questions.length+'</strong><span>'+t("Questions","أسئلة")+'</span></div><div><strong>'+questions.filter(q=>q.kind==="choice").length+'</strong><span>'+t("Multiple choice","اختيارات متعددة")+'</span></div><div><strong>'+sessions.filter(s=>s.state!=="ended").length+'</strong><span>'+t("Active sessions","جلسات نشطة")+'</span></div>';
   $("qm-count").textContent=filtered.length+" / "+questions.length;
   const target=$("saved-questions");
-  target.innerHTML=filtered.length?filtered.map(({q,i})=>questionCard(q,i)).join(""):'<div class="qm-empty">'+t("No matching questions.","لا توجد أسئلة مطابقة.")+'</div>';
+  target.innerHTML=filtered.length?filtered.map(({q,i})=>card(q,i)).join(""):'<div class="qm-empty">'+t("No matching questions.","لا توجد أسئلة مطابقة.")+'</div>';
   target.querySelectorAll("[data-expand]").forEach(btn=>btn.onclick=()=>{expandedId=expandedId===btn.dataset.expand?null:btn.dataset.expand;mode="preview";renderCards()});
   target.querySelectorAll("[data-edit]").forEach(btn=>btn.onclick=()=>{expandedId=btn.dataset.edit;mode="edit";renderCards()});
   target.querySelectorAll("[data-preview]").forEach(btn=>btn.onclick=()=>{mode="preview";renderCards()});
   target.querySelectorAll("[data-collapse]").forEach(btn=>btn.onclick=()=>{expandedId=null;renderCards()});
+  target.querySelectorAll("[data-device]").forEach(btn=>btn.onclick=()=>{previewDevice=btn.dataset.device;renderCards()});
+  target.querySelectorAll("[data-move]").forEach(btn=>btn.onclick=async()=>{
+   const index=questions.findIndex(q=>q.id===btn.dataset.move),next=index+Number(btn.dataset.dir);
+   if(index<0||next<0||next>=questions.length)return;
+   const order=questions.slice();[order[index],order[next]]=[order[next],order[index]];btn.disabled=true;
+   try{await api("reorder_questions",{presentation_id:pid,question_ids:order.map(q=>q.id)});questions=order;renderCards();notice(t("Question order saved.","تم حفظ ترتيب الأسئلة."))}catch(e){renderCards();notice(e.message,true)}
+  });
+  target.querySelectorAll("[data-edit-options]").forEach(area=>area.oninput=()=>{
+   const id=area.dataset.editOptions,select=target.querySelector('[data-edit-correct="'+id+'"]');if(!select)return;
+   const selected=select.value,opts=area.value.split("\n").map(x=>x.trim()).filter(Boolean);
+   select.innerHTML='<option value="">'+t("Not configured","غير محددة")+'</option>'+opts.map(o=>'<option value="'+esc(o)+'">'+esc(o)+'</option>').join("");
+   if(opts.includes(selected))select.value=selected;
+  });
   target.querySelectorAll("[data-save]").forEach(btn=>btn.onclick=async()=>{
-   const area=target.querySelector('[data-edit-prompt="'+btn.dataset.save+'"]');
-   if(!area||!area.value.trim()){notice(t("Question text cannot be empty.","لا يمكن ترك نص السؤال فارغًا."),true);return}
+   const id=btn.dataset.save,q=questions.find(x=>x.id===id),area=target.querySelector('[data-edit-prompt="'+id+'"]');
+   if(!q||!area||!area.value.trim()){notice(t("Question cannot be empty.","لا يمكن ترك السؤال فارغًا."),true);return}
+   const optsArea=target.querySelector('[data-edit-options="'+id+'"]'),opts=optsArea?optsArea.value.split("\n").map(x=>x.trim()).filter(Boolean):undefined;
+   const answer=target.querySelector('[data-edit-correct="'+id+'"]');
+   const payload={presentation_id:pid,question_id:id,prompt:area.value,answer_justification:target.querySelector('[data-edit-justification="'+id+'"]').value,answer_effect:target.querySelector('[data-edit-effect="'+id+'"]').value};
+   if(opts)payload.options=opts;
+   if(answer)payload.correct_answer=answer.value;
    btn.disabled=true;
-   try{await api("update_question",{presentation_id:pid,question_id:btn.dataset.save,prompt:area.value});const item=questions.find(q=>q.id===btn.dataset.save);if(item)item.prompt=area.value;mode="preview";renderCards();notice(t("Question updated. Existing answers and votes preserved.","تم تحديث السؤال مع الاحتفاظ بالإجابات والأصوات."))}
-   catch(e){btn.disabled=false;notice(e.message,true)}
+   try{await api("update_question",payload);await loadQuestions();mode="preview";renderCards();notice(t("Question and answer details saved.","تم حفظ السؤال وتفاصيل الإجابة."))}catch(e){btn.disabled=false;notice(e.message,true)}
   });
  }
- async function loadSavedQuestions(){
-  try{const v=await api("list_questions",{presentation_id:pid});questions=v.questions||[];renderCards()}catch(e){$("saved-questions").textContent=e.message}
+ async function loadQuestions(){const v=await api("list_questions",{presentation_id:pid});questions=v.questions||[];renderCards()}
+ function renderSessions(){
+  $("qm-sessions").innerHTML=sessions.length?sessions.map(s=>{
+   const canResume=sessionStorage.getItem("live-presenter-session")===s.id&&!!sessionStorage.getItem("live-presenter");
+   return '<article class="qm-session"><div><strong>'+esc(s.join_code)+'</strong><p class="muted">'+esc(s.state)+' · '+new Date(s.created_at).toLocaleString()+'</p></div><div class="qm-actions">'+(canResume?'<button data-resume="'+esc(s.id)+'">'+t("Resume presenter","استئناف العرض")+'</button>':'')+'<button class="secondary" data-share="'+esc(s.join_code)+'">'+t("Copy join link","نسخ رابط الانضمام")+'</button><button class="secondary" data-report="'+esc(s.id)+'">'+t("View results","عرض النتائج")+'</button></div></article>';
+  }).join(""):'<p class="muted">'+t("No sessions yet. Create a live session to begin.","لا توجد جلسات بعد. أنشئ جلسة للبدء.")+'</p>';
+  $("qm-sessions").querySelectorAll("[data-resume]").forEach(btn=>btn.onclick=()=>{const token=sessionStorage.getItem("live-presenter");location.href="?session="+encodeURIComponent(btn.dataset.resume)+"#presenter="+encodeURIComponent(token)});
+  $("qm-sessions").querySelectorAll("[data-share]").forEach(btn=>btn.onclick=async()=>{const link=location.origin+"/live/?code="+encodeURIComponent(btn.dataset.share);try{await navigator.clipboard.writeText(link);notice(t("Join link copied.","تم نسخ رابط الانضمام."))}catch(e){notice(link)}});
+  $("qm-sessions").querySelectorAll("[data-report]").forEach(btn=>btn.onclick=()=>{switchTab("analytics");$("qm-analytics-select").value=btn.dataset.report;loadAnalytics(btn.dataset.report)});
+  $("qm-analytics-select").innerHTML=sessions.map(s=>'<option value="'+esc(s.id)+'">'+esc(s.join_code)+' · '+esc(s.state)+'</option>').join("");
  }
+ async function loadAnalytics(sid){
+  const el=$("qm-analytics");if(!sid){el.textContent=t("No session selected.","لم يتم اختيار جلسة.");return}
+  el.textContent=t("Loading analytics…","جارٍ تحميل التحليلات…");
+  try{
+   analytics=await api("session_analytics",{presentation_id:pid,session_id:sid});
+   el.innerHTML='<div class="qm-analytics-stats"><div><strong>'+analytics.participants+'</strong><span>'+t("Participants","مشاركون")+'</span></div><div><strong>'+analytics.total_votes+'</strong><span>'+t("Votes","أصوات")+'</span></div></div><button id="qm-export" class="secondary">'+t("Export CSV","تصدير CSV")+'</button>'+analytics.questions.map(q=>'<div class="qm-analytics-question"><strong>'+t("Question ","السؤال ")+(q.position+1)+' · '+q.total+' '+t("votes","أصوات")+'</strong><p>'+esc(summary(q))+'</p>'+q.answers.map(x=>'<div class="qm-analytics-answer"><span>'+esc(x.label)+'</span><strong>'+x.votes+'</strong></div>').join("")+'</div>').join("");
+   $("qm-export").onclick=()=>{
+    const rows=[["Session","Question","Question text","Answer","Votes","Total votes","Participants"]];
+    analytics.questions.forEach(q=>q.answers.forEach(x=>rows.push([analytics.session.join_code,String(q.position+1),q.prompt,x.label,String(x.votes),String(q.total),String(analytics.participants)])));
+    const csv="\uFEFF"+rows.map(row=>row.map(value=>'"'+String(value??"").replace(/"/g,'""')+'"').join(",")).join("\r\n");
+    const url=URL.createObjectURL(new Blob([csv],{type:"text/csv;charset=utf-8"})),link=document.createElement("a");link.href=url;link.download="tamayuz-results-"+analytics.session.join_code+".csv";link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
+   };
+  }catch(e){el.textContent=e.message}
+ }
+ function switchTab(name){
+  tab=name;params.set("tab",name);history.replaceState(null,"",location.pathname+"?"+params.toString());
+  ["questions","sessions","analytics"].forEach(x=>{$("qm-"+x+"-tab").hidden=x!==name;document.querySelector('[data-tab="'+x+'"]').classList.toggle("is-active",x===name)});
+  if(name==="analytics")loadAnalytics($("qm-analytics-select").value);
+ }
+ document.querySelectorAll(".qm-tab").forEach(btn=>btn.onclick=()=>switchTab(btn.dataset.tab));
+ $("qm-add-toggle").onclick=()=>{const el=$("qm-add-panel");el.hidden=!el.hidden;if(!el.hidden)$("prompt").focus()};
  $("qm-search").oninput=e=>{query=e.target.value.trim();renderCards()};
- await loadSavedQuestions();
- $("add").onclick=async()=>{try{await api("add_question",{key:admin,presentation_id:pid,prompt:$("prompt").value,kind:$("kind").value,options:$("options").value.split("\n").map(x=>x.trim()).filter(Boolean)});$("prompt").value="";$("options").value="";$("qm-add-panel").hidden=true;await loadSavedQuestions();notice(t("Question saved.","تم حفظ السؤال."))}catch(e){notice(e.message,true)}};
- $("start").onclick=async()=>{const btn=$("start");btn.disabled=true;try{const v=await api("new_session",{key:admin,presentation_id:pid});sessionStorage.setItem("live-presenter",v.presenter_token);sessionStorage.setItem("live-presenter-session",v.session.id);location.href="?session="+encodeURIComponent(v.session.id)+"#presenter="+encodeURIComponent(v.presenter_token)}catch(e){btn.disabled=false;notice(e.message,true)}};
+ $("qm-analytics-select").onchange=e=>loadAnalytics(e.target.value);
+ try{const workspace=await api("presentation_workspace",{presentation_id:pid});$("qm-title").textContent=workspace.presentation.title;sessions=workspace.sessions||[];renderSessions();await loadQuestions();switchTab(["questions","sessions","analytics"].includes(params.get("tab"))?params.get("tab"):"questions")}catch(e){notice(e.message,true)}
+ $("add").onclick=async()=>{try{await api("add_question",{key:admin,presentation_id:pid,prompt:$("prompt").value,kind:$("kind").value,options:$("options").value.split("\n").map(x=>x.trim()).filter(Boolean)});$("prompt").value="";$("options").value="";$("qm-add-panel").hidden=true;await loadQuestions();notice(t("Question saved.","تم حفظ السؤال."))}catch(e){notice(e.message,true)}};
+ $("start").onclick=async()=>{if(sessions.some(s=>s.state!=="ended")&&!confirm(t("An existing session is active. Create another session?","توجد جلسة نشطة. هل تريد إنشاء جلسة أخرى؟")))return;const btn=$("start");btn.disabled=true;try{const v=await api("new_session",{key:admin,presentation_id:pid});sessionStorage.setItem("live-presenter",v.presenter_token);sessionStorage.setItem("live-presenter-session",v.session.id);location.href="?session="+encodeURIComponent(v.session.id)+"#presenter="+encodeURIComponent(v.presenter_token)}catch(e){btn.disabled=false;notice(e.message,true)}};
 }
 function qr(code){const el=$("qr");if(!el)return;const link=location.origin+"/live/?code="+encodeURIComponent(code);$("audience-link").href=link;$("audience-link").textContent=link;if(window.QRCode){el.innerHTML="";new QRCode(el,{text:link,width:180,height:180,correctLevel:QRCode.CorrectLevel.M})}else{el.textContent=t("QR unavailable; share the link.","تعذر عرض QR؛ شارك الرابط.")}}
 function clinicalCaseMarkup(prompt){
