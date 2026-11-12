@@ -311,6 +311,85 @@ body.live-presenter-page .presenter.widescreen .answer-focus-info p{font-size:cl
 body.live-presenter-page .presenter.widescreen #stage-answer-toggle{font-size:clamp(1.35rem,2vw,2.1rem)!important;min-height:100px;min-width:260px}
 @media(max-width:750px){.answer-focus-box{flex-direction:column;align-items:stretch;padding:18px;gap:16px}.inline-answer-controls #stage-answer-toggle{width:100%;min-width:0;min-height:64px}}
 .qm-reactivate{background:#6550db!important;color:white!important;font-weight:850!important;min-height:53px!important;border-radius:11px!important}.qm-reactivate[hidden]{display:none!important}
+
+/* Consistent result typography and alignment: all choices including correct option */
+body.live-presenter-page .presenter #results .stage-result.result-choice{
+  box-sizing:border-box!important;
+  margin:9px 0!important;
+  padding:13px 16px!important;
+  border:1px solid #e3e3ed!important;
+  border-radius:12px!important;
+  background:#fff!important;
+}
+body.live-presenter-page .presenter #results .stage-result.result-choice.result-correct{
+  border:2px solid #25976a!important;
+  background:#eaf8f1!important;
+  padding:12px 15px!important;
+}
+body.live-presenter-page .presenter #results .stage-result.result-choice.result-muted{
+  background:#f7f7fa!important;
+  border-color:#ebebf0!important;
+}
+body.live-presenter-page .presenter #results .stage-result.result-choice .stage-result-label{
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr) auto!important;
+  align-items:center!important;
+  column-gap:16px!important;
+  margin:0 0 10px!important;
+  font-size:clamp(17px,1.45vw,22px)!important;
+  line-height:1.4!important;
+}
+body.live-presenter-page .presenter #results .stage-result.result-choice .result-choice-name{
+  display:flex!important;
+  align-items:baseline!important;
+  gap:7px!important;
+  min-width:0!important;
+  font-size:inherit!important;
+  line-height:inherit!important;
+  font-weight:800!important;
+  overflow-wrap:break-word!important;
+}
+body.live-presenter-page .presenter #results .stage-result.result-choice .stage-result-label strong{
+  font-size:.9em!important;
+  line-height:1.35!important;
+  font-weight:800!important;
+  white-space:nowrap!important;
+  text-align:end!important;
+  font-variant-numeric:tabular-nums!important;
+}
+body.live-presenter-page .presenter #results .stage-result.result-choice .result-check{
+  flex:none!important;
+  font-size:1em!important;
+  line-height:1!important;
+}
+body.live-presenter-page .presenter #results .stage-result.result-choice .bar{
+  height:15px!important;
+  margin:0!important;
+  border-radius:9px!important;
+}
+body.live-presenter-page .presenter #results .answer-explanation{
+  margin:16px 0 0!important;
+  padding:18px 20px!important;
+  border:1px solid #b8afe9!important;
+  background:#f7f5ff!important;
+  border-radius:12px!important;
+}
+body.live-presenter-page .presenter #results .answer-explanation h3{
+  font-size:clamp(17px,1.4vw,21px)!important;
+  line-height:1.4!important;
+  margin:0 0 10px!important;
+  font-weight:800!important;
+}
+body.live-presenter-page .presenter #results .answer-explanation p{
+  font-size:clamp(15px,1.1vw,18px)!important;
+  line-height:1.6!important;
+}
+@media(max-width:700px){
+ body.live-presenter-page .presenter #results .stage-result.result-choice{padding:11px 12px!important}
+ body.live-presenter-page .presenter #results .stage-result.result-choice.result-correct{padding:10px 11px!important}
+ body.live-presenter-page .presenter #results .stage-result.result-choice .stage-result-label{font-size:16px!important;column-gap:9px!important}
+ body.live-presenter-page .presenter #results .stage-result.result-choice .bar{height:12px!important}
+}
 </style></head><body><header><strong>LIVE · Personal Conference Tool</strong><div class="actions"><button id="home-link" class="secondary">Home</button><button id="language" class="secondary">العربية</button></div></header><main><div id="app" aria-live="polite"></div></main><footer>Personal conference polling · Tamayuz 10X</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" defer></script><script>
 (()=>{"use strict";
 const ENDPOINT="https://dqrsjhcfmpjhcxvtxosy.supabase.co/functions/v1/tamayuz-live";
