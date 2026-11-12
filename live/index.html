@@ -954,7 +954,7 @@ async function audiencePage(force=false){
   if(s.state==="ended"){poll.innerHTML='<h2>'+t("Thank you for participating.","شكرًا لمشاركتك.")+'</h2>';return}
   if(!q){poll.innerHTML='<h2>'+t("Waiting for the presenter...","بانتظار مقدم العرض...")+'</h2>';return}
   if(s.state!=="open"||voted||reveal){
-   poll.innerHTML=clinicalCaseMarkup(q.prompt)+'<p class="success" role="status">'+(voted?t("Your answer was received.","تم استلام إجابتك."):t("Voting is not open.","التصويت غير مفتوح."))+'</p><div id="audience-live-results">'+(showAudienceResults?audienceResults(v,q)+audienceExplanation(v,q):'')+'</div>';
+   poll.innerHTML=clinicalCaseMarkup(q.prompt)+'<p class="success" role="status">'+(voted?t("Your answer was received.","تم استلام إجابتك."):t("Voting is not open.","التصويت غير مفتوح."))+'</p>';
    styleAudience();return;
   }
   poll.innerHTML=clinicalCaseMarkup(q.prompt)+(q.kind==="choice"?(q.options||[]).map(o=>'<button class="option" data-answer="'+esc(o)+'">'+esc(o)+'</button>').join(""):q.kind==="rating"?[1,2,3,4,5].map(n=>'<button class="option" data-answer="'+n+'">'+n+'</button>').join(""):'<textarea id="answer" maxlength="400" rows="4" placeholder="'+t("Your answer","إجابتك")+'"></textarea><button id="send">'+t("Submit","إرسال")+'</button>')+'<div id="audience-live-results"></div>';
