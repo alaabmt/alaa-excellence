@@ -7,9 +7,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-12T08:20:00+04:00",
+  "updated_at": "2026-11-12T08:34:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "arabic_draft",
+  "current_stage": "company_insider_critique",
   "run_lease": {
     "owner": "codex-tenx-primary-20261112-0734",
     "acquired_at": "2026-11-12T07:34:00+04:00",
@@ -55,6 +55,11 @@
       "pillar_gap": [
         6
       ]
+    },
+    "arabic_draft": {
+      "status": "drafted",
+      "path": "automation/10x-cases/case-brazil-family-health-strategy-community-primary-care/draft-ar.md",
+      "commit": "1f4ec4d318d7d57a7e234b945fde43cd1e3de63a"
     }
   },
   "stage_order": [
@@ -96,14 +101,14 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Draft original Arabic case with problem-first narrative, executive snapshot, evidence limits, supported pillars only, disclosure and verified references.",
+  "next_action": "Run simulated Company Insider Critique, verify each criticism against sources, revise the Arabic draft, and preserve unresolved gaps.",
   "last_run": {
     "mode": "primary_scheduled_cycle",
     "status": "in_progress",
     "started_at": "2026-11-12T07:34:00+04:00",
     "starting_head": "b1f7cfcbd12f4a1444fad3c5c685d5f26091c1ac",
-    "last_checkpoint": "backcasting_and_10x_analysis",
-    "notes": "Backcasting completed. Pillars 1,2,3,4,5,7,8 supported; pillar 6 excluded for insufficient pilot-learning-scale evidence.",
+    "last_checkpoint": "arabic_draft",
+    "notes": "Original Arabic draft completed with explicit counterevidence, disclosure, references and official explanatory video.",
     "current_item": "case-brazil-family-health-strategy-community-primary-care"
   },
   "last_completed_item": {
@@ -174,7 +179,8 @@
     "duplicate_check",
     "candidate_scan",
     "evidence_pack",
-    "backcasting_and_10x_analysis"
+    "backcasting_and_10x_analysis",
+    "arabic_draft"
   ],
   "blocker": null
 }
