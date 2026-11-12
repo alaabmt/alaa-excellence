@@ -1,0 +1,31 @@
+name: Tamayuz Live Real Backend Isolated Conference Rehearsal
+on:
+  pull_request:
+    paths:
+      - 'tests/tamayuz-live-real-backend-rehearsal.mjs'
+      - '.github/workflows/tamayuz-live-real-backend-rehearsal.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  real-backend-rehearsal:
+    name: Real backend, disposable session only (NOT a 600-user capacity certificate)
+    if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '24'
+      - name: Live REST API rehearsal; preseeded synthetic session and cleanup required
+        env:
+          REHEARSAL_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          REHEARSAL_REPORT_PATH: ${{ runner.temp }}/live-real-backend-rehearsal.json
+        run: node tests/tamayuz-live-real-backend-rehearsal.mjs
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        if: always()
+        with:
+          name: tamayuz-live-real-backend-ephemeral-session-evidence
+          path: ${{ runner.temp }}/live-real-backend-rehearsal.json
+          retention-days: 30
