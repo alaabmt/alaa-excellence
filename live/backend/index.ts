@@ -24,7 +24,8 @@ Deno.serve(async(req)=>{
   }
   if(action==="list"){
    if(!(await owner(req)))return reply({error:"Owner authorization required"},403);
-   const {data}=await db.from("live_presentations").select("id,title,locale,created_at").order("created_at",{ascending:false}).limit(100);
+   const {data,error}=await db.from("live_presentations").select("id,title,locale,created_at").order("created_at",{ascending:false}).limit(100);
+   if(error)return reply({error:"Could not list presentations"},500);
    return reply({presentations:data||[]});
   }
   if(action==="review_results"){
