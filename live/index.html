@@ -176,6 +176,22 @@ body.live-presenter-page .presenter #results .result-choice .bar{height:17px!imp
 .audience-results .result-choice .stage-result-label{font-size:clamp(1rem,2.7vw,1.22rem)!important;line-height:1.4!important;font-weight:750!important}
 .audience-results .result-choice .result-choice-name,.audience-results .result-choice .stage-result-label strong{font-weight:750!important}
 @media(max-width:800px){body.live-presenter-page .presenter #results .result-choice .stage-result-label{font-size:clamp(1.05rem,3.8vw,1.28rem)!important}body.live-presenter-page .presenter #results .result-choice{padding:11px 12px!important}}
+
+/* Emphasize the actual response sentence, not just the percentage or bar. */
+body.live-presenter-page .presenter #results .stage-result .stage-result-label .result-choice-name{
+ font-size:22px!important;font-weight:800!important;line-height:1.35!important;color:#20233d!important;
+ letter-spacing:0!important;flex:1 1 auto!important;
+}
+body.live-presenter-page .presenter #results .stage-result .stage-result-label{
+ font-size:22px!important;align-items:center!important;
+}
+body.live-presenter-page .presenter #results .stage-result .stage-result-label strong{
+ font-size:19px!important;font-weight:800!important;color:#34324b!important;
+}
+body.live-presenter-page .presenter #results .stage-result.result-muted .result-choice-name{color:#51566a!important}
+body.live-presenter-page .presenter #results .stage-result.result-correct .result-choice-name{color:#145f43!important}
+.audience-results .stage-result .stage-result-label .result-choice-name{font-size:clamp(17px,3.5vw,21px)!important;font-weight:800!important;line-height:1.35!important}
+@media(max-width:800px){body.live-presenter-page .presenter #results .stage-result .stage-result-label .result-choice-name{font-size:19px!important}body.live-presenter-page .presenter #results .stage-result .stage-result-label strong{font-size:17px!important}}
 </style></head><body><header><strong>LIVE · Personal Conference Tool</strong><div class="actions"><button id="home-link" class="secondary">Home</button><button id="language" class="secondary">العربية</button></div></header><main><div id="app" aria-live="polite"></div></main><footer>Personal conference polling · Tamayuz 10X</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" defer></script><script>
 (()=>{"use strict";
 const ENDPOINT="https://dqrsjhcfmpjhcxvtxosy.supabase.co/functions/v1/tamayuz-live";
@@ -224,7 +240,7 @@ function resultChoiceMarkup(label,index,votes,total,answerRevealed,correctAnswer
  const isCorrect=!!answerRevealed&&!!correctAnswer&&String(label).trim()===String(correctAnswer).trim();
  const faded=!!answerRevealed&&!isCorrect;
  const classes="stage-result result-choice result-tone-"+(index%4)+(isCorrect?" result-correct":faded?" result-muted":"");
- return '<div class="'+classes+'"><div class="stage-result-label"><span class="result-choice-name">'+(isCorrect?'<span class="result-check" aria-label="'+t("Correct answer","الإجابة الصحيحة")+'">✓</span>':'')+esc(label)+'</span><strong>'+pct+'% · '+votes+'</strong></div><div class="bar"><div class="fill" style="width:'+pct+'%"></div></div></div>';
+ return '<div class="'+classes+'"><div class="stage-result-label"><span class="result-choice-name" style="font-size:22px;font-weight:800;line-height:1.35;color:#20233d">'+(isCorrect?'<span class="result-check" aria-label="'+t("Correct answer","الإجابة الصحيحة")+'">✓</span>':'')+esc(label)+'</span><strong>'+pct+'% · '+votes+'</strong></div><div class="bar"><div class="fill" style="width:'+pct+'%"></div></div></div>';
 }
 async function presenterPage(){
  if(busy)return;busy=true;
