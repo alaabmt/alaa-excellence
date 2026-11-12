@@ -307,7 +307,7 @@ async function audiencePage(force=false){
   if(s.state==="ended"){poll.innerHTML='<h2>'+t("Thank you for participating.","شكرًا لمشاركتك.")+'</h2>';return}
   if(!q){poll.innerHTML='<h2>'+t("Waiting for the presenter...","بانتظار مقدم العرض...")+'</h2>';return}
   if(s.state!=="open"||voted){
-   poll.innerHTML='<h2>'+esc(q.prompt)+'</h2><p class="success" role="status">'+(voted?t("Your answer was received.","تم استلام إجابتك."):t("Voting is not open.","التصويت غير مفتوح."))+'</p><div id="audience-live-results">'+(s.show_results?audienceResults(v,q)+audienceExplanation(v,q):'')+'</div>';
+   poll.innerHTML=clinicalCaseMarkup(q.prompt)+'<p class="success" role="status">'+(voted?t("Your answer was received.","تم استلام إجابتك."):t("Voting is not open.","التصويت غير مفتوح."))+'</p><div id="audience-live-results">'+(s.show_results?audienceResults(v,q)+audienceExplanation(v,q):'')+'</div>';
    styleAudience();return;
   }
   poll.innerHTML=clinicalCaseMarkup(q.prompt)+(q.kind==="choice"?(q.options||[]).map(o=>'<button class="option" data-answer="'+esc(o)+'">'+esc(o)+'</button>').join(""):q.kind==="rating"?[1,2,3,4,5].map(n=>'<button class="option" data-answer="'+n+'">'+n+'</button>').join(""):'<textarea id="answer" maxlength="400" rows="4" placeholder="'+t("Your answer","إجابتك")+'"></textarea><button id="send">'+t("Submit","إرسال")+'</button>')+'<div id="audience-live-results">'+(s.show_results?audienceResults(v,q)+audienceExplanation(v,q):'')+'</div>';
@@ -324,7 +324,7 @@ async function audiencePage(force=false){
     confirmed=true;sessionStorage.setItem(voteKey,"1");
     audienceSnapshotKey="";
     // Update immediately rather than waiting for the next polling interval.
-    poll.innerHTML='<h2>'+esc(q.prompt)+'</h2><p class="success" role="status">'+t("Your answer was received.","تم استلام إجابتك.")+'</p><div id="audience-live-results"></div>';
+    poll.innerHTML=clinicalCaseMarkup(q.prompt)+'<p class="success" role="status">'+t("Your answer was received.","تم استلام إجابتك.")+'</p><div id="audience-live-results"></div>';
     notice(t("Answer received.","تم استلام الإجابة."));
    }catch(e){
     notice(e.message,true);buttons.forEach(b=>b.disabled=false);
