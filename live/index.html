@@ -158,6 +158,14 @@ body.live-presenter-page:has(.presenter.widescreen) main{margin-top:8px!importan
 .result-choice-name{display:inline-flex;align-items:center;gap:9px;min-width:0}
 .result-check{display:inline-grid;place-items:center;flex:none;width:24px;height:24px;border-radius:50%;background:#228a61;color:white;font-weight:800;font-size:16px}
 @media(max-width:800px){#results .result-choice,.audience-results .result-choice{padding:8px 9px}.result-check{width:22px;height:22px}}
+
+/* Override legacy presenter gradient (which previously masked all result colors). */
+body.live-presenter-page .presenter #results .stage-result.result-tone-0:not(.result-correct):not(.result-muted) .fill{background:#6a57c9!important}
+body.live-presenter-page .presenter #results .stage-result.result-tone-1:not(.result-correct):not(.result-muted) .fill{background:#3886b5!important}
+body.live-presenter-page .presenter #results .stage-result.result-tone-2:not(.result-correct):not(.result-muted) .fill{background:#bd8746!important}
+body.live-presenter-page .presenter #results .stage-result.result-tone-3:not(.result-correct):not(.result-muted) .fill{background:#7c6ba5!important}
+body.live-presenter-page .presenter #results .stage-result.result-correct .fill{background:#25976a!important}
+body.live-presenter-page .presenter #results .stage-result.result-muted .fill{background:#a4a8b0!important}
 </style></head><body><header><strong>LIVE · Personal Conference Tool</strong><div class="actions"><button id="home-link" class="secondary">Home</button><button id="language" class="secondary">العربية</button></div></header><main><div id="app" aria-live="polite"></div></main><footer>Personal conference polling · Tamayuz 10X</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" defer></script><script>
 (()=>{"use strict";
 const ENDPOINT="https://dqrsjhcfmpjhcxvtxosy.supabase.co/functions/v1/tamayuz-live";
