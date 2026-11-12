@@ -7,9 +7,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-12T12:07:00+04:00",
-  "workflow_status": "reconciling",
-  "current_stage": "actions_and_pages",
+  "updated_at": "2026-11-12T12:20:08+04:00",
+  "workflow_status": "in_progress",
+  "current_stage": "live_verification",
   "run_lease": {
     "owner": "chatgpt-central-resume-20261112-1207",
     "acquired_at": "2026-11-12T12:07:00+04:00",
@@ -85,19 +85,44 @@
       "commit": "a200f99f1d56f439e800ed8000871e35e38b0c5e",
       "blocking_errors": [],
       "postdeploy_blockers": [
-        "exact_head_ci_pages",
-        "generated_social_cards",
         "live_ar_en",
         "actual_mobile_390px"
       ]
     },
     "publishing": {
-      "status": "repository_published_ci_reconciling",
+      "status": "published_actions_pages_verified_live_pending",
       "arabic_url": "https://tamayuz10x.com/case-brazil-family-health-strategy-community-primary-care.html",
       "english_url": "https://tamayuz10x.com/en/case-brazil-family-health-strategy-community-primary-care.html",
       "initial_publication_commit": "053104d35c05fd5a3a4f5c79f9a5788f684d420c",
       "sitemap_commit": "1415361332507d0cec05e7c30f15b58e9437ed6e",
-      "social_manifest_fix_commit": "bbedcc231ec640067a05585063b3f508dc921407"
+      "social_manifest_fix_commit": "bbedcc231ec640067a05585063b3f508dc921407",
+      "social_card_workflow": {
+        "status": "success",
+        "run_id": 43150948784,
+        "run_number": 556,
+        "head_sha": "bbedcc231ec640067a05585063b3f508dc921407",
+        "generated_commit": "8fac4b71ee8e045a165331d59c521c98cb1ed848",
+        "arabic_asset": "assets/previews/story/case-brazil-family-health-strategy-community-primary-care-ar.jpg",
+        "english_asset": "assets/previews/story/case-brazil-family-health-strategy-community-primary-care-en.jpg",
+        "arabic_image": "1200x630_109677_bytes",
+        "english_image": "1200x630_113360_bytes",
+        "metadata_indexes": "passed_ar_en_pages_and_indexes_deduplicated"
+      },
+      "exact_head_actions_pages": {
+        "head_sha": "1c41e6a858cb1da3f6038b532a4fa8c9b6c341b5",
+        "site_health": {
+          "run_id": 43181491034,
+          "conclusion": "success"
+        },
+        "pages": {
+          "run_id": 43181490172,
+          "conclusion": "success"
+        },
+        "arabic_editorial_gate": {
+          "run_id": 43181490915,
+          "conclusion": "success"
+        }
+      }
     }
   },
   "stage_order": [
@@ -139,14 +164,14 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Reconcile the rerun of permanent social-card generation, verify its generated-image commit, then require exact-head Actions and Pages before live checks.",
+  "next_action": "Complete live AR/EN verification at an exact 390px viewport and perform an actual functional TTS playback check; repository/live metadata, images, indexes and sitemap are already verified.",
   "last_run": {
     "mode": "coordinator_resume",
-    "status": "reconciling",
+    "status": "in_progress",
     "started_at": "2026-11-12T12:07:00+04:00",
     "starting_head": "b1f7cfcbd12f4a1444fad3c5c685d5f26091c1ac",
-    "last_checkpoint": "repository_publish",
-    "notes": "Acquired expired reconciling run to verify the uncertain social-card rerun before any replay.",
+    "last_checkpoint": "actions_and_pages",
+    "notes": "Reconciled successful permanent social-card run and generated commit; verified bilingual 1200x630 assets under size cap, unique page/index/sitemap entries, and exact-head Site Health, Pages, and Arabic editorial success.",
     "current_item": "case-brazil-family-health-strategy-community-primary-care",
     "completed_at": null
   },
@@ -224,10 +249,8 @@
     "english_draft",
     "bilingual_parity",
     "final_quality_gate",
-    "repository_publish"
+    "repository_publish",
+    "actions_and_pages"
   ],
-  "blocker": {
-    "type": "transient_ci_reconciliation",
-    "detail": "Awaiting permanent social-card workflow and exact-head Pages after manifest repair; no duplicate publication permitted."
-  }
+  "blocker": null
 }
