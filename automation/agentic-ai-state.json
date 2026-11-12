@@ -7,9 +7,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-12T00:13:00.000Z",
+  "updated_at": "2026-11-12T00:19:32.946Z",
   "workflow_status": "in_progress",
-  "current_stage": "actions_and_pages",
+  "current_stage": "live_verification",
   "run_lease": {
     "owner": "chatgpt-central-resume-20261112-0405",
     "acquired_at": "2026-11-12T00:05:00.000Z",
@@ -72,7 +72,19 @@
       "known_unrelated_checks": [
         "Site health QA currently fails because live/index.html lacks shared navigation.",
         "Generate social share cards currently fails because the 2026-11-11 Qur'anic reflection still uses legacy SVG previews."
-      ]
+      ],
+      "actions_and_pages": {
+        "status": "passed_with_unrelated_repository_wide_failures",
+        "exact_head": "9b538e70d0de92330e9dad23e4773bbe4c08b604",
+        "article_date_integrity_run_id": 43125487327,
+        "disclaimer_run_id": 43125487315,
+        "arabic_editorial_run_id": 43125680643,
+        "pages_run_id": 43125680555,
+        "unrelated_failures": [
+          "Site health QA: live/index.html lacks shared navigation.",
+          "Generate social share cards: the 2026-11-11 Qur'anic reflection still uses legacy SVG previews."
+        ]
+      }
     },
     "metrics_check_status": "completed",
     "metrics_check_path": "automation/agentic-ai/article-agentic-ai-swelancer-million-dollar-software-work/metrics-check.md",
@@ -88,8 +100,6 @@
     "quality_gate_pending": [
       "mobile_rtl_ltr",
       "tts_playback",
-      "actions_and_pages",
-      "exact_head_pages",
       "live_verification"
     ]
   },
@@ -132,15 +142,15 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Reconcile the Actions runs for the latest head after repository publication. Require successful article-date integrity, disclaimer and Arabic editorial gates; distinguish unrelated repository-wide failures. Verify exact-head GitHub Pages, then run real mobile RTL/LTR and live page/index/sitemap/social-asset checks before creating the publication report.",
+  "next_action": "Complete live verification for the SWE-Lancer Arabic and English pages: retain the passed live page/hub/sitemap/social-asset checks, run article-specific real mobile RTL/LTR checks at 320/375/390/430px, and verify actual Arabic and English TTS playback (title first, synchronized highlighting, pause/resume/stop and speed) in a browser with Web Speech support before completion.",
   "last_run": {
     "mode": "coordinator_resume",
     "status": "in_progress",
     "started_at": "2026-11-12T00:05:00.000Z",
     "completed_at": null,
-    "notes": "Reconciled all repository publication effects. Corrected publication metadata, BreadcrumbList and required disclaimers; created dedicated bilingual 1200x630 social cards; paired pages, specialized hubs, date registry and sitemap are present without duplication.",
+    "notes": "Repository checks reconciled. Article-date integrity, disclaimer, exact-head Arabic editorial gate and exact-head Pages passed; two repository-wide failures are unrelated to this article.",
     "current_item": "article-agentic-ai-swelancer-million-dollar-software-work",
-    "checkpoint": "repository_publish"
+    "checkpoint": "actions_and_pages"
   },
   "blocker": null,
   "last_completed_item": {
@@ -193,6 +203,7 @@
     "english_draft",
     "bilingual_parity",
     "quality_gate",
-    "repository_publish"
+    "repository_publish",
+    "actions_and_pages"
   ]
 }
