@@ -1,44 +1,58 @@
-# Tamayuz Live — one-day conference quick start (MVP)
+# Tamayuz Live — project and operations guide
 
-## Current deployment
-Static site: /live/ on tamayuz10x.com after merging the feature branch and successful GitHub Pages deployment.
-Backend: existing Supabase project tamayuz10x-auth; Edge Function tamayuz-live. All six live_* tables have RLS enabled and no public access policies. This is a separate data namespace within the existing project, **not** a separate Supabase project.
+> Maintained as part of Tamayuz 10X. This document describes the current design and operational safeguards; verify deployed versions and live session state before each change. The old one-day MVP setup instructions were obsolete.
 
-## Owner access (no username/password)
-The owner receives a private one-time setup URL separately; the secret is NEVER committed to GitHub. The page stores the key in **sessionStorage** and removes it from the URL fragment. Bookmarking the URL after the fragment is removed will not preserve access; save the original private setup URL securely outside the repository. Never share the owner link with the team. Anyone possessing it has full Live administration rights.
+## Architecture
 
-## Run a conference
-1. Open the owner URL on a private device.
-2. Create a presentation (any topic, Arabic or English).
-3. Manage presentation; add multiple-choice questions (2–8 options), 1–5 rating or open-text.
-4. Create live session. This creates a unique 10-character join code and a separate high-entropy presenter token.
-5. Click **Copy private presenter link** to share with trusted assistants. It is a bearer credential: anyone holding it can operate that session; currently it cannot be individually revoked, so treat it as a temporary shared key. To remove team access, end the session and start a new session.
-6. Show QR and join code on projector. Audience visits /live/?code=... and joins anonymously.
-7. Select question, open voting, close voting, reveal results, then end session. Presenter results refresh automatically every 2 seconds; audience question state every 5 seconds.
-8. New session on the same presentation keeps responses separate. No registration required for audience.
+- **Site:** https://tamayuz10x.com/live/ — static HTML/JavaScript in `live/index.html`, hosted via GitHub Pages from `alaabmt/alaa-excellence`.
+- **Backend:** Supabase Edge Function `tamayuz-live`, source in `live/backend/index.ts`. It runs in the **existing** Supabase `tamayuz10x-auth` project, not a separate project.
+- **Data:** `live_presentations`, `live_questions`, `live_sessions`, `live_participants`, `live_votes`, `live_interaction_events`. Verify RLS/grants before schema changes.
+- **Current observed backend:** `tamayuz-live` function version 21 was ACTIVE on 12 Nov 2026. This is a historical observation, not a pinned version. The function supports public join/vote/view and internal per-action authorization; `verify_jwt=false` at the gateway allows anonymous audience requests. Never interpret that setting as permission to run presenter actions anonymously.
+- **Frontend state:** query-parameter routing, owner login through shared Supabase Auth client, and browser `sessionStorage` for some navigation and participant/presenter state.
+- **Performance design:** audience state polled approximately every 2 seconds, presenter results approximately every 1.5 seconds as recently inspected. These intervals and quotas may change.
 
-## Security and operational limitations — MUST READ
-- This is a lightweight beta for personal use, NOT a hardened production event platform.
-- Presenter access is invitation by private link, **not** per-person identity or granular revocation. The owner key is a bearer secret. Keep both private.
-- Anonymous participation cannot guarantee one vote per human. A browser session receives a random participant token; new browser sessions can create additional identities.
-- There is a basic 600-participant per-session limit, but no IP-based anti-abuse throttling or CAPTCHA. An attacker who learns the public code may cause denial of service or vote manipulation.
-- The backend currently uses short-interval polling, not Supabase Realtime push. It is near-live for presenter charts, but 500-client load and plan limits are NOT verified.
-- External QR generator script is pinned to qrcodejs 1.0.0 on cdnjs; conference devices need internet connectivity. The join link/code is always shown as fallback.
-- Open-text answers are displayed as escaped text, but there is no moderator approval before display. Avoid using open-text in sensitive conferences until moderation is implemented.
-- No CSV/Excel export or dedicated analytics history UI yet. Responses are stored in Postgres for later authorized export.
-- No deletion/retention scheduler yet; establish policy and remove records when no longer needed.
-- No full browser, network, 500-user load, quota, Cloudflare or end-to-end Edge Function POST verification has been completed. Treat readiness as **NOT VERIFIED** until tests pass.
-- Avoid sending personally identifiable or sensitive information in audience answers.
+## Roles and access
 
-## Test checklist before a real event
-- Open owner dashboard, create test presentation with choice, rating and text questions.
-- Open presenter link in second browser, audience join in incognito/mobile; verify separate tokens.
-- Vote, close, reveal; compare presenter aggregate with SQL counts; verify duplicate votes do not increment.
-- Test 320px mobile, Arabic RTL, English LTR, QR scanning, page refresh and reconnect.
-- Load-test 100, 250 and 500 concurrent participants with an approved test window; check Edge Function logs, database and provider quotas. Target p95 presenter update <3s after accepted vote.
-- Confirm admin token never appears in repo, network analytics, referrer or screen recording. Do not put private presenter link on projector.
-- Run cybersecurity guardian, review provider security advisors, test recovery/rollback, confirm live Pages deployment.
-- Obtain explicit acceptance of residual risk before use with a live audience.
+1. **Owner:** signs in through the **website account** with username/email and password. Backend verifies the Supabase Auth user and owner-account membership; `?admin=1` is a route marker, not an authentication credential.
+2. **Presenter:** uses a private high-entropy presenter token embedded in a private session link; it is a bearer credential. Never share it on the projected screen or in the public QR. Rotate access by using a new session if necessary and review revocation needs.
+3. **Audience:** uses public join code/QR (`/live/?code=...`) without a login. A randomly issued participant token identifies browser participation. This is not a guarantee of one response per *human* across multiple devices/browser contexts.
 
-## Rollback
-Revert the static /live/ deployment and disable the tamayuz-live Edge Function; do not drop tables without backed-up retention review. No existing assessment tables are modified by this module.
+Privileged `control`, `present`, and `reactivate_session` must verify owner or private presenter authorization at the Edge Function. Owner-only reports and question-management APIs must verify owner. Public audience routes must never receive unrevealed correct answers or private report data.
+
+## Conference workflow
+
+1. Sign in to the website and open Tamayuz Live → **Manage my presentations**.
+2. Open **CMI** or another presentation and manage its questions; configure answer choices and correct answers as needed.
+3. Create a **fresh session** for a new lecture rather than resetting votes on a session whose historical results should be preserved.
+4. Show the public QR/join code; keep the private presenter link separate. Use presenter controls to select a question and **Open voting**, then close/reveal results as desired.
+5. Use **Widescreen View** for a projector when controlling from one device. Do not assume it is the same as a physically separate projector window.
+6. Check the final responses and analytics. End the session when done. Opening an ended session link should show a terminal state, not repeatedly retry a supposed network failure.
+
+## Current operational constraints
+
+- The application caps registered participants per session in code (recently 600), **not** a verified capacity for 600 continuously polling screens.
+- In a controlled production run with 600 registered participants, the existing nine-question CMI format produced 5,400 verified votes; **sustained 600-screen polling and 600 simultaneous votes were not proven**. Do not use those figures as a load guarantee.
+- Public code possession can enable spam joins; there is no guarantee of one vote per person and rate-limiting/anti-abuse provisions need separate review.
+- RLS, Edge Function permissions, secrets and token handling require explicit audit after any backend change. Do not commit user or presenter secrets.
+- No WebSocket service is implemented by this guardian plugin; the site's live-update strategy is a separate engineering decision.
+- The guardian plugin is **instructions only** and does not install monitoring, cron jobs, or automatic production deployments.
+
+## Where to find maintenance guidance
+
+- Local engineering policy: `live/AGENTS.md` (plus root `AGENTS.md`).
+- Private plugin source: `automation/plugins/tamayuz-live-guardian/`; its five skills cover guardian, frontend, backend, security and testing.
+- Existing smoke/regression tests: `tests/tamayuz-live-*.test.mjs`; workflows in `.github/workflows/`.
+- Security policy: `security/CYBERSECURITY_GUARDIAN_AGENT.md` and `security/skills/cybersecurity-guardian/SKILL.md`.
+
+## Before release
+
+- Check actual GitHub Pages deployment and Supabase Edge Function deployed version **separately**.
+- Test owner login, private presenter, public audience, all session states, refresh, Home and Android Desktop Site toggle (physical device if possible).
+- Ensure original presentation/question/session/vote counts are unchanged. Use an isolated temporary presentation for active end-to-end tests and delete only those temporary IDs.
+- Obtain approval for production changes or load tests; record PR, workflow run, deployed function version, residual risks and rollback path.
+
+## Rollback principles
+
+- Frontend-only change: revert the specific GitHub commit and verify Pages deployment.
+- Backend change: redeploy the previously known-good `tamayuz-live` function version/source with the same verification settings, and confirm votes/permissions.
+- Never drop `live_*` tables or delete real participant data as a quick rollback.

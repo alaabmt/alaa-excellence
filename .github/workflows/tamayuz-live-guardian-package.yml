@@ -1,0 +1,26 @@
+name: Tamayuz Live Guardian Package Checks
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'automation/plugins/tamayuz-live-guardian/**'
+      - 'live/AGENTS.md'
+      - 'live/README.md'
+      - 'tests/tamayuz-live-guardian-package.test.mjs'
+      - '.github/workflows/tamayuz-live-guardian-package.yml'
+  pull_request:
+    paths:
+      - 'automation/plugins/tamayuz-live-guardian/**'
+      - 'live/AGENTS.md'
+      - 'live/README.md'
+      - 'tests/tamayuz-live-guardian-package.test.mjs'
+      - '.github/workflows/tamayuz-live-guardian-package.yml'
+permissions:
+  contents: read
+jobs:
+  validate-package:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - run: node --test tests/tamayuz-live-guardian-package.test.mjs tests/tamayuz-live-security.test.mjs tests/tamayuz-live-navigation.test.mjs tests/tamayuz-live-ended-state.test.mjs tests/tamayuz-live-restore-workspace.test.mjs

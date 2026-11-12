@@ -1,0 +1,36 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "author": {
+    "email": "alaatoinnovate@gmail.com",
+    "name": "Alaa Ahmed"
+  },
+  "description": "Private engineering guardian for diagnosing, safely fixing, testing and reviewing Tamayuz Live conference polling, presenter flows and Supabase operations.",
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "capabilities": [],
+        "category": "Productivity",
+        "defaultPrompt": [
+          "Investigate a Tamayuz Live error, identify the likely root cause, and prepare a safe tested fix.",
+          "Review Tamayuz Live before my next conference: login, presenter, audience, mobile and security.",
+          "Analyze a Tamayuz Live GitHub Actions failure and recommend or prepare a minimal fix."
+        ],
+        "developerName": "Alaa Ahmed",
+        "displayName": "Tamayuz Live Guardian",
+        "longDescription": "A focused private engineering playbook for Tamayuz Live. Diagnose evidence from GitHub and Supabase, prepare isolated fixes, test audience and presenter regressions, and require controlled approval before production or destructive changes. Instructions do not themselves provide tool access or continuous monitoring.",
+        "shortDescription": "Maintain Tamayuz Live safely"
+      }
+    }
+  },
+  "keywords": [
+    "tamayuz-live",
+    "debugging",
+    "github",
+    "supabase",
+    "security",
+    "testing"
+  ],
+  "name": "tamayuz-live-guardian",
+  "repository": "https://github.com/alaabmt/alaa-excellence",
+  "version": "0.1.0"
+}
