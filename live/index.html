@@ -567,7 +567,7 @@ async function presenterPage(){
   if($("reveal"))$("reveal").disabled=!v.questions.length||s.state==="ended"||s.show_results;
   if($("hide"))$("hide").disabled=!v.questions.length||s.state==="ended"||!s.show_results;
   if($("end"))$("end").disabled=s.state==="ended";
-  if($("reactivate")){const canReactivate=s.state==="ended"&&!!(presenter||admin);$("reactivate").hidden=!canReactivate;$("reactivate").disabled=!canReactivate}
+  if($("reactivate")){const canReactivate=s.state==="ended";$("reactivate").hidden=!canReactivate;$("reactivate").disabled=!canReactivate}
   if($("qr")&&window.QRCode&&(!$("qr").querySelector("img")||!$("widescreen-join-qr")?.querySelector("img")))qr(s.code);
   const questionView=$("question-view");
   if(questionView)questionView.innerHTML=selected?'<p class="muted clinical-counter">'+t("QUESTION","السؤال")+' '+esc(selected.position+1)+' / '+v.questions.length+'</p>'+clinicalCaseMarkup(selected.prompt):'<div class="stage-empty"><h2>'+t("No active question","لا يوجد سؤال نشط")+'</h2><p>'+t("Add questions in your dashboard, then create a new session.","أضف الأسئلة في لوحة التحكم ثم أنشئ جلسة جديدة.")+'</p></div>';
