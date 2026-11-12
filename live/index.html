@@ -411,6 +411,64 @@ body.live-presenter-page .presenter.widescreen .widescreen-join .widescreen-answ
 body.live-presenter-page .presenter.widescreen .widescreen-join .widescreen-answer-button[aria-pressed="true"]{background:#33216c}
 body.live-presenter-page .presenter.widescreen .widescreen-join .widescreen-answer-button:disabled{opacity:.48;cursor:not-allowed}
 @media(max-width:850px){body.live-presenter-page .presenter.widescreen .widescreen-join .widescreen-answer-button{font-size:.78rem;min-height:43px;padding:8px 5px}}
+
+/* Compact widescreen voting results: same scale as clinical case text, only bolder. */
+body.live-presenter-page .presenter.widescreen #results{margin-top:8px!important;padding-bottom:clamp(24px,4vh,50px)!important}
+body.live-presenter-page .presenter.widescreen #results .stage-count{margin:5px 0 7px!important;font-size:clamp(14px,1.05vw,17px)!important}
+body.live-presenter-page .presenter.widescreen #results .stage-result.result-choice,
+body.live-presenter-page .presenter.widescreen #results .stage-result.result-choice.result-correct{
+  min-height:0!important;
+  margin:5px 0!important;
+  padding:8px 12px!important;
+  border-radius:8px!important;
+  box-shadow:none!important;
+}
+body.live-presenter-page .presenter.widescreen #results .stage-result.result-choice.result-correct{
+  padding:7px 11px!important;
+}
+body.live-presenter-page .presenter.widescreen #results .stage-result.result-choice .stage-result-label{
+  margin:0 0 5px!important;
+  gap:12px!important;
+  font-size:inherit!important;
+  line-height:1.35!important;
+}
+body.live-presenter-page .presenter.widescreen #results .stage-result.result-choice .result-choice-name{
+  grid-template-columns:23px minmax(0,1fr)!important;
+  column-gap:8px!important;
+  align-items:center!important;
+  font-size:clamp(14px,1.05vw,17px)!important;
+  line-height:1.4!important;
+  font-weight:800!important;
+}
+body.live-presenter-page .presenter.widescreen #results .stage-result.result-choice .result-choice-letter{
+  width:23px!important;height:23px!important;
+  font-size:12px!important;border-radius:5px!important;
+}
+body.live-presenter-page .presenter.widescreen #results .stage-result.result-choice .result-choice-text{
+  font-size:inherit!important;line-height:inherit!important;font-weight:800!important;
+}
+body.live-presenter-page .presenter.widescreen #results .stage-result.result-choice .result-choice-count{
+  font-size:clamp(12px,.85vw,14px)!important;
+  line-height:1.4!important;
+}
+body.live-presenter-page .presenter.widescreen #results .stage-result.result-choice .bar{
+  height:5px!important;border-radius:4px!important;
+}
+body.live-presenter-page .presenter.widescreen #results .stage-result.result-choice.result-correct .bar{
+  margin-right:25px!important;
+}
+body.live-presenter-page .presenter.widescreen #results .stage-result.result-choice .result-correct-indicator{
+  width:17px!important;height:17px!important;right:12px!important;bottom:5px!important;font-size:11px!important;
+}
+body.live-presenter-page .presenter.widescreen #results .answer-explanation{
+  margin:15px 0 0!important;padding:14px 18px!important;
+}
+body.live-presenter-page .presenter.widescreen #results .answer-explanation h3{
+  font-size:clamp(15px,1.15vw,19px)!important;margin:0 0 8px!important;
+}
+body.live-presenter-page .presenter.widescreen #results .answer-explanation p{
+  font-size:clamp(14px,1vw,17px)!important;line-height:1.5!important;
+}
 </style></head><body><header><strong>LIVE · Personal Conference Tool</strong><div class="actions"><button id="home-link" class="secondary">Home</button><button id="language" class="secondary">العربية</button></div></header><main><div id="app" aria-live="polite"></div></main><footer>Personal conference polling · Tamayuz 10X</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" defer></script><script>
 (()=>{"use strict";
 const ENDPOINT="https://dqrsjhcfmpjhcxvtxosy.supabase.co/functions/v1/tamayuz-live";
