@@ -497,8 +497,7 @@ async function presenterPage(){
     if(!workspaceId||!admin){alert(t("Open the presentation workspace as an administrator to use Manage and Analytics.","افتح مساحة عمل العرض بصلاحية المسؤول لاستخدام الإدارة والتحليلات."));return}
     const url=location.origin+location.pathname+"?admin=1&presentation="+encodeURIComponent(workspaceId)+"&tab="+encodeURIComponent(tab);
     // Open the admin workspace separately; never expose presenter credentials on that URL.
-    const win=window.open(url,"_blank","noopener,noreferrer");
-    if(!win)alert(t("Allow pop-ups to open the workspace in a separate tab.","اسمح بالنوافذ المنبثقة لفتح مساحة العمل في تبويب منفصل."));
+    window.open(url,"_blank","noopener,noreferrer");
    };
    const showControl=()=>{
     const root=$("presenter-root");if(root.classList.contains("widescreen"))$("stage-widescreen").click();
