@@ -2,6 +2,7 @@ name: Tamayuz Live Workspace Persistence Test
 on:
   push:
     branches:
+      - main
       - fix/tamayuz-live-restore-manage-desktop-20261112
     paths:
       - live/index.html
