@@ -5,7 +5,7 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-12T13:23:00Z",
+  "updated_at": "2026-11-12T14:15:43Z",
   "workflow_status": "in_progress",
   "current_stage": "quran_verification",
   "current_article": {
@@ -159,15 +159,20 @@
   },
   "next_action": "Write the original Arabic draft for reflection-al-ahzab-upright-speech from the verified research, clearly separating verse/tafsir, reflection, and one labeled hypothetical application; save draft-ar.md before independent critique.",
   "last_run": {
-    "mode": "coordinator_quran_daily_exception",
-    "status": "progressed",
-    "started_at": "2026-11-12T13:07:23Z",
+    "mode": "coordinator_resume",
+    "status": "in_progress",
+    "started_at": "2026-11-12T14:15:43Z",
     "last_checkpoint": "quran_verification",
-    "notes": "Started the permitted 2026-11-12 Qur'anic cycle after duplicate prevention; completed and committed topic_selection, research, and quran_verification. Lease released at a safe stage boundary.",
-    "ended_at": "2026-11-12T13:23:00Z"
+    "notes": "Capability checks passed; resumed the sole eligible in-progress workflow at arabic_draft."
   },
   "workflow_id": "quran_reflections",
-  "run_lease": null,
+  "run_lease": {
+    "owner": "chatgpt-central-resume-20261112T141543Z",
+    "acquired_at": "2026-11-12T14:15:43Z",
+    "expires_at": "2026-11-12T16:05:43Z",
+    "duration_minutes": 110,
+    "base_head_sha": "3e6e4e5dabb644aa22ab106efe5254845d2f2102"
+  },
   "checkpoint_policy": {
     "checkpoint_after_every_stage": true,
     "run_lease_minutes": 110,
