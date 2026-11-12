@@ -573,9 +573,6 @@ async function presenterPage(){
   if(questionView)questionView.innerHTML=selected?'<p class="muted clinical-counter">'+t("QUESTION","السؤال")+' '+esc(selected.position+1)+' / '+v.questions.length+'</p>'+clinicalCaseMarkup(selected.prompt):'<div class="stage-empty"><h2>'+t("No active question","لا يوجد سؤال نشط")+'</h2><p>'+t("Add questions in your dashboard, then create a new session.","أضف الأسئلة في لوحة التحكم ثم أنشئ جلسة جديدة.")+'</p></div>';
   const updateStatus=$("live-update-status");if(updateStatus)updateStatus.textContent=t("Results updated automatically · ","تحديث النتائج تلقائيًا · ")+new Date().toLocaleTimeString();
   for(const answerButton of [$("answer-reveal"),$("stage-answer-toggle")]){if(answerButton){answerButton.textContent=s.reveal_correct_answer?t("Hide correct answer","إخفاء الإجابة الصحيحة"):t("Reveal correct answer","إظهار الإجابة الصحيحة");answerButton.disabled=!selected?.correct_answer||s.state==="ended";answerButton.setAttribute("aria-pressed",String(!!s.reveal_correct_answer))}}
-  const answerDescription=$("answer-focus-description"),answerHeading=$("answer-focus-heading");
-  if(answerHeading)answerHeading.textContent=s.reveal_correct_answer?t("Answer revealed","تم إظهار الإجابة"):t("Answer hidden","الإجابة مخفية");
-  if(answerDescription)answerDescription.textContent=!selected?.correct_answer?t("No correct answer configured for this question.","لم يتم تحديد إجابة صحيحة لهذا السؤال."):s.reveal_correct_answer?t("Correct answer: ","الإجابة الصحيحة: ")+String(selected.correct_answer):t("Reveal the correct option when you are ready to discuss the clinical reasoning.","أظهر الإجابة الصحيحة عندما تكون مستعدًا لمناقشة التفسير السريري.");
   const results=$("results");
   if(results){
    const total=v.count||0;
