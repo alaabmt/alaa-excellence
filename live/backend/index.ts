@@ -72,7 +72,7 @@ Deno.serve(async(req)=>{
    const {data:s}=await db.from("live_sessions").select("*").eq("id",id).single();if(!s)return reply({error:"Not found"},404);
    const next=safe(b.state,20);if(!["waiting","open","closed","ended"].includes(next))return reply({error:"Invalid state"},400);
    let active=s.active_question_id;if(b.question_id){const {data:q}=await db.from("live_questions").select("id").eq("id",b.question_id).eq("presentation_id",s.presentation_id).maybeSingle();if(!q)return reply({error:"Invalid question"},400);active=q.id;}
-   const {data,error}=await db.from("live_sessions").update({state:next,active_question_id:active,show_results:!!b.show_results,revision:s.revision+1}).eq("id",id).eq("revision",s.revision).select("*").maybeSingle();
+   const visibility={...(s.question_results_visibility||{})};if(b.results_action==="show")visibility[active]=true;else if(b.results_action==="hide")visibility[active]=false;else if(active===s.active_question_id&&Object.keys(visibility).length===0)visibility[active]=!!s.show_results;const visible=visibility[active]===true;const {data,error}=await db.from("live_sessions").update({state:next,active_question_id:active,show_results:visible,question_results_visibility:visibility,revision:s.revision+1}).eq("id",id).eq("revision",s.revision).select("*").maybeSingle();
    return error||!data?reply({error:"Concurrent update; retry after refresh"},409):reply(await state(data,true));
   }
   if(action==="present"){
