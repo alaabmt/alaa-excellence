@@ -5,13 +5,13 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-12T14:15:43Z",
+  "updated_at": "2026-11-12T14:23:00Z",
   "workflow_status": "in_progress",
-  "current_stage": "quran_verification",
+  "current_stage": "arabic_draft",
   "current_article": {
     "article_id": "quran-reflection-2026-11-12-al-ahzab-upright-speech",
     "publication_date": "2026-11-12",
-    "status": "quran_verified_pending_arabic_draft",
+    "status": "arabic_draft_completed_pending_independent_critique",
     "duplicate_check": {
       "status": "passed_no_today_quran_cycle_found",
       "checked_at": "2026-11-12T13:07:23Z",
@@ -124,6 +124,25 @@
       "commit": "b7aa097906e11e4effc7de9ba2d8ae3b9a074ec0",
       "blob_sha": "612c6079bdc2ed5378ebeecc3cf52574af7c703a",
       "completed_at": "2026-11-12T13:21:00Z"
+    },
+    "arabic_draft": {
+      "status": "draft_completed_pending_independent_critique",
+      "path": "automation/quran-reflections/reflection-al-ahzab-upright-speech/draft-ar.md",
+      "word_count": 1377,
+      "commit": "8f787b56c54bf4e46deb82ac3f365254f6aaf6e1",
+      "blob_sha": "84264d5a7729ca430ca4e960f773a37fe122b097",
+      "completed_at": "2026-11-12T14:23:00Z",
+      "mobile_gate": "NOT VERIFIED until final HTML",
+      "tts_gate": "NOT VERIFIED until final HTML",
+      "self_check": {
+        "title_clear": true,
+        "opening_scenario_labeled_hypothetical": true,
+        "tafsir_reflection_application_separated": true,
+        "meta_editorial_phrases_found": 0,
+        "direct_source_urls": 11,
+        "quranic_text_matches_verified_research": true,
+        "editorial_disclaimer_present": true
+      }
     }
   },
   "stage_order": [
@@ -157,13 +176,13 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Write the original Arabic draft for reflection-al-ahzab-upright-speech from the verified research, clearly separating verse/tafsir, reflection, and one labeled hypothetical application; save draft-ar.md before independent critique.",
+  "next_action": "Run an independent critique of draft-ar.md against the Qur'anic writing guide, verified research, Arabic clarity gates, repetition, tafsir/reflection/application boundaries, and methodological limits; save findings and required revisions in quality-review.md before any English drafting.",
   "last_run": {
     "mode": "coordinator_resume",
     "status": "in_progress",
     "started_at": "2026-11-12T14:15:43Z",
-    "last_checkpoint": "quran_verification",
-    "notes": "Capability checks passed; resumed the sole eligible in-progress workflow at arabic_draft."
+    "last_checkpoint": "arabic_draft",
+    "notes": "The original Arabic draft is committed with one labeled hypothetical case, attributed tafsir, explicit reflection/application boundaries, a methodological note, editorial disclaimer, and direct references. Independent critique is next."
   },
   "workflow_id": "quran_reflections",
   "run_lease": {
@@ -171,7 +190,7 @@
     "acquired_at": "2026-11-12T14:15:43Z",
     "expires_at": "2026-11-12T16:05:43Z",
     "duration_minutes": 110,
-    "base_head_sha": "3e6e4e5dabb644aa22ab106efe5254845d2f2102"
+    "base_head_sha": "8f787b56c54bf4e46deb82ac3f365254f6aaf6e1"
   },
   "checkpoint_policy": {
     "checkpoint_after_every_stage": true,
@@ -542,7 +561,8 @@
     "duplicate_check",
     "topic_selection",
     "research",
-    "quran_verification"
+    "quran_verification",
+    "arabic_draft"
   ],
   "duplicate_check": {
     "status": "passed_no_today_quran_cycle_found",
