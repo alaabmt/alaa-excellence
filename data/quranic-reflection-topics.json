@@ -1,7 +1,23 @@
 {
   "purpose": "سجل موضوعات التأملات القرآنية لتجنب تكرار القصة أو الزاوية (دليل مهارات كتابة التأملات القرآنية، البند 10، الخطوة 9)",
-  "updated": "2026-11-11",
+  "updated": "2026-11-12",
   "reflections": [
+    {
+      "slug": "reflection-al-ahzab-upright-speech",
+      "title_ar": "كيف يكون القول سديدًا حين يصعب الاعتراف بالخطأ؟",
+      "title_en": "What Makes Speech Upright When Admitting Error Is Hard?",
+      "date": "2026-11-12",
+      "verses": [
+        "الأحزاب: 70–71"
+      ],
+      "angle": "القول السديد بوصفه قصدًا إلى الحق وعدلًا في البيان وفتحًا لطريق إصلاح ما ترتب على الخطأ، لا مجرد تجنب للكذب الصريح.",
+      "core_idea": "التصحيح السديد يوضح ما وقع وحدود المعرفة وأثر الخطأ، ثم يتبعه عمل يعيد القرار والسجل إلى مسار الإصلاح بدل حماية صورة المتكلم.",
+      "contemporary_application": "فريق افتراضي اكتشف أن رقمًا خاطئًا دخل عرضًا عامًا وبُني عليه قرار أولي، فاختبر الفرق بين عبارة مبهمة تحفظ الصورة وتصحيح واضح يفتح المراجعة.",
+      "url_ar": "https://tamayuz10x.com/reflection-al-ahzab-upright-speech.html",
+      "url_en": "https://tamayuz10x.com/en/reflection-al-ahzab-upright-speech.html",
+      "quality_score": 99,
+      "publication_status": "repository_published; actions_pages_mobile_rtl_tts_and_live_verification_pending"
+    },
     {
       "slug": "reflection-al-maidah-when-help-becomes-complicity",
       "title_ar": "متى تتحول المساعدة إلى مشاركة في الخطأ؟",

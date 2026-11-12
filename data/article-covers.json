@@ -2324,6 +2324,27 @@
         "subtitle": "Safeguards keep a good purpose from enabling harmful means.",
         "alt": "Navy and gold symbolic cover for a reflection on Al-Ma'idah 5:2, showing a worthwhile path stopping at a safeguard against a harmful means."
       }
+    },
+    {
+      "slug": "reflection-al-ahzab-upright-speech",
+      "background": "assets/previews/story-backgrounds/reflection-al-baqarah-write-it-down.jpg",
+      "category": "reflection",
+      "ar": {
+        "title": [
+          "كيف يكون القول سديدًا",
+          "حين يصعب الاعتراف بالخطأ؟"
+        ],
+        "subtitle": "قولٌ يقصد الحق ويصلح أثر الخطأ دون غموض.",
+        "alt": "غلاف رمزي بالكحلي والذهبي لتأمل الأحزاب 33:70–71، يظهر كلمات واضحة تفتح مسارًا لتصحيح قرار بُني على معلومة خاطئة."
+      },
+      "en": {
+        "title": [
+          "What Makes Speech Upright",
+          "When Admitting Error Is Hard?"
+        ],
+        "subtitle": "Truthful speech opens a path to repair the effects of error.",
+        "alt": "Navy and gold symbolic cover for a reflection on Al-Ahzab 33:70–71, showing clear speech opening a path to correct a decision built on wrong information."
+      }
     }
   ]
 }
