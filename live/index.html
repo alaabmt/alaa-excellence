@@ -494,16 +494,20 @@ async function presenterPage(){
    layout('<div class="presenter" id="presenter-root"><div class="stage-topline"><div><p class="muted">'+t("LIVE PRESENTATION","عرض مباشر")+'</p><h1 class="stage-title">'+t("Audience poll","استطلاع الجمهور")+'</h1></div><div class="stage-display-tools"><nav class="stage-quick-nav"><button id="stage-prev" class="secondary" type="button" aria-label="Previous question">‹</button><select id="stage-jump" aria-label="Choose question"></select><button id="stage-next" class="secondary" type="button" aria-label="Next question">›</button></nav><button id="stage-widescreen" class="secondary" aria-pressed="false">'+t("Widescreen view","عرض الشاشة العريضة")+'</button><span id="status" class="stage-pill"></span></div></div><div class="widescreen-join" aria-label="'+t("Scan to join this live session","امسح الرمز للانضمام إلى الجلسة")+'"><div class="widescreen-join-text"><strong>'+t("JOIN LIVE","انضم الآن")+'</strong><span>'+t("Scan to vote","امسح الرمز للتصويت")+'</span><a id="widescreen-join-link" target="_blank" rel="noopener"><span id="widescreen-join-code">'+esc(s.code)+'</span></a></div><div id="widescreen-join-qr"></div></div><div class="presenter-stage"><div class="stage-main"><div class="panel"><div id="question-view"></div><div id="results"></div><div class="inline-answer-controls"><div class="answer-focus-box"><div class="answer-focus-info"><strong id="answer-focus-heading">'+t("Correct answer","الإجابة الصحيحة")+'</strong><p id="answer-focus-description"></p></div><button id="stage-answer-toggle" class="secondary" type="button"></button></div></div><p id="live-update-status" class="muted" role="status" aria-live="polite"></p></div></div><aside class="stage-side"><div class="panel"><p class="muted">'+t("JOIN THIS SESSION","الانضمام إلى الجلسة")+'</p><div id="qr"></div><p class="code">'+esc(s.code)+'</p><a id="audience-link" target="_blank" rel="noopener"></a><p><button class="secondary" id="share-presenter">'+t("Copy presenter link","نسخ رابط المقدم")+'</button></p><small class="stage-help">'+t("Public controls enabled: anyone can manage this session.","التحكم العام مفعل: يمكن لأي شخص إدارة هذه الجلسة.")+'</small></div><div class="panel stage-controls"><h2>'+t("Presenter controls","التحكم بالعرض")+'</h2><label for="question">'+t("Choose question","اختر السؤال")+'</label><select id="question"></select><div class="stage-navigation"><button id="previous" class="secondary">'+t("Previous question","السؤال السابق")+'</button><button id="next">'+t("Next question","السؤال التالي")+'</button></div><div class="actions"><button id="open">'+t("Open voting","فتح التصويت")+'</button><button id="close" class="secondary">'+t("Close voting","إغلاق التصويت")+'</button><button id="reveal" class="secondary">'+t("Show results","إظهار النتائج")+'</button><button id="hide" class="secondary">'+t("Hide results","إخفاء النتائج")+'</button><button id="answer-reveal" class="secondary">'+t("Reveal correct answer","إظهار الإجابة الصحيحة")+'</button><button id="end" class="danger">'+t("End session","إنهاء الجلسة")+'</button></div><p id="notice" role="status"></p></div></aside></div></div>');
    $("stage-widescreen").onclick=()=>{const root=$("presenter-root"),btn=$("stage-widescreen");const on=root.classList.toggle("widescreen");btn.setAttribute("aria-pressed",String(on));btn.textContent=on?t("Exit widescreen","إنهاء العرض العريض"):t("Widescreen view","عرض الشاشة العريضة");};
    $("stage-answer-toggle").onclick=toggleCorrectAnswer;
+   let controlPending=false;
    const runSessionControl=async(nextState,resultsAction)=>{
+    if(controlPending)return;
     const snapshot=active?.session;if(!snapshot)return;
-    const ids=["open","close","reveal","hide","end"];ids.forEach(id=>{if($(id))$(id).disabled=true});
+    controlPending=true;
+    const ids=["open","close","reveal","hide","end","previous","next","stage-prev","stage-next"];ids.forEach(id=>{if($(id))$(id).disabled=true});
+    const el=$("notice");if(el){el.textContent=t("Updating session…","جارٍ تحديث الجلسة…");el.className="muted"}
     try{
-     await api("control",{session_id:snapshot.id,presenter_token:presenter,key:admin,state:nextState,question_id:snapshot.active_question_id,results_action:resultsAction});
-     await presenterPage();
-     const message=nextState==="ended"?t("Session ended successfully.","تم إنهاء الجلسة بنجاح."):nextState==="open"?t("Voting is open.","التصويت مفتوح."):nextState==="closed"?t("Voting is closed.","التصويت مغلق."):t("Session updated.","تم تحديث الجلسة.");
-     const noticeEl=$("notice");if(noticeEl)noticeEl.textContent=message;
-    }catch(e){const noticeEl=$("notice");if(noticeEl)noticeEl.textContent=t("Could not update session: ","تعذر تحديث الجلسة: ")+e.message;else alert(e.message)}
-    finally{const state=active?.session?.state;ids.forEach(id=>{if($(id))$(id).disabled=state==="ended"})}
+     const res=await api("control",{session_id:snapshot.id,presenter_token:presenter,key:admin,state:nextState,question_id:snapshot.active_question_id,results_action:resultsAction});
+     if(!res?.session||res.session.state!==nextState)throw Error("Session update not confirmed");
+     active=res;lastRevision=res.session.revision;
+     if(el){el.textContent=nextState==="ended"?t("Session ended successfully.","تم إنهاء الجلسة بنجاح."):nextState==="open"?t("Voting is open.","التصويت مفتوح."):nextState==="closed"?t("Voting is closed.","التصويت مغلق."):t("Results updated.","تم تحديث النتائج.");el.className="success"}
+    }catch(e){if(el){el.textContent=t("Could not update session: ","تعذر تحديث الجلسة: ")+e.message;el.className="error"}}
+    finally{controlPending=false;if(!busy)await presenterPage();else setTimeout(()=>presenterPage(),250)}
    };
    $("open").onclick=()=>runSessionControl("open");
    $("close").onclick=()=>runSessionControl("closed");
@@ -511,8 +515,12 @@ async function presenterPage(){
    $("hide").onclick=()=>runSessionControl(active.session.state,"hide");
    $("answer-reveal").onclick=toggleCorrectAnswer;
    $("end").onclick=()=>{if(confirm(t("End this session? This stops voting for everyone.","إنهاء هذه الجلسة؟ سيتوقف التصويت للجميع.")))runSessionControl("ended")};
+   $("previous").onclick=()=>changeLiveQuestion(null,-1);
+   $("next").onclick=()=>changeLiveQuestion(null,1);
+   $("stage-prev").onclick=()=>changeLiveQuestion(null,-1);
+   $("stage-next").onclick=()=>changeLiveQuestion(null,1);
   }
-  async function toggleCorrectAnswer(){const s=active?.session;if(!s?.active_question_id)return;const buttons=[$("answer-reveal"),$("stage-answer-toggle")].filter(Boolean);buttons.forEach(b=>b.disabled=true);try{const res=await api("control",{session_id:s.id,presenter_token:presenter,key:admin,question_id:s.active_question_id,state:s.state,results_action:s.show_results?undefined:"show",answer_action:s.reveal_correct_answer?"hide":"show"});active=res;await presenterPage()}catch(e){notice(e.message,true)}finally{buttons.forEach(b=>b.disabled=false)}}
+  async function toggleCorrectAnswer(){const s=active?.session;if(!s?.active_question_id)return;const buttons=[$("answer-reveal"),$("stage-answer-toggle")].filter(Boolean);buttons.forEach(b=>b.disabled=true);try{const res=await api("control",{session_id:s.id,presenter_token:presenter,key:admin,question_id:s.active_question_id,state:s.state,results_action:s.show_results?undefined:"show",answer_action:s.reveal_correct_answer?"hide":"show"});active=res;lastRevision=res.session?.revision||lastRevision;if(!busy)await presenterPage();else setTimeout(()=>presenterPage(),250)}catch(e){notice(e.message,true)}finally{buttons.forEach(b=>b.disabled=false)}}
   async function changeLiveQuestion(requestedId,delta=0){
    if(window.liveQuestionSwitchPending)return;
    const snapshot=active;if(!snapshot?.questions?.length||snapshot.session.state==="ended")return;
@@ -542,8 +550,11 @@ async function presenterPage(){
   }
   const jump=$("stage-jump");if(jump){jump.innerHTML=v.questions.map(q=>`<option value="${esc(q.id)}">${t("Q","س")}${q.position+1}</option>`).join("");jump.value=s.active_question_id||"";jump.disabled=!v.questions.length||s.state==="ended";jump.onchange=()=>changeLiveQuestion(jump.value)}
   const status=$("status");if(status){status.textContent=s.state==="open"?t("Voting open","التصويت مفتوح"):s.state==="closed"?t("Voting closed","التصويت مغلق"):s.state==="ended"?t("Session ended","انتهت الجلسة"):t("Waiting","انتظار");status.className="stage-pill "+(s.state==="open"?"open":s.state==="ended"?"ended":"")}
-  const currentIndex=v.questions.findIndex(q=>q.id===s.active_question_id);if($("stage-prev"))$("stage-prev").disabled=currentIndex<=0||s.state==="ended";if($("stage-next"))$("stage-next").disabled=currentIndex<0||currentIndex>=v.questions.length-1||s.state==="ended";if($("previous"))$("previous").disabled=currentIndex<=0||s.state==="ended";if($("next"))$("next").disabled=currentIndex<0||currentIndex>=v.questions.length-1||s.state==="ended";const open=$("open");if(open)open.disabled=!v.questions.length||s.state==="ended";
-  for(const id of ["close","reveal","hide","answer-reveal","end"]){if($(id))$(id).disabled=!v.questions.length||s.state==="ended"}
+  const currentIndex=v.questions.findIndex(q=>q.id===s.active_question_id);if($("stage-prev"))$("stage-prev").disabled=currentIndex<=0||s.state==="ended";if($("stage-next"))$("stage-next").disabled=currentIndex<0||currentIndex>=v.questions.length-1||s.state==="ended";if($("previous"))$("previous").disabled=currentIndex<=0||s.state==="ended";if($("next"))$("next").disabled=currentIndex<0||currentIndex>=v.questions.length-1||s.state==="ended";const open=$("open");if(open)open.disabled=!v.questions.length||s.state==="ended"||s.state==="open";
+  if($("close"))$("close").disabled=!v.questions.length||s.state!=="open";
+  if($("reveal"))$("reveal").disabled=!v.questions.length||s.state==="ended"||s.show_results;
+  if($("hide"))$("hide").disabled=!v.questions.length||s.state==="ended"||!s.show_results;
+  if($("end"))$("end").disabled=s.state==="ended";
   if($("qr")&&window.QRCode&&(!$("qr").querySelector("img")||!$("widescreen-join-qr")?.querySelector("img")))qr(s.code);
   const questionView=$("question-view");
   if(questionView)questionView.innerHTML=selected?'<p class="muted clinical-counter">'+t("QUESTION","السؤال")+' '+esc(selected.position+1)+' / '+v.questions.length+'</p>'+clinicalCaseMarkup(selected.prompt):'<div class="stage-empty"><h2>'+t("No active question","لا يوجد سؤال نشط")+'</h2><p>'+t("Add questions in your dashboard, then create a new session.","أضف الأسئلة في لوحة التحكم ثم أنشئ جلسة جديدة.")+'</p></div>';
