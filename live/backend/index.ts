@@ -8,7 +8,7 @@ const hash=async(v:string)=>Array.from(new Uint8Array(await crypto.subtle.digest
 const safe=(s:unknown,n=500)=>typeof s==="string"?s.trim().slice(0,n):"";
 async function owner(k:string){if(!/^[a-f0-9]{64}$/.test(k))return false;const {data}=await db.from("live_config").select("id").eq("admin_token_hash",await hash(k)).maybeSingle();return !!data}
 async function sessionByToken(id:string,token:string){if(!/^[a-f0-9]{48}$/.test(token))return null;const {data}=await db.from("live_sessions").select("*").eq("id",id).eq("presenter_token_hash",await hash(token)).maybeSingle();return data}
-async function state(s:any,results=false){const {data:q}=await db.from("live_questions").select("id,prompt,kind,options,position,correct_answer,answer_justification,answer_effect").eq("presentation_id",s.presentation_id).order("position");let aggregate:any[]=[];let count=0;if(results&&s.active_question_id){const {data:v}=await db.from("live_votes").select("answer").eq("session_id",s.id).eq("question_id",s.active_question_id);count=v?.length||0;const map=new Map<string,number>();for(const x of v||[])map.set(x.answer,(map.get(x.answer)||0)+1);aggregate=[...map].map(([answer,votes])=>({answer,votes}));}return {session:{id:s.id,code:s.join_code,state:s.state,active_question_id:s.active_question_id,show_results:s.show_results,reveal_correct_answer:s.reveal_correct_answer,revision:s.revision},questions:q||[],aggregate,count}}
+async function state(s:any,results=false){const {data:q}=await db.from("live_questions").select("id,prompt,kind,options,position,correct_answer,answer_justification,answer_effect").eq("presentation_id",s.presentation_id).order("position");let aggregate:any[]=[];let count=0;if(results&&s.active_question_id){const map=new Map<string,number>();for(let offset=0;offset<60000;offset+=1000){const {data:v,error}=await db.from("live_votes").select("answer").eq("session_id",s.id).eq("question_id",s.active_question_id).order("id").range(offset,offset+999);if(error)throw error;for(const x of v||[]){count++;map.set(x.answer,(map.get(x.answer)||0)+1)}if(!v||v.length<1000)break;}aggregate=[...map].map(([answer,votes])=>({answer,votes}));}return {session:{id:s.id,code:s.join_code,state:s.state,active_question_id:s.active_question_id,show_results:s.show_results,reveal_correct_answer:s.reveal_correct_answer,revision:s.revision},questions:q||[],aggregate,count}}
 Deno.serve(async(req)=>{
  if(req.method==="OPTIONS")return new Response(null,{headers});
  if(req.method!=="POST")return reply({error:"Method not allowed"},405);
@@ -105,7 +105,9 @@ Deno.serve(async(req)=>{
    if(!answer||q.kind==="choice"&&!(q.options||[]).includes(answer)||q.kind==="rating"&&!["1","2","3","4","5"].includes(answer))return reply({error:"Invalid answer"},400);
    const {error}=await db.from("live_votes").insert({session_id:s.id,question_id:q.id,participant_id:p.id,answer});
    if(error?.code==="23505")return reply({accepted:true,duplicate:true});
-   return error?reply({error:"Vote not accepted"},409):reply({accepted:true});
+   if(error)return reply({error:"Vote not accepted"},409);
+   await db.from("live_sessions").update({revision:s.revision+1}).eq("id",s.id).eq("revision",s.revision);
+   return reply({accepted:true});
   }
   return reply({error:"Unknown action"},400);
  }catch(_){return reply({error:"Invalid request"},400)}
