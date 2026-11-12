@@ -109,6 +109,18 @@ body.live-presenter-page .presenter.widescreen .stage-main>.panel:first-child{mi
  body.live-presenter-page .presenter .stage-display-tools{gap:8px}
  body.live-presenter-page .presenter.widescreen .stage-topline{position:static!important}
 }
+
+/* Compact desktop conference typography, without changing the mobile experience. */
+@media (min-width:801px){
+ body.live-presenter-page .presenter .stage-question,
+ body.live-presenter-page .presenter.widescreen .stage-question{
+  font-size:clamp(.91rem,1.08vw,1.13rem)!important;
+  line-height:1.3!important;font-weight:600!important;
+  max-height:clamp(210px,42vh,440px)!important;
+ }
+ body.live-presenter-page .presenter .stage-result-label{font-size:clamp(.78rem,.88vw,.95rem)!important}
+ body.live-presenter-page .presenter .stage-title{font-size:clamp(1.1rem,1.4vw,1.55rem)!important}
+}
 </style></head><body><header><strong>LIVE · Personal Conference Tool</strong><div class="actions"><button id="home-link" class="secondary">Home</button><button id="language" class="secondary">العربية</button></div></header><main><div id="app" aria-live="polite"></div></main><footer>Personal conference polling · Tamayuz 10X</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" defer></script><script>
 (()=>{"use strict";
 const ENDPOINT="https://dqrsjhcfmpjhcxvtxosy.supabase.co/functions/v1/tamayuz-live";
