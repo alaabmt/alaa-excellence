@@ -89,4 +89,4 @@ The views and analysis in this article represent the author’s professional int
 3. Ibn Kathir, tafsir of Surah Al-Ahzab, 33:70: https://quran.ksu.edu.sa/tafseer/katheer/sura33-aya70.html
 4. Al-Qurtubi, tafsir of Surah Al-Ahzab, 33:70: https://quran.ksu.edu.sa/tafseer/qortobi/sura33-aya70.html
 5. Al-Sa‘di, tafsir of Surah Al-Ahzab, 33:70: https://quran.ksu.edu.sa/tafseer/saadi/sura33-aya70.html
-6. Tafsir of 33:71: Al-Tabari https://quran.ksu.edu.sa/tafseer/tabary/sura33-aya71.html; Ibn Kathir https://quran.ksu.edu.sa/tafseer/katheer/sura33-aya71.html; Al-Qurtubi https://quran.ksu.edu.sa/tafseer/qortobi/sura33-aya71.html; Al-Sa‘di https://quran.ksu.edu.sa/tafseer/saadi/sura33-aya71.html
+6. Tafsir of 33:71: [Al-Tabari](https://quran.ksu.edu.sa/tafseer/tabary/sura33-aya71.html), [Ibn Kathir](https://quran.ksu.edu.sa/tafseer/katheer/sura33-aya71.html), [Al-Qurtubi](https://quran.ksu.edu.sa/tafseer/qortobi/sura33-aya71.html), and [Al-Sa‘di](https://quran.ksu.edu.sa/tafseer/saadi/sura33-aya71.html).
