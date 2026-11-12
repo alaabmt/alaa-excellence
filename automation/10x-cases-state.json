@@ -7,9 +7,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-12T08:00:00+04:00",
+  "updated_at": "2026-11-12T08:12:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "evidence_pack",
+  "current_stage": "backcasting_and_10x_analysis",
   "run_lease": {
     "owner": "codex-tenx-primary-20261112-0734",
     "acquired_at": "2026-11-12T07:34:00+04:00",
@@ -20,11 +20,24 @@
     "publication_date": "2026-11-12",
     "title_working_ar": "كيف نقلت البرازيل الرعاية الأولية من انتظار المريض إلى فرق مسؤولة عن الأحياء؟",
     "title_working_en": "How Brazil Moved Primary Care from Waiting Rooms into Communities",
-    "candidate_status": "accepted_for_evidence_pack",
+    "candidate_status": "evidence_passed",
     "artifact_root": "automation/10x-cases/case-brazil-family-health-strategy-community-primary-care/",
     "candidate_notes": {
       "path": "automation/10x-cases/case-brazil-family-health-strategy-community-primary-care/candidate-notes.md",
       "commit": "73c7d42e24ab88f6fbeaabd5bb5788ae1aad87d4"
+    },
+    "evidence_pack": {
+      "status": "passed_with_explicit_causal_measurement_and_equity_limits",
+      "path": "automation/10x-cases/case-brazil-family-health-strategy-community-primary-care/evidence-pack.md",
+      "commit": "6fca6db1aba14189400afabeca4be03fe851bca3",
+      "confidence": {
+        "operating_model": "high",
+        "implementation_scale": "high_reported_definitions_vary",
+        "infant_mortality_contribution": "medium_high",
+        "cardiovascular_amenable_mortality": "medium_high",
+        "avoidable_hospitalization_reduction": "rejected",
+        "uniform_quality_equity": "rejected"
+      }
     }
   },
   "stage_order": [
@@ -66,14 +79,14 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Build a claim-level Evidence Pack, explicitly separating goals, designed capacity, actual implementation and observed outcomes; reject the case if the evidence remains insufficient.",
+  "next_action": "Complete backcasting and evidence-supported 10X pillar analysis, documenting gaps and transferable conditions.",
   "last_run": {
     "mode": "primary_scheduled_cycle",
     "status": "in_progress",
     "started_at": "2026-11-12T07:34:00+04:00",
     "starting_head": "b1f7cfcbd12f4a1444fad3c5c685d5f26091c1ac",
-    "last_checkpoint": "candidate_scan",
-    "notes": "Candidate scan completed. Brazil Family Health Strategy accepted for Evidence Pack; no publication files changed.",
+    "last_checkpoint": "evidence_pack",
+    "notes": "Evidence Pack passed with explicit counterevidence; avoidable-hospitalization reduction and sole-causation claims rejected.",
     "current_item": "case-brazil-family-health-strategy-community-primary-care"
   },
   "last_completed_item": {
@@ -142,7 +155,8 @@
     "capability_check",
     "load_checkpoint",
     "duplicate_check",
-    "candidate_scan"
+    "candidate_scan",
+    "evidence_pack"
   ],
   "blocker": null
 }
