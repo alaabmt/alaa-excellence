@@ -7,14 +7,10 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-12T12:20:08+04:00",
-  "workflow_status": "in_progress",
+  "updated_at": "2026-11-12T12:23:59+04:00",
+  "workflow_status": "blocked",
   "current_stage": "live_verification",
-  "run_lease": {
-    "owner": "chatgpt-central-resume-20261112-1207",
-    "acquired_at": "2026-11-12T12:07:00+04:00",
-    "expires_at": "2026-11-12T13:57:00+04:00"
-  },
+  "run_lease": null,
   "current_item": {
     "slug": "case-brazil-family-health-strategy-community-primary-care",
     "publication_date": "2026-11-12",
@@ -85,12 +81,11 @@
       "commit": "a200f99f1d56f439e800ed8000871e35e38b0c5e",
       "blocking_errors": [],
       "postdeploy_blockers": [
-        "live_ar_en",
-        "actual_mobile_390px"
+        "functional_tts_playback"
       ]
     },
     "publishing": {
-      "status": "published_actions_pages_verified_live_pending",
+      "status": "published_live_content_verified_tts_blocked",
       "arabic_url": "https://tamayuz10x.com/case-brazil-family-health-strategy-community-primary-care.html",
       "english_url": "https://tamayuz10x.com/en/case-brazil-family-health-strategy-community-primary-care.html",
       "initial_publication_commit": "053104d35c05fd5a3a4f5c79f9a5788f684d420c",
@@ -122,6 +117,30 @@
           "run_id": 43181490915,
           "conclusion": "success"
         }
+      },
+      "latest_exact_head_actions_pages": {
+        "head_sha": "20bd8f7e464c3c65191243d51254ca561729cf73",
+        "site_health": {
+          "run_id": 43182247092,
+          "conclusion": "success"
+        },
+        "pages": {
+          "run_id": 43182246081,
+          "conclusion": "success"
+        },
+        "arabic_editorial_gate": {
+          "run_id": 43182246953,
+          "conclusion": "success"
+        }
+      },
+      "live_verification": {
+        "arabic_url": "http_200_live_metadata_h1_and_1200x630_social_image_verified",
+        "english_url": "http_200_live_metadata_h1_and_1200x630_social_image_verified",
+        "mobile_viewport": "passed_real_391px_chromium_target_390px_rounding_no_horizontal_overflow_ar_en",
+        "responsive_bracketing": "passed_340px_and_454px_no_horizontal_overflow_ar_en",
+        "tts_controls": "visible_ar_en",
+        "tts_actual_playback": "blocked_browser_has_no_speechSynthesis_and_click_produced_no_audio_state",
+        "duplicate_verification": "passed_one_ar_index_card_one_en_index_card_one_ar_sitemap_url_one_en_sitemap_url"
       }
     }
   },
@@ -164,16 +183,16 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Complete live AR/EN verification at an exact 390px viewport and perform an actual functional TTS playback check; repository/live metadata, images, indexes and sitemap are already verified.",
+  "next_action": "Run actual Arabic and English TTS playback in a browser/device with Web Speech speechSynthesis and audible voices; verify start-from-H1, synchronized highlighting and floating controls. If it passes, checkpoint live_verification, write the original publication report, and complete. Alternatively, the owner must explicitly approve the documented technical exception allowed by the TTS standard.",
   "last_run": {
     "mode": "coordinator_resume",
-    "status": "in_progress",
+    "status": "blocked",
     "started_at": "2026-11-12T12:07:00+04:00",
     "starting_head": "b1f7cfcbd12f4a1444fad3c5c685d5f26091c1ac",
     "last_checkpoint": "actions_and_pages",
-    "notes": "Reconciled successful permanent social-card run and generated commit; verified bilingual 1200x630 assets under size cap, unique page/index/sitemap entries, and exact-head Site Health, Pages, and Arabic editorial success.",
+    "notes": "Live AR/EN pages, metadata, bilingual 1200x630 images and near-390px mobile layout passed. Functional TTS could not be validated because the managed browser exposes no speechSynthesis; clicking Listen produced no playback state. No completion claimed.",
     "current_item": "case-brazil-family-health-strategy-community-primary-care",
-    "completed_at": null
+    "completed_at": "2026-11-12T12:23:59+04:00"
   },
   "last_completed_item": {
     "slug": "case-bangladesh-cyclone-preparedness-community-warning",
@@ -252,5 +271,9 @@
     "repository_publish",
     "actions_and_pages"
   ],
-  "blocker": null
+  "blocker": {
+    "type": "platform_capability_missing",
+    "detail": "The available managed Chromium reports speechSynthesis unavailable. The mandatory TTS standard requires actual browser/device playback; a visible Listen button alone is insufficient.",
+    "required_decision": "Provide or authorize a TTS-capable browser/device for actual Arabic and English playback verification, or explicitly approve the documented technical exception permitted by ARABIC-LANGUAGE-AND-TTS-STANDARD.md section 10."
+  }
 }
