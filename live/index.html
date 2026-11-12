@@ -55,6 +55,36 @@ body.live-presenter-page header{padding:12px 2vw!important}
 body.live-presenter-page footer{display:none}
 body.live-presenter-page .presenter-stage{grid-template-columns:minmax(0,1fr) 270px}
 @media(max-width:800px){body.live-presenter-page .presenter-stage{grid-template-columns:1fr}}
+
+/* Balanced conference view: designed for 100% browser zoom and short desktop viewports */
+body.live-presenter-page{background:#f0effa!important;color:#20213c}
+body.live-presenter-page header{background:#211b49!important;color:#fff!important;border-bottom:3px solid #7564ed}
+body.live-presenter-page header strong{color:#fff}
+body.live-presenter-page header button.secondary{background:#393161;color:#fff}
+body.live-presenter-page main{margin:10px auto!important;padding:0 clamp(12px,1.7vw,26px)!important}
+body.live-presenter-page .presenter-stage{grid-template-columns:minmax(0,1fr) 245px!important;gap:14px!important}
+body.live-presenter-page .presenter .stage-main>.panel:first-child{min-height:0!important;padding:clamp(16px,1.7vw,25px)!important;background:#fff;border:1px solid #dcd8f5;box-shadow:0 7px 24px #28205913}
+body.live-presenter-page .presenter .stage-question{font-size:clamp(1.08rem,1.32vw,1.55rem)!important;line-height:1.38!important;font-weight:650;margin:8px 0 12px!important;max-height:clamp(145px,29vh,275px);overflow-y:auto;overscroll-behavior:contain;padding-right:8px}
+body.live-presenter-page .presenter .stage-title{font-size:clamp(1.25rem,1.65vw,1.9rem)!important}
+body.live-presenter-page .presenter .stage-topline{margin-bottom:8px!important}
+body.live-presenter-page .presenter .stage-main>.panel:nth-child(2){margin-top:8px!important}
+body.live-presenter-page .presenter .stage-result{margin:8px 0 11px!important}
+body.live-presenter-page .presenter .stage-result-label{font-size:clamp(.82rem,.95vw,1.02rem)!important;line-height:1.25;margin-bottom:5px}
+body.live-presenter-page .presenter .stage-result .bar{height:13px!important;background:#e8e5fa}
+body.live-presenter-page .presenter .stage-result .fill{background:linear-gradient(90deg,#5541dc,#8e73f7)!important}
+body.live-presenter-page .presenter .stage-count strong{font-size:1.65rem!important}
+body.live-presenter-page .presenter .stage-side .panel{padding:12px!important;margin-bottom:9px}
+body.live-presenter-page .presenter .stage-side #qr img,body.live-presenter-page .presenter .stage-side #qr canvas{max-height:105px!important}
+body.live-presenter-page .presenter .stage-side .code{font-size:1.12rem!important;margin:5px 0}
+body.live-presenter-page .presenter .stage-controls{gap:6px}
+body.live-presenter-page .presenter .stage-side button{min-height:35px;padding:7px 8px}
+body.live-presenter-page .presenter .stage-navigation{margin:3px 0 5px}
+body.live-presenter-page .presenter .stage-topline .stage-pill{font-size:.76rem}
+body.live-presenter-page .presenter .panel{border-radius:16px}
+body.live-presenter-page .presenter.widescreen .presenter-stage{grid-template-columns:1fr!important}
+body.live-presenter-page .presenter.widescreen .stage-question{font-size:clamp(1.2rem,1.6vw,1.85rem)!important;max-height:clamp(180px,35vh,340px)}
+body.live-presenter-page .presenter.widescreen .stage-main>.panel:first-child{min-height:0!important}
+@media(max-width:800px){body.live-presenter-page .presenter-stage{grid-template-columns:1fr!important}body.live-presenter-page .presenter .stage-question{font-size:1.15rem!important;max-height:35vh}}
 </style></head><body><header><strong>LIVE · Personal Conference Tool</strong><div class="actions"><button id="home-link" class="secondary">Home</button><button id="language" class="secondary">العربية</button></div></header><main><div id="app" aria-live="polite"></div></main><footer>Personal conference polling · Tamayuz 10X</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" defer></script><script>
 (()=>{"use strict";
 const ENDPOINT="https://dqrsjhcfmpjhcxvtxosy.supabase.co/functions/v1/tamayuz-live";
