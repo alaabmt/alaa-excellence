@@ -602,6 +602,16 @@ body.live-presenter-page .presenter:not(.widescreen) #results .stage-result.resu
 body.live-presenter-page .presenter.widescreen #results .stage-result.result-choice .stage-result-label{font-size:clamp(1.45rem,2.2vw,2.7rem)!important;line-height:1.35!important;margin-bottom:14px!important}
 body.live-presenter-page .presenter:not(.widescreen) #results .stage-result.result-choice,
 body.live-presenter-page .presenter.widescreen #results .stage-result.result-choice{padding:clamp(18px,1.8vw,28px)!important;margin:14px 0!important}
+
+/* Conference projection: substantial rounded vote bars (~2.3 cm at 96dpi). */
+body.live-presenter-page .presenter:not(.widescreen) #results .stage-result.result-choice .bar,
+body.live-presenter-page .presenter.widescreen #results .stage-result.result-choice .bar,
+body.live-presenter-page .presenter.results-focus #results .stage-result.result-choice .bar{height:88px!important;min-height:88px!important;max-height:none!important;width:100%!important;border-radius:22px!important;overflow:hidden!important;background:#e7e3f0!important;display:block!important}
+body.live-presenter-page .presenter:not(.widescreen) #results .stage-result.result-choice .bar>.fill,
+body.live-presenter-page .presenter.widescreen #results .stage-result.result-choice .bar>.fill,
+body.live-presenter-page .presenter.results-focus #results .stage-result.result-choice .bar>.fill{height:100%!important;min-height:88px!important;border-radius:22px!important;display:block!important}
+body.live-presenter-page .presenter #results .stage-result.result-choice .stage-result-label{font-size:clamp(1.5rem,2.3vw,2.8rem)!important;font-weight:850!important}
+@media(max-width:700px){body.live-presenter-page .presenter #results .stage-result.result-choice .bar{height:60px!important;min-height:60px!important}body.live-presenter-page .presenter #results .stage-result.result-choice .bar>.fill{min-height:60px!important}}
 </style><script src="/assets/js/auth-config.js"></script></head><body><header><strong>LIVE · Personal Conference Tool</strong><div class="actions"><button id="home-link" class="secondary">Home</button><button id="language" class="secondary">العربية</button></div></header><main><div id="app" aria-live="polite"></div></main><footer>Personal conference polling · Tamayuz 10X</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" defer></script><script>
 (()=>{"use strict";
 const ENDPOINT="https://dqrsjhcfmpjhcxvtxosy.supabase.co/functions/v1/tamayuz-live";
