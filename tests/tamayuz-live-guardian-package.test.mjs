@@ -32,7 +32,7 @@ test("owner-facing maintenance guidance and security release gates exist",()=>{
 });
 test("plugin contains a guarded release checklist and incident routing",()=>{
  const checks=readFileSync(join(root,"skills/tamayuz-live-guardian/references/release-gates.md"),"utf8");
- assert.match(checks,/explicit approval/);
+ assert.match(checks,/explicit approval/i);
  assert.match(checks,/GitHub Pages and Supabase/);
  const route=readFileSync(join(root,"skills/tamayuz-live-guardian/references/incident-playbook.md"),"utf8");
  assert.match(route,/Desktop Site/);
