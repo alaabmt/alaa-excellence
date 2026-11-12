@@ -776,6 +776,34 @@ html[data-live-theme="dark"] a{color:#8dc9e9!important}
 html[data-live-theme="dark"] #qr{background:#fff!important}
 html[data-live-theme="dark"] #theme-toggle{border:1px solid #617a90!important;min-width:96px}
 html[data-live-theme="light"] #theme-toggle{border:1px solid #c8d5e0!important}
+
+/* Dark mode contrast: eliminate hard-coded light case and result surfaces. */
+html[data-live-theme="dark"] body.live-presenter-page .presenter .clinical-case,
+html[data-live-theme="dark"] body.live-presenter-page .presenter .clinical-section,
+html[data-live-theme="dark"] body.live-presenter-page .presenter #question-view,
+html[data-live-theme="dark"] body.live-presenter-page .presenter .clinical-section.clinical-intro,
+html[data-live-theme="dark"] .clinical-section.clinical-intro{background:#132c40!important;color:#e8f2f9!important;border-color:#304e65!important}
+html[data-live-theme="dark"] .clinical-case,
+html[data-live-theme="dark"] .clinical-section,
+html[data-live-theme="dark"] .clinical-section p,
+html[data-live-theme="dark"] .clinical-section div,
+html[data-live-theme="dark"] .clinical-heading,
+html[data-live-theme="dark"] .clinical-text,
+html[data-live-theme="dark"] .clinical-section.clinical-intro,
+html[data-live-theme="dark"] .clinical-section.clinical-intro *{color:#e8f2f9!important}
+html[data-live-theme="dark"] .clinical-heading{color:#d2e6f5!important}
+html[data-live-theme="dark"] body.live-presenter-page .presenter #results .stage-result,
+html[data-live-theme="dark"] body.live-presenter-page .presenter #results .stage-result.result-choice,
+html[data-live-theme="dark"] body.live-presenter-page .presenter #results .result-choice,
+html[data-live-theme="dark"] .stage-result.result-choice{background:#203c51!important;color:#f2f7fb!important;border:1px solid #416078!important;box-shadow:none!important}
+html[data-live-theme="dark"] body.live-presenter-page .presenter #results .stage-result *,
+html[data-live-theme="dark"] body.live-presenter-page .presenter #results .stage-result-label,
+html[data-live-theme="dark"] body.live-presenter-page .presenter #results .stage-result-label strong,
+html[data-live-theme="dark"] body.live-presenter-page .presenter #results .stage-result-label span{color:#f2f7fb!important}
+html[data-live-theme="dark"] body.live-presenter-page .presenter #results .stage-result .bar{background:#39546a!important}
+html[data-live-theme="dark"] body.live-presenter-page .presenter #results .stage-result .fill{color:transparent!important}
+html[data-live-theme="dark"] .clinical-challenge{background:#29445a!important;color:#fff!important;border-color:#b59652!important}
+html[data-live-theme="dark"] .clinical-challenge *{color:#fff!important}
 </style><script src="/assets/js/auth-config.js"></script></head><body><header><strong>LIVE · Personal Conference Tool</strong><div class="actions"><button id="theme-toggle" class="secondary" type="button" aria-label="Switch color mode" aria-pressed="false">Dark mode</button><button id="home-link" class="secondary">Home</button><button id="language" class="secondary">العربية</button></div></header><main><div id="app" aria-live="polite"></div></main><footer>Personal conference polling · Tamayuz 10X</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" defer></script><script>
 (()=>{"use strict";
 const ENDPOINT="https://dqrsjhcfmpjhcxvtxosy.supabase.co/functions/v1/tamayuz-live";
