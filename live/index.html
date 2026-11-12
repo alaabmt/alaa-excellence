@@ -1308,7 +1308,7 @@ async function audiencePage(force=false){
   if(!$("audience-root"))layout('<div id="audience-root"><h1>'+t("Live conference","المؤتمر المباشر")+'</h1><div class="panel"><p id="audience-state" class="muted"></p><div id="poll"></div><p id="notice" role="status" aria-live="polite"></p></div></div>');
   const poll=$("poll"),state=$("audience-state");if(!poll)return;
   if(state)state.textContent=t("Session","الجلسة")+": "+code+" · "+(s.state==="open"?t("Voting open","التصويت مفتوح"):s.state==="closed"?t("Voting closed","التصويت مغلق"):s.state==="ended"?t("Session ended","انتهت الجلسة"):t("Waiting","انتظار"));
-  if(s.state==="ended"){poll.innerHTML='<h2>'+t("Thank you for participating.","شكرًا لمشاركتك.")+'</h2>';return}
+  if(s.state==="ended"){poll.innerHTML='<h2>'+t("This session has ended.","انتهت هذه الجلسة.")+'</h2><p class="muted">'+t("Ask the presenter for a new session code to join the next lecture.","اطلب من مقدم العرض رمز جلسة جديدًا للمحاضرة القادمة.")+'</p><p><a href="/live/">'+t("Return to Tamayuz Live","العودة إلى تميز لايف")+'</a></p>';stop();return}
   if(!q){poll.innerHTML='<h2>'+t("Waiting for the presenter...","بانتظار مقدم العرض...")+'</h2>';return}
   if(s.state!=="open"||voted||reveal){
    poll.innerHTML=clinicalCaseMarkup(q.prompt)+'<p class="success" role="status">'+(voted?t("Your answer was received.","تم استلام إجابتك."):t("Voting is not open.","التصويت غير مفتوح."))+'</p>';
@@ -1338,6 +1338,12 @@ async function audiencePage(force=false){
   if($("send"))$("send").onclick=()=>{track("answer_click",q.id);submit($("answer").value)};
   styleAudience();
  }catch(e){
+  // An ended session is a normal terminal state, not a network failure.
+  if(e.message==="Session ended"){
+   stop();
+   layout('<div id="audience-root" class="panel"><h2>'+t("This session has ended.","انتهت هذه الجلسة.")+'</h2><p>'+t("The presenter has closed this session. Ask for a new joining code to participate in the next lecture.","أغلق مقدم العرض هذه الجلسة. اطلب رمز انضمام جديدًا للمشاركة في المحاضرة القادمة.")+'</p><p><a href="/live/">'+t("Return to Tamayuz Live","العودة إلى تميز لايف")+'</a></p></div>');
+   return;
+  }
   if(!$("audience-root"))layout('<div id="audience-root" class="panel"><p id="notice" role="alert" class="error"></p><button id="audience-retry">'+t("Retry","إعادة المحاولة")+'</button></div>');
   notice(t("Connection interrupted. Retrying automatically: ","انقطع الاتصال. جارٍ إعادة المحاولة تلقائيًا: ")+e.message,true);
   if($("audience-retry"))$("audience-retry").onclick=()=>audiencePage(true);
