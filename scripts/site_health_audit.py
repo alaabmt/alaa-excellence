@@ -214,8 +214,15 @@ def audit() -> tuple[list[str], list[str], dict[str, int]]:
         is_public_language_page = is_root_public or is_english_public
 
         if is_public_language_page:
-            expected_lang = "en" if is_english_public else "ar"
-            expected_dir = "ltr" if is_english_public else "rtl"
+            # These five English-language CPHQ apps intentionally use root routes.
+            # Treating every root HTML page as Arabic produced 10 false warnings.
+            english_root_apps = {
+                "cphq.html", "cphq-free.html", "cphq-guest.html",
+                "cphq-registered.html", "cphq-historical-practice.html",
+            }
+            english = is_english_public or rel in english_root_apps
+            expected_lang = "en" if english else "ar"
+            expected_dir = "ltr" if english else "rtl"
             actual_lang = parsed.html_attrs.get("lang", "").lower()
             actual_dir = parsed.html_attrs.get("dir", "").lower()
             if actual_lang != expected_lang:
