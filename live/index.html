@@ -121,6 +121,8 @@ body.live-presenter-page .presenter.widescreen .stage-main>.panel:first-child{mi
  body.live-presenter-page .presenter .stage-result-label{font-size:clamp(.78rem,.88vw,.95rem)!important}
  body.live-presenter-page .presenter .stage-title{font-size:clamp(1.1rem,1.4vw,1.55rem)!important}
 }
+
+.inline-answer-controls{display:flex;justify-content:flex-end;margin:12px 0 4px}.inline-answer-controls button{font-size:.9rem;padding:9px 14px;min-height:40px;border:1px solid #7564ed;color:#4431c3;background:#f0ecff}.inline-answer-controls button:disabled{opacity:.5}@media(max-width:800px){.inline-answer-controls button{width:100%}}
 </style></head><body><header><strong>LIVE · Personal Conference Tool</strong><div class="actions"><button id="home-link" class="secondary">Home</button><button id="language" class="secondary">العربية</button></div></header><main><div id="app" aria-live="polite"></div></main><footer>Personal conference polling · Tamayuz 10X</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" defer></script><script>
 (()=>{"use strict";
 const ENDPOINT="https://dqrsjhcfmpjhcxvtxosy.supabase.co/functions/v1/tamayuz-live";
@@ -207,7 +209,7 @@ async function presenterPage(){
   const questionView=$("question-view");
   if(questionView)questionView.innerHTML=selected?'<p class="muted">'+t("QUESTION","السؤال")+' '+esc(selected.position+1)+' / '+v.questions.length+'</p><h2 class="stage-question">'+esc(selected.prompt)+'</h2>':'<div class="stage-empty"><h2>'+t("No active question","لا يوجد سؤال نشط")+'</h2><p>'+t("Add questions in your dashboard, then create a new session.","أضف الأسئلة في لوحة التحكم ثم أنشئ جلسة جديدة.")+'</p></div>';
   const updateStatus=$("live-update-status");if(updateStatus)updateStatus.textContent=t("Results updated automatically · ","تحديث النتائج تلقائيًا · ")+new Date().toLocaleTimeString();
-  const answerButton=$("answer-reveal");if(answerButton){answerButton.textContent=s.reveal_correct_answer?t("Hide correct answer","إخفاء الإجابة الصحيحة"):t("Reveal correct answer","إظهار الإجابة الصحيحة");answerButton.disabled=!selected?.correct_answer||s.state==="ended"}
+  for(const answerButton of [$("answer-reveal"),$("stage-answer-toggle")]){if(answerButton){answerButton.textContent=s.reveal_correct_answer?t("Hide correct answer","إخفاء الإجابة الصحيحة"):t("Reveal correct answer","إظهار الإجابة الصحيحة");answerButton.disabled=!selected?.correct_answer||s.state==="ended";answerButton.setAttribute("aria-pressed",String(!!s.reveal_correct_answer))}}
   const results=$("results");
   if(results){
    const total=v.count||0;
