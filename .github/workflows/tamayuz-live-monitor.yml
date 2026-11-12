@@ -1,0 +1,48 @@
+name: Tamayuz Live 15-Minute Health and Alert Route
+on:
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'live/qa/monitor-live.mjs'
+      - '.github/workflows/tamayuz-live-monitor.yml'
+  pull_request:
+    paths:
+      - 'live/qa/monitor-live.mjs'
+      - '.github/workflows/tamayuz-live-monitor.yml'
+permissions:
+  contents: read
+  issues: write
+concurrency:
+  group: tamayuz-live-health-monitor
+  cancel-in-progress: false
+jobs:
+  health:
+    name: Live frontend and backend read-only probe
+    runs-on: ubuntu-24.04
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '24'
+      - name: Check published website and real Live API; create or resolve issue on sustained failure
+        env:
+          GITHUB_TOKEN: ${{ github.event_name == 'pull_request' && '' || secrets.GITHUB_TOKEN }}
+        run: node live/qa/monitor-live.mjs
+  delivery-route-smoke:
+    name: TEST alert reaches persistent GitHub issue tracker (not human acknowledgement)
+    if: github.event_name == 'push'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '24'
+      - name: Create and verify TEST-only assigned incident issue; leave for delivery review
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node live/qa/monitor-live.mjs --alert-drill
