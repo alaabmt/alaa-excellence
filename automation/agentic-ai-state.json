@@ -7,9 +7,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-12T00:05:00.000Z",
-  "workflow_status": "reconciling",
-  "current_stage": "repository_publish",
+  "updated_at": "2026-11-12T00:13:00.000Z",
+  "workflow_status": "in_progress",
+  "current_stage": "actions_and_pages",
   "run_lease": {
     "owner": "chatgpt-central-resume-20261112-0405",
     "acquired_at": "2026-11-12T00:05:00.000Z",
@@ -39,9 +39,40 @@
       "commit": "9642a6903de2064a715f6e1213801f6724f1619f"
     },
     "publishing": {
-      "status": "social_cover_manifest_committed",
-      "cover_manifest_commit": "987da331ec1cdac1c35f40fce3f9d9c1b0942e24",
-      "social_assets_status": "awaiting_generation_reconciliation"
+      "status": "repository_committed",
+      "repository_head": "3b00a7615d99010c5d7c7d51169191314bbca4f3",
+      "arabic_page": {
+        "path": "article-agentic-ai-swelancer-million-dollar-software-work.html",
+        "commit": "e1b15fbe9637e4108092ae0c953822ad9af583e3",
+        "url": "https://tamayuz10x.com/article-agentic-ai-swelancer-million-dollar-software-work.html"
+      },
+      "english_page": {
+        "path": "en/article-agentic-ai-swelancer-million-dollar-software-work.html",
+        "commit": "e01fedb1cb9734653120b007f3d04b6780e52d19",
+        "url": "https://tamayuz10x.com/en/article-agentic-ai-swelancer-million-dollar-software-work.html"
+      },
+      "hubs": {
+        "arabic_commit": "4387524dac63b062d328676629d788fd6d21b655",
+        "english_commit": "3b00a7615d99010c5d7c7d51169191314bbca4f3"
+      },
+      "date_registry_commit": "df9488370cc1b0e077b92c3916b56f8e7a683970",
+      "sitemap_commit": "4a5c10fbe50bc70e035f9cfa97af0a8c96eef215",
+      "social_assets": {
+        "commit": "62d7d280c4972d4bf875cfa8a9947c4b20a08332",
+        "manifest_commit": "7a007b941dedee3e0dc689751c94703163deed59",
+        "arabic_path": "assets/previews/story/article-agentic-ai-swelancer-million-dollar-software-work-ar.jpg",
+        "english_path": "assets/previews/story/article-agentic-ai-swelancer-million-dollar-software-work-en.jpg",
+        "dimensions": "1200x630",
+        "sizes_bytes": {
+          "arabic": 76539,
+          "english": 86567
+        }
+      },
+      "repository_validation": "passed_reconciled",
+      "known_unrelated_checks": [
+        "Site health QA currently fails because live/index.html lacks shared navigation.",
+        "Generate social share cards currently fails because the 2026-11-11 Qur'anic reflection still uses legacy SVG previews."
+      ]
     },
     "metrics_check_status": "completed",
     "metrics_check_path": "automation/agentic-ai/article-agentic-ai-swelancer-million-dollar-software-work/metrics-check.md",
@@ -55,11 +86,9 @@
     "quality_gate_review_commit": "d11c39e4d27a6b6bcc73b998df4415eec4081f97",
     "quality_gate_score": 96,
     "quality_gate_pending": [
-      "final_html",
       "mobile_rtl_ltr",
       "tts_playback",
-      "seo_schema",
-      "repository_checks",
+      "actions_and_pages",
       "exact_head_pages",
       "live_verification"
     ]
@@ -103,15 +132,15 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Reconcile the latest main, repository history, paired SWE-Lancer pages, Agentic AI hubs, publication-date registry, sitemap, social-card manifest/assets, GitHub Actions and live URLs. Do not replay any write whose intended effect already exists. Resume repository_publish only from the reconciled state.",
+  "next_action": "Reconcile the Actions runs for the latest head after repository publication. Require successful article-date integrity, disclaimer and Arabic editorial gates; distinguish unrelated repository-wide failures. Verify exact-head GitHub Pages, then run real mobile RTL/LTR and live page/index/sitemap/social-asset checks before creating the publication report.",
   "last_run": {
     "mode": "coordinator_resume",
-    "status": "reconciling",
+    "status": "in_progress",
     "started_at": "2026-11-12T00:05:00.000Z",
     "completed_at": null,
-    "notes": "An expired lease and repository publication side effects require reconciliation against the latest main and live destination before any replay.",
+    "notes": "Reconciled all repository publication effects. Corrected publication metadata, BreadcrumbList and required disclaimers; created dedicated bilingual 1200x630 social cards; paired pages, specialized hubs, date registry and sitemap are present without duplication.",
     "current_item": "article-agentic-ai-swelancer-million-dollar-software-work",
-    "checkpoint": "repository_publish:reconciling"
+    "checkpoint": "repository_publish"
   },
   "blocker": null,
   "last_completed_item": {
@@ -163,6 +192,7 @@
     "beginner_critique",
     "english_draft",
     "bilingual_parity",
-    "quality_gate"
+    "quality_gate",
+    "repository_publish"
   ]
 }
