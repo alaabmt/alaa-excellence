@@ -5,13 +5,13 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-12T16:08:03.563Z",
+  "updated_at": "2026-11-12T16:09:15.567Z",
   "workflow_status": "in_progress",
-  "current_stage": "bilingual_parity",
+  "current_stage": "quality_gate",
   "current_article": {
     "article_id": "quran-reflection-2026-11-12-al-ahzab-upright-speech",
     "publication_date": "2026-11-12",
-    "status": "bilingual_parity_passed_pending_quality_gate",
+    "status": "quality_gate_passed_pending_repository_publish",
     "duplicate_check": {
       "status": "passed_no_today_quran_cycle_found",
       "checked_at": "2026-11-12T13:07:23Z",
@@ -195,6 +195,26 @@
       "completed_at": "2026-11-12T16:08:03.563Z",
       "mobile_gate": "NOT VERIFIED until final HTML",
       "tts_gate": "NOT VERIFIED until final HTML"
+    },
+    "quality_gate": {
+      "status": "passed",
+      "score": 99,
+      "threshold": 90,
+      "blocking_errors": [],
+      "review_path": "automation/quran-reflections/reflection-al-ahzab-upright-speech/quality-review.md",
+      "review_commit": "c20bf5f8fa6fb6616fd88eb67745798f14a671a8",
+      "review_blob_sha": "35037b14d0f19b8a4e1a405990311a796231ba49",
+      "arabic_blob_sha": "b2d158fb8372603e96d22a1f03b86e1d095cb8f0",
+      "english_blob_sha": "e3f0cfbd4dc8b60f3170c382383f4889912f8e6d",
+      "quran_text": "passed",
+      "tafsir_and_creed": "passed",
+      "methodological_separation": "passed",
+      "bilingual_parity": "passed",
+      "novice_comprehension": "passed_editorial_simulation",
+      "mobile_gate": "NOT VERIFIED until final HTML",
+      "rtl_gate": "NOT VERIFIED until final HTML",
+      "tts_gate": "NOT VERIFIED until final HTML",
+      "completed_at": "2026-11-12T16:09:15.567Z"
     }
   },
   "stage_order": [
@@ -228,22 +248,17 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Apply the 100-point Qur'anic reflection quality gate to the parity-cleared Arabic and English drafts, require a score of at least 90 with no blocking Qur'an, tafsir, or creed error, and record the result in quality-review.md before repository publication.",
+  "next_action": "Before any public write, reconcile the checkpoint, latest main, topic registry, intended Arabic and English page paths, four indexes, publication-date registry, sitemap, social assets, and both expected live URLs; then build and checkpoint the paired repository publication without duplicating any target.",
   "last_run": {
     "mode": "coordinator_resume",
-    "status": "running",
+    "status": "progressed",
     "started_at": "2026-11-12T16:06:36.713Z",
-    "last_checkpoint": "bilingual_parity",
-    "notes": "Bilingual parity passed after one non-substantive English reference-link normalization; proceeding to the quality gate."
+    "last_checkpoint": "quality_gate",
+    "notes": "Checkpointed bilingual parity and the 99/100 final text quality gate. One non-substantive English reference-link normalization was applied. Lease released before repository publication.",
+    "ended_at": "2026-11-12T16:09:15.567Z"
   },
   "workflow_id": "quran_reflections",
-  "run_lease": {
-    "owner": "chatgpt-central-resume-20261112T160636713Z",
-    "acquired_at": "2026-11-12T16:06:36.713Z",
-    "expires_at": "2026-11-12T17:56:36.713Z",
-    "base_head_sha": "55a059483984eb7423a641daac91cb5fd30c5091",
-    "stage": "bilingual_parity"
-  },
+  "run_lease": null,
   "checkpoint_policy": {
     "checkpoint_after_every_stage": true,
     "run_lease_minutes": 110,
@@ -617,7 +632,8 @@
     "arabic_draft",
     "independent_critique",
     "english_draft",
-    "bilingual_parity"
+    "bilingual_parity",
+    "quality_gate"
   ],
   "duplicate_check": {
     "status": "passed_no_today_quran_cycle_found",
