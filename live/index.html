@@ -166,6 +166,16 @@ body.live-presenter-page .presenter #results .stage-result.result-tone-2:not(.re
 body.live-presenter-page .presenter #results .stage-result.result-tone-3:not(.result-correct):not(.result-muted) .fill{background:#7c6ba5!important}
 body.live-presenter-page .presenter #results .stage-result.result-correct .fill{background:#25976a!important}
 body.live-presenter-page .presenter #results .stage-result.result-muted .fill{background:#a4a8b0!important}
+
+/* Readable response options on conference displays; override compact legacy rules. */
+body.live-presenter-page .presenter #results .result-choice .stage-result-label{font-size:clamp(1.12rem,1.45vw,1.48rem)!important;line-height:1.38!important;font-weight:750!important;gap:16px!important;margin-bottom:10px!important;color:#211d39!important}
+body.live-presenter-page .presenter #results .result-choice .result-choice-name{font-weight:750!important;line-height:1.38!important}
+body.live-presenter-page .presenter #results .result-choice .stage-result-label strong{font-size:1em!important;font-weight:800!important;white-space:nowrap}
+body.live-presenter-page .presenter #results .result-choice{padding:13px 16px!important;margin:11px 0!important}
+body.live-presenter-page .presenter #results .result-choice .bar{height:17px!important}
+.audience-results .result-choice .stage-result-label{font-size:clamp(1rem,2.7vw,1.22rem)!important;line-height:1.4!important;font-weight:750!important}
+.audience-results .result-choice .result-choice-name,.audience-results .result-choice .stage-result-label strong{font-weight:750!important}
+@media(max-width:800px){body.live-presenter-page .presenter #results .result-choice .stage-result-label{font-size:clamp(1.05rem,3.8vw,1.28rem)!important}body.live-presenter-page .presenter #results .result-choice{padding:11px 12px!important}}
 </style></head><body><header><strong>LIVE · Personal Conference Tool</strong><div class="actions"><button id="home-link" class="secondary">Home</button><button id="language" class="secondary">العربية</button></div></header><main><div id="app" aria-live="polite"></div></main><footer>Personal conference polling · Tamayuz 10X</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" defer></script><script>
 (()=>{"use strict";
 const ENDPOINT="https://dqrsjhcfmpjhcxvtxosy.supabase.co/functions/v1/tamayuz-live";
