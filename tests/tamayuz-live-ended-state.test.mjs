@@ -15,7 +15,7 @@ test("ended sessions are not confused with a broken internet connection",()=>{
  const end=html.indexOf("function render(){",anchor);
  const audience=html.slice(anchor,end);
  assert.ok(anchor>0 && end>anchor);
- assert.match(audience,/if\(e\.message==="Session ended"\)/);
+ assert.match(audience,/if\(e\.message==="Session ended"(?:\|\|e\.message==="Session not found")?\)/);
  assert.match(audience,/stop\(\);/);
  assert.match(audience,/This session has ended\./);
  assert.match(audience,/Return to Tamayuz Live/);

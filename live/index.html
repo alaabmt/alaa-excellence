@@ -858,7 +858,7 @@ html[data-live-theme="dark"] .tl-join-input{background:#f8f9fb}html[data-live-th
 const ENDPOINT="https://dqrsjhcfmpjhcxvtxosy.supabase.co/functions/v1/tamayuz-live";
 const $=id=>document.getElementById(id),esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const params=new URLSearchParams(location.search),fragment=new URLSearchParams(location.hash.slice(1));
-let lang=localStorage.getItem("live-lang")==="ar"?"ar":"en",admin=fragment.get("admin")||sessionStorage.getItem("live-admin")||"",presenter=fragment.get("presenter")||sessionStorage.getItem("live-presenter")||"",participant=sessionStorage.getItem("live-participant-"+(params.get("code")||""))||"",active=null,lastRevision=-1,refresh=null,busy=false;
+let lang=localStorage.getItem("live-lang")==="ar"?"ar":"en",admin=fragment.get("admin")||sessionStorage.getItem("live-admin")||"",presenter=fragment.get("presenter")||sessionStorage.getItem("live-presenter")||"",participant=sessionStorage.getItem("live-participant-"+(params.get("code")||""))||"",active=null,lastRevision=-1,refresh=null,busy=false,navigationEpoch=0;
 if(fragment.get("admin"))sessionStorage.setItem("live-admin",admin);
 if(fragment.get("presenter"))sessionStorage.setItem("live-presenter",presenter);
 if(params.get("session")&&presenter)sessionStorage.setItem("live-presenter-session",params.get("session"));
@@ -885,10 +885,11 @@ async function requireLiveOwner(){
 }
 async function api(action,data={}){const ctrl=new AbortController(),timeout=setTimeout(()=>ctrl.abort(),12000);try{const session=await websiteSession().catch(()=>null);const headers={"content-type":"application/json"};if(session?.access_token)headers.authorization="Bearer "+session.access_token;const r=await fetch(ENDPOINT,{method:"POST",headers,cache:"no-store",body:JSON.stringify({action,...data}),signal:ctrl.signal});const v=await r.json();if(!r.ok)throw Error(v.error||"Request failed");return v}finally{clearTimeout(timeout)}}
 const field=(label,id,placeholder="")=>'<label class="stack">'+label+'<input id="'+id+'" placeholder="'+esc(placeholder)+'" required></label>';
-function stop(){if(refresh)clearInterval(refresh);refresh=null}
+function stop(){navigationEpoch++;if(refresh)clearInterval(refresh);refresh=null}
 function language(){lang=lang==="ar"?"en":"ar";localStorage.setItem("live-lang",lang);render()}
 $("language").onclick=language;$("home-link").onclick=()=>{home()};
 function home(){
+ stop();
  for(const key of ["session","code","admin","presentation","presenter_mode","tab"])params.delete(key);
  history.replaceState(null,"",location.pathname);
  document.body.classList.add("live-public-home");
@@ -924,12 +925,14 @@ function home(){
 }
 
 async function publicSessions(){
+ stop();const requestEpoch=navigationEpoch;
  for(const key of ["session","code","admin","presentation","tab"])params.delete(key);
  params.set("presenter_mode","1");history.replaceState(null,"",location.pathname+"?"+params.toString());
  layout('<div class="sc"><div class="sc-head"><div><p class="sc-eyebrow">TAMAYUZ LIVE · PRESENTER</p><h1>'+t("Session Control Center","مركز إدارة الجلسات")+'</h1><p>'+t("Sessions grouped under their presentations.","الجلسات مرتبة تحت عروضها التقديمية.")+'</p></div><button class="secondary" id="sc-home">'+t("← Home","→ الرئيسية")+'</button></div><div id="sc-summary" class="sc-summary"></div><div id="session-list" class="pd-list">'+t("Loading presentations…","جارٍ تحميل العروض…")+'</div><p class="sc-note">'+t("To edit or delete, open My presentations with owner access.","للتعديل أو الحذف، افتح عروضي التقديمية بصلاحية المالك.")+'</p><p id="notice" role="status"></p></div>');
  $("sc-home").onclick=home;
  try{
   const [sv,pv]=await Promise.all([api("list_sessions"),api("list")]);
+  if(requestEpoch!==navigationEpoch)return;
   const sessions=sv.sessions||[],presentations=pv.presentations||[],live=sessions.filter(s=>s.state==="open").length,waiting=sessions.filter(s=>s.state==="waiting").length;
   $("sc-summary").innerHTML=[[sessions.length,t("Total sessions","إجمالي الجلسات")],[live,t("Voting open","التصويت مفتوح")],[waiting,t("Waiting","بانتظار البدء")]].map(([n,label])=>'<div class="sc-metric"><strong>'+n+'</strong><span>'+label+'</span></div>').join("");
   const groups=presentations.map(p=>({p,own:sessions.filter(s=>s.presentation_id===p.id)})).filter(g=>g.own.length);
@@ -940,14 +943,15 @@ async function publicSessions(){
   $("session-list").querySelectorAll("[data-public-expand]").forEach(btn=>btn.onclick=()=>{const el=document.querySelector('[data-public-body="'+btn.dataset.publicExpand+'"]');el.hidden=!el.hidden;btn.setAttribute("aria-expanded",String(!el.hidden));btn.querySelector("span").textContent=el.hidden?"⌄":"⌃"});
   $("session-list").querySelectorAll("[data-session]").forEach(btn=>btn.onclick=()=>location.href="?code="+encodeURIComponent(btn.dataset.session));
   $("session-list").querySelectorAll("[data-join]").forEach(btn=>btn.onclick=async()=>{const url=location.origin+"/live/?code="+encodeURIComponent(btn.dataset.join);try{await navigator.clipboard.writeText(url);notice(t("Join link copied.","تم نسخ رابط الانضمام."))}catch(_){notice(url)}});
- }catch(e){notice(e.message,true)}
+ }catch(e){if(requestEpoch===navigationEpoch)notice(e.message,true)}
 }
 
 function parsePrivateLink(value,role){try{const u=new URL(value.trim(),location.origin);if(u.origin!==location.origin||!u.pathname.replace(/\/$/,"").endsWith("/live"))return null;const h=new URLSearchParams(u.hash.slice(1));if(role==="owner"){const token=h.get("admin");return token&&/^[a-f0-9]{64}$/.test(token)?{token}:null}const token=h.get("presenter"),session=u.searchParams.get("session");return token&&/^[a-f0-9]{48}$/.test(token)&&session&&/^[a-f0-9-]{36}$/.test(session)?{token,session}:null}catch(_){return null}}
 function ownerAccess(){layout('<button class="secondary" id="back-home">'+t("← Back","→ عودة")+'</button><div class="panel access-panel"><h1>'+t("My presentations","عروضي التقديمية")+'</h1><p>'+t("Paste your private owner link. This is not an audience code.","الصق رابط المالك الخاص بك. هذا ليس رمز دخول الحضور.")+'</p><label class="stack">'+t("Private owner link","رابط المالك الخاص")+'<input id="owner-link" type="password" autocomplete="off" spellcheck="false" placeholder="https://tamayuz10x.com/live/?admin=1#admin=..."></label><button id="owner-submit">'+t("Open dashboard","فتح لوحة التحكم")+'</button><p id="notice" role="status"></p><p class="muted">'+t("Your link is kept in this browser session; it is not sent to another website.","يُحتفظ بالرابط في جلسة هذا المتصفح ولا يُرسل إلى موقع آخر.")+'</p></div>');$("back-home").onclick=home;$("owner-submit").onclick=async()=>{const parsed=parsePrivateLink($("owner-link").value,"owner");if(!parsed){notice(t("Paste the complete private owner link, including the #admin part.","الصق رابط المالك كاملاً بما فيه جزء #admin."),true);return}try{await api("list",{key:parsed.token});admin=parsed.token;sessionStorage.setItem("live-admin",admin);params.set("admin","1");history.replaceState(null,"","?admin=1");render()}catch(e){notice(t("Owner access was not accepted. Check your private link.","لم يُقبل رابط المالك. تحقق من الرابط الخاص."),true)}}}
 function presenterAccess(){layout('<button class="secondary" id="back-home">'+t("← Back","→ عودة")+'</button><div class="panel access-panel"><h1>'+t("Presenter mode","وضع مقدم العرض")+'</h1><p>'+t("Paste the private presenter link provided by the conference owner. The audience join code cannot control voting.","الصق رابط المقدم الخاص الذي يرسله مالك المؤتمر. رمز الحضور لا يتيح التحكم بالتصويت.")+'</p><label class="stack">'+t("Private presenter link","رابط المقدم الخاص")+'<input id="presenter-link" type="password" autocomplete="off" spellcheck="false" placeholder="https://tamayuz10x.com/live/?session=...#presenter=..."></label><button id="presenter-submit">'+t("Open presenter controls","فتح أدوات المقدم")+'</button><p id="notice" role="status"></p></div>');$("back-home").onclick=home;$("presenter-submit").onclick=async()=>{const parsed=parsePrivateLink($("presenter-link").value,"presenter");if(!parsed){notice(t("Paste the complete private presenter link, including the #presenter part.","الصق رابط المقدم كاملاً بما فيه جزء #presenter."),true);return}try{await api("present",{session_id:parsed.session,presenter_token:parsed.token});presenter=parsed.token;sessionStorage.setItem("live-presenter",presenter);sessionStorage.setItem("live-presenter-session",parsed.session);location.href="?session="+encodeURIComponent(parsed.session)+"#presenter="+encodeURIComponent(presenter)}catch(e){notice(t("Presenter access was not accepted. Ask the owner for a valid link.","لم يُقبل رابط المقدم. اطلب رابطاً صالحاً من المالك."),true)}}}
 async function dashboard(){
- if(!(await requireLiveOwner()))return;
+ stop();const requestEpoch=navigationEpoch;
+ if(!(await requireLiveOwner())||requestEpoch!==navigationEpoch)return;
  for(const key of ["session","code","presenter_mode","tab","report_session"])params.delete(key);
  params.set("admin","1");params.delete("presentation");history.replaceState(null,"",location.pathname+"?"+params.toString());
  layout('<div class="pd"><div class="pd-heading"><div><p class="pd-eyebrow">TAMAYUZ LIVE · PRESENTATIONS</p><h1>'+t("My presentations","عروضي التقديمية")+'</h1><p class="muted">'+t("Each presentation keeps its questions, sessions and reports together.","تحتفظ كل عروضك بأسئلتها وجلساتها وتقاريرها في مكان واحد.")+'</p></div><button id="pd-create-toggle">'+t("＋ New presentation","＋ عرض جديد")+'</button></div><section class="panel stack pd-create" id="pd-create" hidden><h2>'+t("Create presentation","إنشاء عرض")+'</h2>'+field(t("Conference title","عنوان المؤتمر"),"title")+'<select id="locale"><option value="en">English</option><option value="ar">العربية</option></select><button id="create">'+t("Create presentation","إنشاء عرض")+'</button></section><div id="presentations" class="pd-list">'+t("Loading presentations…","جارٍ تحميل العروض…")+'</div><p id="notice" role="status"></p></div>');
@@ -1001,7 +1005,8 @@ async function dashboard(){
  }catch(e){notice(e.message,true)}
 }
 async function manage(pid){
- if(!(await requireLiveOwner()))return;
+ stop();const requestEpoch=navigationEpoch;
+ if(!(await requireLiveOwner())||requestEpoch!==navigationEpoch)return;
  for(const key of ["session","code","presenter_mode"])params.delete(key);
  params.set("admin","1");params.set("presentation",pid);history.replaceState(null,"",location.pathname+"?"+params.toString());
  layout('<div class="qm"><div class="qm-head"><div><button class="secondary qm-back" id="back">← '+t("Presentations","العروض")+'</button><p class="muted qm-eyebrow">TAMAYUZ LIVE · WORKSPACE</p><h1 id="qm-title">'+t("Presentation workspace","مساحة عمل العرض")+'</h1><p class="muted">'+t("Prepare questions, manage sessions and review engagement.","جهّز الأسئلة وأدر الجلسات وراجع التفاعل.")+'</p></div><button id="start" class="qm-start">＋ '+t("Create live session","إنشاء جلسة مباشرة")+'</button></div><div class="qm-summary" id="qm-summary"></div><nav class="qm-tabs" aria-label="Workspace"><button class="qm-tab is-active" data-tab="questions">'+t("Questions","الأسئلة")+'</button><button class="qm-tab" data-tab="sessions">'+t("Live sessions","الجلسات المباشرة")+'</button><button class="qm-tab" data-tab="analytics">'+t("Analytics","التحليلات")+'</button></nav><section id="qm-questions-tab"><div class="qm-toolbar"><label class="qm-search-label"><span class="sr-only">'+t("Search questions","البحث عن الأسئلة")+'</span><input id="qm-search" type="search" placeholder="'+t("Search questions…","ابحث عن الأسئلة…")+'"></label><button id="qm-add-toggle" class="secondary">＋ '+t("Add question","إضافة سؤال")+'</button></div><section id="qm-add-panel" class="panel stack qm-editor" hidden><h2>'+t("Add a question","إضافة سؤال")+'</h2>'+field(t("Question","السؤال"),"prompt")+'<label>'+t("Question type","نوع السؤال")+'<select id="kind"><option value="choice">'+t("Multiple choice","اختيارات")+'</option><option value="rating">'+t("Rating 1–5","تقييم ١–٥")+'</option><option value="text">'+t("Open text","إجابة مفتوحة")+'</option></select></label><label>'+t("Options (one per line)","الخيارات (كل خيار في سطر)")+'<textarea id="options" rows="5"></textarea></label><button id="add">'+t("Save new question","حفظ السؤال الجديد")+'</button></section><section class="qm-list"><div class="qm-list-head"><h2>'+t("Saved questions","الأسئلة المحفوظة")+'</h2><span class="muted" id="qm-count"></span></div><div id="saved-questions" aria-live="polite">'+t("Loading…","جارٍ التحميل…")+'</div></section></section><section id="qm-sessions-tab" class="qm-list" hidden><h2>'+t("Live sessions","الجلسات المباشرة")+'</h2><div id="qm-sessions"></div></section><section id="qm-analytics-tab" class="qm-list" hidden><h2>'+t("Session analytics","تحليلات الجلسة")+'</h2><label>'+t("Select session","اختر الجلسة")+'<select id="qm-analytics-select"></select></label><div id="qm-analytics"></div></section><p id="notice" role="status"></p></div>');
@@ -1167,9 +1172,11 @@ function resultChoiceMarkup(label,index,votes,total,answerRevealed,correctAnswer
 }
 async function presenterPage(){
  if(busy)return;busy=true;
+ const requestEpoch=navigationEpoch;
  try{
   // Use the authenticated owner's session JWT, or a private presenter link token.
   const v=await api("present",{session_id:params.get("session"),presenter_token:presenter,key:admin});
+  if(requestEpoch!==navigationEpoch||!params.get("session"))return;
   const s=v.session,selected=v.questions.find(q=>q.id===s.active_question_id);sessionStorage.setItem("live-presenter-session",s.id);
   const first=!$("presenter-root");
   const previouslyChosen=$("question")?.value;
@@ -1266,7 +1273,7 @@ async function presenterPage(){
     results.innerHTML+='<section class="answer-explanation"><h3>'+t("Correct answer","الإجابة الصحيحة")+': '+esc(selected.correct_answer)+'</h3>'+(selected.answer_justification?'<p><strong>'+t("Justification","التبرير")+':</strong> '+esc(selected.answer_justification)+'</p>':'')+(selected.answer_effect?'<p><strong>'+t("Effect","الأثر")+':</strong> '+esc(selected.answer_effect)+'</p>':'')+'</section>';
    }
   }
- }catch(e){const updateStatus=$("live-update-status");if(updateStatus)updateStatus.textContent=t("Live update interrupted. Retrying automatically: ","توقف التحديث المباشر. إعادة المحاولة تلقائيًا: ")+e.message;if(!$("presenter-root"))layout('<div class="panel"><h2>'+t("Presenter access failed","تعذر دخول المقدم")+'</h2><p class="error">'+esc(e.message)+'</p></div>')}
+ }catch(e){if(requestEpoch!==navigationEpoch)return;const updateStatus=$("live-update-status");if(updateStatus)updateStatus.textContent=t("Live update interrupted. Retrying automatically: ","توقف التحديث المباشر. إعادة المحاولة تلقائيًا: ")+e.message;if(!$("presenter-root"))layout('<div class="panel"><h2>'+t("Presenter access failed","تعذر دخول المقدم")+'</h2><p class="error">'+esc(e.message)+'</p></div>')}
  finally{busy=false}
 }
 
@@ -1287,12 +1294,13 @@ function styleAudience(){
 }
 async function audiencePage(force=false){
  if(audienceBusy||audienceSubmitting)return;
+ const code=params.get("code");if(!code)return;
  audienceBusy=true;
- const code=params.get("code");
+ const requestEpoch=navigationEpoch;
  const track=(event_type,question_id)=>{if(participant&&question_id)api("track_interaction",{code,participant_token:participant,question_id,event_type}).catch(()=>{})};
  try{
-  if(!participant){const joined=await api("join",{code});participant=joined.participant_token;sessionStorage.setItem("live-participant-"+code,participant)}
-  const v=await api("view",{code,participant_token:participant});audienceLastResponse=v;
+  if(!participant){const joined=await api("join",{code});if(requestEpoch!==navigationEpoch||params.get("code")!==code)return;participant=joined.participant_token;sessionStorage.setItem("live-participant-"+code,participant)}
+  const v=await api("view",{code,participant_token:participant});if(requestEpoch!==navigationEpoch||params.get("code")!==code)return;audienceLastResponse=v;
   const s=v.session,q=v.questions[0],voteKey="live-voted-"+s.id+"-"+(q?.id||"");
   const voted=!!v.voted||!!sessionStorage.getItem(voteKey);
   const reveal=!!s.reveal_correct_answer;
@@ -1338,10 +1346,11 @@ async function audiencePage(force=false){
   if($("send"))$("send").onclick=()=>{track("answer_click",q.id);submit($("answer").value)};
   styleAudience();
  }catch(e){
-  // An ended session is a normal terminal state, not a network failure.
-  if(e.message==="Session ended"){
+  if(requestEpoch!==navigationEpoch||params.get("code")!==code)return;
+  // Invalid or finished session codes are normal terminal states, not network failures.
+  if(e.message==="Session ended"||e.message==="Session not found"){
    stop();
-   layout('<div id="audience-root" class="panel"><h2>'+t("This session has ended.","انتهت هذه الجلسة.")+'</h2><p>'+t("The presenter has closed this session. Ask for a new joining code to participate in the next lecture.","أغلق مقدم العرض هذه الجلسة. اطلب رمز انضمام جديدًا للمشاركة في المحاضرة القادمة.")+'</p><p><a href="/live/">'+t("Return to Tamayuz Live","العودة إلى تميز لايف")+'</a></p></div>');
+   layout('<div id="audience-root" class="panel"><h2>'+(e.message==="Session ended"?t("This session has ended.","انتهت هذه الجلسة."):t("Session not found.","لم يتم العثور على الجلسة."))+'</h2><p>'+(e.message==="Session ended"?t("The presenter has closed this session. Ask for a new joining code to participate in the next lecture.","أغلق مقدم العرض هذه الجلسة. اطلب رمز انضمام جديدًا للمشاركة في المحاضرة القادمة."):t("Check the joining code or ask the presenter for a new one.","تحقق من رمز الانضمام، أو اطلب رمزًا جديدًا من مقدم العرض."))+'</p><p><a href="/live/">'+t("Return to Tamayuz Live","العودة إلى تميز لايف")+'</a></p></div>');
    return;
   }
   if(!$("audience-root"))layout('<div id="audience-root" class="panel"><p id="notice" role="alert" class="error"></p><button id="audience-retry">'+t("Retry","إعادة المحاولة")+'</button></div>');
