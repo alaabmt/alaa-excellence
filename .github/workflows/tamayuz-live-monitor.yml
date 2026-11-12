@@ -30,7 +30,7 @@ jobs:
           node-version: '24'
       - name: Check published website and real Live API; create or resolve issue on sustained failure
         env:
-          GITHUB_TOKEN: ${{ github.event_name == 'pull_request' && '' || secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ github.event_name != 'pull_request' && secrets.GITHUB_TOKEN || '' }}
         run: node live/qa/monitor-live.mjs
   delivery-route-smoke:
     name: TEST alert reaches persistent GitHub issue tracker (not human acknowledgement)
