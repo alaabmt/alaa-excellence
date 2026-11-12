@@ -1,5 +1,5 @@
 {
-  "version": "20261111-swelancer",
+  "version": "20261112-swelancer",
   "width": 1200,
   "height": 630,
   "maxBytes": 170000,
@@ -2249,7 +2249,7 @@
         ],
         "subtitle": "1,488 مهمة حقيقية بقيمة مليون دولار تكشف ما تنجزه النماذج وما لا تثبته.",
         "alt": "غلاف تحليلي بالكحلي والذهبي لمقال SWE-Lancer، يظهر مسار عمل برمجي من تذكرة إلى اختبار ثم اعتماد بشري.",
-        "source": "assets/previews/story/article-agentic-ai-workplace-tasks-ar.jpg"
+        "source": "assets/previews/story/article-agentic-ai-swelancer-million-dollar-software-work-ar.jpg"
       },
       "en": {
         "title": [
@@ -2258,7 +2258,7 @@
         ],
         "subtitle": "1,488 real tasks worth $1 million show what models complete—and what the benchmark cannot prove.",
         "alt": "Navy and gold analytical cover for SWE-Lancer, showing a software task moving from ticket to test to human approval.",
-        "source": "assets/previews/story/article-agentic-ai-workplace-tasks-en.jpg"
+        "source": "assets/previews/story/article-agentic-ai-swelancer-million-dollar-software-work-en.jpg"
       },
       "reference": true
     }
