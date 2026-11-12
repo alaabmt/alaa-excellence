@@ -8,7 +8,9 @@ import time
 from pathlib import Path
 from playwright.async_api import async_playwright
 
+ROOT = Path.cwd().resolve()
 PAGE = Path(os.environ.get("ARABIC_ARTICLE", "article-agentic-ai-alphaevolve-compute-scheduling.html")).resolve()
+EXPECTED_DIRECTION = os.environ.get("EXPECTED_DIRECTION", "rtl")
 REPORT = Path(os.environ.get("EDITORIAL_REPORT", "editorial-qa/alphaevolve.json"))
 PREFIX = os.environ.get("MOBILE_ARTIFACT_PREFIX", PAGE.stem)
 OUT = Path("editorial-qa/mobile-artifacts")
@@ -47,7 +49,8 @@ async def run_browser(results):
         browser = await p.chromium.launch(headless=True)
         for width in (320, 375, 390, 430):
             page = await browser.new_page(viewport={"width": width, "height": 844}, device_scale_factor=1)
-            response = await page.goto("http://127.0.0.1:8765/" + PAGE.name, wait_until="networkidle")
+            relative_page = PAGE.relative_to(ROOT).as_posix()
+            response = await page.goto("http://127.0.0.1:8765/" + relative_page, wait_until="networkidle")
             if response is None or response.status != 200:
                 raise RuntimeError(f"Article HTTP request failed at {width}px")
             assets_ok = await page.evaluate("""async () => {
@@ -63,11 +66,16 @@ async def run_browser(results):
                 viewport: document.documentElement.clientWidth,
                 pageWidth: document.documentElement.scrollWidth,
                 h1Visible: !!document.querySelector('h1') && getComputedStyle(document.querySelector('h1')).display !== 'none',
-                rtl: document.documentElement.dir === 'rtl',
-                tablesScrollable: [...document.querySelectorAll('.table-wrap')].every(x => x.scrollWidth <= x.clientWidth || getComputedStyle(x).overflowX === 'auto')
+                direction: document.documentElement.dir,
+                tablesScrollable: [...document.querySelectorAll('.table-wrap')].every(x => x.scrollWidth <= x.clientWidth || getComputedStyle(x).overflowX === 'auto'),
+                listenControlVisible: [...document.querySelectorAll('button')].some(x => /استمع|Listen/i.test(x.textContent || '') && getComputedStyle(x).display !== 'none'),
+                stopControlPresent: [...document.querySelectorAll('button')].some(x => /إيقاف|Stop/i.test(x.textContent || '')),
+                speedControlPresent: !!document.querySelector('select[aria-label*="سرعة"], select[aria-label*="speed" i]')
             })""")
             result["requestedWidth"] = width
-            result["pass"] = (result["pageWidth"] <= result["viewport"] + 1 and result["h1Visible"] and result["rtl"] and result["tablesScrollable"])
+            result["expectedDirection"] = EXPECTED_DIRECTION
+            result["directionCorrect"] = result["direction"] == EXPECTED_DIRECTION
+            result["pass"] = (result["pageWidth"] <= result["viewport"] + 1 and result["h1Visible"] and result["directionCorrect"] and result["tablesScrollable"] and result["listenControlVisible"] and result["stopControlPresent"] and result["speedControlPresent"])
             results.append(result)
             await page.close()
         await browser.close()

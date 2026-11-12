@@ -1,0 +1,19 @@
+{
+  "article": "en/article-agentic-ai-swelancer-million-dollar-software-work.html",
+  "headline": "Can an AI Agent Complete Paid Software Work? Evidence from $1 Million in Real Freelance Tasks",
+  "reviewed_at": "2026-11-11T23:40:00+04:00",
+  "reviewer": "AI editorial simulation (not a human reader test)",
+  "summary": "SWE-Lancer tested AI agents on 1,488 real software tasks worth $1 million in historical payouts; original leading models completed meaningful work but still failed most tasks.",
+  "gates": {
+    "title": "PASS",
+    "introduction": "PASS",
+    "summary": "PASS",
+    "terminology": "PASS",
+    "evidence": "PASS",
+    "mobile": "NOT VERIFIED",
+    "language": "PASS"
+  },
+  "mobile_evidence": "Pending exact-article Chromium verification at 320/375/390/430px.",
+  "decision": "BLOCKED pending exact-article mobile Chromium, actual bilingual TTS, and exact-head live verification",
+  "language_evidence": "Original editorial English passed the 20–30 second simulation and preserves all evidence boundaries."
+}

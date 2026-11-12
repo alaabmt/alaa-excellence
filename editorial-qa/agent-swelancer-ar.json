@@ -1,0 +1,37 @@
+{
+  "article": "article-agentic-ai-swelancer-million-dollar-software-work.html",
+  "headline": "هل يستطيع مساعد الذكاء الاصطناعي إنجاز عمل مهندس برمجيات مدفوع الأجر؟ اختبار أعمال حقيقية بقيمة مليون دولار",
+  "reviewed_at": "2026-11-11T23:40:00+04:00",
+  "reviewer": "AI editorial simulation (not a human reader test)",
+  "summary": "اختبر الباحثون وكلاء ذكاء اصطناعي على 1,488 مهمة برمجية حقيقية بقيمة تاريخية مليون دولار، فنجحت النماذج جزئياً وبقيت أغلبية العمل خارج قدرتها في النتائج الأصلية.",
+  "gates": {
+    "title": "PASS",
+    "introduction": "PASS",
+    "summary": "PASS",
+    "terminology": "PASS",
+    "evidence": "PASS",
+    "mobile": "NOT VERIFIED",
+    "language": "PASS"
+  },
+  "mobile_evidence": "Pending exact-article Chromium verification at 320/375/390/430px.",
+  "source_evidence": [
+    {
+      "claim": "1,488 tasks and $1,000,000 historical payouts",
+      "url": "https://proceedings.mlr.press/v267/miserendino25a.html",
+      "assessment": "Primary peer-reviewed study; benchmark evidence, not live deployment"
+    },
+    {
+      "claim": "Original Diamond contains 502 tasks worth $500,800",
+      "url": "https://proceedings.mlr.press/v267/miserendino25a.html",
+      "assessment": "Original public benchmark subset"
+    },
+    {
+      "claim": "July 2025 corrected IC evaluation retained 198 of 237 tasks",
+      "url": "https://github.com/openai/frontier-evals/blob/main/project/swelancer/README.md",
+      "assessment": "Official repository update; method differs from original paper"
+    }
+  ],
+  "decision": "BLOCKED pending exact-article mobile Chromium, actual bilingual TTS, and exact-head live verification",
+  "terminology_evidence": "Benchmark, agent, IC SWE, SWE Manager, E2E, pass@1, Diamond, denominator, payout credit and post-mitigation are defined.",
+  "language_evidence": "Problem-first Arabic passed the 20–30 second editorial simulation; version boundaries and denominators are explicit."
+}
