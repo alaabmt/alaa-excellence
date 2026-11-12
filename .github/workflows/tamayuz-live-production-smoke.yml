@@ -6,6 +6,11 @@ on:
       - 'live/backend/index.ts'
       - 'tests/tamayuz-live-production-smoke.mjs'
       - '.github/workflows/tamayuz-live-production-smoke.yml'
+  pull_request:
+    paths:
+      - 'live/backend/index.ts'
+      - 'tests/tamayuz-live-production-smoke.mjs'
+      - '.github/workflows/tamayuz-live-production-smoke.yml'
   workflow_dispatch:
 permissions:
   contents: read
