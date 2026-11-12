@@ -1,7 +1,7 @@
 name: Tamayuz Live Navigation Regression Test
 on:
   push:
-    branches: [fix/tamayuz-live-home-stale-poll-20261112]
+    branches: [main, fix/tamayuz-live-home-stale-poll-20261112]
     paths:
       - live/index.html
       - tests/tamayuz-live-navigation.test.mjs
