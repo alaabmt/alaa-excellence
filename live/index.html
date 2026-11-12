@@ -125,6 +125,26 @@ body.live-presenter-page .presenter.widescreen .stage-main>.panel:first-child{mi
 .inline-answer-controls{display:flex;justify-content:flex-end;margin:12px 0 4px}.inline-answer-controls button{font-size:.9rem;padding:9px 14px;min-height:40px;border:1px solid #7564ed;color:#4431c3;background:#f0ecff}.inline-answer-controls button:disabled{opacity:.5}@media(max-width:800px){.inline-answer-controls button{width:100%}}
 
 .stage-quick-nav{display:inline-flex;align-items:center;gap:5px;background:#fff;border:1px solid #ded9f7;border-radius:12px;padding:3px}.stage-quick-nav button{min-width:32px!important;min-height:32px!important;padding:3px 7px!important;font-size:1.25rem!important;line-height:1!important}.stage-quick-nav select{width:auto;min-width:66px;max-width:90px;padding:5px 8px;font-size:.88rem;border:0;background:#f5f2ff}@media(max-width:800px){.stage-quick-nav{order:1}.stage-display-tools{justify-content:flex-start}}
+
+/* Clinical-case hierarchy: one muted purple accent, no content rewriting. */
+.clinical-case{color:#20243b;text-align:start}
+.clinical-section{padding:9px 0;border-bottom:1px solid #e7e7ee}
+.clinical-section:last-of-type{border-bottom:0}
+.clinical-section.clinical-intro{padding:12px 14px;background:#f5f6fa;border:0;border-radius:8px;margin:8px 0}
+.clinical-heading{font-size:.9em!important;font-weight:750!important;line-height:1.25!important;margin:0 0 5px!important;color:#32275e!important}
+.clinical-copy p{margin:0 0 5px;line-height:1.42}
+.clinical-copy p:last-child{margin-bottom:0}
+.clinical-challenge{border-left:3px solid #6b58d8;background:#f4f1ff;border-radius:4px;padding:11px 14px;margin:13px 0 8px;font-weight:700;line-height:1.4}
+html[dir="rtl"] .clinical-challenge{border-left:0;border-right:3px solid #6b58d8}
+body.live-presenter-page .presenter .stage-question{max-height:none!important;overflow:visible!important}
+body.live-presenter-page .presenter .clinical-case{font-size:clamp(.92rem,1.08vw,1.13rem)!important;line-height:1.4!important}
+body.live-presenter-page .presenter.widescreen .clinical-case{font-size:clamp(.92rem,1.08vw,1.13rem)!important}
+body.live-presenter-page .presenter .clinical-heading{font-size:.94em!important}
+body.live-presenter-page .presenter.widescreen header,body.live-presenter-page:has(.presenter.widescreen) header{display:none!important}
+body.live-presenter-page:has(.presenter.widescreen) main{margin-top:8px!important}
+@media(max-width:800px){body.live-presenter-page .presenter .clinical-case{font-size:1rem!important}.clinical-section{padding:11px 0}.clinical-section.clinical-intro{padding:11px 12px}}
+
+.audience-wrap .clinical-case{font-size:1rem;line-height:1.5;margin-bottom:16px}.audience-wrap .clinical-heading{font-size:.95rem!important}.audience-wrap .clinical-challenge{margin-bottom:18px}
 </style></head><body><header><strong>LIVE · Personal Conference Tool</strong><div class="actions"><button id="home-link" class="secondary">Home</button><button id="language" class="secondary">العربية</button></div></header><main><div id="app" aria-live="polite"></div></main><footer>Personal conference polling · Tamayuz 10X</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" defer></script><script>
 (()=>{"use strict";
 const ENDPOINT="https://dqrsjhcfmpjhcxvtxosy.supabase.co/functions/v1/tamayuz-live";
@@ -152,6 +172,22 @@ function presenterAccess(){layout('<button class="secondary" id="back-home">'+t(
 async function dashboard(){layout('<h1>'+t("My presentations","عروضي التقديمية")+'</h1><div class="panel stack"><h2>'+t("Create presentation","إنشاء عرض")+'</h2>'+field(t("Conference title","عنوان المؤتمر"),"title")+ '<select id="locale"><option value="en">English</option><option value="ar">العربية</option></select><button id="create">'+t("Create","إنشاء")+'</button></div><div class="panel"><h2>'+t("Saved presentations","العروض المحفوظة")+'</h2><div id="presentations">'+t("Loading...","جارٍ التحميل...")+'</div></div><p id="notice"></p>');$("create").onclick=async()=>{try{const v=await api("create",{key:admin,title:$("title").value,locale:$("locale").value});sessionStorage.setItem("live-selected",v.presentation.id);await dashboard()}catch(e){notice(e.message,true)}};try{const v=await api("list",{key:admin});$("presentations").innerHTML=v.presentations.length?v.presentations.map(p=>'<div class="panel"><strong>'+esc(p.title)+'</strong><p class="muted">'+esc(p.locale)+'</p><button data-id="'+esc(p.id)+'">'+t("Manage questions and sessions","إدارة الأسئلة والجلسات")+'</button></div>').join(""):t("No presentations yet.","لا توجد عروض بعد.");$("presentations").querySelectorAll("button").forEach(b=>b.onclick=()=>{sessionStorage.setItem("live-selected",b.dataset.id);manage(b.dataset.id)})}catch(e){notice(e.message,true)}}
 async function manage(pid){layout('<button class="secondary" id="back">'+t("Back","عودة")+'</button><h1>'+t("Manage presentation","إدارة العرض")+'</h1><div class="panel stack"><h2>'+t("Add a question","إضافة سؤال")+'</h2>'+field(t("Question","السؤال"),"prompt")+'<select id="kind"><option value="choice">'+t("Multiple choice","اختيارات")+'</option><option value="rating">'+t("Rating 1–5","تقييم ١–٥")+'</option><option value="text">'+t("Open text","إجابة مفتوحة")+'</option></select><label>'+t("Options (one per line, for choice questions)","الخيارات (كل خيار في سطر)")+'<textarea id="options" rows="5"></textarea></label><button id="add">'+t("Add question","إضافة السؤال")+'</button></div><div class="panel"><h2>'+t("Edit saved questions","تعديل الأسئلة المحفوظة")+'</h2><div id="saved-questions"></div></div><div class="panel"><button id="start">'+t("Create live session","إنشاء جلسة مباشرة")+'</button></div><p id="notice"></p>');$("back").onclick=dashboard;async function loadSavedQuestions(){const target=$("saved-questions");try{const v=await api("list_questions",{presentation_id:pid});target.innerHTML=v.questions.map((q,i)=>'<div class="review-question"><strong>'+t("Question ","السؤال ")+(i+1)+'</strong><textarea rows="7" maxlength="6000" data-question="'+esc(q.id)+'">'+esc(q.prompt)+'</textarea><button class="secondary" data-save="'+esc(q.id)+'">'+t("Save changes","حفظ التعديلات")+'</button></div>').join("")||t("No questions yet.","لا توجد أسئلة بعد.");target.querySelectorAll("[data-save]").forEach(btn=>btn.onclick=async()=>{const area=target.querySelector('textarea[data-question="'+btn.dataset.save+'"]');try{await api("update_question",{presentation_id:pid,question_id:btn.dataset.save,prompt:area.value});notice(t("Question updated. Existing votes preserved.","تم تحديث السؤال مع الاحتفاظ بالأصوات."))}catch(e){notice(e.message,true)}})}catch(e){target.textContent=e.message}}loadSavedQuestions();$("add").onclick=async()=>{try{await api("add_question",{key:admin,presentation_id:pid,prompt:$("prompt").value,kind:$("kind").value,options:$("options").value.split("\n").map(x=>x.trim()).filter(Boolean)});notice(t("Question saved.","تم حفظ السؤال."));await loadSavedQuestions();$("prompt").value="";$("options").value=""}catch(e){notice(e.message,true)}};$("start").onclick=async()=>{try{const v=await api("new_session",{key:admin,presentation_id:pid});sessionStorage.setItem("live-presenter",v.presenter_token);sessionStorage.setItem("live-presenter-session",v.session.id);location.href="?session="+encodeURIComponent(v.session.id)+"#presenter="+encodeURIComponent(v.presenter_token)}catch(e){notice(e.message,true)}}}
 function qr(code){const el=$("qr");if(!el)return;const link=location.origin+"/live/?code="+encodeURIComponent(code);$("audience-link").href=link;$("audience-link").textContent=link;if(window.QRCode){el.innerHTML="";new QRCode(el,{text:link,width:180,height:180,correctLevel:QRCode.CorrectLevel.M})}else{el.textContent=t("QR unavailable; share the link.","تعذر عرض QR؛ شارك الرابط.")}}
+function clinicalCaseMarkup(prompt){
+ const raw=String(prompt||"").replace(/\r\n?/g,"\n").trim();
+ const lines=raw.split(/\n+/).map(x=>x.trim()).filter(Boolean);
+ const questionStart=lines.findIndex(x=>/^(Which\b|What\b|Identify\b|Select\b|Choose\b)/i.test(x));
+ const body=questionStart>=0?lines.slice(0,questionStart):lines;
+ const challenge=questionStart>=0?lines.slice(questionStart).join(" "):"";
+ const sections=[];let current={heading:"",text:[]};
+ const heading=/^((?:Admission|Operative|Discharge|Dietitian|Nursing|Emergency department|ED|Consultation|Progress|Day\s*\d+(?:\s*(?:and|&|[-–])\s*\d+)?(?:\s+progress)?|Postoperative day\s*\d+|Hospital day\s*\d+)[^:]{0,48}(?:note|summary|assessment|report)?):\s*/i;
+ for(const line of body){
+  const match=line.match(heading);
+  if(match){if(current.text.length)sections.push(current);current={heading:match[1],text:[line.slice(match[0].length)]}}
+  else current.text.push(line);
+ }
+ if(current.text.length)sections.push(current);
+ return '<div class="clinical-case">'+sections.map((part,i)=>'<section class="clinical-section '+(i===0&&!part.heading?'clinical-intro':'')+'">'+(part.heading?'<h3 class="clinical-heading">'+esc(part.heading)+'</h3>':i===0?'<h3 class="clinical-heading">'+t("Patient presentation","عرض الحالة")+'</h3>':'')+'<div class="clinical-copy">'+part.text.map(x=>'<p>'+esc(x)+'</p>').join("")+'</div></section>').join("")+(challenge?'<div class="clinical-challenge"><strong>'+esc(challenge)+'</strong></div>':'')+'</div>';
+}
 async function presenterPage(){
  if(busy)return;busy=true;
  try{
@@ -212,7 +248,7 @@ async function presenterPage(){
   for(const id of ["close","reveal","hide","answer-reveal","end"]){if($(id))$(id).disabled=!v.questions.length||s.state==="ended"}
   if($("qr")&&window.QRCode&&!$("qr").querySelector("img"))qr(s.code);
   const questionView=$("question-view");
-  if(questionView)questionView.innerHTML=selected?'<p class="muted">'+t("QUESTION","السؤال")+' '+esc(selected.position+1)+' / '+v.questions.length+'</p><h2 class="stage-question">'+esc(selected.prompt)+'</h2>':'<div class="stage-empty"><h2>'+t("No active question","لا يوجد سؤال نشط")+'</h2><p>'+t("Add questions in your dashboard, then create a new session.","أضف الأسئلة في لوحة التحكم ثم أنشئ جلسة جديدة.")+'</p></div>';
+  if(questionView)questionView.innerHTML=selected?'<p class="muted clinical-counter">'+t("QUESTION","السؤال")+' '+esc(selected.position+1)+' / '+v.questions.length+'</p>'+clinicalCaseMarkup(selected.prompt):'<div class="stage-empty"><h2>'+t("No active question","لا يوجد سؤال نشط")+'</h2><p>'+t("Add questions in your dashboard, then create a new session.","أضف الأسئلة في لوحة التحكم ثم أنشئ جلسة جديدة.")+'</p></div>';
   const updateStatus=$("live-update-status");if(updateStatus)updateStatus.textContent=t("Results updated automatically · ","تحديث النتائج تلقائيًا · ")+new Date().toLocaleTimeString();
   for(const answerButton of [$("answer-reveal"),$("stage-answer-toggle")]){if(answerButton){answerButton.textContent=s.reveal_correct_answer?t("Hide correct answer","إخفاء الإجابة الصحيحة"):t("Reveal correct answer","إظهار الإجابة الصحيحة");answerButton.disabled=!selected?.correct_answer||s.state==="ended";answerButton.setAttribute("aria-pressed",String(!!s.reveal_correct_answer))}}
   const results=$("results");
@@ -271,10 +307,10 @@ async function audiencePage(force=false){
   if(s.state==="ended"){poll.innerHTML='<h2>'+t("Thank you for participating.","شكرًا لمشاركتك.")+'</h2>';return}
   if(!q){poll.innerHTML='<h2>'+t("Waiting for the presenter...","بانتظار مقدم العرض...")+'</h2>';return}
   if(s.state!=="open"||voted){
-   poll.innerHTML='<h2>'+esc(q.prompt)+'</h2><p class="success" role="status">'+(voted?t("Your answer was received.","تم استلام إجابتك."):t("Voting is not open.","التصويت غير مفتوح."))+'</p><div id="audience-live-results">'+(s.show_results?audienceResults(v,q)+audienceExplanation(v,q):'')+'</div>';
+   poll.innerHTML=clinicalCaseMarkup(q.prompt)+'<p class="success" role="status">'+(voted?t("Your answer was received.","تم استلام إجابتك."):t("Voting is not open.","التصويت غير مفتوح."))+'</p><div id="audience-live-results">'+(s.show_results?audienceResults(v,q)+audienceExplanation(v,q):'')+'</div>';
    styleAudience();return;
   }
-  poll.innerHTML='<h2>'+esc(q.prompt)+'</h2>'+(q.kind==="choice"?(q.options||[]).map(o=>'<button class="option" data-answer="'+esc(o)+'">'+esc(o)+'</button>').join(""):q.kind==="rating"?[1,2,3,4,5].map(n=>'<button class="option" data-answer="'+n+'">'+n+'</button>').join(""):'<textarea id="answer" maxlength="400" rows="4" placeholder="'+t("Your answer","إجابتك")+'"></textarea><button id="send">'+t("Submit","إرسال")+'</button>')+'<div id="audience-live-results">'+(s.show_results?audienceResults(v,q)+audienceExplanation(v,q):'')+'</div>';
+  poll.innerHTML=clinicalCaseMarkup(q.prompt)+(q.kind==="choice"?(q.options||[]).map(o=>'<button class="option" data-answer="'+esc(o)+'">'+esc(o)+'</button>').join(""):q.kind==="rating"?[1,2,3,4,5].map(n=>'<button class="option" data-answer="'+n+'">'+n+'</button>').join(""):'<textarea id="answer" maxlength="400" rows="4" placeholder="'+t("Your answer","إجابتك")+'"></textarea><button id="send">'+t("Submit","إرسال")+'</button>')+'<div id="audience-live-results">'+(s.show_results?audienceResults(v,q)+audienceExplanation(v,q):'')+'</div>';
   const submit=async(answer)=>{
    if(audienceSubmitting)return;
    if(!String(answer||"").trim()){notice(t("Enter an answer first.","أدخل إجابة أولاً."),true);return}
@@ -288,7 +324,7 @@ async function audiencePage(force=false){
     confirmed=true;sessionStorage.setItem(voteKey,"1");
     audienceSnapshotKey="";
     // Update immediately rather than waiting for the next polling interval.
-    poll.innerHTML='<h2>'+esc(q.prompt)+'</h2><p class="success" role="status">'+t("Your answer was received.","تم استلام إجابتك.")+'</p><div id="audience-live-results"></div>';
+    poll.innerHTML=clinicalCaseMarkup(q.prompt)+'<p class="success" role="status">'+t("Your answer was received.","تم استلام إجابتك.")+'</p><div id="audience-live-results"></div>';
     notice(t("Answer received.","تم استلام الإجابة."));
    }catch(e){
     notice(e.message,true);buttons.forEach(b=>b.disabled=false);
