@@ -7,9 +7,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-12T08:34:00+04:00",
+  "updated_at": "2026-11-12T08:45:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "company_insider_critique",
+  "current_stage": "english_draft",
   "run_lease": {
     "owner": "codex-tenx-primary-20261112-0734",
     "acquired_at": "2026-11-12T07:34:00+04:00",
@@ -57,9 +57,16 @@
       ]
     },
     "arabic_draft": {
-      "status": "drafted",
+      "status": "revised_after_critique",
       "path": "automation/10x-cases/case-brazil-family-health-strategy-community-primary-care/draft-ar.md",
-      "commit": "1f4ec4d318d7d57a7e234b945fde43cd1e3de63a"
+      "commit": "497d341266916ebb9256c0cd779b6e49fbdeb11a"
+    },
+    "company_insider_critique": {
+      "status": "passed_with_required_revisions_applied",
+      "path": "automation/10x-cases/case-brazil-family-health-strategy-community-primary-care/company-insider-critique.md",
+      "commit": "ac7f0d3f654bfe4cd223b0694e8d8dde5ebf3a8d",
+      "required_revisions": 8,
+      "remaining_gaps": 6
     }
   },
   "stage_order": [
@@ -101,14 +108,14 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Run simulated Company Insider Critique, verify each criticism against sources, revise the Arabic draft, and preserve unresolved gaps.",
+  "next_action": "Draft natural original English with factual, numerical, causal, structural and reference parity; do not mirror Arabic syntax.",
   "last_run": {
     "mode": "primary_scheduled_cycle",
     "status": "in_progress",
     "started_at": "2026-11-12T07:34:00+04:00",
     "starting_head": "b1f7cfcbd12f4a1444fad3c5c685d5f26091c1ac",
-    "last_checkpoint": "arabic_draft",
-    "notes": "Original Arabic draft completed with explicit counterevidence, disclosure, references and official explanatory video.",
+    "last_checkpoint": "company_insider_critique",
+    "notes": "Simulated insider critique passed after strengthening clinic-community linkage, municipal variation and workload protection. Six public-evidence gaps remain explicit.",
     "current_item": "case-brazil-family-health-strategy-community-primary-care"
   },
   "last_completed_item": {
@@ -180,7 +187,8 @@
     "candidate_scan",
     "evidence_pack",
     "backcasting_and_10x_analysis",
-    "arabic_draft"
+    "arabic_draft",
+    "company_insider_critique"
   ],
   "blocker": null
 }
