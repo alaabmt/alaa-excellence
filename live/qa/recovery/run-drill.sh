@@ -32,6 +32,9 @@ if psql -X -d "$SOURCE" -qAt -c "SELECT 1" >/dev/null 2>&1; then
 fi
 RESTORE_START="$(date +%s%N)"
 createdb "$TARGET"
+# The custom dump owns the public schema; remove the empty template schema first.
+# This command targets ONLY the just-created disposable restore database.
+psql -X -v ON_ERROR_STOP=1 -d "$TARGET" -q -c "DROP SCHEMA public CASCADE;"
 pg_restore --exit-on-error --no-owner -d "$TARGET" "$OUT_DIR/synthetic-live.dump"
 psql -X -v ON_ERROR_STOP=1 -d "$TARGET" -q -f "$S/verify.sql" > "$OUT_DIR/restored-checks.log"
 AFTER="$(psql -X -v ON_ERROR_STOP=1 -d "$TARGET" -qAt -f "$S/fingerprint.sql")"
