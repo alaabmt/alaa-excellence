@@ -7,13 +7,13 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-12T09:18:00+04:00",
-  "workflow_status": "in_progress",
-  "current_stage": "repository_publish",
+  "updated_at": "2026-11-12T09:55:00+04:00",
+  "workflow_status": "reconciling",
+  "current_stage": "actions_and_pages",
   "run_lease": {
     "owner": "codex-tenx-primary-20261112-0734",
     "acquired_at": "2026-11-12T07:34:00+04:00",
-    "expires_at": "2026-11-12T10:55:00+04:00"
+    "expires_at": "2026-11-12T11:45:00+04:00"
   },
   "current_item": {
     "slug": "case-brazil-family-health-strategy-community-primary-care",
@@ -90,6 +90,14 @@
         "live_ar_en",
         "actual_mobile_390px"
       ]
+    },
+    "publishing": {
+      "status": "repository_published_ci_reconciling",
+      "arabic_url": "https://tamayuz10x.com/case-brazil-family-health-strategy-community-primary-care.html",
+      "english_url": "https://tamayuz10x.com/en/case-brazil-family-health-strategy-community-primary-care.html",
+      "initial_publication_commit": "053104d35c05fd5a3a4f5c79f9a5788f684d420c",
+      "sitemap_commit": "1415361332507d0cec05e7c30f15b58e9437ed6e",
+      "social_manifest_fix_commit": "bbedcc231ec640067a05585063b3f508dc921407"
     }
   },
   "stage_order": [
@@ -131,14 +139,14 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Publish the complete bilingual package directly on main, then wait for permanent Actions, social-card synchronization and exact-head Pages before live verification.",
+  "next_action": "Reconcile the rerun of permanent social-card generation, verify its generated-image commit, then require exact-head Actions and Pages before live checks.",
   "last_run": {
     "mode": "primary_scheduled_cycle",
     "status": "in_progress",
     "started_at": "2026-11-12T07:34:00+04:00",
     "starting_head": "b1f7cfcbd12f4a1444fad3c5c685d5f26091c1ac",
-    "last_checkpoint": "final_quality_gate",
-    "notes": "Final prepublication gate passed at 96/100. Postdeploy mobile, social-card and exact-head deployment gates remain blocking for completion.",
+    "last_checkpoint": "repository_publish",
+    "notes": "Bilingual publication commit exists. Social-card generation rendered successfully but was blocked by an unrelated missing prior reflection manifest entry; permanent manifest repaired at bbedcc2. Awaiting synchronized-card commit and exact-head deployment.",
     "current_item": "case-brazil-family-health-strategy-community-primary-care"
   },
   "last_completed_item": {
@@ -214,7 +222,11 @@
     "company_insider_critique",
     "english_draft",
     "bilingual_parity",
-    "final_quality_gate"
+    "final_quality_gate",
+    "repository_publish"
   ],
-  "blocker": null
+  "blocker": {
+    "type": "transient_ci_reconciliation",
+    "detail": "Awaiting permanent social-card workflow and exact-head Pages after manifest repair; no duplicate publication permitted."
+  }
 }
