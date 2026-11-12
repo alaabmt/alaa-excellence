@@ -804,6 +804,24 @@ html[data-live-theme="dark"] body.live-presenter-page .presenter #results .stage
 html[data-live-theme="dark"] body.live-presenter-page .presenter #results .stage-result .fill{color:transparent!important}
 html[data-live-theme="dark"] .clinical-challenge{background:#29445a!important;color:#fff!important;border-color:#b59652!important}
 html[data-live-theme="dark"] .clinical-challenge *{color:#fff!important}
+
+/* Presenter answer reveal: integrated, full-width explanation instead of a white inset card. */
+html[data-live-theme="dark"] body.live-presenter-page .presenter #results .answer-explanation,
+html[data-live-theme="dark"] body.live-presenter-page .presenter.widescreen #results .answer-explanation{
+ background:transparent!important;color:#e8f2f9!important;border:0!important;
+ border-top:1px solid #416078!important;border-radius:0!important;
+ box-shadow:none!important;margin:16px 0 0!important;padding:20px 0 4px!important;
+ width:100%!important;max-width:none!important;text-align:start!important
+}
+html[data-live-theme="dark"] body.live-presenter-page .presenter #results .answer-explanation h3{
+ color:#e8f2f9!important;font-size:clamp(17px,1.5vw,24px)!important;line-height:1.4!important
+}
+html[data-live-theme="dark"] body.live-presenter-page .presenter #results .answer-explanation p,
+html[data-live-theme="dark"] body.live-presenter-page .presenter.widescreen #results .answer-explanation p{
+ color:#d4e5f0!important;font-size:clamp(15px,1.15vw,19px)!important;
+ line-height:1.7!important;max-width:none!important;overflow-wrap:break-word!important
+}
+html[data-live-theme="dark"] body.live-presenter-page .presenter #results .answer-explanation strong{color:#f0d59d!important}
 </style><script src="/assets/js/auth-config.js"></script></head><body><header><strong>LIVE · Personal Conference Tool</strong><div class="actions"><button id="theme-toggle" class="secondary" type="button" aria-label="Switch color mode" aria-pressed="false">Dark mode</button><button id="home-link" class="secondary">Home</button><button id="language" class="secondary">العربية</button></div></header><main><div id="app" aria-live="polite"></div></main><footer>Personal conference polling · Tamayuz 10X</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" defer></script><script>
 (()=>{"use strict";
 const ENDPOINT="https://dqrsjhcfmpjhcxvtxosy.supabase.co/functions/v1/tamayuz-live";
