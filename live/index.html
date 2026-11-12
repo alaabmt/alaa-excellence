@@ -143,6 +143,8 @@ body.live-presenter-page .presenter .clinical-heading{font-size:.94em!important}
 body.live-presenter-page .presenter.widescreen header,body.live-presenter-page:has(.presenter.widescreen) header{display:none!important}
 body.live-presenter-page:has(.presenter.widescreen) main{margin-top:8px!important}
 @media(max-width:800px){body.live-presenter-page .presenter .clinical-case{font-size:1rem!important}.clinical-section{padding:11px 0}.clinical-section.clinical-intro{padding:11px 12px}}
+
+.audience-wrap .clinical-case{font-size:1rem;line-height:1.5;margin-bottom:16px}.audience-wrap .clinical-heading{font-size:.95rem!important}.audience-wrap .clinical-challenge{margin-bottom:18px}
 </style></head><body><header><strong>LIVE · Personal Conference Tool</strong><div class="actions"><button id="home-link" class="secondary">Home</button><button id="language" class="secondary">العربية</button></div></header><main><div id="app" aria-live="polite"></div></main><footer>Personal conference polling · Tamayuz 10X</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" defer></script><script>
 (()=>{"use strict";
 const ENDPOINT="https://dqrsjhcfmpjhcxvtxosy.supabase.co/functions/v1/tamayuz-live";
@@ -308,7 +310,7 @@ async function audiencePage(force=false){
    poll.innerHTML='<h2>'+esc(q.prompt)+'</h2><p class="success" role="status">'+(voted?t("Your answer was received.","تم استلام إجابتك."):t("Voting is not open.","التصويت غير مفتوح."))+'</p><div id="audience-live-results">'+(s.show_results?audienceResults(v,q)+audienceExplanation(v,q):'')+'</div>';
    styleAudience();return;
   }
-  poll.innerHTML='<h2>'+esc(q.prompt)+'</h2>'+(q.kind==="choice"?(q.options||[]).map(o=>'<button class="option" data-answer="'+esc(o)+'">'+esc(o)+'</button>').join(""):q.kind==="rating"?[1,2,3,4,5].map(n=>'<button class="option" data-answer="'+n+'">'+n+'</button>').join(""):'<textarea id="answer" maxlength="400" rows="4" placeholder="'+t("Your answer","إجابتك")+'"></textarea><button id="send">'+t("Submit","إرسال")+'</button>')+'<div id="audience-live-results">'+(s.show_results?audienceResults(v,q)+audienceExplanation(v,q):'')+'</div>';
+  poll.innerHTML=clinicalCaseMarkup(q.prompt)+(q.kind==="choice"?(q.options||[]).map(o=>'<button class="option" data-answer="'+esc(o)+'">'+esc(o)+'</button>').join(""):q.kind==="rating"?[1,2,3,4,5].map(n=>'<button class="option" data-answer="'+n+'">'+n+'</button>').join(""):'<textarea id="answer" maxlength="400" rows="4" placeholder="'+t("Your answer","إجابتك")+'"></textarea><button id="send">'+t("Submit","إرسال")+'</button>')+'<div id="audience-live-results">'+(s.show_results?audienceResults(v,q)+audienceExplanation(v,q):'')+'</div>';
   const submit=async(answer)=>{
    if(audienceSubmitting)return;
    if(!String(answer||"").trim()){notice(t("Enter an answer first.","أدخل إجابة أولاً."),true);return}
