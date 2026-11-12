@@ -266,6 +266,23 @@ body:has(.qm) main{max-width:1240px!important;padding:0 26px!important;margin:26
 .qm-analytics-answer{display:flex;justify-content:space-between;gap:14px;padding:8px 0;border-bottom:1px solid #f0eef6;font-size:.88rem}
 .qm-edit label{display:block;margin:12px 0;font-weight:700}.qm-edit textarea,.qm-edit select{display:block;margin-top:7px;font-weight:400}
 @media(max-width:700px){.qm-tabs{gap:3px}.qm-tab{padding:11px 12px;font-size:.9rem}.qm-card-line .qm-card-top{padding-right:4px!important}.qm-order{flex-direction:column;padding-right:6px}.qm-mini{padding:6px 8px}.qm-preview-screen{padding:11px}}
+
+.qm-report-tabs{display:flex;gap:6px;flex-wrap:wrap;border-bottom:1px solid #e4e0ef;padding:13px 0;margin:10px 0 20px}
+.qm-report-tab{background:#f1eff9;color:#493a7b;border-radius:9px;padding:10px 13px;font-weight:750}
+.qm-report-tab.is-active{background:#6550db;color:#fff}
+.qm-report-heading,.qm-report-qhead{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}
+.qm-report-heading h3{margin:0}.qm-report-heading p{margin:4px 0}
+.qm-report-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:18px 0}
+.qm-report-metric{background:#f5f3fc;border:1px solid #ebe6fb;border-radius:13px;padding:17px;display:flex;flex-direction:column;gap:6px}
+.qm-report-metric strong{font-size:1.75rem;color:#33216c}.qm-report-metric span{font-weight:700;color:#42465e}.qm-report-metric small{color:#66677a}
+.qm-report-answer{display:grid;grid-template-columns:minmax(55px,1fr) minmax(65px,2fr) auto;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid #f0eef6;font-size:.86rem}
+.qm-report-answer span{overflow-wrap:anywhere}.qm-report-track{height:9px;background:#ece8f7;border-radius:9px;overflow:hidden}.qm-report-track i{display:block;height:100%;background:#6550db;border-radius:9px}
+.qm-competency{padding:16px 0;border-bottom:1px solid #ebe7f3}.qm-competency .qm-report-track{margin-top:11px}
+.qm-report-note{border-left:3px solid #6550db;background:#f5f3fc;padding:12px 14px;line-height:1.5;font-size:.88rem}
+.qm-report-actions{display:flex;gap:10px;flex-wrap:wrap;margin:15px 0}
+.qm-report-body h3{margin:20px 0 10px}
+@media(max-width:700px){.qm-report-tab{font-size:.78rem;padding:9px 10px}.qm-report-metric{padding:12px}.qm-report-metric strong{font-size:1.35rem}.qm-report-answer{grid-template-columns:minmax(65px,1fr) minmax(60px,1fr) auto;gap:6px;font-size:.75rem}}
+@media print{body:has(.qm) header,body:has(.qm) nav:not(.qm-report-tabs),.qm-head,.qm-summary,.qm-tabs,.qm-toolbar,#qm-questions-tab,#qm-sessions-tab,.qm-list-head,.qm-report-tabs,.qm-report-actions,#qm-refresh-report,#qm-analytics-select{display:none!important}body:has(.qm) main{max-width:none!important;margin:0!important;padding:0!important}.qm-list{border:0!important;box-shadow:none!important}.qm-report-body{display:block!important}.qm-report-print{display:block!important}.qm-analytics-question{break-inside:avoid}}
 </style></head><body><header><strong>LIVE · Personal Conference Tool</strong><div class="actions"><button id="home-link" class="secondary">Home</button><button id="language" class="secondary">العربية</button></div></header><main><div id="app" aria-live="polite"></div></main><footer>Personal conference polling · Tamayuz 10X</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" defer></script><script>
 (()=>{"use strict";
 const ENDPOINT="https://dqrsjhcfmpjhcxvtxosy.supabase.co/functions/v1/tamayuz-live";
@@ -353,19 +370,53 @@ async function manage(pid){
   $("qm-sessions").querySelectorAll("[data-report]").forEach(btn=>btn.onclick=()=>{switchTab("analytics");$("qm-analytics-select").value=btn.dataset.report;loadAnalytics(btn.dataset.report)});
   $("qm-analytics-select").innerHTML=sessions.map(s=>'<option value="'+esc(s.id)+'">'+esc(s.join_code)+' · '+esc(s.state)+'</option>').join("");
  }
+ let reportSection="overview";
+ const pct=(a,b)=>b?Math.round(100*a/b):0;
+ const reportMetric=(value,label,detail="")=>'<div class="qm-report-metric"><strong>'+esc(String(value))+'</strong><span>'+esc(label)+'</span>'+(detail?'<small>'+esc(detail)+'</small>':'')+'</div>';
+ const reportQuestion=q=>'<article class="qm-analytics-question"><div class="qm-report-qhead"><strong>'+t("Question ","السؤال ")+(q.position+1)+'</strong><span>'+(q.accuracy===null?t("Not graded","غير مقيّم"):q.accuracy+"% "+t("correct","صحيح"))+'</span></div><p>'+esc(summary(q))+'</p><p class="muted">'+q.total+' '+t("votes","أصوات")+' · '+pct(q.respondents,analytics.participants)+'% '+t("participation","مشاركة")+'</p>'+q.answers.map(x=>'<div class="qm-report-answer"><span>'+esc(x.label)+'</span><div class="qm-report-track"><i style="width:'+pct(x.votes,q.total)+'%"></i></div><strong>'+x.votes+' · '+pct(x.votes,q.total)+'%</strong></div>').join("")+'</article>';
+ const competencyFor=q=>{
+  if(questions.length===9&&/^CMI\b/i.test($("qm-title").textContent||"")){
+   return ({0:"Severity identification",1:"Present on admission",2:"Present on admission",3:"Clinical validation",4:"Clinical terminology",5:"Principal diagnosis",6:"Clinical validation",7:"Severity identification",8:"Present on admission"})[q.position]||"Other";
+  }
+  return t("Question ","السؤال ")+(q.position+1);
+ };
+ function exportReport(){
+  if(!analytics)return;
+  const rows=[["Session","Question","Competency","Question text","Answer","Votes","Total votes","Participants","Correct votes","Accuracy (%)"]];
+  analytics.questions.forEach(q=>q.answers.forEach(x=>rows.push([analytics.session.join_code,String(q.position+1),competencyFor(q),q.prompt,x.label,String(x.votes),String(q.total),String(analytics.participants),q.correct_votes===null?"":String(q.correct_votes),q.accuracy===null?"":String(q.accuracy)])));
+  const csv="\uFEFF"+rows.map(row=>row.map(value=>'"'+String(value??"").replace(/"/g,'""')+'"').join(",")).join("\r\n");
+  const url=URL.createObjectURL(new Blob([csv],{type:"text/csv;charset=utf-8"})),link=document.createElement("a");link.href=url;link.download="tamayuz-performance-"+analytics.session.join_code+".csv";link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
+ }
+ function renderReport(){
+  const el=$("qm-analytics");if(!analytics)return;
+  const graded=analytics.questions.filter(q=>q.accuracy!==null),ranked=graded.slice().sort((a,b)=>a.accuracy-b.accuracy),participants=analytics.participants||0;
+  const competencies=new Map();
+  graded.forEach(q=>{const name=competencyFor(q),v=competencies.get(name)||{name,correct:0,total:0,questions:0};v.correct+=q.correct_votes||0;v.total+=q.total;v.questions++;competencies.set(name,v)});
+  const groups=[...competencies.values()].map(x=>({...x,accuracy:pct(x.correct,x.total)})).sort((a,b)=>a.accuracy-b.accuracy);
+  const info=t("Historical activity before tracking was enabled is not available. Interaction counts include only recorded events, not every physical tap. QR scans are not separately measured.","لا تتوفر بيانات النشاط قبل تفعيل التتبع. أعداد التفاعل تشمل الأحداث المسجلة فقط، ولا يتم قياس مسح رمز QR بشكل منفصل.");
+  const nav=[["overview",t("Overview","نظرة عامة")],["questions",t("Questions","الأسئلة")],["clinical",t("Clinical insights","المؤشرات السريرية")],["activity",t("Activity","النشاط")],["export",t("Reports","التقارير")]];
+  let body="";
+  if(reportSection==="overview"){
+   body='<div class="qm-report-grid">'+reportMetric(participants,t("Participants","المشاركون"))+reportMetric(analytics.total_votes,t("Submitted votes","الأصوات المسجلة"))+reportMetric(analytics.overall_accuracy===null?"—":analytics.overall_accuracy+"%",t("Overall accuracy","الدقة الإجمالية"),t("Graded responses only","الإجابات المقيّمة فقط"))+reportMetric(graded.length?Math.round(graded.reduce((a,q)=>a+pct(q.respondents,participants),0)/graded.length)+"%":"—",t("Average question participation","متوسط المشاركة"))+'</div><h3>'+t("Key insights","أبرز النتائج")+'</h3><p>'+t("Questions answered: ","الأسئلة المجاب عنها: ")+analytics.questions.filter(q=>q.total>0).length+' / '+analytics.questions.length+'</p>'+(ranked.length?'<p>'+t("Most challenging: Question ","الأكثر صعوبة: السؤال ")+(ranked[0].position+1)+' ('+ranked[0].accuracy+'%)</p><p>'+t("Strongest: Question ","الأفضل: السؤال ")+(ranked[ranked.length-1].position+1)+' ('+ranked[ranked.length-1].accuracy+'%)</p>':'<p class="muted">'+t("No graded responses yet.","لا توجد إجابات مقيّمة بعد.")+'</p>')+'<h3>'+t("Question accuracy","دقة الأسئلة")+'</h3>'+graded.map(q=>'<div class="qm-report-answer"><span>Q'+(q.position+1)+'</span><div class="qm-report-track"><i style="width:'+q.accuracy+'%"></i></div><strong>'+q.accuracy+'%</strong></div>').join("");
+  }else if(reportSection==="questions"){
+   body=analytics.questions.map(reportQuestion).join("");
+  }else if(reportSection==="clinical"){
+   body='<p class="muted">'+t("Competency groups use the CMI question mapping; other presentations are shown per question. Accuracy is not a pre/post learning improvement measure.","تستخدم مجموعات الكفاءات تصنيف أسئلة CMI؛ أما العروض الأخرى فتُعرض حسب السؤال. الدقة ليست مقياسًا للتحسن قبل التدريب وبعده.")+'</p>'+(groups.length?groups.map(g=>'<div class="qm-competency"><div class="qm-report-qhead"><strong>'+esc(g.name)+'</strong><span>'+g.accuracy+'% · '+g.questions+' '+t("questions","أسئلة")+'</span></div><div class="qm-report-track"><i style="width:'+g.accuracy+'%"></i></div></div>').join("")+'<h3>'+t("Teaching priorities","أولويات التعليم")+'</h3><p>'+groups.slice(0,3).map(g=>esc(g.name)+' ('+g.accuracy+'%)').join(" · ")+'</p>':'<p class="muted">'+t("No graded responses yet.","لا توجد إجابات مقيّمة بعد.")+'</p>');
+  }else if(reportSection==="activity"){
+   body='<div class="qm-report-grid">'+reportMetric(analytics.question_views,t("Question displays recorded","مشاهدات الأسئلة المسجلة"))+reportMetric(analytics.unique_question_views,t("Unique participant/question views","مشاهدات فريدة لكل مشارك وسؤال"))+reportMetric(analytics.answer_clicks,t("Answer selections recorded","اختيارات الإجابات المسجلة"))+reportMetric(analytics.average_response_seconds===null?"—":analytics.average_response_seconds+" s",t("Average response time","متوسط وقت الإجابة"),analytics.timed_responses+" "+t("timed responses","إجابات محددة الوقت"))+'</div><p class="qm-report-note">'+info+'</p><p class="muted">'+t("The platform tracks question views and answer selections from this update onward. Join counts and submitted votes are authoritative; clicks and timing are supplementary indicators.","تتبع المنصة مشاهدات الأسئلة واختيارات الإجابات منذ هذا التحديث. أعداد الانضمام والأصوات المعتمدة هي الأساس؛ أما النقرات والتوقيت فهي مؤشرات مساعدة.")+'</p>';
+  }else{
+   body='<div class="qm-report-actions"><button id="qm-export">'+t("Download Excel-compatible CSV","تنزيل CSV متوافق مع Excel")+'</button><button class="secondary" id="qm-print">'+t("Print / Save as PDF","طباعة / حفظ PDF")+'</button></div><p class="muted">'+t("The CSV contains question-level vote counts, competency and accuracy. PDF uses your browser’s Print / Save as PDF option.","يتضمن ملف CSV الأصوات والكفاءات والدقة لكل سؤال. يُنشأ PDF عبر خيار الطباعة / حفظ PDF في المتصفح.")+'</p><div class="qm-report-print"><h3>'+t("Executive summary","الملخص التنفيذي")+'</h3><p>'+t("Participants","المشاركون")+': '+participants+' · '+t("Votes","الأصوات")+': '+analytics.total_votes+' · '+t("Overall accuracy","الدقة الإجمالية")+': '+(analytics.overall_accuracy===null?"—":analytics.overall_accuracy+"%")+'</p><h3>'+t("Areas for improvement","مجالات التحسين")+'</h3><p>'+(groups.slice(0,3).map(g=>esc(g.name)+" ("+g.accuracy+"%)").join(" · ")||t("Insufficient data","بيانات غير كافية"))+'</p><h3>'+t("Question-level performance","أداء كل سؤال")+'</h3>'+analytics.questions.map(reportQuestion).join("")+'</div>';
+  }
+  el.innerHTML='<div class="qm-report-heading"><div><h3>'+t("Session performance","أداء الجلسة")+' · '+esc(analytics.session.join_code)+'</h3><p class="muted">'+t("Based on recorded session data","استنادًا إلى بيانات الجلسة المسجلة")+'</p></div><button class="secondary" id="qm-refresh-report">'+t("Refresh","تحديث")+'</button></div><nav class="qm-report-tabs">'+nav.map(([id,label])=>'<button class="qm-report-tab '+(reportSection===id?"is-active":"")+'" data-report-section="'+id+'">'+label+'</button>').join("")+'</nav><div class="qm-report-body">'+body+'</div>';
+  el.querySelectorAll("[data-report-section]").forEach(btn=>btn.onclick=()=>{reportSection=btn.dataset.reportSection;renderReport()});
+  $("qm-refresh-report").onclick=()=>loadAnalytics(analytics.session.id);
+  if($("qm-export"))$("qm-export").onclick=exportReport;
+  if($("qm-print"))$("qm-print").onclick=()=>window.print();
+ }
  async function loadAnalytics(sid){
   const el=$("qm-analytics");if(!sid){el.textContent=t("No session selected.","لم يتم اختيار جلسة.");return}
   el.textContent=t("Loading analytics…","جارٍ تحميل التحليلات…");
-  try{
-   analytics=await api("session_analytics",{presentation_id:pid,session_id:sid});
-   el.innerHTML='<div class="qm-analytics-stats"><div><strong>'+analytics.participants+'</strong><span>'+t("Participants","مشاركون")+'</span></div><div><strong>'+analytics.total_votes+'</strong><span>'+t("Votes","أصوات")+'</span></div></div><button id="qm-export" class="secondary">'+t("Export CSV","تصدير CSV")+'</button>'+analytics.questions.map(q=>'<div class="qm-analytics-question"><strong>'+t("Question ","السؤال ")+(q.position+1)+' · '+q.total+' '+t("votes","أصوات")+'</strong><p>'+esc(summary(q))+'</p>'+q.answers.map(x=>'<div class="qm-analytics-answer"><span>'+esc(x.label)+'</span><strong>'+x.votes+'</strong></div>').join("")+'</div>').join("");
-   $("qm-export").onclick=()=>{
-    const rows=[["Session","Question","Question text","Answer","Votes","Total votes","Participants"]];
-    analytics.questions.forEach(q=>q.answers.forEach(x=>rows.push([analytics.session.join_code,String(q.position+1),q.prompt,x.label,String(x.votes),String(q.total),String(analytics.participants)])));
-    const csv="\uFEFF"+rows.map(row=>row.map(value=>'"'+String(value??"").replace(/"/g,'""')+'"').join(",")).join("\r\n");
-    const url=URL.createObjectURL(new Blob([csv],{type:"text/csv;charset=utf-8"})),link=document.createElement("a");link.href=url;link.download="tamayuz-results-"+analytics.session.join_code+".csv";link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
-   };
-  }catch(e){el.textContent=e.message}
+  try{analytics=await api("session_analytics",{presentation_id:pid,session_id:sid});renderReport()}catch(e){el.textContent=e.message}
  }
  function switchTab(name){
   tab=name;params.set("tab",name);history.replaceState(null,"",location.pathname+"?"+params.toString());
@@ -504,6 +555,7 @@ async function audiencePage(force=false){
  if(audienceBusy||audienceSubmitting)return;
  audienceBusy=true;
  const code=params.get("code");
+ const track=(event_type,question_id)=>{if(participant&&question_id)api("track_interaction",{code,participant_token:participant,question_id,event_type}).catch(()=>{})};
  try{
   if(!participant){const joined=await api("join",{code});participant=joined.participant_token;sessionStorage.setItem("live-participant-"+code,participant)}
   const v=await api("view",{code});audienceLastResponse=v;
@@ -517,6 +569,7 @@ async function audiencePage(force=false){
    return;
   }
   audienceSnapshotKey=key;
+  if(q&&s.state==="open"&&!voted&&!sessionStorage.getItem("live-seen-"+s.id+"-"+q.id)){sessionStorage.setItem("live-seen-"+s.id+"-"+q.id,"1");track("question_view",q.id)}
   if(!$("audience-root"))layout('<div id="audience-root"><h1>'+t("Live conference","المؤتمر المباشر")+'</h1><div class="panel"><p id="audience-state" class="muted"></p><div id="poll"></div><p id="notice" role="status" aria-live="polite"></p></div></div>');
   const poll=$("poll"),state=$("audience-state");if(!poll)return;
   if(state)state.textContent=t("Session","الجلسة")+": "+code+" · "+(s.state==="open"?t("Voting open","التصويت مفتوح"):s.state==="closed"?t("Voting closed","التصويت مغلق"):s.state==="ended"?t("Session ended","انتهت الجلسة"):t("Waiting","انتظار"));
@@ -546,8 +599,8 @@ async function audiencePage(force=false){
     notice(e.message,true);buttons.forEach(b=>b.disabled=false);
    }finally{audienceSubmitting=false;if(confirmed)audiencePage(true)}
   };
-  poll.querySelectorAll("[data-answer]").forEach(b=>b.onclick=()=>submit(b.dataset.answer));
-  if($("send"))$("send").onclick=()=>submit($("answer").value);
+  poll.querySelectorAll("[data-answer]").forEach(b=>b.onclick=()=>{track("answer_click",q.id);submit(b.dataset.answer)});
+  if($("send"))$("send").onclick=()=>{track("answer_click",q.id);submit($("answer").value)};
   styleAudience();
  }catch(e){
   if(!$("audience-root"))layout('<div id="audience-root" class="panel"><p id="notice" role="alert" class="error"></p><button id="audience-retry">'+t("Retry","إعادة المحاولة")+'</button></div>');
