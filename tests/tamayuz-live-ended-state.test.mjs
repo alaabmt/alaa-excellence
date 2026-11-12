@@ -4,7 +4,7 @@ import {readFileSync} from "node:fs";
 import {execFileSync} from "node:child_process";
 
 const html=readFileSync("live/index.html","utf8");
-const scripts=[...html.matchAll(/<script(?:\\s[^>]*)?>([\\s\\S]*?)<\\/script>/g)].map(x=>x[1]).filter(Boolean);
+const scripts=[...html.matchAll(/<script(?:\s[^>]*)?>([\s\S]*?)<\/script>/g)].map(x=>x[1]).filter(Boolean);
 test("inline application JavaScript passes syntax check",()=>{
  const app=scripts.find(s=>s.includes("async function audiencePage"));
  assert.ok(app,"audience code missing");
