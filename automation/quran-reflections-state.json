@@ -5,13 +5,13 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-12T13:17:00Z",
+  "updated_at": "2026-11-12T13:21:00Z",
   "workflow_status": "in_progress",
-  "current_stage": "research",
+  "current_stage": "quran_verification",
   "current_article": {
     "article_id": "quran-reflection-2026-11-12-al-ahzab-upright-speech",
     "publication_date": "2026-11-12",
-    "status": "research_completed_pending_quran_verification",
+    "status": "quran_verified_pending_arabic_draft",
     "duplicate_check": {
       "status": "passed_no_today_quran_cycle_found",
       "checked_at": "2026-11-12T13:07:23Z",
@@ -84,7 +84,47 @@
         "url": "https://quran.ksu.edu.sa/tafseer/saadi/sura33-aya70.html",
         "status": "reviewed"
       }
-    ]
+    ],
+    "quranic_focus": {
+      "surah": "Al-Ahzab",
+      "surah_ar": "الأحزاب",
+      "ayahs": [
+        70,
+        71
+      ],
+      "context_ayahs": [
+        69
+      ],
+      "status": "verified"
+    },
+    "verified_quranic_references": [
+      {
+        "surah": "Al-Ahzab",
+        "surah_ar": "الأحزاب",
+        "ayahs": [
+          70,
+          71
+        ],
+        "context_ayahs": [
+          69
+        ],
+        "status": "verified",
+        "primary_text_urls": [
+          "https://quran.com/en/al-ahzab/69-71",
+          "https://legacy.quran.com/33/70-71"
+        ],
+        "translation": "Sahih International",
+        "verified_at": "2026-11-12T13:21:00Z"
+      }
+    ],
+    "quran_verification": {
+      "status": "passed",
+      "blocking_errors": [],
+      "path": "automation/quran-reflections/reflection-al-ahzab-upright-speech/research-notes.md",
+      "commit": "b7aa097906e11e4effc7de9ba2d8ae3b9a074ec0",
+      "blob_sha": "612c6079bdc2ed5378ebeecc3cf52574af7c703a",
+      "completed_at": "2026-11-12T13:21:00Z"
+    }
   },
   "stage_order": [
     "capability_check",
@@ -117,13 +157,13 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Independently verify the Arabic text, surah and ayah numbers, Sahih International translation, immediate context, and each tafsir attribution recorded in research-notes.md; checkpoint quran_verification before drafting.",
+  "next_action": "Write the original Arabic draft for reflection-al-ahzab-upright-speech from the verified research, clearly separating verse/tafsir, reflection, and one labeled hypothetical application; save draft-ar.md before independent critique.",
   "last_run": {
     "mode": "coordinator_quran_daily_exception",
     "status": "in_progress",
     "started_at": "2026-11-12T13:07:23Z",
-    "last_checkpoint": "research",
-    "notes": "Topic selection and full source research are committed. Research covers Al-Ahzab 33:69–71, Sahih International, and al-Tabari, Ibn Kathir, al-Qurtubi, and al-Sa'di, with interpretation/application boundaries recorded."
+    "last_checkpoint": "quran_verification",
+    "notes": "Topic selection, research, and independent Qur'an/tafsir verification are committed. Al-Ahzab 33:70–71, context 33:69, Sahih International, and all four tafsir attributions passed with no blocking errors."
   },
   "workflow_id": "quran_reflections",
   "run_lease": {
@@ -131,7 +171,7 @@
     "acquired_at": "2026-11-12T13:07:23Z",
     "expires_at": "2026-11-12T14:57:23Z",
     "duration_minutes": 110,
-    "base_head_sha": "9c155630f125d1673555e5b3f987cbc08c9dfa96"
+    "base_head_sha": "b7aa097906e11e4effc7de9ba2d8ae3b9a074ec0"
   },
   "checkpoint_policy": {
     "checkpoint_after_every_stage": true,
@@ -501,7 +541,8 @@
     "load_checkpoint",
     "duplicate_check",
     "topic_selection",
-    "research"
+    "research",
+    "quran_verification"
   ],
   "duplicate_check": {
     "status": "passed_no_today_quran_cycle_found",
@@ -522,7 +563,26 @@
     "note": "No repository or live-index evidence of a Qur'anic reflection started or published for 2026-11-12. The previous 2026-11-11 cycle is explicitly blocked on actual TTS playback, so the daily exception permits one new cycle."
   },
   "blocker": null,
-  "verified_quranic_references": [],
+  "verified_quranic_references": [
+    {
+      "surah": "Al-Ahzab",
+      "surah_ar": "الأحزاب",
+      "ayahs": [
+        70,
+        71
+      ],
+      "context_ayahs": [
+        69
+      ],
+      "status": "verified",
+      "primary_text_urls": [
+        "https://quran.com/en/al-ahzab/69-71",
+        "https://legacy.quran.com/33/70-71"
+      ],
+      "translation": "Sahih International",
+      "verified_at": "2026-11-12T13:21:00Z"
+    }
+  ],
   "previous_blocked_article": {
     "article_id": "quran-reflection-2026-11-11-al-maidah-cooperation-boundary",
     "publication_date": "2026-11-11",
