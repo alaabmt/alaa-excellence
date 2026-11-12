@@ -16,3 +16,5 @@ A 600-client browser test polling every two seconds produces approximately **300
 4. Ramp 10 → 50 → 150 → 300 → 600 with explicit stop conditions for sustained 429/5xx, vote loss, high p95, quota depletion, or any unintended production impact.
 5. At full scale maintain at least 600 **simultaneous browser contexts** for 15 minutes. Report min/average/max actual connected clients, per-action latency p50/p95/p99, 429/5xx counts, vote acknowledgment, 600 unique registered participants, result reconciliation, Supabase resource saturation, provider quota and replica behavior where relevant.
 6. Have a second verifier inspect immutable test logs and the correct deployed SHA/Edge version. Never extrapolate from the small smoke to claim GO.
+
+**Current decision: NO-GO for 600 simultaneous browsers.** The small smoke measures only its declared test envelope; never infer full-scale readiness.
