@@ -5,13 +5,13 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-12T16:06:36.713Z",
+  "updated_at": "2026-11-12T16:08:03.563Z",
   "workflow_status": "in_progress",
-  "current_stage": "english_draft",
+  "current_stage": "bilingual_parity",
   "current_article": {
     "article_id": "quran-reflection-2026-11-12-al-ahzab-upright-speech",
     "publication_date": "2026-11-12",
-    "status": "english_draft_completed_pending_bilingual_parity",
+    "status": "bilingual_parity_passed_pending_quality_gate",
     "duplicate_check": {
       "status": "passed_no_today_quran_cycle_found",
       "checked_at": "2026-11-12T13:07:23Z",
@@ -157,12 +157,12 @@
       "tts_gate": "NOT VERIFIED until final HTML"
     },
     "english_draft": {
-      "status": "draft_completed_pending_parity",
+      "status": "parity_cleared",
       "path": "automation/quran-reflections/reflection-al-ahzab-upright-speech/draft-en.md",
       "word_count": 1751,
       "quran_translation": "Sahih International",
-      "commit": "f57815a941c70051d7d5920745e45397bd5dccb2",
-      "blob_sha": "438b4c23d0c2509eb790679e5f3cbe2ef3fd0ab0",
+      "commit": "bed57e24df6bfdfcfb6d7279866843f8335939b5",
+      "blob_sha": "e3f0cfbd4dc8b60f3170c382383f4889912f8e6d",
       "completed_at": "2026-11-12T15:02:13.123Z",
       "self_check": {
         "original_editorial_english": true,
@@ -175,6 +175,26 @@
         "mobile_gate": "NOT VERIFIED until final HTML",
         "tts_gate": "NOT VERIFIED until final HTML"
       }
+    },
+    "bilingual_parity": {
+      "status": "passed_after_reference_link_normalization",
+      "review_path": "automation/quran-reflections/reflection-al-ahzab-upright-speech/quality-review.md",
+      "review_commit": "15bc295723b5c02ed5215b1368dd3a013f6d52b1",
+      "review_blob_sha": "82b911c43d173d570457031be2dc66406f732b8e",
+      "arabic_path": "automation/quran-reflections/reflection-al-ahzab-upright-speech/draft-ar.md",
+      "arabic_blob_sha": "b2d158fb8372603e96d22a1f03b86e1d095cb8f0",
+      "english_path": "automation/quran-reflections/reflection-al-ahzab-upright-speech/draft-en.md",
+      "english_blob_sha": "e3f0cfbd4dc8b60f3170c382383f4889912f8e6d",
+      "substantive_revisions": 0,
+      "reference_link_normalizations": 1,
+      "quranic_citation": "passed",
+      "tafsir_attribution": "passed",
+      "methodological_qualifications": "passed",
+      "source_urls": "passed",
+      "native_english": "passed",
+      "completed_at": "2026-11-12T16:08:03.563Z",
+      "mobile_gate": "NOT VERIFIED until final HTML",
+      "tts_gate": "NOT VERIFIED until final HTML"
     }
   },
   "stage_order": [
@@ -208,13 +228,13 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Run a bilingual parity review between draft-ar.md and draft-en.md, verify Qur'an citation, tafsir attributions, scenario details, methodological qualifications, source URLs, and natural English, then record the result in quality-review.md before the quality gate.",
+  "next_action": "Apply the 100-point Qur'anic reflection quality gate to the parity-cleared Arabic and English drafts, require a score of at least 90 with no blocking Qur'an, tafsir, or creed error, and record the result in quality-review.md before repository publication.",
   "last_run": {
     "mode": "coordinator_resume",
     "status": "running",
     "started_at": "2026-11-12T16:06:36.713Z",
-    "last_checkpoint": "english_draft",
-    "notes": "Acquired a 110-minute lease to resume bilingual parity review."
+    "last_checkpoint": "bilingual_parity",
+    "notes": "Bilingual parity passed after one non-substantive English reference-link normalization; proceeding to the quality gate."
   },
   "workflow_id": "quran_reflections",
   "run_lease": {
@@ -596,7 +616,8 @@
     "quran_verification",
     "arabic_draft",
     "independent_critique",
-    "english_draft"
+    "english_draft",
+    "bilingual_parity"
   ],
   "duplicate_check": {
     "status": "passed_no_today_quran_cycle_found",
