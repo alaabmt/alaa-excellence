@@ -737,8 +737,6 @@ async function presenterPage(){
    };
    $("open").onclick=()=>runSessionControl("open");
    $("close").onclick=()=>runSessionControl("closed");
-   $("reveal").onclick=()=>runSessionControl(active.session.state,"show");
-   $("hide").onclick=()=>runSessionControl(active.session.state,"hide");
    $("answer-reveal").onclick=toggleCorrectAnswer;
    $("widescreen-answer-reveal").onclick=toggleCorrectAnswer;
    $("reactivate").onclick=async()=>{
@@ -758,7 +756,7 @@ async function presenterPage(){
    $("stage-prev").onclick=()=>changeLiveQuestion(null,-1);
    $("stage-next").onclick=()=>changeLiveQuestion(null,1);
   }
-  async function toggleCorrectAnswer(){const s=active?.session;if(!s?.active_question_id)return;const buttons=[$("answer-reveal"),$("widescreen-answer-reveal")].filter(Boolean);buttons.forEach(b=>b.disabled=true);try{const res=await api("control",{session_id:s.id,presenter_token:presenter,key:admin,question_id:s.active_question_id,state:s.state,results_action:s.show_results?undefined:"show",answer_action:s.reveal_correct_answer?"hide":"show"});active=res;lastRevision=res.session?.revision||lastRevision;if(!busy)await presenterPage();else setTimeout(()=>presenterPage(),250)}catch(e){notice(e.message,true)}finally{buttons.forEach(b=>b.disabled=false)}}
+  async function toggleCorrectAnswer(){const s=active?.session;if(!s?.active_question_id)return;const buttons=[$("answer-reveal"),$("widescreen-answer-reveal")].filter(Boolean);buttons.forEach(b=>b.disabled=true);try{const res=await api("control",{session_id:s.id,presenter_token:presenter,key:admin,question_id:s.active_question_id,state:s.state,results_action:s.reveal_correct_answer?"hide":"show",answer_action:s.reveal_correct_answer?"hide":"show"});active=res;lastRevision=res.session?.revision||lastRevision;if(!busy)await presenterPage();else setTimeout(()=>presenterPage(),250)}catch(e){notice(e.message,true)}finally{buttons.forEach(b=>b.disabled=false)}}
   async function changeLiveQuestion(requestedId,delta=0){
    if(window.liveQuestionSwitchPending)return;
    const snapshot=active;if(!snapshot?.questions?.length||snapshot.session.state==="ended")return;
@@ -790,8 +788,6 @@ async function presenterPage(){
   const status=$("status");if(status){status.textContent=s.state==="open"?t("Voting open","التصويت مفتوح"):s.state==="closed"?t("Voting closed","التصويت مغلق"):s.state==="ended"?t("Session ended","انتهت الجلسة"):t("Waiting","انتظار");status.className="stage-pill "+(s.state==="open"?"open":s.state==="ended"?"ended":"")}
   const currentIndex=v.questions.findIndex(q=>q.id===s.active_question_id);if($("stage-prev"))$("stage-prev").disabled=currentIndex<=0||s.state==="ended";if($("stage-next"))$("stage-next").disabled=currentIndex<0||currentIndex>=v.questions.length-1||s.state==="ended";if($("previous"))$("previous").disabled=currentIndex<=0||s.state==="ended";if($("next"))$("next").disabled=currentIndex<0||currentIndex>=v.questions.length-1||s.state==="ended";const open=$("open");if(open)open.disabled=!v.questions.length||s.state==="ended"||s.state==="open";
   if($("close"))$("close").disabled=!v.questions.length||s.state!=="open";
-  if($("reveal"))$("reveal").disabled=!v.questions.length||s.state==="ended"||s.show_results;
-  if($("hide"))$("hide").disabled=!v.questions.length||s.state==="ended"||!s.show_results;
   if($("end"))$("end").disabled=s.state==="ended";
   if($("reactivate")){const canReactivate=s.state==="ended";$("reactivate").hidden=!canReactivate;$("reactivate").disabled=!canReactivate}
   if($("qr")&&window.QRCode&&(!$("qr").querySelector("img")||!$("widescreen-join-qr")?.querySelector("img")))qr(s.code);
@@ -825,7 +821,7 @@ function audienceResults(v,q){
  return '<section class="audience-results" aria-label="'+t("Live results","النتائج المباشرة")+'"><h3>'+t("Results","النتائج")+' · '+total+' '+t("responses","إجابة")+'</h3>'+labels.map((label,i)=>{const n=counts.get(String(label))||0;return resultChoiceMarkup(label,i,n,total,v.session.reveal_correct_answer,q.correct_answer)}).join("")+'</section>';
 }
 function audienceExplanation(v,q){
- if(!v.session.show_results||!v.session.reveal_correct_answer||!q.correct_answer)return "";
+ if(!v.session.reveal_correct_answer||!q.correct_answer)return "";
  return '<section class="answer-explanation"><h3>'+t("Correct answer","الإجابة الصحيحة")+': '+esc(q.correct_answer)+'</h3>'+(q.answer_justification?'<p><strong>'+t("Justification","التبرير")+':</strong> '+esc(q.answer_justification)+'</p>':'')+(q.answer_effect?'<p><strong>'+t("Effect","الأثر")+':</strong> '+esc(q.answer_effect)+'</p>':'')+'</section>';
 }
 function styleAudience(){
@@ -839,14 +835,15 @@ async function audiencePage(force=false){
  const track=(event_type,question_id)=>{if(participant&&question_id)api("track_interaction",{code,participant_token:participant,question_id,event_type}).catch(()=>{})};
  try{
   if(!participant){const joined=await api("join",{code});participant=joined.participant_token;sessionStorage.setItem("live-participant-"+code,participant)}
-  const v=await api("view",{code});audienceLastResponse=v;
+  const v=await api("view",{code,participant_token:participant});audienceLastResponse=v;
   const s=v.session,q=v.questions[0],voteKey="live-voted-"+s.id+"-"+(q?.id||"");
-  const voted=!!sessionStorage.getItem(voteKey);
+  const voted=!!v.voted||!!sessionStorage.getItem(voteKey);
+  const reveal=!!s.reveal_correct_answer,showAudienceResults=voted||reveal;
   // A vote changes the session revision; do not rebuild the active voting form for that.
-  const key=[s.id,q?.id||"",s.state,voted,s.show_results,s.reveal_correct_answer].join("|");
+  const key=[s.id,q?.id||"",s.state,voted,reveal].join("|");
   const changed=key!==audienceSnapshotKey||!$("audience-root");
   if(!changed&&!force){
-   if(s.show_results&&q){const results=$("audience-live-results");if(results)results.innerHTML=audienceResults(v,q)+audienceExplanation(v,q)}
+   if(showAudienceResults&&q){const results=$("audience-live-results");if(results)results.innerHTML=audienceResults(v,q)+audienceExplanation(v,q)}
    return;
   }
   audienceSnapshotKey=key;
@@ -856,8 +853,8 @@ async function audiencePage(force=false){
   if(state)state.textContent=t("Session","الجلسة")+": "+code+" · "+(s.state==="open"?t("Voting open","التصويت مفتوح"):s.state==="closed"?t("Voting closed","التصويت مغلق"):s.state==="ended"?t("Session ended","انتهت الجلسة"):t("Waiting","انتظار"));
   if(s.state==="ended"){poll.innerHTML='<h2>'+t("Thank you for participating.","شكرًا لمشاركتك.")+'</h2>';return}
   if(!q){poll.innerHTML='<h2>'+t("Waiting for the presenter...","بانتظار مقدم العرض...")+'</h2>';return}
-  if(s.state!=="open"||voted){
-   poll.innerHTML=clinicalCaseMarkup(q.prompt)+'<p class="success" role="status">'+(voted?t("Your answer was received.","تم استلام إجابتك."):t("Voting is not open.","التصويت غير مفتوح."))+'</p><div id="audience-live-results">'+(s.show_results?audienceResults(v,q)+audienceExplanation(v,q):'')+'</div>';
+  if(s.state!=="open"||voted||reveal){
+   poll.innerHTML=clinicalCaseMarkup(q.prompt)+'<p class="success" role="status">'+(voted?t("Your answer was received.","تم استلام إجابتك."):t("Voting is not open.","التصويت غير مفتوح."))+'</p><div id="audience-live-results">'+(showAudienceResults?audienceResults(v,q)+audienceExplanation(v,q):'')+'</div>';
    styleAudience();return;
   }
   poll.innerHTML=clinicalCaseMarkup(q.prompt)+(q.kind==="choice"?(q.options||[]).map(o=>'<button class="option" data-answer="'+esc(o)+'">'+esc(o)+'</button>').join(""):q.kind==="rating"?[1,2,3,4,5].map(n=>'<button class="option" data-answer="'+n+'">'+n+'</button>').join(""):'<textarea id="answer" maxlength="400" rows="4" placeholder="'+t("Your answer","إجابتك")+'"></textarea><button id="send">'+t("Submit","إرسال")+'</button>')+'<div id="audience-live-results">'+(s.show_results?audienceResults(v,q)+audienceExplanation(v,q):'')+'</div>';
