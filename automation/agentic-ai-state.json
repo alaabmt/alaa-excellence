@@ -7,14 +7,10 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-12T00:19:32.946Z",
-  "workflow_status": "in_progress",
+  "updated_at": "2026-11-12T00:20:25.314Z",
+  "workflow_status": "blocked",
   "current_stage": "live_verification",
-  "run_lease": {
-    "owner": "chatgpt-central-resume-20261112-0405",
-    "acquired_at": "2026-11-12T00:05:00.000Z",
-    "expires_at": "2026-11-12T01:55:00.000Z"
-  },
+  "run_lease": null,
   "current_item": {
     "slug": "article-agentic-ai-swelancer-million-dollar-software-work",
     "publication_date": "2026-11-11",
@@ -84,6 +80,23 @@
           "Site health QA: live/index.html lacks shared navigation.",
           "Generate social share cards: the 2026-11-11 Qur'anic reflection still uses legacy SVG previews."
         ]
+      },
+      "live_verification": {
+        "status": "blocked_pending_article_mobile_and_tts",
+        "checked_at": "2026-11-12T00:20:25.314Z",
+        "live_pages": "passed",
+        "specialist_hubs": "passed_no_duplicate",
+        "sitemap": "passed_one_url_each",
+        "social_assets": "passed_1200x630_jpg",
+        "desktop_overflow": "passed_at_1363px",
+        "mobile_rtl_ltr": "not_verified_for_this_exact_article",
+        "tts_controls": "present_both_languages",
+        "tts_playback": "not_verifiable_managed_browser_has_no_web_speech_api"
+      },
+      "publication_report": {
+        "path": "automation/agentic-ai/article-agentic-ai-swelancer-million-dollar-software-work/publication-report.md",
+        "commit": "bb75d4c42785e90f3651c784b24634aafa5ab96a",
+        "status": "published_verification_report_blocked"
       }
     },
     "metrics_check_status": "completed",
@@ -94,7 +107,7 @@
     "beginner_critique_commit": "f718de433fa207ecb56596f73d3252043e952ce0",
     "bilingual_parity_status": "completed",
     "bilingual_parity_review_commit": "ae632ed7b02337e07d36e837af5b8f09ac6cca1d",
-    "quality_gate_status": "passed_editorial_pending_html_runtime_gates",
+    "quality_gate_status": "blocked_pending_article_specific_mobile_and_actual_tts",
     "quality_gate_review_commit": "d11c39e4d27a6b6bcc73b998df4415eec4081f97",
     "quality_gate_score": 96,
     "quality_gate_pending": [
@@ -142,17 +155,24 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Complete live verification for the SWE-Lancer Arabic and English pages: retain the passed live page/hub/sitemap/social-asset checks, run article-specific real mobile RTL/LTR checks at 320/375/390/430px, and verify actual Arabic and English TTS playback (title first, synchronized highlighting, pause/resume/stop and speed) in a browser with Web Speech support before completion.",
+  "next_action": "Run this exact SWE-Lancer Arabic and English article in real Chromium at 320/375/390/430px, then test actual Arabic and English TTS in a Web Speech-capable browser (title first, synchronized highlighting, pause/resume/stop and speed). If actual playback cannot be supplied, obtain an explicit decision accepting the structural listen-control check instead. Reconcile live targets before any retry; do not republish.",
   "last_run": {
     "mode": "coordinator_resume",
-    "status": "in_progress",
+    "status": "blocked",
     "started_at": "2026-11-12T00:05:00.000Z",
-    "completed_at": null,
-    "notes": "Repository checks reconciled. Article-date integrity, disclaimer, exact-head Arabic editorial gate and exact-head Pages passed; two repository-wide failures are unrelated to this article.",
+    "completed_at": "2026-11-12T00:20:25.314Z",
+    "notes": "Actions, exact-head Pages and live page/hub/sitemap/social-asset checks passed. Publication report saved. Blocked at live_verification because the exact article lacks retained 320/375/390/430 evidence and the managed browser exposes no Web Speech API for actual bilingual TTS playback.",
     "current_item": "article-agentic-ai-swelancer-million-dollar-software-work",
     "checkpoint": "actions_and_pages"
   },
-  "blocker": null,
+  "blocker": {
+    "type": "verification_environment_and_decision",
+    "stage": "live_verification",
+    "reason": "The exact SWE-Lancer pages still need retained real-mobile RTL/LTR evidence, and the available managed browser has no Web Speech API, so actual Arabic/English playback and synchronized controls cannot be proven.",
+    "decision_required": "Provide or authorize a Web Speech-capable browser/device and run the remaining article-specific mobile/TTS gates, or explicitly accept structural listen-control verification in place of actual playback.",
+    "safe_to_retry": true,
+    "duplicate_prevention": "Re-check state, main, live pages, hubs, sitemap and assets; do not republish or recreate existing artifacts."
+  },
   "last_completed_item": {
     "slug": "article-agentic-ai-erpbench-market-ecology",
     "publication_date": "2026-11-05",
