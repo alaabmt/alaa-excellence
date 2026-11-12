@@ -5,13 +5,13 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-12T13:07:23Z",
+  "updated_at": "2026-11-12T13:12:00Z",
   "workflow_status": "in_progress",
-  "current_stage": "duplicate_check",
+  "current_stage": "topic_selection",
   "current_article": {
-    "article_id": "quran-reflection-2026-11-12-pending-topic",
+    "article_id": "quran-reflection-2026-11-12-al-ahzab-upright-speech",
     "publication_date": "2026-11-12",
-    "status": "duplicate_check_completed_pending_topic_selection",
+    "status": "topic_selected_pending_research",
     "duplicate_check": {
       "status": "passed_no_today_quran_cycle_found",
       "checked_at": "2026-11-12T13:07:23Z",
@@ -29,6 +29,26 @@
         "public web search for 2026-11-12 Qur'anic reflection"
       ],
       "note": "No repository or live-index evidence of a Qur'anic reflection started or published for 2026-11-12. The previous 2026-11-11 cycle is explicitly blocked on actual TTS playback, so the daily exception permits one new cycle."
+    },
+    "slug": "reflection-al-ahzab-upright-speech",
+    "topic_ar": "الأحزاب 33:70–71 — القول السديد وصلته بإصلاح العمل",
+    "topic_en": "Al-Ahzab 33:70–71 — upright speech and the repair of action",
+    "working_title_ar": "كيف يكون القول سديداً حين يصعب الاعتراف بالخطأ؟",
+    "working_title_en": "What Makes Speech Upright When Admitting Error Is Hard?",
+    "research_notes_path": "automation/quran-reflections/reflection-al-ahzab-upright-speech/research-notes.md",
+    "topic_selection": {
+      "status": "completed",
+      "candidates": [
+        "Al-Ahzab 33:70–71 — upright speech and the repair of action",
+        "Al-Hadid 57:22–23 — how we receive loss and gain",
+        "Al-Hashr 59:18 — what the self has sent ahead for tomorrow"
+      ],
+      "selected": "Al-Ahzab 33:70–71 — upright speech and the repair of action",
+      "central_question": "What makes our speech upright when admitting error and correcting its effects is harder than defending our image?",
+      "artifact_path": "automation/quran-reflections/reflection-al-ahzab-upright-speech/research-notes.md",
+      "artifact_commit": "fecdea51bf942d8b21218e80747f07ba73be572b",
+      "artifact_blob_sha": "3d567fa9787a0fc4553d964eabbebcb7831ab1e6",
+      "completed_at": "2026-11-12T13:12:00Z"
     }
   },
   "stage_order": [
@@ -62,13 +82,13 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Select one non-duplicate Qur'anic reflection topic from three candidate angles, save the topic-selection artifact/checkpoint, then begin research.",
+  "next_action": "Research Al-Ahzab 33:70–71 and its immediate context using the Qur'an text, Sahih International, and al-Tabari, Ibn Kathir, al-Qurtubi, and al-Sa'di; save source notes before Qur'an verification.",
   "last_run": {
     "mode": "coordinator_quran_daily_exception",
     "status": "in_progress",
     "started_at": "2026-11-12T13:07:23Z",
-    "last_checkpoint": "duplicate_check",
-    "notes": "Capability and ordered-state checks passed; no resumable candidate existed; daily Qur'anic exception opened after duplicate checks."
+    "last_checkpoint": "topic_selection",
+    "notes": "Daily exception opened after duplicate checks. Three non-duplicate angles were assessed and Al-Ahzab 33:70–71 was selected; the topic-selection artifact is committed. An unrelated main-branch UI commit was reconciled before this checkpoint."
   },
   "workflow_id": "quran_reflections",
   "run_lease": {
@@ -76,7 +96,7 @@
     "acquired_at": "2026-11-12T13:07:23Z",
     "expires_at": "2026-11-12T14:57:23Z",
     "duration_minutes": 110,
-    "base_head_sha": "e53e9e0d37d628dcd2458c2e5e7908a1fb91bee4"
+    "base_head_sha": "71d0ff932c97b8f98dc4b2e20f2be344c38d7256"
   },
   "checkpoint_policy": {
     "checkpoint_after_every_stage": true,
@@ -444,7 +464,8 @@
   "completed_stages": [
     "capability_check",
     "load_checkpoint",
-    "duplicate_check"
+    "duplicate_check",
+    "topic_selection"
   ],
   "duplicate_check": {
     "status": "passed_no_today_quran_cycle_found",
