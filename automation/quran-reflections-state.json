@@ -5,13 +5,13 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-12T14:23:00Z",
+  "updated_at": "2026-11-12T14:31:00Z",
   "workflow_status": "in_progress",
-  "current_stage": "arabic_draft",
+  "current_stage": "independent_critique",
   "current_article": {
     "article_id": "quran-reflection-2026-11-12-al-ahzab-upright-speech",
     "publication_date": "2026-11-12",
-    "status": "arabic_draft_completed_pending_independent_critique",
+    "status": "arabic_critique_passed_pending_english_draft",
     "duplicate_check": {
       "status": "passed_no_today_quran_cycle_found",
       "checked_at": "2026-11-12T13:07:23Z",
@@ -126,11 +126,11 @@
       "completed_at": "2026-11-12T13:21:00Z"
     },
     "arabic_draft": {
-      "status": "draft_completed_pending_independent_critique",
+      "status": "critique_cleared",
       "path": "automation/quran-reflections/reflection-al-ahzab-upright-speech/draft-ar.md",
-      "word_count": 1377,
-      "commit": "8f787b56c54bf4e46deb82ac3f365254f6aaf6e1",
-      "blob_sha": "84264d5a7729ca430ca4e960f773a37fe122b097",
+      "word_count": 1388,
+      "commit": "d795265db94fe0561cf44b8925356bf8a3242669",
+      "blob_sha": "b2d158fb8372603e96d22a1f03b86e1d095cb8f0",
       "completed_at": "2026-11-12T14:23:00Z",
       "mobile_gate": "NOT VERIFIED until final HTML",
       "tts_gate": "NOT VERIFIED until final HTML",
@@ -142,7 +142,19 @@
         "direct_source_urls": 11,
         "quranic_text_matches_verified_research": true,
         "editorial_disclaimer_present": true
-      }
+      },
+      "revision_count": 2
+    },
+    "independent_critique": {
+      "status": "passed_after_required_revisions",
+      "path": "automation/quran-reflections/reflection-al-ahzab-upright-speech/quality-review.md",
+      "commit": "683d184ac8680291dfb58f8a4e23d8d8669a17d8",
+      "blob_sha": "6e10962b81b28f34ed13acc5b78e59a9518b6062",
+      "blocking_errors": [],
+      "revisions_applied": 2,
+      "completed_at": "2026-11-12T14:31:00Z",
+      "mobile_gate": "NOT VERIFIED until final HTML",
+      "tts_gate": "NOT VERIFIED until final HTML"
     }
   },
   "stage_order": [
@@ -176,13 +188,13 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Run an independent critique of draft-ar.md against the Qur'anic writing guide, verified research, Arabic clarity gates, repetition, tafsir/reflection/application boundaries, and methodological limits; save findings and required revisions in quality-review.md before any English drafting.",
+  "next_action": "Write an original editorial English draft in draft-en.md from the critique-cleared Arabic argument and verified sources, using Sahih International for the Qur'an quotation and preserving every methodological qualification without mirroring Arabic sentence structure.",
   "last_run": {
     "mode": "coordinator_resume",
     "status": "in_progress",
     "started_at": "2026-11-12T14:15:43Z",
-    "last_checkpoint": "arabic_draft",
-    "notes": "The original Arabic draft is committed with one labeled hypothetical case, attributed tafsir, explicit reflection/application boundaries, a methodological note, editorial disclaimer, and direct references. Independent critique is next."
+    "last_checkpoint": "independent_critique",
+    "notes": "Arabic draft completed, independently critiqued, revised in two required places, and cleared. No Qur'an, tafsir, creed, or methodological blocker remains; final mobile/RTL/TTS gates wait for HTML."
   },
   "workflow_id": "quran_reflections",
   "run_lease": {
@@ -190,7 +202,7 @@
     "acquired_at": "2026-11-12T14:15:43Z",
     "expires_at": "2026-11-12T16:05:43Z",
     "duration_minutes": 110,
-    "base_head_sha": "8f787b56c54bf4e46deb82ac3f365254f6aaf6e1"
+    "base_head_sha": "683d184ac8680291dfb58f8a4e23d8d8669a17d8"
   },
   "checkpoint_policy": {
     "checkpoint_after_every_stage": true,
@@ -562,7 +574,8 @@
     "topic_selection",
     "research",
     "quran_verification",
-    "arabic_draft"
+    "arabic_draft",
+    "independent_critique"
   ],
   "duplicate_check": {
     "status": "passed_no_today_quran_cycle_found",
