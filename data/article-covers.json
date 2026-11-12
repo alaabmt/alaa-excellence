@@ -2282,6 +2282,27 @@
         "subtitle": "Equipment failures at a medical simulation center.",
         "alt": "Navy and gold FMEA · Failure Mode & Effects Analysis cover titled “Which Failure Is Riskier?” about equipment failures at a medical simulation center."
       }
+    },
+    {
+      "slug": "case-brazil-family-health-strategy-community-primary-care",
+      "procedural_scene": "community-primary-care",
+      "category": "case",
+      "ar": {
+        "title": [
+          "البرازيل",
+          "من الزيارة إلى مسؤولية الحي"
+        ],
+        "subtitle": "فرق تعرف سكانها، ونتائج تدعمها أدلة مختلطة.",
+        "alt": "غلاف حالة البرازيل: فريق رعاية أولية يغادر العيادة باتجاه الحي."
+      },
+      "en": {
+        "title": [
+          "Brazil",
+          "From Visits to Communities"
+        ],
+        "subtitle": "Teams know their populations; the outcome evidence remains mixed.",
+        "alt": "Brazil case cover: a primary-care team moving from the clinic into the community."
+      }
     }
   ]
 }

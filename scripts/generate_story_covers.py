@@ -58,12 +58,44 @@ def wrap(draw, text, f, direction, limit=648):
     return lines
 
 
+
+def procedural_background(card, spec):
+    """Create a deterministic original editorial scene when no raster background is checked in."""
+    width, height = spec['width'], spec['height']
+    im = Image.new('RGB', (width, height), '#163b4a')
+    d = ImageDraw.Draw(im)
+    # Dawn sky and neighborhood depth.
+    for y in range(height):
+        t = y / max(1, height - 1)
+        r = round(22 + 10 * t); g = round(59 + 35 * t); b = round(74 + 22 * t)
+        d.line((0, y, width, y), fill=(r, g, b))
+    d.ellipse((60, 50, 180, 170), fill='#e5bc78')
+    d.polygon([(0,330),(150,235),(280,320),(430,210),(560,330),(560,630),(0,630)], fill='#274f55')
+    # Homes and a primary-care clinic on the visible left.
+    for x,y,w,h,c in [(25,300,120,120,'#d7c59f'),(165,270,110,150,'#b9d2c8'),(295,315,95,105,'#d9b28c')]:
+        d.rectangle((x,y,x+w,y+h),fill=c); d.polygon([(x-8,y),(x+w/2,y-55),(x+w+8,y)],fill='#5b3f35')
+        d.rectangle((x+18,y+45,x+48,y+h),fill='#244252')
+    d.rounded_rectangle((40,150,310,275),radius=14,fill='#edf2e9',outline='#b7c8bf',width=3)
+    d.rectangle((70,185,150,255),fill='#79a9b2'); d.rectangle((175,185,280,255),fill='#79a9b2')
+    d.line((50,286,520,570),fill='#d8c5a0',width=78)
+    # Five simplified team figures; no close-up faces or identifying detail.
+    people=[(95,390,'#27496b'),(155,410,'#f2f0e8'),(215,385,'#1d3557'),(275,420,'#f2f0e8'),(335,400,'#3b6978')]
+    for x,y,color in people:
+        d.ellipse((x,y-24,x+26,y+2),fill='#6b4938')
+        d.rounded_rectangle((x-2,y,x+30,y+78),radius=10,fill=color)
+        d.line((x+7,y+78,x+2,y+132),fill='#172b36',width=9)
+        d.line((x+23,y+78,x+30,y+132),fill='#172b36',width=9)
+    return im
+
 def render(card, lang, spec):
     out = OUT / f"{card['slug']}-{lang}.jpg"
     if card.get('reference'):
         im = ImageOps.fit(Image.open(ROOT / card[lang]['source']).convert('RGB'), (spec['width'], spec['height']), method=Image.Resampling.LANCZOS)
         return export_jpeg(im, out)
-    im = Image.open(ROOT / card['background']).convert('RGB')
+    if card.get('procedural_scene'):
+        im = procedural_background(card, spec)
+    else:
+        im = Image.open(ROOT / card['background']).convert('RGB')
     if im.size != (spec['width'], spec['height']):
         raise ValueError(f'Wrong background dimensions: {card["slug"]}')
     # A consistent navy reading panel keeps pale typography legible even when
