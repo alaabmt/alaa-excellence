@@ -2303,6 +2303,27 @@
         "subtitle": "Teams know their populations; the outcome evidence remains mixed.",
         "alt": "Brazil case cover: a primary-care team moving from the clinic into the community."
       }
+    },
+    {
+      "slug": "reflection-al-maidah-when-help-becomes-complicity",
+      "background": "assets/previews/story-backgrounds/reflection-al-baqarah-write-it-down.jpg",
+      "category": "reflection",
+      "ar": {
+        "title": [
+          "متى تتحول المساعدة",
+          "إلى مشاركة في الخطأ؟"
+        ],
+        "subtitle": "حدود تحمي المقصد الحسن من وسيلة تعين على الإثم.",
+        "alt": "غلاف رمزي بالكحلي والذهبي لتأمل المائدة 5:2، يظهر طريقًا نافعًا يتوقف عند حاجز يحمي الإنسان من وسيلة مؤذية."
+      },
+      "en": {
+        "title": [
+          "When Does Helping Become",
+          "Participation in Wrongdoing?"
+        ],
+        "subtitle": "Safeguards keep a good purpose from enabling harmful means.",
+        "alt": "Navy and gold symbolic cover for a reflection on Al-Ma'idah 5:2, showing a worthwhile path stopping at a safeguard against a harmful means."
+      }
     }
   ]
 }
