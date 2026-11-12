@@ -5,13 +5,13 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-12T17:59:01.271Z",
+  "updated_at": "2026-11-12T18:06:02.404Z",
   "workflow_status": "in_progress",
-  "current_stage": "repository_publish",
+  "current_stage": "actions_and_pages",
   "current_article": {
     "article_id": "quran-reflection-2026-11-12-al-ahzab-upright-speech",
     "publication_date": "2026-11-12",
-    "status": "repository_published_pending_actions_and_pages",
+    "status": "actions_and_pages_completed_pending_live_verification",
     "duplicate_check": {
       "status": "passed_no_today_quran_cycle_found",
       "checked_at": "2026-11-12T13:07:23Z",
@@ -292,6 +292,74 @@
       "pages_gate": "pending",
       "live_gate": "pending",
       "automation_descendant_head": "6b6d7f9b63af9483cbeec61eff0a66d5fab92cd0"
+    },
+    "actions_and_pages": {
+      "status": "completed_with_reconciled_site_health",
+      "completed_at": "2026-11-12T18:06:02.404Z",
+      "exact_head_sha": "6da1be7a0286663dd86ebbc3e0c53b9536bd901e",
+      "report_path": "automation/quran-reflections/reflection-al-ahzab-upright-speech/actions-and-pages-report.md",
+      "github_actions": {
+        "sitemap_integrity": {
+          "run_id": 43265351312,
+          "conclusion": "success",
+          "head_sha": "08da90922b404045be54eebadfb9fb95a98c8284"
+        },
+        "article_date_integrity": {
+          "run_id": 43265351396,
+          "conclusion": "success",
+          "head_sha": "08da90922b404045be54eebadfb9fb95a98c8284"
+        },
+        "social_share_cards": {
+          "run_id": 43265351384,
+          "conclusion": "success",
+          "head_sha": "08da90922b404045be54eebadfb9fb95a98c8284"
+        },
+        "arabic_editorial": {
+          "run_id": 43275085679,
+          "conclusion": "success",
+          "head_sha": "6da1be7a0286663dd86ebbc3e0c53b9536bd901e",
+          "artifact_id": 13969239503
+        },
+        "pages": {
+          "run_id": 43275086905,
+          "conclusion": "success",
+          "head_sha": "6da1be7a0286663dd86ebbc3e0c53b9536bd901e"
+        },
+        "site_health": {
+          "run_id": 43265351930,
+          "conclusion": "failure_before_generated_assets",
+          "reconciliation": "The six missing JPG references that caused the run were generated in automation descendants 58ac632dfaaa96bafd15b00b1e1d76a30cfca1a3 and 6b6d7f9b63af9483cbeec61eff0a66d5fab92cd0. The exact-head bilingual mobile review subsequently reported assetsOk=true in all eight cases; no later green Site Health run was triggered."
+        }
+      },
+      "exact_mobile_review": {
+        "result": "8_of_8_passed",
+        "viewports": [
+          320,
+          375,
+          390,
+          430
+        ],
+        "languages": [
+          "ar",
+          "en"
+        ],
+        "checks": [
+          "page_width",
+          "h1_visible",
+          "lang",
+          "direction",
+          "assets_ok",
+          "tables_scrollable",
+          "listen_control"
+        ],
+        "artifact_id": 13969239503,
+        "artifact_name": "arabic-article-mobile-review",
+        "result_path": "editorial-qa/mobile-artifacts/reflection-al-ahzab-upright-speech-bilingual-results.json"
+      },
+      "generated_social_assets": [
+        "assets/previews/story/reflection-al-ahzab-upright-speech-ar.jpg",
+        "assets/previews/story/reflection-al-ahzab-upright-speech-en.jpg"
+      ]
     }
   },
   "stage_order": [
@@ -325,7 +393,7 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Re-read main and this checkpoint; reconcile any sitemap/social-card bot descendants without replaying the publication; inspect required GitHub Actions and Pages on the exact latest content head; then run exact 320/375/390/430 mobile and RTL checks, verify generated social JPGs and both live pages plus all four live indexes, and test actual TTS playback where Web Speech is available.",
+  "next_action": "Verify the live Arabic and English pages, all four live indexes, sitemap entries, generated social-card endpoints, and actual Arabic/English TTS playback in a Web Speech-capable browser. Do not republish or regenerate completed artifacts.",
   "last_run": {
     "mode": "coordinator_resume",
     "status": "running",
@@ -339,7 +407,7 @@
     "acquired_at": "2026-11-12T17:59:01.271Z",
     "expires_at": "2026-11-12T19:49:01.271Z",
     "base_head_sha": "a72dc0dde06045831c056206c2a32a1f3a5db434",
-    "stage": "actions_and_pages"
+    "stage": "live_verification"
   },
   "checkpoint_policy": {
     "checkpoint_after_every_stage": true,
@@ -716,7 +784,8 @@
     "english_draft",
     "bilingual_parity",
     "quality_gate",
-    "repository_publish"
+    "repository_publish",
+    "actions_and_pages"
   ],
   "duplicate_check": {
     "status": "passed_no_today_quran_cycle_found",
