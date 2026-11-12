@@ -2261,6 +2261,27 @@
         "source": "assets/previews/story/article-agentic-ai-swelancer-million-dollar-software-work-en.jpg"
       },
       "reference": true
+    },
+    {
+      "slug": "article-preventive-engineering-simulation-center-fmea",
+      "background": "assets/previews/story-backgrounds/article-preventive-engineering-simulation-center-fmea.jpg",
+      "category": "prevention",
+      "ar": {
+        "title": [
+          "أي عطل",
+          "أخطر؟"
+        ],
+        "subtitle": "أعطال معدات مركز محاكاة طبي",
+        "alt": "غلاف سلسلة منهجية هندسة الوقاية (FMEA) بالكحلي والذهبي بعنوان «أي عطل أخطر؟»، عن أعطال معدات مركز محاكاة طبي."
+      },
+      "en": {
+        "title": [
+          "Which Failure",
+          "Is Riskier?"
+        ],
+        "subtitle": "Equipment failures at a medical simulation center.",
+        "alt": "Navy and gold FMEA · Failure Mode & Effects Analysis cover titled “Which Failure Is Riskier?” about equipment failures at a medical simulation center."
+      }
     }
   ]
 }
