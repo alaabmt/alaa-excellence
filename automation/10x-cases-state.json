@@ -7,15 +7,26 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-12T07:49:00+04:00",
+  "updated_at": "2026-11-12T08:00:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "candidate_scan",
+  "current_stage": "evidence_pack",
   "run_lease": {
     "owner": "codex-tenx-primary-20261112-0734",
     "acquired_at": "2026-11-12T07:34:00+04:00",
     "expires_at": "2026-11-12T09:24:00+04:00"
   },
-  "current_item": null,
+  "current_item": {
+    "slug": "case-brazil-family-health-strategy-community-primary-care",
+    "publication_date": "2026-11-12",
+    "title_working_ar": "كيف نقلت البرازيل الرعاية الأولية من انتظار المريض إلى فرق مسؤولة عن الأحياء؟",
+    "title_working_en": "How Brazil Moved Primary Care from Waiting Rooms into Communities",
+    "candidate_status": "accepted_for_evidence_pack",
+    "artifact_root": "automation/10x-cases/case-brazil-family-health-strategy-community-primary-care/",
+    "candidate_notes": {
+      "path": "automation/10x-cases/case-brazil-family-health-strategy-community-primary-care/candidate-notes.md",
+      "commit": "73c7d42e24ab88f6fbeaabd5bb5788ae1aad87d4"
+    }
+  },
   "stage_order": [
     "capability_check",
     "load_checkpoint",
@@ -55,14 +66,15 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Scan UAE, regional and global candidates; select only a distinct evidence-qualified transformation and save candidate-notes.md.",
+  "next_action": "Build a claim-level Evidence Pack, explicitly separating goals, designed capacity, actual implementation and observed outcomes; reject the case if the evidence remains insufficient.",
   "last_run": {
     "mode": "primary_scheduled_cycle",
     "status": "in_progress",
     "started_at": "2026-11-12T07:34:00+04:00",
     "starting_head": "b1f7cfcbd12f4a1444fad3c5c685d5f26091c1ac",
-    "last_checkpoint": "duplicate_check",
-    "notes": "Current manuals and connected Drive standards loaded. Publication registry, Arabic/English indexes, sitemap and main checked: no 10X case has publication date 2026-11-12. No candidate or publication write yet."
+    "last_checkpoint": "candidate_scan",
+    "notes": "Candidate scan completed. Brazil Family Health Strategy accepted for Evidence Pack; no publication files changed.",
+    "current_item": "case-brazil-family-health-strategy-community-primary-care"
   },
   "last_completed_item": {
     "slug": "case-bangladesh-cyclone-preparedness-community-warning",
@@ -129,7 +141,8 @@
   "completed_stages": [
     "capability_check",
     "load_checkpoint",
-    "duplicate_check"
+    "duplicate_check",
+    "candidate_scan"
   ],
   "blocker": null
 }
