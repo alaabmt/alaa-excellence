@@ -667,6 +667,42 @@ body.live-presenter-page .presenter.results-focus #question-view .clinical-secti
 body.live-presenter-page .presenter.results-focus #question-view .clinical-section .clinical-text{font-size:clamp(15px,1.15vw,19px)!important;line-height:1.5!important;white-space:pre-wrap!important}
 body.live-presenter-page .presenter.results-focus #question-view .clinical-challenge{font-size:clamp(19px,1.65vw,26px)!important;line-height:1.4!important;padding:12px!important;background:#eeeafe!important;border-left:4px solid #6550db!important;border-radius:8px!important}
 @media(min-width:900px){body.live-presenter-page .presenter.results-focus .stage-main>.panel:first-child{grid-template-areas:"question results" "status status"!important}body.live-presenter-page .presenter.results-focus #question-view{position:static!important;max-height:none!important;overflow:visible!important}}
+
+/* Tamayuz Prestige: midnight navy, muted gold, warm ivory. Visual-only theme. */
+:root{--ink:#102b45;--violet:#173e60;--violet-dark:#102b45;--soft:#f8f7f3;--stroke:#e5e1d8;--muted:#58697a;--prestige-gold:#b59652;--prestige-ivory:#f8f7f3;color:#102b45;background:#f8f7f3}
+body{background:#f8f7f3;color:#102b45}
+header{background:#102b45;color:#fff;border-bottom:3px solid #b59652;box-shadow:0 4px 18px #102b4514}
+header strong{color:#fff}
+header button.secondary{background:#eae5d9;color:#102b45}
+header button.secondary:hover{background:#ded5bf}
+.panel,.role-card,.access-panel{background:#fff;border-color:#e5e1d8;box-shadow:0 8px 28px #102b450b}
+h1,h2,h3,.stage-title,.stage-question{color:#102b45}
+.muted,.stage-footer,footer,.stage-count,.stage-help{color:#58697a}
+button{background:#173e60;color:#fff}
+button:hover{background:#102b45}
+button.secondary{background:#eae5d9;color:#102b45}
+button.secondary:hover{background:#ddd4be}
+button.danger{background:#9a3740}
+button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #b59652;outline-offset:2px}
+input,select,textarea{border-color:#d5d0c4;background:#fff;color:#102b45}
+a{color:#16496e}
+.option{border-color:#e5e1d8;background:#fff;color:#102b45}
+.option:hover{border-color:#b59652;background:#faf7ef}
+.option .letter{background:#f0eadb;color:#735820}
+.stage-pill{background:#f0eadb;color:#735820}
+.stage-pill.open{background:#e4f2eb;color:#166344}
+.stage-pill.ended{background:#f8e8e9;color:#913b46}
+.role-note{background:#f2ede2;color:#735820}
+.stage-empty{border-color:#d5c9ad;color:#58697a}
+.bar,.stage-result .bar,body.live-presenter-page .presenter #results .stage-result.result-choice .bar{background:#e9e6df!important}
+.fill,.stage-result .fill{background:linear-gradient(90deg,#16496e,#34759b)!important}
+body.live-presenter-page .presenter #results .stage-result.result-choice:nth-of-type(4n+2) .fill{background:linear-gradient(90deg,#8e7135,#b59652)!important}
+body.live-presenter-page .presenter #results .stage-result.result-choice:nth-of-type(4n+3) .fill{background:linear-gradient(90deg,#376d70,#579294)!important}
+body.live-presenter-page .presenter #results .stage-result.result-choice:nth-of-type(4n+4) .fill{background:linear-gradient(90deg,#52647e,#8395ad)!important}
+body.live-presenter-page .presenter.results-focus #question-view{background:#f8f7f3!important;border-color:#e5e1d8!important}
+body.live-presenter-page .presenter.results-focus #question-view .clinical-section{border-bottom-color:#e5e1d8!important}
+body.live-presenter-page .presenter.results-focus #question-view .clinical-challenge{background:#f0eadb!important;border-left-color:#b59652!important;color:#102b45!important}
+body.live-presenter-page .presenter.results-focus #results .stage-result.result-choice{background:#fff;border-color:#e5e1d8}
 </style><script src="/assets/js/auth-config.js"></script></head><body><header><strong>LIVE · Personal Conference Tool</strong><div class="actions"><button id="home-link" class="secondary">Home</button><button id="language" class="secondary">العربية</button></div></header><main><div id="app" aria-live="polite"></div></main><footer>Personal conference polling · Tamayuz 10X</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" defer></script><script>
 (()=>{"use strict";
 const ENDPOINT="https://dqrsjhcfmpjhcxvtxosy.supabase.co/functions/v1/tamayuz-live";
