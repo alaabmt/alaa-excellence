@@ -1,7 +1,7 @@
 name: Tamayuz Live authorization guard tests
 on:
   push:
-    branches: [security/tamayuz-live-presenter-auth-20261112]
+    branches: [main, security/tamayuz-live-presenter-auth-20261112]
     paths:
       - 'live/backend/index.ts'
       - 'live/index.html'

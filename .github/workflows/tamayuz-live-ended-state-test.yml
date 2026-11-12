@@ -2,6 +2,7 @@ name: Tamayuz Live Ended Session UI Test
 on:
   push:
     branches:
+      - main
       - fix/tamayuz-live-ended-session-message-20261112
     paths:
       - 'live/index.html'
