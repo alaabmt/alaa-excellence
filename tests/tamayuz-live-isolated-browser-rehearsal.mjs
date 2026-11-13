@@ -60,6 +60,7 @@ try{
  const presenter=await pc.newPage();const errors=[];presenter.on("pageerror",e=>errors.push("presenter: "+e.message));
  await presenter.goto(base+"/live/?session="+SESSION+"#presenter="+PRESENTER);
  await presenter.locator("#presenter-root").waitFor({timeout:20000});
+ await presenter.waitForFunction(()=>!!document.getElementById("audience-link")?.getAttribute("href"),null,{timeout:20000});
  const joinHref=await presenter.locator("#audience-link").getAttribute("href");
  assert(joinHref&&joinHref.includes("code="+CODE),"presenter screen must show the public join link");
  step("presenter opens the private link and sees the join code/link");

@@ -53,7 +53,9 @@ async function api(action,body){
  finally{inflight--;metrics.push({a:action,s:status,ms:performance.now()-started,t:now()})}
 }
 const pct=(values,p)=>{if(!values.length)return null;const a=Float64Array.from(values).sort();return Math.round(a[Math.min(a.length-1,Math.ceil(a.length*p)-1)])};
-const summary=values=>({n:values.length,p50:pct(values,.5),p95:pct(values,.95),p99:pct(values,.99),max:values.length?Math.round(Math.max(...values)):null});
+// reduce(), not Math.max(...values): spreading ~170,000 samples overflows the call stack.
+const peak=values=>values.reduce((m,x)=>x>m?x:m,-Infinity);
+const summary=values=>({n:values.length,p50:pct(values,.5),p95:pct(values,.95),p99:pct(values,.99),max:values.length?Math.round(peak(values)):null});
 
 // question id -> bookkeeping for tally reconciliation
 const book=new Map();
@@ -218,7 +220,7 @@ const minConnected=steadyLine.length?Math.min(...steadyLine.map(x=>x.connected))
 let recovery=null;
 if(faultAt!==null){
  const errorsAfter=metrics.filter(m=>m.t>=faultAt&&failed(m));
- const lastError=errorsAfter.length?Math.max(...errorsAfter.filter(m=>m.t<=faultAt+120000).map(m=>m.t)):faultAt;
+ const lastError=errorsAfter.filter(m=>m.t<=faultAt+120000).reduce((m,x)=>x.t>m?x.t:m,faultAt);
  const back=timeline.find(x=>x.t*1000>lastError&&x.connected>=TARGET);
  recovery={fault_at_s:Math.round(faultAt/1000),failed_requests:errorsAfter.filter(m=>m.t<=faultAt+120000).length,
   last_error_after_fault_ms:Math.round(lastError-faultAt),

@@ -1319,7 +1319,9 @@ async function presenterPage(){
   if($("close"))$("close").disabled=!v.questions.length||s.state!=="open";
   if($("end"))$("end").disabled=s.state==="ended";
   if($("reactivate")){const canReactivate=s.state==="ended";$("reactivate").hidden=!canReactivate;$("reactivate").disabled=!canReactivate}
-  if($("qr")&&window.QRCode&&(!$("qr").querySelector("img")||!$("widescreen-join-qr")?.querySelector("img")))qr(s.code);
+  // Show the join link even when the QR library has not loaded (blocked or slow CDN); qr() then
+  // prints the link as text, and the QR image is drawn as soon as the library arrives.
+  if($("qr")&&(window.QRCode?(!$("qr").querySelector("img")||!$("widescreen-join-qr")?.querySelector("img")):!$("audience-link")?.getAttribute("href")))qr(s.code);
   const questionView=$("question-view");
   if(questionView)questionView.innerHTML=selected?'<p class="muted clinical-counter">'+t("QUESTION","السؤال")+' '+esc(selected.position+1)+' / '+v.questions.length+'</p>'+clinicalCaseMarkup(selected.prompt):'<div class="stage-empty"><h2>'+t("No active question","لا يوجد سؤال نشط")+'</h2><p>'+t("Add questions in your dashboard, then create a new session.","أضف الأسئلة في لوحة التحكم ثم أنشئ جلسة جديدة.")+'</p></div>';
   const updateStatus=$("live-update-status");if(updateStatus)updateStatus.textContent=t("Live results · ","النتائج المباشرة · ")+esc(s.code)+" · "+(v.count||0)+" "+t("responses · ","إجابة · ")+new Date().toLocaleTimeString();

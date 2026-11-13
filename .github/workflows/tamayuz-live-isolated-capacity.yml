@@ -156,7 +156,9 @@ jobs:
           LIVE_LOAD_ENDPOINT: http://127.0.0.1:8000/
           LIVE_BROWSER_REPORT: ${{ env.OUT }}/browser-rehearsal-idle.json
           LIVE_BROWSER_LABEL: idle backend
-        run: node tests/tamayuz-live-isolated-browser-rehearsal.mjs | tee "$OUT/browser-rehearsal-idle.log"
+        run: |
+          set -o pipefail
+          node tests/tamayuz-live-isolated-browser-rehearsal.mjs 2>&1 | tee "$OUT/browser-rehearsal-idle.log"
       - name: Ramp 10 -> 600 clients, hold, inject an Edge crash, rehearse browsers under load
         env:
           LIVE_LOAD_ENDPOINT: http://127.0.0.1:8000/
@@ -172,7 +174,7 @@ jobs:
             LIVE_BROWSER_LABEL="during 600-client hold" LIVE_BROWSER_REPORT="$OUT/browser-rehearsal-under-load.json" \
             node tests/tamayuz-live-isolated-browser-rehearsal.mjs > "$OUT/browser-rehearsal-under-load.log" 2>&1; echo $? > "$OUT/browser-under-load.exit" ) &
           LIVE_LOAD_STAGE_SECONDS="$STAGE_S" LIVE_LOAD_HOLD_SECONDS="$HOLD_S" LIVE_LOAD_FAULT_AT_SECONDS="$FAULT_AT" \
-            node tests/tamayuz-live-load.mjs | tee "$OUT/capacity-600.log"
+            node tests/tamayuz-live-load.mjs 2>&1 | tee "$OUT/capacity-600.log"
           load=$?
           wait
           browser="$(cat "$OUT/browser-under-load.exit" 2>/dev/null || echo 1)"

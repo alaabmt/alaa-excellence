@@ -165,6 +165,9 @@ try{
   assert.equal(world.controls.length,1);
   assert.equal(world.controls[0].question_id,qid,"opening a fresh session must activate the question shown as selected");
   await page.locator("#question-view .clinical-counter").waitFor({timeout:10000});
+  // The QR library is unavailable in this test (empty CDN stub): the link must still be shown.
+  await page.waitForFunction(c=>(document.getElementById("audience-link")?.getAttribute("href")||"").endsWith("/live/?code="+c),code,{timeout:10000});
+  assert.match(await page.locator("#qr").textContent(),/QR unavailable/);
  });
 
  console.log("Tamayuz Live resilience browser QA passed (mocked backend, real Chromium)");
