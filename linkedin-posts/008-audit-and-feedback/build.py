@@ -105,7 +105,7 @@ en=[]
 en.append(('dark',f"""<div class="cover-logo">{imgs("logo")}</div>
   <div class="kicker">Operational Excellence · What the research says</div>
   <h1 style="font-size:70px">Many health systems show doctors their own performance data.</h1>
-  <h1 class="dim" style="margin-top:16px;font-size:50px">In a review of many randomized trials, recommended practice rose by about 6 percentage points on average.</h1>
+  <h1 class="dim" style="margin-top:16px;font-size:50px">In a review of many randomized trials, recommended practice rose by about 6 percentage points on average, compared with clinicians who did not get their data.</h1>
   <p class="lead">But the effect varied widely. Here is what five studies, published from 2021 to 2026, show.</p>
   <div class="swipe">Swipe →</div>""",EN_NAME))
 en.append(('',f"""<div class="kicker">The idea</div>
@@ -125,27 +125,27 @@ en.append(('',f"""<div class="kicker">Antibiotic prescribing</div>
     <div class="stat"><span class="n" {SL}>11%</span><p>fewer antibiotics prescribed by doctors who received their data, in 21 trials.</p></div>
     <div class="stat"><span class="n" {SL}>23%</span><p>fewer antibiotics started without need, in 16 trials.</p></div>
   </div>
-  <p class="small" style="margin-top:20px">Both are relative reductions, measured against doctors who did not receive the data. They are not percentage points. The researchers noted that results varied widely across trials.</p>""",C2))
+  <p class="small" style="margin-top:20px">Both are relative reductions, measured against doctors who did not receive the data. They are not percentage points, so they cannot be compared directly with the 6.2 points on the previous slide. The researchers noted that results varied widely across trials.</p>""",C2))
 en.append(('',f"""<div class="kicker">Mixed results</div>
   <h2>Not everything improved</h2>
   <ul class="clean">
-    <li {LI}>In Ontario, Canada, the polyp removal rate rose by similar amounts in both groups of colonoscopy doctors, but lower performers who got a report improved more.</li>
+    <li {LI}>In Ontario, Canada, the polyp removal rate rose by similar amounts among colonoscopy doctors who got a report and those who did not. But lower performers who got a report improved more than lower performers who did not.</li>
     <li {LI}>In seven pediatric emergency departments, recording of vital signs improved, while over the same period speed of care got worse.</li>
     <li {LI}>In 201 bladder cancer surgery centers, recording of surgical findings improved where reports were sent, but early cancer recurrence did not differ.</li>
   </ul>""",C3))
-en.append(('amber',f"""<div class="kicker">When was the effect larger?</div>
-  <h2 style="margin-top:20px">The effect was larger when the data were about the doctor's own practice</h2>
+en.append(('amber',f"""<div class="kicker">What made the data more useful</div>
+  <h2 style="margin-top:20px">When was the effect larger?</h2>
   <ul class="clean">
-    <li {LI}>and compared it with top peers or a set benchmark;</li>
-    <li {LI}>when someone from the same workplace whom the doctor knew presented the data;</li>
-    <li {LI}>and when a plan with specific steps came with the report.</li>
+    <li {LI}>When the data were about the doctor's own practice and compared it with top peers or a set benchmark.</li>
+    <li {LI}>When someone from the same workplace whom the doctor knew presented the data.</li>
+    <li {LI}>When a plan with specific steps came with the report.</li>
   </ul>
   <p class="small" style="margin-top:20px">Most of these findings came from comparing results across trials, and the researchers said they need confirmation.</p>""",C1))
 en.append(('dark',f"""<div class="kicker">The author's reading of the studies</div>
   <h2>What can leaders do?</h2>
   <ul class="clean">
     <li style="font-size:33px"><span class="num">1</span>Choose an important measure where performance is still far from the goal.</li>
-    <li style="font-size:33px"><span class="num">2</span>Show each person their own numbers, discussed with someone they know, with a specific plan.</li>
+    <li style="font-size:33px"><span class="num">2</span>Show each person their own numbers, have someone they know discuss them, and agree on a specific plan.</li>
     <li style="font-size:33px"><span class="num">3</span>Watch other measures that could get worse, not only the one you target.</li>
   </ul>
   <p class="small" style="margin-top:10px">All three steps are the author's inference from the studies. No study tested them together.</p>
