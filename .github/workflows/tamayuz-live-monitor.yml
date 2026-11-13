@@ -1,7 +1,7 @@
 name: Tamayuz Live 15-Minute Health and Alert Route
 on:
   schedule:
-    - cron: '*/15 * * * *'
+    - cron: '7,22,37,52 * * * *'
   workflow_dispatch:
   push:
     branches: [main]
