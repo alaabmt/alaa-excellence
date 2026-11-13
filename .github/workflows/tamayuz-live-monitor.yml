@@ -1,6 +1,9 @@
 name: Tamayuz Live 15-Minute Health and Alert Route
 on:
   schedule:
+    # Measured 2026-11-13: with '*/15' GitHub started only 1 scheduled run in about 6 hours.
+    # Quarter-hour marks are the most congested; off-peak minutes are used instead. GitHub
+    # still gives no delivery guarantee, so this monitor must not be the only event-day watch.
     - cron: '7,22,37,52 * * * *'
   workflow_dispatch:
   push:

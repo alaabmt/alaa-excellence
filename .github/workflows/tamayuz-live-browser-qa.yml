@@ -5,11 +5,13 @@ on:
     paths:
       - 'live/**'
       - 'tests/tamayuz-live-browser.mjs'
+      - 'tests/tamayuz-live-resilience-browser.mjs'
       - '.github/workflows/tamayuz-live-browser-qa.yml'
   pull_request:
     paths:
       - 'live/**'
       - 'tests/tamayuz-live-browser.mjs'
+      - 'tests/tamayuz-live-resilience-browser.mjs'
       - '.github/workflows/tamayuz-live-browser-qa.yml'
 permissions:
   contents: read
@@ -25,3 +27,5 @@ jobs:
       - run: npm install --no-save --package-lock=false playwright@1.51.1
       - run: npx playwright install --with-deps chromium
       - run: node tests/tamayuz-live-browser.mjs
+      - name: Resilience scenarios (pinned region, fallback, outage recovery, identity, RTL)
+        run: node tests/tamayuz-live-resilience-browser.mjs

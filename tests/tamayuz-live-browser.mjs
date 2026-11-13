@@ -30,7 +30,7 @@ try{
    contentType:"text/javascript",
    body:"export async function createAuthClient(){return {auth:{getSession:async()=>({data:{session:null},error:null})}}}"
   }));
-  await context.route("https://dqrsjhcfmpjhcxvtxosy.supabase.co/functions/v1/tamayuz-live",route=>{
+  await context.route(/^https:\/\/dqrsjhcfmpjhcxvtxosy\.supabase\.co\/functions\/v1\/tamayuz-live(\?.*)?$/,route=>{
    const req=route.request(),headers={
     "Access-Control-Allow-Origin":"*",
     "Access-Control-Allow-Headers":"content-type,authorization,apikey",

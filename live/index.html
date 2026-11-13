@@ -872,6 +872,23 @@ body.live-presenter-page .presenter:not(.widescreen) #results .stage-result.resu
 </style><script src="/assets/js/auth-config.js"></script></head><body><header><strong>LIVE · Personal Conference Tool</strong><div class="actions"><button id="theme-toggle" class="secondary" type="button" aria-label="Switch color mode" aria-pressed="false">Dark mode</button><button id="home-link" class="secondary">Home</button><button id="language" class="secondary">العربية</button></div></header><main><div id="app" aria-live="polite"></div></main><footer>Personal conference polling · Tamayuz 10X</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" defer></script><script>
 (()=>{"use strict";
 const ENDPOINT="https://dqrsjhcfmpjhcxvtxosy.supabase.co/functions/v1/tamayuz-live";
+// Measured 2026-11-13: the function otherwise runs in the region nearest each visitor, and every
+// database round trip from a distant region costs roughly 350-900 ms. Running it in the region
+// that answers database calls fastest (ap-south-1, ~50 ms per round trip) removes that cost.
+// If that region is unreachable the request falls back to default routing automatically.
+const PINNED_ENDPOINT=ENDPOINT+"?forceFunctionRegion=ap-south-1";
+const PIN_RETRY_MS=60000;
+let pinnedOffUntil=0;
+// Only requests that are safe to repeat are retried automatically (a repeated vote is
+// rejected by the one-vote-per-participant rule; reads change nothing).
+const RETRY_SAFE=new Set(["view","vote","present","owner_status","list","list_sessions","list_questions","presentation_workspace","review_results","session_analytics"]);
+const AUDIENCE_POLL_MS=3000,PRESENTER_POLL_MS=1500,POLL_BACKOFF_MAX_MS=15000,FULL_VIEW_EVERY=5;
+const participantKey=code=>"live-participant-"+code;
+// Keep the audience identity across a closed tab or a rescanned QR code so a returning
+// attendee neither consumes a second registration seat nor appears as a new voter.
+function readParticipant(code){for(const store of ["sessionStorage","localStorage"])try{const v=window[store].getItem(participantKey(code));if(/^[a-f0-9]{48}$/.test(v||""))return v}catch(_){}return ""}
+function saveParticipant(code,token){for(const store of ["sessionStorage","localStorage"])try{window[store].setItem(participantKey(code),token)}catch(_){}}
+function dropParticipant(code){for(const store of ["sessionStorage","localStorage"])try{window[store].removeItem(participantKey(code))}catch(_){}}
 const $=id=>document.getElementById(id),esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const params=new URLSearchParams(location.search),fragment=new URLSearchParams(location.hash.slice(1));
 const ownerViewStorageKey="tamayuz-live-owner-view-v1";
@@ -900,7 +917,7 @@ function restoreOwnerView(){
  return true;
 }
 
-let lang=localStorage.getItem("live-lang")==="ar"?"ar":"en",admin=fragment.get("admin")||sessionStorage.getItem("live-admin")||"",presenter=fragment.get("presenter")||sessionStorage.getItem("live-presenter")||"",participant=sessionStorage.getItem("live-participant-"+(params.get("code")||""))||"",active=null,lastRevision=-1,refresh=null,busy=false,navigationEpoch=0;
+let lang=localStorage.getItem("live-lang")==="ar"?"ar":"en",admin=fragment.get("admin")||sessionStorage.getItem("live-admin")||"",presenter=fragment.get("presenter")||sessionStorage.getItem("live-presenter")||"",participant=readParticipant(params.get("code")||""),active=null,lastRevision=-1,refresh=null,busy=false,navigationEpoch=0,pollFailures=0,audiencePolls=0,audienceErrorShown=false;
 if(fragment.get("admin"))sessionStorage.setItem("live-admin",admin);
 if(fragment.get("presenter"))sessionStorage.setItem("live-presenter",presenter);
 if(params.get("session")&&presenter)sessionStorage.setItem("live-presenter-session",params.get("session"));
@@ -926,9 +943,26 @@ async function requireLiveOwner(){
  const check=await api("owner_status");if(!check.owner){layout('<div class="panel"><h2>'+t("Owner access required","مطلوب صلاحية المالك")+'</h2><p>'+t("Owner verification failed (","فشل التحقق من المالك (")+esc(check.reason||"unknown")+")"+'</p><a href="/account/">'+t("My account","حسابي")+'</a></div>');return false}return true
  }catch(e){layout('<div class="panel"><h2>'+t("Sign-in check failed","تعذر التحقق من تسجيل الدخول")+'</h2><p>'+esc(e.message)+'</p><button id="live-auth-retry">'+t("Retry","إعادة المحاولة")+'</button></div>');$("live-auth-retry").onclick=render;return false}
 }
-async function api(action,data={}){const ctrl=new AbortController(),timeout=setTimeout(()=>ctrl.abort(),12000);try{const session=await websiteSession().catch(()=>null);const headers={"content-type":"application/json"};if(session?.access_token)headers.authorization="Bearer "+session.access_token;const r=await fetch(ENDPOINT,{method:"POST",headers,cache:"no-store",body:JSON.stringify({action,...data}),signal:ctrl.signal});const v=await r.json();if(!r.ok)throw Error(v.error||"Request failed");return v}finally{clearTimeout(timeout)}}
+async function api(action,data={}){
+ const session=await websiteSession().catch(()=>null);const headers={"content-type":"application/json"};if(session?.access_token)headers.authorization="Bearer "+session.access_token;
+ const body=JSON.stringify({action,...data});
+ const attempt=async(url,ms)=>{const ctrl=new AbortController(),timeout=setTimeout(()=>ctrl.abort(),ms);try{const r=await fetch(url,{method:"POST",headers,cache:"no-store",body,signal:ctrl.signal});let v=null;try{v=await r.json()}catch(_){}return {r,v}}finally{clearTimeout(timeout)}};
+ let out=null;
+ if(Date.now()>=pinnedOffUntil){
+  try{out=await attempt(PINNED_ENDPOINT,8000);// Platform/gateway failures carry no application "error" text; application answers always do.
+   if(!out.v||(out.r.status>=500&&typeof out.v.error!=="string"))throw Error("Request failed")}
+  catch(e){pinnedOffUntil=Date.now()+PIN_RETRY_MS;out=null;if(!RETRY_SAFE.has(action))throw e}
+ }
+ if(!out)out=await attempt(ENDPOINT,12000);
+ if(!out.v)throw Error("Request failed");
+ if(!out.r.ok)throw Error(out.v.error||"Request failed");
+ return out.v}
 const field=(label,id,placeholder="")=>'<label class="stack">'+label+'<input id="'+id+'" placeholder="'+esc(placeholder)+'" required></label>';
-function stop(){navigationEpoch++;if(refresh)clearInterval(refresh);refresh=null}
+function stop(){navigationEpoch++;if(refresh){clearInterval(refresh);clearTimeout(refresh)}refresh=null}
+// Self-scheduling poll: never overlaps itself, spreads 600 phones with jitter instead of
+// synchronized bursts, backs off while requests fail and (audience only) rests in hidden tabs.
+function pollDelay(base){return Math.round(Math.min(base*2**Math.min(pollFailures,4),POLL_BACKOFF_MAX_MS)*(0.75+Math.random()*0.5))}
+function startPolling(fn,base,pauseWhenHidden){const epoch=navigationEpoch;const tick=async()=>{if(epoch!==navigationEpoch)return;if(!(pauseWhenHidden&&document.hidden)){try{await fn()}catch(_){}}if(epoch!==navigationEpoch)return;refresh=setTimeout(tick,pollDelay(base))};refresh=setTimeout(tick,pollDelay(base))}
 function language(){lang=lang==="ar"?"en":"ar";localStorage.setItem("live-lang",lang);render()}
 $("language").onclick=language;$("home-link").onclick=()=>{home()};
 function home(){
@@ -1236,7 +1270,10 @@ async function presenterPage(){
     const ids=["open","close","reveal","hide","end","previous","next","stage-prev","stage-next"];ids.forEach(id=>{if($(id))$(id).disabled=true});
     const el=$("notice");if(el){el.textContent=t("Updating session…","جارٍ تحديث الجلسة…");el.className="muted"}
     try{
-     const res=await api("control",{session_id:snapshot.id,presenter_token:presenter,key:admin,state:nextState,question_id:snapshot.active_question_id,results_action:resultsAction});
+     // A fresh session has no active question yet: opening voting activates the question the
+     // selector already shows, otherwise voting would open with nothing for the audience to answer.
+     const questionId=snapshot.active_question_id||(nextState==="open"?($("question")?.value||null):null);
+     const res=await api("control",{session_id:snapshot.id,presenter_token:presenter,key:admin,state:nextState,question_id:questionId,results_action:resultsAction});
      if(!res?.session||res.session.state!==nextState)throw Error("Session update not confirmed");
      active=res;lastRevision=res.session.revision;
      if(el){el.textContent=nextState==="ended"?t("Session ended successfully.","تم إنهاء الجلسة بنجاح."):nextState==="open"?t("Voting is open.","التصويت مفتوح."):nextState==="closed"?t("Voting is closed.","التصويت مغلق."):t("Results updated.","تم تحديث النتائج.");el.className="success"}
@@ -1298,7 +1335,9 @@ async function presenterPage(){
   if($("close"))$("close").disabled=!v.questions.length||s.state!=="open";
   if($("end"))$("end").disabled=s.state==="ended";
   if($("reactivate")){const canReactivate=s.state==="ended";$("reactivate").hidden=!canReactivate;$("reactivate").disabled=!canReactivate}
-  if($("qr")&&window.QRCode&&(!$("qr").querySelector("img")||!$("widescreen-join-qr")?.querySelector("img")))qr(s.code);
+  // Show the join link even when the QR library has not loaded (blocked or slow CDN); qr() then
+  // prints the link as text, and the QR image is drawn as soon as the library arrives.
+  if($("qr")&&(window.QRCode?(!$("qr").querySelector("img")||!$("widescreen-join-qr")?.querySelector("img")):!$("audience-link")?.getAttribute("href")))qr(s.code);
   const questionView=$("question-view");
   if(questionView)questionView.innerHTML=selected?'<p class="muted clinical-counter">'+t("QUESTION","السؤال")+' '+esc(selected.position+1)+' / '+v.questions.length+'</p>'+clinicalCaseMarkup(selected.prompt):'<div class="stage-empty"><h2>'+t("No active question","لا يوجد سؤال نشط")+'</h2><p>'+t("Add questions in your dashboard, then create a new session.","أضف الأسئلة في لوحة التحكم ثم أنشئ جلسة جديدة.")+'</p></div>';
   const updateStatus=$("live-update-status");if(updateStatus)updateStatus.textContent=t("Live results · ","النتائج المباشرة · ")+esc(s.code)+" · "+(v.count||0)+" "+t("responses · ","إجابة · ")+new Date().toLocaleTimeString();
@@ -1343,13 +1382,19 @@ async function audiencePage(force=false){
  const requestEpoch=navigationEpoch;
  const track=(event_type,question_id)=>{if(participant&&question_id)api("track_interaction",{code,participant_token:participant,question_id,event_type}).catch(()=>{})};
  try{
-  if(!participant){const joined=await api("join",{code});if(requestEpoch!==navigationEpoch||params.get("code")!==code)return;participant=joined.participant_token;sessionStorage.setItem("live-participant-"+code,participant)}
-  const v=await api("view",{code,participant_token:participant});if(requestEpoch!==navigationEpoch||params.get("code")!==code)return;audienceLastResponse=v;
+  if(!participant){const joined=await api("join",{code});if(requestEpoch!==navigationEpoch||params.get("code")!==code)return;participant=joined.participant_token;saveParticipant(code,participant)}
+  // Lightweight poll: when the screen already shows the current revision the server may answer
+  // {unchanged:true} without touching the database. Every few polls a full snapshot is requested.
+  const light=!force&&!audienceErrorShown&&!!audienceSnapshotKey&&!!audienceLastResponse&&!!$("poll")&&(++audiencePolls%FULL_VIEW_EVERY!==0);
+  const answer=await api("view",light?{code,participant_token:participant,rev:audienceLastResponse.session.revision}:{code,participant_token:participant});if(requestEpoch!==navigationEpoch||params.get("code")!==code)return;
+  pollFailures=0;
+  if(answer.unchanged)return;
+  const v=answer;audienceLastResponse=v;
   const s=v.session,q=v.questions[0],voteKey="live-voted-"+s.id+"-"+(q?.id||"");
   // After an owner reset, the old participant token is no longer registered.
   // Discard stale local vote/view flags and rejoin on the next normal poll.
   if(v.participant_valid===false){
-   participant="";sessionStorage.removeItem("live-participant-"+code);
+   participant="";dropParticipant(code);
    for(const k of Object.keys(sessionStorage))if(k.startsWith("live-voted-"+s.id+"-")||k.startsWith("live-seen-"+s.id+"-"))sessionStorage.removeItem(k);
    audienceSnapshotKey="";
    return;
@@ -1358,14 +1403,17 @@ async function audiencePage(force=false){
   const reveal=!!s.reveal_correct_answer;
   // A vote changes the session revision; do not rebuild the active voting form for that.
   const key=[s.id,q?.id||"",s.state,voted,reveal].join("|");
-  const changed=key!==audienceSnapshotKey||!$("audience-root");
+  const changed=key!==audienceSnapshotKey||!$("audience-root")||!$("poll");
+  if(audienceErrorShown){audienceErrorShown=false;if($("notice")&&$("notice").className==="error")notice("")}
   if(!changed&&!force){
    /* Audience never receives live totals; only the presenter displays them. */
    return;
   }
   audienceSnapshotKey=key;
   if(q&&s.state==="open"&&!voted&&!sessionStorage.getItem("live-seen-"+s.id+"-"+q.id)){sessionStorage.setItem("live-seen-"+s.id+"-"+q.id,"1");track("question_view",q.id)}
-  if(!$("audience-root"))layout('<div id="audience-root"><h1>'+t("Live conference","المؤتمر المباشر")+'</h1><div class="panel"><p id="audience-state" class="muted"></p><div id="poll"></div><p id="notice" role="status" aria-live="polite"></p></div></div>');
+  // Rebuild when the poll container is missing too: after a failed first load the root is the
+  // Retry panel, and without this the page stayed on that panel although polling had recovered.
+  if(!$("audience-root")||!$("poll"))layout('<div id="audience-root"><h1>'+t("Live conference","المؤتمر المباشر")+'</h1><div class="panel"><p id="audience-state" class="muted"></p><div id="poll"></div><p id="notice" role="status" aria-live="polite"></p></div></div>');
   const poll=$("poll"),state=$("audience-state");if(!poll)return;
   if(state)state.textContent=t("Session","الجلسة")+": "+code+" · "+(s.state==="open"?t("Voting open","التصويت مفتوح"):s.state==="closed"?t("Voting closed","التصويت مغلق"):s.state==="ended"?t("Session ended","انتهت الجلسة"):t("Waiting","انتظار"));
   if(s.state==="ended"){poll.innerHTML=(q&&reveal?clinicalCaseMarkup(q.prompt)+audienceExplanation(v,q):"")+'<h2>'+t("This session has ended.","انتهت هذه الجلسة.")+'</h2><p class="muted">'+t("Ask the presenter for a new session code to join the next lecture.","اطلب من مقدم العرض رمز جلسة جديدًا للمحاضرة القادمة.")+'</p><p><a href="/live/">'+t("Return to Tamayuz Live","العودة إلى تميز لايف")+'</a></p>';stop();return}
@@ -1405,12 +1453,13 @@ async function audiencePage(force=false){
    layout('<div id="audience-root" class="panel"><h2>'+(e.message==="Session ended"?t("This session has ended.","انتهت هذه الجلسة."):t("Session not found.","لم يتم العثور على الجلسة."))+'</h2><p>'+(e.message==="Session ended"?t("The presenter has closed this session. Ask for a new joining code to participate in the next lecture.","أغلق مقدم العرض هذه الجلسة. اطلب رمز انضمام جديدًا للمشاركة في المحاضرة القادمة."):t("Check the joining code or ask the presenter for a new one.","تحقق من رمز الانضمام، أو اطلب رمزًا جديدًا من مقدم العرض."))+'</p><p><a href="/live/">'+t("Return to Tamayuz Live","العودة إلى تميز لايف")+'</a></p></div>');
    return;
   }
+  pollFailures++;audienceErrorShown=true;
   if(!$("audience-root"))layout('<div id="audience-root" class="panel"><p id="notice" role="alert" class="error"></p><button id="audience-retry">'+t("Retry","إعادة المحاولة")+'</button></div>');
   notice(t("Connection interrupted. Retrying automatically: ","انقطع الاتصال. جارٍ إعادة المحاولة تلقائيًا: ")+e.message,true);
   if($("audience-retry"))$("audience-retry").onclick=()=>audiencePage(true);
  }finally{audienceBusy=false}
 }
-function render(){document.body.classList.remove("live-public-home");stop();lastRevision=-1;audienceSnapshotKey="";if(params.get("session")){document.body.classList.add("live-presenter-page");presenterPage();refresh=setInterval(presenterPage,1500)}else if(params.get("code")){document.body.classList.remove("live-presenter-page");audiencePage();refresh=setInterval(audiencePage,2000)}else if(params.get("admin")){document.body.classList.remove("live-presenter-page");if(params.get("presentation"))manage(params.get("presentation"));else dashboard()}else if(params.get("presenter_mode")){document.body.classList.remove("live-presenter-page");presenterAccess()}else{document.body.classList.remove("live-presenter-page");home()}}
+function render(){document.body.classList.remove("live-public-home");stop();lastRevision=-1;audienceSnapshotKey="";pollFailures=0;if(params.get("session")){document.body.classList.add("live-presenter-page");presenterPage();startPolling(presenterPage,PRESENTER_POLL_MS,false)}else if(params.get("code")){document.body.classList.remove("live-presenter-page");audiencePage();startPolling(audiencePage,AUDIENCE_POLL_MS,true)}else if(params.get("admin")){document.body.classList.remove("live-presenter-page");if(params.get("presentation"))manage(params.get("presentation"));else dashboard()}else if(params.get("presenter_mode")){document.body.classList.remove("live-presenter-page");presenterAccess()}else{document.body.classList.remove("live-presenter-page");home()}}
 document.addEventListener("visibilitychange",()=>{if(!document.hidden){if(params.get("session"))presenterPage();else if(params.get("code"))audiencePage(true)}});
 window.addEventListener("focus",()=>{if(params.get("session"))presenterPage();else if(params.get("code"))audiencePage(true)});
 render();

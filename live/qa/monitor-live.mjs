@@ -6,6 +6,12 @@ import {setTimeout as delay} from "node:timers/promises";
 
 const BASE="https://tamayuz10x.com/live/";
 const EDGE="https://dqrsjhcfmpjhcxvtxosy.supabase.co/functions/v1/tamayuz-live";
+// The page pins the function to the region next to the database; monitor the same route.
+const PINNED_REGION="ap-south-1";
+const EDGE_PINNED=EDGE+"?forceFunctionRegion="+PINNED_REGION;
+// Alert thresholds for the read-only database-path probe (one database round trip).
+// Measured 2026-11-13 from US runners through the pinned route: p50 ~330 ms, p95 ~500 ms.
+const DB_PROBE_WARN_MS=1500,DB_PROBE_FAIL_MS=3000;
 const REPO="alaabmt/alaa-excellence";
 const TITLE="[Tamayuz Live] Production health incident";
 const DRILL_TITLE="[Tamayuz Live][TEST] Alert routing verification";
@@ -19,11 +25,11 @@ async function http(url,init={}){
   const start=performance.now();
   const response=await fetch(url,{...init,signal:AbortSignal.timeout(12000),redirect:"error",cache:"no-store"});
   const body=(await response.text()).slice(0,300000);
-  return {status:response.status,body,ms:Math.round(performance.now()-start)};
+  return {status:response.status,body,ms:Math.round(performance.now()-start),region:response.headers.get("x-sb-edge-region")||""};
 }
 async function probe(){
   const result={time_utc:new Date().toISOString(),frontend:null,api:null,ok:false};
-  const problems=[];
+  const problems=[],warnings=[];
   try{
     const r=await http(BASE);
     result.frontend={http_status:r.status,duration_ms:r.ms};
@@ -39,7 +45,28 @@ async function probe(){
       problems.push("Live backend authorization probe did not return its expected safe response");
     }
   }catch(e){problems.push("Live backend: "+e.name)}
-  result.ok=problems.length===0;result.problems=problems;
+  // Database-path probe: an audience poll for a join code that cannot exist (lowercase is never
+  // issued). Read-only: it creates no participant, vote or event. It exercises function ->
+  // database -> response on the same pinned route attendees use. A healthy answer is HTTP 404
+  // "Session not found"; from the hot-path Edge version onward a database failure answers 500.
+  const post=body=>({method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify(body)});
+  for(const [name,url] of [["db_path_pinned",EDGE_PINNED],["db_path_default",EDGE]]){
+    try{
+      const r=await http(url,post({action:"view",code:"monitor-no-such-session"}));
+      result[name]={http_status:r.status,duration_ms:r.ms,edge_region:r.region};
+      const v=JSON.parse(r.body);
+      if(r.status!==404||v.error!=="Session not found")problems.push("Live audience database path ("+name+") returned an unexpected response: HTTP "+r.status);
+      else if(name==="db_path_pinned"){
+        if(r.region&&!r.region.startsWith(PINNED_REGION))warnings.push("Pinned route executed in "+r.region+" instead of "+PINNED_REGION);
+        if(r.ms>=DB_PROBE_FAIL_MS)problems.push("Live audience database path is too slow: "+r.ms+" ms (limit "+DB_PROBE_FAIL_MS+" ms)");
+        else if(r.ms>=DB_PROBE_WARN_MS)warnings.push("Live audience database path slow: "+r.ms+" ms");
+      }
+    }catch(e){
+      // The default route is a fallback; only the route attendees use is alert-worthy on its own.
+      (name==="db_path_pinned"?problems:warnings).push("Live audience database path ("+name+"): "+e.name);
+    }
+  }
+  result.ok=problems.length===0;result.problems=problems;result.warnings=warnings;
   return result;
 }
 async function api(method,path,payload){

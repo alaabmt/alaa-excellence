@@ -56,13 +56,18 @@ btn.addEventListener("click",async()=>{
   const positive=await request("owner_status",token);
   const listing=positive.status===200&&positive.body.owner===true?await request("list",token):null;
   const sessions=listing?.status===200?await request("list_sessions",token):null;
-  let workspace=null,report=null;
+  let workspace=null,report=null,questions=null,analytics=null;
   if(listing?.body?.presentations?.length){
     workspace=await request("presentation_workspace",token,{presentation_id:listing.body.presentations[0].id});
+    questions=await request("list_questions",token,{presentation_id:listing.body.presentations[0].id});
   }
   if(sessions?.body?.sessions?.length){
     report=await request("review_results",token,{session_id:sessions.body.sessions[0].id});
+    // Read-only performance report for the same session (needs its presentation id).
+    analytics=await request("session_analytics",token,{presentation_id:sessions.body.sessions[0].presentation_id,session_id:sessions.body.sessions[0].id});
   }
+  // The same owner-only reads must stay closed without a login.
+  const anonymousQuestions=listing?.body?.presentations?.length?await request("list_questions",null,{presentation_id:listing.body.presentations[0].id}):null;
   const checks={
    negative_anonymous_owner_status:noBearer.status===200&&noBearer.body.owner===false,
    negative_invalid_jwt_owner_list:reject.status===403,
@@ -70,14 +75,18 @@ btn.addEventListener("click",async()=>{
    positive_owner_presentation_list:!!listing&&listing.status===200&&Array.isArray(listing.body.presentations),
    positive_owner_session_list:!!sessions&&sessions.status===200&&Array.isArray(sessions.body.sessions),
    positive_presentation_workspace:workspace?workspace.status===200:listing?.body?.presentations?.length===0?null:false,
-   positive_owner_report:report?report.status===200:sessions?.body?.sessions?.length===0?null:false
+   positive_owner_report:report?report.status===200:sessions?.body?.sessions?.length===0?null:false,
+   positive_owner_question_list:questions?questions.status===200&&Array.isArray(questions.body.questions):listing?.body?.presentations?.length===0?null:false,
+   positive_owner_session_analytics:analytics?analytics.status===200&&typeof analytics.body.total_votes==="number":sessions?.body?.sessions?.length===0?null:false,
+   negative_anonymous_question_list:anonymousQuestions?anonymousQuestions.status===403:null
   };
+  const slowest=Math.max(...[noBearer,reject,positive,listing,sessions,workspace,report,questions,analytics].filter(Boolean).map(x=>x.duration_ms));
   const all=Object.values(checks).every(v=>v===true||v===null);
   evidence={
     test_type:"OWNER_SESSION_POSITIVE_READ_ONLY",
     source:"owner's current signed-in browser session",
     endpoint:EDGE,at_utc:new Date().toISOString(),
-    checks,pass:all,
+    checks,pass:all,slowest_request_ms:slowest,
     production_write_operations:0,
     secrets_or_identifiers_exported:false,
     verified_by_independent_reviewer:false,
