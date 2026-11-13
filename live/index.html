@@ -853,6 +853,22 @@ html[data-live-theme="dark"] .tl-join{background:#172e40;border-color:#314b61}ht
 html[data-live-theme="dark"] .tl-join-input{background:#f8f9fb}html[data-live-theme="dark"] .tl-host-actions .secondary{color:#edf4fa!important;border-color:#5b7184}html[data-live-theme="dark"] .tl-footer{border-color:#314b61;color:#b1c3d3}html[data-live-theme="dark"] .tl-footer strong{color:#edf4fa}
 @media(max-width:850px){.tl-hero{grid-template-columns:1fr;padding-bottom:45px}.tl-hero-preview{max-width:600px;width:100%;margin:auto}.tl-feature-grid{grid-template-columns:repeat(2,1fr)}.tl-join{grid-template-columns:1fr}.tl-host{align-items:start;flex-direction:column}.tl-host-actions{width:100%}}
 @media(max-width:540px){body.live-public-home main{padding:0 17px}.tl-home{padding-top:10px}.tl-hero h1{font-size:clamp(2.3rem,10vw,3.3rem)}.tl-hero-preview{padding:13px;border-radius:17px;transform:none}.tl-preview-content{padding:18px}.tl-join{padding:22px 17px}.tl-join-input{flex-wrap:wrap}.tl-join-input input{flex-basis:100%;min-height:48px}.tl-join-input button{width:100%}.tl-feature-grid,.tl-how-grid{grid-template-columns:1fr}.tl-features{padding:60px 0}.tl-host{padding:52px 0}.tl-footer{flex-direction:column}}
+
+/* Conference presenter: keep response option descriptions legible on dark result cards. */
+html[data-live-theme="dark"] body.live-presenter-page .presenter #results .result-choice .result-choice-name,
+html[data-live-theme="dark"] body.live-presenter-page .presenter #results .result-choice .result-choice-text,
+html[data-live-theme="dark"] body.live-presenter-page .presenter #results .result-choice .stage-result-label,
+html[data-live-theme="dark"] body.live-presenter-page .presenter #results .stage-result.result-choice.result-correct .result-choice-text {
+  color: #fff !important;
+}
+
+/* Presenter result descriptions: double the prior compact 13px type size. */
+body.live-presenter-page .presenter.widescreen #results .stage-result.result-choice .result-choice-text,
+body.live-presenter-page .presenter:not(.widescreen) #results .stage-result.result-choice .result-choice-text {
+  font-size: 26px !important;
+  line-height: 1.3 !important;
+  overflow-wrap: anywhere;
+}
 </style><script src="/assets/js/auth-config.js"></script></head><body><header><strong>LIVE · Personal Conference Tool</strong><div class="actions"><button id="theme-toggle" class="secondary" type="button" aria-label="Switch color mode" aria-pressed="false">Dark mode</button><button id="home-link" class="secondary">Home</button><button id="language" class="secondary">العربية</button></div></header><main><div id="app" aria-live="polite"></div></main><footer>Personal conference polling · Tamayuz 10X</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" defer></script><script>
 (()=>{"use strict";
 const ENDPOINT="https://dqrsjhcfmpjhcxvtxosy.supabase.co/functions/v1/tamayuz-live";

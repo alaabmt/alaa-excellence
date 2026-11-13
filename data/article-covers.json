@@ -1745,6 +1745,27 @@
       }
     },
     {
+      "slug": "article-oe-evidence-audit-and-feedback",
+      "background": "assets/previews/story-backgrounds/article-oe-evidence-audit-and-feedback.jpg",
+      "category": "article",
+      "ar": {
+        "title": [
+          "حين يرى الطبيب",
+          "أرقام أدائه"
+        ],
+        "subtitle": "ماذا تقول خمس دراسات؟",
+        "alt": "غلاف توضيحي بالكحلي والذهبي لمقال عن عرض أرقام الأداء على الأطباء، تظهر فيه ورقة عليها أعمدة وخط هدف، وبجانبها شخص."
+      },
+      "en": {
+        "title": [
+          "When Doctors See",
+          "Their Own Numbers"
+        ],
+        "subtitle": "What five studies show",
+        "alt": "Navy and gold editorial cover for an article about showing doctors their performance data, with a report sheet of bars and a target line next to a person."
+      }
+    },
+    {
       "slug": "article-oe-evidence-daily-safety-huddles",
       "background": "assets/previews/story-backgrounds/article-oe-evidence-daily-safety-huddles.jpg",
       "category": "article",
@@ -1754,7 +1775,7 @@
           "عن سلامة المرضى"
         ],
         "subtitle": "ماذا تقول خمس دراسات؟",
-        "alt": "غلاف توضيحي بالكحلي والذهبي لمقال عن الاجتماع اليومي لسلامة المرضى، يظهر فيه دائرة من النقاط حول لوحة صغيرة."
+        "alt": "غلاف توضيحي بالكحلي والذهبي لمقال عن الاجتماع القصير لسلامة المرضى، تظهر فيه دائرة من النقاط حول لوحة صغيرة."
       },
       "en": {
         "title": [
@@ -1762,7 +1783,7 @@
           "on Patient Safety"
         ],
         "subtitle": "What five studies show",
-        "alt": "Navy and gold editorial cover for an article about daily patient-safety meetings, showing a circle of dots around a small board."
+        "alt": "Navy and gold editorial cover for an article about short patient-safety meetings, showing a circle of dots around a small board."
       }
     },
     {
