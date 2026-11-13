@@ -47,7 +47,9 @@ test("answer keys remain hidden until the presenter reveals them",()=>{
 });
 test("audience renews a stale participant after a vote reset",()=>{
   assert.match(app,/if\(v\.participant_valid===false\)/);
-  assert.match(app,/sessionStorage\.removeItem\("live-participant-"\+code\)/);
+  // The token is now removed from both browser stores through one helper.
+  assert.match(app,/participant="";dropParticipant\(code\)/);
+  assert.match(app,/function dropParticipant\(code\)\{for\(const store of \["sessionStorage","localStorage"\]\)try\{window\[store\]\.removeItem\(participantKey\(code\)\)/);
   assert.match(app,/k\.startsWith\("live-voted-"\+s\.id\+"-"\)/);
 });
 test("standalone Live app retains its own Home control in site-health audit",()=>{

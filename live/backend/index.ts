@@ -6,9 +6,25 @@ const reply=(v:unknown,status=200)=>new Response(JSON.stringify(v),{status,heade
 const random=(bytes=24)=>Array.from(crypto.getRandomValues(new Uint8Array(bytes))).map(x=>x.toString(16).padStart(2,"0")).join("");
 const hash=async(v:string)=>Array.from(new Uint8Array(await crypto.subtle.digest("SHA-256",new TextEncoder().encode(v)))).map(x=>x.toString(16).padStart(2,"0")).join("");
 const safe=(s:unknown,n=500)=>typeof s==="string"?s.trim().slice(0,n):"";
+// Hot path (live/backend/sql/live_hot_path.sql): one database round trip per audience action.
+// If those SQL functions are not installed, PostgREST answers PGRST202 and this isolate
+// permanently falls back to the legacy multi-query path, so deploy order cannot break voting.
+let hotPath=true;
+const rpcMissing=(e:any)=>e?.code==="PGRST202"||e?.code==="42883";
+// Per-isolate public session snapshot (same fields any holder of the join code may read).
+// It only lets an audience poll that already knows the current revision skip the database.
+const VIEW_TTL_MS=1000,VIEW_CACHE_MAX=200;
+const viewCache=new Map<string,{at:number,session:any}>();
+const rememberView=(code:string,session:any)=>{if(viewCache.size>=VIEW_CACHE_MAX&&!viewCache.has(code))viewCache.clear();viewCache.set(code,{at:Date.now(),session})};
+async function tally(sessionId:string,questionId:string){
+ if(hotPath){const {data,error}=await db.rpc("live_vote_aggregate",{p_session_id:sessionId,p_question_id:questionId});if(!error&&data)return {aggregate:data.aggregate||[],count:Number(data.count)||0};if(error&&!rpcMissing(error))throw error;hotPath=false}
+ const map=new Map<string,number>();let count=0;
+ for(let offset=0;offset<60000;offset+=1000){const {data:v,error}=await db.from("live_votes").select("answer").eq("session_id",sessionId).eq("question_id",questionId).order("id").range(offset,offset+999);if(error)throw error;for(const x of v||[]){count++;map.set(x.answer,(map.get(x.answer)||0)+1)}if(!v||v.length<1000)break;}
+ return {aggregate:[...map].map(([answer,votes])=>({answer,votes})),count};
+}
 async function owner(req:Request){const match=/^Bearer\s+(.+)$/i.exec(req.headers.get("authorization")||"");if(!match)return false;const {data,error}=await db.auth.getUser(match[1]);if(error||!data.user)return false;const {data:allowed}=await db.from("live_owner_accounts").select("user_id").eq("user_id",data.user.id).maybeSingle();return !!allowed}
 async function sessionByToken(id:string,token:string){if(!/^[a-f0-9]{48}$/.test(token))return null;const {data}=await db.from("live_sessions").select("*").eq("id",id).eq("presenter_token_hash",await hash(token)).maybeSingle();return data}
-async function state(s:any,results=false){const {data:q}=await db.from("live_questions").select("id,prompt,kind,options,position,correct_answer,answer_justification,answer_effect").eq("presentation_id",s.presentation_id).order("position");let aggregate:any[]=[];let count=0;if(results&&s.active_question_id){const map=new Map<string,number>();for(let offset=0;offset<60000;offset+=1000){const {data:v,error}=await db.from("live_votes").select("answer").eq("session_id",s.id).eq("question_id",s.active_question_id).order("id").range(offset,offset+999);if(error)throw error;for(const x of v||[]){count++;map.set(x.answer,(map.get(x.answer)||0)+1)}if(!v||v.length<1000)break;}aggregate=[...map].map(([answer,votes])=>({answer,votes}));}return {session:{id:s.id,code:s.join_code,state:s.state,active_question_id:s.active_question_id,show_results:s.show_results,reveal_correct_answer:s.reveal_correct_answer,revision:s.revision},questions:q||[],aggregate,count}}
+async function state(s:any,results=false){const [{data:q},t]=await Promise.all([db.from("live_questions").select("id,prompt,kind,options,position,correct_answer,answer_justification,answer_effect").eq("presentation_id",s.presentation_id).order("position"),results&&s.active_question_id?tally(s.id,s.active_question_id):Promise.resolve({aggregate:[] as any[],count:0})]);return {session:{id:s.id,code:s.join_code,state:s.state,active_question_id:s.active_question_id,show_results:s.show_results,reveal_correct_answer:s.reveal_correct_answer,revision:s.revision},questions:q||[],aggregate:t.aggregate,count:t.count}}
 Deno.serve(async(req)=>{
  if(req.method==="OPTIONS")return new Response(null,{headers});
  if(req.method!=="POST")return reply({error:"Method not allowed"},405);
@@ -131,6 +147,12 @@ Deno.serve(async(req)=>{
   if(action==="track_interaction"){
    const code=safe(b.code,20).toUpperCase(),token=safe(b.participant_token,128),event=safe(b.event_type,30),qid=safe(b.question_id,40);
    if(!["question_view","answer_click"].includes(event)||!/^[a-f0-9]{48}$/.test(token))return reply({error:"Invalid interaction"},400);
+   if(hotPath&&/^[a-f0-9-]{36}$/.test(qid)){
+    const {data:outcome,error}=await db.rpc("live_track_interaction",{p_code:code,p_token_hash:await hash(token),p_question_id:qid,p_event_type:event});
+    if(!error)return outcome==="invalid_participant"?reply({error:"Invalid participant"},403):reply({accepted:outcome==="accepted"});
+    if(!rpcMissing(error))return reply({accepted:false});
+    hotPath=false;
+   }
    const {data:s}=await db.from("live_sessions").select("id,active_question_id,state").eq("join_code",code).maybeSingle();
    if(!s||s.state==="ended"||s.active_question_id!==qid)return reply({accepted:false});
    const {data:p}=await db.from("live_participants").select("id").eq("session_id",s.id).eq("token_hash",await hash(token)).maybeSingle();
@@ -190,6 +212,7 @@ Deno.serve(async(req)=>{
    if(error)return reply({error:"Reset failed; no partial reset was committed."},409);
    const updated=rows?.[0];
    if(!updated)return reply({error:"Session not found"},404);
+   viewCache.clear();
    return reply({reset:true,session:updated});
   }
   if(action==="new_session"){
@@ -208,12 +231,16 @@ Deno.serve(async(req)=>{
    if(!authorized)return reply({error:"Session not found"},404);
    if(authorized.state!=="ended")return reply({error:"Only ended sessions can be reactivated"},409);
    const {data,error}=await db.from("live_sessions").update({state:"open",show_results:false,reveal_correct_answer:false,revision:authorized.revision+1}).eq("id",id).eq("revision",authorized.revision).eq("state","ended").select("*").maybeSingle();
-   return error||!data?reply({error:"Concurrent update; refresh and retry"},409):reply(await state(data,true));
+   if(error||!data)return reply({error:"Concurrent update; refresh and retry"},409);
+   viewCache.delete(data.join_code);
+   return reply(await state(data,true));
   }
   if(action==="control"){
    const id=safe(b.session_id,40),token=safe(b.presenter_token,128);
-   if(!(await sessionByToken(id,token))&&!(await owner(req)))return reply({error:"Presenter authorization required"},403);
-   const {data:s}=await db.from("live_sessions").select("*").eq("id",id).single();if(!s)return reply({error:"Not found"},404);
+   const tokenSession=await sessionByToken(id,token);
+   if(!tokenSession&&!(await owner(req)))return reply({error:"Presenter authorization required"},403);
+   // The token lookup already returned the current row; the revision guard below still rejects stale writes.
+   const s=tokenSession||(await db.from("live_sessions").select("*").eq("id",id).maybeSingle()).data;if(!s)return reply({error:"Not found"},404);
    const next=safe(b.state,20);if(!["waiting","open","closed","ended"].includes(next))return reply({error:"Invalid state"},400);
    let active=s.active_question_id;if(b.question_id){const {data:q}=await db.from("live_questions").select("id").eq("id",b.question_id).eq("presentation_id",s.presentation_id).maybeSingle();if(!q)return reply({error:"Invalid question"},400);active=q.id;}
    let visibility={...(s.question_results_visibility||{})};if(b.results_action==="show")visibility={__default:true};else if(b.results_action==="hide")visibility={__default:false};else if(Object.keys(visibility).length===0)visibility={__default:!!s.show_results};const visible=visibility[active]===undefined?visibility.__default===true:visibility[active]===true;
@@ -221,7 +248,9 @@ Deno.serve(async(req)=>{
    if(active!==s.active_question_id){visibility={__default:false};}
    const effectiveVisible=active!==s.active_question_id?false:(b.answer_action==="show"?true:b.answer_action==="hide"?false:visible);
    const {data,error}=await db.from("live_sessions").update({state:next,active_question_id:active,show_results:effectiveVisible,reveal_correct_answer:answerRevealed,question_results_visibility:visibility,revision:s.revision+1}).eq("id",id).eq("revision",s.revision).select("*").maybeSingle();
-   return error||!data?reply({error:"Concurrent update; retry after refresh"},409):reply(await state(data,true));
+   if(error||!data)return reply({error:"Concurrent update; retry after refresh"},409);
+   viewCache.delete(data.join_code);
+   return reply(await state(data,true));
   }
   if(action==="present"){
    const id=safe(b.session_id,40),token=safe(b.presenter_token,128);
@@ -231,36 +260,67 @@ Deno.serve(async(req)=>{
    return current?reply(await state(current,true)):reply({error:"Not found"},404);
   }
   if(action==="view"||action==="join"){
-   const code=safe(b.code,20).toUpperCase();const {data:s}=await db.from("live_sessions").select("*").eq("join_code",code).maybeSingle();
-   if(!s)return reply({error:"Session not found"},404);
+   const code=safe(b.code,20).toUpperCase();
    if(action==="view"){
-    const token=safe(b.participant_token,128);
-    let voted=false,participant_valid=false;
-    if(/^[a-f0-9]{48}$/.test(token)){
-     const {data:p}=await db.from("live_participants").select("id").eq("session_id",s.id).eq("token_hash",await hash(token)).maybeSingle();
-     participant_valid=!!p;
-     if(p&&s.active_question_id){const {data:vote}=await db.from("live_votes").select("id").eq("session_id",s.id).eq("question_id",s.active_question_id).eq("participant_id",p.id).limit(1).maybeSingle();voted=!!vote;}
+   const token=safe(b.participant_token,128);
+   const tokenHash=/^[a-f0-9]{48}$/.test(token)?await hash(token):null;
+   if(hotPath){
+    // A client that already rendered revision N may skip the database while N is still current.
+    // Only the public session snapshot is returned; clients periodically send a full poll.
+    const known=Number.isSafeInteger(b.rev)?b.rev:null,cached=viewCache.get(code);
+    if(known!==null&&cached&&Date.now()-cached.at<VIEW_TTL_MS&&cached.session.revision===known)return reply({unchanged:true,session:cached.session});
+    const {data:snapshot,error}=await db.rpc("live_audience_view",{p_code:code,p_token_hash:tokenHash});
+    if(!error){
+     if(!snapshot){viewCache.delete(code);return reply({error:"Session not found"},404)}
+     rememberView(code,snapshot.session);
+     return reply({session:snapshot.session,voted:!!snapshot.voted,participant_valid:!!snapshot.participant_valid,questions:snapshot.questions||[],aggregate:[],count:null});
     }
-    const snapshot=await state(s,false);
-    const questions=snapshot.questions.filter((q:any)=>q.id===s.active_question_id).map((q:any)=>{
-     if(s.reveal_correct_answer)return q;
-     const {correct_answer,answer_justification,answer_effect,...safeQuestion}=q;
-     return safeQuestion;
-    });
-    return reply({session:snapshot.session,voted,participant_valid,questions,aggregate:[],count:null});
+    if(!rpcMissing(error))return reply({error:"Could not load session"},500);
+    hotPath=false;
    }
-   if(s.state==="ended")return reply({error:"Session ended"},409);
-   // The database locks the session row and checks capacity in one transaction.
+   const {data:s}=await db.from("live_sessions").select("*").eq("join_code",code).maybeSingle();
+   if(!s)return reply({error:"Session not found"},404);
+   let voted=false,participant_valid=false;
+   if(tokenHash){
+    const {data:p}=await db.from("live_participants").select("id").eq("session_id",s.id).eq("token_hash",tokenHash).maybeSingle();
+    participant_valid=!!p;
+    if(p&&s.active_question_id){const {data:vote}=await db.from("live_votes").select("id").eq("session_id",s.id).eq("question_id",s.active_question_id).eq("participant_id",p.id).limit(1).maybeSingle();voted=!!vote;}
+   }
+   const snapshot=await state(s,false);
+   const questions=snapshot.questions.filter((q:any)=>q.id===s.active_question_id).map((q:any)=>{
+    if(s.reveal_correct_answer)return q;
+    const {correct_answer,answer_justification,answer_effect,...safeQuestion}=q;
+    return safeQuestion;
+   });
+   return reply({session:snapshot.session,voted,participant_valid,questions,aggregate:[],count:null});
+   }
+   // One round trip: the database locks the session row, rejects unknown/ended sessions
+   // and checks capacity in the same transaction as the insert.
    const token=random();
    const {data:registered,error}=await db.rpc("live_register_participant",{p_code:code,p_token_hash:await hash(token)});
    if(error?.message?.includes("capacity"))return reply({error:"Session capacity reached"},429);
    if(error?.message?.includes("ended"))return reply({error:"Session ended"},409);
+   if(error?.message?.includes("not found"))return reply({error:"Session not found"},404);
    if(error)return reply({error:"Cannot join"},500);
    return reply({participant_token:token,session_id:registered});
   }
   if(action==="vote"){
    const code=safe(b.code,20).toUpperCase();const token=safe(b.participant_token,128);
    if(!/^[a-f0-9]{48}$/.test(token))return reply({error:"Invalid participant"},403);
+   if(hotPath){
+    const {data:outcome,error}=await db.rpc("live_cast_vote",{p_code:code,p_token_hash:await hash(token),p_answer:safe(b.answer,400)});
+    if(!error){
+     if(outcome==="accepted")return reply({accepted:true});
+     if(outcome==="duplicate")return reply({accepted:true,duplicate:true});
+     if(outcome==="closed")return reply({error:"Voting closed"},409);
+     if(outcome==="invalid_participant")return reply({error:"Invalid participant"},403);
+     if(outcome==="question_missing")return reply({error:"Question missing"},404);
+     if(outcome==="invalid_answer")return reply({error:"Invalid answer"},400);
+     return reply({error:"Vote not accepted"},409);
+    }
+    if(!rpcMissing(error))return reply({error:"Vote not accepted"},409);
+    hotPath=false;
+   }
    const {data:s}=await db.from("live_sessions").select("*").eq("join_code",code).maybeSingle();
    if(!s||s.state!=="open"||!s.active_question_id)return reply({error:"Voting closed"},409);
    const {data:p}=await db.from("live_participants").select("id").eq("session_id",s.id).eq("token_hash",await hash(token)).maybeSingle();if(!p)return reply({error:"Invalid participant"},403);

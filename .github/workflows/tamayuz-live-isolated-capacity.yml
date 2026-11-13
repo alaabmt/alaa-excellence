@@ -1,0 +1,193 @@
+name: Tamayuz Live Isolated Capacity and Browser Rehearsal (not production)
+# Builds a disposable stack on the runner (PostgreSQL 17 + PostgREST + the Edge Function
+# source on Deno) and runs: SQL tests, a before/after latency comparison, a real-Chromium
+# conference rehearsal, and a 10 -> 50 -> 150 -> 300 -> 600 client ramp with a 15-minute
+# hold, fault injection and vote reconciliation. It never contacts the production project
+# and uses no repository secrets. It does NOT prove Supabase quotas or network distance.
+on:
+  workflow_dispatch:
+    inputs:
+      profile:
+        description: 'full = 600 clients for 15 minutes; smoke = short functional pass'
+        type: choice
+        options: [full, smoke]
+        default: full
+  pull_request:
+    paths:
+      - 'live/backend/**'
+      - 'live/index.html'
+      - 'tests/tamayuz-live-load.mjs'
+      - 'tests/tamayuz-live-isolated-*'
+      - 'tests/tamayuz-live-hot-path.sql'
+      - '.github/workflows/tamayuz-live-isolated-capacity.yml'
+permissions:
+  contents: read
+concurrency:
+  group: tamayuz-live-isolated-capacity-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  isolated-capacity:
+    name: Isolated 600-client capacity, recovery and real-browser rehearsal
+    runs-on: ubuntu-24.04
+    timeout-minutes: 55
+    services:
+      postgres:
+        image: postgres:17
+        env:
+          POSTGRES_PASSWORD: isolated-ci-only
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres" --health-interval 5s --health-timeout 5s --health-retries 12
+    env:
+      PGHOST: 127.0.0.1
+      PGPORT: '5432'
+      PGUSER: postgres
+      PGPASSWORD: isolated-ci-only
+      PGDATABASE: tamayuz_live_isolated
+      BASELINE_SHA: 58b8ba7d66c3919429637d348c517972e67e6b9d
+      OUT: ${{ github.workspace }}/isolated-evidence
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '24'
+      - name: Select profile
+        run: |
+          set -euo pipefail
+          profile="${{ github.event.inputs.profile }}"
+          [ -n "$profile" ] || profile="$(tr -d '[:space:]' < tests/tamayuz-live-isolated-profile.txt)"
+          case "$profile" in
+            full)  echo "STAGE_S=60"  >> "$GITHUB_ENV"; echo "HOLD_S=900" >> "$GITHUB_ENV"; echo "FAULT_AT=600" >> "$GITHUB_ENV"; echo "BROWSER_DELAY=120" >> "$GITHUB_ENV";;
+            smoke) echo "STAGE_S=15"  >> "$GITHUB_ENV"; echo "HOLD_S=240" >> "$GITHUB_ENV"; echo "FAULT_AT=180" >> "$GITHUB_ENV"; echo "BROWSER_DELAY=0" >> "$GITHUB_ENV";;
+            *) echo "unknown profile" >&2; exit 1;;
+          esac
+          echo "PROFILE=$profile" >> "$GITHUB_ENV"
+          mkdir -p "$OUT"
+      - name: Create isolated database (schema model, Live SQL functions, synthetic fixture)
+        run: |
+          set -euo pipefail
+          psql -X -v ON_ERROR_STOP=1 -d postgres -q -c "CREATE ROLE anon NOLOGIN; CREATE ROLE authenticated NOLOGIN; CREATE ROLE service_role NOLOGIN BYPASSRLS; CREATE ROLE authenticator LOGIN NOINHERIT PASSWORD 'isolated-ci-only'; GRANT anon, authenticated, service_role TO authenticator;"
+          createdb "$PGDATABASE"
+          for f in live/qa/recovery/schema.sql live/backend/sql/live_atomic_operations.sql live/backend/sql/live_hot_path.sql; do
+            psql -X -v ON_ERROR_STOP=1 -q -f "$f"
+          done
+          psql -X -v ON_ERROR_STOP=1 -q -c "GRANT USAGE ON SCHEMA public TO anon, authenticated, service_role; GRANT ALL ON ALL TABLES IN SCHEMA public TO service_role; GRANT USAGE ON ALL SEQUENCES IN SCHEMA public TO service_role;"
+          psql -X -qAt -f tests/tamayuz-live-hot-path.sql | tee "$OUT/sql-tests.txt"
+          grep -q TAMAYUZ_LIVE_HOT_PATH_SQL_PASS "$OUT/sql-tests.txt"
+          psql -X -v ON_ERROR_STOP=1 -q -f tests/tamayuz-live-isolated-seed.sql
+      - name: Start PostgREST, gateways and Edge Function processes
+        run: |
+          set -euo pipefail
+          SECRET="$(openssl rand -hex 32)"
+          KEY="$(node -e 'const c=require("crypto"),b=x=>Buffer.from(JSON.stringify(x)).toString("base64url");const h=b({alg:"HS256",typ:"JWT"})+"."+b({role:"service_role",iss:"isolated-ci",exp:Math.floor(Date.now()/1000)+86400});console.log(h+"."+c.createHmac("sha256",process.argv[1]).update(h).digest("base64url"))' "$SECRET")"
+          echo "::add-mask::$KEY"
+          docker run -d --name postgrest --network host \
+            -e PGRST_DB_URI="postgres://authenticator:isolated-ci-only@127.0.0.1:5432/$PGDATABASE" \
+            -e PGRST_DB_SCHEMAS=public -e PGRST_DB_ANON_ROLE=anon -e PGRST_JWT_SECRET="$SECRET" \
+            -e PGRST_SERVER_PORT=3000 -e PGRST_DB_POOL=15 postgrest/postgrest:v12.2.3
+          GATEWAY_PORT=54320 nohup node tests/tamayuz-live-isolated-gateway.mjs > "$OUT/gateway.log" 2>&1 &
+          GATEWAY_PORT=54321 GATEWAY_DELAY_MS=100 nohup node tests/tamayuz-live-isolated-gateway.mjs > "$OUT/gateway-delay.log" 2>&1 &
+          # Deno from npm at a fixed version; functions run from clean directories (no package.json).
+          mkdir -p "$RUNNER_TEMP/deno" "$RUNNER_TEMP/fn-new" "$RUNNER_TEMP/fn-legacy"
+          (cd "$RUNNER_TEMP/deno" && npm init -y >/dev/null && npm install --no-audit --no-fund deno@2.9.6 >/dev/null)
+          DENO="$RUNNER_TEMP/deno/node_modules/.bin/deno"
+          cp live/backend/index.ts "$RUNNER_TEMP/fn-new/index.ts"
+          cp tests/tamayuz-live-isolated-baseline-index.ts "$RUNNER_TEMP/fn-legacy/index.ts"   # frozen copy of $BASELINE_SHA
+          start() { # name dir port supabase_url  (restarts automatically: used for fault injection)
+            cp "$2/index.ts" "$2/$1-edge.ts"
+            nohup bash -c "cd '$2' && while true; do SUPABASE_URL='$4' SUPABASE_SERVICE_ROLE_KEY='$KEY' DENO_SERVE_ADDRESS='tcp:127.0.0.1:$3' '$DENO' run --allow-net --allow-env $1-edge.ts; echo \"\$(date -u +%FT%TZ) edge process exited; restarting\"; sleep 2; done" > "$OUT/edge-$1.log" 2>&1 &
+          }
+          start main "$RUNNER_TEMP/fn-new" 8000 http://127.0.0.1:54320
+          start new-delay "$RUNNER_TEMP/fn-new" 8001 http://127.0.0.1:54321
+          start legacy-delay "$RUNNER_TEMP/fn-legacy" 8002 http://127.0.0.1:54321
+          for port in 8000 8001 8002; do
+            for i in $(seq 1 90); do
+              code="$(curl -s -o /dev/null -w '%{http_code}' -X POST -H 'content-type: application/json' -d '{"action":"view","code":"LOADTEST01"}' "http://127.0.0.1:$port/" || true)"
+              [ "$code" = "200" ] && break; sleep 2
+            done
+            [ "$code" = "200" ] || { echo "edge on $port not ready ($code)"; tail -20 "$OUT"/edge-*.log; docker logs postgrest | tail -20; exit 1; }
+          done
+          echo "Isolated stack ready"
+      - name: Before/after comparison with 100 ms per database round trip (50 clients)
+        run: |
+          set -euo pipefail
+          common="LIVE_LOAD_STAGES=10,50 LIVE_LOAD_STAGE_SECONDS=30 LIVE_LOAD_HOLD_SECONDS=75 LIVE_LOAD_VOTE_WINDOW_SECONDS=20 LIVE_LOAD_REVEAL_SECONDS=4 LIVE_LOAD_P95_LIMIT_MS=100000"
+          env $common LIVE_LOAD_LABEL="BEFORE: baseline Edge source $BASELINE_SHA + 2s fixed polling" LIVE_LOAD_LEGACY_CLIENT=1 \
+            LIVE_LOAD_ENDPOINT=http://127.0.0.1:8002/ LIVE_LOAD_CODE=LEGACY0001 LIVE_LOAD_SESSION=c3000000-0000-4000-8000-000000000004 \
+            LIVE_LOAD_PRESENTER="$(printf '4d%.0s' $(seq 1 24))" LIVE_LOAD_REPORT="$OUT/compare-before.json" node tests/tamayuz-live-load.mjs > "$OUT/compare-before.log"
+          env $common LIVE_LOAD_LABEL="AFTER: this commit's Edge source + page polling" \
+            LIVE_LOAD_ENDPOINT=http://127.0.0.1:8001/ LIVE_LOAD_CODE=COMPARE001 LIVE_LOAD_SESSION=c3000000-0000-4000-8000-000000000005 \
+            LIVE_LOAD_PRESENTER="$(printf '5e%.0s' $(seq 1 24))" LIVE_LOAD_REPORT="$OUT/compare-after.json" node tests/tamayuz-live-load.mjs > "$OUT/compare-after.log"
+          node -e '
+            const fs=require("fs"),o=process.argv[1],b=JSON.parse(fs.readFileSync(o+"/compare-before.json")),a=JSON.parse(fs.readFileSync(o+"/compare-after.json"));
+            const row=(n,x)=>"| "+n+" | "+x.hold.view_ms.p50+" / "+x.hold.view_ms.p95+" / "+x.hold.view_ms.p99+" | "+x.hold.vote_ms.p50+" / "+x.hold.vote_ms.p95+" | "+x.hold.join_ms.p95+" | "+x.hold.throughput_rps+" | "+x.checks.every_question_tally_reconciled+" |";
+            const md="### Before/after, 50 clients, 100 ms added per database round trip (isolated stack)\n| Code | poll p50/p95/p99 ms | vote p50/p95 ms | join p95 ms | req/s | tallies reconciled |\n|---|---|---|---|---|---|\n"+row("Before (baseline)",b)+"\n"+row("After (this commit)",a)+"\n";
+            fs.writeFileSync(o+"/compare.md",md);console.log(md)' "$OUT" | tee -a "$GITHUB_STEP_SUMMARY"
+      - name: Install Chromium
+        run: |
+          npm install --no-save --package-lock=false playwright@1.51.1
+          npx playwright install --with-deps chromium
+      - name: Real-Chromium conference rehearsal on the isolated backend (idle)
+        env:
+          LIVE_LOAD_ENDPOINT: http://127.0.0.1:8000/
+          LIVE_BROWSER_REPORT: ${{ env.OUT }}/browser-rehearsal-idle.json
+          LIVE_BROWSER_LABEL: idle backend
+        run: node tests/tamayuz-live-isolated-browser-rehearsal.mjs | tee "$OUT/browser-rehearsal-idle.log"
+      - name: Ramp 10 -> 600 clients, hold, inject an Edge crash, rehearse browsers under load
+        env:
+          LIVE_LOAD_ENDPOINT: http://127.0.0.1:8000/
+          LIVE_LOAD_REPORT: ${{ env.OUT }}/capacity-600.json
+          LIVE_LOAD_LABEL: 600-client ramp and hold
+          # Kills only the main Edge process (anchored pattern); its supervisor loop restarts it.
+          LIVE_LOAD_FAULT_CMD: pkill -f 'run --allow-net --allow-env main-edge.ts$' ; true
+        run: |
+          set -uo pipefail
+          # Real browsers join a second session on the same backend while 600 clients are held.
+          ( sleep $(( 4 * STAGE_S + BROWSER_DELAY + 60 )); LIVE_BROWSER_PORT=8179 LIVE_BROWSER_CODE=BRWSLOAD01 \
+            LIVE_BROWSER_SESSION=c3000000-0000-4000-8000-000000000003 LIVE_BROWSER_PRESENTER="$(printf '3c%.0s' $(seq 1 24))" \
+            LIVE_BROWSER_LABEL="during 600-client hold" LIVE_BROWSER_REPORT="$OUT/browser-rehearsal-under-load.json" \
+            node tests/tamayuz-live-isolated-browser-rehearsal.mjs > "$OUT/browser-rehearsal-under-load.log" 2>&1; echo $? > "$OUT/browser-under-load.exit" ) &
+          LIVE_LOAD_STAGE_SECONDS="$STAGE_S" LIVE_LOAD_HOLD_SECONDS="$HOLD_S" LIVE_LOAD_FAULT_AT_SECONDS="$FAULT_AT" \
+            node tests/tamayuz-live-load.mjs | tee "$OUT/capacity-600.log"
+          load=$?
+          wait
+          browser="$(cat "$OUT/browser-under-load.exit" 2>/dev/null || echo 1)"
+          tail -40 "$OUT/browser-rehearsal-under-load.log" || true
+          echo "load exit=$load, browser-under-load exit=$browser"
+          [ "$load" = "0" ] && [ "$browser" = "0" ]
+      - name: Database integrity after the run
+        if: always()
+        run: |
+          set -euo pipefail
+          psql -X -qAt -v ON_ERROR_STOP=1 > "$OUT/db-integrity.json" <<'SQL'
+          SELECT jsonb_pretty(jsonb_build_object(
+            'load_session_participants',(SELECT count(*) FROM live_participants WHERE session_id='c3000000-0000-4000-8000-000000000001'),
+            'load_session_votes',(SELECT count(*) FROM live_votes WHERE session_id='c3000000-0000-4000-8000-000000000001'),
+            'duplicate_vote_tuples',(SELECT count(*) FROM (SELECT 1 FROM live_votes GROUP BY session_id,question_id,participant_id HAVING count(*)>1) d),
+            'votes_from_other_sessions_participants',(SELECT count(*) FROM live_votes v JOIN live_participants p ON p.id=v.participant_id WHERE p.session_id<>v.session_id),
+            'votes_for_questions_of_other_presentations',(SELECT count(*) FROM live_votes v JOIN live_sessions s ON s.id=v.session_id JOIN live_questions q ON q.id=v.question_id WHERE q.presentation_id<>s.presentation_id),
+            'votes_with_answer_not_offered',(SELECT count(*) FROM live_votes v JOIN live_questions q ON q.id=v.question_id WHERE q.kind='choice' AND NOT (q.options ? v.answer)),
+            'sessions_over_600_registrations',(SELECT count(*) FROM (SELECT 1 FROM live_participants GROUP BY session_id HAVING count(*)>600) o),
+            'max_votes_per_question_in_load_session',(SELECT coalesce(max(n),0) FROM (SELECT count(*) n FROM live_votes WHERE session_id='c3000000-0000-4000-8000-000000000001' GROUP BY question_id) m)
+          ));
+          SQL
+          cat "$OUT/db-integrity.json"
+          node -e 'const d=JSON.parse(require("fs").readFileSync(process.argv[1]));for(const k of ["duplicate_vote_tuples","votes_from_other_sessions_participants","votes_for_questions_of_other_presentations","votes_with_answer_not_offered","sessions_over_600_registrations"])if(d[k]!==0){console.error("INTEGRITY VIOLATION "+k);process.exit(1)}if(d.max_votes_per_question_in_load_session>600)process.exit(1)' "$OUT/db-integrity.json"
+      - name: Summary
+        if: always()
+        run: |
+          node -e '
+            const fs=require("fs"),o=process.argv[1],read=f=>{try{return JSON.parse(fs.readFileSync(o+"/"+f))}catch{return null}};
+            const c=read("capacity-600.json"),bi=read("browser-rehearsal-idle.json"),bl=read("browser-rehearsal-under-load.json"),db=read("db-integrity.json");
+            let md="## Tamayuz Live isolated capacity run ("+process.env.PROFILE+" profile)\n**Isolated CI stack, not production. Logical HTTP clients plus a small number of real Chromium browsers. Does not certify Supabase quotas, network distance or physical devices.**\n\n";
+            if(c){md+="| Measure | Result |\n|---|---|\n| Target / registered / min connected during hold | "+c.target_clients+" / "+c.unique_participants_registered+" / "+c.min_connected_clients_during_hold+" |\n| Hold seconds, requests, req/s | "+c.profile.hold_seconds+", "+c.hold.requests+", "+c.hold.throughput_rps+" |\n| Poll p50/p95/p99 ms | "+c.hold.view_ms.p50+" / "+c.hold.view_ms.p95+" / "+c.hold.view_ms.p99+" |\n| Vote p50/p95/p99 ms | "+c.hold.vote_ms.p50+" / "+c.hold.vote_ms.p95+" / "+c.hold.vote_ms.p99+" |\n| Steady-state error rate | "+c.hold.steady_state_error_rate+" |\n| Min vote coverage per question in hold | "+c.vote_coverage_min_in_hold+" |\n| Fault recovery | "+JSON.stringify(c.fault_recovery)+" |\n| DB max active / connections used | "+c.database.max_active+" / "+c.database.max_connections_used+" |\n| Checks | "+JSON.stringify(c.checks)+" |\n\n"}else md+="Capacity report missing.\n\n";
+            for(const [n,b] of [["idle",bi],["under 600-client load",bl]])md+="**Browser rehearsal ("+n+"):** "+(b?(b.passed?"PASS":"FAIL "+(b.error||""))+" — "+b.steps.length+" steps, timings "+JSON.stringify(b.timings_ms):"missing")+"\n\n";
+            md+="**Database integrity:** `"+JSON.stringify(db)+"`\n";console.log(md)' "$OUT" >> "$GITHUB_STEP_SUMMARY"
+          docker logs postgrest > "$OUT/postgrest.log" 2>&1 || true
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        if: always()
+        with:
+          name: tamayuz-live-isolated-capacity-evidence
+          path: isolated-evidence/
+          retention-days: 90
