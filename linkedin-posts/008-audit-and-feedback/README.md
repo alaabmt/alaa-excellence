@@ -1,9 +1,9 @@
 # LinkedIn Post 008 — حين يرى الطبيب أرقام أدائه / When doctors see their own numbers
 
 **Format:** LinkedIn document (carousel), 8 slides, 1080×1350, two separate posts: Arabic (`carousel-ar.pdf`) and English (`carousel-en.pdf`). The English version is written as original English, not a translation.
-**Website article (draft):** https://tamayuz10x.com/article-oe-evidence-audit-and-feedback.html and https://tamayuz10x.com/en/article-oe-evidence-audit-and-feedback.html (draft PR #215; the links work only after approval and merge).
+**Website article:** https://tamayuz10x.com/article-oe-evidence-audit-and-feedback.html and https://tamayuz10x.com/en/article-oe-evidence-audit-and-feedback.html (PR #215, squash merge f27cc21, live 2026-11-13).
 **Editorial review:** article, slides and captions reviewed with the owner's `arabic-editorial-reviewer` and `english-editorial-reviewer` agents (`.claude/agents/`); all BLOCK/FIX findings fixed before delivery.
-**Status:** Draft, waiting for the owner's approval. Nothing published.
+**Status:** Approved by the owner on 2026-11-13. Article live; Arabic post published; English post scheduled about two hours later.
 
 | File | Purpose |
 |---|---|
@@ -40,6 +40,6 @@ Checked on 13 Nov 2026 against the PubMed abstracts (efetch); DOIs checked with 
 
 | Item | Status | Link |
 |---|---|---|
-| Website article | Draft PR #215 | — |
-| Arabic post | Waiting for approval | — |
-| English post | Waiting for approval | — |
+| Website article | Live 2026-11-13 (PR #215) | https://tamayuz10x.com/article-oe-evidence-audit-and-feedback.html |
+| Arabic post | Published 2026-11-13 (urn:li:ugcPost:7526928732465553409) | https://www.linkedin.com/feed/update/urn:li:ugcPost:7526928732465553409/ |
+| English post | Scheduled about 2 hours after the Arabic post | — |
