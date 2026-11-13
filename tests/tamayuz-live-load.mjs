@@ -132,9 +132,10 @@ async function control(body){
 async function presenterPolling(){
  while(!presenterStop){try{await api("present",{session_id:SESSION_ID,presenter_token:PRESENTER})}catch{}await sleep(1500)}
 }
-async function presenterCycles(questions,until){
+async function presenterCycles(questions){
  let index=0;
- while(now()<until()&&index<questions.length){
+ // Keep cycling until a full cycle no longer fits before the end of the hold.
+ while((holdEnd===null||now()<holdEnd-(VOTE_WINDOW_S+REVEAL_S+3)*1000)&&index<questions.length){
   const q=questions[index++],opened=now(),target=stageTarget,connectedAtOpen=connected();
   await control({state:"open",question_id:q.id});
   await sleep(VOTE_WINDOW_S*1000);
@@ -170,9 +171,8 @@ assert.equal(state.session.state,"waiting","fixture session must start in waitin
 const questions=state.questions;
 assert(questions.length>=3,"fixture needs questions");
 const startedAt=new Date().toISOString();
-const totalMs=((STAGES.length-1)*STAGE_S+HOLD_S)*1000;
 presenterPolling();
-const cyclePromise=presenterCycles(questions,()=>totalMs-(VOTE_WINDOW_S+REVEAL_S+3)*1000);
+const cyclePromise=presenterCycles(questions);
 let windowStart=0;
 const ticker=setInterval(()=>{
  const t=now(),recent=metrics.filter(m=>m.t>=windowStart),views=recent.filter(m=>m.a==="view");
@@ -261,4 +261,5 @@ const report={
 if(REPORT)writeFileSync(REPORT,JSON.stringify(report,null,2)+"\n");
 const {timeline:_t,question_cycles:_q,...brief}=report;
 console.log(JSON.stringify({...brief,question_cycles:cycles.length,cycles_in_hold:holdCycles.length},null,2));
+for(const c of cycles)console.log("cycle "+JSON.stringify(c));
 if(!report.passed){console.error("ISOLATED CAPACITY TEST FAILED: "+Object.entries(checks).filter(([,v])=>v===false).map(([k])=>k).join(", "));process.exitCode=1}

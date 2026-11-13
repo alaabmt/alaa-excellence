@@ -76,6 +76,13 @@ jobs:
           psql -X -qAt -f tests/tamayuz-live-hot-path.sql | tee "$OUT/sql-tests.txt"
           grep -q TAMAYUZ_LIVE_HOT_PATH_SQL_PASS "$OUT/sql-tests.txt"
           psql -X -v ON_ERROR_STOP=1 -q -f tests/tamayuz-live-isolated-seed.sql
+          # Second database WITHOUT live_hot_path.sql: proves the new Edge source still works when
+          # it is deployed before (or rolled back from) the SQL functions.
+          createdb tamayuz_live_nohot
+          for f in live/qa/recovery/schema.sql live/backend/sql/live_atomic_operations.sql tests/tamayuz-live-isolated-seed.sql; do
+            psql -X -v ON_ERROR_STOP=1 -q -d tamayuz_live_nohot -f "$f"
+          done
+          psql -X -v ON_ERROR_STOP=1 -q -d tamayuz_live_nohot -c "GRANT USAGE ON SCHEMA public TO anon, authenticated, service_role; GRANT ALL ON ALL TABLES IN SCHEMA public TO service_role; GRANT USAGE ON ALL SEQUENCES IN SCHEMA public TO service_role;"
       - name: Start PostgREST, gateways and Edge Function processes
         run: |
           set -euo pipefail
@@ -86,6 +93,11 @@ jobs:
             -e PGRST_DB_URI="postgres://authenticator:isolated-ci-only@127.0.0.1:5432/$PGDATABASE" \
             -e PGRST_DB_SCHEMAS=public -e PGRST_DB_ANON_ROLE=anon -e PGRST_JWT_SECRET="$SECRET" \
             -e PGRST_SERVER_PORT=3000 -e PGRST_DB_POOL=15 postgrest/postgrest:v12.2.3
+          docker run -d --name postgrest-nohot --network host \
+            -e PGRST_DB_URI="postgres://authenticator:isolated-ci-only@127.0.0.1:5432/tamayuz_live_nohot" \
+            -e PGRST_DB_SCHEMAS=public -e PGRST_DB_ANON_ROLE=anon -e PGRST_JWT_SECRET="$SECRET" \
+            -e PGRST_SERVER_PORT=3001 -e PGRST_ADMIN_SERVER_PORT=3011 -e PGRST_DB_POOL=10 postgrest/postgrest:v12.2.3
+          GATEWAY_PORT=54322 POSTGREST_URL=http://127.0.0.1:3001 nohup node tests/tamayuz-live-isolated-gateway.mjs > "$OUT/gateway-nohot.log" 2>&1 &
           GATEWAY_PORT=54320 nohup node tests/tamayuz-live-isolated-gateway.mjs > "$OUT/gateway.log" 2>&1 &
           GATEWAY_PORT=54321 GATEWAY_DELAY_MS=100 nohup node tests/tamayuz-live-isolated-gateway.mjs > "$OUT/gateway-delay.log" 2>&1 &
           # Deno from npm at a fixed version; functions run from clean directories (no package.json).
@@ -101,7 +113,8 @@ jobs:
           start main "$RUNNER_TEMP/fn-new" 8000 http://127.0.0.1:54320
           start new-delay "$RUNNER_TEMP/fn-new" 8001 http://127.0.0.1:54321
           start legacy-delay "$RUNNER_TEMP/fn-legacy" 8002 http://127.0.0.1:54321
-          for port in 8000 8001 8002; do
+          start nohot "$RUNNER_TEMP/fn-new" 8003 http://127.0.0.1:54322
+          for port in 8000 8001 8002 8003; do
             for i in $(seq 1 90); do
               code="$(curl -s -o /dev/null -w '%{http_code}' -X POST -H 'content-type: application/json' -d '{"action":"view","code":"LOADTEST01"}' "http://127.0.0.1:$port/" || true)"
               [ "$code" = "200" ] && break; sleep 2
@@ -112,18 +125,28 @@ jobs:
       - name: Before/after comparison with 100 ms per database round trip (50 clients)
         run: |
           set -euo pipefail
-          common="LIVE_LOAD_STAGES=10,50 LIVE_LOAD_STAGE_SECONDS=30 LIVE_LOAD_HOLD_SECONDS=75 LIVE_LOAD_VOTE_WINDOW_SECONDS=20 LIVE_LOAD_REVEAL_SECONDS=4 LIVE_LOAD_P95_LIMIT_MS=100000"
+          common="LIVE_LOAD_STAGES=10,50 LIVE_LOAD_STAGE_SECONDS=30 LIVE_LOAD_HOLD_SECONDS=100 LIVE_LOAD_VOTE_WINDOW_SECONDS=20 LIVE_LOAD_REVEAL_SECONDS=4 LIVE_LOAD_P95_LIMIT_MS=100000"
           env $common LIVE_LOAD_LABEL="BEFORE: baseline Edge source $BASELINE_SHA + 2s fixed polling" LIVE_LOAD_LEGACY_CLIENT=1 \
             LIVE_LOAD_ENDPOINT=http://127.0.0.1:8002/ LIVE_LOAD_CODE=LEGACY0001 LIVE_LOAD_SESSION=c3000000-0000-4000-8000-000000000004 \
-            LIVE_LOAD_PRESENTER="$(printf '4d%.0s' $(seq 1 24))" LIVE_LOAD_REPORT="$OUT/compare-before.json" node tests/tamayuz-live-load.mjs > "$OUT/compare-before.log"
+            LIVE_LOAD_PRESENTER="$(printf '4d%.0s' $(seq 1 24))" LIVE_LOAD_REPORT="$OUT/compare-before.json" node tests/tamayuz-live-load.mjs > "$OUT/compare-before.log" || { tail -30 "$OUT/compare-before.log"; exit 1; }
           env $common LIVE_LOAD_LABEL="AFTER: this commit's Edge source + page polling" \
             LIVE_LOAD_ENDPOINT=http://127.0.0.1:8001/ LIVE_LOAD_CODE=COMPARE001 LIVE_LOAD_SESSION=c3000000-0000-4000-8000-000000000005 \
-            LIVE_LOAD_PRESENTER="$(printf '5e%.0s' $(seq 1 24))" LIVE_LOAD_REPORT="$OUT/compare-after.json" node tests/tamayuz-live-load.mjs > "$OUT/compare-after.log"
+            LIVE_LOAD_PRESENTER="$(printf '5e%.0s' $(seq 1 24))" LIVE_LOAD_REPORT="$OUT/compare-after.json" node tests/tamayuz-live-load.mjs > "$OUT/compare-after.log" || { tail -30 "$OUT/compare-after.log"; exit 1; }
           node -e '
             const fs=require("fs"),o=process.argv[1],b=JSON.parse(fs.readFileSync(o+"/compare-before.json")),a=JSON.parse(fs.readFileSync(o+"/compare-after.json"));
             const row=(n,x)=>"| "+n+" | "+x.hold.view_ms.p50+" / "+x.hold.view_ms.p95+" / "+x.hold.view_ms.p99+" | "+x.hold.vote_ms.p50+" / "+x.hold.vote_ms.p95+" | "+x.hold.join_ms.p95+" | "+x.hold.throughput_rps+" | "+x.checks.every_question_tally_reconciled+" |";
             const md="### Before/after, 50 clients, 100 ms added per database round trip (isolated stack)\n| Code | poll p50/p95/p99 ms | vote p50/p95 ms | join p95 ms | req/s | tallies reconciled |\n|---|---|---|---|---|---|\n"+row("Before (baseline)",b)+"\n"+row("After (this commit)",a)+"\n";
             fs.writeFileSync(o+"/compare.md",md);console.log(md)' "$OUT" | tee -a "$GITHUB_STEP_SUMMARY"
+      - name: Deploy-order safety (new Edge source on a database without the hot-path SQL)
+        run: |
+          set -euo pipefail
+          LIVE_LOAD_STAGES=10,40 LIVE_LOAD_STAGE_SECONDS=20 LIVE_LOAD_HOLD_SECONDS=90 LIVE_LOAD_VOTE_WINDOW_SECONDS=20 LIVE_LOAD_REVEAL_SECONDS=4 \
+            LIVE_LOAD_LABEL="new Edge source, hot-path SQL absent (legacy fallback)" LIVE_LOAD_ENDPOINT=http://127.0.0.1:8003/ \
+            LIVE_LOAD_REPORT="$OUT/fallback-without-sql.json" PGDATABASE=tamayuz_live_nohot node tests/tamayuz-live-load.mjs > "$OUT/fallback-without-sql.log" || { tail -30 "$OUT/fallback-without-sql.log"; exit 1; }
+          test "$(psql -X -qAt -d tamayuz_live_nohot -c "SELECT count(*) FROM pg_proc WHERE proname='live_cast_vote'")" = "0"
+          votes="$(psql -X -qAt -d tamayuz_live_nohot -c "SELECT count(*) FROM live_votes")"
+          node -e 'const r=JSON.parse(require("fs").readFileSync(process.argv[1]));console.log("### Deploy-order safety\nNew Edge source on a database WITHOUT the hot-path SQL: passed="+r.passed+", clients="+r.target_clients+", votes stored="+process.argv[2]+", unchanged-shortcut share="+r.hold.unchanged_share_of_all_views+" (must be 0: fallback path), poll p95 "+r.hold.view_ms.p95+" ms")' "$OUT/fallback-without-sql.json" "$votes" | tee -a "$GITHUB_STEP_SUMMARY"
+          [ "$votes" -gt 0 ]
       - name: Install Chromium
         run: |
           npm install --no-save --package-lock=false playwright@1.51.1
