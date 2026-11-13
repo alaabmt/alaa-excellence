@@ -7,10 +7,14 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-12T12:23:59+04:00",
-  "workflow_status": "blocked",
+  "updated_at": "2026-11-13T07:29:00+04:00",
+  "workflow_status": "in_progress",
   "current_stage": "live_verification",
-  "run_lease": null,
+  "run_lease": {
+    "owner": "codex-tenx-primary-20261113-0726",
+    "acquired_at": "2026-11-13T07:29:00+04:00",
+    "expires_at": "2026-11-13T09:19:00+04:00"
+  },
   "current_item": {
     "slug": "case-brazil-family-health-strategy-community-primary-care",
     "publication_date": "2026-11-12",
@@ -183,16 +187,15 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Run actual Arabic and English TTS playback in a browser/device with Web Speech speechSynthesis and audible voices; verify start-from-H1, synchronized highlighting and floating controls. If it passes, checkpoint live_verification, write the original publication report, and complete. Alternatively, the owner must explicitly approve the documented technical exception allowed by the TTS standard.",
+  "next_action": "Retry actual Arabic and English TTS playback in the available browser. If speechSynthesis remains unavailable, preserve the blocked gate and do not start or publish another case.",
   "last_run": {
-    "mode": "coordinator_resume",
-    "status": "blocked",
-    "started_at": "2026-11-12T12:07:00+04:00",
-    "starting_head": "b1f7cfcbd12f4a1444fad3c5c685d5f26091c1ac",
+    "mode": "primary_scheduled_resume",
+    "status": "in_progress",
+    "started_at": "2026-11-13T07:26:41+04:00",
+    "starting_head": null,
     "last_checkpoint": "actions_and_pages",
-    "notes": "Live AR/EN pages, metadata, bilingual 1200x630 images and near-390px mobile layout passed. Functional TTS could not be validated because the managed browser exposes no speechSynthesis; clicking Listen produced no playback state. No completion claimed.",
-    "current_item": "case-brazil-family-health-strategy-community-primary-care",
-    "completed_at": "2026-11-12T12:23:59+04:00"
+    "notes": "Resuming blocked Brazil FHS live-verification gate; no new case will start until the unfinished item is reconciled.",
+    "current_item": "case-brazil-family-health-strategy-community-primary-care"
   },
   "last_completed_item": {
     "slug": "case-bangladesh-cyclone-preparedness-community-warning",
@@ -271,9 +274,5 @@
     "repository_publish",
     "actions_and_pages"
   ],
-  "blocker": {
-    "type": "platform_capability_missing",
-    "detail": "The available managed Chromium reports speechSynthesis unavailable. The mandatory TTS standard requires actual browser/device playback; a visible Listen button alone is insufficient.",
-    "required_decision": "Provide or authorize a TTS-capable browser/device for actual Arabic and English playback verification, or explicitly approve the documented technical exception permitted by ARABIC-LANGUAGE-AND-TTS-STANDARD.md section 10."
-  }
+  "blocker": null
 }
