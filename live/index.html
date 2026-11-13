@@ -933,7 +933,8 @@ async function api(action,data={}){
  const attempt=async(url,ms)=>{const ctrl=new AbortController(),timeout=setTimeout(()=>ctrl.abort(),ms);try{const r=await fetch(url,{method:"POST",headers,cache:"no-store",body,signal:ctrl.signal});let v=null;try{v=await r.json()}catch(_){}return {r,v}}finally{clearTimeout(timeout)}};
  let out=null;
  if(Date.now()>=pinnedOffUntil){
-  try{out=await attempt(PINNED_ENDPOINT,8000);if(!out.v||[502,503,504,546].includes(out.r.status))throw Error("Request failed")}
+  try{out=await attempt(PINNED_ENDPOINT,8000);// Platform/gateway failures carry no application "error" text; application answers always do.
+   if(!out.v||(out.r.status>=500&&typeof out.v.error!=="string"))throw Error("Request failed")}
   catch(e){pinnedOffUntil=Date.now()+PIN_RETRY_MS;out=null;if(!RETRY_SAFE.has(action))throw e}
  }
  if(!out)out=await attempt(ENDPOINT,12000);

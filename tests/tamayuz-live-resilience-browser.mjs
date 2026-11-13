@@ -44,7 +44,9 @@ async function scenario(name,{viewport={width:390,height:800},lang="en"}={},run)
   world.requests.push({action:b.action,pinned,rev:b.rev,at:Date.now()});
   const send=(value,status=200)=>route.fulfill({status,headers:cors,contentType:"application/json",body:JSON.stringify(value)});
   if(world.failAll>0){world.failAll--;return route.abort("internetdisconnected")}
-  if(world.failPinned&&pinned)return route.fulfill({status:503,headers:cors,contentType:"text/plain",body:"regional gateway unavailable"});
+  // Alternate between a non-JSON gateway page and a platform JSON error without an application "error" field.
+  if(world.failPinned&&pinned)return world.requests.length%2?route.fulfill({status:503,headers:cors,contentType:"text/plain",body:"regional gateway unavailable"})
+   :route.fulfill({status:500,headers:cors,contentType:"application/json",body:JSON.stringify({code:"BOOT_ERROR",message:"Function failed to start"})});
   const session={id:sid,code,state:world.state,active_question_id:qid,show_results:false,reveal_correct_answer:world.reveal,revision:world.revision};
   if(b.action==="join"){const token=(++world.joined).toString(16).padStart(48,"a");world.tokens.add(token);return send({participant_token:token,session_id:sid})}
   if(b.action==="view"){
