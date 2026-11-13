@@ -126,13 +126,13 @@ en.append(('',f"""<div class="kicker">Antibiotic prescribing</div>
   <h2>Clinic doctors who got their data prescribed fewer antibiotics</h2>
   <div style="margin-top:22px">
     <div class="stat"><span class="n" {SL}>11%</span><p>fewer antibiotics prescribed by doctors who received their data, in 21 trials.</p></div>
-    <div class="stat"><span class="n" {SL}>23%</span><p>fewer times starting an antibiotic without need, in 16 trials.</p></div>
+    <div class="stat"><span class="n" {SL}>23%</span><p>fewer antibiotics started without need, in 16 trials.</p></div>
   </div>
   <p class="small" style="margin-top:16px">These are primary care doctors: the clinic and health-center doctors patients usually see first. Both figures are relative reductions, measured against doctors who did not receive the data. They are not percentage points, so they cannot be compared directly with the 6.2 points on the previous slide. The researchers noted that results varied widely across trials.</p>""",C2))
 en.append(('',f"""<div class="kicker">Mixed results</div>
   <h2>In three other trials, not every measure improved</h2>
   <ul class="clean">
-    <li {LI}>In Ontario, Canada, 833 doctors who examine the bowel with a camera tube were split by chance, and one group got a report on its performance. The share of exams in which small growths (polyps) were removed rose by similar amounts in both groups. But lower performers who got a report improved more than lower performers who did not.</li>
+    <li {LI}>In Ontario, Canada, 833 doctors who examine the bowel with a camera tube were split by chance, and one group got reports on their own performance. The share of exams in which small growths (polyps) were removed rose by similar amounts in both groups. But lower performers who got a report improved more than lower performers who did not.</li>
     <li {LI}>In seven pediatric emergency departments, leaders got a monthly report on their department. Recording of the child's vital signs, such as temperature and pulse, improved, while over the same period speed of care got worse.</li>
     <li {LI}>In 201 bladder cancer surgery centers, recording of surgical findings improved where reports were sent, but early cancer recurrence did not differ between centers with and without reports.</li>
   </ul>""",C3))
@@ -156,7 +156,7 @@ en.append(('dark',f"""<div class="kicker">The author's reading of the studies</d
 en.append(('',f"""<div class="kicker">Sources and limits</div>
   <h2 style="font-size:48px">What this evidence can and cannot tell us</h2>
   <ul class="clean" style="margin-top:2px">
-    <li style="font-size:22px;padding:6px 0">In 39% of the Cochrane trials, the design or conduct could make the result inaccurate; researchers call this a high risk of bias.</li>
+    <li style="font-size:22px;padding:6px 0">In 39% of the Cochrane trials, flaws in design or conduct could make the result inaccurate; researchers call this a high risk of bias.</li>
     <li style="font-size:22px;padding:6px 0">The review measured what health professionals did, not patient health.</li>
     <li style="font-size:22px;padding:6px 0">None of the five study abstracts mentions a trial in an Arab country, and none tested the idea outside health care. Applying it to other sectors is the author's untested inference.</li>
   </ul>
