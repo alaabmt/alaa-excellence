@@ -7,14 +7,10 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-13T07:29:00+04:00",
-  "workflow_status": "in_progress",
+  "updated_at": "2026-11-13T07:33:00+04:00",
+  "workflow_status": "blocked",
   "current_stage": "live_verification",
-  "run_lease": {
-    "owner": "codex-tenx-primary-20261113-0726",
-    "acquired_at": "2026-11-13T07:29:00+04:00",
-    "expires_at": "2026-11-13T09:19:00+04:00"
-  },
+  "run_lease": null,
   "current_item": {
     "slug": "case-brazil-family-health-strategy-community-primary-care",
     "publication_date": "2026-11-12",
@@ -144,8 +140,14 @@
         "responsive_bracketing": "passed_340px_and_454px_no_horizontal_overflow_ar_en",
         "tts_controls": "visible_ar_en",
         "tts_actual_playback": "blocked_browser_has_no_speechSynthesis_and_click_produced_no_audio_state",
-        "duplicate_verification": "passed_one_ar_index_card_one_en_index_card_one_ar_sitemap_url_one_en_sitemap_url"
+        "duplicate_verification": "passed_one_ar_index_card_one_en_index_card_one_ar_sitemap_url_one_en_sitemap_url",
+        "tts_retry_2026_11_13": "failed_environment_has_no_speechSynthesis_no_voices_no_playback_state_no_highlighting"
       }
+    },
+    "publication_report": {
+      "path": "automation/10x-cases/case-brazil-family-health-strategy-community-primary-care/publication-report.md",
+      "commit": "7f1bc9ece75c86eee61953207fe6fad614efd138",
+      "status": "partial_blocked_tts"
     }
   },
   "stage_order": [
@@ -187,15 +189,16 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Retry actual Arabic and English TTS playback in the available browser. If speechSynthesis remains unavailable, preserve the blocked gate and do not start or publish another case.",
+  "next_action": "Run actual Arabic and English TTS playback in a browser/device with Web Speech speechSynthesis and audible voices; verify start-from-H1, synchronized highlighting and floating controls. If it passes, checkpoint live_verification and complete. Alternatively, the owner must explicitly approve the documented technical exception allowed by the TTS standard.",
   "last_run": {
     "mode": "primary_scheduled_resume",
-    "status": "in_progress",
+    "status": "blocked",
     "started_at": "2026-11-13T07:26:41+04:00",
     "starting_head": null,
     "last_checkpoint": "actions_and_pages",
-    "notes": "Resuming blocked Brazil FHS live-verification gate; no new case will start until the unfinished item is reconciled.",
-    "current_item": "case-brazil-family-health-strategy-community-primary-care"
+    "notes": "Resumed the existing Brazil FHS case. Live page opened successfully and controls were visible, but the managed Chrome again had no speechSynthesis or voices; clicking Listen produced no playback or highlighting. Partial publication report committed. No new 2026-11-13 case was started.",
+    "current_item": "case-brazil-family-health-strategy-community-primary-care",
+    "completed_at": "2026-11-13T07:33:00+04:00"
   },
   "last_completed_item": {
     "slug": "case-bangladesh-cyclone-preparedness-community-warning",
@@ -258,7 +261,7 @@
       "commit": "508b16434c509075af0b83e9d7d8cd23e6ed6fff"
     }
   },
-  "run_date": "2026-11-12",
+  "run_date": "2026-11-13",
   "completed_stages": [
     "capability_check",
     "load_checkpoint",
@@ -274,5 +277,9 @@
     "repository_publish",
     "actions_and_pages"
   ],
-  "blocker": null
+  "blocker": {
+    "type": "platform_capability_missing",
+    "detail": "The available managed Chrome on 2026-11-13 again reports window.speechSynthesis unavailable and zero voices. Clicking Listen produced no speaking, pending, paused or highlighting state. The mandatory TTS standard requires actual browser/device playback; visible controls alone are insufficient.",
+    "required_decision": "Provide or authorize a TTS-capable browser/device for actual Arabic and English playback verification, or explicitly approve the documented technical exception permitted by ARABIC-LANGUAGE-AND-TTS-STANDARD.md section 10."
+  }
 }
