@@ -1,5 +1,7 @@
 # Tamayuz Live — current conference P0 evidence register
 
+> **Superseded for current status by `verified-evidence-20261113-r2.md` (same day, later revision).**
+
 **Checked 2026-11-13 UTC; site-specific, no blanket assurance.** Project `tamayuz10x-auth`; published SHA `7da8df10b63010611eb43e6fb9e0d35ce514d576` at read-only GitHub ref inspection; active Live Edge version `23`. This register is a factual evidence ledger, not an issued production certificate, independent penetration test, owner approval or a substitute for live event operations.
 
 **Overall conference readiness: NO-GO (P0 gaps).** Do not classify a successful synthetic backup, small-load HTTP test or public browser smoke as equivalent to a separately approved and evidenced 600-concurrent-browser rehearsal or a genuine production backup recovery.

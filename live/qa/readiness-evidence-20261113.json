@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "site": "https://tamayuz10x.com/live/",
+  "frontend_sha": "2e34f5a20ee797ea96000bb207d3903a15bc531a",
+  "edge_version": 23,
+  "evidence": {
+    "deployment_provenance": {"status": "NOT_VERIFIED", "reason": "Published page matches main; Edge Function version could not be rechecked without Supabase access"},
+    "authorization_security": {"status": "NOT_VERIFIED", "reason": "No genuine authenticated owner session has been observed"},
+    "critical_user_journeys": {"status": "NOT_VERIFIED", "reason": "Passed only on an isolated CI stack with emulated browsers (run 43367003603)"},
+    "conference_capacity": {"status": "NOT_VERIFIED", "reason": "600 logical clients for 900 s passed only on an isolated CI stack; production quotas, compute and network untested; backend not deployed"},
+    "active_monitoring": {"status": "FAIL", "reason": "The 15-minute schedule started 1 run in about 7 hours; no human acknowledgement or backup on-call"},
+    "recovery_drill": {"status": "NOT_VERIFIED", "reason": "Backup and restore tooling rehearsed on synthetic data only; no production backup restored"},
+    "vote_data_integrity": {"status": "NOT_VERIFIED", "reason": "Verified at 600 clients on the isolated stack; production invariants not rechecked in this revision"},
+    "abuse_resistance": {"status": "NOT_VERIFIED", "reason": "No rate limiting; scripted joins can fill a session"}
+  },
+  "accepted_p1_risks": [],
+  "release_approval": null,
+  "note": "Factual status on 2026-11-13 05:15 UTC. Expected decision: NO-GO."
+}
