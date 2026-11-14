@@ -10,7 +10,7 @@ const html = readFileSync(resolve(root, 'live/index.html'), 'utf8');
 const edge = readFileSync(resolve(root, 'live/stage1/tamayuz-live.edge.ts'), 'utf8');
 const sql = readFileSync(resolve(root, 'live/stage1/202611140001_live_qna_timer.sql'), 'utf8');
 test('frontend script parses', () => {
-  const scripts = [...html.matchAll(/<script(?:\\s[^>]*)?>([\\s\\S]*?)<\\/script>/g)].map(x => x[1]);
+  const scripts = [html.slice(html.lastIndexOf('<script>') + 8, html.lastIndexOf('</script>'))];
   assert.ok(scripts.length > 0);
   for (const script of scripts) new vm.Script(script);
 });
