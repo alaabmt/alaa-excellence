@@ -94,11 +94,12 @@ Deno.serve(async(req)=>{
   if(action==="add_question"){
    if(!(await owner(req)))return reply({error:"Owner authorization required"},403);
    
-   const pid=safe(b.presentation_id,40),prompt=safe(b.prompt,6000),kind=["choice","rating","text"].includes(b.kind)?b.kind:"choice";
-   const options=kind==="text"&&Array.isArray(b.options)&&b.options.length===1&&b.options[0]==="__wordcloud__"?["__wordcloud__"]:kind==="choice"&&Array.isArray(b.options)?b.options.slice(0,8).map((x:any)=>safe(x,120)).filter(Boolean):[];
-   if(!prompt||(kind==="choice"&&(options.length<2||new Set(options).size!==options.length)))return reply({error:"Question or options invalid"},400);
+   const pid=safe(b.presentation_id,40),prompt=safe(b.prompt,6000),kind=["choice","rating","text","ranking","image_click"].includes(b.kind)?b.kind:"choice";
+   const options=kind==="text"&&Array.isArray(b.options)&&b.options.length===1&&b.options[0]==="__wordcloud__"?["__wordcloud__"]:["choice","ranking"].includes(kind)&&Array.isArray(b.options)?b.options.slice(0,8).map((x:any)=>safe(x,120)).filter(Boolean):[];
+   if(!prompt||(["choice","ranking"].includes(kind)&&(options.length<2||new Set(options).size!==options.length)))return reply({error:"Question or options invalid"},400);
    const correctAnswer=kind==="choice"?safe(b.correct_answer,120):"";
    if(correctAnswer&&!options.includes(correctAnswer))return reply({error:"Correct answer must match an option"},400);
+   if(kind==="image_click"&&b.media_type!=="image")return reply({error:"Clickable image requires an uploaded image"},400);
    if(b.media_type==="image"&&!safe(b.media_path,220).startsWith("questions/"+pid+"/"))return reply({error:"Invalid image reference"},400);
    if(b.media_type==="video"&&!videoUrl(b.media_video_url))return reply({error:"Valid YouTube or Vimeo URL required"},400);
    if(b.timer_seconds!=null&&(!Number.isInteger(Number(b.timer_seconds))||Number(b.timer_seconds)<10||Number(b.timer_seconds)>600))return reply({error:"Timer must be 10–600 seconds"},400);
@@ -120,7 +121,7 @@ Deno.serve(async(req)=>{
    if(!old)return reply({error:"Question not found"},404);
    const patch:any={prompt};if(b.timer_seconds!==undefined){if(b.timer_seconds!==null&&(!Number.isInteger(Number(b.timer_seconds))||Number(b.timer_seconds)<10||Number(b.timer_seconds)>600))return reply({error:"Timer must be 10–600 seconds"},400);patch.timer_seconds=b.timer_seconds===null?null:Number(b.timer_seconds)}
    if(b.options!==undefined){
-    if(old.kind!=="choice"||!Array.isArray(b.options))return reply({error:"Options not supported for this question"},400);
+    if(!["choice","ranking"].includes(old.kind)||!Array.isArray(b.options))return reply({error:"Options not supported for this question"},400);
     const options=b.options.slice(0,8).map((x:any)=>safe(x,400)).filter(Boolean);
     if(options.length<2||new Set(options).size!==options.length)return reply({error:"At least two distinct options required"},400);
     const {count,error:voteError}=await db.from("live_votes").select("id",{count:"exact",head:true}).eq("question_id",id);
@@ -133,7 +134,7 @@ Deno.serve(async(req)=>{
     if(answer&&!(patch.options||old.options||[]).includes(answer))return reply({error:"Correct answer must match an option"},400);
     patch.correct_answer=answer||null;
    }else if(patch.options&&old.correct_answer&&!patch.options.includes(old.correct_answer))return reply({error:"Select a correct answer from the updated options"},400);
-   if(b.media_type!==undefined){if(b.media_type!==null&&!["image","video"].includes(b.media_type))return reply({error:"Invalid media type"},400);const path=safe(b.media_path,220),link=videoUrl(b.media_video_url);if(b.media_type==="image"&&!path.startsWith("questions/"+pid+"/"))return reply({error:"Invalid image reference"},400);if(b.media_type==="video"&&!link)return reply({error:"Valid YouTube or Vimeo URL required"},400);patch.media_type=b.media_type;patch.media_path=b.media_type==="image"?path:null;patch.media_video_url=b.media_type==="video"?link:null;}
+   if(b.media_type!==undefined){if(old.kind==="image_click"&&b.media_type!=="image")return reply({error:"Clickable image requires an uploaded image"},400);if(b.media_type!==null&&!["image","video"].includes(b.media_type))return reply({error:"Invalid media type"},400);const path=safe(b.media_path,220),link=videoUrl(b.media_video_url);if(b.media_type==="image"&&!path.startsWith("questions/"+pid+"/"))return reply({error:"Invalid image reference"},400);if(b.media_type==="video"&&!link)return reply({error:"Valid YouTube or Vimeo URL required"},400);patch.media_type=b.media_type;patch.media_path=b.media_type==="image"?path:null;patch.media_video_url=b.media_type==="video"?link:null;}
    if(b.answer_justification!==undefined)patch.answer_justification=safe(b.answer_justification,6000);
    if(b.answer_effect!==undefined)patch.answer_effect=safe(b.answer_effect,6000);
    if(b.show_explanation_on_reveal!==undefined){if(b.show_explanation_on_reveal!==null&&typeof b.show_explanation_on_reveal!=="boolean")return reply({error:"Invalid reveal preference"},400);patch.show_explanation_on_reveal=b.show_explanation_on_reveal;}
@@ -383,6 +384,14 @@ Deno.serve(async(req)=>{
    const {data:q}=await db.from("live_questions").select("*").eq("id",s.active_question_id).single();if(!q)return reply({error:"Question missing"},404);
    const wordcloud=q.kind==="text"&&Array.isArray(q.options)&&q.options.includes("__wordcloud__");
    const answer=wordcloud?safe(b.answer,60).trim():safe(b.answer,400);
+   if(q.kind==="ranking"){
+    let order:any;try{order=JSON.parse(answer)}catch{return reply({error:"Invalid ranking"},400)}
+    if(!Array.isArray(order)||order.length!==q.options?.length||!order.every((x:any)=>typeof x==="string")||new Set(order).size!==order.length||order.some((x:string)=>!q.options.includes(x)))return reply({error:"Ranking must include every option exactly once"},400);
+   }
+   if(q.kind==="image_click"){
+    let point:any;try{point=JSON.parse(answer)}catch{return reply({error:"Invalid image location"},400)}
+    if(!Array.isArray(point)||point.length!==2||point.some((x:any)=>typeof x!=="number"||!Number.isFinite(x)||x<0||x>1))return reply({error:"Image location must be normalized coordinates"},400);
+   }
    if(wordcloud&&(typeof b.answer!=="string"||b.answer.trim().length>60||answer.includes("<")||answer.includes(">")||answer.toLowerCase().includes("http")||answer.toLowerCase().includes("www.")))return reply({error:"Please enter one short phrase without links or markup"},400);
    if(!answer||q.kind==="choice"&&!(q.options||[]).includes(answer)||q.kind==="rating"&&!["1","2","3","4","5"].includes(answer))return reply({error:"Invalid answer"},400);
    const {error}=await db.from(s.before_after_mode==="after"&&s.before_after_question_id===q.id?"live_after_votes":"live_votes").insert({session_id:s.id,question_id:q.id,participant_id:p.id,answer});
