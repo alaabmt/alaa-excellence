@@ -2,6 +2,15 @@
 alter table public.live_sessions
   add column if not exists qna_enabled boolean not null default false,
   add column if not exists vote_deadline_at timestamptz;
+-- Extend the existing Live question kind constraint for the two new types.
+-- This migration is staged only; inspect the existing constraint definition
+-- in an isolated database before applying it.
+alter table public.live_questions
+  drop constraint if exists live_questions_kind_check;
+alter table public.live_questions
+  add constraint live_questions_kind_check
+  check (kind in ('choice','rating','text','ranking','image_click'));
+
 alter table public.live_questions
   add column if not exists timer_seconds integer
   check (timer_seconds is null or timer_seconds between 10 and 600);
