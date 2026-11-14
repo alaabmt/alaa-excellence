@@ -355,7 +355,7 @@ Deno.serve(async(req)=>{
    if(!s||s.state==="ended"||!s.qna_enabled)return reply({error:"Q&A unavailable"},409);
    const {data:p}=await db.from("live_participants").select("id").eq("session_id",s.id).eq("token_hash",await hash(token)).maybeSingle();if(!p)return reply({error:"Invalid participant"},403);
    if(action==="qna_submit"){
-    const body=safe(b.body,500).trim();if(!body||body.length>500||/[<>]/.test(body)||/https?:\\/\\/|www\\./i.test(body))return reply({error:"Enter a question without links or markup"},400);
+    const body=safe(b.body,500).trim();if(!body||body.length>500||/[<>]/.test(body)||/https?:\/\/|www\./i.test(body))return reply({error:"Enter a question without links or markup"},400);
     const {count}=await db.from("live_audience_questions").select("id",{count:"exact",head:true}).eq("session_id",s.id).eq("participant_id",p.id);
     if((count||0)>=3)return reply({error:"Maximum three questions per participant"},429);
     const {error}=await db.from("live_audience_questions").insert({session_id:s.id,participant_id:p.id,body});return error?reply({error:"Question not accepted"},409):reply({submitted:true});
