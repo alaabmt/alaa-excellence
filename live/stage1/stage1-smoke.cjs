@@ -16,4 +16,5 @@ assert(edge.includes('Date.now()>=Date.parse(s.vote_deadline_at)'),'timer expiry
 assert(sql.includes('enable row level security'),'Q&A RLS missing');
 assert(sql.includes('revoke all on public.live_audience_questions from anon, authenticated'),'Q&A direct access not revoked');
 assert(!/https?:\/\/[^\s]+/.test(''),'offline only');
+require('node:child_process').execFileSync(process.execPath,['--test','live/qa/stage1_contract.test.mjs'],{stdio:'inherit',timeout:15000});
 console.log('PASS: Tamayuz Live stage 1 source integrity and frontend syntax (offline; not E2E)');
