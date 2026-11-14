@@ -25,8 +25,8 @@ test('ranking and image click are wired across editor, audience and Edge', () =>
 test('Q&A requires participant authorization and presenter moderation', () => {
   for (const action of ['qna_list', 'qna_submit', 'qna_upvote', 'qna_moderate', 'qna_toggle', 'qna_presenter_list'])
     assert.ok(edge.includes('"' + action + '"'), action + ' missing');
-  assert.match(edge, /token_hash.*await hash\\(token\\)/);
-  assert.match(edge, /sessionByToken\\(id,token\\)/);
+  assert.ok(edge.includes('token_hash') && edge.includes('await hash(token)'));
+  assert.ok(edge.includes('sessionByToken(id,token)'));
   assert.match(sql, /enable row level security/g);
 });
 test('timer expiry is enforced by the server and configurable in editor', () => {
@@ -37,7 +37,7 @@ test('timer expiry is enforced by the server and configurable in editor', () => 
   assert.ok(sql.includes('vote_deadline_at'));
 });
 test('stage-1 SQL remains non-destructive and scoped to Live', () => {
-  assert.doesNotMatch(sql, /\\bdrop\\s+(table|schema)\\b/i);
-  assert.doesNotMatch(sql, /\\b(auth\\.|billing\\.|cphq)\\b/i);
+  assert.ok(!sql.toLowerCase().includes('drop table') && !sql.toLowerCase().includes('drop schema'));
+  assert.ok(!sql.includes('auth.') && !sql.includes('billing.') && !sql.includes('cphq'));
   assert.match(sql, /revoke all on public.live_audience_questions from anon, authenticated/);
 });
