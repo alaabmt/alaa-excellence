@@ -101,14 +101,15 @@ Deno.serve(async(req)=>{
    if(correctAnswer&&!options.includes(correctAnswer))return reply({error:"Correct answer must match an option"},400);
    if(b.media_type==="image"&&!safe(b.media_path,220).startsWith("questions/"+pid+"/"))return reply({error:"Invalid image reference"},400);
    if(b.media_type==="video"&&!videoUrl(b.media_video_url))return reply({error:"Valid YouTube or Vimeo URL required"},400);
+   if(b.timer_seconds!=null&&(!Number.isInteger(Number(b.timer_seconds))||Number(b.timer_seconds)<10||Number(b.timer_seconds)>600))return reply({error:"Timer must be 10–600 seconds"},400);
    const {data:existing}=await db.from("live_questions").select("position").eq("presentation_id",pid).order("position",{ascending:false}).limit(1);
-   const {data,error}=await db.from("live_questions").insert({presentation_id:pid,prompt,kind,options,correct_answer:correctAnswer||null,answer_justification:safe(b.answer_justification,6000),answer_effect:safe(b.answer_effect,6000),show_explanation_on_reveal:typeof b.show_explanation_on_reveal==="boolean"?b.show_explanation_on_reveal:null,media_type:b.media_type==="image"?"image":b.media_type==="video"?"video":null,media_path:b.media_type==="image"?safe(b.media_path,220):null,media_video_url:b.media_type==="video"?videoUrl(b.media_video_url):null,position:(existing?.[0]?.position??-1)+1}).select("id").single();
+   const {data,error}=await db.from("live_questions").insert({presentation_id:pid,prompt,kind,options,correct_answer:correctAnswer||null,answer_justification:safe(b.answer_justification,6000),answer_effect:safe(b.answer_effect,6000),show_explanation_on_reveal:typeof b.show_explanation_on_reveal==="boolean"?b.show_explanation_on_reveal:null,media_type:b.media_type==="image"?"image":b.media_type==="video"?"video":null,media_path:b.media_type==="image"?safe(b.media_path,220):null,media_video_url:b.media_type==="video"?videoUrl(b.media_video_url):null,timer_seconds:b.timer_seconds==null?null:Number(b.timer_seconds),position:(existing?.[0]?.position??-1)+1}).select("id").single();
    return error?reply({error:"Cannot add question"},400):reply({question:data});
   }
   if(action==="list_questions"){
    if(!(await owner(req)))return reply({error:"Owner authorization required"},403);
    const pid=safe(b.presentation_id,40);
-   const {data,error}=await db.from("live_questions").select("id,prompt,kind,options,position,correct_answer,answer_justification,answer_effect,show_explanation_on_reveal,media_type,media_path,media_video_url").eq("presentation_id",pid).order("position");
+   const {data,error}=await db.from("live_questions").select("id,prompt,kind,options,position,correct_answer,answer_justification,answer_effect,show_explanation_on_reveal,media_type,media_path,media_video_url,timer_seconds").eq("presentation_id",pid).order("position");
    const {data:prefs}=await db.from("live_presentations").select("default_show_explanation_on_reveal").eq("id",pid).maybeSingle();return error?reply({error:"Cannot list questions"},400):reply({questions:await mediaRows((data||[]).map((x:any)=>({...x,reveal_override:x.show_explanation_on_reveal,show_explanation_on_reveal:x.show_explanation_on_reveal??(prefs?.default_show_explanation_on_reveal!==false)}))),default_show_explanation_on_reveal:prefs?.default_show_explanation_on_reveal!==false});
   }
   if(action==="update_question"){
@@ -117,7 +118,7 @@ Deno.serve(async(req)=>{
    if(!prompt)return reply({error:"Question cannot be empty"},400);
    const {data:old}=await db.from("live_questions").select("id,kind,options,correct_answer").eq("id",id).eq("presentation_id",pid).maybeSingle();
    if(!old)return reply({error:"Question not found"},404);
-   const patch:any={prompt};
+   const patch:any={prompt};if(b.timer_seconds!==undefined){if(b.timer_seconds!==null&&(!Number.isInteger(Number(b.timer_seconds))||Number(b.timer_seconds)<10||Number(b.timer_seconds)>600))return reply({error:"Timer must be 10–600 seconds"},400);patch.timer_seconds=b.timer_seconds===null?null:Number(b.timer_seconds)}
    if(b.options!==undefined){
     if(old.kind!=="choice"||!Array.isArray(b.options))return reply({error:"Options not supported for this question"},400);
     const options=b.options.slice(0,8).map((x:any)=>safe(x,400)).filter(Boolean);
@@ -322,6 +323,16 @@ Deno.serve(async(req)=>{
    }
    const {data:updated,error}=await db.from("live_sessions").update({vote_deadline_at:deadline,revision:s.revision+1}).eq("id",id).eq("revision",s.revision).select("*").maybeSingle();
    return error||!updated?reply({error:"Concurrent change; retry"},409):reply({session:(await state(updated)).session});
+  }
+  if(action==="qna_presenter_list"){
+   const id=safe(b.session_id,40),token=safe(b.presenter_token,128);
+   if(!(await sessionByToken(id,token))&&!(await owner(req)))return reply({error:"Presenter authorization required"},403);
+   const {data:questions,error}=await db.from("live_audience_questions").select("id,body,status,created_at").eq("session_id",id).order("created_at",{ascending:false}).limit(100);
+   if(error)return reply({error:"Could not load Q&A"},500);
+   const ids=(questions||[]).map((q:any)=>q.id);
+   const {data:votes}=ids.length?await db.from("live_audience_question_upvotes").select("question_id").in("question_id",ids).limit(10000):{data:[]};
+   const counts=new Map<string,number>();for(const v of votes||[])counts.set(v.question_id,(counts.get(v.question_id)||0)+1);
+   return reply({questions:(questions||[]).map((q:any)=>({...q,upvotes:counts.get(q.id)||0})).sort((a:any,b:any)=>b.upvotes-a.upvotes||a.created_at.localeCompare(b.created_at))});
   }
   if(action==="qna_toggle"||action==="qna_moderate"){
    const id=safe(b.session_id,40),token=safe(b.presenter_token,128);
