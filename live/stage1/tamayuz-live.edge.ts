@@ -383,7 +383,7 @@ Deno.serve(async(req)=>{
    const {data:p}=await db.from("live_participants").select("id").eq("session_id",s.id).eq("token_hash",await hash(token)).maybeSingle();if(!p)return reply({error:"Invalid participant"},403);
    const {data:q}=await db.from("live_questions").select("*").eq("id",s.active_question_id).single();if(!q)return reply({error:"Question missing"},404);
    const wordcloud=q.kind==="text"&&Array.isArray(q.options)&&q.options.includes("__wordcloud__");
-   const answer=wordcloud?safe(b.answer,60).trim():safe(b.answer,400);
+   const answer=wordcloud?safe(b.answer,60).trim():safe(b.answer,q.kind==="ranking"?1600:400);
    if(q.kind==="ranking"){
     let order:any;try{order=JSON.parse(answer)}catch{return reply({error:"Invalid ranking"},400)}
     if(!Array.isArray(order)||order.length!==q.options?.length||!order.every((x:any)=>typeof x==="string")||new Set(order).size!==order.length||order.some((x:string)=>!q.options.includes(x)))return reply({error:"Ranking must include every option exactly once"},400);
