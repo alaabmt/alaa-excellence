@@ -892,7 +892,7 @@ body.live-presenter-page .before-after-metrics{display:flex;flex-wrap:wrap;gap:1
 .qm-defaults{margin:12px 0;display:grid;gap:10px}.qm-defaults h2{margin:0;font-size:17px}.qm-defaults .qm-actions{display:flex;gap:8px;flex-wrap:wrap}
 .qm-media-editor{display:grid;gap:10px;margin:12px 0}.qm-media-editor [hidden]{display:none}.qm-media-editor input,.qm-media-editor select{max-width:100%}.live-question-media{margin:12px auto;max-width:720px;text-align:center}.live-question-media img{display:block;max-width:100%;max-height:38vh;object-fit:contain;margin:auto;border-radius:8px}.live-question-media iframe{width:100%;aspect-ratio:16/9;border:0;border-radius:8px}
 .stage1-qna{margin-top:12px;padding:10px;border:1px solid #526077;border-radius:10px}.stage1-qna-item{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:8px;border-bottom:1px solid #526077}.stage1-qna-item button{width:auto;flex-shrink:0}.stage1-timer{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:8px 0}.stage1-clock{font-weight:800;font-variant-numeric:tabular-nums}.stage1-clock.expired{color:#d45}
-.live-click-image{position:relative;display:inline-block;max-width:100%;touch-action:manipulation}.live-click-image img{display:block;max-width:100%;max-height:50vh;object-fit:contain;cursor:crosshair}.live-click-image span{position:absolute;transform:translate(-50%,-50%);color:#e34;font-size:26px;pointer-events:none}.stage1-qna-item button{min-width:40px}
+.live-click-image{position:relative;display:inline-block;max-width:100%;touch-action:manipulation}.live-click-image img{display:block;max-width:100%;max-height:50vh;object-fit:contain;cursor:crosshair}.live-click-image .live-heat-dot{position:absolute;display:block;width:12px;height:12px;border-radius:50%;background:rgba(225,45,65,.65);transform:translate(-50%,-50%);pointer-events:none}.live-click-image span{position:absolute;transform:translate(-50%,-50%);color:#e34;font-size:26px;pointer-events:none}.stage1-qna-item button{min-width:40px}
 </style><script src="/assets/js/auth-config.js"></script></head><body><header><strong>LIVE · Personal Conference Tool</strong><div class="actions"><button id="theme-toggle" class="secondary" type="button" aria-label="Switch color mode" aria-pressed="false">Dark mode</button><button id="home-link" class="secondary">Home</button><button id="language" class="secondary">العربية</button></div></header><main><div id="app" aria-live="polite"></div></main><footer>Personal conference polling · Tamayuz 10X</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" defer></script><script>
 (()=>{"use strict";
 const ENDPOINT="https://dqrsjhcfmpjhcxvtxosy.supabase.co/functions/v1/tamayuz-live";
@@ -1433,6 +1433,7 @@ async function presenterPage(){
   if(results){
    const total=v.count||0;
    if(!selected)results.innerHTML="";
+   else if(selected.kind==="ranking"||selected.kind==="image_click")results.innerHTML=interactiveResults(v,selected);
    else if(isWordCloud(selected))results.innerHTML='<div class="stage-count"><strong>'+total+'</strong><span>'+t("responses","إجابة")+'</span></div>'+wordCloudMarkup(v.aggregate);
    
    else{
@@ -1449,7 +1450,22 @@ async function presenterPage(){
 }
 
 let audienceBusy=false,audienceSubmitting=false,audienceSnapshotKey="",audienceLastResponse=null;
+function interactiveResults(v,q){
+ const total=Number(v.count)||0;
+ if(q.kind==="ranking"){
+  const scores=new Map((q.options||[]).map(x=>[x,{sum:0,weight:0}]));
+  for(const entry of v.aggregate||[]){try{const order=JSON.parse(entry.answer);if(!Array.isArray(order)||order.length!==scores.size||new Set(order).size!==scores.size||order.some(x=>!scores.has(x)))continue;const votes=Number(entry.votes)||0;order.forEach((x,i)=>{const item=scores.get(x);item.sum+=(i+1)*votes;item.weight+=votes})}catch{}}
+  return '<section class="audience-results"><h3>'+t("Average ranking","متوسط الترتيب")+' · '+total+' '+t("responses","إجابة")+'</h3>'+[...scores].map(([label,value])=>({label,average:value.weight?value.sum/value.weight:null})).sort((a,b)=>(a.average??Infinity)-(b.average??Infinity)).map((item,i)=>'<p><strong>'+(i+1)+'. '+esc(item.label)+'</strong> · '+(item.average===null?"—":item.average.toFixed(2))+'</p>').join("")+'</section>';
+ }
+ if(q.kind==="image_click"){
+  let valid=0;const dots=[];
+  for(const entry of v.aggregate||[]){try{const xy=JSON.parse(entry.answer);if(!Array.isArray(xy)||xy.length!==2||xy.some(x=>typeof x!=="number"||x<0||x>1))continue;const count=Math.min(1000,Number(entry.votes)||0);valid+=count;for(let i=0;i<count;i++)dots.push('<span class="live-heat-dot" style="left:'+(xy[0]*100).toFixed(2)+'%;top:'+(xy[1]*100).toFixed(2)+'%"></span>')}catch{}}
+  const url=String(q.media_url||"");return '<section class="audience-results"><h3>'+t("Audience selections","اختيارات الجمهور")+' · '+total+' '+t("responses","إجابة")+'</h3>'+(url.startsWith("https://")?'<div class="live-click-image"><img src="'+esc(url)+'" alt="'+t("Image with audience selections","الصورة مع اختيارات الجمهور")+'">'+dots.join("")+'</div>':"")+'</section>';
+ }
+ return "";
+}
 function audienceResults(v,q){
+ if(q.kind==="ranking"||q.kind==="image_click")return interactiveResults(v,q);
  const counts=new Map((v.aggregate||[]).map(x=>[String(x.answer),Number(x.votes)||0]));
  const labels=q.kind==="choice"?(q.options||[]):q.kind==="rating"?["1","2","3","4","5"]:[...counts.keys()];
  const total=v.count||0;
