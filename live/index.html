@@ -1492,7 +1492,7 @@ async function audiencePage(force=false){
   const key=[s.id,q?.id||"",s.state,voted,reveal].join("|");
   const changed=key!==audienceSnapshotKey||!$("audience-root")||!$("poll");
   if(audienceErrorShown){audienceErrorShown=false;if($("notice")&&$("notice").className==="error")notice("")}
-  if(!changed&&!force){if($("stage1-audience-qna"))stage1AudienceQna(code);
+  if(!changed&&!force){stage1Clock($("stage1-audience-clock"),s.vote_deadline_at);if($("stage1-audience-qna")){$("stage1-audience-qna").hidden=!s.qna_enabled;if(s.qna_enabled)stage1AudienceQna(code)}
    /* Audience never receives live totals; only the presenter displays them. */
    return;
   }
