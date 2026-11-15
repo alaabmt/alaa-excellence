@@ -2366,6 +2366,27 @@
         "subtitle": "Truthful speech opens a path to repair the effects of error.",
         "alt": "Navy and gold symbolic cover for a reflection on Al-Ahzab 33:70–71, showing clear speech opening a path to correct a decision built on wrong information."
       }
+    },
+    {
+      "slug": "article-preventive-engineering-lpg-station-fmea",
+      "background": "assets/previews/story-backgrounds/article-preventive-engineering-lpg-station-fmea.jpg",
+      "category": "prevention",
+      "ar": {
+        "title": [
+          "هل قلّ الخطر",
+          "فعلًا؟"
+        ],
+        "subtitle": "محطة لتعبئة الغاز المسال",
+        "alt": "غلاف سلسلة منهجية هندسة الوقاية (FMEA) بالكحلي والذهبي بعنوان «هل قلّ الخطر فعلًا؟»، عن محطة لتعبئة الغاز المسال."
+      },
+      "en": {
+        "title": [
+          "Did the Risk",
+          "Really Fall?"
+        ],
+        "subtitle": "FMEA at an LPG filling station.",
+        "alt": "Navy and gold FMEA · Failure Mode & Effects Analysis cover titled “Did the Risk Really Fall?” about an LPG filling station."
+      }
     }
   ]
 }
