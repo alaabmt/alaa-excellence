@@ -22,29 +22,29 @@ html,body{width:100%;max-width:100%;overflow-x:hidden}body{position:relative}.si
 <section>
 <h2>What problem did the engineers face?</h2>
 <p>An electric bike relies on software that controls its motor and speed. The study’s model of that software was built in Simulink, a modeling tool. The model comes from a European green-mobility project whose partners include Brembo and Pirelli. Building it took about 100 hours. But the engineers had not analyzed the safety of the design. <a href="#ref-1" class="citation">[1]</a></p>
-<p>Safety matters here. The study says most European countries set 25 kilometers per hour as the maximum speed of an e-bike. A software fault could push the bike past that limit. In the simulation of one fault, the bike also braked without any command from the rider. <a href="#ref-1" class="citation">[1]</a></p>
-<p>The study is a preprint, meaning an early version posted online. Researchers from the University of Bergamo posted it on arXiv, a public site for preprints, in September 2025. The version we read says the replication package will be released “upon acceptance.” We did not check whether a reviewed version has appeared since. <a href="#ref-1" class="citation">[1]</a></p>
+<p>The study says most European countries set 25 kilometers per hour as the maximum speed of an e-bike. A software fault could push the bike past that limit. In the simulation of one fault, the bike also braked without any command from the rider. <a href="#ref-1" class="citation">[1]</a></p>
+<p>Researchers from the University of Bergamo posted it on arXiv, a public site for preprints, in September 2025. The version we read says the replication package will be released “upon acceptance.” We did not check whether a reviewed version has appeared since. <a href="#ref-1" class="citation">[1]</a></p>
 </section>
 
 <section>
 <h2>How did the researchers analyze the faults?</h2>
-<p>Failure mode and effects analysis (FMEA) asks, before any harm happens: how could each part fail, and what would follow? They used simulation-driven FMEA. A fault is injected into the software model, and a simulation shows its effect. They used the Simulink Fault Analyzer, a tool from MathWorks. <a href="#ref-1" class="citation">[1]</a></p>
-<p>Two researchers identified 15 faults, such as a broken speed sensor, a noisy sensor, a stuck value, and an error in the controller that regulates speed, a PID (proportional-integral-derivative) controller. The designer of the software scored each fault from 1 to 5 for plausibility, frequency, and criticality. Two faults scored below 3 on all three measures, so the researchers dropped them. That left 13 realistic faults. <a href="#ref-1" class="citation">[1]</a></p>
+<p>Failure mode and effects analysis (FMEA) asks, before any harm happens: how could each part fail, and what would follow? The researchers used simulation-driven FMEA. A fault is injected into the software model, and a simulation shows its effect. They used the Simulink Fault Analyzer, a tool from MathWorks. <a href="#ref-1" class="citation">[1]</a></p>
+<p>Two researchers identified 15 faults. Examples are a broken speed sensor, a noisy sensor, and a stuck value. Another is an error in the speed controller, a PID (proportional-integral-derivative) controller. The designer of the software scored each fault from 1 to 5 for plausibility, frequency, and criticality. Two faults scored below 3 on all three measures, so the researchers dropped them. That left 13 realistic faults. <a href="#ref-1" class="citation">[1]</a></p>
 <p>Then the designer was asked what effect each fault would have, and the answer was compared with the simulation. The 1-to-5 scores were used to choose faults. The study does not use the Severity, Occurrence, Detection (S/O/D) scores or the risk priority number. <a href="#ref-1" class="citation">[1]</a></p>
 </section>
 
 <section>
 <h2>What did the study find?</h2>
-<p>The expert confirmed that the models of 7 of the 13 faults were accurate. For the other 6, minor inaccuracies were fixed. The designer’s expectation was right for 8 faults (about 62%), and simulation differed for 5 (about 38%). The paper prints 61.6% and 38.4%. Scores are from Table III and expectations from Table V. Table VI lists only the mismatches, so we mark F1 and F2 as matches because they are absent from it. <a href="#ref-1" class="citation">[1]</a></p>
-<div class="table-wrap"><table class="pe-table"><caption>Five faults from the study: the designer’s scores (plausibility, frequency, criticality), the designer’s expectation, and what simulation showed (our summary of Tables III, V, and VI)</caption><thead><tr><th>Fault</th><th>Scores</th><th>What the designer expected</th><th>What simulation showed</th><th>Match</th></tr></thead><tbody>
+<p>The expert confirmed that the models of 7 of the 13 faults were accurate. For the other 6, minor inaccuracies were fixed. Separately, the designer’s expectation was right for 8 faults (about 62%), and simulation differed for 5 (about 38%). The paper prints 61.6% and 38.4%. Scores are from Table III and expectations from Table V. Table VI lists only the mismatches, so we mark F1 and F2 as matches because they are absent from it. F13 and F15 are among the five faults where simulation differed, because it showed effects the designer did not expect. <a href="#ref-1" class="citation">[1]</a></p>
+<div class="table-wrap"><table class="pe-table"><caption>Five faults from the study: the designer’s scores (plausibility, frequency, criticality), the designer’s expectation, and what simulation showed (our summary of Tables III, V, and VI, and the paper’s text)</caption><thead><tr><th>Fault</th><th>Scores</th><th>What the designer expected</th><th>What simulation showed</th><th>Match</th></tr></thead><tbody>
 <tr><td>Broken speed sensor (F1)</td><td>4 · 4 · 5</td><td>A high motor drive signal and high current in at least one motor phase</td><td>Matched the expectation</td><td>Yes</td></tr>
 <tr><td>Noisy speed sensor (F2)</td><td>4 · 2 · 1</td><td>The motor drive signal reaches its maximum</td><td>Matched the expectation</td><td>Yes</td></tr>
 <tr><td>Noisy sector sensor (F7), which reports the motor’s active sector</td><td>4 · 2 · 1</td><td>Very high currents until the motor stops</td><td>The simulation stopped with an error, because the model does not handle an invalid value</td><td>No</td></tr>
 <tr><td>Amplified controller output (F13)</td><td>4 · 2 · 3</td><td>Unnecessary acceleration</td><td>Clear swings, then a return to normal behavior</td><td>Partly</td></tr>
 <tr><td>Constant controller output (F15)</td><td>3 · 2 · 5</td><td>The motor accelerates until its electrical forces balance</td><td>Repeated swings between very high and very low speeds and currents, and speed above the legal limit</td><td>Partly</td></tr>
 </tbody></table></div>
-<p class="visual-takeaway">In F7, the simulation stopped because of a flaw in the model of the three-phase inverter, the part that turns direct current into alternating current for the motor. The model had not allowed for an invalid value from the sensor. In F15, the bike reached about 40 kilometers per hour, above the legal cap, and braked at about 2 meters per second squared without a rider command. <a href="#ref-1" class="citation">[1]</a></p>
-<p>For F2, the expert suggested a mitigation: a backup sensor takes over when noise passes a threshold. In simulation, the bike then followed the requested speed. <a href="#ref-1" class="citation">[1]</a></p>
+<p class="visual-takeaway">In F7, the simulation stopped because of a flaw in the model of the three-phase inverter. This part turns direct current into alternating current for the motor. The model had not allowed for an invalid value from the sensor. In F15, the bike reached about 40 kilometers per hour, above the legal cap. It also braked at about 2 meters per second squared without a rider command. <a href="#ref-1" class="citation">[1]</a></p>
+<p>For F2, the expert suggested a mitigation: a backup sensor takes over when noise passes a threshold. In simulation, the bike then followed the requested speed more closely. <a href="#ref-1" class="citation">[1]</a></p>
 </section>
 
 <section>
@@ -61,7 +61,7 @@ html,body{width:100%;max-width:100%;overflow-x:hidden}body{position:relative}.si
 <tr><td>8. Verification</td><td>Simulation of that one mitigation only.</td></tr>
 <tr><td>9. Ongoing review</td><td>The expert adds new faults, such as battery degradation, to the continuing safety assessment.</td></tr>
 </tbody></table></div>
-<p class="visual-takeaway">The study compares an expert’s prediction with an experimental result. But it does not rank the risks, and it does not measure the effect of mitigating all of them.</p>
+<p class="visual-takeaway">The study compares an expert’s prediction with an experimental result. But it does not rank the risks, and it tests a mitigation for only one fault.</p>
 </section>
 
 <section class="limits">
@@ -70,13 +70,12 @@ html,body{width:100%;max-width:100%;overflow-x:hidden}body{position:relative}.si
 <ul>
 <li>The expert whose expectations were compared is one of the paper’s authors, not an independent party.</li>
 <li>The researchers chose and injected the faults. The authors note that other models and triggers could give different results.</li>
-<li>The study does not combine its scores into a ranking. It simulates a mitigation for only one fault and reports no other results after a design change.</li>
-<li>The mitigation shown covers one fault of 13, so we do not know its effect on the others.</li>
+<li>Only one fault (F2) has a simulated mitigation, so we do not know how mitigation would work for the other 12. The study also reports no ranking of risks.</li>
 <li>The authors retrospectively estimate about six months of effort to learn the domain and design the faults.</li>
 <li>The researchers discussed their lessons with experts from the company that makes the tool, so read its claimed benefits with care.</li>
 <li>The study says the model and interview transcripts are available through a link, and the replication package comes upon acceptance. We did not open these materials.</li>
 </ul>
-<p>In an independent study, Shebl and colleagues tested two hospital teams. They found that other health professionals identified failures that both FMEA teams had missed. <a href="#ref-2" class="citation">[2]</a> This fits the idea that one expert’s expectation does not cover every fault. But it comes from another field, and it does not show that simulation covers them.</p>
+<p>In an independent study, Shebl and colleagues followed two hospital teams that each ran an FMEA. Other health professionals identified failures the teams had missed. <a href="#ref-2" class="citation">[2]</a> This fits the idea that one expert’s expectation does not cover every fault. But it comes from another field, and it does not show that simulation covers them.</p>
 </section>
 
 <section>
