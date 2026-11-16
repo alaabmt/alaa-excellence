@@ -1745,6 +1745,27 @@
       }
     },
     {
+      "slug": "article-oe-evidence-surgical-safety-checklist",
+      "background": "assets/previews/story-backgrounds/article-oe-evidence-surgical-safety-checklist.jpg",
+      "category": "article",
+      "ar": {
+        "title": [
+          "قائمة تحقق",
+          "قبل العملية"
+        ],
+        "subtitle": "ماذا تقول خمس دراسات؟",
+        "alt": "غلاف توضيحي بالكحلي والذهبي لمقال عن قائمة التحقق من السلامة الجراحية، تظهر فيه لوحة عليها ثلاث علامات صح."
+      },
+      "en": {
+        "title": [
+          "A Checklist",
+          "Before Surgery"
+        ],
+        "subtitle": "What five studies show",
+        "alt": "Navy and gold editorial cover for an article about the surgical safety checklist, showing a clipboard with three check marks."
+      }
+    },
+    {
       "slug": "article-oe-evidence-audit-and-feedback",
       "background": "assets/previews/story-backgrounds/article-oe-evidence-audit-and-feedback.jpg",
       "category": "article",
