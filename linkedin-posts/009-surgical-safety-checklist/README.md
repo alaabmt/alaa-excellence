@@ -1,9 +1,9 @@
 # LinkedIn Post 009 — قائمة تحقق في العمليات الجراحية / A checklist before surgery
 
 **Format:** LinkedIn document (carousel), 8 slides, 1080×1350, two separate posts: Arabic (`carousel-ar.pdf`) and English (`carousel-en.pdf`). The English version is written as original English, not a translation.
-**Website article (draft):** https://tamayuz10x.com/article-oe-evidence-surgical-safety-checklist.html and https://tamayuz10x.com/en/article-oe-evidence-surgical-safety-checklist.html (draft PR #233; the links work only after approval and merge).
+**Website article:** https://tamayuz10x.com/article-oe-evidence-surgical-safety-checklist.html and https://tamayuz10x.com/en/article-oe-evidence-surgical-safety-checklist.html (PR #233, squash merge 8c3f312, live 2026-11-16).
 **Editorial review:** article, slides and captions reviewed with the owner's `arabic-editorial-reviewer` and `english-editorial-reviewer` agents; all BLOCK/FIX findings fixed before delivery.
-**Status:** Draft, waiting for the owner's approval. Nothing published.
+**Status:** Approved by the owner on 2026-11-16. Article live; Arabic post published; English post scheduled about two hours later.
 
 | File | Purpose |
 |---|---|
@@ -40,6 +40,6 @@ Checked on 16 Nov 2026 against the PubMed abstracts (efetch); DOIs checked with 
 
 | Item | Status | Link |
 |---|---|---|
-| Website article | Draft PR #233 | — |
-| Arabic post | Waiting for approval | — |
-| English post | Waiting for approval | — |
+| Website article | Live 2026-11-16 (PR #233) | https://tamayuz10x.com/article-oe-evidence-surgical-safety-checklist.html |
+| Arabic post | Published 2026-11-16 (urn:li:ugcPost:7527992133295853568) | https://www.linkedin.com/feed/update/urn:li:ugcPost:7527992133295853568/ |
+| English post | Scheduled about 2 hours after the Arabic post | — |
