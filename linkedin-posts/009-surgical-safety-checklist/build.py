@@ -106,7 +106,7 @@ en=[]
 en.append(('dark',f"""<div class="cover-logo">{imgs("logo")}</div>
   <div class="kicker">Operational Excellence · What the research says</div>
   <h1 style="font-size:64px">The World Health Organization designed a checklist for surgical teams.</h1>
-  <h1 class="dim" style="margin-top:16px;font-size:46px">In eight hospitals, deaths fell after it was introduced. In 101 Ontario hospitals, there was no clear difference.</h1>
+  <h1 class="dim" style="margin-top:16px;font-size:46px">In eight hospitals, deaths fell after it was introduced. In 101 Ontario hospitals, death and complication rates showed no clear change after adoption.</h1>
   <p class="lead">What might explain the gap? Here is what five studies, published from 2009 to 2025, show.</p>
   <div class="swipe">Swipe →</div>""",EN_NAME))
 en.append(('',f"""<div class="kicker">The idea</div>
@@ -121,7 +121,7 @@ en.append(('',f"""<div class="kicker">The first study</div>
   </div>
   <p class="small" style="margin-top:16px">Patients were 16 or older and had surgery other than heart surgery. Both drops were too large to be explained by chance alone, but this was a before-and-after study.</p>""",C1))
 en.append(('',f"""<div class="kicker">The Ontario study</div>
-  <h2>In 101 Ontario hospitals, no clear difference</h2>
+  <h2>In 101 Ontario hospitals, no clear change after adoption</h2>
   <div style="margin-top:18px">
     <div class="stat"><span class="n" {SL}>0.65%</span><p>adjusted death rate after adoption, compared with 0.71% before.</p></div>
     <div class="stat"><span class="n" {SL}>3.82%</span><p>adjusted complication rate after adoption, compared with 3.86% before.</p></div>
@@ -130,16 +130,16 @@ en.append(('',f"""<div class="kicker">The Ontario study</div>
 en.append(('',f"""<div class="kicker">How is the checklist used?</div>
   <h2>The checklist is not always used at every step</h2>
   <div style="margin-top:18px">
-    <div class="stat"><span class="n" {SL}>38%</span><p>of 300 studies gave even some description of how the checklist was actually used.</p></div>
+    <div class="stat"><span class="n" {SL}>38%</span><p>of 300 studies gave at least some description of how the checklist was actually used.</p></div>
     <div class="stat"><span class="n" {SL}>61%</span><p>average compliance for the step before the first incision, in a review of 13 studies. It was 76% for the step before anesthesia.</p></div>
   </div>
   <p class="small" style="margin-top:16px">Compliance asks whether the checklist was used; definitions varied between studies.</p>""",C3))
 en.append(('amber',f"""<div class="kicker">What helped compliance?</div>
-  <h2 style="margin-top:20px">Training, management support, and follow-up helped</h2>
+  <h2 style="margin-top:20px">Training, management support, and follow-up were linked to higher compliance</h2>
   <ul class="clean">
-    <li {LI}>Earlier experience with the checklist and training helped.</li>
-    <li {LI}>Management support and a positive work environment helped.</li>
-    <li {LI}>Regular monitoring with feedback to teams helped.</li>
+    <li {LI}>Earlier experience with the checklist, and training.</li>
+    <li {LI}>Management support and a positive work environment.</li>
+    <li {LI}>Regular monitoring, with feedback to teams.</li>
   </ul>
   <p class="small" style="margin-top:20px">Barriers included too few staff, heavy workloads, and no one owning the checklist.</p>""",C4))
 en.append(('dark',f"""<div class="kicker">The author's reading of the studies</div>
