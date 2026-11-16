@@ -1,0 +1,67 @@
+{
+  "article": "article-oe-evidence-surgical-safety-checklist.html",
+  "headline": "ماذا حدث حين بدأت مستشفيات تستخدم قائمة تحقق في العمليات الجراحية؟",
+  "reviewed_at": "2026-11-16",
+  "reviewer": "AI editorial review using the owner's arabic-editorial-reviewer and english-editorial-reviewer agents (not a human reader test)",
+  "introduction_answers": {
+    "problem": "في غرفة العمليات قد يظن كل فرد في الفريق أن غيره تأكد من أمر مهم.",
+    "who": "فرق العمليات الجراحية في المستشفيات، ومرضاها.",
+    "change": "قائمة تحقق من منظمة الصحة العالمية؛ انخفضت الوفيات في ثماني مستشفيات، ولم يظهر فرق واضح في 101 مستشفى بأونتاريو."
+  },
+  "summary": "قائمة التحقق الجراحية ارتبطت بانخفاض الوفيات في دراسة ثماني مستشفيات، ولم يظهر لها أثر واضح في أونتاريو، وتشير المراجعات إلى أن طريقة استخدامها تفسّر جزءًا من الفرق.",
+  "gates": {
+    "title": "PASS",
+    "introduction": "PASS",
+    "summary": "PASS",
+    "terminology": "PASS",
+    "evidence": "PASS",
+    "mobile": "PASS",
+    "language": "PASS"
+  },
+  "terminology_evidence": "Surgical safety checklist, before-and-after study, systematic review, statistical significance, compliance and completeness are explained at first use or in the glossary.",
+  "language_evidence": "Arabic and English reviewed with the owner's arabic-editorial-reviewer and english-editorial-reviewer agents; all BLOCK/FIX findings applied before delivery. Editorial simulation, not a human reader test.",
+  "mobile_evidence": {
+    "method": "Playwright Chromium browser, 320/375/390/430px viewports",
+    "results": "editorial-qa/mobile-artifacts/oe-checklist-results.json",
+    "screenshots": [
+      "editorial-qa/mobile-artifacts/oe-checklist-320.png",
+      "editorial-qa/mobile-artifacts/oe-checklist-375.png",
+      "editorial-qa/mobile-artifacts/oe-checklist-390.png",
+      "editorial-qa/mobile-artifacts/oe-checklist-430.png"
+    ],
+    "scope": "Automated rendered-layout verification; screenshots retained for human visual review"
+  },
+  "source_evidence": [
+    {
+      "claim": "8 hospitals in 8 cities incl. Amman, Jordan; 2007-2008; 19-item checklist; 3,733 patients before, 3,955 after; deaths 1.5% to 0.8%; inpatient complications 11.0% to 7.0%",
+      "url": "https://doi.org/10.1056/NEJMsa0810119",
+      "location": "PubMed abstract PMID 19144931",
+      "assessment": "Before-and-after study (Haynes et al., 2009)"
+    },
+    {
+      "claim": "Ontario policy encouraging universal adoption; 101 hospitals; 109,341 and 106,370 procedures in 3-month periods before/after; death 0.71% vs 0.65% (OR 0.91, P=0.13); complications 3.86% vs 3.82% (P=0.29)",
+      "url": "https://doi.org/10.1056/NEJMsa1308261",
+      "location": "PubMed abstract PMID 24620866",
+      "assessment": "Before-and-after study using administrative data (Urbach et al., 2014)"
+    },
+    {
+      "claim": "20 systematic reviews; 24 observational pre-post cohort studies; mortality, morbidity, SSI and other outcomes favored the checklist; DVT did not",
+      "url": "https://doi.org/10.1016/j.jamcollsurg.2021.08.692",
+      "location": "PubMed abstract PMID 34592406",
+      "assessment": "Review of systematic reviews (Sotto et al., 2021)"
+    },
+    {
+      "claim": "300 studies; 38% described how the checklist was completed; clearer positive relationship for provider outcomes (communication, understanding, safety culture) than patient outcomes",
+      "url": "https://doi.org/10.1136/bmjqs-2021-014361",
+      "location": "PubMed abstract PMID 35393355",
+      "assessment": "Systematic review (Armstrong et al., 2022)"
+    },
+    {
+      "claim": "13 observational studies, 17,867 participants; overall compliance 73%; Sign In 76%, Time Out 61%, Sign Out 62%; completeness 51%; facilitators and barriers listed",
+      "url": "https://doi.org/10.1186/s12913-025-12569-0",
+      "location": "PubMed abstract PMID 40186199",
+      "assessment": "Systematic review and meta-analysis (Habtie et al., 2025)"
+    }
+  ],
+  "decision": "CI candidate PASS only; authoritative approval is successful GitHub Actions job"
+}
