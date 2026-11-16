@@ -126,7 +126,7 @@ en.append(('',f"""<div class="kicker">The Ontario study</div>
     <div class="stat"><span class="n" {SL}>0.65%</span><p>adjusted death rate after adoption, compared with 0.71% before.</p></div>
     <div class="stat"><span class="n" {SL}>3.82%</span><p>adjusted complication rate after adoption, compared with 3.86% before.</p></div>
   </div>
-  <p class="small" style="margin-top:16px">Adjusted rates take account of differences between patients in the two periods. Neither difference was statistically significant, meaning it was not larger than chance alone could produce, so either could be due to chance. These figures should not be compared with the previous slide, because the patients and the definition of complications differed.</p>""",C2))
+  <p class="small" style="margin-top:16px">Adjusted rates take account of differences between patients in the two periods. Neither difference was statistically significant, so chance alone could explain either one. These figures should not be compared with the previous slide, because the patients and the definition of complications differed.</p>""",C2))
 en.append(('',f"""<div class="kicker">How is the checklist used?</div>
   <h2>The checklist is not always used at every step</h2>
   <div style="margin-top:18px">
