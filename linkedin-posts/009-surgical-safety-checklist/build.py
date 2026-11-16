@@ -44,7 +44,7 @@ ar=[]
 ar.append(('dark',f"""<div class="cover-logo">{imgs("logo")}</div>
   <div class="kicker">التميّز التشغيلي · من الدراسات العلمية</div>
   <h1 style="font-size:62px">وضعت منظمة الصحة العالمية قائمة تحقق يراجعها فريق العمليات الجراحية.</h1>
-  <h1 class="dim" style="margin-top:12px;font-size:46px;line-height:1.5">وفي ثمانية مستشفيات انخفضت الوفيات بعد استخدامها، لكن في {L('101')}&nbsp;مستشفى بأونتاريو لم تتغير نسب الوفيات والمضاعفات تغيرًا واضحًا بعد اعتمادها.</h1>
+  <h1 class="dim" style="margin-top:12px;font-size:46px;line-height:1.8">وفي ثمانية مستشفيات انخفضت الوفيات بعد استخدامها، لكن في {L('101')}&nbsp;مستشفى بأونتاريو لم تتغير نسب الوفيات والمضاعفات تغيرًا واضحًا بعد اعتمادها.</h1>
   <p class="lead">فما الذي قد يفسّر الفرق؟ تعرض خمس دراسات نُشرت بين عامي {L('2009')} و{L('2025')} ما يساعد على فهمه.</p>
   <div class="swipe">← اسحب للمتابعة</div>""",NAME))
 ar.append(('',f"""<div class="kicker">الفكرة</div>
@@ -61,12 +61,12 @@ ar.append(('',f"""<div class="kicker">الدراسة الأولى</div>
   </div>
   <p class="small" style="margin-top:16px">وكان المرضى في سن 16 عامًا فأكثر، وخضعوا لجراحات غير جراحات القلب. وكان الانخفاضان أكبر من أن يُفسَّرا بالصدفة وحدها، لكنها دراسة قبل وبعد، أي أنها قارنت فترتين في المستشفيات نفسها، دون مستشفيات لم تستخدم القائمة.</p>""",C1))
 ar.append(('',f"""<div class="kicker">دراسة أونتاريو</div>
-  <h2>في {L('101')}&nbsp;مستشفى بأونتاريو، لم تتغير الوفيات ولا المضاعفات تغيرًا واضحًا بعد اعتماد القائمة</h2>
+  <h2 style="line-height:1.8">في {L('101')}&nbsp;مستشفى بأونتاريو، لم تتغير الوفيات ولا المضاعفات تغيرًا واضحًا بعد اعتماد القائمة</h2>
   <div style="margin-top:18px">
     <div class="stat"><span class="n" {SL}>0.65%</span><p>هي نسبة الوفيات المعدّلة بعد اعتماد القائمة، وكانت {L('0.71%')} قبله.</p></div>
     <div class="stat"><span class="n" {SL}>3.82%</span><p>هي نسبة المضاعفات المعدّلة بعد اعتمادها، وكانت {L('3.86%')} قبله.</p></div>
   </div>
-  <p class="small" style="margin-top:16px">والنسب المعدّلة محسوبة بعد مراعاة اختلاف المرضى بين الفترتين. ولم يبلغ أيٌّ من الفرقين حدّ الدلالة الإحصائية، أي لم يكن أكبر مما قد تُحدثه الصدفة، فلا يمكن استبعاد أن يكون صدفة. ولا تُقارَن هذه النسب بنسب الشريحة السابقة، لاختلاف المرضى وتعريف المضاعفات.</p>""",C2))
+  <p class="small" style="margin-top:16px">والنسب المعدّلة محسوبة بعد مراعاة اختلاف المرضى بين الفترتين. ولم يبلغ أيٌّ من الفرقين حدّ الدلالة الإحصائية، أي لم يكن أكبر مما قد تُحدثه الصدفة وحدها. ولا تُقارَن هذه النسب بنسب الشريحة السابقة، لاختلاف المرضى وتعريف المضاعفات.</p>""",C2))
 ar.append(('',f"""<div class="kicker">كيف تُستخدم القائمة؟</div>
   <h2>لا تُستخدم القائمة دائمًا في كل مراحلها</h2>
   <div style="margin-top:18px">
@@ -81,7 +81,7 @@ ar.append(('amber',f"""<div class="kicker">ما الذي ارتبط بالالت
     <li {LI}>وارتبط بدعم الإدارة وبيئة العمل الإيجابية.</li>
     <li {LI}>وارتبط بالمتابعة المنتظمة مع عرض النتائج على الفرق.</li>
   </ul>
-  <p class="small" style="margin-top:20px">ومما أعاقه نقصُ العاملين، وكثرةُ العمل، وغيابُ من يتولى القائمة.</p>""",C4))
+  <p class="small" style="margin-top:20px">وارتبط انخفاضه بنقص العاملين، وكثرة العمل، وغياب من يتولى القائمة.</p>""",C4))
 ar.append(('dark',f"""<div class="kicker">ما يستنتجه الكاتب من الدراسات</div>
   <h2>ما الذي يستطيع القائد فعله؟</h2>
   <ul class="clean">
@@ -141,7 +141,7 @@ en.append(('amber',f"""<div class="kicker">What went with higher compliance?</di
     <li {LI}>Management support and a positive work environment.</li>
     <li {LI}>Regular monitoring, with feedback to teams.</li>
   </ul>
-  <p class="small" style="margin-top:20px">Barriers included too few staff, heavy workloads, and no one owning the checklist.</p>""",C4))
+  <p class="small" style="margin-top:20px">Lower compliance went with too few staff, heavy workloads, and no one owning the checklist.</p>""",C4))
 en.append(('dark',f"""<div class="kicker">The author's reading of the studies</div>
   <h2>What can leaders do?</h2>
   <ul class="clean">
