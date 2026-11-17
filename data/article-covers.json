@@ -2429,6 +2429,27 @@
         "subtitle": "A child brain-imaging study in Dhaka.",
         "alt": "Navy and gold FMEA · Failure Mode & Effects Analysis cover titled “What Threatens the Data?” about a child brain-imaging study in Dhaka."
       }
+    },
+    {
+      "slug": "article-agentic-ai-weekly-radar-nov-14",
+      "background": "assets/previews/story-backgrounds/article-agentic-ai-weekly-radar-nov-14.jpg",
+      "category": "article",
+      "ar": {
+        "title": [
+          "ماذا أعلنت الشركات",
+          "لمن يبني المساعدين؟"
+        ],
+        "subtitle": "منصة وأداتان وتقرير عن عمل المستقلين في أسبوع واحد.",
+        "alt": "غلاف توضيحي بالكحلي والذهبي لمقال رصد أسبوعي، تظهر فيه شاشة رادار عليها خمس نقاط وإحداها محاطة بدائرة مراجعة."
+      },
+      "en": {
+        "title": [
+          "What Did Companies Announce",
+          "for Building AI Agents?"
+        ],
+        "subtitle": "A platform, two tools, and a report on freelance work in one week.",
+        "alt": "Navy and gold illustrative cover for a weekly radar article, showing a radar screen with five blips, one of them circled for review."
+      }
     }
   ]
 }
