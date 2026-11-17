@@ -1,0 +1,29 @@
+{
+  "article": "article-agentic-ai-weekly-radar-nov-14.html",
+  "english_pair": "en/article-agentic-ai-weekly-radar-nov-14.html",
+  "headline": "ماذا أعلنت الشركات هذا الأسبوع لمن يريد بناء مساعدي الذكاء الاصطناعي واختبارهم وضبطهم؟",
+  "reviewed_at": "2026-11-17",
+  "reviewer": "AI drafting check (reviewer agents: see delivery report; not a human reader test)",
+  "format": "رصد الأسبوع (8–14 نوفمبر 2026)",
+  "summary": "أعلنت آي بي إم ومايكروسوفت منصة لبناء المساعدين وتشغيلهم، وأعلنت باي أداة تفحص أفعال المساعد، وبلوراي منصة اختبار، ونشرت أوبن إيه آي وأب ورك تقريرًا عن عمل المستقلين. أغلب الأدلة إعلانات شركات؛ ولا تقييم مستقل.",
+  "gates": {
+    "title": "NOT REVIEWED",
+    "introduction": "NOT REVIEWED",
+    "summary": "NOT REVIEWED",
+    "terminology": "PASS (owner-approved term only)",
+    "evidence": "PASS (each claim tied to an opened source; limits at the end)",
+    "mobile": "NOT VERIFIED",
+    "language": "NOT REVIEWED"
+  },
+  "source_evidence": [
+    {"claim": "Imagine Enterprise: أكثر من 6,000 مساعد وأصل؛ قطاعات أولى؛ ضوابط ومراقبة؛ SEI يستكشف", "url": "https://newsroom.ibm.com/2026-11-10-ibm-and-microsoft-announce-a-new-ai-agent-platform-designed-for-industry-specific-transformation", "assessment": "مصدر أولي من الشركة؛ البيان يستخدم «agents and assets» و«agents»؛ لا نتائج"},
+    {"claim": "البيان نفسه على موقع مايكروسوفت", "url": "https://news.microsoft.com/source/2026/11/10/ibm-and-microsoft-announce-a-new-ai-agent-platform-designed-for-industry-specific-transformation/", "assessment": "مصدر أولي؛ قُرئ بخلاصة آلية للصفحة"},
+    {"claim": "Bay: 50 مليون دولار (37 + 13)؛ المنفِّذ؛ اتخاذ القرار في أجزاء من الثانية؛ نشر خلال أقل من خمس دقائق", "url": "https://www.securityweek.com/bay-raises-50-million-to-control-what-enterprise-ai-agents-can-do", "assessment": "صحافة متخصصة تنقل عن الشركة؛ فُتحت عبر Chromium؛ الادعاءات للشركة"},
+    {"claim": "Plurai: 13 مليون دولار بقيادة Team8؛ المحاكاة؛ 82% و97%؛ 40x/44x", "url": "https://www.prnewswire.com/il/news-releases/plurai-raises-13m-to-build-the-simulation-infrastructure-for-trustworthy-self-improving-ai-agents-302936422.html", "assessment": "بيان صحفي من الشركة؛ الأرقام للشركة وغير متسقة داخل البيان"},
+    {"claim": "OpenAI/Upwork: 36,896 محادثة؛ 3.35 مقابل 3.19؛ 8.4% مقابل 2.4%؛ ميزانيات أعلى 52% بعد الضبط؛ ارتباطات لا أسباب", "url": "https://cdn.openai.com/pdf/openai-upwork-full-report.pdf", "assessment": "التقرير الكامل قُرئ من ملف PDF؛ صفحة الإعلان رفضت الفتح الآلي (403)"}
+  ],
+  "known_limits": [
+    "ثلاثة من الأخبار الأربعة إعلانات شركات أو أخبار عنها؛ لا تقييم مستقل.",
+    "لم يُجرَ اختبار جوال فعلي ولا مراجعة بشرية."
+  ]
+}
