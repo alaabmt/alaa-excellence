@@ -31,3 +31,7 @@ Every agent that drafts, edits, reviews, publishes, schedules, or maintains Tama
 ## Cybersecurity Guardian
 
 For security, authentication, Supabase, Cloudflare, admin/account, GitHub Actions, and incident-response tasks, read `security/CYBERSECURITY_GUARDIAN_AGENT.md` and `security/skills/cybersecurity-guardian/SKILL.md`. Run scoped, read-only checks and verify findings manually. Sensitive changes require authorized review.
+
+## Owner name — fixed spelling
+
+The owner's English name is always **Dr. Alaa Mohammad Ahmed** (with "Mohammad", never "Mohamed"), in page text, author metas, JSON-LD, bylines, card signatures and reviewer instructions. This is the owner's standing decision (17 Nov 2026). If any page, standard or agent file says "Mohamed" for the owner, correct it to "Mohammad". Do not change other people's names (for example, co-authors).
