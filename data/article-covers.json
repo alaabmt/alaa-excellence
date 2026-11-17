@@ -2408,6 +2408,27 @@
         "subtitle": "Software faults in an e-bike controller.",
         "alt": "Navy and gold FMEA · Failure Mode & Effects Analysis cover titled “What Will Simulation Show?” about faults in e-bike control software."
       }
+    },
+    {
+      "slug": "article-preventive-engineering-fnirs-dhaka-fmea",
+      "background": "assets/previews/story-backgrounds/article-preventive-engineering-fnirs-dhaka-fmea.jpg",
+      "category": "prevention",
+      "ar": {
+        "title": [
+          "ما الذي",
+          "يهدد البيانات؟"
+        ],
+        "subtitle": "دراسة تصوير أدمغة الأطفال في دكا",
+        "alt": "غلاف سلسلة منهجية هندسة الوقاية (FMEA) بالكحلي والذهبي بعنوان «ما الذي يهدد البيانات؟»، عن دراسة لتصوير أدمغة الأطفال في دكا."
+      },
+      "en": {
+        "title": [
+          "What Threatens",
+          "the Data?"
+        ],
+        "subtitle": "A child brain-imaging study in Dhaka.",
+        "alt": "Navy and gold FMEA · Failure Mode & Effects Analysis cover titled “What Threatens the Data?” about a child brain-imaging study in Dhaka."
+      }
     }
   ]
 }
