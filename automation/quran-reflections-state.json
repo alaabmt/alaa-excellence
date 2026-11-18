@@ -5,13 +5,13 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-18T21:57:13.459+04:00",
+  "updated_at": "2026-11-18T22:03:42+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "actions_and_pages",
+  "current_stage": "live_verification",
   "current_article": {
     "article_id": "quran-reflection-2026-11-18-al-hashr-what-have-we-sent-ahead",
     "publication_date": "2026-11-18",
-    "status": "repository_published_actions_pending",
+    "status": "actions_and_pages_completed_live_verification_pending",
     "duplicate_check": {
       "status": "passed_no_today_quran_cycle_found",
       "checked_at": "2026-11-18T17:59:06+04:00",
@@ -223,6 +223,81 @@
         "assets/previews/story/reflection-al-hashr-what-have-we-sent-ahead-ar.jpg",
         "assets/previews/story/reflection-al-hashr-what-have-we-sent-ahead-en.jpg"
       ]
+    },
+    "actions_and_pages": {
+      "status": "completed",
+      "completed_at": "2026-11-18T22:03:42+04:00",
+      "exact_head_sha": "ebe4fa98d5ccc43b28db1d2e1b50f508f92d3e11",
+      "remediation_commit": "ebe4fa98d5ccc43b28db1d2e1b50f508f92d3e11",
+      "report_path": "automation/quran-reflections/reflection-al-hashr-what-have-we-sent-ahead/actions-and-pages-report.md",
+      "github_actions": {
+        "article_date_integrity": {
+          "run_id": 44364721964,
+          "run_number": 704,
+          "conclusion": "success",
+          "head_sha": "ebe4fa98d5ccc43b28db1d2e1b50f508f92d3e11"
+        },
+        "site_health": {
+          "run_id": 44364722059,
+          "run_number": 1058,
+          "conclusion": "success",
+          "head_sha": "ebe4fa98d5ccc43b28db1d2e1b50f508f92d3e11"
+        },
+        "sitemap": {
+          "run_id": 44364722010,
+          "run_number": 924,
+          "conclusion": "success",
+          "head_sha": "ebe4fa98d5ccc43b28db1d2e1b50f508f92d3e11"
+        },
+        "pages": {
+          "run_id": 44364721124,
+          "run_number": 3189,
+          "conclusion": "success",
+          "head_sha": "ebe4fa98d5ccc43b28db1d2e1b50f508f92d3e11"
+        },
+        "social_share_cards": {
+          "run_id": 44364722163,
+          "run_number": 565,
+          "conclusion": "success",
+          "head_sha": "ebe4fa98d5ccc43b28db1d2e1b50f508f92d3e11"
+        },
+        "arabic_editorial": {
+          "run_id": 44364722211,
+          "run_number": 1332,
+          "conclusion": "success",
+          "head_sha": "ebe4fa98d5ccc43b28db1d2e1b50f508f92d3e11",
+          "artifact_id": 14456588340
+        }
+      },
+      "exact_mobile_review": {
+        "result": "8_of_8_passed",
+        "viewports": [
+          320,
+          375,
+          390,
+          430
+        ],
+        "languages": [
+          "ar",
+          "en"
+        ],
+        "checks": [
+          "page_width",
+          "h1_visible",
+          "lang",
+          "direction",
+          "assets_ok",
+          "tables_scrollable",
+          "listen_control"
+        ],
+        "artifact_id": 14456588340,
+        "artifact_name": "arabic-article-mobile-review",
+        "result_path": "mobile-artifacts/reflection-al-hashr-what-have-we-sent-ahead-bilingual-results.json"
+      },
+      "generated_social_assets": [
+        "assets/previews/story/reflection-al-hashr-what-have-we-sent-ahead-ar.jpg",
+        "assets/previews/story/reflection-al-hashr-what-have-we-sent-ahead-en.jpg"
+      ]
     }
   },
   "stage_order": [
@@ -256,13 +331,13 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Reconcile any automation descendants after the publication checkpoint, inspect required GitHub Actions on the exact latest content head, verify the generated Arabic and English JPG social cards, wait for GitHub Pages success, run real mobile and RTL/LTR checks on both pages, inspect both live pages plus all four live indexes and sitemap, and test actual Arabic and English TTS playback where Web Speech is available. Do not republish.",
+  "next_action": "Verify the exact live Arabic and English pages, all four live indexes and sitemap after Pages deployment, then test actual Arabic and English TTS playback in a Web Speech-capable browser. Do not republish.",
   "last_run": {
     "mode": "coordinator_resume",
     "status": "in_progress",
     "started_at": "2026-11-18T21:57:13.459+04:00",
-    "last_checkpoint": "repository_publish",
-    "notes": "Lease acquired to reconcile GitHub Actions, Pages, generated assets, live pages, mobile/RTL, and TTS without republishing."
+    "last_checkpoint": "actions_and_pages",
+    "notes": "Exact-head Actions and Pages passed; mobile/RTL/LTR and asset checks passed 8/8. Continuing with live verification without republishing."
   },
   "workflow_id": "quran_reflections",
   "run_lease": {
@@ -645,7 +720,8 @@
     "english_draft",
     "bilingual_parity",
     "quality_gate",
-    "repository_publish"
+    "repository_publish",
+    "actions_and_pages"
   ],
   "duplicate_check": {
     "status": "passed_no_today_quran_cycle_found",
