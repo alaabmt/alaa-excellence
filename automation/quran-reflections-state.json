@@ -5,9 +5,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-18T18:00:28+04:00",
+  "updated_at": "2026-11-18T18:02:19+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "research",
+  "current_stage": "quran_verification",
   "current_article": {
     "article_id": "quran-reflection-2026-11-18-al-hashr-what-have-we-sent-ahead",
     "publication_date": "2026-11-18",
@@ -49,7 +49,43 @@
       "artifact_commit": "9cd83a17f02d12bbc37b83339c613b91494b93c4",
       "artifact_blob_sha": "7dfae8293a23596a6d44c74822ee64a80539ad39",
       "completed_at": "2026-11-18T18:00:28+04:00"
-    }
+    },
+    "research_status": "completed",
+    "research_commit": "2b176ad3bcf88120e23bc5db67d539b69120387c",
+    "research_blob_sha": "8a977dcbdfcb5cd797beb041ef484aec417c10af",
+    "research_sources": [
+      {
+        "type": "Qur'an text and immediate context, Al-Hashr 59:18–21",
+        "url": "https://quran.com/59/18-21",
+        "status": "reviewed"
+      },
+      {
+        "type": "Sahih International translation, Al-Hashr 59:18–24",
+        "url": "https://legacy.quran.com/59/18-24",
+        "status": "reviewed"
+      },
+      {
+        "type": "Tafsir al-Tabari 59:18",
+        "url": "https://quran.ksu.edu.sa/tafseer/tabary/sura59-aya18.html",
+        "status": "reviewed"
+      },
+      {
+        "type": "Tafsir Ibn Kathir 59:18",
+        "url": "https://quran.ksu.edu.sa/tafseer/katheer/sura59-aya18.html",
+        "status": "reviewed"
+      },
+      {
+        "type": "Tafsir al-Qurtubi 59:18",
+        "url": "https://quran.ksu.edu.sa/tafseer/qortobi/sura59-aya18.html",
+        "status": "reviewed"
+      },
+      {
+        "type": "Tafsir al-Sa'di 59:18",
+        "url": "https://quran.ksu.edu.sa/tafseer/saadi/sura59-aya18.html",
+        "status": "reviewed"
+      }
+    ],
+    "research_completed_at": "2026-11-18T18:02:19+04:00"
   },
   "stage_order": [
     "capability_check",
@@ -82,12 +118,12 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Research and verify Al-Hashr 59:18 in its immediate context (59:18–21), review al-Tabari, Ibn Kathir, al-Qurtubi and al-Sa'di, verify the Qur'anic text and Sahih International translation, and expand research-notes.md before the quran_verification checkpoint.",
+  "next_action": "Verify the exact Arabic text, verse number, immediate context, Sahih International translation, tafsir attributions, and methodological separation for Al-Hashr 59:18; record the quran_verification result in research-notes.md before drafting.",
   "last_run": {
     "mode": "coordinator_daily_exception",
     "status": "in_progress",
     "started_at": "2026-11-18T17:59:06+04:00",
-    "last_checkpoint": "topic_selection",
+    "last_checkpoint": "research",
     "notes": "Daily duplicate prevention passed; one new Qur'anic reflection cycle started."
   },
   "workflow_id": "quran_reflections",
@@ -463,7 +499,8 @@
     "capability_check",
     "load_checkpoint",
     "duplicate_check",
-    "topic_selection"
+    "topic_selection",
+    "research"
   ],
   "duplicate_check": {
     "status": "passed_no_today_quran_cycle_found",
