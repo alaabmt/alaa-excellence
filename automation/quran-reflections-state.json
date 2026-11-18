@@ -5,9 +5,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-18T20:05:46+04:00",
+  "updated_at": "2026-11-18T20:07:49.239+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "quality_gate",
+  "current_stage": "repository_publish",
   "current_article": {
     "article_id": "quran-reflection-2026-11-18-al-hashr-what-have-we-sent-ahead",
     "publication_date": "2026-11-18",
@@ -148,6 +148,26 @@
       "completed_at": "2026-11-18T20:05:46+04:00",
       "mobile_gate": "NOT VERIFIED until final HTML",
       "tts_gate": "NOT VERIFIED until final HTML"
+    },
+    "quality_gate": {
+      "status": "passed",
+      "score": 98,
+      "threshold": 90,
+      "blocking_errors": [],
+      "review_path": "automation/quran-reflections/reflection-al-hashr-what-have-we-sent-ahead/quality-review.md",
+      "review_commit": "72fb09d44f0f73d3f7cf11e6accaa131f602f7b4",
+      "review_blob_sha": "69bd053561f2ab6787d4562cd96a2a959c424ffa",
+      "arabic_blob_sha": "cf480801257782b42e769dc9db04c217a435eda5",
+      "english_blob_sha": "ef0202fddb7bec5cc564c959975530f624d3f0a9",
+      "quran_text": "passed",
+      "tafsir_and_creed": "passed",
+      "methodological_separation": "passed",
+      "bilingual_parity": "passed",
+      "novice_comprehension": "passed_editorial_review",
+      "mobile_gate": "NOT VERIFIED until final HTML",
+      "rtl_gate": "NOT VERIFIED until final HTML",
+      "tts_gate": "NOT VERIFIED until final HTML",
+      "completed_at": "2026-11-18T20:07:49.239+04:00"
     }
   },
   "stage_order": [
@@ -181,20 +201,16 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Run the 100-point quality gate across both drafts and quality-review.md. Any score below 90 or any blocking Qur'anic, tafsir, theology, clarity or parity error requires revision. Record the score before repository publication.",
+  "next_action": "Reconcile the checkpoint, topic and publication-date registries, intended Arabic and English pages, all four article/reflection indexes, sitemap.xml, expected live URLs, and recent commits. If the article is absent everywhere, build the Arabic and English HTML and publish exactly once; otherwise reconcile the existing effect before any replay.",
   "last_run": {
     "mode": "coordinator_resume",
     "status": "in_progress",
     "started_at": "2026-11-18T20:03:46+04:00",
-    "last_checkpoint": "bilingual_parity",
-    "notes": "Lease acquired to resume the English draft from the saved checkpoint."
+    "last_checkpoint": "quality_gate",
+    "notes": "English draft, bilingual parity, and the 98/100 quality gate were committed. Lease released at a safe stage boundary; repository publication remains next."
   },
   "workflow_id": "quran_reflections",
-  "run_lease": {
-    "owner": "central-coordinator-2026-11-18-english-draft",
-    "acquired_at": "2026-11-18T20:03:46+04:00",
-    "expires_at": "2026-11-18T21:53:46+04:00"
-  },
+  "run_lease": null,
   "checkpoint_policy": {
     "checkpoint_after_every_stage": true,
     "run_lease_minutes": 110,
@@ -568,7 +584,8 @@
     "arabic_draft",
     "independent_critique",
     "english_draft",
-    "bilingual_parity"
+    "bilingual_parity",
+    "quality_gate"
   ],
   "duplicate_check": {
     "status": "passed_no_today_quran_cycle_found",
