@@ -5,13 +5,13 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-18T22:03:42+04:00",
-  "workflow_status": "in_progress",
+  "updated_at": "2026-11-18T22:04:32+04:00",
+  "workflow_status": "blocked",
   "current_stage": "live_verification",
   "current_article": {
     "article_id": "quran-reflection-2026-11-18-al-hashr-what-have-we-sent-ahead",
     "publication_date": "2026-11-18",
-    "status": "actions_and_pages_completed_live_verification_pending",
+    "status": "actions_pages_and_live_structure_verified_tts_playback_blocked",
     "duplicate_check": {
       "status": "passed_no_today_quran_cycle_found",
       "checked_at": "2026-11-18T17:59:06+04:00",
@@ -298,6 +298,102 @@
         "assets/previews/story/reflection-al-hashr-what-have-we-sent-ahead-ar.jpg",
         "assets/previews/story/reflection-al-hashr-what-have-we-sent-ahead-en.jpg"
       ]
+    },
+    "repository_publication": {
+      "status": "live_verified_except_actual_tts_playback",
+      "quality_score": 98,
+      "publication_date": "2026-11-18",
+      "publication_commit": "628b9f30b250632eb61b9bec291f5a2e93d9a5c8",
+      "remediation_commit": "ebe4fa98d5ccc43b28db1d2e1b50f508f92d3e11",
+      "arabic_url": "https://tamayuz10x.com/reflection-al-hashr-what-have-we-sent-ahead.html",
+      "english_url": "https://tamayuz10x.com/en/reflection-al-hashr-what-have-we-sent-ahead.html",
+      "arabic_page_path": "reflection-al-hashr-what-have-we-sent-ahead.html",
+      "english_page_path": "en/reflection-al-hashr-what-have-we-sent-ahead.html",
+      "arabic_social_asset": "assets/previews/story/reflection-al-hashr-what-have-we-sent-ahead-ar.jpg",
+      "english_social_asset": "assets/previews/story/reflection-al-hashr-what-have-we-sent-ahead-en.jpg",
+      "publication_report_path": "automation/quran-reflections/reflection-al-hashr-what-have-we-sent-ahead/repository-publish-report.md",
+      "repository_validation": "passed",
+      "mobile_gate": "passed_real_chromium_8_of_8_at_320_375_390_430_ar_en",
+      "rtl_gate": "passed_real_chromium",
+      "tts_gate": "blocked_actual_playback_web_speech_unavailable_in_verification_browser",
+      "actions_gate": "passed_all_six_exact_content_head",
+      "pages_gate": "passed_exact_content_head_ebe4fa98d5ccc43b28db1d2e1b50f508f92d3e11",
+      "live_gate": "passed_except_actual_tts_playback"
+    },
+    "live_verification": {
+      "status": "blocked_on_actual_tts_playback",
+      "checked_at": "2026-11-18T22:04:32+04:00",
+      "deployed_content_head": "ebe4fa98d5ccc43b28db1d2e1b50f508f92d3e11",
+      "report_path": "automation/quran-reflections/reflection-al-hashr-what-have-we-sent-ahead/live-verification-report.md",
+      "pages": {
+        "ar": {
+          "url": "https://tamayuz10x.com/reflection-al-hashr-what-have-we-sent-ahead.html",
+          "loaded": true,
+          "title": "ماذا أرسلنا أمامنا قبل أن يصل الغد؟ | التميّز 10X",
+          "lang": "ar",
+          "dir": "rtl",
+          "listen_control": true,
+          "article_content": true,
+          "cover_loaded": true,
+          "stale_draft_notice_absent": true
+        },
+        "en": {
+          "url": "https://tamayuz10x.com/en/reflection-al-hashr-what-have-we-sent-ahead.html",
+          "loaded": true,
+          "title": "What Have We Sent Ahead Before Tomorrow Arrives? | Tamayuz 10X",
+          "lang": "en",
+          "dir": "ltr",
+          "listen_control": true,
+          "article_content": true,
+          "cover_loaded": true,
+          "al_hashr_lead_correct": true,
+          "stale_al_ahzab_lead_absent": true
+        }
+      },
+      "indexes": {
+        "articles.html": {
+          "title_present": true,
+          "slug_present": true
+        },
+        "en/articles.html": {
+          "title_present": true,
+          "slug_present": true
+        },
+        "quranic-reflections.html": {
+          "title_present": true,
+          "slug_links": 2
+        },
+        "en/quranic-reflections.html": {
+          "title_present": true,
+          "slug_links": 2
+        }
+      },
+      "sitemap": {
+        "arabic_loc_present": true,
+        "english_loc_present": true,
+        "slug_occurrences": 2
+      },
+      "mobile": {
+        "result": "8_of_8_passed",
+        "viewports": [
+          320,
+          375,
+          390,
+          430
+        ],
+        "languages": [
+          "ar",
+          "en"
+        ],
+        "artifact_id": 14456588340
+      },
+      "tts": {
+        "controls_present": true,
+        "speech_synthesis_available_in_verification_browser": false,
+        "actual_playback_verified": false,
+        "blocker": "The available cloud Chrome does not expose window.speechSynthesis, so audible Arabic/English playback and runtime highlighting, pause/resume, stop, and speed behavior cannot be verified.",
+        "decision_required": "Provide a Web Speech-capable browser/device with audible Arabic and English voices for actual playback verification, or explicitly approve completion without the actual-playback gate."
+      }
     }
   },
   "stage_order": [
@@ -331,20 +427,16 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Verify the exact live Arabic and English pages, all four live indexes and sitemap after Pages deployment, then test actual Arabic and English TTS playback in a Web Speech-capable browser. Do not republish.",
+  "next_action": "Provide a Web Speech-capable browser/device with audible Arabic and English voices for actual playback verification, or explicitly approve completion without the actual-playback gate.",
   "last_run": {
     "mode": "coordinator_resume",
-    "status": "in_progress",
+    "status": "blocked",
     "started_at": "2026-11-18T21:57:13.459+04:00",
     "last_checkpoint": "actions_and_pages",
-    "notes": "Exact-head Actions and Pages passed; mobile/RTL/LTR and asset checks passed 8/8. Continuing with live verification without republishing."
+    "notes": "Live pages, all four indexes, sitemap, assets, desktop layout, RTL/LTR, and 8/8 mobile checks passed. Blocked only on actual bilingual TTS playback because Web Speech is unavailable."
   },
   "workflow_id": "quran_reflections",
-  "run_lease": {
-    "owner": "central-coordinator-2026-11-18-actions-pages",
-    "acquired_at": "2026-11-18T21:57:13.459+04:00",
-    "expires_at": "2026-11-18T23:47:13.459+04:00"
-  },
+  "run_lease": null,
   "checkpoint_policy": {
     "checkpoint_after_every_stage": true,
     "run_lease_minutes": 110,
@@ -741,7 +833,13 @@
     ],
     "note": "No repository, registry, recent-commit, live-index, sitemap, or public-search evidence of a Qur'anic reflection started or published for 2026-11-18. The previous cycle is explicitly blocked, so the daily exception permits one new cycle."
   },
-  "blocker": null,
+  "blocker": {
+    "stage": "live_verification",
+    "type": "actual_tts_playback_unavailable",
+    "recorded_at": "2026-11-18T22:04:32+04:00",
+    "details": "Live pages, all four indexes, sitemap, generated assets, RTL/LTR, and 8/8 mobile checks passed. Only actual Arabic and English Web Speech playback remains unverified because speechSynthesis is unavailable in the verification browser.",
+    "decision_required": "Provide a Web Speech-capable browser/device with audible Arabic and English voices for actual playback verification, or explicitly approve completion without the actual-playback gate."
+  },
   "verified_quranic_references": [
     {
       "surah": "Al-Hashr",
