@@ -5,11 +5,11 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-18T17:59:06+04:00",
+  "updated_at": "2026-11-18T18:00:28+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "topic_selection",
+  "current_stage": "research",
   "current_article": {
-    "article_id": "quran-reflection-2026-11-18-pending-topic",
+    "article_id": "quran-reflection-2026-11-18-al-hashr-what-have-we-sent-ahead",
     "publication_date": "2026-11-18",
     "status": "duplicate_check_passed_topic_selection_pending",
     "duplicate_check": {
@@ -29,6 +29,26 @@
         "public web search for 2026-11-18 Qur'anic reflection"
       ],
       "note": "No repository, registry, recent-commit, live-index, sitemap, or public-search evidence of a Qur'anic reflection started or published for 2026-11-18. The previous cycle is explicitly blocked, so the daily exception permits one new cycle."
+    },
+    "slug": "reflection-al-hashr-what-have-we-sent-ahead",
+    "topic_ar": "الحشر 59:18 — ما الذي قدّمناه لغد؟",
+    "topic_en": "Al-Hashr 59:18 — what the soul has sent ahead for tomorrow",
+    "working_title_ar": "ماذا أرسلنا أمامنا قبل أن يصل الغد؟",
+    "working_title_en": "What Have We Sent Ahead Before Tomorrow Arrives?",
+    "research_notes_path": "automation/quran-reflections/reflection-al-hashr-what-have-we-sent-ahead/research-notes.md",
+    "topic_selection": {
+      "status": "completed",
+      "candidates": [
+        "Al-Hashr 59:18 — what the soul has sent ahead for tomorrow",
+        "Al-Hadid 57:22–23 — how we receive loss and gain",
+        "Ash-Shura 42:38 — consultation within faithful responsibility"
+      ],
+      "selected": "Al-Hashr 59:18 — what the soul has sent ahead for tomorrow",
+      "central_question": "How does faith in meeting Allah turn review of our work from defending the past into honest attention to what we send ahead?",
+      "artifact_path": "automation/quran-reflections/reflection-al-hashr-what-have-we-sent-ahead/research-notes.md",
+      "artifact_commit": "9cd83a17f02d12bbc37b83339c613b91494b93c4",
+      "artifact_blob_sha": "7dfae8293a23596a6d44c74822ee64a80539ad39",
+      "completed_at": "2026-11-18T18:00:28+04:00"
     }
   },
   "stage_order": [
@@ -62,12 +82,12 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Select one new Qur'anic reflection angle for 2026-11-18 after comparing three candidates against the published-topic registry; save the selection and research-notes.md before beginning research.",
+  "next_action": "Research and verify Al-Hashr 59:18 in its immediate context (59:18–21), review al-Tabari, Ibn Kathir, al-Qurtubi and al-Sa'di, verify the Qur'anic text and Sahih International translation, and expand research-notes.md before the quran_verification checkpoint.",
   "last_run": {
     "mode": "coordinator_daily_exception",
     "status": "in_progress",
     "started_at": "2026-11-18T17:59:06+04:00",
-    "last_checkpoint": "duplicate_check",
+    "last_checkpoint": "topic_selection",
     "notes": "Daily duplicate prevention passed; one new Qur'anic reflection cycle started."
   },
   "workflow_id": "quran_reflections",
@@ -442,7 +462,8 @@
   "completed_stages": [
     "capability_check",
     "load_checkpoint",
-    "duplicate_check"
+    "duplicate_check",
+    "topic_selection"
   ],
   "duplicate_check": {
     "status": "passed_no_today_quran_cycle_found",
