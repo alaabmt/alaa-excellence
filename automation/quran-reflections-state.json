@@ -5,9 +5,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-18T20:03:46+04:00",
+  "updated_at": "2026-11-18T20:05:00+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "english_draft",
+  "current_stage": "bilingual_parity",
   "current_article": {
     "article_id": "quran-reflection-2026-11-18-al-hashr-what-have-we-sent-ahead",
     "publication_date": "2026-11-18",
@@ -127,6 +127,15 @@
       "completed_at": "2026-11-18T19:03:40+04:00",
       "mobile_gate": "NOT VERIFIED until final HTML",
       "tts_gate": "NOT VERIFIED until final HTML"
+    },
+    "english_draft": {
+      "status": "draft_completed_pending_parity",
+      "path": "automation/quran-reflections/reflection-al-hashr-what-have-we-sent-ahead/draft-en.md",
+      "word_count": 1645,
+      "quran_translation": "Sahih International",
+      "commit": "bfd064df540c7a755af210563888d0b2d4a49831",
+      "blob_sha": "ef0202fddb7bec5cc564c959975530f624d3f0a9",
+      "completed_at": "2026-11-18T20:05:00+04:00"
     }
   },
   "stage_order": [
@@ -160,12 +169,12 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Write an original English draft in automation/quran-reflections/reflection-al-hashr-what-have-we-sent-ahead/draft-en.md using Sahih International for Qur'anic quotations. Preserve the meaning, theological boundaries and hypothetical example without mirroring the Arabic sentence structure; then run bilingual parity.",
+  "next_action": "Review draft-ar.md and draft-en.md for bilingual parity in Qur'anic citations, tafsir claims, theological limits, hypothetical example, references and natural English authorship. Record the result in quality-review.md and apply any required revisions before the quality gate.",
   "last_run": {
     "mode": "coordinator_resume",
     "status": "in_progress",
     "started_at": "2026-11-18T20:03:46+04:00",
-    "last_checkpoint": "independent_critique",
+    "last_checkpoint": "english_draft",
     "notes": "Lease acquired to resume the English draft from the saved checkpoint."
   },
   "workflow_id": "quran_reflections",
@@ -545,7 +554,8 @@
     "research",
     "quran_verification",
     "arabic_draft",
-    "independent_critique"
+    "independent_critique",
+    "english_draft"
   ],
   "duplicate_check": {
     "status": "passed_no_today_quran_cycle_found",
