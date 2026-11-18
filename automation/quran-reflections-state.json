@@ -5,9 +5,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-18T19:02:16+04:00",
+  "updated_at": "2026-11-18T19:03:40+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "independent_critique",
+  "current_stage": "english_draft",
   "current_article": {
     "article_id": "quran-reflection-2026-11-18-al-hashr-what-have-we-sent-ahead",
     "publication_date": "2026-11-18",
@@ -107,12 +107,24 @@
       "completed_at": "2026-11-18T18:03:18+04:00"
     },
     "arabic_draft": {
-      "status": "draft_completed_pending_independent_critique",
+      "status": "revised_after_independent_critique",
       "path": "automation/quran-reflections/reflection-al-hashr-what-have-we-sent-ahead/draft-ar.md",
-      "word_count": 1148,
-      "commit": "95c43e0a930b7a6fb32198f0bf749e913a31df37",
-      "blob_sha": "0a39471cb08a46d6d804c75864fab14d1ca534a5",
-      "completed_at": "2026-11-18T19:02:16+04:00",
+      "word_count": 1151,
+      "initial_commit": "95c43e0a930b7a6fb32198f0bf749e913a31df37",
+      "revision_commit": "3e16bd165632a70a0457c1ef9d590beb9821c43b",
+      "blob_sha": "cf480801257782b42e769dc9db04c217a435eda5",
+      "completed_at": "2026-11-18T19:03:40+04:00",
+      "mobile_gate": "NOT VERIFIED until final HTML",
+      "tts_gate": "NOT VERIFIED until final HTML"
+    },
+    "independent_critique": {
+      "status": "passed_after_required_revisions",
+      "path": "automation/quran-reflections/reflection-al-hashr-what-have-we-sent-ahead/quality-review.md",
+      "commit": "bfe640f0e43ce6b420f33587eb3fd4e2b1c5723e",
+      "blob_sha": "14b418e20244de3c1545161075992f9d93e44046",
+      "blocking_errors": [],
+      "revisions_applied": 2,
+      "completed_at": "2026-11-18T19:03:40+04:00",
       "mobile_gate": "NOT VERIFIED until final HTML",
       "tts_gate": "NOT VERIFIED until final HTML"
     }
@@ -148,20 +160,16 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Run an independent critique of draft-ar.md against Qur'anic accuracy, tafsir/reflection/application separation, Arabic clarity, novice comprehension, problem-first narrative and anti-meta-writing rules. Save quality-review.md and apply any required revisions before advancing.",
+  "next_action": "Write an original English draft in automation/quran-reflections/reflection-al-hashr-what-have-we-sent-ahead/draft-en.md using Sahih International for Qur'anic quotations. Preserve the meaning, theological boundaries and hypothetical example without mirroring the Arabic sentence structure; then run bilingual parity.",
   "last_run": {
     "mode": "coordinator_resume",
     "status": "in_progress",
     "started_at": "2026-11-18T19:00:52+04:00",
-    "last_checkpoint": "arabic_draft",
-    "notes": "Lease acquired to resume Arabic draft from the saved checkpoint."
+    "last_checkpoint": "independent_critique",
+    "notes": "Arabic draft saved, independently reviewed, and revised. Lease released at a safe stage boundary."
   },
   "workflow_id": "quran_reflections",
-  "run_lease": {
-    "owner": "central-coordinator-2026-11-18-arabic-draft",
-    "acquired_at": "2026-11-18T19:00:52+04:00",
-    "expires_at": "2026-11-18T20:50:52+04:00"
-  },
+  "run_lease": null,
   "checkpoint_policy": {
     "checkpoint_after_every_stage": true,
     "run_lease_minutes": 110,
@@ -532,7 +540,8 @@
     "topic_selection",
     "research",
     "quran_verification",
-    "arabic_draft"
+    "arabic_draft",
+    "independent_critique"
   ],
   "duplicate_check": {
     "status": "passed_no_today_quran_cycle_found",
