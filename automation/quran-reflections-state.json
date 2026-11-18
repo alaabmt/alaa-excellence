@@ -5,9 +5,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-18T20:05:00+04:00",
+  "updated_at": "2026-11-18T20:05:46+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "bilingual_parity",
+  "current_stage": "quality_gate",
   "current_article": {
     "article_id": "quran-reflection-2026-11-18-al-hashr-what-have-we-sent-ahead",
     "publication_date": "2026-11-18",
@@ -136,6 +136,18 @@
       "commit": "bfd064df540c7a755af210563888d0b2d4a49831",
       "blob_sha": "ef0202fddb7bec5cc564c959975530f624d3f0a9",
       "completed_at": "2026-11-18T20:05:00+04:00"
+    },
+    "bilingual_parity": {
+      "status": "passed_no_substantive_revisions",
+      "review_path": "automation/quran-reflections/reflection-al-hashr-what-have-we-sent-ahead/quality-review.md",
+      "review_commit": "8026fb43e558379651c06c6f950400d4dc307b84",
+      "review_blob_sha": "d02fb66ca90b419f1fce44898c8f938ada35a02b",
+      "arabic_blob_sha": "cf480801257782b42e769dc9db04c217a435eda5",
+      "english_blob_sha": "ef0202fddb7bec5cc564c959975530f624d3f0a9",
+      "substantive_revisions": 0,
+      "completed_at": "2026-11-18T20:05:46+04:00",
+      "mobile_gate": "NOT VERIFIED until final HTML",
+      "tts_gate": "NOT VERIFIED until final HTML"
     }
   },
   "stage_order": [
@@ -169,12 +181,12 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Review draft-ar.md and draft-en.md for bilingual parity in Qur'anic citations, tafsir claims, theological limits, hypothetical example, references and natural English authorship. Record the result in quality-review.md and apply any required revisions before the quality gate.",
+  "next_action": "Run the 100-point quality gate across both drafts and quality-review.md. Any score below 90 or any blocking Qur'anic, tafsir, theology, clarity or parity error requires revision. Record the score before repository publication.",
   "last_run": {
     "mode": "coordinator_resume",
     "status": "in_progress",
     "started_at": "2026-11-18T20:03:46+04:00",
-    "last_checkpoint": "english_draft",
+    "last_checkpoint": "bilingual_parity",
     "notes": "Lease acquired to resume the English draft from the saved checkpoint."
   },
   "workflow_id": "quran_reflections",
@@ -555,7 +567,8 @@
     "quran_verification",
     "arabic_draft",
     "independent_critique",
-    "english_draft"
+    "english_draft",
+    "bilingual_parity"
   ],
   "duplicate_check": {
     "status": "passed_no_today_quran_cycle_found",
