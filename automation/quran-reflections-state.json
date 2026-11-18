@@ -5,9 +5,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-18T18:02:19+04:00",
+  "updated_at": "2026-11-18T18:03:18+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "quran_verification",
+  "current_stage": "arabic_draft",
   "current_article": {
     "article_id": "quran-reflection-2026-11-18-al-hashr-what-have-we-sent-ahead",
     "publication_date": "2026-11-18",
@@ -52,7 +52,7 @@
     },
     "research_status": "completed",
     "research_commit": "2b176ad3bcf88120e23bc5db67d539b69120387c",
-    "research_blob_sha": "8a977dcbdfcb5cd797beb041ef484aec417c10af",
+    "research_blob_sha": "0d887c95acf9505804f19f511638bfb390853a6c",
     "research_sources": [
       {
         "type": "Qur'an text and immediate context, Al-Hashr 59:18–21",
@@ -85,7 +85,27 @@
         "status": "reviewed"
       }
     ],
-    "research_completed_at": "2026-11-18T18:02:19+04:00"
+    "research_completed_at": "2026-11-18T18:02:19+04:00",
+    "quranic_focus": {
+      "surah": "Al-Hashr",
+      "surah_ar": "الحشر",
+      "ayahs": [
+        18
+      ],
+      "context_ayahs": [
+        19,
+        20,
+        21
+      ],
+      "status": "verified"
+    },
+    "quran_verification": {
+      "status": "passed",
+      "blocking_errors": [],
+      "path": "automation/quran-reflections/reflection-al-hashr-what-have-we-sent-ahead/research-notes.md",
+      "commit": "e7d363d30f07fcad220b59eda3a57523a2db9c82",
+      "completed_at": "2026-11-18T18:03:18+04:00"
+    }
   },
   "stage_order": [
     "capability_check",
@@ -118,20 +138,16 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Verify the exact Arabic text, verse number, immediate context, Sahih International translation, tafsir attributions, and methodological separation for Al-Hashr 59:18; record the quran_verification result in research-notes.md before drafting.",
+  "next_action": "Write the original Arabic draft in automation/quran-reflections/reflection-al-hashr-what-have-we-sent-ahead/draft-ar.md. Keep Al-Hashr 59:18 and accountability before Allah central; label the automated-eligibility example as hypothetical; separate tafsir, reflection and application; then run the independent critique.",
   "last_run": {
     "mode": "coordinator_daily_exception",
     "status": "in_progress",
     "started_at": "2026-11-18T17:59:06+04:00",
-    "last_checkpoint": "research",
-    "notes": "Daily duplicate prevention passed; one new Qur'anic reflection cycle started."
+    "last_checkpoint": "quran_verification",
+    "notes": "Duplicate check, topic selection, research and Qur'anic verification completed. Lease released at a safe stage boundary."
   },
   "workflow_id": "quran_reflections",
-  "run_lease": {
-    "owner": "central-coordinator-2026-11-18",
-    "acquired_at": "2026-11-18T17:59:06+04:00",
-    "expires_at": "2026-11-18T19:49:06+04:00"
-  },
+  "run_lease": null,
   "checkpoint_policy": {
     "checkpoint_after_every_stage": true,
     "run_lease_minutes": 110,
@@ -500,7 +516,8 @@
     "load_checkpoint",
     "duplicate_check",
     "topic_selection",
-    "research"
+    "research",
+    "quran_verification"
   ],
   "duplicate_check": {
     "status": "passed_no_today_quran_cycle_found",
@@ -521,7 +538,27 @@
     "note": "No repository, registry, recent-commit, live-index, sitemap, or public-search evidence of a Qur'anic reflection started or published for 2026-11-18. The previous cycle is explicitly blocked, so the daily exception permits one new cycle."
   },
   "blocker": null,
-  "verified_quranic_references": [],
+  "verified_quranic_references": [
+    {
+      "surah": "Al-Hashr",
+      "surah_ar": "الحشر",
+      "ayahs": [
+        18
+      ],
+      "context_ayahs": [
+        19,
+        20,
+        21
+      ],
+      "status": "verified",
+      "primary_text_urls": [
+        "https://quran.com/59/18-21",
+        "https://legacy.quran.com/59/18-24"
+      ],
+      "translation": "Sahih International",
+      "verified_at": "2026-11-18T18:03:18+04:00"
+    }
+  ],
   "previous_blocked_article": {
     "article_id": "quran-reflection-2026-11-12-al-ahzab-upright-speech",
     "publication_date": "2026-11-12",
