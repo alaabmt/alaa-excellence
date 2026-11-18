@@ -5,7 +5,7 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-18T19:03:40+04:00",
+  "updated_at": "2026-11-18T20:03:46+04:00",
   "workflow_status": "in_progress",
   "current_stage": "english_draft",
   "current_article": {
@@ -164,12 +164,16 @@
   "last_run": {
     "mode": "coordinator_resume",
     "status": "in_progress",
-    "started_at": "2026-11-18T19:00:52+04:00",
+    "started_at": "2026-11-18T20:03:46+04:00",
     "last_checkpoint": "independent_critique",
-    "notes": "Arabic draft saved, independently reviewed, and revised. Lease released at a safe stage boundary."
+    "notes": "Lease acquired to resume the English draft from the saved checkpoint."
   },
   "workflow_id": "quran_reflections",
-  "run_lease": null,
+  "run_lease": {
+    "owner": "central-coordinator-2026-11-18-english-draft",
+    "acquired_at": "2026-11-18T20:03:46+04:00",
+    "expires_at": "2026-11-18T21:53:46+04:00"
+  },
   "checkpoint_policy": {
     "checkpoint_after_every_stage": true,
     "run_lease_minutes": 110,
