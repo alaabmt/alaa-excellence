@@ -2450,6 +2450,27 @@
         "subtitle": "A carpet mill after applying FMEA.",
         "alt": "Navy and gold FMEA · Failure Mode & Effects Analysis cover titled “Can We Trust the Numbers?” about a carpet mill."
       }
+    },
+    {
+      "slug": "reflection-al-hashr-what-have-we-sent-ahead",
+      "background": "assets/previews/story-backgrounds/reflection-al-baqarah-write-it-down.jpg",
+      "category": "reflection",
+      "ar": {
+        "title": [
+          "ماذا أرسلنا أمامنا",
+          "قبل أن يصل الغد؟"
+        ],
+        "subtitle": "محاسبة صادقة تقود إلى التوبة وإصلاح الأثر.",
+        "alt": "غلاف رمزي بالكحلي والذهبي لتأمل الحشر 59:18، يظهر مسارًا يمتد نحو أفق الغد وتدعونا الآية إلى النظر فيما نرسله أمامنا."
+      },
+      "en": {
+        "title": [
+          "What Have We Sent Ahead",
+          "Before Tomorrow Arrives?"
+        ],
+        "subtitle": "Honest self-accounting leads to repentance and repair.",
+        "alt": "Navy and gold symbolic cover for a reflection on Al-Hashr 59:18, showing a path toward tomorrow and the call to examine what we send ahead."
+      }
     }
   ]
 }

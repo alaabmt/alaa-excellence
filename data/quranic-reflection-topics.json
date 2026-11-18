@@ -1,7 +1,23 @@
 {
   "purpose": "سجل موضوعات التأملات القرآنية لتجنب تكرار القصة أو الزاوية (دليل مهارات كتابة التأملات القرآنية، البند 10، الخطوة 9)",
-  "updated": "2026-11-12",
+  "updated": "2026-11-18",
   "reflections": [
+    {
+      "slug": "reflection-al-hashr-what-have-we-sent-ahead",
+      "title_ar": "ماذا أرسلنا أمامنا قبل أن يصل الغد؟",
+      "title_en": "What Have We Sent Ahead Before Tomorrow Arrives?",
+      "date": "2026-11-18",
+      "verses": [
+        "الحشر: 18–21"
+      ],
+      "angle": "محاسبة النفس أمام الله والنظر فيما نقدمه للآخرة، مع إبقاء الفرق بين التفسير والتدبر والتطبيق المعاصر واضحًا.",
+      "core_idea": "الإيمان بلقاء الله ينقل المراجعة من الدفاع عن الماضي إلى التوبة وإصلاح الحقوق والأثر قبل أن يصعب تداركه.",
+      "contemporary_application": "فريق افتراضي يراجع نظامًا آليًا يقترح قبول طلبات الاستحقاق أو رفضها، فيختبر أثره على الحالات غير المعتادة ويضيف مسار اعتراض ومراجعة بشرية.",
+      "url_ar": "https://tamayuz10x.com/reflection-al-hashr-what-have-we-sent-ahead.html",
+      "url_en": "https://tamayuz10x.com/en/reflection-al-hashr-what-have-we-sent-ahead.html",
+      "quality_score": 98,
+      "publication_status": "repository_published; actions_pages_mobile_rtl_tts_and_live_verification_pending"
+    },
     {
       "slug": "reflection-al-ahzab-upright-speech",
       "title_ar": "كيف يكون القول سديدًا حين يصعب الاعتراف بالخطأ؟",
