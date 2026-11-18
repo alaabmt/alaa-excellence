@@ -5,13 +5,13 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-18T20:58:46.551+04:00",
+  "updated_at": "2026-11-18T21:04:40.285+04:00",
   "workflow_status": "in_progress",
-  "current_stage": "repository_publish",
+  "current_stage": "actions_and_pages",
   "current_article": {
     "article_id": "quran-reflection-2026-11-18-al-hashr-what-have-we-sent-ahead",
     "publication_date": "2026-11-18",
-    "status": "duplicate_check_passed_topic_selection_pending",
+    "status": "repository_published_actions_pending",
     "duplicate_check": {
       "status": "passed_no_today_quran_cycle_found",
       "checked_at": "2026-11-18T17:59:06+04:00",
@@ -168,6 +168,61 @@
       "rtl_gate": "NOT VERIFIED until final HTML",
       "tts_gate": "NOT VERIFIED until final HTML",
       "completed_at": "2026-11-18T20:07:49.239+04:00"
+    },
+    "arabic_html_path": "reflection-al-hashr-what-have-we-sent-ahead.html",
+    "english_html_path": "en/reflection-al-hashr-what-have-we-sent-ahead.html",
+    "publication_report_path": "automation/quran-reflections/reflection-al-hashr-what-have-we-sent-ahead/repository-publish-report.md",
+    "repository_publish": {
+      "status": "completed",
+      "completed_at": "2026-11-18T21:04:40.285+04:00",
+      "publication_commit": "628b9f30b250632eb61b9bec291f5a2e93d9a5c8",
+      "automation_descendant_head": "69b460d7fceb10e9a3cd9a010176bacc584e8f4a",
+      "sitemap_descendant_commit": "dd43c626d853866740029789e5be769ff85e35fc",
+      "report_path": "automation/quran-reflections/reflection-al-hashr-what-have-we-sent-ahead/repository-publish-report.md",
+      "arabic_page": {
+        "path": "reflection-al-hashr-what-have-we-sent-ahead.html",
+        "url": "https://tamayuz10x.com/reflection-al-hashr-what-have-we-sent-ahead.html"
+      },
+      "english_page": {
+        "path": "en/reflection-al-hashr-what-have-we-sent-ahead.html",
+        "url": "https://tamayuz10x.com/en/reflection-al-hashr-what-have-we-sent-ahead.html"
+      },
+      "indexes": [
+        "articles.html",
+        "en/articles.html",
+        "quranic-reflections.html",
+        "en/quranic-reflections.html"
+      ],
+      "records": [
+        "data/quranic-reflection-topics.json",
+        "data/article-publication-dates.json",
+        "data/article-covers.json",
+        "sitemap.xml"
+      ],
+      "social_sources": [
+        "assets/previews/story/reflection-al-hashr-what-have-we-sent-ahead-ar.svg",
+        "assets/previews/story/reflection-al-hashr-what-have-we-sent-ahead-en.svg"
+      ],
+      "checks": {
+        "title_and_h1": true,
+        "canonical_and_reciprocal_hreflang": true,
+        "article_and_breadcrumb_schema": true,
+        "rtl_ltr": true,
+        "language_isolation": true,
+        "topic_registry_single": true,
+        "index_card_single_each": true,
+        "publication_dates_match": true,
+        "sitemap_single_each": true
+      },
+      "duplicate_check": "passed immediately before atomic publication",
+      "automation_commits": [
+        "dd43c626d853866740029789e5be769ff85e35fc",
+        "69b460d7fceb10e9a3cd9a010176bacc584e8f4a"
+      ],
+      "generated_social_assets": [
+        "assets/previews/story/reflection-al-hashr-what-have-we-sent-ahead-ar.jpg",
+        "assets/previews/story/reflection-al-hashr-what-have-we-sent-ahead-en.jpg"
+      ]
     }
   },
   "stage_order": [
@@ -201,20 +256,16 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Reconcile the checkpoint, topic and publication-date registries, intended Arabic and English pages, all four article/reflection indexes, sitemap.xml, expected live URLs, and recent commits. If the article is absent everywhere, build the Arabic and English HTML and publish exactly once; otherwise reconcile the existing effect before any replay.",
+  "next_action": "Reconcile any automation descendants after the publication checkpoint, inspect required GitHub Actions on the exact latest content head, verify the generated Arabic and English JPG social cards, wait for GitHub Pages success, run real mobile and RTL/LTR checks on both pages, inspect both live pages plus all four live indexes and sitemap, and test actual Arabic and English TTS playback where Web Speech is available. Do not republish.",
   "last_run": {
     "mode": "coordinator_resume",
     "status": "in_progress",
     "started_at": "2026-11-18T20:58:46.551+04:00",
-    "last_checkpoint": "quality_gate",
-    "notes": "Lease acquired to reconcile and perform repository publication from the saved quality gate."
+    "last_checkpoint": "repository_publish",
+    "notes": "Atomic bilingual repository publication completed; sitemap and generated bilingual social-card descendants were reconciled. Lease released at the stage boundary."
   },
   "workflow_id": "quran_reflections",
-  "run_lease": {
-    "owner": "central-coordinator-2026-11-18-repository-publish",
-    "acquired_at": "2026-11-18T20:58:46.551+04:00",
-    "expires_at": "2026-11-18T22:48:46.551+04:00"
-  },
+  "run_lease": null,
   "checkpoint_policy": {
     "checkpoint_after_every_stage": true,
     "run_lease_minutes": 110,
@@ -589,7 +640,8 @@
     "independent_critique",
     "english_draft",
     "bilingual_parity",
-    "quality_gate"
+    "quality_gate",
+    "repository_publish"
   ],
   "duplicate_check": {
     "status": "passed_no_today_quran_cycle_found",

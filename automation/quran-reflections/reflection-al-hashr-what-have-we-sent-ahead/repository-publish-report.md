@@ -14,7 +14,9 @@ Immediately before the public write, the workflow reconciled the committed check
 
 ## Atomic repository publication
 
-The exact publication commit is recorded in the subsequent checkpoint commit after GitHub confirms the branch update.
+Publication commit: `628b9f30b250632eb61b9bec291f5a2e93d9a5c8`
+
+Automation descendants reconciled: `dd43c626d853866740029789e5be769ff85e35fc` (sitemap) and `69b460d7fceb10e9a3cd9a010176bacc584e8f4a` (bilingual generated covers and synchronized references).
 
 ## Pending verification
 
