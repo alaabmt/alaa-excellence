@@ -5,9 +5,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-19T14:05:11.318Z",
+  "updated_at": "2026-11-19T14:06:02.185Z",
   "workflow_status": "in_progress",
-  "current_stage": "english_draft",
+  "current_stage": "bilingual_parity",
   "current_article": {
     "article_id": "quran-reflection-2026-11-19-al-hadid-loss-gain-and-gratitude",
     "cycle_date": "2026-11-19",
@@ -47,6 +47,10 @@
     "independent_critique": {
       "status": "passed_after_two_clarity_corrections",
       "path": "automation/quran-reflections/reflection-al-hadid-loss-gain-and-gratitude/quality-review.md"
+    },
+    "english_draft": {
+      "status": "drafted_pending_parity",
+      "path": "automation/quran-reflections/reflection-al-hadid-loss-gain-and-gratitude/draft-en.md"
     }
   },
   "stage_order": [
@@ -80,12 +84,12 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Draft natural English preserving Arabic argument, section order, citations and safeguards; then review bilingual parity.",
+  "next_action": "Review bilingual argument and reference parity, aligning the translation source entry; then final editorial quality and actual mobile/TTS gates.",
   "last_run": {
     "mode": "coordinator_daily_start",
     "status": "in_progress",
     "started_at": "2026-11-19T14:00:08Z",
-    "last_checkpoint": "independent_critique"
+    "last_checkpoint": "english_draft"
   },
   "workflow_id": "quran_reflections",
   "run_lease": {
@@ -464,7 +468,8 @@
     "research",
     "quran_verification",
     "arabic_draft",
-    "independent_critique"
+    "independent_critique",
+    "english_draft"
   ],
   "duplicate_check": {
     "status": "passed_no_today_quran_cycle_found",
