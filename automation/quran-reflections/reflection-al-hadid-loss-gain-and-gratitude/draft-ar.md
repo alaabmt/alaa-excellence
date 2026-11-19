@@ -57,3 +57,5 @@
 6. القرطبي، الحديد 23: https://quran.ksu.edu.sa/tafseer/qortobi/sura57-aya23.html
 7. الطبري، الحديد 23: https://quran.ksu.edu.sa/tafseer/tabary/sura57-aya23.html
 8. السعدي، الحديد 23: https://quran.ksu.edu.sa/tafseer/saadi/sura57-aya23.html
+
+9. ترجمة معاني الآيتين بالإنجليزية، صحيح إنترناشونال (Sahih International): https://legacy.quran.com/57/22-23
