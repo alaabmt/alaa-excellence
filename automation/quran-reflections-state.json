@@ -5,9 +5,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-19T14:02:18.858Z",
+  "updated_at": "2026-11-19T14:03:23.557Z",
   "workflow_status": "in_progress",
-  "current_stage": "arabic_draft",
+  "current_stage": "independent_critique",
   "current_article": {
     "article_id": "quran-reflection-2026-11-19-al-hadid-loss-gain-and-gratitude",
     "cycle_date": "2026-11-19",
@@ -39,6 +39,10 @@
         24
       ],
       "status": "verified"
+    },
+    "arabic_draft": {
+      "status": "drafted_pending_independent_critique",
+      "path": "automation/quran-reflections/reflection-al-hadid-loss-gain-and-gratitude/draft-ar.md"
     }
   },
   "stage_order": [
@@ -72,12 +76,12 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Write and edit the Arabic draft from the verified Al-Hadid research, then obtain independent critique before English drafting.",
+  "next_action": "Independently critique Arabic draft for tafsir boundaries, novice clarity and factual attribution; revise before English drafting. Mobile and actual TTS remain NOT VERIFIED.",
   "last_run": {
     "mode": "coordinator_daily_start",
     "status": "in_progress",
     "started_at": "2026-11-19T14:00:08Z",
-    "last_checkpoint": "quran_verification"
+    "last_checkpoint": "arabic_draft"
   },
   "workflow_id": "quran_reflections",
   "run_lease": {
@@ -454,7 +458,8 @@
     "duplicate_check",
     "topic_selection",
     "research",
-    "quran_verification"
+    "quran_verification",
+    "arabic_draft"
   ],
   "duplicate_check": {
     "status": "passed_no_today_quran_cycle_found",
