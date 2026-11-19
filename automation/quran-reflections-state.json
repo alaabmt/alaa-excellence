@@ -5,7 +5,7 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-19T14:06:02.185Z",
+  "updated_at": "2026-11-19T17:01:02.263Z",
   "workflow_status": "in_progress",
   "current_stage": "bilingual_parity",
   "current_article": {
@@ -93,9 +93,9 @@
   },
   "workflow_id": "quran_reflections",
   "run_lease": {
-    "owner": "work-coordinator-20261119T1400Z",
-    "acquired_at": "2026-11-19T14:00:08Z",
-    "expires_at": "2026-11-19T15:50:08Z"
+    "owner": "work-coordinator-20261119T1700Z",
+    "acquired_at": "2026-11-19T17:01:02.263Z",
+    "expires_at": "2026-11-19T18:51:02.263Z"
   },
   "checkpoint_policy": {
     "checkpoint_after_every_stage": true,
