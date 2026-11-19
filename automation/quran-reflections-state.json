@@ -5,13 +5,13 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-19T17:02:44.236Z",
-  "workflow_status": "in_progress",
+  "updated_at": "2026-11-19T17:03:14.611Z",
+  "workflow_status": "blocked",
   "current_stage": "quality_gate",
   "current_article": {
     "article_id": "quran-reflection-2026-11-19-al-hadid-loss-gain-and-gratitude",
     "cycle_date": "2026-11-19",
-    "status": "preflight_completed",
+    "status": "drafts_reviewed_publication_blocked",
     "preflight_path": "automation/quran-reflections/2026-11-19-preflight.md",
     "slug": "reflection-al-hadid-loss-gain-and-gratitude",
     "working_title_ar": "كيف نستقبل الخسارة والنجاح دون أن نفقد اتزاننا؟",
@@ -58,6 +58,14 @@
       "arabic_blob_sha": "ed23c2fc143d423a950a6ab7fa2b57d0091a7142",
       "english_blob_sha": "b5b2ee143897cbc1cab983060297694ea79553ae",
       "technical_page_parity": "not_verified"
+    },
+    "quality_gate": {
+      "status": "blocked_not_passed",
+      "review_path": "automation/quran-reflections/reflection-al-hadid-loss-gain-and-gratitude/final-quality-gate.md",
+      "editorial_content": "passed",
+      "mobile_rtl_ltr": "not_verified",
+      "technical_parity": "not_verified",
+      "actual_tts": "not_verified_web_speech_unavailable"
     }
   },
   "stage_order": [
@@ -91,19 +99,17 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Evaluate final quality gate; preserve unpublished drafts until mobile/RTL and actual bilingual TTS are verified.",
+  "next_action": "After a usable TTS environment or explicit owner exception is available, prepare unpublished bilingual HTML previews; verify actual mobile/RTL/LTR, metadata and technical parity, and actual TTS unless explicitly excepted. Re-run final quality gate and all duplicate checks before publication. Do not repeat completed research/drafting or start another 2026-11-19 cycle.",
   "last_run": {
     "mode": "coordinator_resume",
-    "status": "in_progress",
+    "status": "blocked",
     "started_at": "2026-11-19T17:01:02.263Z",
-    "last_checkpoint": "bilingual_parity"
+    "last_checkpoint": "bilingual_parity",
+    "completed_at": "2026-11-19T17:03:14.611Z",
+    "notes": "Saved independent content parity with two English corrections and final gate assessment. No public publication performed."
   },
   "workflow_id": "quran_reflections",
-  "run_lease": {
-    "owner": "work-coordinator-20261119T1700Z",
-    "acquired_at": "2026-11-19T17:01:02.263Z",
-    "expires_at": "2026-11-19T18:51:02.263Z"
-  },
+  "run_lease": null,
   "checkpoint_policy": {
     "checkpoint_after_every_stage": true,
     "run_lease_minutes": 110,
@@ -497,7 +503,13 @@
     ],
     "note": "No repository, registry, recent-commit, live-index, sitemap, or public-search evidence of a Qur'anic reflection started or published for 2026-11-18. The previous cycle is explicitly blocked, so the daily exception permits one new cycle."
   },
-  "blocker": null,
+  "blocker": {
+    "type": "platform_capability_missing",
+    "stage": "quality_gate",
+    "detail": "Fresh available browser check: speechSynthesis and SpeechSynthesisUtterance both unavailable. Actual bilingual TTS cannot be verified. Mobile/RTL/LTR and final HTML technical checks are also pending, not passed.",
+    "decision_required": "Provide a Web Speech-capable environment with Arabic and English voices, or explicitly approve a documented exception to actual playback. Mobile and other mandatory gates still require verification.",
+    "safe_to_retry": false
+  },
   "verified_quranic_references": [],
   "previous_blocked_article": {
     "article_id": "quran-reflection-2026-11-18-al-hashr-what-have-we-sent-ahead",
