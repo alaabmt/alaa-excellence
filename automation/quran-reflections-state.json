@@ -5,9 +5,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-19T14:01:28.181Z",
+  "updated_at": "2026-11-19T14:02:14.170Z",
   "workflow_status": "in_progress",
-  "current_stage": "research",
+  "current_stage": "quran_verification",
   "current_article": {
     "article_id": "quran-reflection-2026-11-19-al-hadid-loss-gain-and-gratitude",
     "cycle_date": "2026-11-19",
@@ -20,7 +20,8 @@
       "status": "completed",
       "artifact_path": "automation/quran-reflections/reflection-al-hadid-loss-gain-and-gratitude/topic-selection.md"
     },
-    "research_notes_path": "automation/quran-reflections/reflection-al-hadid-loss-gain-and-gratitude/research-notes.md"
+    "research_notes_path": "automation/quran-reflections/reflection-al-hadid-loss-gain-and-gratitude/research-notes.md",
+    "research_status": "completed"
   },
   "stage_order": [
     "capability_check",
@@ -53,12 +54,12 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Research Al-Hadid 57:22–23 and context 57:20–24 from trusted tafsir and a named English Quran translation; save research-notes.md before literal Quran verification.",
+  "next_action": "Verify literal Arabic of Al-Hadid 57:22–23 and the short attributed Sahih International excerpt, then draft Arabic.",
   "last_run": {
     "mode": "coordinator_daily_start",
     "status": "in_progress",
     "started_at": "2026-11-19T14:00:08Z",
-    "last_checkpoint": "topic_selection"
+    "last_checkpoint": "research"
   },
   "workflow_id": "quran_reflections",
   "run_lease": {
@@ -433,7 +434,8 @@
     "capability_check",
     "load_checkpoint",
     "duplicate_check",
-    "topic_selection"
+    "topic_selection",
+    "research"
   ],
   "duplicate_check": {
     "status": "passed_no_today_quran_cycle_found",
