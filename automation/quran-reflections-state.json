@@ -5,9 +5,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-19T17:01:02.263Z",
+  "updated_at": "2026-11-19T17:02:44.236Z",
   "workflow_status": "in_progress",
-  "current_stage": "bilingual_parity",
+  "current_stage": "quality_gate",
   "current_article": {
     "article_id": "quran-reflection-2026-11-19-al-hadid-loss-gain-and-gratitude",
     "cycle_date": "2026-11-19",
@@ -49,8 +49,15 @@
       "path": "automation/quran-reflections/reflection-al-hadid-loss-gain-and-gratitude/quality-review.md"
     },
     "english_draft": {
-      "status": "drafted_pending_parity",
+      "status": "content_parity_passed",
       "path": "automation/quran-reflections/reflection-al-hadid-loss-gain-and-gratitude/draft-en.md"
+    },
+    "bilingual_parity": {
+      "status": "content_passed_after_two_english_corrections",
+      "review_path": "automation/quran-reflections/reflection-al-hadid-loss-gain-and-gratitude/bilingual-parity-review.md",
+      "arabic_blob_sha": "ed23c2fc143d423a950a6ab7fa2b57d0091a7142",
+      "english_blob_sha": "b5b2ee143897cbc1cab983060297694ea79553ae",
+      "technical_page_parity": "not_verified"
     }
   },
   "stage_order": [
@@ -84,12 +91,12 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Review bilingual argument and reference parity, aligning the translation source entry; then final editorial quality and actual mobile/TTS gates.",
+  "next_action": "Evaluate final quality gate; preserve unpublished drafts until mobile/RTL and actual bilingual TTS are verified.",
   "last_run": {
-    "mode": "coordinator_daily_start",
+    "mode": "coordinator_resume",
     "status": "in_progress",
-    "started_at": "2026-11-19T14:00:08Z",
-    "last_checkpoint": "english_draft"
+    "started_at": "2026-11-19T17:01:02.263Z",
+    "last_checkpoint": "bilingual_parity"
   },
   "workflow_id": "quran_reflections",
   "run_lease": {
@@ -469,7 +476,8 @@
     "quran_verification",
     "arabic_draft",
     "independent_critique",
-    "english_draft"
+    "english_draft",
+    "bilingual_parity"
   ],
   "duplicate_check": {
     "status": "passed_no_today_quran_cycle_found",
