@@ -1,12 +1,14 @@
 # How can we meet loss and success without losing our balance?
 
-A proposal we have prepared carefully is rejected. Instead of asking what needs to improve, we begin asking why this always happens to us. Later, a revised proposal wins approval, and we forget the people who helped us. The outcome has changed, but our response can still give it too much power over us.
+A proposal we have prepared carefully is rejected. Instead of asking what needs to improve, we begin asking why this happens to us. Later, a revised proposal wins approval, and we forget the people who helped us. The outcome has changed, but our response can still give it too much power over us.
 
 Imagine a team that has spent weeks planning a service for the public, only to have its proposal turned down. The disappointment is real. Some members want to review their work; others would rather close the file because looking at it hurts. How might they acknowledge that pain without treating rejection as a final verdict on their worth, or as a reason to abandon what they can still put right? This is a hypothetical example.
 
 ## What escapes us, and what we receive
 
-Al-Hadid 57:22 teaches that calamities on earth and in human lives are recorded before they come into being, and that this is easy for Allah. Verse 23 connects that knowledge with our response to loss and gain, ending with a warning against conceit and boasting. In Sahih International's translation, one short phrase is “not exult [in pride] over what He has given you.” The surrounding sentences here explain the meaning; they are not a direct Quran translation. [1, 2, 9]
+**Meaning summarized from Al-Hadid 57:22–23; quoted phrase from Sahih International.**
+
+Al-Hadid 57:22 teaches that calamities on earth and in human lives are recorded before they come into being, and that this is easy for Allah. Verse 23 connects that knowledge with our response to loss and gain, ending with a warning against conceit and boasting. In Sahih International's translation, one short phrase is “not exult [in pride] over what He has given you.” [1, 2, 9]
 
 Ibn Kathir explains verse 22 in terms of Allah's prior knowledge and the writing of decrees. The next verse connects that belief with how people receive what eludes them and what they are given. An outcome does not fall outside Allah's knowledge, and a blessing is not something a person has brought into existence independently through personal strength. [1, 2]
 
