@@ -1745,6 +1745,27 @@
       }
     },
     {
+      "slug": "article-oe-evidence-rapid-response-teams",
+      "background": "assets/previews/story-backgrounds/article-oe-evidence-rapid-response-teams.jpg",
+      "category": "article",
+      "ar": {
+        "title": [
+          "فريق للاستجابة",
+          "حين تسوء الحالة"
+        ],
+        "subtitle": "ماذا تقول خمس دراسات؟",
+        "alt": "غلاف توضيحي بالكحلي والذهبي لمقال عن فرق الاستجابة السريعة في المستشفيات، يظهر فيه سرير ومنحنى نبض."
+      },
+      "en": {
+        "title": [
+          "A Team to Call",
+          "When a Patient Worsens"
+        ],
+        "subtitle": "What five studies show",
+        "alt": "Navy and gold editorial cover for an article about rapid response teams in hospitals, showing a hospital bed and a pulse line."
+      }
+    },
+    {
       "slug": "article-oe-evidence-surgical-safety-checklist",
       "background": "assets/previews/story-backgrounds/article-oe-evidence-surgical-safety-checklist.jpg",
       "category": "article",

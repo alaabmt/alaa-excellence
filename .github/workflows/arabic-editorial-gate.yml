@@ -33,6 +33,14 @@ jobs:
         run: python3 scripts/check_arabic_mobile.py
       - name: Render current Qur'anic reflection at actual mobile widths
         run: python3 scripts/check_quran_reflection_mobile.py
+      - name: Render the OE evidence rapid response article at actual mobile widths
+        env:
+          ARABIC_ARTICLE: article-oe-evidence-rapid-response-teams.html
+          EDITORIAL_REPORT: editorial-qa/oe-rrt.json
+          MOBILE_ARTIFACT_PREFIX: oe-rrt
+        run: python3 scripts/check_arabic_mobile.py
+      - name: Check OE evidence rapid response editorial gates
+        run: python3 scripts/check_arabic_editorial.py article-oe-evidence-rapid-response-teams.html editorial-qa/oe-rrt.json
       - name: Render the OE evidence checklist article at actual mobile widths
         env:
           ARABIC_ARTICLE: article-oe-evidence-surgical-safety-checklist.html
@@ -101,4 +109,5 @@ jobs:
             editorial-qa/oe-huddles.json
             editorial-qa/oe-audit-feedback.json
             editorial-qa/oe-checklist.json
+            editorial-qa/oe-rrt.json
           if-no-files-found: error
