@@ -5,14 +5,22 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-19T14:00:59.223Z",
+  "updated_at": "2026-11-19T14:01:28.181Z",
   "workflow_status": "in_progress",
-  "current_stage": "topic_selection",
+  "current_stage": "research",
   "current_article": {
-    "article_id": "quran-reflection-2026-11-19",
+    "article_id": "quran-reflection-2026-11-19-al-hadid-loss-gain-and-gratitude",
     "cycle_date": "2026-11-19",
     "status": "preflight_completed",
-    "preflight_path": "automation/quran-reflections/2026-11-19-preflight.md"
+    "preflight_path": "automation/quran-reflections/2026-11-19-preflight.md",
+    "slug": "reflection-al-hadid-loss-gain-and-gratitude",
+    "working_title_ar": "كيف نستقبل الخسارة والنجاح دون أن نفقد اتزاننا؟",
+    "working_title_en": "How Can We Meet Loss and Success Without Losing Our Balance?",
+    "topic_selection": {
+      "status": "completed",
+      "artifact_path": "automation/quran-reflections/reflection-al-hadid-loss-gain-and-gratitude/topic-selection.md"
+    },
+    "research_notes_path": "automation/quran-reflections/reflection-al-hadid-loss-gain-and-gratitude/research-notes.md"
   },
   "stage_order": [
     "capability_check",
@@ -45,12 +53,12 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Select one distinct Qur’anic reflection topic for the 2026-11-19 cycle, recording three candidate angles and novelty, then research it.",
+  "next_action": "Research Al-Hadid 57:22–23 and context 57:20–24 from trusted tafsir and a named English Quran translation; save research-notes.md before literal Quran verification.",
   "last_run": {
     "mode": "coordinator_daily_start",
     "status": "in_progress",
     "started_at": "2026-11-19T14:00:08Z",
-    "last_checkpoint": "duplicate_check"
+    "last_checkpoint": "topic_selection"
   },
   "workflow_id": "quran_reflections",
   "run_lease": {
@@ -424,7 +432,8 @@
   "completed_stages": [
     "capability_check",
     "load_checkpoint",
-    "duplicate_check"
+    "duplicate_check",
+    "topic_selection"
   ],
   "duplicate_check": {
     "status": "passed_no_today_quran_cycle_found",
