@@ -436,7 +436,11 @@
     "notes": "Live pages, all four indexes, sitemap, assets, desktop layout, RTL/LTR, and 8/8 mobile checks passed. Blocked only on actual bilingual TTS playback because Web Speech is unavailable."
   },
   "workflow_id": "quran_reflections",
-  "run_lease": null,
+  "run_lease": {
+    "owner": "work-coordinator-20261119T1400Z",
+    "acquired_at": "2026-11-19T14:00:08Z",
+    "expires_at": "2026-11-19T15:50:08Z"
+  },
   "checkpoint_policy": {
     "checkpoint_after_every_stage": true,
     "run_lease_minutes": 110,
