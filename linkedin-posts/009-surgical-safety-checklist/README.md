@@ -3,7 +3,7 @@
 **Format:** LinkedIn document (carousel), 8 slides, 1080×1350, two separate posts: Arabic (`carousel-ar.pdf`) and English (`carousel-en.pdf`). The English version is written as original English, not a translation.
 **Website article:** https://tamayuz10x.com/article-oe-evidence-surgical-safety-checklist.html and https://tamayuz10x.com/en/article-oe-evidence-surgical-safety-checklist.html (PR #233, squash merge 8c3f312, live 2026-11-16).
 **Editorial review:** article, slides and captions reviewed with the owner's `arabic-editorial-reviewer` and `english-editorial-reviewer` agents; all BLOCK/FIX findings fixed before delivery.
-**Status:** Approved by the owner on 2026-11-16. Article live; Arabic post published; English post scheduled about two hours later.
+**Status:** Approved by the owner on 2026-11-16. Article live; Arabic post published 16 Nov; English post published 19 Nov.
 
 | File | Purpose |
 |---|---|
@@ -42,4 +42,4 @@ Checked on 16 Nov 2026 against the PubMed abstracts (efetch); DOIs checked with 
 |---|---|---|
 | Website article | Live 2026-11-16 (PR #233) | https://tamayuz10x.com/article-oe-evidence-surgical-safety-checklist.html |
 | Arabic post | Published 2026-11-16 (urn:li:ugcPost:7527992133295853568) | https://www.linkedin.com/feed/update/urn:li:ugcPost:7527992133295853568/ |
-| English post | Scheduled about 2 hours after the Arabic post | — |
+| English post | Published 2026-11-19 (urn:li:ugcPost:7529073432127344640); delayed from 16 Nov because a session restart interrupted the scheduled run | https://www.linkedin.com/feed/update/urn:li:ugcPost:7529073432127344640/ |
