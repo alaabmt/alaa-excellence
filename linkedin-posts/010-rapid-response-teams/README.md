@@ -1,8 +1,8 @@
 # LinkedIn Post 010 — فرق تسرع إلى المريض إذا ساءت حالته / Rapid response teams
 
 **Format:** LinkedIn document (carousel), 8 slides, 1080×1350, two separate posts: Arabic (`carousel-ar.pdf`) and English (`carousel-en.pdf`). The English version is written as original English, not a translation.
-**Website article (draft):** https://tamayuz10x.com/article-oe-evidence-rapid-response-teams.html and https://tamayuz10x.com/en/article-oe-evidence-rapid-response-teams.html (draft PR on branch `claude/oe-evidence-articles`; the links work only after approval and merge).
-**Editorial review:** article, slides and captions reviewed with the owner's `arabic-editorial-reviewer` and `english-editorial-reviewer` agents; all BLOCK/FIX findings fixed before delivery.
+**Website article (draft):** https://tamayuz10x.com/article-oe-evidence-rapid-response-teams.html and https://tamayuz10x.com/en/article-oe-evidence-rapid-response-teams.html (draft PR #242 on branch `claude/oe-evidence-articles`; the links work only after approval and merge).
+**Editorial review:** article, slides and captions reviewed with the owner's `arabic-editorial-reviewer` and `english-editorial-reviewer` agents; all BLOCK/FIX findings fixed before delivery (final: Arabic OVERALL PASS after 4 rounds, English OVERALL PASS after 3 rounds).
 **Status:** Draft — waiting for the owner's approval.
 
 | File | Purpose |
