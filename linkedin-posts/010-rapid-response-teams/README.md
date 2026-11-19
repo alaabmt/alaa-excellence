@@ -24,7 +24,7 @@ Checked on 19 Nov 2026 against the PubMed abstracts (efetch); DOIs checked with 
 | Composite of cardiac arrest, unexpected death, unplanned ICU admission: 5.86 vs 5.31 per 1,000 admissions (p=0.640) | [1] Findings |
 | Team called for 30% of patients who met calling criteria and were later admitted to ICU | [1] Findings |
 | Cardiac arrests and unexpected deaths fell from baseline for both groups combined | [1] Findings |
-| Stepped wedge cluster RCT; 14 hospitals planned; 28 wards of 7 hospitals analysed; 34,267 + 35,389 admissions; standardised observation and communication protocol with a medical response strategy; no significant difference in unexpected death, cardiac arrest or unplanned ICU admission; lower-than-expected baseline reduced power | [2] Methods, Results, Conclusion |
+| Stepped wedge cluster RCT; 14 hospitals included; 28 wards of 7 hospitals analysed; 34,267 + 35,389 admissions; standardised observation and communication protocol with a medical response strategy; no significant difference in unexpected death, cardiac arrest or unplanned ICU admission; lower-than-expected baseline reduced power | [2] Methods, Results, Conclusion |
 | 29 studies; 5 cluster RCT, controlled before-after or interrupted time series; the rest before-and-after without a concurrent control | [3] Results |
 | Adults: hospital mortality RR 0.87 (≈13% relative reduction), cardiopulmonary arrest RR 0.65 (≈35%); children similar (0.82, 0.64); substantial heterogeneity | [3] Results |
 | 61 studies (4 RCTs, 47 pre-post); evidence inconsistent; most studies positive; variation restricts comparison | [4] Results, Conclusion |
@@ -37,7 +37,7 @@ Checked on 19 Nov 2026 against the PubMed abstracts (efetch); DOIs checked with 
 [4] Zhang Q, et al. Effects of a rapid response team on patient outcomes: a systematic review. *Heart Lung* 2024;63:51–64. doi:10.1016/j.hrtlng.2023.09.007 (PMID 37774510)
 [5] Hecht JD, et al. A systematic review of the facilitators and barriers to rapid response team activation. *Worldviews Evid Based Nurs* 2024;21(2):148–157. doi:10.1111/wvn.12700 (PMID 38159058)
 
-**Evidence limits:** most studies in the two meta-reviews are before-and-after designs; the Australian trial followed results for 6 months; the Belgian trial analysed 7 of 14 planned hospitals and had lower-than-expected baseline rates; the Belgian intervention was a rapid response system, not necessarily a dedicated team; the activation review covers only U.S. nurse-led teams; the published abstracts mention no Arab hospital; nothing was tested outside hospitals.
+**Evidence limits:** most studies in the two meta-reviews are before-and-after designs; the Australian trial followed results for 6 months; the Belgian trial analysed 7 of its 14 hospitals and had lower-than-expected baseline rates; the Belgian intervention was a rapid response system, not necessarily a dedicated team; the activation review covers only U.S. nurse-led teams; the published abstracts mention no Arab hospital; nothing was tested outside hospitals.
 
 ## Publication
 
