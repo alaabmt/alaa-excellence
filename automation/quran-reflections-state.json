@@ -5,9 +5,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-19T14:02:14.170Z",
+  "updated_at": "2026-11-19T14:02:18.858Z",
   "workflow_status": "in_progress",
-  "current_stage": "quran_verification",
+  "current_stage": "arabic_draft",
   "current_article": {
     "article_id": "quran-reflection-2026-11-19-al-hadid-loss-gain-and-gratitude",
     "cycle_date": "2026-11-19",
@@ -21,7 +21,25 @@
       "artifact_path": "automation/quran-reflections/reflection-al-hadid-loss-gain-and-gratitude/topic-selection.md"
     },
     "research_notes_path": "automation/quran-reflections/reflection-al-hadid-loss-gain-and-gratitude/research-notes.md",
-    "research_status": "completed"
+    "research_status": "completed",
+    "quran_verification": {
+      "status": "passed",
+      "path": "automation/quran-reflections/reflection-al-hadid-loss-gain-and-gratitude/quran-verification.md"
+    },
+    "quranic_focus": {
+      "surah": "Al-Hadid",
+      "surah_ar": "الحديد",
+      "ayahs": [
+        22,
+        23
+      ],
+      "context_ayahs": [
+        20,
+        21,
+        24
+      ],
+      "status": "verified"
+    }
   },
   "stage_order": [
     "capability_check",
@@ -54,12 +72,12 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Verify literal Arabic of Al-Hadid 57:22–23 and the short attributed Sahih International excerpt, then draft Arabic.",
+  "next_action": "Write and edit the Arabic draft from the verified Al-Hadid research, then obtain independent critique before English drafting.",
   "last_run": {
     "mode": "coordinator_daily_start",
     "status": "in_progress",
     "started_at": "2026-11-19T14:00:08Z",
-    "last_checkpoint": "research"
+    "last_checkpoint": "quran_verification"
   },
   "workflow_id": "quran_reflections",
   "run_lease": {
@@ -435,7 +453,8 @@
     "load_checkpoint",
     "duplicate_check",
     "topic_selection",
-    "research"
+    "research",
+    "quran_verification"
   ],
   "duplicate_check": {
     "status": "passed_no_today_quran_cycle_found",
