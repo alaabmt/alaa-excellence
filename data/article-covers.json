@@ -2492,6 +2492,27 @@
         "subtitle": "Honest self-accounting leads to repentance and repair.",
         "alt": "Navy and gold symbolic cover for a reflection on Al-Hashr 59:18, showing a path toward tomorrow and the call to examine what we send ahead."
       }
+    },
+    {
+      "slug": "case-japan-shinkansen-safety-system",
+      "procedural_scene": "shinkansen-rail-safety",
+      "category": "case",
+      "ar": {
+        "title": [
+          "سلامة الشينكانسن",
+          "صُممت في النظام"
+        ],
+        "subtitle": "إنذار الزلازل والتحكم والوقاية طبقات تعمل معًا.",
+        "alt": "غلاف توضيحي لحالة الشينكانسن، يظهر قطارًا سريعًا ومسارًا محميًا ورمزًا للتحذير المبكر."
+      },
+      "en": {
+        "title": [
+          "Shinkansen Safety",
+          "Designed into the System"
+        ],
+        "subtitle": "Earthquake alerts, control and safeguards work in layers.",
+        "alt": "Illustrative Shinkansen safety cover showing a high-speed train, protected railway and early-warning symbol."
+      }
     }
   ]
 }

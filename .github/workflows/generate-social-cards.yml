@@ -1,6 +1,15 @@
 name: Generate social share cards
 
 on:
+  # Validate regenerated covers before merging the catalog or renderer changes.
+  pull_request:
+    branches: [main]
+    paths:
+      - 'data/article-covers.json'
+      - 'scripts/generate_story_covers.py'
+      - 'scripts/sync_story_covers.py'
+      - 'scripts/check_story_covers.py'
+      - '.github/workflows/generate-social-cards.yml'
   push:
     branches: [main]
     paths:
@@ -34,7 +43,7 @@ permissions:
   pages: write
 
 concurrency:
-  group: generate-social-cards-main
+  group: generate-social-cards-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -66,6 +75,7 @@ jobs:
           python scripts/check_article_dates.py
 
       - name: Commit generated social assets
+        if: github.event_name == 'push'
         id: commit
         shell: bash
         run: |
@@ -90,7 +100,7 @@ jobs:
           fi
 
       - name: Request Pages build after an asset synchronization commit
-        if: steps.commit.outputs.changed == 'true'
+        if: github.event_name == 'push' && steps.commit.outputs.changed == 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
