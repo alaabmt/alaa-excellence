@@ -6,11 +6,21 @@ on:
   pull_request:
     branches: [main]
   workflow_dispatch:
+permissions:
+  contents: read
+
+concurrency:
+  group: arabic-editorial-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   editorial-and-mobile-check:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Test reflection publication selection
+        run: python3 -m unittest discover -s tests -p 'test_reflection_mobile_selection.py' -v
       - name: Install browser test dependencies
         run: |
           python3 -m pip install playwright
@@ -31,7 +41,7 @@ jobs:
           MOBILE_ARTIFACT_PREFIX: agent-swelancer-en
           EXPECTED_DIRECTION: ltr
         run: python3 scripts/check_arabic_mobile.py
-      - name: Render current Qur'anic reflection at actual mobile widths
+      - name: Render current or preceding published Qur'anic reflection at actual mobile widths
         run: python3 scripts/check_quran_reflection_mobile.py
       - name: Render the OE evidence rapid response article at actual mobile widths
         env:
