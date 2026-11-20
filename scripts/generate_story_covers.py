@@ -62,6 +62,35 @@ def wrap(draw, text, f, direction, limit=648):
 def procedural_background(card, spec):
     """Create a deterministic original editorial scene when no raster background is checked in."""
     width, height = spec['width'], spec['height']
+    if card.get('procedural_scene') == 'shinkansen-rail-safety':
+        # Deterministic railway illustration; no external images or font dependencies.
+        im = Image.new('RGB', (width, height), '#092747')
+        d = ImageDraw.Draw(im)
+        for y in range(height):
+            t = y / max(height - 1, 1)
+            d.line((0, y, width, y),
+                   fill=(round(9 + 15*t), round(39 + 25*t), round(71 + 20*t)))
+        d.polygon([(0, 445), (620, 425), (700, 630), (0, 630)],
+                  fill='#123c53')
+        for y in (472, 499, 537):
+            d.line((0, y, 670, y - 36), fill='#d1aa59', width=7)
+        # Streamlined train, with cab windows and a visible protective rail.
+        d.rounded_rectangle((45, 300, 505, 423), radius=32,
+                            fill='#e4eff4', outline='#97b6c7', width=5)
+        d.polygon([(470, 300), (570, 328), (626, 408), (490, 423)],
+                  fill='#e4eff4')
+        d.polygon([(475, 315), (557, 338), (588, 388), (475, 388)],
+                  fill='#2c6681')
+        for x in (80, 190, 300):
+            d.rounded_rectangle((x, 326, x + 82, 378), radius=12,
+                                fill='#2c6681')
+        d.line((52, 401, 597, 401), fill='#d1aa59', width=6)
+        # Early-warning marker is intentionally symbolic, not a live signal.
+        d.ellipse((72, 103, 178, 209), fill='#d1aa59')
+        d.polygon([(125, 115), (166, 187), (84, 187)], fill='#092747')
+        d.line((125, 137, 125, 163), fill='#e4eff4', width=6)
+        d.ellipse((121, 174, 129, 182), fill='#e4eff4')
+        return im
     im = Image.new('RGB', (width, height), '#163b4a')
     d = ImageDraw.Draw(im)
     # Dawn sky and neighborhood depth.
