@@ -13,6 +13,10 @@ for p in sorted(ROOT.rglob("*.html")):
     rel = p.relative_to(ROOT).as_posix()
     if rel.startswith(excluded) or "/node_modules/" in rel:
         continue
+    # LinkedIn carousel slide HTML is an export canvas, not an editorial page.
+    # Loading the unified menu would alter the 1200x1200 slide render.
+    if Path(rel).match("linkedin-posts/*/slides-*.html"):
+        continue
     content = p.read_text(encoding="utf-8", errors="replace")
     if "<body" not in content.lower():
         continue
