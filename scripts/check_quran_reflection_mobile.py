@@ -6,8 +6,6 @@ import subprocess
 import time
 from pathlib import Path
 
-from playwright.async_api import async_playwright
-
 STATE = Path("automation/quran-reflections-state.json")
 OUT = Path("editorial-qa/mobile-artifacts")
 WIDTHS = (320, 375, 390, 430)
@@ -15,17 +13,35 @@ WIDTHS = (320, 375, 390, 430)
 
 def current_pages():
     state = json.loads(STATE.read_text(encoding="utf-8"))
-    article = state.get("current_article") or {}
-    publish = article.get("repository_publish") or {}
-    arabic = (publish.get("arabic_page") or {}).get("path")
-    english = (publish.get("english_page") or {}).get("path")
-    slug = article.get("slug")
-    if not slug or not arabic or not english:
-        raise SystemExit("FAIL: Current reflection publication paths are missing from state")
-    return slug, (("ar", "rtl", Path(arabic)), ("en", "ltr", Path(english)))
+    # A new research/draft checkpoint is not a publication. Keep testing the
+    # preceding published reflection without marking the draft's gates passed.
+    candidates = [state.get("current_article") or {},
+                  state.get("previous_blocked_article") or {},
+                  state.get("last_completed_article") or {}]
+    for article in candidates:
+        publish = article.get("repository_publish") or {}
+        arabic = (publish.get("arabic_page") or {}).get("path")
+        english = (publish.get("english_page") or {}).get("path")
+        slug = article.get("slug")
+        expected = (Path(f"{slug}.html"), Path("en") / f"{slug}.html") if slug else ()
+        if not publish and not any(path.is_file() for path in expected):
+            continue
+        # Never fall back past an incomplete publication or a public page whose
+        # publication record is missing; those remain real failures.
+        if not slug or not arabic or not english:
+            raise SystemExit("FAIL: Reflection publication paths are missing from state")
+        if (Path(arabic), Path(english)) != expected:
+            raise SystemExit("FAIL: Reflection publication paths do not match its slug")
+        if not all(path.is_file() for path in expected):
+            raise SystemExit("FAIL: Recorded reflection publication pages are missing")
+        print(f"Testing published reflection: {slug}; draft publication gates are unchanged")
+        return slug, (("ar", "rtl", Path(arabic)), ("en", "ltr", Path(english)))
+    raise SystemExit("FAIL: No published reflection is available for mobile verification")
 
 
 async def main():
+    from playwright.async_api import async_playwright
+
     slug, pages = current_pages()
     OUT.mkdir(parents=True, exist_ok=True)
     results = []
