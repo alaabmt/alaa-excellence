@@ -88,7 +88,7 @@ def sync_page(path, slug, lang):
     cover = figure(slug, lang)
     source, count = re.subn(r'<figure\b[^>]*class=["\'][^"\']*cover[^"\']*["\'][^>]*>.*?</figure>', lambda _: cover, source, count=1, flags=re.S)
     if not count:
-        source, count = re.subn(r'<img\b[^>]*class=["\'][^"\']*article-preview-hero[^"\']*["\'][^>]*>', lambda _: cover, source, count=1, flags=re.S)
+        source, count = re.subn(r'<img\b[^>]*class=["\'][^"\']*(?:article-preview-hero|cover)[^"\']*["\'][^>]*>', lambda _: cover, source, count=1, flags=re.S)
     if not count:
         for pattern in (r'<section\b[^>]*class=["\'][^"\']*hero[^"\']*["\'][^>]*>.*?</section>', r'<header\b[^>]*>.*?</header>'):
             candidates = [m for m in re.finditer(pattern, source, re.S) if re.search(r'<h1\b', m[0])]
