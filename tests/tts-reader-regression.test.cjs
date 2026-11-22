@@ -180,3 +180,36 @@ test('speed change during play restarts the current sentence and ignores stale c
   assert.equal(p.synth.current.rate, 1.3);
   assert.equal(p.player.state().index, 0);
 });
+
+
+test('long Arabic and English text uses bounded playback chunks when voices omit boundaries', () => {
+  for (const sentence of [
+    'هذه تجربة طويلة للتحقق من قدرة الاستماع على استئناف النص من موضع قريب بدلاً من البدء من أول المقال '.repeat(3),
+    'This long sentence verifies that the reader resumes close to the place where it was interrupted '.repeat(3)
+  ]) {
+    const sections = speechSegments([element('p', sentence)]).map((x) => x.text);
+    const content = sections.slice(2); // Exclude the page title and lead.
+    assert.ok(content.length >= 4);
+    assert.ok(content.every((chunk) => chunk.trim().split(/\s+/u).length <= 8));
+    assert.equal(content.join(' '), sentence.trim());
+  }
+});
+
+test('pause after several completed chunks resumes the active checkpoint, not the article heading', () => {
+  const manyWords = Array.from({ length: 48 }, (_, i) => 'word' + i).join(' ');
+  const sections = speechSegments([element('p', manyWords)]);
+  const p = makePlayer(sections);
+  p.play.click();
+  const title = p.synth.current.text;
+  for (let i = 0; i < 5; i++) p.synth.current.onend();
+  const position = p.player.state().index;
+  assert.ok(position >= 5);
+  const activeChunk = p.synth.current.text;
+  assert.notEqual(activeChunk, title);
+  p.play.click();
+  assert.equal(p.player.state().index, position);
+  assert.ok(p.status.textContent.includes(String(position + 1)));
+  p.play.click();
+  assert.equal(p.synth.current.text, activeChunk);
+  assert.equal(p.player.state().index, position);
+});

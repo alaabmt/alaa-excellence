@@ -76,18 +76,28 @@
       const text = getVisibleSpeechText(el);
       if (!text) return;
       seen.add(el);
-      // Save a fallback progress checkpoint at each sentence. Mobile speech engines
-      // may omit onboundary events, so resuming need not restart the whole paragraph.
+      // Native speech engines do not consistently provide word-boundary callbacks.
+      // Keep a durable fallback checkpoint every few spoken words. When boundary
+      // callbacks do fire, the player resumes at the last reported word instead.
+      const appendShortChunks = (sentence) => {
+        const words = cleanText(sentence).split(/\s+/u).filter(Boolean);
+        if (!words.length) return;
+        const chunkCount = Math.ceil(words.length / 8);
+        const chunkSize = Math.ceil(words.length / chunkCount);
+        for (let offset = 0; offset < words.length; offset += chunkSize) {
+          result.push({ el, text: words.slice(offset, offset + chunkSize).join(' ') });
+        }
+      };
       const sentenceParts = text.split(/([.!?؟。؛]\s+)/u);
       let sentence = '';
       sentenceParts.forEach((part, partIndex) => {
         sentence += part;
         if (partIndex % 2 === 1) {
-          if (cleanText(sentence)) result.push({ el, text: cleanText(sentence) });
+          appendShortChunks(sentence);
           sentence = '';
         }
       });
-      if (cleanText(sentence)) result.push({ el, text: cleanText(sentence) });
+      appendShortChunks(sentence);
     };
 
     add(document.querySelector('.case-hero h1, .article-hero h1, .idea-hero h1, main h1'));
@@ -313,7 +323,8 @@
       play.textContent = ui('Resume', 'متابعة الاستماع');
       play.classList.add('is-paused');
       floatingPause.textContent = ui('Resume', 'متابعة');
-      status.textContent = ui('Playback paused.', 'تم إيقاف القراءة مؤقتاً.');
+      const progress = segments.length ? `${index + 1}/${segments.length}` : '';
+      status.textContent = ui(`Paused at segment ${progress}.`, `توقفت القراءة عند المقطع ${progress}.`);
     };
     const showPlaying = () => {
       play.textContent = ui('Pause', 'إيقاف مؤقت');
