@@ -66,9 +66,13 @@
     if (!article) return [];
     const result = [];
     const seen = new Set();
+    let afterReferences = false;
+    // References often lack a dedicated CSS class; stop at their heading, not merely their container.
+    const referenceHeading = /^(?:المراجع|المصادر|قائمة المراجع|المصادر والمراجع|References|Sources|Bibliography|Works Cited|Further Reading)$/i;
+    const excludedSpeechArea = '.refs,.references,.reference-list,.sources,.bibliography,.agent-refs,.tenx-share-box,.tenx-author-audio,.tenx-floating-audio,.back,.tools,.author,.editorial-disclaimer,[data-no-speech],nav,footer';
     const add = (el) => {
       if (!el || seen.has(el)) return;
-      if (el.closest('.refs,.references,.agent-refs,.tenx-share-box,.tenx-author-audio,.tenx-floating-audio,.back,nav,footer')) return;
+      if (el.closest(excludedSpeechArea)) return;
       const text = getVisibleSpeechText(el);
       if (!text) return;
       seen.add(el);
@@ -82,6 +86,12 @@
     const reflectionPage = /\/reflection-/.test(path);
     let afterReflectionText = false;
     article.querySelectorAll(selector).forEach((el) => {
+      if (afterReferences) return;
+      const heading = el.matches('h2,h3,h4') ? cleanText(el.textContent).replace(/[:：]+$/, '').trim() : '';
+      if (heading && referenceHeading.test(heading)) {
+        afterReferences = true;
+        return;
+      }
       if (reflectionPage && el.matches('h2') && /^(المراجع|المصادر|تنويه تحريري|أسرار المشاركة|References|Editorial Disclaimer|Sharing Notes)/i.test(cleanText(el.textContent))) afterReflectionText = true;
       if (reflectionPage && (afterReflectionText || el.closest('.page-header .eyebrow'))) return;
       if (el.matches('.refs *, .references *, .agent-refs *, .tenx-share-box *, .tenx-author-audio *, .back')) return;
@@ -180,6 +190,16 @@
     let paused = false;
     let chosenVoice = null;
     let runToken = 0;
+    let spokenOffset = 0;
+    let restartRequired = false;
+    let pauseCheckTimer = null;
+    let resumeCheckTimer = null;
+    const clearPlaybackTimers = () => {
+      if (pauseCheckTimer !== null) window.clearTimeout(pauseCheckTimer);
+      if (resumeCheckTimer !== null) window.clearTimeout(resumeCheckTimer);
+      pauseCheckTimer = null;
+      resumeCheckTimer = null;
+    };
 
     const pickVoice = () => {
       const voices = synth.getVoices();
@@ -204,9 +224,12 @@
       floatingLabel.textContent = short;
     };
     const reset = () => {
+      clearPlaybackTimers();
       speaking = false;
       paused = false;
       index = 0;
+      spokenOffset = 0;
+      restartRequired = false;
       runToken += 1;
       clearHighlight();
       play.textContent = ui('Listen to Article', 'استمع إلى المقال');
@@ -218,23 +241,38 @@
     };
 
     const speakCurrent = () => {
-      if (!speaking || index >= segments.length) { reset(); return; }
+      if (!speaking || paused) return;
+      if (index >= segments.length) { reset(); return; }
+      const fullText = segments[index].text;
+      if (spokenOffset >= fullText.length) { index += 1; spokenOffset = 0; speakCurrent(); return; }
       setCurrentHighlight();
-      const myToken = runToken;
-      const utterance = new SpeechSynthesisUtterance(segments[index].text);
+      const token = runToken;
+      const startOffset = spokenOffset;
+      const utterance = new SpeechSynthesisUtterance(fullText.slice(startOffset));
       utterance.lang = chosenVoice?.lang || (IS_ENGLISH_PAGE ? 'en-US' : 'ar-AE');
       if (chosenVoice) utterance.voice = chosenVoice;
       utterance.rate = Number(speed.value || 1);
+      // Save the last spoken word boundary so a stalled engine can resume near the exact position.
+      utterance.onboundary = (event) => {
+        if (!speaking || token !== runToken || index >= segments.length) return;
+        if (typeof event.charIndex === 'number' && event.charIndex >= 0) {
+          spokenOffset = Math.max(spokenOffset, Math.min(fullText.length - 1, startOffset + event.charIndex));
+        }
+      };
       utterance.onend = () => {
-        if (!speaking || paused || myToken !== runToken) return;
+        if (!speaking || token !== runToken) return;
+        if (paused) { restartRequired = true; return; }
         index += 1;
+        spokenOffset = 0;
+        restartRequired = false;
         speakCurrent();
       };
       utterance.onerror = (event) => {
-        if (event?.error === 'canceled' || myToken !== runToken) return;
-        status.textContent = ui('Audio could not be played on this device.', 'تعذر تشغيل الصوت على هذا الجهاز.');
+        if (token !== runToken || event?.error === 'canceled' || event?.error === 'interrupted') return;
         reset();
+        status.textContent = ui('Audio could not be played on this device.', 'تعذر تشغيل الصوت على هذا الجهاز.');
       };
+      if (synth.paused) synth.resume();
       synth.speak(utterance);
       status.textContent = IS_ENGLISH_PAGE ? `Playing · ${speed.options[speed.selectedIndex].text}` : `الاستماع جارٍ · ${speed.options[speed.selectedIndex].text}`;
     };
@@ -242,25 +280,57 @@
     const pauseResume = () => {
       if (!speaking) return;
       if (!paused) {
-        synth.pause();
         paused = true;
+        try { synth.pause(); } catch (_) { restartRequired = true; runToken += 1; synth.cancel(); }
         play.textContent = ui('Resume', 'متابعة الاستماع');
         play.classList.add('is-paused');
         floatingPause.textContent = ui('Resume', 'متابعة');
         status.textContent = ui('Playback paused.', 'تم إيقاف القراءة مؤقتاً.');
+        // Some Web Speech engines ignore pause(): cancel and retain the word offset if so.
+        const token = runToken;
+        clearPlaybackTimers();
+        pauseCheckTimer = window.setTimeout(() => {
+          pauseCheckTimer = null;
+          if (speaking && paused && token === runToken && !synth.paused) {
+            runToken += 1;
+            synth.cancel();
+            restartRequired = true;
+          }
+        }, 250);
       } else {
-        synth.resume();
         paused = false;
+        clearPlaybackTimers();
         play.textContent = ui('Pause', 'إيقاف مؤقت');
         play.classList.remove('is-paused');
         floatingPause.textContent = ui('Pause', 'إيقاف مؤقت');
         status.textContent = ui('Playing.', 'الاستماع جارٍ.');
+        if (restartRequired || !synth.speaking) {
+          restartRequired = false;
+          runToken += 1;
+          synth.cancel();
+          speakCurrent();
+          return;
+        }
+        try { synth.resume(); } catch (_) { restartRequired = true; }
+        const token = runToken;
+        resumeCheckTimer = window.setTimeout(() => {
+          resumeCheckTimer = null;
+          if (speaking && !paused && token === runToken && (restartRequired || !synth.speaking || synth.paused)) {
+            restartRequired = false;
+            runToken += 1;
+            synth.cancel();
+            speakCurrent();
+          }
+        }, 500);
       }
     };
 
     const start = () => {
+      clearPlaybackTimers();
       synth.cancel();
       runToken += 1;
+      spokenOffset = 0;
+      restartRequired = false;
       segments = buildSpeechSegments(article);
       if (!segments.length) { status.textContent = ui('No readable text was found.', 'لا يوجد نص قابل للقراءة.'); return; }
       index = 0;
@@ -275,6 +345,7 @@
     };
 
     const stopAll = () => {
+      clearPlaybackTimers();
       runToken += 1;
       synth.cancel();
       reset();
@@ -284,18 +355,20 @@
       syncSpeed(value);
       if (!speaking) return;
       const wasPaused = paused;
+      clearPlaybackTimers();
       runToken += 1;
       synth.cancel();
-      paused = false;
       if (wasPaused) {
-        speaking = true;
-        paused = true;
-        play.textContent = ui('Resume', 'متابعة الاستماع');
-        floatingPause.textContent = ui('Resume', 'متابعة');
+        // A canceled utterance cannot be resumed natively: rebuild it at its saved word boundary.
+        restartRequired = true;
         status.textContent = IS_ENGLISH_PAGE ? `Speed changed to ${value}×. Resume when ready.` : `تم تغيير السرعة إلى ${value}×. استأنف عند الجاهزية.`;
         return;
       }
-      window.setTimeout(speakCurrent, 90);
+      restartRequired = false;
+      const token = runToken;
+      window.setTimeout(() => {
+        if (speaking && !paused && token === runToken) speakCurrent();
+      }, 90);
     };
 
     play.addEventListener('click', () => speaking ? pauseResume() : start());
@@ -304,7 +377,7 @@
     floatingStop.addEventListener('click', stopAll);
     speed.addEventListener('change', () => changeSpeed(speed.value));
     floatingSpeed.addEventListener('change', () => changeSpeed(floatingSpeed.value));
-    window.addEventListener('pagehide', () => { runToken += 1; synth.cancel(); }, { once: true });
+    window.addEventListener('pagehide', () => { clearPlaybackTimers(); runToken += 1; synth.cancel(); }, { once: true });
   }
 
   function addGlobalShare() {
