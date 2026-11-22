@@ -76,7 +76,18 @@
       const text = getVisibleSpeechText(el);
       if (!text) return;
       seen.add(el);
-      result.push({ el, text });
+      // Save a fallback progress checkpoint at each sentence. Mobile speech engines
+      // may omit onboundary events, so resuming need not restart the whole paragraph.
+      const sentenceParts = text.split(/([.!?؟。؛]\s+)/u);
+      let sentence = '';
+      sentenceParts.forEach((part, partIndex) => {
+        sentence += part;
+        if (partIndex % 2 === 1) {
+          if (cleanText(sentence)) result.push({ el, text: cleanText(sentence) });
+          sentence = '';
+        }
+      });
+      if (cleanText(sentence)) result.push({ el, text: cleanText(sentence) });
     };
 
     add(document.querySelector('.case-hero h1, .article-hero h1, .idea-hero h1, main h1'));
@@ -198,14 +209,17 @@
     let chosenVoice = null;
     let runToken = 0;
     let spokenOffset = 0;
-    let restartRequired = false;
-    let pauseCheckTimer = null;
-    let resumeCheckTimer = null;
-    const clearPlaybackTimers = () => {
-      if (pauseCheckTimer !== null) window.clearTimeout(pauseCheckTimer);
-      if (resumeCheckTimer !== null) window.clearTimeout(resumeCheckTimer);
-      pauseCheckTimer = null;
-      resumeCheckTimer = null;
+    let pendingSpeechStart = null;
+
+    const clearPendingStart = () => {
+      if (pendingSpeechStart !== null) window.clearTimeout(pendingSpeechStart);
+      pendingSpeechStart = null;
+    };
+    const cancelCurrentSpeech = () => {
+      // Invalidate callbacks before cancel(): some engines emit a late onend.
+      runToken += 1;
+      clearPendingStart();
+      synth.cancel();
     };
 
     const pickVoice = () => {
@@ -231,12 +245,11 @@
       floatingLabel.textContent = short;
     };
     const reset = () => {
-      clearPlaybackTimers();
+      clearPendingStart();
       speaking = false;
       paused = false;
       index = 0;
       spokenOffset = 0;
-      restartRequired = false;
       runToken += 1;
       clearHighlight();
       play.textContent = ui('Listen to Article', 'استمع إلى المقال');
@@ -251,7 +264,12 @@
       if (!speaking || paused) return;
       if (index >= segments.length) { reset(); return; }
       const fullText = segments[index].text;
-      if (spokenOffset >= fullText.length) { index += 1; spokenOffset = 0; speakCurrent(); return; }
+      if (spokenOffset >= fullText.length) {
+        index += 1;
+        spokenOffset = 0;
+        speakCurrent();
+        return;
+      }
       setCurrentHighlight();
       const token = runToken;
       const startOffset = spokenOffset;
@@ -259,121 +277,97 @@
       utterance.lang = chosenVoice?.lang || (IS_ENGLISH_PAGE ? 'en-US' : 'ar-AE');
       if (chosenVoice) utterance.voice = chosenVoice;
       utterance.rate = Number(speed.value || 1);
-      // Save the last spoken word boundary so a stalled engine can resume near the exact position.
       utterance.onboundary = (event) => {
-        if (!speaking || token !== runToken || index >= segments.length) return;
-        if (typeof event.charIndex === 'number' && event.charIndex >= 0) {
-          spokenOffset = Math.max(spokenOffset, Math.min(fullText.length - 1, startOffset + event.charIndex));
-        }
+        if (!speaking || paused || token !== runToken || index >= segments.length) return;
+        if (typeof event.charIndex !== 'number' || event.charIndex < 0) return;
+        let wordStart = Math.min(fullText.length - 1, startOffset + event.charIndex);
+        // Replay the current word on resume rather than starting in its middle.
+        while (wordStart > 0 && !/\s/u.test(fullText[wordStart - 1])) wordStart -= 1;
+        spokenOffset = Math.max(spokenOffset, wordStart);
       };
       utterance.onend = () => {
-        if (!speaking || token !== runToken) return;
-        if (paused) { restartRequired = true; return; }
+        if (!speaking || paused || token !== runToken) return;
         index += 1;
         spokenOffset = 0;
-        restartRequired = false;
         speakCurrent();
       };
       utterance.onerror = (event) => {
         if (token !== runToken || event?.error === 'canceled' || event?.error === 'interrupted') return;
+        cancelCurrentSpeech();
         reset();
         status.textContent = ui('Audio could not be played on this device.', 'تعذر تشغيل الصوت على هذا الجهاز.');
       };
-      if (synth.paused) synth.resume();
-      synth.speak(utterance);
-      status.textContent = IS_ENGLISH_PAGE ? `Playing · ${speed.options[speed.selectedIndex].text}` : `الاستماع جارٍ · ${speed.options[speed.selectedIndex].text}`;
+      try {
+        synth.speak(utterance);
+        status.textContent = IS_ENGLISH_PAGE
+          ? `Playing · ${speed.options[speed.selectedIndex].text}`
+          : `الاستماع جارٍ · ${speed.options[speed.selectedIndex].text}`;
+      } catch (_) {
+        cancelCurrentSpeech();
+        reset();
+        status.textContent = ui('Audio could not be played on this device.', 'تعذر تشغيل الصوت على هذا الجهاز.');
+      }
+    };
+
+    const showPaused = () => {
+      play.textContent = ui('Resume', 'متابعة الاستماع');
+      play.classList.add('is-paused');
+      floatingPause.textContent = ui('Resume', 'متابعة');
+      status.textContent = ui('Playback paused.', 'تم إيقاف القراءة مؤقتاً.');
+    };
+    const showPlaying = () => {
+      play.textContent = ui('Pause', 'إيقاف مؤقت');
+      play.classList.remove('is-paused');
+      floatingPause.textContent = ui('Pause', 'إيقاف مؤقت');
     };
 
     const pauseResume = () => {
       if (!speaking) return;
       if (!paused) {
+        // Avoid unreliable native pause()/resume() state. Stop the engine now;
+        // a subsequent direct button click creates a fresh utterance.
         paused = true;
-        try { synth.pause(); } catch (_) { restartRequired = true; runToken += 1; synth.cancel(); }
-        play.textContent = ui('Resume', 'متابعة الاستماع');
-        play.classList.add('is-paused');
-        floatingPause.textContent = ui('Resume', 'متابعة');
-        status.textContent = ui('Playback paused.', 'تم إيقاف القراءة مؤقتاً.');
-        // Some Web Speech engines ignore pause(): cancel and retain the word offset if so.
-        const token = runToken;
-        clearPlaybackTimers();
-        pauseCheckTimer = window.setTimeout(() => {
-          pauseCheckTimer = null;
-          if (speaking && paused && token === runToken && !synth.paused) {
-            runToken += 1;
-            synth.cancel();
-            restartRequired = true;
-          }
-        }, 250);
+        cancelCurrentSpeech();
+        showPaused();
       } else {
         paused = false;
-        clearPlaybackTimers();
-        play.textContent = ui('Pause', 'إيقاف مؤقت');
-        play.classList.remove('is-paused');
-        floatingPause.textContent = ui('Pause', 'إيقاف مؤقت');
-        status.textContent = ui('Playing.', 'الاستماع جارٍ.');
-        if (restartRequired || !synth.speaking) {
-          restartRequired = false;
-          runToken += 1;
-          synth.cancel();
-          speakCurrent();
-          return;
-        }
-        try { synth.resume(); } catch (_) { restartRequired = true; }
-        const token = runToken;
-        resumeCheckTimer = window.setTimeout(() => {
-          resumeCheckTimer = null;
-          if (speaking && !paused && token === runToken && (restartRequired || !synth.speaking || synth.paused)) {
-            restartRequired = false;
-            runToken += 1;
-            synth.cancel();
-            speakCurrent();
-          }
-        }, 500);
+        showPlaying();
+        // This is called directly from the user's click, preserving mobile
+        // browsers' user-activation requirement for speechSynthesis.speak().
+        speakCurrent();
       }
     };
 
     const start = () => {
-      clearPlaybackTimers();
-      synth.cancel();
-      runToken += 1;
-      spokenOffset = 0;
-      restartRequired = false;
+      cancelCurrentSpeech();
       segments = buildSpeechSegments(article);
-      if (!segments.length) { status.textContent = ui('No readable text was found.', 'لا يوجد نص قابل للقراءة.'); return; }
+      if (!segments.length) {
+        status.textContent = ui('No readable text was found.', 'لا يوجد نص قابل للقراءة.');
+        return;
+      }
       index = 0;
+      spokenOffset = 0;
       speaking = true;
       paused = false;
       stop.disabled = false;
-      play.textContent = ui('Pause', 'إيقاف مؤقت');
-      play.classList.remove('is-paused');
-      floatingPause.textContent = ui('Pause', 'إيقاف مؤقت');
+      showPlaying();
       floating.classList.add('is-active');
       speakCurrent();
     };
 
     const stopAll = () => {
-      clearPlaybackTimers();
-      runToken += 1;
-      synth.cancel();
+      cancelCurrentSpeech();
       reset();
     };
 
     const changeSpeed = (value) => {
       syncSpeed(value);
-      if (!speaking) return;
-      const wasPaused = paused;
-      clearPlaybackTimers();
-      runToken += 1;
-      synth.cancel();
-      if (wasPaused) {
-        // A canceled utterance cannot be resumed natively: rebuild it at its saved word boundary.
-        restartRequired = true;
-        status.textContent = IS_ENGLISH_PAGE ? `Speed changed to ${value}×. Resume when ready.` : `تم تغيير السرعة إلى ${value}×. استأنف عند الجاهزية.`;
-        return;
-      }
-      restartRequired = false;
+      if (!speaking || paused) return;
+      // Engines cannot change the speed of an utterance already in progress.
+      cancelCurrentSpeech();
       const token = runToken;
-      window.setTimeout(() => {
+      pendingSpeechStart = window.setTimeout(() => {
+        pendingSpeechStart = null;
         if (speaking && !paused && token === runToken) speakCurrent();
       }, 90);
     };
@@ -384,7 +378,7 @@
     floatingStop.addEventListener('click', stopAll);
     speed.addEventListener('change', () => changeSpeed(speed.value));
     floatingSpeed.addEventListener('change', () => changeSpeed(floatingSpeed.value));
-    window.addEventListener('pagehide', () => { clearPlaybackTimers(); runToken += 1; synth.cancel(); }, { once: true });
+    window.addEventListener('pagehide', () => { cancelCurrentSpeech(); reset(); }, { once: true });
   }
 
   function addGlobalShare() {
