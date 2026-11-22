@@ -154,6 +154,13 @@
     // EGA has a dedicated, fully vocalized player that takes over these controls.
     if (document.querySelector('script[src*="ega-audio-player-v7.js"]')) return;
 
+    // Retire legacy inline speech buttons when the shared reader is available.
+    // Otherwise both players could speak simultaneously or stop different utterances.
+    document.querySelectorAll('.tools button[onclick]').forEach((button) => {
+      const action = (button.getAttribute('onclick') || '').trim();
+      if (/^(?:listenCase\(\)|speechSynthesis\.cancel\(\));?$/.test(action)) button.remove();
+    });
+
     const play = bar.querySelector('.tenx-listen-btn');
     const stop = bar.querySelector('.tenx-stop-btn');
     const speed = bar.querySelector('.tenx-speed');
