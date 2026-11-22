@@ -34,3 +34,20 @@ The user reported that **متابعة الاستماع** remained ineffective af
 
 ### Acceptance status
 **NOT VERIFIED** on the user's live browser. The owner must confirm audible output after Pause → Resume, preserved progress as available, mobile floating controls, Stop, no references, both Arabic and English. Do not mark blocked editorial workflows completed until actual device verification and other pending gates are documented.
+
+## Follow-up repair: Resume restarts at article beginning (2026-11-22)
+
+User feedback after PR #251: Resume now produces audio, but playback restarts from the beginning rather than the interruption point.
+
+### Diagnosis and code improvement
+The prior implementation used `SpeechSynthesisUtterance.onboundary` to record word offsets, and only retained the active sentence when boundary callbacks were missing. For long unpunctuated sentences or engines without boundary callbacks, the fallback could replay a substantial amount of text.
+
+- Speech text is now checkpointed in pieces of at most eight words, respecting existing sentence boundaries.
+- Where word-boundary callbacks work, resume continues at the saved word start inside the active checkpoint.
+- If callbacks are unavailable, only the current short checkpoint is repeated, not the beginning of the article (assuming normal utterance-completion events).
+- The paused status reports the current checkpoint ordinal, allowing device-side troubleshooting.
+- Four Arabic/English SWE-Lancer and Brazil pages received a fresh script version to invalidate browser cache.
+- Eight deterministic regression scenarios passed against simulated speech engines, including interrupted playback after several completed chunks with no boundary callbacks.
+
+### Remaining acceptance gate
+Precise sample-level playback resumption is not guaranteed by Web Speech when the engine omits position events; within one short checkpoint, a few spoken words may repeat. **Actual audible testing and confirmation remain NOT VERIFIED**, and editorial automation states must remain blocked until their gates are demonstrably passed.
