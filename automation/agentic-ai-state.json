@@ -7,47 +7,131 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-05T22:24:00+04:00",
-  "workflow_status": "completed",
-  "current_stage": "completed",
+  "updated_at": "2026-11-12T22:09:00+04:00",
+  "workflow_status": "blocked",
+  "current_stage": "live_verification",
   "run_lease": null,
   "current_item": {
-    "slug": "article-agentic-ai-erpbench-market-ecology",
-    "publication_date": "2026-11-05",
-    "title_ar": "لماذا تغيّر أفضل وكيل أعمال عندما تغيّر المنافسون؟ تجربة على 100 سوق افتراضي",
-    "title_en": "Why Did the Best Business Agent Change When Its Competitors Changed? Evidence from 100 Simulated Markets",
-    "research_status": "completed",
+    "slug": "article-agentic-ai-swelancer-million-dollar-software-work",
+    "publication_date": "2026-11-11",
+    "title_ar": "هل يستطيع مساعد الذكاء الاصطناعي إنجاز عمل مهندس برمجيات مدفوع الأجر؟ اختبار أعمال حقيقية بقيمة مليون دولار",
+    "title_en": "Can an AI Agent Complete Paid Software Work? Evidence from $1 Million in Real Freelance Tasks",
+    "primary_study": "SWE-Lancer: Can Frontier LLMs Earn $1 Million from Real-World Freelance Software Engineering?",
+    "primary_study_url": "https://proceedings.mlr.press/v267/miserendino25a.html",
+    "research_status": "metric_reconstruction_completed",
+    "research_notes_path": "automation/agentic-ai/article-agentic-ai-swelancer-million-dollar-software-work/research-notes.md",
+    "study_selection_commit": "be07b52731dfb53424ba06947f89835f46e16116",
     "evidence_pack_status": "completed",
+    "evidence_pack_path": "automation/agentic-ai/article-agentic-ai-swelancer-million-dollar-software-work/evidence-pack.md",
+    "evidence_pack_commit": "4d78b20b66cc9c08d358f3f06e97e6ab2aeabc3e",
     "arabic_draft": {
-      "status": "published_verified",
-      "path": "article-agentic-ai-erpbench-market-ecology.html"
+      "status": "drafted_beginner_reviewed_and_parity_aligned",
+      "path": "automation/agentic-ai/article-agentic-ai-swelancer-million-dollar-software-work/draft-ar.md",
+      "commit": "cc48eb17e686c2d92675eaa0694220b2af399063"
     },
     "english_draft": {
-      "status": "published_verified",
-      "path": "en/article-agentic-ai-erpbench-market-ecology.html"
+      "status": "drafted",
+      "path": "automation/agentic-ai/article-agentic-ai-swelancer-million-dollar-software-work/draft-en.md",
+      "commit": "9642a6903de2064a715f6e1213801f6724f1619f"
     },
     "publishing": {
-      "status": "published_and_verified",
-      "arabic_url": "https://tamayuz10x.com/article-agentic-ai-erpbench-market-ecology.html",
-      "english_url": "https://tamayuz10x.com/en/article-agentic-ai-erpbench-market-ecology.html",
-      "candidate_commit": "63bd43bc4940f8c18506e7b45dfd782604c6a322",
-      "content_commit": "5d0b08a750b1e28371a82fa5ec1f1be4e339cff9",
-      "deployed_head": "984c84a7d4291dc40e33f25ce7342626c7b7a457",
-      "mobile_gate_run_id": 42082749511,
-      "pages_run_id": 42082979602,
-      "checks": {
-        "site_health_run_id": 42082749430,
-        "sitemap_run_id": 42082749413,
-        "article_date_run_id": 42082749242,
-        "disclaimer_run_id": 42082749231,
-        "social_cards_run_id": 42082749136
+      "status": "repository_committed",
+      "repository_head": "3b00a7615d99010c5d7c7d51169191314bbca4f3",
+      "arabic_page": {
+        "path": "article-agentic-ai-swelancer-million-dollar-software-work.html",
+        "commit": "e1b15fbe9637e4108092ae0c953822ad9af583e3",
+        "url": "https://tamayuz10x.com/article-agentic-ai-swelancer-million-dollar-software-work.html"
       },
-      "live_verification": "passed",
-      "publication_report": "automation/agentic-ai/article-agentic-ai-erpbench-market-ecology/publication-report.md",
-      "exact_head_verification_commit": "f03e17cd3054c206e84c88f8ab4ece03a3617830",
-      "exact_head_mobile_gate_run_id": 42083369136,
-      "exact_head_pages_run_id": 42083368821
-    }
+      "english_page": {
+        "path": "en/article-agentic-ai-swelancer-million-dollar-software-work.html",
+        "commit": "e01fedb1cb9734653120b007f3d04b6780e52d19",
+        "url": "https://tamayuz10x.com/en/article-agentic-ai-swelancer-million-dollar-software-work.html"
+      },
+      "hubs": {
+        "arabic_commit": "4387524dac63b062d328676629d788fd6d21b655",
+        "english_commit": "3b00a7615d99010c5d7c7d51169191314bbca4f3"
+      },
+      "date_registry_commit": "df9488370cc1b0e077b92c3916b56f8e7a683970",
+      "sitemap_commit": "4a5c10fbe50bc70e035f9cfa97af0a8c96eef215",
+      "social_assets": {
+        "commit": "62d7d280c4972d4bf875cfa8a9947c4b20a08332",
+        "manifest_commit": "7a007b941dedee3e0dc689751c94703163deed59",
+        "arabic_path": "assets/previews/story/article-agentic-ai-swelancer-million-dollar-software-work-ar.jpg",
+        "english_path": "assets/previews/story/article-agentic-ai-swelancer-million-dollar-software-work-en.jpg",
+        "dimensions": "1200x630",
+        "sizes_bytes": {
+          "arabic": 76539,
+          "english": 86567
+        }
+      },
+      "repository_validation": "passed_reconciled",
+      "known_unrelated_checks": [
+        "Site health QA currently fails because live/index.html lacks shared navigation.",
+        "Generate social share cards currently fails because the 2026-11-11 Qur'anic reflection still uses legacy SVG previews."
+      ],
+      "actions_and_pages": {
+        "status": "passed_with_unrelated_repository_wide_failures",
+        "exact_head": "9b538e70d0de92330e9dad23e4773bbe4c08b604",
+        "article_date_integrity_run_id": 43125487327,
+        "disclaimer_run_id": 43125487315,
+        "arabic_editorial_run_id": 43125680643,
+        "pages_run_id": 43125680555,
+        "unrelated_failures": [
+          "Site health QA: live/index.html lacks shared navigation.",
+          "Generate social share cards: the 2026-11-11 Qur'anic reflection still uses legacy SVG previews."
+        ],
+        "latest_verified_head": {
+          "commit": "9bbdaa78ce2aa976f1151f96884f96c24b8945d3",
+          "arabic_editorial_run_id": 43276436718,
+          "pages_run_id": 43276436671,
+          "status": "success"
+        }
+      },
+      "live_verification": {
+        "status": "blocked_pending_actual_bilingual_tts",
+        "checked_at": "2026-11-12T22:09:00+04:00",
+        "live_pages": "passed_http_200",
+        "specialist_hubs": "passed_no_duplicate",
+        "sitemap": "passed_one_url_each",
+        "social_assets": "passed_1200x630_jpg",
+        "mobile_rtl_ltr": {
+          "status": "passed",
+          "workflow_run_id": 43276154202,
+          "artifact_id": 13970272010,
+          "commit": "032c54cfbf3352878f8dfd0be31f8b4cf3549562",
+          "widths_px": [
+            320,
+            375,
+            390,
+            430
+          ],
+          "arabic_results": "all_pass_rtl_no_horizontal_overflow",
+          "english_results": "all_pass_ltr_no_horizontal_overflow",
+          "visual_review": "passed_top_layout_title_cover_author_listen_controls_and_opening"
+        },
+        "tts_controls": "present_both_languages_all_four_widths",
+        "tts_playback": "not_verified_web_speech_api_unavailable_in_managed_browser"
+      },
+      "publication_report": {
+        "path": "automation/agentic-ai/article-agentic-ai-swelancer-million-dollar-software-work/publication-report.md",
+        "commit": "bb75d4c42785e90f3651c784b24634aafa5ab96a",
+        "status": "published_verification_report_blocked"
+      }
+    },
+    "metrics_check_status": "completed",
+    "metrics_check_path": "automation/agentic-ai/article-agentic-ai-swelancer-million-dollar-software-work/metrics-check.md",
+    "metrics_check_commit": "0e043e6520eb4c15175afacc0fd6c5317b7faa35",
+    "beginner_critique_status": "completed",
+    "quality_review_path": "automation/agentic-ai/article-agentic-ai-swelancer-million-dollar-software-work/quality-review.md",
+    "beginner_critique_commit": "f718de433fa207ecb56596f73d3252043e952ce0",
+    "bilingual_parity_status": "completed",
+    "bilingual_parity_review_commit": "ae632ed7b02337e07d36e837af5b8f09ac6cca1d",
+    "quality_gate_status": "blocked_pending_actual_tts_only",
+    "quality_gate_review_commit": "d11c39e4d27a6b6bcc73b998df4415eec4081f97",
+    "quality_gate_score": 96,
+    "quality_gate_pending": [
+      "tts_playback"
+    ]
   },
   "stage_order": [
     "capability_check",
@@ -88,17 +172,24 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "On the next scheduled run, perform the Asia/Dubai duplicate check before selecting a new study.",
+  "next_action": "Do not republish. Test actual Arabic and English TTS in a Web Speech-capable browser/device: title first, synchronized highlighting, floating controls, pause/resume/stop and speed. If that environment cannot be supplied, obtain an explicit decision accepting structural listen-control verification. Reconcile live targets before any retry.",
   "last_run": {
-    "mode": "scheduled_daily",
-    "status": "completed",
-    "started_at": "2026-11-05T21:59:00+04:00",
-    "completed_at": "2026-11-05T22:24:00+04:00",
-    "notes": "ERPBench bilingual article published and verified live. Exact-head Arabic mobile gate and GitHub Pages succeeded on checkpoint f03e17cd3054c206e84c88f8ab4ece03a3617830.",
-    "current_item": "article-agentic-ai-erpbench-market-ecology",
-    "checkpoint": "completed"
+    "mode": "scheduled_daily_resume",
+    "status": "blocked",
+    "started_at": "2026-11-12T21:57:24+04:00",
+    "completed_at": "2026-11-12T22:09:00+04:00",
+    "notes": "Recovered the missing exact-article mobile evidence. Arabic and English passed Chromium at 320/375/390/430px with retained screenshots and result JSON. GitHub Actions and Pages succeeded. Actual bilingual Web Speech playback remains unverified because the managed browser exposes no Web Speech API.",
+    "current_item": "article-agentic-ai-swelancer-million-dollar-software-work",
+    "checkpoint": "live_verification"
   },
-  "blocker": null,
+  "blocker": {
+    "type": "verification_environment_and_decision",
+    "stage": "live_verification",
+    "reason": "Actual Arabic and English playback cannot be proven in the available managed browser because it exposes no Web Speech API. Structural controls and four-width mobile rendering passed.",
+    "decision_required": "Supply/authorize a Web Speech-capable browser or device, or explicitly accept structural listen-control verification instead of actual playback.",
+    "safe_to_retry": false,
+    "duplicate_prevention": "Re-check state, main, live pages, hubs, sitemap and assets; do not republish or recreate existing artifacts."
+  },
   "last_completed_item": {
     "slug": "article-agentic-ai-erpbench-market-ecology",
     "publication_date": "2026-11-05",
@@ -136,5 +227,20 @@
       "exact_head_mobile_gate_run_id": 42083369136,
       "exact_head_pages_run_id": 42083368821
     }
-  }
+  },
+  "completed_stages": [
+    "capability_check",
+    "load_checkpoint",
+    "duplicate_check",
+    "study_selection",
+    "evidence_pack",
+    "metric_reconstruction",
+    "arabic_draft",
+    "beginner_critique",
+    "english_draft",
+    "bilingual_parity",
+    "quality_gate",
+    "repository_publish",
+    "actions_and_pages"
+  ]
 }

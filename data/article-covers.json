@@ -1,5 +1,5 @@
 {
-  "version": "20261105-erpbench",
+  "version": "20261112-swelancer",
   "width": 1200,
   "height": 630,
   "maxBytes": 170000,
@@ -1745,6 +1745,90 @@
       }
     },
     {
+      "slug": "article-oe-evidence-rapid-response-teams",
+      "background": "assets/previews/story-backgrounds/article-oe-evidence-rapid-response-teams.jpg",
+      "category": "article",
+      "ar": {
+        "title": [
+          "فريق للاستجابة",
+          "حين تسوء الحالة"
+        ],
+        "subtitle": "ماذا تقول خمس دراسات؟",
+        "alt": "غلاف توضيحي بالكحلي والذهبي لمقال عن فرق الاستجابة السريعة في المستشفيات، يظهر فيه سرير ومنحنى نبض."
+      },
+      "en": {
+        "title": [
+          "A Team to Call",
+          "When a Patient Worsens"
+        ],
+        "subtitle": "What five studies show",
+        "alt": "Navy and gold editorial cover for an article about rapid response teams in hospitals, showing a hospital bed and a pulse line."
+      }
+    },
+    {
+      "slug": "article-oe-evidence-surgical-safety-checklist",
+      "background": "assets/previews/story-backgrounds/article-oe-evidence-surgical-safety-checklist.jpg",
+      "category": "article",
+      "ar": {
+        "title": [
+          "قائمة تحقق",
+          "قبل العملية"
+        ],
+        "subtitle": "ماذا تقول خمس دراسات؟",
+        "alt": "غلاف توضيحي بالكحلي والذهبي لمقال عن قائمة التحقق من السلامة الجراحية، تظهر فيه لوحة عليها ثلاث علامات صح."
+      },
+      "en": {
+        "title": [
+          "A Checklist",
+          "Before Surgery"
+        ],
+        "subtitle": "What five studies show",
+        "alt": "Navy and gold editorial cover for an article about the surgical safety checklist, showing a clipboard with three check marks."
+      }
+    },
+    {
+      "slug": "article-oe-evidence-audit-and-feedback",
+      "background": "assets/previews/story-backgrounds/article-oe-evidence-audit-and-feedback.jpg",
+      "category": "article",
+      "ar": {
+        "title": [
+          "حين يرى الطبيب",
+          "أرقام أدائه"
+        ],
+        "subtitle": "ماذا تقول خمس دراسات؟",
+        "alt": "غلاف توضيحي بالكحلي والذهبي لمقال عن عرض أرقام الأداء على الأطباء، تظهر فيه ورقة عليها أعمدة وخط هدف، وبجانبها شخص."
+      },
+      "en": {
+        "title": [
+          "When Doctors See",
+          "Their Own Numbers"
+        ],
+        "subtitle": "What five studies show",
+        "alt": "Navy and gold editorial cover for an article about showing doctors their performance data, with a report sheet of bars and a target line next to a person."
+      }
+    },
+    {
+      "slug": "article-oe-evidence-daily-safety-huddles",
+      "background": "assets/previews/story-backgrounds/article-oe-evidence-daily-safety-huddles.jpg",
+      "category": "article",
+      "ar": {
+        "title": [
+          "اجتماع قصير ومنظم",
+          "عن سلامة المرضى"
+        ],
+        "subtitle": "ماذا تقول خمس دراسات؟",
+        "alt": "غلاف توضيحي بالكحلي والذهبي لمقال عن الاجتماع القصير لسلامة المرضى، تظهر فيه دائرة من النقاط حول لوحة صغيرة."
+      },
+      "en": {
+        "title": [
+          "A Short, Structured Meeting",
+          "on Patient Safety"
+        ],
+        "subtitle": "What five studies show",
+        "alt": "Navy and gold editorial cover for an article about short patient-safety meetings, showing a circle of dots around a small board."
+      }
+    },
+    {
       "slug": "article-oe-evidence-medication-interruptions",
       "background": "assets/previews/story-backgrounds/article-oe-evidence-medication-interruptions.jpg",
       "category": "article",
@@ -2195,6 +2279,239 @@
         ],
         "subtitle": "FMEA at a steel construction project.",
         "alt": "Navy and gold FMEA · Failure Mode & Effects Analysis cover titled “How Did the Risk Scores Change?” about applying FMEA at a steel construction project."
+      }
+    },
+    {
+      "slug": "article-preventive-engineering-emr-front-page-fmea",
+      "background": "assets/previews/story-backgrounds/article-preventive-engineering-emr-front-page-fmea.jpg",
+      "category": "prevention",
+      "ar": {
+        "title": [
+          "هل خفّضت المنهجية",
+          "أخطاء الصفحة الأولى؟"
+        ],
+        "subtitle": "سجل طبي إلكتروني في مستشفى صيني",
+        "alt": "غلاف سلسلة منهجية هندسة الوقاية (FMEA) بالكحلي والذهبي بعنوان «هل خفّضت المنهجية أخطاء الصفحة الأولى؟»، عن سجل طبي إلكتروني في مستشفى صيني."
+      },
+      "en": {
+        "title": [
+          "Did FMEA Reduce",
+          "Front-Page Errors?"
+        ],
+        "subtitle": "Electronic medical record at a Chinese hospital.",
+        "alt": "Navy and gold FMEA · Failure Mode & Effects Analysis cover titled “Did FMEA Reduce Front-Page Errors?” about an electronic medical record at a Chinese hospital."
+      }
+    },
+    {
+      "slug": "article-agentic-ai-swelancer-million-dollar-software-work",
+      "category": "article",
+      "ar": {
+        "title": [
+          "هل ينجز الوكيل",
+          "عملاً برمجياً مدفوعاً؟"
+        ],
+        "subtitle": "1,488 مهمة حقيقية بقيمة مليون دولار تكشف ما تنجزه النماذج وما لا تثبته.",
+        "alt": "غلاف تحليلي بالكحلي والذهبي لمقال SWE-Lancer، يظهر مسار عمل برمجي من تذكرة إلى اختبار ثم اعتماد بشري.",
+        "source": "assets/previews/story/article-agentic-ai-swelancer-million-dollar-software-work-ar.jpg"
+      },
+      "en": {
+        "title": [
+          "Can an AI Agent Complete",
+          "Paid Software Work?"
+        ],
+        "subtitle": "1,488 real tasks worth $1 million show what models complete—and what the benchmark cannot prove.",
+        "alt": "Navy and gold analytical cover for SWE-Lancer, showing a software task moving from ticket to test to human approval.",
+        "source": "assets/previews/story/article-agentic-ai-swelancer-million-dollar-software-work-en.jpg"
+      },
+      "reference": true
+    },
+    {
+      "slug": "article-preventive-engineering-simulation-center-fmea",
+      "background": "assets/previews/story-backgrounds/article-preventive-engineering-simulation-center-fmea.jpg",
+      "category": "prevention",
+      "ar": {
+        "title": [
+          "أي عطل",
+          "أخطر؟"
+        ],
+        "subtitle": "أعطال معدات مركز محاكاة طبي",
+        "alt": "غلاف سلسلة منهجية هندسة الوقاية (FMEA) بالكحلي والذهبي بعنوان «أي عطل أخطر؟»، عن أعطال معدات مركز محاكاة طبي."
+      },
+      "en": {
+        "title": [
+          "Which Failure",
+          "Is Riskier?"
+        ],
+        "subtitle": "Equipment failures at a medical simulation center.",
+        "alt": "Navy and gold FMEA · Failure Mode & Effects Analysis cover titled “Which Failure Is Riskier?” about equipment failures at a medical simulation center."
+      }
+    },
+    {
+      "slug": "case-brazil-family-health-strategy-community-primary-care",
+      "procedural_scene": "community-primary-care",
+      "category": "case",
+      "ar": {
+        "title": [
+          "البرازيل",
+          "من الزيارة إلى مسؤولية الحي"
+        ],
+        "subtitle": "فرق تعرف سكانها، ونتائج تدعمها أدلة مختلطة.",
+        "alt": "غلاف حالة البرازيل: فريق رعاية أولية يغادر العيادة باتجاه الحي."
+      },
+      "en": {
+        "title": [
+          "Brazil",
+          "From Visits to Communities"
+        ],
+        "subtitle": "Teams know their populations; the outcome evidence remains mixed.",
+        "alt": "Brazil case cover: a primary-care team moving from the clinic into the community."
+      }
+    },
+    {
+      "slug": "reflection-al-maidah-when-help-becomes-complicity",
+      "background": "assets/previews/story-backgrounds/reflection-al-baqarah-write-it-down.jpg",
+      "category": "reflection",
+      "ar": {
+        "title": [
+          "متى تتحول المساعدة",
+          "إلى مشاركة في الخطأ؟"
+        ],
+        "subtitle": "حدود تحمي المقصد الحسن من وسيلة تعين على الإثم.",
+        "alt": "غلاف رمزي بالكحلي والذهبي لتأمل المائدة 5:2، يظهر طريقًا نافعًا يتوقف عند حاجز يحمي الإنسان من وسيلة مؤذية."
+      },
+      "en": {
+        "title": [
+          "When Does Helping Become",
+          "Participation in Wrongdoing?"
+        ],
+        "subtitle": "Safeguards keep a good purpose from enabling harmful means.",
+        "alt": "Navy and gold symbolic cover for a reflection on Al-Ma'idah 5:2, showing a worthwhile path stopping at a safeguard against a harmful means."
+      }
+    },
+    {
+      "slug": "reflection-al-ahzab-upright-speech",
+      "background": "assets/previews/story-backgrounds/reflection-al-baqarah-write-it-down.jpg",
+      "category": "reflection",
+      "ar": {
+        "title": [
+          "كيف يكون القول سديدًا",
+          "حين يصعب الاعتراف بالخطأ؟"
+        ],
+        "subtitle": "قولٌ يقصد الحق ويصلح أثر الخطأ دون غموض.",
+        "alt": "غلاف رمزي بالكحلي والذهبي لتأمل الأحزاب 33:70–71، يظهر كلمات واضحة تفتح مسارًا لتصحيح قرار بُني على معلومة خاطئة."
+      },
+      "en": {
+        "title": [
+          "What Makes Speech Upright",
+          "When Admitting Error Is Hard?"
+        ],
+        "subtitle": "Truthful speech opens a path to repair the effects of error.",
+        "alt": "Navy and gold symbolic cover for a reflection on Al-Ahzab 33:70–71, showing clear speech opening a path to correct a decision built on wrong information."
+      }
+    },
+    {
+      "slug": "article-preventive-engineering-ebike-software-fmea",
+      "background": "assets/previews/story-backgrounds/article-preventive-engineering-ebike-software-fmea.jpg",
+      "category": "prevention",
+      "ar": {
+        "title": [
+          "ماذا ستُظهر",
+          "المحاكاة؟"
+        ],
+        "subtitle": "أعطال برنامج تحكم دراجة كهربائية",
+        "alt": "غلاف سلسلة منهجية هندسة الوقاية (FMEA) بالكحلي والذهبي بعنوان «ماذا ستُظهر المحاكاة؟»، عن أعطال برنامج تحكم دراجة كهربائية."
+      },
+      "en": {
+        "title": [
+          "What Will",
+          "Simulation Show?"
+        ],
+        "subtitle": "Software faults in an e-bike controller.",
+        "alt": "Navy and gold FMEA · Failure Mode & Effects Analysis cover titled “What Will Simulation Show?” about faults in e-bike control software."
+      }
+    },
+    {
+      "slug": "article-preventive-engineering-fnirs-dhaka-fmea",
+      "background": "assets/previews/story-backgrounds/article-preventive-engineering-fnirs-dhaka-fmea.jpg",
+      "category": "prevention",
+      "ar": {
+        "title": [
+          "ما الذي",
+          "يهدد البيانات؟"
+        ],
+        "subtitle": "دراسة تصوير أدمغة الأطفال في دكا",
+        "alt": "غلاف سلسلة منهجية هندسة الوقاية (FMEA) بالكحلي والذهبي بعنوان «ما الذي يهدد البيانات؟»، عن دراسة لتصوير أدمغة الأطفال في دكا."
+      },
+      "en": {
+        "title": [
+          "What Threatens",
+          "the Data?"
+        ],
+        "subtitle": "A child brain-imaging study in Dhaka.",
+        "alt": "Navy and gold FMEA · Failure Mode & Effects Analysis cover titled “What Threatens the Data?” about a child brain-imaging study in Dhaka."
+      }
+    },
+    {
+      "slug": "article-preventive-engineering-carpet-production-fmea",
+      "background": "assets/previews/story-backgrounds/article-preventive-engineering-carpet-production-fmea.jpg",
+      "category": "prevention",
+      "ar": {
+        "title": [
+          "هل نصدّق",
+          "الأرقام؟"
+        ],
+        "subtitle": "قصة مصنع سجاد وعيوبه",
+        "alt": "غلاف سلسلة منهجية هندسة الوقاية (FMEA) بالكحلي والذهبي بعنوان «هل نصدّق الأرقام؟»، عن مصنع سجاد."
+      },
+      "en": {
+        "title": [
+          "Can We Trust",
+          "the Numbers?"
+        ],
+        "subtitle": "A carpet mill after applying FMEA.",
+        "alt": "Navy and gold FMEA · Failure Mode & Effects Analysis cover titled “Can We Trust the Numbers?” about a carpet mill."
+      }
+    },
+    {
+      "slug": "reflection-al-hashr-what-have-we-sent-ahead",
+      "background": "assets/previews/story-backgrounds/reflection-al-baqarah-write-it-down.jpg",
+      "category": "reflection",
+      "ar": {
+        "title": [
+          "ماذا أرسلنا أمامنا",
+          "قبل أن يصل الغد؟"
+        ],
+        "subtitle": "محاسبة صادقة تقود إلى التوبة وإصلاح الأثر.",
+        "alt": "غلاف رمزي بالكحلي والذهبي لتأمل الحشر 59:18، يظهر مسارًا يمتد نحو أفق الغد وتدعونا الآية إلى النظر فيما نرسله أمامنا."
+      },
+      "en": {
+        "title": [
+          "What Have We Sent Ahead",
+          "Before Tomorrow Arrives?"
+        ],
+        "subtitle": "Honest self-accounting leads to repentance and repair.",
+        "alt": "Navy and gold symbolic cover for a reflection on Al-Hashr 59:18, showing a path toward tomorrow and the call to examine what we send ahead."
+      }
+    },
+    {
+      "slug": "article-preventive-engineering-frozen-section-pathway-fmea",
+      "background": "assets/previews/story-backgrounds/article-preventive-engineering-frozen-section-pathway-fmea.jpg",
+      "category": "prevention",
+      "ar": {
+        "title": [
+          "ما الذي",
+          "تحسّن فعلًا؟"
+        ],
+        "subtitle": "عينات الفحص السريع أثناء الجراحة",
+        "alt": "غلاف سلسلة منهجية هندسة الوقاية (FMEA) بالكحلي والذهبي بعنوان «ما الذي تحسّن فعلًا؟»، عن عينات الفحص السريع أثناء الجراحة."
+      },
+      "en": {
+        "title": [
+          "What Actually",
+          "Improved?"
+        ],
+        "subtitle": "Frozen-section specimens during surgery.",
+        "alt": "Navy and gold FMEA · Failure Mode & Effects Analysis cover titled “What Actually Improved?” about frozen-section specimens during surgery."
       }
     },
     {

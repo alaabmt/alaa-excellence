@@ -6,25 +6,75 @@ on:
   pull_request:
     branches: [main]
   workflow_dispatch:
+permissions:
+  contents: read
+
+concurrency:
+  group: arabic-editorial-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   editorial-and-mobile-check:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Test reflection publication selection
+        run: python3 -m unittest discover -s tests -p 'test_reflection_mobile_selection.py' -v
       - name: Install browser test dependencies
         run: |
           python3 -m pip install playwright
           python3 -m playwright install --with-deps chromium
       - name: Render actual mobile layouts and create evidence
         run: python3 scripts/check_arabic_mobile.py
-      - name: Render today's Agentic AI article at actual mobile widths
+      - name: Render the SWE-Lancer Arabic article at actual mobile widths
         env:
-          ARABIC_ARTICLE: article-agentic-ai-erpbench-market-ecology.html
-          EDITORIAL_REPORT: editorial-qa/agent-erpbench-market-ecology.json
-          MOBILE_ARTIFACT_PREFIX: agent-erpbench-market-ecology
+          ARABIC_ARTICLE: article-agentic-ai-swelancer-million-dollar-software-work.html
+          EDITORIAL_REPORT: editorial-qa/agent-swelancer-ar.json
+          MOBILE_ARTIFACT_PREFIX: agent-swelancer-ar
+          EXPECTED_DIRECTION: rtl
         run: python3 scripts/check_arabic_mobile.py
-      - name: Render current Qur'anic reflection at actual mobile widths
+      - name: Render the SWE-Lancer English article at actual mobile widths
+        env:
+          ARABIC_ARTICLE: en/article-agentic-ai-swelancer-million-dollar-software-work.html
+          EDITORIAL_REPORT: editorial-qa/agent-swelancer-en.json
+          MOBILE_ARTIFACT_PREFIX: agent-swelancer-en
+          EXPECTED_DIRECTION: ltr
+        run: python3 scripts/check_arabic_mobile.py
+      - name: Render current or preceding published Qur'anic reflection at actual mobile widths
         run: python3 scripts/check_quran_reflection_mobile.py
+      - name: Render the OE evidence rapid response article at actual mobile widths
+        env:
+          ARABIC_ARTICLE: article-oe-evidence-rapid-response-teams.html
+          EDITORIAL_REPORT: editorial-qa/oe-rrt.json
+          MOBILE_ARTIFACT_PREFIX: oe-rrt
+        run: python3 scripts/check_arabic_mobile.py
+      - name: Check OE evidence rapid response editorial gates
+        run: python3 scripts/check_arabic_editorial.py article-oe-evidence-rapid-response-teams.html editorial-qa/oe-rrt.json
+      - name: Render the OE evidence checklist article at actual mobile widths
+        env:
+          ARABIC_ARTICLE: article-oe-evidence-surgical-safety-checklist.html
+          EDITORIAL_REPORT: editorial-qa/oe-checklist.json
+          MOBILE_ARTIFACT_PREFIX: oe-checklist
+        run: python3 scripts/check_arabic_mobile.py
+      - name: Check OE evidence checklist editorial gates
+        run: python3 scripts/check_arabic_editorial.py article-oe-evidence-surgical-safety-checklist.html editorial-qa/oe-checklist.json
+      - name: Render the OE evidence audit and feedback article at actual mobile widths
+        env:
+          ARABIC_ARTICLE: article-oe-evidence-audit-and-feedback.html
+          EDITORIAL_REPORT: editorial-qa/oe-audit-feedback.json
+          MOBILE_ARTIFACT_PREFIX: oe-audit-feedback
+        run: python3 scripts/check_arabic_mobile.py
+      - name: Check OE evidence audit and feedback editorial gates
+        run: python3 scripts/check_arabic_editorial.py article-oe-evidence-audit-and-feedback.html editorial-qa/oe-audit-feedback.json
+      - name: Render the OE evidence huddles article at actual mobile widths
+        env:
+          ARABIC_ARTICLE: article-oe-evidence-daily-safety-huddles.html
+          EDITORIAL_REPORT: editorial-qa/oe-huddles.json
+          MOBILE_ARTIFACT_PREFIX: oe-huddles
+        run: python3 scripts/check_arabic_mobile.py
+      - name: Check OE evidence huddles editorial gates
+        run: python3 scripts/check_arabic_editorial.py article-oe-evidence-daily-safety-huddles.html editorial-qa/oe-huddles.json
       - name: Render the OE evidence interruptions article at actual mobile widths
         env:
           ARABIC_ARTICLE: article-oe-evidence-medication-interruptions.html
@@ -51,8 +101,8 @@ jobs:
         run: python3 scripts/check_arabic_editorial.py article-oe-evidence-defaults-shape-practice.html editorial-qa/oe-defaults.json
       - name: Check AlphaEvolve editorial gates using generated mobile evidence
         run: python3 scripts/check_arabic_editorial.py article-agentic-ai-alphaevolve-compute-scheduling.html editorial-qa/alphaevolve.json
-      - name: Check today's Agentic AI editorial gates
-        run: python3 scripts/check_arabic_editorial.py article-agentic-ai-erpbench-market-ecology.html editorial-qa/agent-erpbench-market-ecology.json
+      - name: Check the SWE-Lancer Arabic editorial gates
+        run: python3 scripts/check_arabic_editorial.py article-agentic-ai-swelancer-million-dollar-software-work.html editorial-qa/agent-swelancer-ar.json
       - name: Preserve mobile screenshots and QA result
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
@@ -61,8 +111,13 @@ jobs:
           path: |
             editorial-qa/mobile-artifacts/
             editorial-qa/alphaevolve.json
-            editorial-qa/agent-erpbench-market-ecology.json
+            editorial-qa/agent-swelancer-ar.json
+            editorial-qa/agent-swelancer-en.json
             editorial-qa/oe-defaults.json
             editorial-qa/oe-handoffs.json
             editorial-qa/oe-interruptions.json
+            editorial-qa/oe-huddles.json
+            editorial-qa/oe-audit-feedback.json
+            editorial-qa/oe-checklist.json
+            editorial-qa/oe-rrt.json
           if-no-files-found: error

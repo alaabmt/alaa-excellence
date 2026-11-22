@@ -1,0 +1,31 @@
+name: Tamayuz Live Bounded Ten-Client Production Smoke (NOT conference certification)
+on:
+  pull_request:
+    paths:
+      - 'tests/tamayuz-live-bounded-capacity-smoke.mjs'
+      - '.github/workflows/tamayuz-live-bounded-capacity-smoke.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  bounded-polling:
+    if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
+    name: 10 logical polling clients for 60s against disposable Live test session
+    runs-on: ubuntu-24.04
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '24'
+      - name: Bounded low-impact test — no more than 10 logical clients and 5 polls/s
+        env:
+          CAPACITY_TEST_SHA: ${{ github.event.pull_request.head.sha }}
+          TEST_REPORT_PATH: ${{ runner.temp }}/tamayuz-live-bounded-capacity.json
+        run: node tests/tamayuz-live-bounded-capacity-smoke.mjs
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        if: always()
+        with:
+          name: tamayuz-live-ten-client-smoke-results
+          path: ${{ runner.temp }}/tamayuz-live-bounded-capacity.json
+          retention-days: 30

@@ -7,69 +7,147 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-07T08:34:15.755Z",
-  "workflow_status": "completed",
-  "current_stage": "completed",
+  "updated_at": "2026-11-13T07:33:00+04:00",
+  "workflow_status": "blocked",
+  "current_stage": "live_verification",
   "run_lease": null,
   "current_item": {
-    "slug": "case-bangladesh-cyclone-preparedness-community-warning",
-    "publication_date": "2026-11-07",
-    "title_working_ar": "كيف حوّلت بنغلاديش الإنذار من رسالة مركزية إلى استجابة يقودها المجتمع؟",
-    "title_working_en": "How Bangladesh Turned Cyclone Warnings into Community Action",
-    "candidate_status": "published_live_verified",
-    "artifact_root": "automation/10x-cases/case-bangladesh-cyclone-preparedness-community-warning/",
+    "slug": "case-brazil-family-health-strategy-community-primary-care",
+    "publication_date": "2026-11-12",
+    "title_working_ar": "كيف نقلت البرازيل الرعاية الأولية من انتظار المريض إلى فرق مسؤولة عن الأحياء؟",
+    "title_working_en": "How Brazil Moved Primary Care from Waiting Rooms into Communities",
+    "candidate_status": "evidence_passed",
+    "artifact_root": "automation/10x-cases/case-brazil-family-health-strategy-community-primary-care/",
     "candidate_notes": {
-      "path": "automation/10x-cases/case-bangladesh-cyclone-preparedness-community-warning/candidate-notes.md",
-      "commit": "644afa04b08bcf7eaf975ef829263b5cf32b3569"
+      "path": "automation/10x-cases/case-brazil-family-health-strategy-community-primary-care/candidate-notes.md",
+      "commit": "73c7d42e24ab88f6fbeaabd5bb5788ae1aad87d4"
     },
     "evidence_pack": {
-      "status": "passed_with_explicit_attribution_limits",
-      "path": "automation/10x-cases/case-bangladesh-cyclone-preparedness-community-warning/evidence-pack.md",
-      "commit": "15a85d1c49c2e1d1ee2700e57a17c3ef016ef8bc",
+      "status": "passed_with_explicit_causal_measurement_and_equity_limits",
+      "path": "automation/10x-cases/case-brazil-family-health-strategy-community-primary-care/evidence-pack.md",
+      "commit": "6fca6db1aba14189400afabeca4be03fe851bca3",
       "confidence": {
         "operating_model": "high",
-        "programme_inventory": "high_reported",
-        "bulbul_evacuation": "medium_not_cpp_exclusive",
-        "mortality_attribution": "rejected",
-        "equity": "mixed"
+        "implementation_scale": "high_reported_definitions_vary",
+        "infant_mortality_contribution": "medium_high",
+        "cardiovascular_amenable_mortality": "medium_high",
+        "avoidable_hospitalization_reduction": "rejected",
+        "uniform_quality_equity": "rejected"
       }
     },
-    "arabic_draft": {
-      "path": "automation/10x-cases/case-bangladesh-cyclone-preparedness-community-warning/arabic-draft.md",
-      "commit": "77997cbcd0e22368032ee2f24607ff1da0bd6bc4"
+    "analysis": {
+      "status": "passed",
+      "path": "automation/10x-cases/case-brazil-family-health-strategy-community-primary-care/backcasting-and-10x-analysis.md",
+      "commit": "58a96bbcd72cac04a2257977c652d3eb9a8f5cd3",
+      "pillars_supported": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8
+      ],
+      "pillar_gap": [
+        6
+      ]
     },
-    "english_draft": {
-      "path": "automation/10x-cases/case-bangladesh-cyclone-preparedness-community-warning/english-draft.md",
-      "commit": "a77983e79f7f87aa867911be2891a4d05480846e"
+    "arabic_draft": {
+      "status": "revised_after_critique",
+      "path": "automation/10x-cases/case-brazil-family-health-strategy-community-primary-care/draft-ar.md",
+      "commit": "497d341266916ebb9256c0cd779b6e49fbdeb11a"
     },
     "company_insider_critique": {
-      "status": "passed_simulated",
-      "path": "automation/10x-cases/case-bangladesh-cyclone-preparedness-community-warning/company-insider-critique.md",
-      "commit": "d6b7678cf304e1047ea696e97d596535ad1a28ab"
+      "status": "passed_with_required_revisions_applied",
+      "path": "automation/10x-cases/case-brazil-family-health-strategy-community-primary-care/company-insider-critique.md",
+      "commit": "ac7f0d3f654bfe4cd223b0694e8d8dde5ebf3a8d",
+      "required_revisions": 8,
+      "remaining_gaps": 6
+    },
+    "english_draft": {
+      "status": "drafted_with_critique_applied",
+      "path": "automation/10x-cases/case-brazil-family-health-strategy-community-primary-care/draft-en.md",
+      "commit": "657ce3d2e9577e699e69b1d27e2634380d11fd7d"
+    },
+    "bilingual_parity": {
+      "status": "passed",
+      "path": "automation/10x-cases/case-brazil-family-health-strategy-community-primary-care/bilingual-parity-review.md",
+      "commit": "c41417e7bc59431c98729919b1be41d3f4c56884"
     },
     "final_quality_gate": {
-      "status": "passed_postdeploy",
-      "path": "automation/10x-cases/case-bangladesh-cyclone-preparedness-community-warning/final-quality-gate.md",
-      "commit": "e17e4fee23be683975a58df4de3a5ae9a6443717"
+      "status": "passed_for_repository_publication_postdeploy_gates_pending",
+      "score": 96,
+      "path": "automation/10x-cases/case-brazil-family-health-strategy-community-primary-care/quality-review.md",
+      "commit": "a200f99f1d56f439e800ed8000871e35e38b0c5e",
+      "blocking_errors": [],
+      "postdeploy_blockers": [
+        "functional_tts_playback"
+      ]
     },
     "publishing": {
-      "status": "published_live_verified",
-      "arabic_url": "https://tamayuz10x.com/case-bangladesh-cyclone-preparedness-community-warning.html",
-      "english_url": "https://tamayuz10x.com/en/case-bangladesh-cyclone-preparedness-community-warning.html",
-      "initial_publication_commit": "84b6c48bacb3e3f8ce61f31d81cfb29e24865bb4",
-      "social_manifest_commit": "63c8c3616159cbd1457cac670b632b988555a698",
-      "latest_pages_verified_head": "73dbd0eb7faadad2f14cfe03c698610f5cd57467",
-      "pages_run": "https://github.com/alaabmt/alaa-excellence/actions/runs/42355930058",
-      "mobile_verification": "passed_real_390px_chromium_ar_en_no_horizontal_overflow",
-      "index_verification": "passed_ar_en_one_card",
-      "sitemap_verification": "passed_ar_en_one_url",
-      "image_verification": "passed_ar_en_1200x630_http200",
-      "metadata_verification": "passed_canonical_hreflang_og_twitter_schema",
-      "video_verification": "not_inserted_unverified"
+      "status": "published_live_content_verified_tts_blocked",
+      "arabic_url": "https://tamayuz10x.com/case-brazil-family-health-strategy-community-primary-care.html",
+      "english_url": "https://tamayuz10x.com/en/case-brazil-family-health-strategy-community-primary-care.html",
+      "initial_publication_commit": "053104d35c05fd5a3a4f5c79f9a5788f684d420c",
+      "sitemap_commit": "1415361332507d0cec05e7c30f15b58e9437ed6e",
+      "social_manifest_fix_commit": "bbedcc231ec640067a05585063b3f508dc921407",
+      "social_card_workflow": {
+        "status": "success",
+        "run_id": 43150948784,
+        "run_number": 556,
+        "head_sha": "bbedcc231ec640067a05585063b3f508dc921407",
+        "generated_commit": "8fac4b71ee8e045a165331d59c521c98cb1ed848",
+        "arabic_asset": "assets/previews/story/case-brazil-family-health-strategy-community-primary-care-ar.jpg",
+        "english_asset": "assets/previews/story/case-brazil-family-health-strategy-community-primary-care-en.jpg",
+        "arabic_image": "1200x630_109677_bytes",
+        "english_image": "1200x630_113360_bytes",
+        "metadata_indexes": "passed_ar_en_pages_and_indexes_deduplicated"
+      },
+      "exact_head_actions_pages": {
+        "head_sha": "1c41e6a858cb1da3f6038b532a4fa8c9b6c341b5",
+        "site_health": {
+          "run_id": 43181491034,
+          "conclusion": "success"
+        },
+        "pages": {
+          "run_id": 43181490172,
+          "conclusion": "success"
+        },
+        "arabic_editorial_gate": {
+          "run_id": 43181490915,
+          "conclusion": "success"
+        }
+      },
+      "latest_exact_head_actions_pages": {
+        "head_sha": "20bd8f7e464c3c65191243d51254ca561729cf73",
+        "site_health": {
+          "run_id": 43182247092,
+          "conclusion": "success"
+        },
+        "pages": {
+          "run_id": 43182246081,
+          "conclusion": "success"
+        },
+        "arabic_editorial_gate": {
+          "run_id": 43182246953,
+          "conclusion": "success"
+        }
+      },
+      "live_verification": {
+        "arabic_url": "http_200_live_metadata_h1_and_1200x630_social_image_verified",
+        "english_url": "http_200_live_metadata_h1_and_1200x630_social_image_verified",
+        "mobile_viewport": "passed_real_391px_chromium_target_390px_rounding_no_horizontal_overflow_ar_en",
+        "responsive_bracketing": "passed_340px_and_454px_no_horizontal_overflow_ar_en",
+        "tts_controls": "visible_ar_en",
+        "tts_actual_playback": "blocked_browser_has_no_speechSynthesis_and_click_produced_no_audio_state",
+        "duplicate_verification": "passed_one_ar_index_card_one_en_index_card_one_ar_sitemap_url_one_en_sitemap_url",
+        "tts_retry_2026_11_13": "failed_environment_has_no_speechSynthesis_no_voices_no_playback_state_no_highlighting"
+      }
     },
     "publication_report": {
-      "path": "automation/10x-cases/case-bangladesh-cyclone-preparedness-community-warning/publication-report.md",
-      "commit": "508b16434c509075af0b83e9d7d8cd23e6ed6fff"
+      "path": "automation/10x-cases/case-brazil-family-health-strategy-community-primary-care/publication-report.md",
+      "commit": "7f1bc9ece75c86eee61953207fe6fad614efd138",
+      "status": "partial_blocked_tts"
     }
   },
   "stage_order": [
@@ -111,12 +189,16 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "At next scheduled daily cycle, check Asia/Dubai date and publication history, then start a distinct case only if no publication already exists for that date. Never republish Bangladesh.",
+  "next_action": "Run actual Arabic and English TTS playback in a browser/device with Web Speech speechSynthesis and audible voices; verify start-from-H1, synchronized highlighting and floating controls. If it passes, checkpoint live_verification and complete. Alternatively, the owner must explicitly approve the documented technical exception allowed by the TTS standard.",
   "last_run": {
-    "mode": "user_authorized_finish_without_approval",
-    "status": "completed",
-    "ended_at": "2026-11-07T08:34:15.755Z",
-    "notes": "Bangladesh case published bilingual, social cards and indexes integrated, Pages and mobile verified; administrative checkpoint may create later Pages run."
+    "mode": "primary_scheduled_resume",
+    "status": "blocked",
+    "started_at": "2026-11-13T07:26:41+04:00",
+    "starting_head": null,
+    "last_checkpoint": "actions_and_pages",
+    "notes": "Resumed the existing Brazil FHS case. Live page opened successfully and controls were visible, but the managed Chrome again had no speechSynthesis or voices; clicking Listen produced no playback or highlighting. Partial publication report committed. No new 2026-11-13 case was started.",
+    "current_item": "case-brazil-family-health-strategy-community-primary-care",
+    "completed_at": "2026-11-13T07:33:00+04:00"
   },
   "last_completed_item": {
     "slug": "case-bangladesh-cyclone-preparedness-community-warning",
@@ -179,7 +261,7 @@
       "commit": "508b16434c509075af0b83e9d7d8cd23e6ed6fff"
     }
   },
-  "run_date": "2026-11-07",
+  "run_date": "2026-11-13",
   "completed_stages": [
     "capability_check",
     "load_checkpoint",
@@ -193,10 +275,11 @@
     "bilingual_parity",
     "final_quality_gate",
     "repository_publish",
-    "actions_and_pages",
-    "live_verification",
-    "completion_report",
-    "completed"
+    "actions_and_pages"
   ],
-  "blocker": null
+  "blocker": {
+    "type": "platform_capability_missing",
+    "detail": "The available managed Chrome on 2026-11-13 again reports window.speechSynthesis unavailable and zero voices. Clicking Listen produced no speaking, pending, paused or highlighting state. The mandatory TTS standard requires actual browser/device playback; visible controls alone are insufficient.",
+    "required_decision": "Provide or authorize a TTS-capable browser/device for actual Arabic and English playback verification, or explicitly approve the documented technical exception permitted by ARABIC-LANGUAGE-AND-TTS-STANDARD.md section 10."
+  }
 }

@@ -5,318 +5,67 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-28T22:15:00+04:00",
+  "updated_at": "2026-11-19T17:03:14.611Z",
   "workflow_status": "blocked",
-  "current_stage": "live_verification",
+  "current_stage": "quality_gate",
   "current_article": {
-    "article_id": "quran-reflection-2026-10-28-al-mutaffifin-fair-measure",
-    "publication_date": "2026-10-28",
-    "slug": "reflection-al-mutaffifin-demanding-full-measure-giving-less",
-    "topic_ar": "المطففين 83:1–6 — أن نطلب حقنا كاملًا ثم ننقص حقوق الآخرين",
-    "topic_en": "Al-Mutaffifin 83:1–6 — demanding our due in full while diminishing what others receive",
-    "working_title_ar": "لماذا نطلب حقنا كاملًا ثم ننقص حقوق الآخرين؟",
-    "working_title_en": "Why Do We Demand Our Due in Full While Giving Others Less?",
-    "status": "in_progress",
+    "article_id": "quran-reflection-2026-11-19-al-hadid-loss-gain-and-gratitude",
+    "cycle_date": "2026-11-19",
+    "status": "drafts_reviewed_publication_blocked",
+    "preflight_path": "automation/quran-reflections/2026-11-19-preflight.md",
+    "slug": "reflection-al-hadid-loss-gain-and-gratitude",
+    "working_title_ar": "كيف نستقبل الخسارة والنجاح دون أن نفقد اتزاننا؟",
+    "working_title_en": "How Can We Meet Loss and Success Without Losing Our Balance?",
     "topic_selection": {
       "status": "completed",
-      "candidates": [
-        "Al-Mutaffifin 83:1–6 — demanding a full measure while giving less",
-        "Al-Ma’idah 5:2 — the boundary of cooperation",
-        "An-Nahl 16:90 — justice, excellence and giving beyond minimum duty"
-      ],
-      "selected": "Al-Mutaffifin 83:1–6 — demanding a full measure while giving less",
-      "central_question": "What becomes visible in our standards when the shortfall benefits us rather than harms us?"
+      "artifact_path": "automation/quran-reflections/reflection-al-hadid-loss-gain-and-gratitude/topic-selection.md"
     },
-    "duplicate_check": {
-      "status": "passed_repository_and_registry; live_urls_unreachable_via_current_search_connector",
-      "checked_at": "2026-10-28T17:58:00+04:00",
-      "repository_date_matches": 0,
-      "repository_slug_matches": 0,
-      "registry_topic_matches": 0,
-      "expected_url_ar": "https://tamayuz10x.com/reflection-al-mutaffifin-demanding-full-measure-giving-less.html",
-      "expected_url_en": "https://tamayuz10x.com/en/reflection-al-mutaffifin-demanding-full-measure-giving-less.html"
-    },
-    "research_notes_path": "automation/quran-reflections/reflection-al-mutaffifin-demanding-full-measure-giving-less/research-notes.md",
+    "research_notes_path": "automation/quran-reflections/reflection-al-hadid-loss-gain-and-gratitude/research-notes.md",
     "research_status": "completed",
-    "research_sources": [
-      {
-        "type": "Qur'an text and Sahih International translation",
-        "url": "https://legacy.quran.com/83/1-7",
-        "status": "reviewed"
-      },
-      {
-        "type": "Tafsir al-Tabari 83:1 and 83:4",
-        "url": "https://quran.ksu.edu.sa/tafseer/tabary/sura83-aya1.html",
-        "status": "reviewed"
-      },
-      {
-        "type": "Tafsir Ibn Kathir 83:1 and 83:4",
-        "url": "https://quran.ksu.edu.sa/tafseer/katheer/sura83-aya1.html",
-        "status": "reviewed"
-      },
-      {
-        "type": "Tafsir al-Qurtubi 83:1 and 83:4",
-        "url": "https://quran.ksu.edu.sa/tafseer/qortobi/sura83-aya1.html",
-        "status": "reviewed"
-      },
-      {
-        "type": "Tafsir al-Sa'di 83:1 and 83:4",
-        "url": "https://quran.ksu.edu.sa/tafseer/saadi/sura83-aya1.html",
-        "status": "reviewed"
-      }
-    ],
-    "research_commit": "9e8a4cf48859b3273b40acb72885d5504505bac1",
+    "quran_verification": {
+      "status": "passed",
+      "path": "automation/quran-reflections/reflection-al-hadid-loss-gain-and-gratitude/quran-verification.md"
+    },
     "quranic_focus": {
-      "surah": "Al-Mutaffifin",
-      "surah_ar": "المطففين",
+      "surah": "Al-Hadid",
+      "surah_ar": "الحديد",
       "ayahs": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6
+        22,
+        23
+      ],
+      "context_ayahs": [
+        20,
+        21,
+        24
       ],
       "status": "verified"
     },
-    "verified_quranic_references": [
-      {
-        "surah": "Al-Mutaffifin",
-        "surah_ar": "المطففين",
-        "ayahs": [
-          1,
-          2,
-          3,
-          4,
-          5,
-          6
-        ],
-        "status": "verified",
-        "primary_text_urls": [
-          "https://legacy.quran.com/83/1-7"
-        ],
-        "translation": "Sahih International",
-        "verified_at": "2026-10-28T18:22:00+04:00"
-      }
-    ],
-    "quran_verification": {
-      "status": "passed",
-      "blocking_errors": [],
-      "path": "automation/quran-reflections/reflection-al-mutaffifin-demanding-full-measure-giving-less/research-notes.md",
-      "commit": "df439c8e42b6890b41c147f52ac36853d6ad8adf"
-    },
     "arabic_draft": {
-      "status": "parity_cleared",
-      "path": "automation/quran-reflections/reflection-al-mutaffifin-demanding-full-measure-giving-less/draft-ar.md",
-      "word_count": 1382,
-      "commit": "790d201538282a0e0d1f8f5c42a093f471cf3dcd",
-      "completed_at": "2026-10-28T19:01:50+04:00",
-      "mobile_gate": "NOT VERIFIED until final HTML",
-      "tts_gate": "NOT VERIFIED until final HTML",
-      "revision_count": 5
+      "status": "revised_after_independent_critique",
+      "path": "automation/quran-reflections/reflection-al-hadid-loss-gain-and-gratitude/draft-ar.md"
     },
     "independent_critique": {
-      "status": "passed_after_required_revisions",
-      "path": "automation/quran-reflections/reflection-al-mutaffifin-demanding-full-measure-giving-less/quality-review.md",
-      "commit": "350bd54fbe3268b1859902f8015fbae359f9ac0c",
-      "blocking_errors": [],
-      "revisions_applied": 4,
-      "completed_at": "2026-10-28T20:02:36+04:00",
-      "mobile_gate": "NOT VERIFIED until final HTML",
-      "tts_gate": "NOT VERIFIED until final HTML"
+      "status": "passed_after_two_clarity_corrections",
+      "path": "automation/quran-reflections/reflection-al-hadid-loss-gain-and-gratitude/quality-review.md"
     },
     "english_draft": {
-      "status": "parity_cleared",
-      "path": "automation/quran-reflections/reflection-al-mutaffifin-demanding-full-measure-giving-less/draft-en.md",
-      "word_count": 1856,
-      "quran_translation": "Sahih International",
-      "commit": "bc766173ee0b3e70dff6f05812a3a4609fd88218",
-      "completed_at": "2026-10-28T20:03:42+04:00",
-      "mobile_gate": "NOT VERIFIED until final HTML",
-      "tts_gate": "NOT VERIFIED until final HTML"
+      "status": "content_parity_passed",
+      "path": "automation/quran-reflections/reflection-al-hadid-loss-gain-and-gratitude/draft-en.md"
     },
     "bilingual_parity": {
-      "status": "passed_after_aligned_tafsir_citation_revision",
-      "review_path": "automation/quran-reflections/reflection-al-mutaffifin-demanding-full-measure-giving-less/quality-review.md",
-      "commit": "0c9bc8bb6efac1a687a39db9652eb0e683569d07",
-      "revision_count": 1,
-      "same_source_urls": 5,
-      "completed_at": "2026-10-28T20:58:39+04:00",
-      "mobile_gate": "NOT VERIFIED until final HTML",
-      "tts_gate": "NOT VERIFIED until final HTML"
+      "status": "content_passed_after_two_english_corrections",
+      "review_path": "automation/quran-reflections/reflection-al-hadid-loss-gain-and-gratitude/bilingual-parity-review.md",
+      "arabic_blob_sha": "ed23c2fc143d423a950a6ab7fa2b57d0091a7142",
+      "english_blob_sha": "b5b2ee143897cbc1cab983060297694ea79553ae",
+      "technical_page_parity": "not_verified"
     },
     "quality_gate": {
-      "status": "passed",
-      "score": 97,
-      "threshold": 90,
-      "blocking_errors": [],
-      "review_path": "automation/quran-reflections/reflection-al-mutaffifin-demanding-full-measure-giving-less/quality-review.md",
-      "commit": "c33cfacbfbbb205eae795dd2cc20d6167e710285",
-      "completed_at": "2026-10-28T20:59:30+04:00",
-      "mobile_gate": "NOT VERIFIED until final HTML",
-      "rtl_gate": "NOT VERIFIED until final HTML",
-      "tts_gate": "NOT VERIFIED until final HTML"
-    },
-    "publishing": {
-      "status": "actions_passed_live_tts_pending",
-      "arabic_path": "reflection-al-mutaffifin-demanding-full-measure-giving-less.html",
-      "english_path": "en/reflection-al-mutaffifin-demanding-full-measure-giving-less.html",
-      "arabic_page_commit": "2d7481db8f60aa3f48648182251ade101783f3a1",
-      "english_page_commit": "9edf479a74eb441fb79c395d8977dbd4bf4ea152",
-      "indexes": [
-        "quranic-reflections.html",
-        "en/quranic-reflections.html",
-        "articles.html",
-        "en/articles.html"
-      ],
-      "topic_registry": "data/quranic-reflection-topics.json",
-      "sitemap": "sitemap.xml",
-      "checks": "passed",
-      "live": "pages_and_indexes_verified; actual TTS playback NOT VERIFIED"
-    },
-    "repository_publish": {
-      "status": "completed",
-      "completed_at": "2026-10-28T21:53:53+04:00",
-      "checkpoint_commit": "98c84d0963a7e3e89ba30e39a9fd7594dc213db9",
-      "arabic_page": {
-        "path": "reflection-al-mutaffifin-demanding-full-measure-giving-less.html",
-        "commit": "2d7481db8f60aa3f48648182251ade101783f3a1"
-      },
-      "english_page": {
-        "path": "en/reflection-al-mutaffifin-demanding-full-measure-giving-less.html",
-        "commit": "9edf479a74eb441fb79c395d8977dbd4bf4ea152"
-      },
-      "indexes": [
-        "quranic-reflections.html",
-        "en/quranic-reflections.html",
-        "articles.html",
-        "en/articles.html"
-      ],
-      "records": [
-        "data/quranic-reflection-topics.json",
-        "data/article-covers.json",
-        "data/article-publication-dates.json",
-        "sitemap.xml"
-      ],
-      "checks_status": "pending_actions_and_live_verification",
-      "reconciliation_note": "Canonical publication paths copied into repository_publish so exact bilingual mobile QA can resolve the current article without replaying publication."
-    },
-    "actions_and_pages": {
-      "status": "completed",
-      "checked_at": "2026-10-28T22:15:00+04:00",
-      "report_path": "automation/quran-reflections/reflection-al-mutaffifin-demanding-full-measure-giving-less/actions-and-pages-report.md",
-      "repair_commits": {
-        "state_schema": "cb84bd9084e184d03442a689f1fb47b6daaa2f5a",
-        "publication_records": "526829b653e1d34c0bc8132fb1a071a7939be3a2",
-        "visible_dates": "c269bd07632da6a87614f77fe4b48046304e45da",
-        "generated_social_assets": "05eacfad2433c7bfee08f3a023016e7227f56110",
-        "mobile_wrap": "5d3f32f22a0ec0eeac12091ac040b967eb4f7966"
-      },
-      "required_checks": {
-        "site_health": {
-          "run_id": 40742136729,
-          "conclusion": "success",
-          "head_sha": "5d3f32f22a0ec0eeac12091ac040b967eb4f7966",
-          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40742136729"
-        },
-        "article_date_integrity": {
-          "run_id": 40742136785,
-          "conclusion": "success",
-          "head_sha": "5d3f32f22a0ec0eeac12091ac040b967eb4f7966",
-          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40742136785"
-        },
-        "sitemap": {
-          "run_id": 40742136798,
-          "conclusion": "success",
-          "head_sha": "5d3f32f22a0ec0eeac12091ac040b967eb4f7966",
-          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40742136798"
-        },
-        "social_cards": {
-          "run_id": 40742136707,
-          "conclusion": "success",
-          "head_sha": "5d3f32f22a0ec0eeac12091ac040b967eb4f7966",
-          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40742136707"
-        },
-        "arabic_editorial": {
-          "run_id": 40742136885,
-          "conclusion": "success",
-          "head_sha": "5d3f32f22a0ec0eeac12091ac040b967eb4f7966",
-          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40742136885"
-        },
-        "pages": {
-          "run_id": 40742455891,
-          "conclusion": "success",
-          "head_sha": "cee988ae918521442dbc5fe5e2e566c7d9841370",
-          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40742455891"
-        }
-      },
-      "exact_mobile_test": {
-        "conclusion": "success",
-        "artifact_id": 12838898678,
-        "viewports": [
-          320,
-          375,
-          390,
-          430
-        ],
-        "languages": [
-          "ar",
-          "en"
-        ],
-        "cases_passed": 8
-      },
-      "completed_at": "2026-10-28T22:15:00+04:00"
-    },
-    "live_verification": {
-      "status": "blocked_on_actual_tts_playback",
-      "checked_at": "2026-10-28T22:15:00+04:00",
-      "pages": {
-        "ar": {
-          "url": "https://tamayuz10x.com/reflection-al-mutaffifin-demanding-full-measure-giving-less.html",
-          "loaded": true,
-          "lang": "ar",
-          "dir": "rtl",
-          "canonical": true,
-          "hreflang": true,
-          "listen_control": true,
-          "social_image": true,
-          "mobile_workflow_passed": true
-        },
-        "en": {
-          "url": "https://tamayuz10x.com/en/reflection-al-mutaffifin-demanding-full-measure-giving-less.html",
-          "loaded": true,
-          "lang": "en",
-          "dir": "ltr",
-          "canonical": true,
-          "hreflang": true,
-          "listen_control": true,
-          "social_image_1200": true,
-          "mobile_workflow_passed": true
-        }
-      },
-      "indexes": {
-        "articles.html": {
-          "unique_cards": 1
-        },
-        "quranic-reflections.html": {
-          "unique_cards": 1
-        },
-        "en/articles.html": {
-          "unique_cards": 1
-        },
-        "en/quranic-reflections.html": {
-          "unique_cards": 1
-        }
-      },
-      "sitemap": {
-        "ar_loc_count": 1,
-        "en_loc_count": 1
-      },
-      "tts": {
-        "controls_present": true,
-        "actual_playback_verified": false,
-        "blocker": "Available cloud browser reports window.speechSynthesis unavailable; clicking Arabic Listen did not start playback."
-      }
+      "status": "blocked_not_passed",
+      "review_path": "automation/quran-reflections/reflection-al-hadid-loss-gain-and-gratitude/final-quality-gate.md",
+      "editorial_content": "passed",
+      "mobile_rtl_ltr": "not_verified",
+      "technical_parity": "not_verified",
+      "actual_tts": "not_verified_web_speech_unavailable"
     }
   },
   "stage_order": [
@@ -350,17 +99,14 @@
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
     "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
   },
-  "next_action": "Decision required: provide a browser/OS with Web Speech synthesis enabled for real Arabic and English playback verification, or explicitly accept the successful Listen-control/DOM checks plus the eight-case mobile Action as sufficient TTS evidence. Then save live_verification, publication-report.md and completion_report without republishing.",
+  "next_action": "After a usable TTS environment or explicit owner exception is available, prepare unpublished bilingual HTML previews; verify actual mobile/RTL/LTR, metadata and technical parity, and actual TTS unless explicitly excepted. Re-run final quality gate and all duplicate checks before publication. Do not repeat completed research/drafting or start another 2026-11-19 cycle.",
   "last_run": {
     "mode": "coordinator_resume",
     "status": "blocked",
-    "started_at": "2026-10-28T17:58:00+04:00",
-    "starting_head": "c5697f62d8231a2de0c3c404a9a55072833f9a88",
-    "last_checkpoint": "actions_and_pages",
-    "last_checkpoint_at": "2026-10-28T22:15:00+04:00",
-    "notes": "All repository, Actions, Pages, mobile/RTL, social-card, date, index and sitemap checks passed. Live verification is blocked only on actual TTS playback because the available cloud browser exposes no Web Speech synthesis engine.",
-    "resumed_at": "2026-10-28T21:59:40+04:00",
-    "resumed_by": "central-coordinator"
+    "started_at": "2026-11-19T17:01:02.263Z",
+    "last_checkpoint": "bilingual_parity",
+    "completed_at": "2026-11-19T17:03:14.611Z",
+    "notes": "Saved independent content parity with two English corrections and final gate assessment. No public publication performed."
   },
   "workflow_id": "quran_reflections",
   "run_lease": null,
@@ -726,7 +472,7 @@
     },
     "completed_at": "2026-10-27T05:20:00+04:00"
   },
-  "run_date": "2026-10-28",
+  "run_date": "2026-11-19",
   "completed_stages": [
     "capability_check",
     "load_checkpoint",
@@ -737,52 +483,1887 @@
     "arabic_draft",
     "independent_critique",
     "english_draft",
-    "bilingual_parity",
-    "quality_gate",
-    "repository_publish",
-    "actions_and_pages"
+    "bilingual_parity"
   ],
   "duplicate_check": {
-    "status": "passed",
-    "checked_at": "2026-10-26T21:55:48+04:00",
-    "checked": [
-      "checkpoint",
-      "topic registry",
-      "repository code search",
-      "articles.html",
-      "en/articles.html",
+    "status": "passed_no_today_quran_cycle_found",
+    "checked_at": "2026-11-18T17:59:06+04:00",
+    "evidence": [
+      "automation/quran-reflections-state.json",
+      "data/quranic-reflection-topics.json",
+      "data/article-publication-dates.json",
       "quranic-reflections.html",
       "en/quranic-reflections.html",
+      "articles.html",
+      "en/articles.html",
       "sitemap.xml",
-      "article-publication-dates.json"
+      "recent GitHub commits",
+      "live quranic-reflections and article indexes",
+      "public web search for 2026-11-18 Qur'anic reflection"
     ],
-    "finding": "No Qur’anic reflection cycle, registry entry, Quran-index card or reflection page dated 2026-10-26 exists. The date occurrences in general article records belong to the Netherlands 10X case, not a reflection."
+    "note": "No repository, registry, recent-commit, live-index, sitemap, or public-search evidence of a Qur'anic reflection started or published for 2026-11-18. The previous cycle is explicitly blocked, so the daily exception permits one new cycle."
   },
   "blocker": {
-    "type": "capability",
-    "stage": "live_verification",
-    "decision_required": "Provide a browser/OS with Web Speech synthesis enabled for actual Arabic and English playback verification, or explicitly accept control/structure validation plus the eight successful mobile cases as the TTS gate.",
-    "evidence": "The live cloud browser loads both Listen controls, but window.speechSynthesis is unavailable and the Arabic control did not enter a playing state."
+    "type": "platform_capability_missing",
+    "stage": "quality_gate",
+    "detail": "Fresh available browser check: speechSynthesis and SpeechSynthesisUtterance both unavailable. Actual bilingual TTS cannot be verified. Mobile/RTL/LTR and final HTML technical checks are also pending, not passed.",
+    "decision_required": "Provide a Web Speech-capable environment with Arabic and English voices, or explicitly approve a documented exception to actual playback. Mobile and other mandatory gates still require verification.",
+    "safe_to_retry": false
   },
-  "verified_quranic_references": [
-    {
-      "surah": "Al-Hujurat",
-      "surah_ar": "الحجرات",
+  "verified_quranic_references": [],
+  "previous_blocked_article": {
+    "article_id": "quran-reflection-2026-11-18-al-hashr-what-have-we-sent-ahead",
+    "publication_date": "2026-11-18",
+    "status": "actions_pages_and_live_structure_verified_tts_playback_blocked",
+    "duplicate_check": {
+      "status": "passed_no_today_quran_cycle_found",
+      "checked_at": "2026-11-18T17:59:06+04:00",
+      "evidence": [
+        "automation/quran-reflections-state.json",
+        "data/quranic-reflection-topics.json",
+        "data/article-publication-dates.json",
+        "quranic-reflections.html",
+        "en/quranic-reflections.html",
+        "articles.html",
+        "en/articles.html",
+        "sitemap.xml",
+        "recent GitHub commits",
+        "live quranic-reflections and article indexes",
+        "public web search for 2026-11-18 Qur'anic reflection"
+      ],
+      "note": "No repository, registry, recent-commit, live-index, sitemap, or public-search evidence of a Qur'anic reflection started or published for 2026-11-18. The previous cycle is explicitly blocked, so the daily exception permits one new cycle."
+    },
+    "slug": "reflection-al-hashr-what-have-we-sent-ahead",
+    "topic_ar": "الحشر 59:18 — ما الذي قدّمناه لغد؟",
+    "topic_en": "Al-Hashr 59:18 — what the soul has sent ahead for tomorrow",
+    "working_title_ar": "ماذا أرسلنا أمامنا قبل أن يصل الغد؟",
+    "working_title_en": "What Have We Sent Ahead Before Tomorrow Arrives?",
+    "research_notes_path": "automation/quran-reflections/reflection-al-hashr-what-have-we-sent-ahead/research-notes.md",
+    "topic_selection": {
+      "status": "completed",
+      "candidates": [
+        "Al-Hashr 59:18 — what the soul has sent ahead for tomorrow",
+        "Al-Hadid 57:22–23 — how we receive loss and gain",
+        "Ash-Shura 42:38 — consultation within faithful responsibility"
+      ],
+      "selected": "Al-Hashr 59:18 — what the soul has sent ahead for tomorrow",
+      "central_question": "How does faith in meeting Allah turn review of our work from defending the past into honest attention to what we send ahead?",
+      "artifact_path": "automation/quran-reflections/reflection-al-hashr-what-have-we-sent-ahead/research-notes.md",
+      "artifact_commit": "9cd83a17f02d12bbc37b83339c613b91494b93c4",
+      "artifact_blob_sha": "7dfae8293a23596a6d44c74822ee64a80539ad39",
+      "completed_at": "2026-11-18T18:00:28+04:00"
+    },
+    "research_status": "completed",
+    "research_commit": "2b176ad3bcf88120e23bc5db67d539b69120387c",
+    "research_blob_sha": "0d887c95acf9505804f19f511638bfb390853a6c",
+    "research_sources": [
+      {
+        "type": "Qur'an text and immediate context, Al-Hashr 59:18–21",
+        "url": "https://quran.com/59/18-21",
+        "status": "reviewed"
+      },
+      {
+        "type": "Sahih International translation, Al-Hashr 59:18–24",
+        "url": "https://legacy.quran.com/59/18-24",
+        "status": "reviewed"
+      },
+      {
+        "type": "Tafsir al-Tabari 59:18",
+        "url": "https://quran.ksu.edu.sa/tafseer/tabary/sura59-aya18.html",
+        "status": "reviewed"
+      },
+      {
+        "type": "Tafsir Ibn Kathir 59:18",
+        "url": "https://quran.ksu.edu.sa/tafseer/katheer/sura59-aya18.html",
+        "status": "reviewed"
+      },
+      {
+        "type": "Tafsir al-Qurtubi 59:18",
+        "url": "https://quran.ksu.edu.sa/tafseer/qortobi/sura59-aya18.html",
+        "status": "reviewed"
+      },
+      {
+        "type": "Tafsir al-Sa'di 59:18",
+        "url": "https://quran.ksu.edu.sa/tafseer/saadi/sura59-aya18.html",
+        "status": "reviewed"
+      }
+    ],
+    "research_completed_at": "2026-11-18T18:02:19+04:00",
+    "quranic_focus": {
+      "surah": "Al-Hashr",
+      "surah_ar": "الحشر",
       "ayahs": [
-        12
+        18
       ],
       "context_ayahs": [
-        10,
-        11,
-        13
+        19,
+        20,
+        21
       ],
-      "status": "verified",
-      "primary_text_urls": [
-        "https://legacy.quran.com/49/12",
-        "https://legacy.quran.com/49/10-13"
+      "status": "verified"
+    },
+    "quran_verification": {
+      "status": "passed",
+      "blocking_errors": [],
+      "path": "automation/quran-reflections/reflection-al-hashr-what-have-we-sent-ahead/research-notes.md",
+      "commit": "e7d363d30f07fcad220b59eda3a57523a2db9c82",
+      "completed_at": "2026-11-18T18:03:18+04:00"
+    },
+    "arabic_draft": {
+      "status": "revised_after_independent_critique",
+      "path": "automation/quran-reflections/reflection-al-hashr-what-have-we-sent-ahead/draft-ar.md",
+      "word_count": 1151,
+      "initial_commit": "95c43e0a930b7a6fb32198f0bf749e913a31df37",
+      "revision_commit": "3e16bd165632a70a0457c1ef9d590beb9821c43b",
+      "blob_sha": "cf480801257782b42e769dc9db04c217a435eda5",
+      "completed_at": "2026-11-18T19:03:40+04:00",
+      "mobile_gate": "NOT VERIFIED until final HTML",
+      "tts_gate": "NOT VERIFIED until final HTML"
+    },
+    "independent_critique": {
+      "status": "passed_after_required_revisions",
+      "path": "automation/quran-reflections/reflection-al-hashr-what-have-we-sent-ahead/quality-review.md",
+      "commit": "bfe640f0e43ce6b420f33587eb3fd4e2b1c5723e",
+      "blob_sha": "14b418e20244de3c1545161075992f9d93e44046",
+      "blocking_errors": [],
+      "revisions_applied": 2,
+      "completed_at": "2026-11-18T19:03:40+04:00",
+      "mobile_gate": "NOT VERIFIED until final HTML",
+      "tts_gate": "NOT VERIFIED until final HTML"
+    },
+    "english_draft": {
+      "status": "draft_completed_pending_parity",
+      "path": "automation/quran-reflections/reflection-al-hashr-what-have-we-sent-ahead/draft-en.md",
+      "word_count": 1645,
+      "quran_translation": "Sahih International",
+      "commit": "bfd064df540c7a755af210563888d0b2d4a49831",
+      "blob_sha": "ef0202fddb7bec5cc564c959975530f624d3f0a9",
+      "completed_at": "2026-11-18T20:05:00+04:00"
+    },
+    "bilingual_parity": {
+      "status": "passed_no_substantive_revisions",
+      "review_path": "automation/quran-reflections/reflection-al-hashr-what-have-we-sent-ahead/quality-review.md",
+      "review_commit": "8026fb43e558379651c06c6f950400d4dc307b84",
+      "review_blob_sha": "d02fb66ca90b419f1fce44898c8f938ada35a02b",
+      "arabic_blob_sha": "cf480801257782b42e769dc9db04c217a435eda5",
+      "english_blob_sha": "ef0202fddb7bec5cc564c959975530f624d3f0a9",
+      "substantive_revisions": 0,
+      "completed_at": "2026-11-18T20:05:46+04:00",
+      "mobile_gate": "NOT VERIFIED until final HTML",
+      "tts_gate": "NOT VERIFIED until final HTML"
+    },
+    "quality_gate": {
+      "status": "passed",
+      "score": 98,
+      "threshold": 90,
+      "blocking_errors": [],
+      "review_path": "automation/quran-reflections/reflection-al-hashr-what-have-we-sent-ahead/quality-review.md",
+      "review_commit": "72fb09d44f0f73d3f7cf11e6accaa131f602f7b4",
+      "review_blob_sha": "69bd053561f2ab6787d4562cd96a2a959c424ffa",
+      "arabic_blob_sha": "cf480801257782b42e769dc9db04c217a435eda5",
+      "english_blob_sha": "ef0202fddb7bec5cc564c959975530f624d3f0a9",
+      "quran_text": "passed",
+      "tafsir_and_creed": "passed",
+      "methodological_separation": "passed",
+      "bilingual_parity": "passed",
+      "novice_comprehension": "passed_editorial_review",
+      "mobile_gate": "NOT VERIFIED until final HTML",
+      "rtl_gate": "NOT VERIFIED until final HTML",
+      "tts_gate": "NOT VERIFIED until final HTML",
+      "completed_at": "2026-11-18T20:07:49.239+04:00"
+    },
+    "arabic_html_path": "reflection-al-hashr-what-have-we-sent-ahead.html",
+    "english_html_path": "en/reflection-al-hashr-what-have-we-sent-ahead.html",
+    "publication_report_path": "automation/quran-reflections/reflection-al-hashr-what-have-we-sent-ahead/repository-publish-report.md",
+    "repository_publish": {
+      "status": "completed",
+      "completed_at": "2026-11-18T21:04:40.285+04:00",
+      "publication_commit": "628b9f30b250632eb61b9bec291f5a2e93d9a5c8",
+      "automation_descendant_head": "69b460d7fceb10e9a3cd9a010176bacc584e8f4a",
+      "sitemap_descendant_commit": "dd43c626d853866740029789e5be769ff85e35fc",
+      "report_path": "automation/quran-reflections/reflection-al-hashr-what-have-we-sent-ahead/repository-publish-report.md",
+      "arabic_page": {
+        "path": "reflection-al-hashr-what-have-we-sent-ahead.html",
+        "url": "https://tamayuz10x.com/reflection-al-hashr-what-have-we-sent-ahead.html"
+      },
+      "english_page": {
+        "path": "en/reflection-al-hashr-what-have-we-sent-ahead.html",
+        "url": "https://tamayuz10x.com/en/reflection-al-hashr-what-have-we-sent-ahead.html"
+      },
+      "indexes": [
+        "articles.html",
+        "en/articles.html",
+        "quranic-reflections.html",
+        "en/quranic-reflections.html"
       ],
-      "translation": "Sahih International",
-      "verified_at": "2026-10-26T22:02:09+04:00"
+      "records": [
+        "data/quranic-reflection-topics.json",
+        "data/article-publication-dates.json",
+        "data/article-covers.json",
+        "sitemap.xml"
+      ],
+      "social_sources": [
+        "assets/previews/story/reflection-al-hashr-what-have-we-sent-ahead-ar.svg",
+        "assets/previews/story/reflection-al-hashr-what-have-we-sent-ahead-en.svg"
+      ],
+      "checks": {
+        "title_and_h1": true,
+        "canonical_and_reciprocal_hreflang": true,
+        "article_and_breadcrumb_schema": true,
+        "rtl_ltr": true,
+        "language_isolation": true,
+        "topic_registry_single": true,
+        "index_card_single_each": true,
+        "publication_dates_match": true,
+        "sitemap_single_each": true
+      },
+      "duplicate_check": "passed immediately before atomic publication",
+      "automation_commits": [
+        "dd43c626d853866740029789e5be769ff85e35fc",
+        "69b460d7fceb10e9a3cd9a010176bacc584e8f4a"
+      ],
+      "generated_social_assets": [
+        "assets/previews/story/reflection-al-hashr-what-have-we-sent-ahead-ar.jpg",
+        "assets/previews/story/reflection-al-hashr-what-have-we-sent-ahead-en.jpg"
+      ]
+    },
+    "actions_and_pages": {
+      "status": "completed",
+      "completed_at": "2026-11-18T22:03:42+04:00",
+      "exact_head_sha": "ebe4fa98d5ccc43b28db1d2e1b50f508f92d3e11",
+      "remediation_commit": "ebe4fa98d5ccc43b28db1d2e1b50f508f92d3e11",
+      "report_path": "automation/quran-reflections/reflection-al-hashr-what-have-we-sent-ahead/actions-and-pages-report.md",
+      "github_actions": {
+        "article_date_integrity": {
+          "run_id": 44364721964,
+          "run_number": 704,
+          "conclusion": "success",
+          "head_sha": "ebe4fa98d5ccc43b28db1d2e1b50f508f92d3e11"
+        },
+        "site_health": {
+          "run_id": 44364722059,
+          "run_number": 1058,
+          "conclusion": "success",
+          "head_sha": "ebe4fa98d5ccc43b28db1d2e1b50f508f92d3e11"
+        },
+        "sitemap": {
+          "run_id": 44364722010,
+          "run_number": 924,
+          "conclusion": "success",
+          "head_sha": "ebe4fa98d5ccc43b28db1d2e1b50f508f92d3e11"
+        },
+        "pages": {
+          "run_id": 44364721124,
+          "run_number": 3189,
+          "conclusion": "success",
+          "head_sha": "ebe4fa98d5ccc43b28db1d2e1b50f508f92d3e11"
+        },
+        "social_share_cards": {
+          "run_id": 44364722163,
+          "run_number": 565,
+          "conclusion": "success",
+          "head_sha": "ebe4fa98d5ccc43b28db1d2e1b50f508f92d3e11"
+        },
+        "arabic_editorial": {
+          "run_id": 44364722211,
+          "run_number": 1332,
+          "conclusion": "success",
+          "head_sha": "ebe4fa98d5ccc43b28db1d2e1b50f508f92d3e11",
+          "artifact_id": 14456588340
+        }
+      },
+      "exact_mobile_review": {
+        "result": "8_of_8_passed",
+        "viewports": [
+          320,
+          375,
+          390,
+          430
+        ],
+        "languages": [
+          "ar",
+          "en"
+        ],
+        "checks": [
+          "page_width",
+          "h1_visible",
+          "lang",
+          "direction",
+          "assets_ok",
+          "tables_scrollable",
+          "listen_control"
+        ],
+        "artifact_id": 14456588340,
+        "artifact_name": "arabic-article-mobile-review",
+        "result_path": "mobile-artifacts/reflection-al-hashr-what-have-we-sent-ahead-bilingual-results.json"
+      },
+      "generated_social_assets": [
+        "assets/previews/story/reflection-al-hashr-what-have-we-sent-ahead-ar.jpg",
+        "assets/previews/story/reflection-al-hashr-what-have-we-sent-ahead-en.jpg"
+      ]
+    },
+    "repository_publication": {
+      "status": "live_verified_except_actual_tts_playback",
+      "quality_score": 98,
+      "publication_date": "2026-11-18",
+      "publication_commit": "628b9f30b250632eb61b9bec291f5a2e93d9a5c8",
+      "remediation_commit": "ebe4fa98d5ccc43b28db1d2e1b50f508f92d3e11",
+      "arabic_url": "https://tamayuz10x.com/reflection-al-hashr-what-have-we-sent-ahead.html",
+      "english_url": "https://tamayuz10x.com/en/reflection-al-hashr-what-have-we-sent-ahead.html",
+      "arabic_page_path": "reflection-al-hashr-what-have-we-sent-ahead.html",
+      "english_page_path": "en/reflection-al-hashr-what-have-we-sent-ahead.html",
+      "arabic_social_asset": "assets/previews/story/reflection-al-hashr-what-have-we-sent-ahead-ar.jpg",
+      "english_social_asset": "assets/previews/story/reflection-al-hashr-what-have-we-sent-ahead-en.jpg",
+      "publication_report_path": "automation/quran-reflections/reflection-al-hashr-what-have-we-sent-ahead/repository-publish-report.md",
+      "repository_validation": "passed",
+      "mobile_gate": "passed_real_chromium_8_of_8_at_320_375_390_430_ar_en",
+      "rtl_gate": "passed_real_chromium",
+      "tts_gate": "blocked_actual_playback_web_speech_unavailable_in_verification_browser",
+      "actions_gate": "passed_all_six_exact_content_head",
+      "pages_gate": "passed_exact_content_head_ebe4fa98d5ccc43b28db1d2e1b50f508f92d3e11",
+      "live_gate": "passed_except_actual_tts_playback"
+    },
+    "live_verification": {
+      "status": "blocked_on_actual_tts_playback",
+      "checked_at": "2026-11-18T22:04:32+04:00",
+      "deployed_content_head": "ebe4fa98d5ccc43b28db1d2e1b50f508f92d3e11",
+      "report_path": "automation/quran-reflections/reflection-al-hashr-what-have-we-sent-ahead/live-verification-report.md",
+      "pages": {
+        "ar": {
+          "url": "https://tamayuz10x.com/reflection-al-hashr-what-have-we-sent-ahead.html",
+          "loaded": true,
+          "title": "ماذا أرسلنا أمامنا قبل أن يصل الغد؟ | التميّز 10X",
+          "lang": "ar",
+          "dir": "rtl",
+          "listen_control": true,
+          "article_content": true,
+          "cover_loaded": true,
+          "stale_draft_notice_absent": true
+        },
+        "en": {
+          "url": "https://tamayuz10x.com/en/reflection-al-hashr-what-have-we-sent-ahead.html",
+          "loaded": true,
+          "title": "What Have We Sent Ahead Before Tomorrow Arrives? | Tamayuz 10X",
+          "lang": "en",
+          "dir": "ltr",
+          "listen_control": true,
+          "article_content": true,
+          "cover_loaded": true,
+          "al_hashr_lead_correct": true,
+          "stale_al_ahzab_lead_absent": true
+        }
+      },
+      "indexes": {
+        "articles.html": {
+          "title_present": true,
+          "slug_present": true
+        },
+        "en/articles.html": {
+          "title_present": true,
+          "slug_present": true
+        },
+        "quranic-reflections.html": {
+          "title_present": true,
+          "slug_links": 2
+        },
+        "en/quranic-reflections.html": {
+          "title_present": true,
+          "slug_links": 2
+        }
+      },
+      "sitemap": {
+        "arabic_loc_present": true,
+        "english_loc_present": true,
+        "slug_occurrences": 2
+      },
+      "mobile": {
+        "result": "8_of_8_passed",
+        "viewports": [
+          320,
+          375,
+          390,
+          430
+        ],
+        "languages": [
+          "ar",
+          "en"
+        ],
+        "artifact_id": 14456588340
+      },
+      "tts": {
+        "controls_present": true,
+        "speech_synthesis_available_in_verification_browser": false,
+        "actual_playback_verified": false,
+        "blocker": "The available cloud Chrome does not expose window.speechSynthesis, so audible Arabic/English playback and runtime highlighting, pause/resume, stop, and speed behavior cannot be verified.",
+        "decision_required": "Provide a Web Speech-capable browser/device with audible Arabic and English voices for actual playback verification, or explicitly approve completion without the actual-playback gate."
+      }
+    }
+  },
+  "blocked_article_history": [
+    {
+      "article_id": "quran-reflection-2026-10-28-al-mutaffifin-fair-measure",
+      "publication_date": "2026-10-28",
+      "slug": "reflection-al-mutaffifin-demanding-full-measure-giving-less",
+      "topic_ar": "المطففين 83:1–6 — أن نطلب حقنا كاملًا ثم ننقص حقوق الآخرين",
+      "topic_en": "Al-Mutaffifin 83:1–6 — demanding our due in full while diminishing what others receive",
+      "working_title_ar": "لماذا نطلب حقنا كاملًا ثم ننقص حقوق الآخرين؟",
+      "working_title_en": "Why Do We Demand Our Due in Full While Giving Others Less?",
+      "status": "in_progress",
+      "topic_selection": {
+        "status": "completed",
+        "candidates": [
+          "Al-Mutaffifin 83:1–6 — demanding a full measure while giving less",
+          "Al-Ma’idah 5:2 — the boundary of cooperation",
+          "An-Nahl 16:90 — justice, excellence and giving beyond minimum duty"
+        ],
+        "selected": "Al-Mutaffifin 83:1–6 — demanding a full measure while giving less",
+        "central_question": "What becomes visible in our standards when the shortfall benefits us rather than harms us?"
+      },
+      "duplicate_check": {
+        "status": "passed_repository_and_registry; live_urls_unreachable_via_current_search_connector",
+        "checked_at": "2026-10-28T17:58:00+04:00",
+        "repository_date_matches": 0,
+        "repository_slug_matches": 0,
+        "registry_topic_matches": 0,
+        "expected_url_ar": "https://tamayuz10x.com/reflection-al-mutaffifin-demanding-full-measure-giving-less.html",
+        "expected_url_en": "https://tamayuz10x.com/en/reflection-al-mutaffifin-demanding-full-measure-giving-less.html"
+      },
+      "research_notes_path": "automation/quran-reflections/reflection-al-mutaffifin-demanding-full-measure-giving-less/research-notes.md",
+      "research_status": "completed",
+      "research_sources": [
+        {
+          "type": "Qur'an text and Sahih International translation",
+          "url": "https://legacy.quran.com/83/1-7",
+          "status": "reviewed"
+        },
+        {
+          "type": "Tafsir al-Tabari 83:1 and 83:4",
+          "url": "https://quran.ksu.edu.sa/tafseer/tabary/sura83-aya1.html",
+          "status": "reviewed"
+        },
+        {
+          "type": "Tafsir Ibn Kathir 83:1 and 83:4",
+          "url": "https://quran.ksu.edu.sa/tafseer/katheer/sura83-aya1.html",
+          "status": "reviewed"
+        },
+        {
+          "type": "Tafsir al-Qurtubi 83:1 and 83:4",
+          "url": "https://quran.ksu.edu.sa/tafseer/qortobi/sura83-aya1.html",
+          "status": "reviewed"
+        },
+        {
+          "type": "Tafsir al-Sa'di 83:1 and 83:4",
+          "url": "https://quran.ksu.edu.sa/tafseer/saadi/sura83-aya1.html",
+          "status": "reviewed"
+        }
+      ],
+      "research_commit": "9e8a4cf48859b3273b40acb72885d5504505bac1",
+      "quranic_focus": {
+        "surah": "Al-Mutaffifin",
+        "surah_ar": "المطففين",
+        "ayahs": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "status": "verified"
+      },
+      "verified_quranic_references": [
+        {
+          "surah": "Al-Mutaffifin",
+          "surah_ar": "المطففين",
+          "ayahs": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "status": "verified",
+          "primary_text_urls": [
+            "https://legacy.quran.com/83/1-7"
+          ],
+          "translation": "Sahih International",
+          "verified_at": "2026-10-28T18:22:00+04:00"
+        }
+      ],
+      "quran_verification": {
+        "status": "passed",
+        "blocking_errors": [],
+        "path": "automation/quran-reflections/reflection-al-mutaffifin-demanding-full-measure-giving-less/research-notes.md",
+        "commit": "df439c8e42b6890b41c147f52ac36853d6ad8adf"
+      },
+      "arabic_draft": {
+        "status": "parity_cleared",
+        "path": "automation/quran-reflections/reflection-al-mutaffifin-demanding-full-measure-giving-less/draft-ar.md",
+        "word_count": 1382,
+        "commit": "790d201538282a0e0d1f8f5c42a093f471cf3dcd",
+        "completed_at": "2026-10-28T19:01:50+04:00",
+        "mobile_gate": "NOT VERIFIED until final HTML",
+        "tts_gate": "NOT VERIFIED until final HTML",
+        "revision_count": 5
+      },
+      "independent_critique": {
+        "status": "passed_after_required_revisions",
+        "path": "automation/quran-reflections/reflection-al-mutaffifin-demanding-full-measure-giving-less/quality-review.md",
+        "commit": "350bd54fbe3268b1859902f8015fbae359f9ac0c",
+        "blocking_errors": [],
+        "revisions_applied": 4,
+        "completed_at": "2026-10-28T20:02:36+04:00",
+        "mobile_gate": "NOT VERIFIED until final HTML",
+        "tts_gate": "NOT VERIFIED until final HTML"
+      },
+      "english_draft": {
+        "status": "parity_cleared",
+        "path": "automation/quran-reflections/reflection-al-mutaffifin-demanding-full-measure-giving-less/draft-en.md",
+        "word_count": 1856,
+        "quran_translation": "Sahih International",
+        "commit": "bc766173ee0b3e70dff6f05812a3a4609fd88218",
+        "completed_at": "2026-10-28T20:03:42+04:00",
+        "mobile_gate": "NOT VERIFIED until final HTML",
+        "tts_gate": "NOT VERIFIED until final HTML"
+      },
+      "bilingual_parity": {
+        "status": "passed_after_aligned_tafsir_citation_revision",
+        "review_path": "automation/quran-reflections/reflection-al-mutaffifin-demanding-full-measure-giving-less/quality-review.md",
+        "commit": "0c9bc8bb6efac1a687a39db9652eb0e683569d07",
+        "revision_count": 1,
+        "same_source_urls": 5,
+        "completed_at": "2026-10-28T20:58:39+04:00",
+        "mobile_gate": "NOT VERIFIED until final HTML",
+        "tts_gate": "NOT VERIFIED until final HTML"
+      },
+      "quality_gate": {
+        "status": "passed",
+        "score": 97,
+        "threshold": 90,
+        "blocking_errors": [],
+        "review_path": "automation/quran-reflections/reflection-al-mutaffifin-demanding-full-measure-giving-less/quality-review.md",
+        "commit": "c33cfacbfbbb205eae795dd2cc20d6167e710285",
+        "completed_at": "2026-10-28T20:59:30+04:00",
+        "mobile_gate": "NOT VERIFIED until final HTML",
+        "rtl_gate": "NOT VERIFIED until final HTML",
+        "tts_gate": "NOT VERIFIED until final HTML"
+      },
+      "publishing": {
+        "status": "actions_passed_live_tts_pending",
+        "arabic_path": "reflection-al-mutaffifin-demanding-full-measure-giving-less.html",
+        "english_path": "en/reflection-al-mutaffifin-demanding-full-measure-giving-less.html",
+        "arabic_page_commit": "2d7481db8f60aa3f48648182251ade101783f3a1",
+        "english_page_commit": "9edf479a74eb441fb79c395d8977dbd4bf4ea152",
+        "indexes": [
+          "quranic-reflections.html",
+          "en/quranic-reflections.html",
+          "articles.html",
+          "en/articles.html"
+        ],
+        "topic_registry": "data/quranic-reflection-topics.json",
+        "sitemap": "sitemap.xml",
+        "checks": "passed",
+        "live": "pages_and_indexes_verified; actual TTS playback NOT VERIFIED"
+      },
+      "repository_publish": {
+        "status": "completed",
+        "completed_at": "2026-10-28T21:53:53+04:00",
+        "checkpoint_commit": "98c84d0963a7e3e89ba30e39a9fd7594dc213db9",
+        "arabic_page": {
+          "path": "reflection-al-mutaffifin-demanding-full-measure-giving-less.html",
+          "commit": "2d7481db8f60aa3f48648182251ade101783f3a1"
+        },
+        "english_page": {
+          "path": "en/reflection-al-mutaffifin-demanding-full-measure-giving-less.html",
+          "commit": "9edf479a74eb441fb79c395d8977dbd4bf4ea152"
+        },
+        "indexes": [
+          "quranic-reflections.html",
+          "en/quranic-reflections.html",
+          "articles.html",
+          "en/articles.html"
+        ],
+        "records": [
+          "data/quranic-reflection-topics.json",
+          "data/article-covers.json",
+          "data/article-publication-dates.json",
+          "sitemap.xml"
+        ],
+        "checks_status": "pending_actions_and_live_verification",
+        "reconciliation_note": "Canonical publication paths copied into repository_publish so exact bilingual mobile QA can resolve the current article without replaying publication."
+      },
+      "actions_and_pages": {
+        "status": "completed",
+        "checked_at": "2026-10-28T22:15:00+04:00",
+        "report_path": "automation/quran-reflections/reflection-al-mutaffifin-demanding-full-measure-giving-less/actions-and-pages-report.md",
+        "repair_commits": {
+          "state_schema": "cb84bd9084e184d03442a689f1fb47b6daaa2f5a",
+          "publication_records": "526829b653e1d34c0bc8132fb1a071a7939be3a2",
+          "visible_dates": "c269bd07632da6a87614f77fe4b48046304e45da",
+          "generated_social_assets": "05eacfad2433c7bfee08f3a023016e7227f56110",
+          "mobile_wrap": "5d3f32f22a0ec0eeac12091ac040b967eb4f7966"
+        },
+        "required_checks": {
+          "site_health": {
+            "run_id": 40742136729,
+            "conclusion": "success",
+            "head_sha": "5d3f32f22a0ec0eeac12091ac040b967eb4f7966",
+            "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40742136729"
+          },
+          "article_date_integrity": {
+            "run_id": 40742136785,
+            "conclusion": "success",
+            "head_sha": "5d3f32f22a0ec0eeac12091ac040b967eb4f7966",
+            "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40742136785"
+          },
+          "sitemap": {
+            "run_id": 40742136798,
+            "conclusion": "success",
+            "head_sha": "5d3f32f22a0ec0eeac12091ac040b967eb4f7966",
+            "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40742136798"
+          },
+          "social_cards": {
+            "run_id": 40742136707,
+            "conclusion": "success",
+            "head_sha": "5d3f32f22a0ec0eeac12091ac040b967eb4f7966",
+            "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40742136707"
+          },
+          "arabic_editorial": {
+            "run_id": 40742136885,
+            "conclusion": "success",
+            "head_sha": "5d3f32f22a0ec0eeac12091ac040b967eb4f7966",
+            "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40742136885"
+          },
+          "pages": {
+            "run_id": 40742455891,
+            "conclusion": "success",
+            "head_sha": "cee988ae918521442dbc5fe5e2e566c7d9841370",
+            "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/40742455891"
+          }
+        },
+        "exact_mobile_test": {
+          "conclusion": "success",
+          "artifact_id": 12838898678,
+          "viewports": [
+            320,
+            375,
+            390,
+            430
+          ],
+          "languages": [
+            "ar",
+            "en"
+          ],
+          "cases_passed": 8
+        },
+        "completed_at": "2026-10-28T22:15:00+04:00"
+      },
+      "live_verification": {
+        "status": "blocked_on_actual_tts_playback",
+        "checked_at": "2026-10-28T22:15:00+04:00",
+        "pages": {
+          "ar": {
+            "url": "https://tamayuz10x.com/reflection-al-mutaffifin-demanding-full-measure-giving-less.html",
+            "loaded": true,
+            "lang": "ar",
+            "dir": "rtl",
+            "canonical": true,
+            "hreflang": true,
+            "listen_control": true,
+            "social_image": true,
+            "mobile_workflow_passed": true
+          },
+          "en": {
+            "url": "https://tamayuz10x.com/en/reflection-al-mutaffifin-demanding-full-measure-giving-less.html",
+            "loaded": true,
+            "lang": "en",
+            "dir": "ltr",
+            "canonical": true,
+            "hreflang": true,
+            "listen_control": true,
+            "social_image_1200": true,
+            "mobile_workflow_passed": true
+          }
+        },
+        "indexes": {
+          "articles.html": {
+            "unique_cards": 1
+          },
+          "quranic-reflections.html": {
+            "unique_cards": 1
+          },
+          "en/articles.html": {
+            "unique_cards": 1
+          },
+          "en/quranic-reflections.html": {
+            "unique_cards": 1
+          }
+        },
+        "sitemap": {
+          "ar_loc_count": 1,
+          "en_loc_count": 1
+        },
+        "tts": {
+          "controls_present": true,
+          "actual_playback_verified": false,
+          "blocker": "Available cloud browser reports window.speechSynthesis unavailable; clicking Arabic Listen did not start playback."
+        }
+      }
+    },
+    {
+      "article_id": "quran-reflection-2026-11-11-al-maidah-cooperation-boundary",
+      "publication_date": "2026-11-11",
+      "status": "actions_pages_and_live_structure_verified_tts_playback_blocked",
+      "duplicate_check": {
+        "status": "passed_no_today_quran_cycle_found",
+        "checked_at": "2026-11-11T17:11:28+04:00",
+        "evidence": [
+          "automation/quran-reflections-state.json",
+          "data/quranic-reflection-topics.json",
+          "data/article-publication-dates.json",
+          "quranic-reflections.html",
+          "en/quranic-reflections.html",
+          "articles.html",
+          "en/articles.html",
+          "sitemap.xml",
+          "recent GitHub commits",
+          "live quranic-reflections indexes"
+        ]
+      },
+      "slug": "reflection-al-maidah-when-help-becomes-complicity",
+      "topic_ar": "المائدة 5:2 — الحد الفاصل بين التعاون في البر والمشاركة في الإثم",
+      "topic_en": "Al-Ma’idah 5:2 — the boundary between cooperation in good and participation in wrongdoing",
+      "working_title_ar": "متى تتحول المساعدة إلى مشاركة في الخطأ؟",
+      "working_title_en": "When Does Helping Become Participation in Wrongdoing?",
+      "topic_selection": {
+        "status": "completed",
+        "candidates": [
+          "Al-Ma’idah 5:2 — the boundary of cooperation",
+          "Al-Ahzab 33:70–71 — words that remain upright",
+          "Al-Hadid 57:22–23 — how we receive loss and gain"
+        ],
+        "selected": "Al-Ma’idah 5:2 — the boundary of cooperation",
+        "central_question": "How do we recognize the point at which helping a person or advancing a useful goal begins to support a wrongful means?",
+        "completed_at": "2026-11-11T17:18:00+04:00",
+        "artifact_commit": "1c5cc84dec46bacd48ccbc71d68183d5bc049aaa"
+      },
+      "research_notes_path": "automation/quran-reflections/reflection-al-maidah-when-help-becomes-complicity/research-notes.md",
+      "research_status": "completed",
+      "research_sources": [
+        {
+          "type": "Qur'an text and Sahih International translation",
+          "url": "https://legacy.quran.com/05/02",
+          "status": "reviewed"
+        },
+        {
+          "type": "Immediate Qur'anic context, Al-Ma'idah 5:1–3",
+          "url": "https://legacy.quran.com/05/1-3",
+          "status": "reviewed"
+        },
+        {
+          "type": "Tafsir al-Tabari 5:2",
+          "url": "https://quran.ksu.edu.sa/tafseer/tabary/sura5-aya2.html",
+          "status": "reviewed"
+        },
+        {
+          "type": "Tafsir Ibn Kathir 5:2",
+          "url": "https://quran.ksu.edu.sa/tafseer/katheer/sura5-aya2.html",
+          "status": "reviewed"
+        },
+        {
+          "type": "Tafsir al-Qurtubi 5:2",
+          "url": "https://quran.ksu.edu.sa/tafseer/qortobi/sura5-aya2.html",
+          "status": "reviewed"
+        },
+        {
+          "type": "Tafsir al-Sa'di 5:2",
+          "url": "https://quran.ksu.edu.sa/tafseer/saadi/sura5-aya2.html",
+          "status": "reviewed"
+        }
+      ],
+      "research_commit": "1e8e3ebbaa4d2ce5ebf0636389756ecad29443f1",
+      "quranic_focus": {
+        "surah": "Al-Ma’idah",
+        "surah_ar": "المائدة",
+        "ayahs": [
+          2
+        ],
+        "context_ayahs": [
+          1,
+          3
+        ],
+        "status": "verified"
+      },
+      "verified_quranic_references": [
+        {
+          "surah": "Al-Ma’idah",
+          "surah_ar": "المائدة",
+          "ayahs": [
+            2
+          ],
+          "context_ayahs": [
+            1,
+            3
+          ],
+          "status": "verified",
+          "primary_text_urls": [
+            "https://legacy.quran.com/05/02",
+            "https://quran.com/al-maidah/translations/en-sahih-international"
+          ],
+          "translation": "Sahih International",
+          "verified_at": "2026-11-11T17:36:00+04:00"
+        }
+      ],
+      "quran_verification": {
+        "status": "passed",
+        "blocking_errors": [],
+        "path": "automation/quran-reflections/reflection-al-maidah-when-help-becomes-complicity/research-notes.md",
+        "commit": "5a7f140a5ec6fe2a4d31191abdae3bb4972661a7",
+        "completed_at": "2026-11-11T17:36:00+04:00"
+      },
+      "arabic_draft": {
+        "status": "critique_cleared",
+        "path": "automation/quran-reflections/reflection-al-maidah-when-help-becomes-complicity/draft-ar.md",
+        "word_count": 1343,
+        "commit": "1243d918bcb6614076c2b2c776400694cbb439a3",
+        "completed_at": "2026-11-11T18:13:00+04:00",
+        "mobile_gate": "NOT VERIFIED until final HTML",
+        "tts_gate": "NOT VERIFIED until final HTML",
+        "self_check": {
+          "title_clear": true,
+          "opening_scenario_labeled_hypothetical": true,
+          "tafsir_reflection_application_separated": true,
+          "meta_editorial_phrases_found": 0,
+          "direct_source_urls": 5
+        },
+        "revision_count": 2,
+        "workflow_status_commit": "86dbb70ad9dc3ad01dc4bcd6f248ff59203a40d8",
+        "workflow_note_removed_commit": "58bf9c19709424bf08de930a5edb5bd530478cfe",
+        "latest_blob_sha": "9edabcb40c64d84aa524e66e8aa82598476b6e45"
+      },
+      "independent_critique": {
+        "status": "passed_after_required_revisions",
+        "path": "automation/quran-reflections/reflection-al-maidah-when-help-becomes-complicity/quality-review.md",
+        "commit": "7febc65ff6a1256176626c948c0bd95c76d93ca1",
+        "blocking_errors": [],
+        "revisions_applied": 2,
+        "completed_at": "2026-11-11T18:22:00+04:00",
+        "mobile_gate": "NOT VERIFIED until final HTML",
+        "tts_gate": "NOT VERIFIED until final HTML"
+      },
+      "english_draft": {
+        "status": "draft_completed_pending_parity",
+        "path": "automation/quran-reflections/reflection-al-maidah-when-help-becomes-complicity/draft-en.md",
+        "word_count": 1523,
+        "quran_translation": "Sahih International",
+        "commit": "4d47d1d6f8ccfcb7bc35934494f7c27cea052a1e",
+        "completed_at": "2026-11-11T14:23:48.465Z"
+      },
+      "bilingual_parity": {
+        "status": "passed_after_non_substantive_status_correction",
+        "review_path": "automation/quran-reflections/reflection-al-maidah-when-help-becomes-complicity/quality-review.md",
+        "review_commit": "d0100806f844f011321bf7b3c8022af347be78e8",
+        "arabic_path": "automation/quran-reflections/reflection-al-maidah-when-help-becomes-complicity/draft-ar.md",
+        "arabic_blob_sha": "ceadb12551e6a565a9d355a53384d626a2bc49e9",
+        "english_path": "automation/quran-reflections/reflection-al-maidah-when-help-becomes-complicity/draft-en.md",
+        "english_blob_sha": "14158914446d548c0138f4d898e6424630889d0a",
+        "substantive_revisions": 0,
+        "workflow_status_corrections": 1,
+        "quranic_citation": "passed",
+        "tafsir_attribution": "passed",
+        "methodological_qualifications": "passed",
+        "source_urls": "passed",
+        "native_english": "passed",
+        "completed_at": "2026-11-11T15:11:10.517Z",
+        "mobile_gate": "NOT VERIFIED until final HTML",
+        "tts_gate": "NOT VERIFIED until final HTML"
+      },
+      "quality_gate": {
+        "status": "passed",
+        "score": 98,
+        "threshold": 90,
+        "blocking_errors": [],
+        "review_path": "automation/quran-reflections/reflection-al-maidah-when-help-becomes-complicity/quality-review.md",
+        "review_commit": "5cd4336e0272adccbc4f395ceb326f3e07de4be2",
+        "arabic_blob_sha": "9edabcb40c64d84aa524e66e8aa82598476b6e45",
+        "english_blob_sha": "14158914446d548c0138f4d898e6424630889d0a",
+        "mobile_gate": "NOT VERIFIED until final HTML",
+        "rtl_gate": "NOT VERIFIED until final HTML",
+        "tts_gate": "NOT VERIFIED until final HTML",
+        "completed_at": "2026-11-11T16:03:39.879Z"
+      },
+      "arabic_html_path": "reflection-al-maidah-when-help-becomes-complicity.html",
+      "english_html_path": "en/reflection-al-maidah-when-help-becomes-complicity.html",
+      "publication_report_path": "automation/quran-reflections/reflection-al-maidah-when-help-becomes-complicity/publication-report.md",
+      "repository_publication": {
+        "status": "live_verified_except_actual_tts_playback",
+        "quality_score": 98,
+        "publication_date": "2026-11-11",
+        "arabic_url": "https://tamayuz10x.com/reflection-al-maidah-when-help-becomes-complicity.html",
+        "english_url": "https://tamayuz10x.com/en/reflection-al-maidah-when-help-becomes-complicity.html",
+        "arabic_page_path": "reflection-al-maidah-when-help-becomes-complicity.html",
+        "english_page_path": "en/reflection-al-maidah-when-help-becomes-complicity.html",
+        "arabic_social_asset": "assets/previews/story/reflection-al-maidah-when-help-becomes-complicity-ar.svg",
+        "english_social_asset": "assets/previews/story/reflection-al-maidah-when-help-becomes-complicity-en.svg",
+        "publication_report_path": "automation/quran-reflections/reflection-al-maidah-when-help-becomes-complicity/publication-report.md",
+        "publication_report_commit": "e6d98b6899041031489f4c6a22a61d8571c397c8",
+        "content_commits": {
+          "arabic_cover": "831a260d7fccacefbbd63d4043bfd78ff20061e5",
+          "english_cover": "7af064469f9cb23e1bdf5a933a1096502c3c1643",
+          "arabic_page": "289b9bd997347ac4db54dd1d82cb0126c7c4979c",
+          "english_page": "f304a0b60ba30468b49aad12e1d32aeee5d48b75",
+          "arabic_hub": "ebfd1a637f43fff3817ef55f9f3790e54f91c0cb",
+          "english_hub": "508e75b4af5a2056fffee1c46971be4b9d7de036",
+          "arabic_articles_index": "f8cb5f2327376508972599e950d5dd8f5c2b689e",
+          "english_articles_index": "1efef4df26cbd53ee888a29e79fb0c83f229ee09",
+          "topic_registry": "f69d447da099dd341cf6b3f776f54d705f20ec51",
+          "date_registry": "9cfcf1fb8fa9e963e7c08a16cff1d57294e88ad4",
+          "sitemap_bot": "c0bfcc0bdb487669a3000f6cd388f554f9da5a5b"
+        },
+        "repository_validation": "passed",
+        "mobile_gate": "passed_real_chromium_8_of_8_at_320_375_390_430_ar_en",
+        "rtl_gate": "passed_real_chromium",
+        "tts_gate": "blocked_actual_playback_web_speech_unavailable_in_verification_browser",
+        "actions_gate": "passed",
+        "pages_gate": "passed_exact_head_c12e32923ccf30f040d1e4a6fd713f3b5a83ac15",
+        "live_gate": "passed_except_actual_tts_playback",
+        "completed_at": "2026-11-11T17:13:46.746Z"
+      },
+      "repository_publish": {
+        "status": "committed",
+        "arabic_page": {
+          "path": "reflection-al-maidah-when-help-becomes-complicity.html",
+          "url": "https://tamayuz10x.com/reflection-al-maidah-when-help-becomes-complicity.html"
+        },
+        "english_page": {
+          "path": "en/reflection-al-maidah-when-help-becomes-complicity.html",
+          "url": "https://tamayuz10x.com/en/reflection-al-maidah-when-help-becomes-complicity.html"
+        },
+        "compatibility_note": "Canonical CI input for scripts/check_quran_reflection_mobile.py; mirrors repository_publication paths."
+      },
+      "actions_and_pages": {
+        "status": "completed",
+        "completed_at": "2026-11-11T19:08:10.772Z",
+        "head_sha": "c12e32923ccf30f040d1e4a6fd713f3b5a83ac15",
+        "repair_commit": "c12e32923ccf30f040d1e4a6fd713f3b5a83ac15",
+        "arabic_editorial": {
+          "run_id": 43083480059,
+          "job_id": 130741758808,
+          "conclusion": "success",
+          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/43083480059"
+        },
+        "pages": {
+          "run_id": 43083478967,
+          "conclusion": "success",
+          "head_sha": "c12e32923ccf30f040d1e4a6fd713f3b5a83ac15",
+          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/43083478967"
+        },
+        "exact_mobile_test": {
+          "conclusion": "success",
+          "viewports": [
+            320,
+            375,
+            390,
+            430
+          ],
+          "languages": [
+            "ar",
+            "en"
+          ],
+          "cases_passed": 8,
+          "assertions": [
+            "no horizontal overflow",
+            "H1 visible",
+            "correct lang and dir",
+            "local assets load",
+            "tables scroll safely",
+            "listen control present"
+          ]
+        }
+      },
+      "live_verification": {
+        "status": "blocked_on_actual_tts_playback",
+        "checked_at": "2026-11-11T19:08:10.772Z",
+        "deployed_head": "c12e32923ccf30f040d1e4a6fd713f3b5a83ac15",
+        "pages": {
+          "ar": {
+            "url": "https://tamayuz10x.com/reflection-al-maidah-when-help-becomes-complicity.html",
+            "loaded": true,
+            "lang": "ar",
+            "dir": "rtl",
+            "canonical": true,
+            "hreflang": true,
+            "metadata": true,
+            "article_schema": true,
+            "breadcrumb_schema": true,
+            "author_image": true,
+            "share_box_count": 1,
+            "social_asset": true,
+            "mobile_workflow_passed": true
+          },
+          "en": {
+            "url": "https://tamayuz10x.com/en/reflection-al-maidah-when-help-becomes-complicity.html",
+            "loaded": true,
+            "lang": "en",
+            "dir": "ltr",
+            "canonical": true,
+            "hreflang": true,
+            "metadata": true,
+            "article_schema": true,
+            "breadcrumb_schema": true,
+            "author_image": true,
+            "share_box_count": 1,
+            "social_asset": true,
+            "mobile_workflow_passed": true
+          }
+        },
+        "indexes": {
+          "articles.html": {
+            "slug_links": 2
+          },
+          "quranic-reflections.html": {
+            "slug_links": 2
+          },
+          "en/articles.html": {
+            "slug_links": 2
+          },
+          "en/quranic-reflections.html": {
+            "slug_links": 2
+          }
+        },
+        "sitemap": {
+          "slug_occurrences": 2,
+          "ar_loc_count": 1,
+          "en_loc_count": 1
+        },
+        "social_assets": {
+          "ar": {
+            "loaded": true,
+            "title": "متى تتحول المساعدة إلى مشاركة في الخطأ؟"
+          },
+          "en": {
+            "loaded": true,
+            "title": "When Does Helping Become Participation in Wrongdoing?"
+          }
+        },
+        "tts": {
+          "structural_control_present_in_ci": true,
+          "speech_synthesis_available_in_verification_browser": false,
+          "actual_playback_verified": false,
+          "blocker": "The available cloud browser does not expose window.speechSynthesis; actual playback, title-first order, synchronized highlighting, floating controls, pause/resume/stop, and speed could not be verified."
+        }
+      }
+    },
+    {
+      "article_id": "quran-reflection-2026-11-12-al-ahzab-upright-speech",
+      "publication_date": "2026-11-12",
+      "status": "actions_pages_and_live_structure_verified_tts_playback_blocked",
+      "duplicate_check": {
+        "status": "passed_no_today_quran_cycle_found",
+        "checked_at": "2026-11-12T13:07:23Z",
+        "evidence": [
+          "automation/quran-reflections-state.json",
+          "data/quranic-reflection-topics.json",
+          "data/article-publication-dates.json",
+          "quranic-reflections.html",
+          "en/quranic-reflections.html",
+          "articles.html",
+          "en/articles.html",
+          "sitemap.xml",
+          "recent GitHub commits",
+          "live quranic-reflections and article indexes",
+          "public web search for 2026-11-12 Qur'anic reflection"
+        ],
+        "note": "No repository or live-index evidence of a Qur'anic reflection started or published for 2026-11-12. The previous 2026-11-11 cycle is explicitly blocked on actual TTS playback, so the daily exception permits one new cycle."
+      },
+      "slug": "reflection-al-ahzab-upright-speech",
+      "topic_ar": "الأحزاب 33:70–71 — القول السديد وصلته بإصلاح العمل",
+      "topic_en": "Al-Ahzab 33:70–71 — upright speech and the repair of action",
+      "working_title_ar": "كيف يكون القول سديداً حين يصعب الاعتراف بالخطأ؟",
+      "working_title_en": "What Makes Speech Upright When Admitting Error Is Hard?",
+      "research_notes_path": "automation/quran-reflections/reflection-al-ahzab-upright-speech/research-notes.md",
+      "topic_selection": {
+        "status": "completed",
+        "candidates": [
+          "Al-Ahzab 33:70–71 — upright speech and the repair of action",
+          "Al-Hadid 57:22–23 — how we receive loss and gain",
+          "Al-Hashr 59:18 — what the self has sent ahead for tomorrow"
+        ],
+        "selected": "Al-Ahzab 33:70–71 — upright speech and the repair of action",
+        "central_question": "What makes our speech upright when admitting error and correcting its effects is harder than defending our image?",
+        "artifact_path": "automation/quran-reflections/reflection-al-ahzab-upright-speech/research-notes.md",
+        "artifact_commit": "fecdea51bf942d8b21218e80747f07ba73be572b",
+        "artifact_blob_sha": "3d567fa9787a0fc4553d964eabbebcb7831ab1e6",
+        "completed_at": "2026-11-12T13:12:00Z"
+      },
+      "research_status": "completed",
+      "research_commit": "9c155630f125d1673555e5b3f987cbc08c9dfa96",
+      "research_blob_sha": "67fed2e1303eb0e7730c9dcb209524b4876700c6",
+      "research_sources": [
+        {
+          "type": "Qur'an text and context, Al-Ahzab 33:69–71",
+          "url": "https://quran.com/en/al-ahzab/69-71",
+          "status": "reviewed"
+        },
+        {
+          "type": "Sahih International, Al-Ahzab 33:70–71",
+          "url": "https://legacy.quran.com/33/70-71",
+          "status": "reviewed"
+        },
+        {
+          "type": "Tafsir al-Tabari 33:69–71",
+          "url": "https://quran.ksu.edu.sa/tafseer/tabary/sura33-aya70.html",
+          "status": "reviewed"
+        },
+        {
+          "type": "Tafsir Ibn Kathir 33:70–71",
+          "url": "https://quran.ksu.edu.sa/tafseer/katheer/sura33-aya70.html",
+          "status": "reviewed"
+        },
+        {
+          "type": "Tafsir al-Qurtubi 33:70–71",
+          "url": "https://quran.ksu.edu.sa/tafseer/qortobi/sura33-aya70.html",
+          "status": "reviewed"
+        },
+        {
+          "type": "Tafsir al-Sa'di 33:70–71",
+          "url": "https://quran.ksu.edu.sa/tafseer/saadi/sura33-aya70.html",
+          "status": "reviewed"
+        }
+      ],
+      "quranic_focus": {
+        "surah": "Al-Ahzab",
+        "surah_ar": "الأحزاب",
+        "ayahs": [
+          70,
+          71
+        ],
+        "context_ayahs": [
+          69
+        ],
+        "status": "verified"
+      },
+      "verified_quranic_references": [
+        {
+          "surah": "Al-Ahzab",
+          "surah_ar": "الأحزاب",
+          "ayahs": [
+            70,
+            71
+          ],
+          "context_ayahs": [
+            69
+          ],
+          "status": "verified",
+          "primary_text_urls": [
+            "https://quran.com/en/al-ahzab/69-71",
+            "https://legacy.quran.com/33/70-71"
+          ],
+          "translation": "Sahih International",
+          "verified_at": "2026-11-12T13:21:00Z"
+        }
+      ],
+      "quran_verification": {
+        "status": "passed",
+        "blocking_errors": [],
+        "path": "automation/quran-reflections/reflection-al-ahzab-upright-speech/research-notes.md",
+        "commit": "b7aa097906e11e4effc7de9ba2d8ae3b9a074ec0",
+        "blob_sha": "612c6079bdc2ed5378ebeecc3cf52574af7c703a",
+        "completed_at": "2026-11-12T13:21:00Z"
+      },
+      "arabic_draft": {
+        "status": "critique_cleared",
+        "path": "automation/quran-reflections/reflection-al-ahzab-upright-speech/draft-ar.md",
+        "word_count": 1388,
+        "commit": "d795265db94fe0561cf44b8925356bf8a3242669",
+        "blob_sha": "b2d158fb8372603e96d22a1f03b86e1d095cb8f0",
+        "completed_at": "2026-11-12T14:23:00Z",
+        "mobile_gate": "NOT VERIFIED until final HTML",
+        "tts_gate": "NOT VERIFIED until final HTML",
+        "self_check": {
+          "title_clear": true,
+          "opening_scenario_labeled_hypothetical": true,
+          "tafsir_reflection_application_separated": true,
+          "meta_editorial_phrases_found": 0,
+          "direct_source_urls": 11,
+          "quranic_text_matches_verified_research": true,
+          "editorial_disclaimer_present": true
+        },
+        "revision_count": 2
+      },
+      "independent_critique": {
+        "status": "passed_after_required_revisions",
+        "path": "automation/quran-reflections/reflection-al-ahzab-upright-speech/quality-review.md",
+        "commit": "683d184ac8680291dfb58f8a4e23d8d8669a17d8",
+        "blob_sha": "6e10962b81b28f34ed13acc5b78e59a9518b6062",
+        "blocking_errors": [],
+        "revisions_applied": 2,
+        "completed_at": "2026-11-12T14:31:00Z",
+        "mobile_gate": "NOT VERIFIED until final HTML",
+        "tts_gate": "NOT VERIFIED until final HTML"
+      },
+      "english_draft": {
+        "status": "parity_cleared",
+        "path": "automation/quran-reflections/reflection-al-ahzab-upright-speech/draft-en.md",
+        "word_count": 1751,
+        "quran_translation": "Sahih International",
+        "commit": "bed57e24df6bfdfcfb6d7279866843f8335939b5",
+        "blob_sha": "e3f0cfbd4dc8b60f3170c382383f4889912f8e6d",
+        "completed_at": "2026-11-12T15:02:13.123Z",
+        "self_check": {
+          "original_editorial_english": true,
+          "american_english": true,
+          "quran_quote_matches_verified_research": true,
+          "tafsir_attributions_preserved": true,
+          "hypothetical_example_labeled": true,
+          "methodological_qualifications_preserved": true,
+          "source_urls_preserved": true,
+          "mobile_gate": "NOT VERIFIED until final HTML",
+          "tts_gate": "NOT VERIFIED until final HTML"
+        }
+      },
+      "bilingual_parity": {
+        "status": "passed_after_reference_link_normalization",
+        "review_path": "automation/quran-reflections/reflection-al-ahzab-upright-speech/quality-review.md",
+        "review_commit": "15bc295723b5c02ed5215b1368dd3a013f6d52b1",
+        "review_blob_sha": "82b911c43d173d570457031be2dc66406f732b8e",
+        "arabic_path": "automation/quran-reflections/reflection-al-ahzab-upright-speech/draft-ar.md",
+        "arabic_blob_sha": "b2d158fb8372603e96d22a1f03b86e1d095cb8f0",
+        "english_path": "automation/quran-reflections/reflection-al-ahzab-upright-speech/draft-en.md",
+        "english_blob_sha": "e3f0cfbd4dc8b60f3170c382383f4889912f8e6d",
+        "substantive_revisions": 0,
+        "reference_link_normalizations": 1,
+        "quranic_citation": "passed",
+        "tafsir_attribution": "passed",
+        "methodological_qualifications": "passed",
+        "source_urls": "passed",
+        "native_english": "passed",
+        "completed_at": "2026-11-12T16:08:03.563Z",
+        "mobile_gate": "NOT VERIFIED until final HTML",
+        "tts_gate": "NOT VERIFIED until final HTML"
+      },
+      "quality_gate": {
+        "status": "passed",
+        "score": 99,
+        "threshold": 90,
+        "blocking_errors": [],
+        "review_path": "automation/quran-reflections/reflection-al-ahzab-upright-speech/quality-review.md",
+        "review_commit": "c20bf5f8fa6fb6616fd88eb67745798f14a671a8",
+        "review_blob_sha": "35037b14d0f19b8a4e1a405990311a796231ba49",
+        "arabic_blob_sha": "b2d158fb8372603e96d22a1f03b86e1d095cb8f0",
+        "english_blob_sha": "e3f0cfbd4dc8b60f3170c382383f4889912f8e6d",
+        "quran_text": "passed",
+        "tafsir_and_creed": "passed",
+        "methodological_separation": "passed",
+        "bilingual_parity": "passed",
+        "novice_comprehension": "passed_editorial_simulation",
+        "mobile_gate": "NOT VERIFIED until final HTML",
+        "rtl_gate": "NOT VERIFIED until final HTML",
+        "tts_gate": "NOT VERIFIED until final HTML",
+        "completed_at": "2026-11-12T16:09:15.567Z"
+      },
+      "arabic_html_path": "reflection-al-ahzab-upright-speech.html",
+      "english_html_path": "en/reflection-al-ahzab-upright-speech.html",
+      "publication_report_path": "automation/quran-reflections/reflection-al-ahzab-upright-speech/repository-publish-report.md",
+      "repository_publish": {
+        "status": "committed",
+        "completed_at": "2026-11-12T17:04:20.769Z",
+        "publication_commit": "08da90922b404045be54eebadfb9fb95a98c8284",
+        "report_path": "automation/quran-reflections/reflection-al-ahzab-upright-speech/repository-publish-report.md",
+        "arabic_page": {
+          "path": "reflection-al-ahzab-upright-speech.html",
+          "url": "https://tamayuz10x.com/reflection-al-ahzab-upright-speech.html"
+        },
+        "english_page": {
+          "path": "en/reflection-al-ahzab-upright-speech.html",
+          "url": "https://tamayuz10x.com/en/reflection-al-ahzab-upright-speech.html"
+        },
+        "indexes": [
+          "articles.html",
+          "en/articles.html",
+          "quranic-reflections.html",
+          "en/quranic-reflections.html"
+        ],
+        "records": [
+          "data/quranic-reflection-topics.json",
+          "data/article-publication-dates.json",
+          "data/article-covers.json",
+          "sitemap.xml"
+        ],
+        "social_sources": [
+          "assets/previews/story/reflection-al-ahzab-upright-speech-ar.svg",
+          "assets/previews/story/reflection-al-ahzab-upright-speech-en.svg"
+        ],
+        "checks": {
+          "title_and_h1": true,
+          "canonical_and_reciprocal_hreflang": true,
+          "article_and_breadcrumb_schema": true,
+          "rtl_ltr": true,
+          "language_isolation": true,
+          "tts_structure": true,
+          "topic_registry_single": true,
+          "index_card_single_each": true,
+          "publication_dates_match": true,
+          "sitemap_single_each": true
+        },
+        "duplicate_check": "passed before atomic publication",
+        "automation_descendant_head": "6b6d7f9b63af9483cbeec61eff0a66d5fab92cd0",
+        "automation_commits": [
+          "58ac632dfaaa96bafd15b00b1e1d76a30cfca1a3",
+          "6b6d7f9b63af9483cbeec61eff0a66d5fab92cd0"
+        ],
+        "generated_social_assets": [
+          "assets/previews/story/reflection-al-ahzab-upright-speech-ar.jpg",
+          "assets/previews/story/reflection-al-ahzab-upright-speech-en.jpg"
+        ],
+        "sitemap_reconciled_by_automation": true
+      },
+      "repository_publication": {
+        "status": "live_verified_except_actual_tts_playback",
+        "quality_score": 99,
+        "publication_date": "2026-11-12",
+        "publication_commit": "08da90922b404045be54eebadfb9fb95a98c8284",
+        "arabic_url": "https://tamayuz10x.com/reflection-al-ahzab-upright-speech.html",
+        "english_url": "https://tamayuz10x.com/en/reflection-al-ahzab-upright-speech.html",
+        "arabic_page_path": "reflection-al-ahzab-upright-speech.html",
+        "english_page_path": "en/reflection-al-ahzab-upright-speech.html",
+        "arabic_social_asset": "assets/previews/story/reflection-al-ahzab-upright-speech-ar.svg",
+        "english_social_asset": "assets/previews/story/reflection-al-ahzab-upright-speech-en.svg",
+        "publication_report_path": "automation/quran-reflections/reflection-al-ahzab-upright-speech/repository-publish-report.md",
+        "repository_validation": "passed",
+        "mobile_gate": "passed_real_chromium_8_of_8_at_320_375_390_430_ar_en",
+        "rtl_gate": "passed_real_chromium",
+        "tts_gate": "blocked_actual_playback_web_speech_unavailable_in_verification_browser",
+        "actions_gate": "passed_with_site_health_reconciled",
+        "pages_gate": "passed_exact_head_6da1be7a0286663dd86ebbc3e0c53b9536bd901e",
+        "live_gate": "passed_except_actual_tts_playback",
+        "automation_descendant_head": "6b6d7f9b63af9483cbeec61eff0a66d5fab92cd0"
+      },
+      "actions_and_pages": {
+        "status": "completed_with_reconciled_site_health",
+        "completed_at": "2026-11-12T18:06:02.404Z",
+        "exact_head_sha": "6da1be7a0286663dd86ebbc3e0c53b9536bd901e",
+        "report_path": "automation/quran-reflections/reflection-al-ahzab-upright-speech/actions-and-pages-report.md",
+        "github_actions": {
+          "sitemap_integrity": {
+            "run_id": 43265351312,
+            "conclusion": "success",
+            "head_sha": "08da90922b404045be54eebadfb9fb95a98c8284"
+          },
+          "article_date_integrity": {
+            "run_id": 43265351396,
+            "conclusion": "success",
+            "head_sha": "08da90922b404045be54eebadfb9fb95a98c8284"
+          },
+          "social_share_cards": {
+            "run_id": 43265351384,
+            "conclusion": "success",
+            "head_sha": "08da90922b404045be54eebadfb9fb95a98c8284"
+          },
+          "arabic_editorial": {
+            "run_id": 43275085679,
+            "conclusion": "success",
+            "head_sha": "6da1be7a0286663dd86ebbc3e0c53b9536bd901e",
+            "artifact_id": 13969239503
+          },
+          "pages": {
+            "run_id": 43275086905,
+            "conclusion": "success",
+            "head_sha": "6da1be7a0286663dd86ebbc3e0c53b9536bd901e"
+          },
+          "site_health": {
+            "run_id": 43265351930,
+            "conclusion": "failure_before_generated_assets",
+            "reconciliation": "The six missing JPG references that caused the run were generated in automation descendants 58ac632dfaaa96bafd15b00b1e1d76a30cfca1a3 and 6b6d7f9b63af9483cbeec61eff0a66d5fab92cd0. The exact-head bilingual mobile review subsequently reported assetsOk=true in all eight cases; no later green Site Health run was triggered."
+          }
+        },
+        "exact_mobile_review": {
+          "result": "8_of_8_passed",
+          "viewports": [
+            320,
+            375,
+            390,
+            430
+          ],
+          "languages": [
+            "ar",
+            "en"
+          ],
+          "checks": [
+            "page_width",
+            "h1_visible",
+            "lang",
+            "direction",
+            "assets_ok",
+            "tables_scrollable",
+            "listen_control"
+          ],
+          "artifact_id": 13969239503,
+          "artifact_name": "arabic-article-mobile-review",
+          "result_path": "editorial-qa/mobile-artifacts/reflection-al-ahzab-upright-speech-bilingual-results.json"
+        },
+        "generated_social_assets": [
+          "assets/previews/story/reflection-al-ahzab-upright-speech-ar.jpg",
+          "assets/previews/story/reflection-al-ahzab-upright-speech-en.jpg"
+        ]
+      },
+      "live_verification": {
+        "status": "blocked_on_actual_tts_playback",
+        "checked_at": "2026-11-12T18:07:38.245Z",
+        "deployed_head": "9bbdaa78ce2aa976f1151f96884f96c24b8945d3",
+        "report_path": "automation/quran-reflections/reflection-al-ahzab-upright-speech/live-verification-report.md",
+        "pages": {
+          "ar": {
+            "url": "https://tamayuz10x.com/reflection-al-ahzab-upright-speech.html",
+            "loaded": true,
+            "title": "كيف يكون القول سديدًا حين يصعب الاعتراف بالخطأ؟ | التميّز 10X",
+            "lang": "ar",
+            "dir": "rtl",
+            "listen_control": true,
+            "article_content": true,
+            "share_links": true
+          },
+          "en": {
+            "url": "https://tamayuz10x.com/en/reflection-al-ahzab-upright-speech.html",
+            "loaded": true,
+            "title": "What Makes Speech Upright When Admitting Error Is Hard? | Tamayuz 10X",
+            "lang": "en",
+            "dir": "ltr",
+            "listen_control": true,
+            "article_content": true,
+            "share_links": true
+          }
+        },
+        "indexes": {
+          "articles.html": {
+            "title_present": true,
+            "slug_links": 2
+          },
+          "en/articles.html": {
+            "title_present": true,
+            "slug_links": 2
+          },
+          "quranic-reflections.html": {
+            "title_present": true,
+            "slug_links": 2
+          },
+          "en/quranic-reflections.html": {
+            "title_present": true,
+            "slug_links": 2
+          }
+        },
+        "sitemap": {
+          "arabic_loc_present": true,
+          "english_loc_present": true
+        },
+        "social_assets": {
+          "repository_files": [
+            "assets/previews/story/reflection-al-ahzab-upright-speech-ar.jpg",
+            "assets/previews/story/reflection-al-ahzab-upright-speech-en.jpg"
+          ],
+          "exact_mobile_assets_ok": true,
+          "direct_binary_open_in_search_tool": "unsupported",
+          "note": "Generated files exist on main, deployed Pages succeeded, and the exact-head bilingual mobile review reported assetsOk=true in all eight cases."
+        },
+        "tts": {
+          "controls_present": true,
+          "speech_synthesis_available_in_verification_browser": false,
+          "actual_playback_verified": false,
+          "arabic_click_started_playback": false,
+          "english_click_started_playback": false,
+          "blocker": "The available cloud Chrome does not expose window.speechSynthesis. Clicking Listen left speaking=false and did not change the control state in either language.",
+          "decision_required": "Provide a Web Speech-capable browser/device for actual Arabic and English playback verification, or explicitly approve completion without the actual-playback gate."
+        }
+      }
+    },
+    {
+      "article_id": "quran-reflection-2026-11-18-al-hashr-what-have-we-sent-ahead",
+      "publication_date": "2026-11-18",
+      "status": "actions_pages_and_live_structure_verified_tts_playback_blocked",
+      "duplicate_check": {
+        "status": "passed_no_today_quran_cycle_found",
+        "checked_at": "2026-11-18T17:59:06+04:00",
+        "evidence": [
+          "automation/quran-reflections-state.json",
+          "data/quranic-reflection-topics.json",
+          "data/article-publication-dates.json",
+          "quranic-reflections.html",
+          "en/quranic-reflections.html",
+          "articles.html",
+          "en/articles.html",
+          "sitemap.xml",
+          "recent GitHub commits",
+          "live quranic-reflections and article indexes",
+          "public web search for 2026-11-18 Qur'anic reflection"
+        ],
+        "note": "No repository, registry, recent-commit, live-index, sitemap, or public-search evidence of a Qur'anic reflection started or published for 2026-11-18. The previous cycle is explicitly blocked, so the daily exception permits one new cycle."
+      },
+      "slug": "reflection-al-hashr-what-have-we-sent-ahead",
+      "topic_ar": "الحشر 59:18 — ما الذي قدّمناه لغد؟",
+      "topic_en": "Al-Hashr 59:18 — what the soul has sent ahead for tomorrow",
+      "working_title_ar": "ماذا أرسلنا أمامنا قبل أن يصل الغد؟",
+      "working_title_en": "What Have We Sent Ahead Before Tomorrow Arrives?",
+      "research_notes_path": "automation/quran-reflections/reflection-al-hashr-what-have-we-sent-ahead/research-notes.md",
+      "topic_selection": {
+        "status": "completed",
+        "candidates": [
+          "Al-Hashr 59:18 — what the soul has sent ahead for tomorrow",
+          "Al-Hadid 57:22–23 — how we receive loss and gain",
+          "Ash-Shura 42:38 — consultation within faithful responsibility"
+        ],
+        "selected": "Al-Hashr 59:18 — what the soul has sent ahead for tomorrow",
+        "central_question": "How does faith in meeting Allah turn review of our work from defending the past into honest attention to what we send ahead?",
+        "artifact_path": "automation/quran-reflections/reflection-al-hashr-what-have-we-sent-ahead/research-notes.md",
+        "artifact_commit": "9cd83a17f02d12bbc37b83339c613b91494b93c4",
+        "artifact_blob_sha": "7dfae8293a23596a6d44c74822ee64a80539ad39",
+        "completed_at": "2026-11-18T18:00:28+04:00"
+      },
+      "research_status": "completed",
+      "research_commit": "2b176ad3bcf88120e23bc5db67d539b69120387c",
+      "research_blob_sha": "0d887c95acf9505804f19f511638bfb390853a6c",
+      "research_sources": [
+        {
+          "type": "Qur'an text and immediate context, Al-Hashr 59:18–21",
+          "url": "https://quran.com/59/18-21",
+          "status": "reviewed"
+        },
+        {
+          "type": "Sahih International translation, Al-Hashr 59:18–24",
+          "url": "https://legacy.quran.com/59/18-24",
+          "status": "reviewed"
+        },
+        {
+          "type": "Tafsir al-Tabari 59:18",
+          "url": "https://quran.ksu.edu.sa/tafseer/tabary/sura59-aya18.html",
+          "status": "reviewed"
+        },
+        {
+          "type": "Tafsir Ibn Kathir 59:18",
+          "url": "https://quran.ksu.edu.sa/tafseer/katheer/sura59-aya18.html",
+          "status": "reviewed"
+        },
+        {
+          "type": "Tafsir al-Qurtubi 59:18",
+          "url": "https://quran.ksu.edu.sa/tafseer/qortobi/sura59-aya18.html",
+          "status": "reviewed"
+        },
+        {
+          "type": "Tafsir al-Sa'di 59:18",
+          "url": "https://quran.ksu.edu.sa/tafseer/saadi/sura59-aya18.html",
+          "status": "reviewed"
+        }
+      ],
+      "research_completed_at": "2026-11-18T18:02:19+04:00",
+      "quranic_focus": {
+        "surah": "Al-Hashr",
+        "surah_ar": "الحشر",
+        "ayahs": [
+          18
+        ],
+        "context_ayahs": [
+          19,
+          20,
+          21
+        ],
+        "status": "verified"
+      },
+      "quran_verification": {
+        "status": "passed",
+        "blocking_errors": [],
+        "path": "automation/quran-reflections/reflection-al-hashr-what-have-we-sent-ahead/research-notes.md",
+        "commit": "e7d363d30f07fcad220b59eda3a57523a2db9c82",
+        "completed_at": "2026-11-18T18:03:18+04:00"
+      },
+      "arabic_draft": {
+        "status": "revised_after_independent_critique",
+        "path": "automation/quran-reflections/reflection-al-hashr-what-have-we-sent-ahead/draft-ar.md",
+        "word_count": 1151,
+        "initial_commit": "95c43e0a930b7a6fb32198f0bf749e913a31df37",
+        "revision_commit": "3e16bd165632a70a0457c1ef9d590beb9821c43b",
+        "blob_sha": "cf480801257782b42e769dc9db04c217a435eda5",
+        "completed_at": "2026-11-18T19:03:40+04:00",
+        "mobile_gate": "NOT VERIFIED until final HTML",
+        "tts_gate": "NOT VERIFIED until final HTML"
+      },
+      "independent_critique": {
+        "status": "passed_after_required_revisions",
+        "path": "automation/quran-reflections/reflection-al-hashr-what-have-we-sent-ahead/quality-review.md",
+        "commit": "bfe640f0e43ce6b420f33587eb3fd4e2b1c5723e",
+        "blob_sha": "14b418e20244de3c1545161075992f9d93e44046",
+        "blocking_errors": [],
+        "revisions_applied": 2,
+        "completed_at": "2026-11-18T19:03:40+04:00",
+        "mobile_gate": "NOT VERIFIED until final HTML",
+        "tts_gate": "NOT VERIFIED until final HTML"
+      },
+      "english_draft": {
+        "status": "draft_completed_pending_parity",
+        "path": "automation/quran-reflections/reflection-al-hashr-what-have-we-sent-ahead/draft-en.md",
+        "word_count": 1645,
+        "quran_translation": "Sahih International",
+        "commit": "bfd064df540c7a755af210563888d0b2d4a49831",
+        "blob_sha": "ef0202fddb7bec5cc564c959975530f624d3f0a9",
+        "completed_at": "2026-11-18T20:05:00+04:00"
+      },
+      "bilingual_parity": {
+        "status": "passed_no_substantive_revisions",
+        "review_path": "automation/quran-reflections/reflection-al-hashr-what-have-we-sent-ahead/quality-review.md",
+        "review_commit": "8026fb43e558379651c06c6f950400d4dc307b84",
+        "review_blob_sha": "d02fb66ca90b419f1fce44898c8f938ada35a02b",
+        "arabic_blob_sha": "cf480801257782b42e769dc9db04c217a435eda5",
+        "english_blob_sha": "ef0202fddb7bec5cc564c959975530f624d3f0a9",
+        "substantive_revisions": 0,
+        "completed_at": "2026-11-18T20:05:46+04:00",
+        "mobile_gate": "NOT VERIFIED until final HTML",
+        "tts_gate": "NOT VERIFIED until final HTML"
+      },
+      "quality_gate": {
+        "status": "passed",
+        "score": 98,
+        "threshold": 90,
+        "blocking_errors": [],
+        "review_path": "automation/quran-reflections/reflection-al-hashr-what-have-we-sent-ahead/quality-review.md",
+        "review_commit": "72fb09d44f0f73d3f7cf11e6accaa131f602f7b4",
+        "review_blob_sha": "69bd053561f2ab6787d4562cd96a2a959c424ffa",
+        "arabic_blob_sha": "cf480801257782b42e769dc9db04c217a435eda5",
+        "english_blob_sha": "ef0202fddb7bec5cc564c959975530f624d3f0a9",
+        "quran_text": "passed",
+        "tafsir_and_creed": "passed",
+        "methodological_separation": "passed",
+        "bilingual_parity": "passed",
+        "novice_comprehension": "passed_editorial_review",
+        "mobile_gate": "NOT VERIFIED until final HTML",
+        "rtl_gate": "NOT VERIFIED until final HTML",
+        "tts_gate": "NOT VERIFIED until final HTML",
+        "completed_at": "2026-11-18T20:07:49.239+04:00"
+      },
+      "arabic_html_path": "reflection-al-hashr-what-have-we-sent-ahead.html",
+      "english_html_path": "en/reflection-al-hashr-what-have-we-sent-ahead.html",
+      "publication_report_path": "automation/quran-reflections/reflection-al-hashr-what-have-we-sent-ahead/repository-publish-report.md",
+      "repository_publish": {
+        "status": "completed",
+        "completed_at": "2026-11-18T21:04:40.285+04:00",
+        "publication_commit": "628b9f30b250632eb61b9bec291f5a2e93d9a5c8",
+        "automation_descendant_head": "69b460d7fceb10e9a3cd9a010176bacc584e8f4a",
+        "sitemap_descendant_commit": "dd43c626d853866740029789e5be769ff85e35fc",
+        "report_path": "automation/quran-reflections/reflection-al-hashr-what-have-we-sent-ahead/repository-publish-report.md",
+        "arabic_page": {
+          "path": "reflection-al-hashr-what-have-we-sent-ahead.html",
+          "url": "https://tamayuz10x.com/reflection-al-hashr-what-have-we-sent-ahead.html"
+        },
+        "english_page": {
+          "path": "en/reflection-al-hashr-what-have-we-sent-ahead.html",
+          "url": "https://tamayuz10x.com/en/reflection-al-hashr-what-have-we-sent-ahead.html"
+        },
+        "indexes": [
+          "articles.html",
+          "en/articles.html",
+          "quranic-reflections.html",
+          "en/quranic-reflections.html"
+        ],
+        "records": [
+          "data/quranic-reflection-topics.json",
+          "data/article-publication-dates.json",
+          "data/article-covers.json",
+          "sitemap.xml"
+        ],
+        "social_sources": [
+          "assets/previews/story/reflection-al-hashr-what-have-we-sent-ahead-ar.svg",
+          "assets/previews/story/reflection-al-hashr-what-have-we-sent-ahead-en.svg"
+        ],
+        "checks": {
+          "title_and_h1": true,
+          "canonical_and_reciprocal_hreflang": true,
+          "article_and_breadcrumb_schema": true,
+          "rtl_ltr": true,
+          "language_isolation": true,
+          "topic_registry_single": true,
+          "index_card_single_each": true,
+          "publication_dates_match": true,
+          "sitemap_single_each": true
+        },
+        "duplicate_check": "passed immediately before atomic publication",
+        "automation_commits": [
+          "dd43c626d853866740029789e5be769ff85e35fc",
+          "69b460d7fceb10e9a3cd9a010176bacc584e8f4a"
+        ],
+        "generated_social_assets": [
+          "assets/previews/story/reflection-al-hashr-what-have-we-sent-ahead-ar.jpg",
+          "assets/previews/story/reflection-al-hashr-what-have-we-sent-ahead-en.jpg"
+        ]
+      },
+      "actions_and_pages": {
+        "status": "completed",
+        "completed_at": "2026-11-18T22:03:42+04:00",
+        "exact_head_sha": "ebe4fa98d5ccc43b28db1d2e1b50f508f92d3e11",
+        "remediation_commit": "ebe4fa98d5ccc43b28db1d2e1b50f508f92d3e11",
+        "report_path": "automation/quran-reflections/reflection-al-hashr-what-have-we-sent-ahead/actions-and-pages-report.md",
+        "github_actions": {
+          "article_date_integrity": {
+            "run_id": 44364721964,
+            "run_number": 704,
+            "conclusion": "success",
+            "head_sha": "ebe4fa98d5ccc43b28db1d2e1b50f508f92d3e11"
+          },
+          "site_health": {
+            "run_id": 44364722059,
+            "run_number": 1058,
+            "conclusion": "success",
+            "head_sha": "ebe4fa98d5ccc43b28db1d2e1b50f508f92d3e11"
+          },
+          "sitemap": {
+            "run_id": 44364722010,
+            "run_number": 924,
+            "conclusion": "success",
+            "head_sha": "ebe4fa98d5ccc43b28db1d2e1b50f508f92d3e11"
+          },
+          "pages": {
+            "run_id": 44364721124,
+            "run_number": 3189,
+            "conclusion": "success",
+            "head_sha": "ebe4fa98d5ccc43b28db1d2e1b50f508f92d3e11"
+          },
+          "social_share_cards": {
+            "run_id": 44364722163,
+            "run_number": 565,
+            "conclusion": "success",
+            "head_sha": "ebe4fa98d5ccc43b28db1d2e1b50f508f92d3e11"
+          },
+          "arabic_editorial": {
+            "run_id": 44364722211,
+            "run_number": 1332,
+            "conclusion": "success",
+            "head_sha": "ebe4fa98d5ccc43b28db1d2e1b50f508f92d3e11",
+            "artifact_id": 14456588340
+          }
+        },
+        "exact_mobile_review": {
+          "result": "8_of_8_passed",
+          "viewports": [
+            320,
+            375,
+            390,
+            430
+          ],
+          "languages": [
+            "ar",
+            "en"
+          ],
+          "checks": [
+            "page_width",
+            "h1_visible",
+            "lang",
+            "direction",
+            "assets_ok",
+            "tables_scrollable",
+            "listen_control"
+          ],
+          "artifact_id": 14456588340,
+          "artifact_name": "arabic-article-mobile-review",
+          "result_path": "mobile-artifacts/reflection-al-hashr-what-have-we-sent-ahead-bilingual-results.json"
+        },
+        "generated_social_assets": [
+          "assets/previews/story/reflection-al-hashr-what-have-we-sent-ahead-ar.jpg",
+          "assets/previews/story/reflection-al-hashr-what-have-we-sent-ahead-en.jpg"
+        ]
+      },
+      "repository_publication": {
+        "status": "live_verified_except_actual_tts_playback",
+        "quality_score": 98,
+        "publication_date": "2026-11-18",
+        "publication_commit": "628b9f30b250632eb61b9bec291f5a2e93d9a5c8",
+        "remediation_commit": "ebe4fa98d5ccc43b28db1d2e1b50f508f92d3e11",
+        "arabic_url": "https://tamayuz10x.com/reflection-al-hashr-what-have-we-sent-ahead.html",
+        "english_url": "https://tamayuz10x.com/en/reflection-al-hashr-what-have-we-sent-ahead.html",
+        "arabic_page_path": "reflection-al-hashr-what-have-we-sent-ahead.html",
+        "english_page_path": "en/reflection-al-hashr-what-have-we-sent-ahead.html",
+        "arabic_social_asset": "assets/previews/story/reflection-al-hashr-what-have-we-sent-ahead-ar.jpg",
+        "english_social_asset": "assets/previews/story/reflection-al-hashr-what-have-we-sent-ahead-en.jpg",
+        "publication_report_path": "automation/quran-reflections/reflection-al-hashr-what-have-we-sent-ahead/repository-publish-report.md",
+        "repository_validation": "passed",
+        "mobile_gate": "passed_real_chromium_8_of_8_at_320_375_390_430_ar_en",
+        "rtl_gate": "passed_real_chromium",
+        "tts_gate": "blocked_actual_playback_web_speech_unavailable_in_verification_browser",
+        "actions_gate": "passed_all_six_exact_content_head",
+        "pages_gate": "passed_exact_content_head_ebe4fa98d5ccc43b28db1d2e1b50f508f92d3e11",
+        "live_gate": "passed_except_actual_tts_playback"
+      },
+      "live_verification": {
+        "status": "blocked_on_actual_tts_playback",
+        "checked_at": "2026-11-18T22:04:32+04:00",
+        "deployed_content_head": "ebe4fa98d5ccc43b28db1d2e1b50f508f92d3e11",
+        "report_path": "automation/quran-reflections/reflection-al-hashr-what-have-we-sent-ahead/live-verification-report.md",
+        "pages": {
+          "ar": {
+            "url": "https://tamayuz10x.com/reflection-al-hashr-what-have-we-sent-ahead.html",
+            "loaded": true,
+            "title": "ماذا أرسلنا أمامنا قبل أن يصل الغد؟ | التميّز 10X",
+            "lang": "ar",
+            "dir": "rtl",
+            "listen_control": true,
+            "article_content": true,
+            "cover_loaded": true,
+            "stale_draft_notice_absent": true
+          },
+          "en": {
+            "url": "https://tamayuz10x.com/en/reflection-al-hashr-what-have-we-sent-ahead.html",
+            "loaded": true,
+            "title": "What Have We Sent Ahead Before Tomorrow Arrives? | Tamayuz 10X",
+            "lang": "en",
+            "dir": "ltr",
+            "listen_control": true,
+            "article_content": true,
+            "cover_loaded": true,
+            "al_hashr_lead_correct": true,
+            "stale_al_ahzab_lead_absent": true
+          }
+        },
+        "indexes": {
+          "articles.html": {
+            "title_present": true,
+            "slug_present": true
+          },
+          "en/articles.html": {
+            "title_present": true,
+            "slug_present": true
+          },
+          "quranic-reflections.html": {
+            "title_present": true,
+            "slug_links": 2
+          },
+          "en/quranic-reflections.html": {
+            "title_present": true,
+            "slug_links": 2
+          }
+        },
+        "sitemap": {
+          "arabic_loc_present": true,
+          "english_loc_present": true,
+          "slug_occurrences": 2
+        },
+        "mobile": {
+          "result": "8_of_8_passed",
+          "viewports": [
+            320,
+            375,
+            390,
+            430
+          ],
+          "languages": [
+            "ar",
+            "en"
+          ],
+          "artifact_id": 14456588340
+        },
+        "tts": {
+          "controls_present": true,
+          "speech_synthesis_available_in_verification_browser": false,
+          "actual_playback_verified": false,
+          "blocker": "The available cloud Chrome does not expose window.speechSynthesis, so audible Arabic/English playback and runtime highlighting, pause/resume, stop, and speed behavior cannot be verified.",
+          "decision_required": "Provide a Web Speech-capable browser/device with audible Arabic and English voices for actual playback verification, or explicitly approve completion without the actual-playback gate."
+        }
+      }
     }
   ]
 }

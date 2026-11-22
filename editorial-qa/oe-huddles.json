@@ -1,0 +1,67 @@
+{
+  "article": "article-oe-evidence-daily-safety-huddles.html",
+  "headline": "ماذا حدث حين بدأت فرق في المستشفيات تعقد اجتماعًا قصيرًا عن سلامة المرضى؟",
+  "reviewed_at": "2026-11-10",
+  "reviewer": "AI editorial review using the owner's arabic-editorial-reviewer and english-editorial-reviewer agents (not a human reader test)",
+  "introduction_answers": {
+    "problem": "قد يرى العاملون في المستشفى خطرًا يهدد مريضًا، ثم لا يجدون وقتًا أو مكانًا مناسبًا للحديث عنه، والأحداث الضارة ضرر تسببه الرعاية نفسها.",
+    "who": "فرق المستشفيات من أطباء وممرضين وسائر المهن، ومرضاهم.",
+    "change": "اجتماع قصير ومنظم عن المخاطر؛ وفي تجربة عشوائية انخفض معدل الأحداث الضارة 12% بعد بدء الاجتماعات، لكن كثيرًا منها لا يُعقد بالطريقة التي صُمّم بها."
+  },
+  "summary": "في تجربة عشوائية في أربعة مستشفيات جامعية انخفض معدل الأحداث الضارة بنسبة 12% بعد أن بدأ الأطباء اجتماعًا قصيرًا عن السلامة، وتُظهر دراسات أخرى أن الاجتماعات كثيرًا ما تُعقد ناقصة.",
+  "gates": {
+    "title": "PASS",
+    "introduction": "PASS",
+    "summary": "PASS",
+    "terminology": "PASS",
+    "evidence": "PASS",
+    "mobile": "PASS",
+    "language": "PASS"
+  },
+  "terminology_evidence": "Safety huddle, adverse event, fidelity, safety culture, psychological safety and stepped-wedge cluster randomised trial are explained at first use or in the glossary; English terms are in parentheses after the Arabic.",
+  "language_evidence": "Arabic revised after a strict sentence-by-sentence arabic-editorial-reviewer pass returned BLOCK; every BLOCK/FIX applied and re-reviewed. English reviewed with english-editorial-reviewer. 'Daily' removed from the title and claims because the Toronto abstract does not state huddle frequency and the Taiwan ward met twice a week. Editorial simulation, not a human reader test.",
+  "mobile_evidence": {
+    "method": "Playwright Chromium browser, 320/375/390/430px viewports",
+    "results": "editorial-qa/mobile-artifacts/oe-huddles-results.json",
+    "screenshots": [
+      "editorial-qa/mobile-artifacts/oe-huddles-320.png",
+      "editorial-qa/mobile-artifacts/oe-huddles-375.png",
+      "editorial-qa/mobile-artifacts/oe-huddles-390.png",
+      "editorial-qa/mobile-artifacts/oe-huddles-430.png"
+    ],
+    "scope": "Automated rendered-layout verification; screenshots retained for human visual review"
+  },
+  "source_evidence": [
+    {
+      "claim": "Stepped-wedge cluster randomised trial, 4 academic hospitals, physicians; at least 9 months in intervention; blinded chart audits of 912 randomly selected patients; adjusted adverse-event rate 12% lower (RR 0.88, 95% CI 0.80-0.98); mean attendance per site 30-85%; mean issues raised and actions taken per huddle 1.6-3.1; 'Communication about error' positive score 36% to 64%",
+      "url": "https://doi.org/10.1136/bmjqs-2025-019170",
+      "location": "PubMed abstract PMID 41027730: Results",
+      "assessment": "Stepped-wedge cluster RCT (Guo et al., BMJ Qual Saf 2025)"
+    },
+    {
+      "claim": "HUSH: 92 wards in 5 hospitals, huddles embedded in 64; mean fidelity 4.9 of 9 elements; SPC charts and review of historical harms most often omitted; positive change on 26 of 27 teamwork and safety climate items",
+      "url": "https://doi.org/10.1186/s12913-021-07080-1",
+      "location": "PubMed abstract PMID 34598704: Results",
+      "assessment": "Mixed-methods evaluation (Lamming et al., BMC HSR 2021)"
+    },
+    {
+      "claim": "74 UK ICU responses, 71 use huddles; registered nurses attended most consistently (n=63, 89%), medical staff less often (n=8, 32%) - percentages on different bases (63/71; 8/~25); most without a structured evidence-based framework; drawbacks time burden, perceived irrelevance, care interruptions, lack of psychological safety",
+      "url": "https://doi.org/10.1016/j.iccn.2026.104470",
+      "location": "PubMed abstract PMID 42349284: Results",
+      "assessment": "Cross-sectional national e-survey (Stayt et al., 2026)"
+    },
+    {
+      "claim": "Seoul tertiary teaching hospital, 4 surgical units, 89 staff nurses; workshops for huddle leaders and staff nurses; 12-week huddles with coaching visits; single-group pre-post; 9 outcomes (organizational learning, situation monitoring, mutual support, speaking-up climate, promotive and prohibitive voice, job satisfaction, patient safety, quality of care); significant improvement in 6 of 9; qualitative data identified challenges to participation",
+      "url": "https://doi.org/10.1155/2023/8929993",
+      "location": "PubMed abstract PMID 40225626",
+      "assessment": "Mixed-methods pre-post study without control group (Lee et al., 2023)"
+    },
+    {
+      "claim": "74-bed general medical ward, Taiwan; huddles started twice a week; 44 huddles 9 Sep 2020 to 30 Sep 2021; 81 issues identified and resolved; 67 (82.7%) quick hits (resolved within 24-48 h), mean 5.17 h; 14 complex issues, mean 19.73 days; staff evaluation by anonymous questionnaire; no comparison group",
+      "url": "https://doi.org/10.2147/JMDH.S384554",
+      "location": "PubMed abstract PMID 36225857: Methods, Results",
+      "assessment": "Single-ward descriptive study (Lin et al., 2022)"
+    }
+  ],
+  "decision": "CI candidate PASS only; authoritative approval is successful GitHub Actions job"
+}

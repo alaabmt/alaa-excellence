@@ -1,7 +1,7 @@
 name: CPHQ free learning QA
 on:
   push:
-    branches: [feature/cphq-learning-center]
+    branches: [main, feature/cphq-learning-center]
     paths: ['cphq*.html', 'assets/js/cphq*', 'assets/css/cphq*', 'account/login.html', 'supabase/**', 'tests/cphq*', '.github/workflows/cphq-free-qa.yml']
   pull_request:
     paths: ['cphq*.html', 'assets/js/cphq*', 'assets/css/cphq*', 'supabase/**', 'tests/cphq*']
@@ -10,7 +10,7 @@ permissions:
   contents: read
 jobs:
   free-release:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
