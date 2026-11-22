@@ -3,7 +3,7 @@
 **Format:** LinkedIn document (carousel), 8 slides, 1080×1350, two separate posts: Arabic (`carousel-ar.pdf`) and English (`carousel-en.pdf`). The English version is written as original English, not a translation.
 **Website article:** https://tamayuz10x.com/article-oe-evidence-rapid-response-teams.html and https://tamayuz10x.com/en/article-oe-evidence-rapid-response-teams.html (PR #242, squash merge ac87c54, live 2026-11-19).
 **Editorial review:** article, slides and captions reviewed with the owner's `arabic-editorial-reviewer` and `english-editorial-reviewer` agents; all BLOCK/FIX findings fixed before delivery (final: Arabic OVERALL PASS after 4 rounds, English OVERALL PASS after 3 rounds).
-**Status:** Approved by the owner on 2026-11-19 (article and both posts). Article live; Arabic post published 22 Nov; English post scheduled.
+**Status:** Approved by the owner on 2026-11-19 (article and both posts). COMPLETE. Article live 19 Nov; Arabic and English posts published 22 Nov.
 
 | File | Purpose |
 |---|---|
@@ -45,4 +45,4 @@ Checked on 19 Nov 2026 against the PubMed abstracts (efetch); DOIs checked with 
 |---|---|---|
 | Website article | Live 2026-11-19 (PR #242) | https://tamayuz10x.com/article-oe-evidence-rapid-response-teams.html |
 | Arabic post | Published 2026-11-22 (urn:li:ugcPost:7530160759465484288); delayed from 19 Nov because the session's permission check blocked the first attempt, re-confirmed by the owner on 22 Nov | https://www.linkedin.com/feed/update/urn:li:ugcPost:7530160759465484288/ |
-| English post | Scheduled for about 2 hours after the Arabic post (22 Nov) | — |
+| English post | Published 2026-11-22 (urn:li:ugcPost:7530191346796498944) | https://www.linkedin.com/feed/update/urn:li:ugcPost:7530191346796498944/ |
