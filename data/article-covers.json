@@ -2534,6 +2534,27 @@
         "subtitle": "Two risk tools at a Spanish olive plant.",
         "alt": "Navy and gold FMEA · Failure Mode & Effects Analysis cover titled “Does the Third Score Add Anything?” about comparing two risk tools at an olive plant."
       }
+    },
+    {
+      "slug": "article-preventive-engineering-ced-coating-charger-fmea",
+      "background": "assets/previews/story-backgrounds/article-preventive-engineering-ced-coating-charger-fmea.jpg",
+      "category": "prevention",
+      "ar": {
+        "title": [
+          "مستقرة،",
+          "لكن هل هي قادرة؟"
+        ],
+        "subtitle": "طلاء أغلفة محطات الشحن",
+        "alt": "غلاف سلسلة منهجية هندسة الوقاية (FMEA) بالكحلي والذهبي بعنوان «مستقرة، لكن هل هي قادرة؟»، عن طلاء أغلفة محطات الشحن."
+      },
+      "en": {
+        "title": [
+          "Stable,",
+          "But Capable?"
+        ],
+        "subtitle": "Coating charger enclosures.",
+        "alt": "Navy and gold FMEA · Failure Mode & Effects Analysis cover titled “Stable, But Capable?” about coating charger enclosures."
+      }
     }
   ]
 }
