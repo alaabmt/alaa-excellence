@@ -2555,6 +2555,27 @@
         "subtitle": "Coating charger enclosures.",
         "alt": "Navy and gold FMEA · Failure Mode & Effects Analysis cover titled “Stable, But Capable?” about coating charger enclosures."
       }
+    },
+    {
+      "slug": "article-preventive-engineering-airline-maintenance-delays-fmea",
+      "background": "assets/previews/story-backgrounds/article-preventive-engineering-airline-maintenance-delays-fmea.jpg",
+      "category": "prevention",
+      "ar": {
+        "title": [
+          "هل قيس",
+          "الأثر؟"
+        ],
+        "subtitle": "تأخر صيانة طائرات شركة طيران",
+        "alt": "غلاف سلسلة منهجية هندسة الوقاية (FMEA) بالكحلي والذهبي بعنوان «هل قيس الأثر؟»، عن تأخر صيانة طائرات شركة طيران."
+      },
+      "en": {
+        "title": [
+          "Was the Effect",
+          "Measured?"
+        ],
+        "subtitle": "Maintenance delays at an airline.",
+        "alt": "Navy and gold FMEA · Failure Mode & Effects Analysis cover titled “Was the Effect Measured?” about aircraft maintenance delays at an airline."
+      }
     }
   ]
 }
