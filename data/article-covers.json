@@ -1745,6 +1745,27 @@
       }
     },
     {
+      "slug": "article-oe-evidence-rapid-response-teams",
+      "background": "assets/previews/story-backgrounds/article-oe-evidence-rapid-response-teams.jpg",
+      "category": "article",
+      "ar": {
+        "title": [
+          "فريق للاستجابة",
+          "حين تسوء الحالة"
+        ],
+        "subtitle": "ماذا تقول خمس دراسات؟",
+        "alt": "غلاف توضيحي بالكحلي والذهبي لمقال عن فرق الاستجابة السريعة في المستشفيات، يظهر فيه سرير ومنحنى نبض."
+      },
+      "en": {
+        "title": [
+          "A Team to Call",
+          "When a Patient Worsens"
+        ],
+        "subtitle": "What five studies show",
+        "alt": "Navy and gold editorial cover for an article about rapid response teams in hospitals, showing a hospital bed and a pulse line."
+      }
+    },
+    {
       "slug": "article-oe-evidence-surgical-safety-checklist",
       "background": "assets/previews/story-backgrounds/article-oe-evidence-surgical-safety-checklist.jpg",
       "category": "article",
@@ -2470,6 +2491,69 @@
         ],
         "subtitle": "Honest self-accounting leads to repentance and repair.",
         "alt": "Navy and gold symbolic cover for a reflection on Al-Hashr 59:18, showing a path toward tomorrow and the call to examine what we send ahead."
+      }
+    },
+    {
+      "slug": "article-preventive-engineering-frozen-section-pathway-fmea",
+      "background": "assets/previews/story-backgrounds/article-preventive-engineering-frozen-section-pathway-fmea.jpg",
+      "category": "prevention",
+      "ar": {
+        "title": [
+          "ما الذي",
+          "تحسّن فعلًا؟"
+        ],
+        "subtitle": "عينات الفحص السريع أثناء الجراحة",
+        "alt": "غلاف سلسلة منهجية هندسة الوقاية (FMEA) بالكحلي والذهبي بعنوان «ما الذي تحسّن فعلًا؟»، عن عينات الفحص السريع أثناء الجراحة."
+      },
+      "en": {
+        "title": [
+          "What Actually",
+          "Improved?"
+        ],
+        "subtitle": "Frozen-section specimens during surgery.",
+        "alt": "Navy and gold FMEA · Failure Mode & Effects Analysis cover titled “What Actually Improved?” about frozen-section specimens during surgery."
+      }
+    },
+    {
+      "slug": "article-preventive-engineering-olive-haccp-fmea",
+      "background": "assets/previews/story-backgrounds/article-preventive-engineering-olive-haccp-fmea.jpg",
+      "category": "prevention",
+      "ar": {
+        "title": [
+          "هل تضيف",
+          "الدرجة الثالثة شيئًا؟"
+        ],
+        "subtitle": "أداتان لتقدير الخطر في مصنع زيتون إسباني",
+        "alt": "غلاف سلسلة منهجية هندسة الوقاية (FMEA) بالكحلي والذهبي بعنوان «هل تضيف الدرجة الثالثة شيئًا؟»، عن مقارنة أداتين لتقدير الخطر في مصنع زيتون."
+      },
+      "en": {
+        "title": [
+          "Does the Third",
+          "Score Add Anything?"
+        ],
+        "subtitle": "Two risk tools at a Spanish olive plant.",
+        "alt": "Navy and gold FMEA · Failure Mode & Effects Analysis cover titled “Does the Third Score Add Anything?” about comparing two risk tools at an olive plant."
+      }
+    },
+    {
+      "slug": "article-preventive-engineering-ced-coating-charger-fmea",
+      "background": "assets/previews/story-backgrounds/article-preventive-engineering-ced-coating-charger-fmea.jpg",
+      "category": "prevention",
+      "ar": {
+        "title": [
+          "مستقرة،",
+          "لكن هل هي قادرة؟"
+        ],
+        "subtitle": "طلاء أغلفة محطات الشحن",
+        "alt": "غلاف سلسلة منهجية هندسة الوقاية (FMEA) بالكحلي والذهبي بعنوان «مستقرة، لكن هل هي قادرة؟»، عن طلاء أغلفة محطات الشحن."
+      },
+      "en": {
+        "title": [
+          "Stable,",
+          "But Capable?"
+        ],
+        "subtitle": "Coating charger enclosures.",
+        "alt": "Navy and gold FMEA · Failure Mode & Effects Analysis cover titled “Stable, But Capable?” about coating charger enclosures."
       }
     },
     {
