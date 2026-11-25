@@ -1745,6 +1745,27 @@
       }
     },
     {
+      "slug": "article-oe-evidence-barcode-medication-scanning",
+      "background": "assets/previews/story-backgrounds/article-oe-evidence-barcode-medication-scanning.jpg",
+      "category": "article",
+      "ar": {
+        "title": [
+          "تحقق قبل",
+          "إعطاء الدواء"
+        ],
+        "subtitle": "ماذا تقول خمس دراسات؟",
+        "alt": "غلاف توضيحي بالكحلي والذهبي لمقال عن التحقق من الأدوية بالماسح الضوئي في المستشفيات، يظهر فيه ماسح ورمز شريطي على علبة دواء."
+      },
+      "en": {
+        "title": [
+          "A Scan Before",
+          "Giving Medicine"
+        ],
+        "subtitle": "What five studies show",
+        "alt": "Navy and gold editorial cover for an article about barcode medication scanning in hospitals, showing a scanner and a barcode on a medicine box."
+      }
+    },
+    {
       "slug": "article-oe-evidence-rapid-response-teams",
       "background": "assets/previews/story-backgrounds/article-oe-evidence-rapid-response-teams.jpg",
       "category": "article",

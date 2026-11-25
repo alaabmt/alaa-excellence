@@ -43,6 +43,14 @@ jobs:
         run: python3 scripts/check_arabic_mobile.py
       - name: Render current or preceding published Qur'anic reflection at actual mobile widths
         run: python3 scripts/check_quran_reflection_mobile.py
+      - name: Render the OE evidence barcode scanning article at actual mobile widths
+        env:
+          ARABIC_ARTICLE: article-oe-evidence-barcode-medication-scanning.html
+          EDITORIAL_REPORT: editorial-qa/oe-barcode.json
+          MOBILE_ARTIFACT_PREFIX: oe-barcode
+        run: python3 scripts/check_arabic_mobile.py
+      - name: Check OE evidence barcode scanning editorial gates
+        run: python3 scripts/check_arabic_editorial.py article-oe-evidence-barcode-medication-scanning.html editorial-qa/oe-barcode.json
       - name: Render the OE evidence rapid response article at actual mobile widths
         env:
           ARABIC_ARTICLE: article-oe-evidence-rapid-response-teams.html
@@ -120,4 +128,5 @@ jobs:
             editorial-qa/oe-audit-feedback.json
             editorial-qa/oe-checklist.json
             editorial-qa/oe-rrt.json
+            editorial-qa/oe-barcode.json
           if-no-files-found: error
