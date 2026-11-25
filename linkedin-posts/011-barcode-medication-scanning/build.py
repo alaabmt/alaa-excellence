@@ -44,8 +44,8 @@ LI = 'style="font-size:28px;padding:12px 0"'
 ar=[]
 ar.append(('dark',f"""<div class="cover-logo">{imgs("logo")}</div>
   <div class="kicker">التميّز التشغيلي · من الدراسات العلمية</div>
-  <h1 style="font-size:60px;line-height:1.6">صار الممرض في مستشفيات كثيرة يتحقق من الدواء والمريض بماسح ضوئي قبل إعطاء الدواء.</h1>
-  <h1 class="dim" style="margin-top:12px;font-size:44px;line-height:1.8">وفي مركز طبي جامعي أمريكي، وقع نحو {L('115')}&nbsp;خطأً في كل ألف مرة أُعطي فيها دواء قبل النظام، ونحو {L('68')}&nbsp;بعده. لكن في دراسة بريطانية شملت خمسة أقسام، لم يُستعمل الماسح في أحد الأقسام إلا مع نحو {L('6%')} من الأدوية.</h1>
+  <h1 style="font-size:60px;line-height:1.6">صار الممرض في مستشفيات كثيرة يتحقق من الدواء والمريض بماسح ضوئي قبل الإعطاء.</h1>
+  <h1 class="dim" style="margin-top:12px;font-size:44px;line-height:1.8">وفي مركز طبي جامعي أمريكي، وقع نحو {L('115')}&nbsp;خطأً في كل ألف مرة أُعطي فيها دواء قبل النظام، ونحو {L('68')}&nbsp;بعده، من غير أخطاء التوقيت. لكن في دراسة بريطانية شملت خمسة أقسام، لم يُستعمل الماسح في أحد الأقسام إلا مع نحو {L('6%')} من الأدوية.</h1>
   <p class="lead">فلماذا لا يُستعمل الماسح دائمًا؟ تعرض خمس دراسات نُشرت بين عامَي {L('2008')} و{L('2025')} ما يساعد على فهم ذلك.</p>
   <div class="swipe">← اسحب للمتابعة</div>""",NAME))
 ar.append(('',f"""<div class="kicker">الفكرة</div>
@@ -62,15 +62,15 @@ ar.append(('',f"""<div class="kicker">مركز طبي جامعي أمريكي</d
   </div>
   <p class="small" style="margin-top:16px">ومعنى ذلك: من كل {L('1,000')}&nbsp;مرة أُعطي فيها دواء، وقع نحو {L('115')}&nbsp;خطأً قبل النظام، ونحو {L('68')}&nbsp;بعده، أي أنها قلّت بنحو {L('41%')} من عددها الأصلي. لكنها دراسة قبل وبعد في مركز واحد، أي أنها قارنت الأقسام نفسها في فترتين.</p>""",C1))
 ar.append(('',f"""<div class="kicker">المراجعات</div>
-  <h2 style="line-height:1.8">رجّحت مراجعتان أن الرمز الشريطي قد يقلّل الأخطاء، والثقة بالدليل منخفضة</h2>
+  <h2 style="line-height:1.8">رجّحت مراجعتان أن الرمز الشريطي قد يقلّل الأخطاء، ووصفت إحداهما ثقتها بالدليل بأنها منخفضة</h2>
   <ul class="clean">
-    <li {LI}>جمعت المراجعة الأولى عشر دراسات، كلها من نوع قبل وبعد، وأظهرت كلها نتائج أفضل بعد بدء الرمز الشريطي.</li>
+    <li {LI}>جمعت المراجعة الأولى عشر دراسات، كلها من نوع قبل وبعد، أي قارنت المستشفى نفسه قبل الرمز الشريطي وبعده. وأظهرت كلها نتائج أفضل بعد بدئه.</li>
     <li {LI}>وقامت نتيجة مراجعة كوكرين (Cochrane)، وهي شبكة دولية تُعدّ مراجعات للأدلة الطبية، على دراستين شملتا أكثر من {L('50')}&nbsp;ألف مشارك.</li>
   </ul>
   <p class="small" style="margin-top:16px">والثقة المنخفضة بالدليل تعني أن الأثر الحقيقي قد يختلف كثيرًا عما وجدته الدراسات.</p>""",C23))
 ar.append(('',f"""<div class="kicker">خمسة مستشفيات</div>
   <h2 style="line-height:1.8">وجد الباحثون {L('15')}&nbsp;طريقة يتجاوز بها العاملون خطوات النظام</h2>
-  <p class="lead" style="margin-top:18px">ومنها أن يُلصق رمز سوار المريض على عربة الحاسوب، أو على إطار الباب، أو على الماسح نفسه، وأن تُقرأ رموز أدوية عدة مرضى بالماسح مسبقًا.</p>
+  <p class="lead" style="margin-top:18px">ومنها أن يُلصق رمز سوار المريض على عربة الحاسوب، أو على إطار الباب، أو على الماسح نفسه، وأن تُقرأ رموز أدوية عدة مرضى بالماسح مسبقًا، ثم تُحمل على العربة.</p>
   <div class="box">
     <p>ومن أسباب هذا التجاوز رموز أدوية لا تُقرأ، وماسحات معطلة، وأساور مرضى مفقودة، وأدوية بلا رمز، وحالات طارئة.</p>
   </div>""",C4))
@@ -93,7 +93,7 @@ ar.append(('dark',f"""<div class="kicker">ما يستنتجه الكاتب من 
 ar.append(('',f"""<div class="kicker">المصادر وحدود الدليل</div>
   <h2 style="font-size:46px">حدود هذه الأدلة</h2>
   <ul class="clean" style="margin-top:2px">
-    <li style="font-size:22px;padding:6px 0">دراسة المركز الطبي الأمريكي والدراسات العشر في المراجعة الأولى كلها من نوع قبل وبعد، فلا تثبت أن النظام وحده سبب الانخفاض.</li>
+    <li style="font-size:22px;padding:6px 0">دراسة المركز الطبي الأمريكي والدراسات العشر في المراجعة الأولى قارنت كلها المكان نفسه قبل النظام وبعده، دون مكان آخر للمقارنة، فلا تثبت أن النظام وحده سبب الانخفاض.</li>
     <li style="font-size:22px;padding:6px 0">ونُشرت دراسة طرق التجاوز عام {L('2008')}، وقد تكون الأجهزة تغيّرت منذ ذلك الحين. واقتصرت الدراسة البريطانية على خمسة أقسام.</li>
     <li style="font-size:22px;padding:6px 0">ولا تذكر الملخصات المنشورة للدراسات الخمس أي مستشفى عربي، ولم تختبر أيٌّ منها الفكرة خارج المستشفيات.</li>
   </ul>
@@ -122,13 +122,13 @@ en.append(('',f"""<div class="kicker">A U.S. academic medical center</div>
 en.append(('',f"""<div class="kicker">The reviews</div>
   <h2>Two reviews say barcoding may reduce errors, but the evidence is limited</h2>
   <ul class="clean">
-    <li {LI}>The first review gathered 10 studies, all before-and-after studies, and all reported better results after barcoding started.</li>
+    <li {LI}>The first review gathered 10 studies, all before-and-after studies, meaning each compared the same hospital before and after barcoding. All reported better results after it started.</li>
     <li {LI}>Cochrane, an international network that prepares reviews of medical evidence, found that barcoding may reduce errors compared with usual care. The result rested on two studies with more than 50,000 participants, and the authors rated their certainty as low.</li>
   </ul>
   <p class="small" style="margin-top:16px">Low certainty of evidence means the true effect may be quite different from what the studies found.</p>""",C23))
 en.append(('',f"""<div class="kicker">Five hospitals</div>
   <h2>Researchers found 15 ways staff work around the system</h2>
-  <p class="lead" style="margin-top:18px">In some cases, a copy of a patient's wristband barcode was stuck on a computer cart, on the scanner itself, or on a door frame. In others, several patients' medicines were scanned in advance.</p>
+  <p class="lead" style="margin-top:18px">In some cases, a copy of a patient's wristband barcode was stuck on a computer cart, on the scanner itself, or on a door frame. In others, several patients' medicines were scanned in advance and then carried on the cart.</p>
   <div class="box"><p>Causes included unreadable barcodes, broken scanners, missing wristbands, medicines with no barcode, and emergencies.</p></div>""",C4))
 en.append(('amber',f"""<div class="kicker">Five U.K. wards, after the system started</div>
   <div class="stat" style="margin-top:14px"><span class="n" {SL}>5.6%</span><p>of medicines were scanned on one of five wards; on another ward, 67% were.</p></div>
@@ -149,7 +149,7 @@ en.append(('dark',f"""<div class="kicker">The author's reading of the studies</d
 en.append(('',f"""<div class="kicker">Sources and limits</div>
   <h2 style="font-size:48px">What this evidence can and cannot tell us</h2>
   <ul class="clean" style="margin-top:2px">
-    <li style="font-size:22px;padding:6px 0">The U.S. study and the 10 studies in the first review were all before-and-after studies, so they cannot show that the system alone caused the drop.</li>
+    <li style="font-size:22px;padding:6px 0">The U.S. study and the 10 studies in the first review all compared the same place before and after the system, with no other place for comparison, so they cannot show that the system alone caused the drop.</li>
     <li style="font-size:22px;padding:6px 0">The workaround study was published in 2008, and devices may have changed since; the U.K. study covered only five wards.</li>
     <li style="font-size:22px;padding:6px 0">The published abstracts of the five studies do not mention any Arab hospital, and none of the studies tested the idea outside hospitals.</li>
   </ul>
