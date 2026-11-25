@@ -65,7 +65,7 @@ ar.append(('',f"""<div class="kicker">المراجعات</div>
   <h2 style="line-height:1.8">رجّحت مراجعتان أن الرمز الشريطي قد يقلّل الأخطاء، ووصفت إحداهما ثقتها بالدليل بأنها منخفضة</h2>
   <ul class="clean">
     <li {LI}>جمعت المراجعة الأولى عشر دراسات، كلها من نوع قبل وبعد، أي قارنت المستشفى نفسه قبل الرمز الشريطي وبعده. وأظهرت كلها نتائج أفضل بعد بدئه.</li>
-    <li {LI}>وقامت نتيجة مراجعة كوكرين (Cochrane)، وهي شبكة دولية تُعدّ مراجعات للأدلة الطبية، على دراستين شملتا أكثر من {L('50')}&nbsp;ألف مشارك.</li>
+    <li {LI}>ووصفت مراجعة كوكرين (Cochrane)، وهي شبكة دولية تُعدّ مراجعات للأدلة الطبية، ثقتها بالدليل بأنها منخفضة. وقامت نتيجتها على دراستين شملتا أكثر من {L('50')}&nbsp;ألف مشارك.</li>
   </ul>
   <p class="small" style="margin-top:16px">والثقة المنخفضة بالدليل تعني أن الأثر الحقيقي قد يختلف كثيرًا عما وجدته الدراسات.</p>""",C23))
 ar.append(('',f"""<div class="kicker">خمسة مستشفيات</div>
@@ -128,7 +128,7 @@ en.append(('',f"""<div class="kicker">The reviews</div>
   <p class="small" style="margin-top:16px">Low certainty of evidence means the true effect may be quite different from what the studies found.</p>""",C23))
 en.append(('',f"""<div class="kicker">Five hospitals</div>
   <h2>Researchers found 15 ways staff work around the system</h2>
-  <p class="lead" style="margin-top:18px">In some cases, a copy of a patient's wristband barcode was stuck on a computer cart, on the scanner itself, or on a door frame. In others, several patients' medicines were scanned in advance and then carried on the cart.</p>
+  <p class="lead" style="margin-top:18px">In some cases, a copy of a patient's wristband barcode was stuck on a computer cart, on the scanner itself, or on a door frame. In others, several patients' medicines were scanned in advance and then carried around on the cart.</p>
   <div class="box"><p>Causes included unreadable barcodes, broken scanners, missing wristbands, medicines with no barcode, and emergencies.</p></div>""",C4))
 en.append(('amber',f"""<div class="kicker">Five U.K. wards, after the system started</div>
   <div class="stat" style="margin-top:14px"><span class="n" {SL}>5.6%</span><p>of medicines were scanned on one of five wards; on another ward, 67% were.</p></div>
