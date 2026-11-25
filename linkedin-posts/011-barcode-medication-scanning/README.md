@@ -1,7 +1,7 @@
 # LinkedIn Post 011 — التحقق من الدواء بالماسح الضوئي / Barcode scanning before giving medicines
 
 **Format:** LinkedIn document (carousel), 8 slides, 1080×1350, two separate posts: Arabic (`carousel-ar.pdf`) and English (`carousel-en.pdf`). The English version is written as original English, not a translation.
-**Website article (draft):** https://tamayuz10x.com/article-oe-evidence-barcode-medication-scanning.html and https://tamayuz10x.com/en/article-oe-evidence-barcode-medication-scanning.html (draft PR on branch `claude/oe-evidence-articles`, see below; the links work only after approval and merge).
+**Website article (draft):** https://tamayuz10x.com/article-oe-evidence-barcode-medication-scanning.html and https://tamayuz10x.com/en/article-oe-evidence-barcode-medication-scanning.html (draft PR on branch `claude/oe-evidence-articles`, PR #256; the links work only after approval and merge).
 **Editorial review:** article, slides and captions reviewed with the owner's `arabic-editorial-reviewer` and `english-editorial-reviewer` agents; all BLOCK/FIX findings fixed before delivery (final: Arabic OVERALL PASS after 3 rounds, English OVERALL PASS after 3 rounds).
 **Status:** Draft — waiting for the owner's approval.
 
