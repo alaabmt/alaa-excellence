@@ -7,7 +7,7 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-25T14:04:06Z",
+  "updated_at": "2026-11-25T14:07:19.416Z",
   "workflow_status": "in_progress",
   "current_stage": "company_insider_critique",
   "run_lease": {
@@ -31,7 +31,8 @@
     "english_draft": {
       "path": "automation/10x-cases/case-copenhagen-heat-flexibility/draft-en.md",
       "commit": "dc0be7b0490e02204aed101cd313a819a8c0b9a9"
-    }
+    },
+    "checkpoint_reconciliation_path": "automation/10x-cases/case-copenhagen-heat-flexibility/checkpoint-reconciliation.md"
   },
   "stage_order": [
     "capability_check",
@@ -74,14 +75,11 @@
   },
   "next_action": "Resume Copenhagen drafts, verify evidence and reconcile Japan, complete critique, bilingual parity, actual mobile quality gate, repository publication, Actions and live verification. Do not start another case before resolving this item. Preserve scheduled task.",
   "last_run": {
-    "mode": "primary_scheduled_resume",
-    "status": "blocked",
-    "started_at": "2026-11-13T07:26:41+04:00",
-    "starting_head": null,
-    "last_checkpoint": "actions_and_pages",
-    "notes": "Resumed the existing Brazil FHS case. Live page opened successfully and controls were visible, but the managed Chrome again had no speechSynthesis or voices; clicking Listen produced no playback or highlighting. Partial publication report committed. No new 2026-11-13 case was started.",
-    "current_item": "case-brazil-family-health-strategy-community-primary-care",
-    "completed_at": "2026-11-13T07:33:00+04:00"
+    "mode": "coordinator_resume",
+    "started_at": "2026-11-25T14:04:06Z",
+    "status": "in_progress",
+    "last_checkpoint": "load_checkpoint",
+    "notes": "Reconciled stale Brazil completion markers against Copenhagen artifacts; neither publication nor QA inherited."
   },
   "last_completed_item": {
     "slug": "case-brazil-family-health-strategy-community-primary-care",
@@ -222,7 +220,7 @@
       "status": "partial_blocked_tts"
     }
   },
-  "run_date": "2026-11-13",
+  "run_date": "2026-11-25",
   "completed_stages": [
     "capability_check",
     "load_checkpoint",
@@ -230,13 +228,7 @@
     "candidate_scan",
     "evidence_pack",
     "backcasting_and_10x_analysis",
-    "arabic_draft",
-    "company_insider_critique",
-    "english_draft",
-    "bilingual_parity",
-    "final_quality_gate",
-    "repository_publish",
-    "actions_and_pages"
+    "arabic_draft"
   ],
   "blocker": null,
   "pending_tts": [
@@ -312,10 +304,39 @@
       "next_check": "next scheduled cycle; actual bilingual playback on supported device"
     }
   ],
-  "content_cycle_resolution": "completed_under_documented_environment_exception_audio_not_verified",
+  "content_cycle_resolution": "incomplete_copenhagen_critique_required",
   "previous_blocker": {
     "type": "platform_capability_missing",
     "detail": "The available managed Chrome on 2026-11-13 again reports window.speechSynthesis unavailable and zero voices. Clicking Listen produced no speaking, pending, paused or highlighting state. The mandatory TTS standard requires actual browser/device playback; visible controls alone are insufficient.",
     "required_decision": "Provide or authorize a TTS-capable browser/device for actual Arabic and English playback verification, or explicitly approve the documented technical exception permitted by ARABIC-LANGUAGE-AND-TTS-STANDARD.md section 10."
+  },
+  "legacy_checkpoint_before_copenhagen_reconciliation": {
+    "run_date": "2026-11-13",
+    "completed_stages": [
+      "capability_check",
+      "load_checkpoint",
+      "duplicate_check",
+      "candidate_scan",
+      "evidence_pack",
+      "backcasting_and_10x_analysis",
+      "arabic_draft",
+      "company_insider_critique",
+      "english_draft",
+      "bilingual_parity",
+      "final_quality_gate",
+      "repository_publish",
+      "actions_and_pages"
+    ],
+    "last_run": {
+      "mode": "primary_scheduled_resume",
+      "status": "blocked",
+      "started_at": "2026-11-13T07:26:41+04:00",
+      "starting_head": null,
+      "last_checkpoint": "actions_and_pages",
+      "notes": "Resumed the existing Brazil FHS case. Live page opened successfully and controls were visible, but the managed Chrome again had no speechSynthesis or voices; clicking Listen produced no playback or highlighting. Partial publication report committed. No new 2026-11-13 case was started.",
+      "current_item": "case-brazil-family-health-strategy-community-primary-care",
+      "completed_at": "2026-11-13T07:33:00+04:00"
+    },
+    "content_cycle_resolution": "completed_under_documented_environment_exception_audio_not_verified"
   }
 }
