@@ -105,7 +105,7 @@ en=[]
 en.append(('dark',f"""<div class="cover-logo">{imgs("logo")}</div>
   <div class="kicker">Operational Excellence · What the research says</div>
   <h1 style="font-size:60px">In many hospitals, nurses now scan the medicine and the patient's wristband before giving a dose.</h1>
-  <h1 class="dim" style="margin-top:16px;font-size:44px">In one U.S. academic medical center, there were about 115 errors per 1,000 administrations before the system and about 68 after it. In a U.K. study of five wards, staff on one ward scanned only about 6% of medicines.</h1>
+  <h1 class="dim" style="margin-top:16px;font-size:44px">In one U.S. academic medical center, there were about 115 errors per 1,000 administrations before the system and about 68 after it, not counting medicines given too early or too late. In a U.K. study of five wards, staff on one ward scanned only about 6% of medicines.</h1>
   <p class="lead">Why is the scanner not always used? Here is what five studies, published from 2008 to 2025, show.</p>
   <div class="swipe">Swipe →</div>""",EN_NAME))
 en.append(('',f"""<div class="kicker">The idea</div>
@@ -116,14 +116,14 @@ en.append(('',f"""<div class="kicker">A U.S. academic medical center</div>
   <h2>Some medication errors became less common after the system started</h2>
   <div style="margin-top:18px">
     <div class="stat"><span class="n" {SL}>6.8%</span><p>of administrations had an error after the system, compared with 11.5% before. These figures leave out medicines given too early or too late.</p></div>
-    <div class="stat"><span class="n" {SL}>1.6%</span><p>had a non-timing error that could harm a patient after the system, compared with 3.1% before.</p></div>
+    <div class="stat"><span class="n" {SL}>1.6%</span><p>of administrations had an error that could harm a patient after the system, compared with 3.1% before, again leaving out timing errors.</p></div>
   </div>
   <p class="small" style="margin-top:16px">In other words, for every 1,000 administrations, there were about 115 such errors before and about 68 after, about 41% fewer. But this was a before-and-after study in one center: it compared the same units in two periods.</p>""",C1))
 en.append(('',f"""<div class="kicker">The reviews</div>
-  <h2>Two reviews say barcoding may reduce errors, with low certainty</h2>
+  <h2>Two reviews say barcoding may reduce errors, but the evidence is limited</h2>
   <ul class="clean">
     <li {LI}>The first review gathered 10 studies, all before-and-after studies, and all reported better results after barcoding started.</li>
-    <li {LI}>The barcoding result of the Cochrane review (an international network that prepares reviews of medical evidence) rested on two studies with more than 50,000 participants.</li>
+    <li {LI}>Cochrane, an international network that prepares reviews of medical evidence, found that barcoding may reduce errors compared with usual care. The result rested on two studies with more than 50,000 participants, and the authors rated their certainty as low.</li>
   </ul>
   <p class="small" style="margin-top:16px">Low certainty of evidence means the true effect may be quite different from what the studies found.</p>""",C23))
 en.append(('',f"""<div class="kicker">Five hospitals</div>
@@ -135,7 +135,7 @@ en.append(('amber',f"""<div class="kicker">Five U.K. wards, after the system sta
   <ul class="clean">
     <li {LI}>Scanning declined over the first 16 months.</li>
     <li {LI}>Reasons staff recorded for not scanning included unreadable barcodes and scanners that were not available.</li>
-    <li {LI}>Scanning was higher when the ward had a quality improvement initiative led by its own staff.</li>
+    <li {LI}>Scanning was higher where there was a locally led quality improvement initiative.</li>
   </ul>""",C5))
 en.append(('dark',f"""<div class="kicker">The author's reading of the studies</div>
   <h2>What can leaders do?</h2>

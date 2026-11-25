@@ -7,7 +7,7 @@
 
 In hospitals, a patient can receive the wrong medicine or the wrong dose. That is why many hospitals now ask nurses to scan a barcode on the patient's wristband and another on the medicine. The system warns them if either does not match the doctor's order.
 
-In one U.S. academic medical center, there were about 115 errors per 1,000 administrations before the system and about 68 after it, about 41% fewer. These figures leave out medicines given too early or too late. But the study compared the same units before and after, with no units that went without the system.
+In one U.S. academic medical center, there were about 115 errors per 1,000 administrations before the system and about 68 after it, about 41% fewer. These figures leave out medicines given too early or too late. But the study compared the same units before and after, and did not include comparison units without the system.
 
 In a U.K. study of five wards, staff scanned 5.6% of medicines on one ward and 67% on another. The reasons they recorded for not scanning included barcodes that could not be read and scanners that were not available.
 
