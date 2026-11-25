@@ -7,14 +7,10 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-25T20:06:48.845Z",
-  "workflow_status": "in_progress",
+  "updated_at": "2026-11-25T20:09:33.006Z",
+  "workflow_status": "retry_waiting",
   "current_stage": "final_quality_gate",
-  "run_lease": {
-    "owner": "work-central-resume-20261125T2005Z",
-    "acquired_at": "2026-11-25T20:05:07.000Z",
-    "expires_at": "2026-11-25T21:55:07.000Z"
-  },
+  "run_lease": null,
   "current_item": {
     "slug": "case-copenhagen-heat-flexibility",
     "publication_date": "2026-11-25",
@@ -42,7 +38,14 @@
     "bilingual_parity": {
       "status": "body_copy_passed_technical_parity_pending",
       "path": "automation/10x-cases/case-copenhagen-heat-flexibility/bilingual-parity-review.md"
-    }
+    },
+    "executive_snapshots": {
+      "status": "editorial_passed_with_assembly_condition",
+      "arabic_path": "automation/10x-cases/case-copenhagen-heat-flexibility/executive-snapshot-ar.md",
+      "english_path": "automation/10x-cases/case-copenhagen-heat-flexibility/executive-snapshot-en.md",
+      "assembly_condition": "Replace original opening with snapshot; do not repeat the introduction; omit review notes from publication."
+    },
+    "resume_checkpoint_path": "automation/10x-cases/case-copenhagen-heat-flexibility/resume-2026-11-26.md"
   },
   "stage_order": [
     "capability_check",
@@ -87,8 +90,10 @@
   "last_run": {
     "mode": "coordinator_resume",
     "started_at": "2026-11-25T20:05:07.000Z",
-    "status": "in_progress",
-    "last_checkpoint": "bilingual_parity"
+    "status": "retry_waiting",
+    "last_checkpoint": "executive_snapshots_editorial_review",
+    "completed_at": "2026-11-25T20:09:33.006Z",
+    "notes": "Bilingual body parity committed; executive snapshots reviewed and saved; Japan live AR/EN and repository date reconciled. No publication. Preview inaccessible; mandatory mobile gate not verified."
   },
   "last_completed_item": {
     "slug": "case-brazil-family-health-strategy-community-primary-care",
@@ -242,7 +247,11 @@
     "english_draft",
     "bilingual_parity"
   ],
-  "blocker": null,
+  "blocker": {
+    "type": "temporary_preview_connectivity",
+    "detail": "Local preview returned net::ERR_CONNECTION_REFUSED in the managed browser after server startup. Same-process server probe succeeded but cross-call preview remained inaccessible. Mandatory actual mobile gate remains NOT VERIFIED. No current usage-limit or approval rejection observed.",
+    "retry_action": "Retry supported preview connectivity on next pulse; assemble remaining unpublished HTML/audio/social assets and complete actual mobile gate before publishing."
+  },
   "pending_tts": [
     {
       "slug": "case-brazil-family-health-strategy-community-primary-care",
