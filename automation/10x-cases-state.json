@@ -7,7 +7,7 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-25T20:57:54.000Z",
+  "updated_at": "2026-11-25T20:59:25.870Z",
   "workflow_status": "in_progress",
   "current_stage": "final_quality_gate",
   "run_lease": {
@@ -49,7 +49,20 @@
       "english_path": "automation/10x-cases/case-copenhagen-heat-flexibility/executive-snapshot-en.md",
       "assembly_condition": "Replace original opening with snapshot; do not repeat the introduction; omit review notes from publication."
     },
-    "resume_checkpoint_path": "automation/10x-cases/case-copenhagen-heat-flexibility/resume-2026-11-26.md"
+    "resume_checkpoint_path": "automation/10x-cases/case-copenhagen-heat-flexibility/resume-2026-11-26.md",
+    "html_assembly": {
+      "status": "draft_structure_checked_not_publish_ready",
+      "arabic_path": "automation/10x-cases/case-copenhagen-heat-flexibility/page-ar.preview.html.txt",
+      "english_path": "automation/10x-cases/case-copenhagen-heat-flexibility/page-en.preview.html.txt",
+      "pending": [
+        "vocalized_audio_layer",
+        "original_social_covers",
+        "shared_site_components",
+        "actual_mobile_visual_qa",
+        "final_metadata_dates_and_breadcrumb",
+        "final_quality_gate"
+      ]
+    }
   },
   "stage_order": [
     "capability_check",
@@ -90,12 +103,12 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Prepare executive snapshots and unpublished HTML/audio/social assets for Copenhagen; verify mandatory technical and actual mobile gates, then recheck duplicate records and live destinations before any publication. Reconcile Japan live status. Do not repeat research or body review.",
+  "next_action": "Complete the saved Copenhagen HTML assemblies with reviewed vocalized audio, original bilingual social covers and shared site components; verify actual mobile/RTL/LTR and all final gates. Keep previews unpublished and assign datePublished only at actual release. Recheck duplicates before publishing. Do not repeat research, body review, snapshots or Japan reconciliation.",
   "last_run": {
     "mode": "coordinator_resume",
     "started_at": "2026-11-25T20:57:54.000Z",
     "status": "in_progress",
-    "last_checkpoint": "executive_snapshots_editorial_review"
+    "last_checkpoint": "unpublished_html_assembly"
   },
   "last_completed_item": {
     "slug": "case-brazil-family-health-strategy-community-primary-care",
