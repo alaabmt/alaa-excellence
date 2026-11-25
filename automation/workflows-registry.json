@@ -4,9 +4,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-10-20T16:18:00+04:00",
+  "updated_at": "2026-11-25",
   "coordinator": {
-    "automation_id": "6ad7006c273481919e068147bdc00b05",
+    "automation_id": "Automation_cacced3948c481918f73ff76b779965d",
     "title": "استئناف مهام التميّز 10X",
     "cadence": "hourly",
     "role": "Resume unfinished work without duplicating primary scheduled starts."
@@ -17,7 +17,7 @@
       "title": "التأمل القرآني اليومي 10X",
       "state_path": "automation/quran-reflections-state.json",
       "artifact_root": "automation/quran-reflections/",
-      "primary_automation_id": "6ad7006c273481919e068147bdc00b05",
+      "primary_automation_id": "Automation_cacced3948c481918f73ff76b779965d",
       "primary_schedule": "hourly coordinator; daily start at or after 17:00 Asia/Dubai",
       "recovery_enabled": true,
       "priority": 1,
