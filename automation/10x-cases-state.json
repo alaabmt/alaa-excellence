@@ -7,9 +7,9 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-25T14:07:19.416Z",
+  "updated_at": "2026-11-25T14:09:26.616Z",
   "workflow_status": "in_progress",
-  "current_stage": "company_insider_critique",
+  "current_stage": "bilingual_parity",
   "run_lease": {
     "owner": "work-central-resume-20261125T1401Z",
     "acquired_at": "2026-11-25T14:04:06Z",
@@ -26,13 +26,19 @@
     },
     "arabic_draft": {
       "path": "automation/10x-cases/case-copenhagen-heat-flexibility/draft-ar.md",
-      "commit": "d66f900baede01f6d76be6ce5aafb51328ccd4b2"
+      "commit": "d66f900baede01f6d76be6ce5aafb51328ccd4b2",
+      "status": "revised_after_critique"
     },
     "english_draft": {
       "path": "automation/10x-cases/case-copenhagen-heat-flexibility/draft-en.md",
-      "commit": "dc0be7b0490e02204aed101cd313a819a8c0b9a9"
+      "commit": "dc0be7b0490e02204aed101cd313a819a8c0b9a9",
+      "status": "revised_after_critique"
     },
-    "checkpoint_reconciliation_path": "automation/10x-cases/case-copenhagen-heat-flexibility/checkpoint-reconciliation.md"
+    "checkpoint_reconciliation_path": "automation/10x-cases/case-copenhagen-heat-flexibility/checkpoint-reconciliation.md",
+    "company_insider_critique": {
+      "status": "completed_with_corrections_pending_recheck",
+      "path": "automation/10x-cases/case-copenhagen-heat-flexibility/company-insider-critique.md"
+    }
   },
   "stage_order": [
     "capability_check",
@@ -73,12 +79,12 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Resume Copenhagen drafts, verify evidence and reconcile Japan, complete critique, bilingual parity, actual mobile quality gate, repository publication, Actions and live verification. Do not start another case before resolving this item. Preserve scheduled task.",
+  "next_action": "Run independent post-correction bilingual and clarity review of the revised Copenhagen drafts; prepare executive snapshots and final unpublished HTML/audio/social assets, then verify all mandatory technical/mobile gates before publishing. Reconcile Japan live status. Do not repeat research or create another case.",
   "last_run": {
     "mode": "coordinator_resume",
     "started_at": "2026-11-25T14:04:06Z",
     "status": "in_progress",
-    "last_checkpoint": "load_checkpoint",
+    "last_checkpoint": "company_insider_critique",
     "notes": "Reconciled stale Brazil completion markers against Copenhagen artifacts; neither publication nor QA inherited."
   },
   "last_completed_item": {
@@ -228,7 +234,8 @@
     "candidate_scan",
     "evidence_pack",
     "backcasting_and_10x_analysis",
-    "arabic_draft"
+    "arabic_draft",
+    "company_insider_critique"
   ],
   "blocker": null,
   "pending_tts": [

@@ -9,3 +9,6 @@ Date: 2026-11-25. Candidate only, not publication approval.
 Future: align heat use with available supply without degrading service. Work backwards to building controls, consent, aggregation, dispatch and measurement. Evidence supports strategic direction, value reframing, cooperation, capabilities, trial, predictive intelligence and reported results. Business model change is exploratory, not a proven tariff model.
 ## Next gate
 Independent academic evidence search, bilingual drafting, critique, full editorial and mobile tests; no publication yet.
+
+## Verification and critique update — 2026-11-25
+Original PDF page 24 downloaded and read locally; figures confirmed with participant-report caveats. DTU publication record opened: https://orbit.dtu.dk/en/publications/evaluation-of-energy-flexibility-of-low-energy-residential-buildi/ . Council decision and Climate KIC sources (references 5 and 6 in drafts) establish planned scope, governance and implementation constraints. 1000-building ambition and 150 closing participants must not be treated as comparable denominators without further evidence. Source limits and corrections recorded in company-insider-critique.md.
