@@ -7,13 +7,13 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-25T14:09:26.616Z",
+  "updated_at": "2026-11-25T20:05:07.000Z",
   "workflow_status": "in_progress",
   "current_stage": "bilingual_parity",
   "run_lease": {
-    "owner": "work-central-resume-20261125T1401Z",
-    "acquired_at": "2026-11-25T14:04:06Z",
-    "expires_at": "2026-11-25T15:54:06.000Z"
+    "owner": "work-central-resume-20261125T2005Z",
+    "acquired_at": "2026-11-25T20:05:07.000Z",
+    "expires_at": "2026-11-25T21:55:07.000Z"
   },
   "current_item": {
     "slug": "case-copenhagen-heat-flexibility",
@@ -82,10 +82,9 @@
   "next_action": "Run independent post-correction bilingual and clarity review of the revised Copenhagen drafts; prepare executive snapshots and final unpublished HTML/audio/social assets, then verify all mandatory technical/mobile gates before publishing. Reconcile Japan live status. Do not repeat research or create another case.",
   "last_run": {
     "mode": "coordinator_resume",
-    "started_at": "2026-11-25T14:04:06Z",
+    "started_at": "2026-11-25T20:05:07.000Z",
     "status": "in_progress",
-    "last_checkpoint": "company_insider_critique",
-    "notes": "Reconciled stale Brazil completion markers against Copenhagen artifacts; neither publication nor QA inherited."
+    "last_checkpoint": "company_insider_critique"
   },
   "last_completed_item": {
     "slug": "case-brazil-family-health-strategy-community-primary-care",
@@ -226,7 +225,7 @@
       "status": "partial_blocked_tts"
     }
   },
-  "run_date": "2026-11-25",
+  "run_date": "2026-11-26",
   "completed_stages": [
     "capability_check",
     "load_checkpoint",
