@@ -7,10 +7,14 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-26T02:05:54.978Z",
-  "workflow_status": "retry_waiting",
+  "updated_at": "2026-11-26T02:44:19.506Z",
+  "workflow_status": "in_progress",
   "current_stage": "final_quality_gate",
-  "run_lease": null,
+  "run_lease": {
+    "owner": "owner-directed-publication-20261126",
+    "acquired_at": "2026-11-26T02:44:19.506Z",
+    "expires_at": "2026-11-26T04:34:19.506Z"
+  },
   "current_item": {
     "slug": "case-copenhagen-heat-flexibility",
     "publication_date": "2026-11-25",
@@ -378,5 +382,10 @@
       "completed_at": "2026-11-13T07:33:00+04:00"
     },
     "content_cycle_resolution": "completed_under_documented_environment_exception_audio_not_verified"
+  },
+  "owner_publication_override": {
+    "date": "2026-11-26",
+    "instruction": "نشرها الآنولا تنتظر",
+    "scope": "Publish current bilingual Copenhagen content immediately despite previously disclosed pending audio, social cards and mobile/runtime gates. Do not label unperformed tests PASS."
   }
 }
