@@ -9,3 +9,7 @@ Scope: Tamayuz 10X cases, ChatGPT Chat only. Do not open Work, use a cloud brows
 5. For a permitted content-first exception, retain actual audio/mobile/runtime and raster cover verification separately; provide working, clearly provisional original assets where possible and register the original background in the established story-card manifest. Existing Actions may regenerate JPGs. Do not modify unrelated cases or weaken gates to make global CI green. Record all pending checks.
 6. Verify the public Arabic/English URLs, index and final deployed SHA. Check Actions using repository API, not a previous green run. Record direct evidence, distinguish main committed from live verified, and release only your own lease. If unavailable, set reconciling and preserve next_action. Daily job resumes from that state without repeating publication.
 7. Review this playbook after incidents; update from verified evidence, not assumptions. This is a repository runbook, not a claim that a model has retrained.
+
+## Preflight lessons from Copenhagen
+
+For English routes, explicitly reject all Arabic-only runtime scripts listed by `scripts/enforce_language_runtime_isolation.py` before publication. The shared `site-engagement.js` already selects English speech by page language; keep the Arabic pronunciation layer on Arabic routes only. Check language isolation before opening CI, and correct only the affected page if a gate reports an exact error. Treat a Pages cancellation after a sitemap bot commit as a superseded run: inspect the descendant head and its new deployment.
