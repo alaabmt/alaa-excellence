@@ -154,6 +154,20 @@
         }
       ],
       "live_check": "Direct public pages inaccessible to web tool; cached indexes predate release. Pages success confirmed for corrected content head a3b540e2bd85b6a745e48ca8c2acbbc309e94f02. Exact latest asset deployment and direct public verification pending."
+    },
+    "video": {
+      "status": "official_related_video_link_added_embedding_pending_verification",
+      "video_id": "7cM9MpW2Vy0",
+      "watch_url": "https://www.youtube.com/watch?v=7cM9MpW2Vy0",
+      "publisher": "Danfoss Climate Solutions",
+      "date": "2023-10-25",
+      "scope": "technology explainer, not independent case evidence",
+      "review_path": "automation/10x-cases/case-copenhagen-heat-flexibility/video-review.md",
+      "thumbnail": "NOT VERIFIED",
+      "playback": "NOT VERIFIED",
+      "embeddability": "NOT VERIFIED",
+      "placement": "after 10X question before editorial disclaimer",
+      "next_action": "Verify direct live pages, thumbnail and playback; add iframe only once embedding is positively verified. Do not duplicate section."
     }
   },
   "stage_order": [
