@@ -1,0 +1,11 @@
+# Chat publication recovery — owner-directed operational skill
+
+Scope: Tamayuz 10X cases, ChatGPT Chat only. Do not open Work, use a cloud browser, or add a parallel scheduled workflow.
+
+1. Read AGENTS.md, master manual, workflow prompt, registry and state. Verify the exact main ref, repository permission and previous stage artifacts. Read live URLs and indexes; inaccessible is not evidence of absence.
+2. An unexpired lease is not proof of a living worker. Never silently clear it. Verify the last state commit and available run status. For an explicit owner-authorized takeover, preserve the former lease in an audit entry, record the authorization, and use the exact state blob SHA (compare-and-swap). The displaced worker must re-read ownership and stop. Never force-push main. If ownership cannot be reconciled, stop and report.
+3. Reuse reviewed research and bilingual drafts. Check both intended routes, both index entries, date registry and sitemap. Preserve unknown/failed gates; only the owner may approve a scoped exception. No inferred exceptions for other articles.
+4. Assemble bilingual routes, links, metadata, dates, indexes, sitemap and assets in a single Git tree. Re-read main and lease before advancing main with a non-forced ref update and expected parent SHA. If rejected or uncertain, reconcile target files and current ref before retrying. Never repeat publication blindly.
+5. For a permitted content-first exception, retain actual audio/mobile/runtime and raster cover verification separately; provide working, clearly provisional original assets where possible and register the original background in the established story-card manifest. Existing Actions may regenerate JPGs. Do not modify unrelated cases or weaken gates to make global CI green. Record all pending checks.
+6. Verify the public Arabic/English URLs, index and final deployed SHA. Check Actions using repository API, not a previous green run. Record direct evidence, distinguish main committed from live verified, and release only your own lease. If unavailable, set reconciling and preserve next_action. Daily job resumes from that state without repeating publication.
+7. Review this playbook after incidents; update from verified evidence, not assumptions. This is a repository runbook, not a claim that a model has retrained.

@@ -4,7 +4,7 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-25",
+  "updated_at": "2026-11-26",
   "coordinator": {
     "automation_id": "Automation_cacced3948c481918f73ff76b779965d",
     "title": "استئناف مهام التميّز 10X",
@@ -28,8 +28,8 @@
       "title": "إنشاء ونشر حالات التميّز 10X",
       "state_path": "automation/10x-cases-state.json",
       "artifact_root": "automation/10x-cases/",
-      "primary_automation_id": "6a9e7dc6a760819184c17d82463be4a5",
-      "primary_schedule": "daily 07:30 Asia/Dubai",
+      "primary_automation_id": "6b079e0cb3e88191a576ae1e1bcfd9a0",
+      "primary_schedule": "daily 08:00 Asia/Dubai; Chat only",
       "recovery_enabled": true,
       "priority": 2,
       "prompt_path": "automation/prompts/10x-cases.md"
