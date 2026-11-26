@@ -7,14 +7,10 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-26T02:04:19.000Z",
-  "workflow_status": "in_progress",
+  "updated_at": "2026-11-26T02:05:54.978Z",
+  "workflow_status": "retry_waiting",
   "current_stage": "final_quality_gate",
-  "run_lease": {
-    "owner": "central-resume-20261126T0602Dubai",
-    "acquired_at": "2026-11-26T02:04:19.000Z",
-    "expires_at": "2026-11-26T03:54:19.000Z"
-  },
+  "run_lease": null,
   "current_item": {
     "slug": "case-copenhagen-heat-flexibility",
     "publication_date": "2026-11-25",
@@ -57,12 +53,17 @@
       "pending": [
         "vocalized_audio_layer",
         "original_social_covers",
-        "shared_site_components",
+        "shared_component_runtime_verification",
         "actual_mobile_visual_qa",
-        "final_metadata_dates_and_breadcrumb",
+        "final_social_metadata_and_release_date",
         "final_quality_gate"
       ],
-      "validation_path": "automation/10x-cases/case-copenhagen-heat-flexibility/html-assembly-review.md"
+      "validation_path": "automation/10x-cases/case-copenhagen-heat-flexibility/html-assembly-review.md",
+      "shared_components": {
+        "status": "integrated_static_checks_passed_runtime_not_verified",
+        "review_path": "automation/10x-cases/case-copenhagen-heat-flexibility/component-integration-review.md",
+        "engagement_blob": "1cc5e69309f6fbe22c78f6dac0dd208b8e20c4aa"
+      }
     }
   },
   "stage_order": [
@@ -104,12 +105,14 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Complete the saved Copenhagen HTML assemblies with reviewed vocalized audio, original bilingual social covers and shared site components; verify actual mobile/RTL/LTR and all final gates. Keep previews unpublished and assign datePublished only at actual release. Recheck duplicates before publishing. Do not repeat research, body review, snapshots or Japan reconciliation.",
+  "next_action": "Prepare and review Copenhagen vocalized Arabic audio for the saved HTML segments and original bilingual covers; then verify shared components, actual mobile/RTL/LTR and remaining final gates through a reachable supported preview. Retain unpublished .html.txt artifacts until all gates pass, set actual release date only at publication, and recheck duplicates. Do not repeat completed research, body/snapshot reviews, assembly or Japan reconciliation.",
   "last_run": {
     "mode": "coordinator_resume",
     "started_at": "2026-11-26T02:04:19.000Z",
-    "status": "in_progress",
-    "last_checkpoint": "html_assembly_reconciled"
+    "status": "retry_waiting",
+    "last_checkpoint": "shared_components_static_integration",
+    "completed_at": "2026-11-26T02:05:54.978Z",
+    "notes": "Advanced offline component and metadata integration while previously documented preview connectivity remains unresolved. No new browser retry or runtime success claimed; no publication."
   },
   "last_completed_item": {
     "slug": "case-brazil-family-health-strategy-community-primary-care",
