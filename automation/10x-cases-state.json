@@ -7,14 +7,10 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-26T03:10:00Z",
+  "updated_at": "2026-11-26T03:12:00Z",
   "workflow_status": "reconciling",
-  "current_stage": "actions_and_pages",
-  "run_lease": {
-    "owner": "chat-owner-authorized-recovery-20261126",
-    "acquired_at": "2026-11-26T03:08:00Z",
-    "expires_at": "2026-11-26T04:58:00Z"
-  },
+  "current_stage": "live_verification",
+  "run_lease": null,
   "current_item": {
     "slug": "case-copenhagen-heat-flexibility",
     "publication_date": "2026-11-26",
@@ -70,7 +66,7 @@
       }
     },
     "publishing": {
-      "status": "atomic_publication_prepared_pending_reconciliation",
+      "status": "repository_committed_pages_success_at_corrected_content_head_live_check_pending",
       "arabic_path": "case-copenhagen-heat-flexibility.html",
       "english_path": "en/case-copenhagen-heat-flexibility.html",
       "arabic_url": "https://tamayuz10x.com/case-copenhagen-heat-flexibility.html",
@@ -90,7 +86,74 @@
         "final raster social cards and visual review",
         "actual mobile/RTL/LTR/runtime QA",
         "reviewed vocalized Arabic audio and actual TTS"
-      ]
+      ],
+      "content_commit": "d0a6c82f6f5e91dc6a5f4d4a8760fa091368b8db",
+      "language_isolation_fix": "a3b540e2bd85b6a745e48ca8c2acbbc309e94f02",
+      "cover_pipeline_dependency_fix": "bab24d462b735e27cae50f50170b616373621fd6",
+      "last_observed_main": "e6d8ba40ab91a1120d6e225969acfe2716a55ddb",
+      "page_blobs": {
+        "ar": "b79178579e46115fd498af8c78dacbcc7dd3b329",
+        "en": "6ff259319596d8749ac3f0ea2c779f35e00a2ef1"
+      },
+      "checks": [
+        {
+          "name": "pages build and deployment",
+          "run_id": 45747267481,
+          "head": "a3b540e2bd85b6a745e48ca8c2acbbc309e94f02",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/45747267481"
+        },
+        {
+          "name": "Generate social share cards",
+          "run_id": 45747371961,
+          "head": "bab24d462b735e27cae50f50170b616373621fd6",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/45747371961"
+        },
+        {
+          "name": "Arabic editorial gate",
+          "run_id": 45747372025,
+          "head": "bab24d462b735e27cae50f50170b616373621fd6",
+          "status": "in_progress",
+          "conclusion": null,
+          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/45747372025"
+        },
+        {
+          "name": "Site health QA",
+          "run_id": 45747371973,
+          "head": "bab24d462b735e27cae50f50170b616373621fd6",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/45747371973"
+        },
+        {
+          "name": "Article date integrity",
+          "run_id": 45747372018,
+          "head": "bab24d462b735e27cae50f50170b616373621fd6",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/45747372018"
+        },
+        {
+          "name": "Maintain sitemap and crawlability",
+          "run_id": 45747372065,
+          "head": "bab24d462b735e27cae50f50170b616373621fd6",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/45747372065"
+        },
+        {
+          "name": "pages build and deployment",
+          "run_id": 45747397658,
+          "head": "0220e88fee6f78e61f0ea08c8374f05dd149e90a",
+          "status": "completed",
+          "conclusion": "cancelled",
+          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/45747397658"
+        }
+      ],
+      "live_check": "Direct public pages inaccessible to web tool; cached indexes predate release. Pages success confirmed for corrected content head a3b540e2bd85b6a745e48ca8c2acbbc309e94f02. Exact latest asset deployment and direct public verification pending."
     }
   },
   "stage_order": [
@@ -132,14 +195,12 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Reconcile the atomic Copenhagen release on main, verify Actions and Pages final deployed head and both live article/index URLs; do not republish. Check generated JPGs and retain pending audio/mobile/runtime verification separately under explicit owner exception. Verify actual publication date. Release only your own lease.",
+  "next_action": "Do not recreate Copenhagen pages or publish another copy. Reconcile latest main and Actions, including social JPG generator, Arabic editorial gate, exact final Pages deployment and direct live Arabic and English URLs/indexes. Verify audio, mobile, raster cover visual tests; preserve explicit owner exception for this case only. Once live verification is established, close content cycle and record residual technical checks separately; then daily schedule may start next eligible case.",
   "last_run": {
-    "mode": "coordinator_resume",
-    "started_at": "2026-11-26T02:04:19.000Z",
-    "status": "retry_waiting",
-    "last_checkpoint": "shared_components_static_integration",
-    "completed_at": "2026-11-26T02:05:54.978Z",
-    "notes": "Advanced offline component and metadata integration while previously documented preview connectivity remains unresolved. No new browser retry or runtime success claimed; no publication."
+    "mode": "owner_authorized_chat_recovery",
+    "status": "reconciling",
+    "last_checkpoint": "repository_publish",
+    "notes": "Published both reviewed content routes to main in one commit, fixed English runtime, repaired the Japan legacy cover dependency. Verified Pages success for corrected content head. No direct live or final raster/mobile/audio pass claimed."
   },
   "last_completed_item": {
     "slug": "case-brazil-family-health-strategy-community-primary-care",
@@ -294,9 +355,9 @@
     "bilingual_parity"
   ],
   "blocker": {
-    "type": "pending_verification",
-    "detail": "Owner-authorized content release; pending runtime, mobile, vocalized audio, raster covers and live deployment verification.",
-    "retry_action": "Reconcile the atomic Copenhagen release on main, verify Actions and Pages final deployed head and both live article/index URLs; do not republish. Check generated JPGs and retain pending audio/mobile/runtime verification separately under explicit owner exception. Verify actual publication date. Release only your own lease."
+    "type": "pending_final_live_verification",
+    "detail": "Direct public pages inaccessible to web tool; cached indexes predate release. Pages success confirmed for corrected content head a3b540e2bd85b6a745e48ca8c2acbbc309e94f02. Exact latest asset deployment and direct public verification pending.",
+    "retry_action": "Do not recreate Copenhagen pages or publish another copy. Reconcile latest main and Actions, including social JPG generator, Arabic editorial gate, exact final Pages deployment and direct live Arabic and English URLs/indexes. Verify audio, mobile, raster cover visual tests; preserve explicit owner exception for this case only. Once live verification is established, close content cycle and record residual technical checks separately; then daily schedule may start next eligible case."
   },
   "pending_tts": [
     {
@@ -419,7 +480,13 @@
     },
     "owner_authorization": "26 Nov 2026: حل المشكلة وتجاوز القفل",
     "reason": "Owner explicitly authorized controlled takeover; main unchanged since 02:44:25Z, no public article or index entry found. Previous runner must abort on changed state; no forced Git ref.",
-    "at": "2026-11-26T03:08:00Z"
+    "at": "2026-11-26T03:08:00Z",
+    "released_lease": {
+      "owner": "chat-owner-authorized-recovery-20261126",
+      "acquired_at": "2026-11-26T03:08:00Z",
+      "expires_at": "2026-11-26T04:58:00Z"
+    },
+    "released_at": "2026-11-26T03:12:00Z"
   },
   "recovery_playbook": "automation/chat-publication-recovery-playbook.md"
 }

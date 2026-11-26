@@ -13,3 +13,7 @@ Scope: Tamayuz 10X cases, ChatGPT Chat only. Do not open Work, use a cloud brows
 ## Preflight lessons from Copenhagen
 
 For English routes, explicitly reject all Arabic-only runtime scripts listed by `scripts/enforce_language_runtime_isolation.py` before publication. The shared `site-engagement.js` already selects English speech by page language; keep the Arabic pronunciation layer on Arabic routes only. Check language isolation before opening CI, and correct only the affected page if a gate reports an exact error. Treat a Pages cancellation after a sitemap bot commit as a superseded run: inspect the descendant head and its new deployment.
+
+## Shared cover dependency lesson
+
+If the existing social-card job renders all assets successfully but its global gate fails on another legacy article, inspect the exact failure log and determine whether a targeted repair is within the authorized scope. For the Japan legacy case, the manifest entry and original background were missing; adding those and wrapping its existing cover in the supported figure preserves article prose/date while allowing the established generator to replace legacy SVG references. Do not weaken the global gate or create a temporary workflow. Record Pages status at each observed head and never mark live verification complete based on a stale cached page.
