@@ -2597,6 +2597,27 @@
         "subtitle": "Shifting heating demand in Copenhagen",
         "alt": "Original illustration of buildings connected to a district heating network in Copenhagen"
       }
+    },
+    {
+      "slug": "case-japan-shinkansen-safety-system",
+      "background": "assets/previews/story-backgrounds/case-japan-shinkansen-safety-system.png",
+      "category": "case",
+      "ar": {
+        "title": [
+          "سلامة الشينكانسن",
+          "حين يُصمَّم النظام للوقاية"
+        ],
+        "subtitle": "الإنذار المبكر والتحكم والحواجز الهندسية",
+        "alt": "رسم توضيحي أصلي لقطار ياباني فائق السرعة على مساره"
+      },
+      "en": {
+        "title": [
+          "Shinkansen",
+          "Safety by Design"
+        ],
+        "subtitle": "Early warnings, controls and physical safeguards",
+        "alt": "Original illustration of a Japanese high-speed train on railway tracks"
+      }
     }
   ]
 }
