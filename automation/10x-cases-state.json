@@ -7,14 +7,10 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-26T01:04:35.000Z",
-  "workflow_status": "reconciling",
+  "updated_at": "2026-11-26T01:06:04.437Z",
+  "workflow_status": "retry_waiting",
   "current_stage": "final_quality_gate",
-  "run_lease": {
-    "owner": "central-resume-20261126T0502Dubai",
-    "acquired_at": "2026-11-26T01:04:35.000Z",
-    "expires_at": "2026-11-26T02:54:35.000Z"
-  },
+  "run_lease": null,
   "current_item": {
     "slug": "case-copenhagen-heat-flexibility",
     "publication_date": "2026-11-25",
@@ -61,7 +57,8 @@
         "actual_mobile_visual_qa",
         "final_metadata_dates_and_breadcrumb",
         "final_quality_gate"
-      ]
+      ],
+      "validation_path": "automation/10x-cases/case-copenhagen-heat-flexibility/html-assembly-review.md"
     }
   },
   "stage_order": [
@@ -107,8 +104,10 @@
   "last_run": {
     "mode": "coordinator_resume",
     "started_at": "2026-11-26T01:04:35.000Z",
-    "status": "reconciling",
-    "last_checkpoint": "unpublished_html_assembly"
+    "status": "retry_waiting",
+    "last_checkpoint": "html_assembly_reconciled",
+    "completed_at": "2026-11-26T01:06:04.437Z",
+    "notes": "Confirmed saved AR/EN assembly blobs, recreated missing structural review report, preserved next_action and released lease. No publication."
   },
   "last_completed_item": {
     "slug": "case-brazil-family-health-strategy-community-primary-care",
@@ -264,8 +263,8 @@
   ],
   "blocker": {
     "type": "temporary_preview_connectivity",
-    "detail": "Local preview returned net::ERR_CONNECTION_REFUSED in the managed browser after server startup. Same-process server probe succeeded but cross-call preview remained inaccessible. Mandatory actual mobile gate remains NOT VERIFIED. No current usage-limit or approval rejection observed.",
-    "retry_action": "Retry supported preview connectivity on next pulse; assemble remaining unpublished HTML/audio/social assets and complete actual mobile gate before publishing."
+    "detail": "Fresh managed-browser preview at port 8773 returned net::ERR_CONNECTION_REFUSED after server startup. Actual mobile/visual gate remains NOT VERIFIED.",
+    "retry_action": "Continue remaining offline assets and retry a supported reachable preview endpoint before any publication."
   },
   "pending_tts": [
     {
