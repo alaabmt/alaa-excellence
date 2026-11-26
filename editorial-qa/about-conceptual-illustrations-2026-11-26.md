@@ -1,0 +1,3 @@
+# Conceptual illustration correction — 26 November 2026
+Earlier implementation used stacked HTML boxes rather than the graphical previews. Replaced three existing figure bodies in each language with inline SVG vector illustrations: branching governance network, integrated specialty institute transformation, and icon-led documentation pathway.
+Preserved figure titles/captions, all other approved text, claims, metrics, links, CSS, metadata, and runtime functionality. New CSS only scopes SVG sizing. Static preservation comparison passed; each page contains three SVGs with six unique accessibility IDs. Conceptual only; no new quantitative or causal claim. Actual public rendering and deployment not verified at commit time.
