@@ -35,3 +35,7 @@ For security, authentication, Supabase, Cloudflare, admin/account, GitHub Action
 ## Owner name — fixed spelling
 
 The owner's English name is always **Dr. Alaa Mohammad Ahmed** (with "Mohammad", never "Mohamed"), in page text, author metas, JSON-LD, bylines, card signatures and reviewer instructions. This is the owner's standing decision (17 Nov 2026). If any page, standard or agent file says "Mohamed" for the owner, correct it to "Mohammad". Do not change other people's names (for example, co-authors).
+
+## Mandatory English editorial and terminology gate — all English pages
+
+Read and apply `10X_ENGLISH_EDITORIAL_TRANSLATION_AND_HUMAN_STYLE_STANDARD.md` and `10X_ENGLISH_TERMINOLOGY_REGISTER.md` before drafting, revising, reviewing or publishing any English page or interface text, not only executive summaries. The canonical English framework name is **The Eight Pillars of Tamayuz 10X**; retain the eight official Arabic pillars and their order from the master manual. Verify scientific and management terminology against authoritative sources; distinguish branded house terms from external scientific terms, preserve verified names and quotations, and use original American English. Record meaning, naturalness, terminology, bilingual parity and actual technical verification separately. A static check does not prove live publication. The owner's current Google Drive standard is the reference; reconcile the repository copy when updated.
