@@ -7,14 +7,10 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-26T03:44:05.672Z",
+  "updated_at": "2026-11-26T03:47:38.496Z",
   "workflow_status": "reconciling",
   "current_stage": "live_verification",
-  "run_lease": {
-    "owner": "chat-copenhagen-editorial-rebuild-20261126",
-    "acquired_at": "2026-11-26T03:44:05.672Z",
-    "expires_at": "2026-11-26T05:34:05.672Z"
-  },
+  "run_lease": null,
   "current_item": {
     "slug": "case-copenhagen-heat-flexibility",
     "publication_date": "2026-11-26",
@@ -172,6 +168,24 @@
       "embeddability": "NOT VERIFIED",
       "placement": "after 10X question before editorial disclaimer",
       "next_action": "Verify direct live pages, thumbnail and playback; add iframe only once embedding is positively verified. Do not duplicate section."
+    },
+    "editorial_rebuild": {
+      "status": "revised_content_pending_live_verification",
+      "date": "2026-11-26",
+      "report_path": "automation/10x-cases/case-copenhagen-heat-flexibility/editorial-rebuild-review.md",
+      "arabic_draft": "automation/10x-cases/case-copenhagen-heat-flexibility/editorial-rebuild-ar.html.txt",
+      "english_draft": "automation/10x-cases/case-copenhagen-heat-flexibility/editorial-rebuild-en.html.txt",
+      "base_head": "69c58c5b3d34f22b7b87fa9e7ba2579b420765e8",
+      "text_review": "passed_against_saved_evidence",
+      "mobile": "NOT VERIFIED",
+      "audio": "NOT VERIFIED",
+      "video_playback": "NOT VERIFIED",
+      "previous_page_blobs": {
+        "ar": "d3e55dceba4f298e3f9211e8eed5702446c3e4b1",
+        "en": "fb70edc0e555bc522a46677cb80115a0b520757d"
+      },
+      "title_ar": "كيف اختبرت كوبنهاغن تخزين الحرارة في المباني لتخفيف الطلب وقت الذروة؟",
+      "title_en": "How Copenhagen Tested Buildings as Heat Stores to Ease Peak Heating Demand"
     }
   },
   "stage_order": [
@@ -213,7 +227,7 @@
     "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
     "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
   },
-  "next_action": "Do not recreate Copenhagen pages or publish another copy. Reconcile latest main and Actions, including social JPG generator, Arabic editorial gate, exact final Pages deployment and direct live Arabic and English URLs/indexes. Verify audio, mobile, raster cover visual tests; preserve explicit owner exception for this case only. Once live verification is established, close content cycle and record residual technical checks separately; then daily schedule may start next eligible case.",
+  "next_action": "Reconcile the latest existing Copenhagen bilingual editorial rebuild without recreating or republishing. Verify exact final main Actions/Pages, both public URLs, indexes, title metadata, actual mobile/RTL/LTR, reviewed Arabic audio and video thumbnail/playback; keep the case-specific owner exception only and document all remaining unverified checks. Close content cycle only when live verification established. Preserve original publication date and prevent duplicate publication.",
   "last_run": {
     "mode": "owner_authorized_chat_recovery",
     "status": "reconciling",
@@ -374,8 +388,8 @@
   ],
   "blocker": {
     "type": "pending_final_live_verification",
-    "detail": "Direct public pages inaccessible to web tool; cached indexes predate release. Pages success confirmed for corrected content head a3b540e2bd85b6a745e48ca8c2acbbc309e94f02. Exact latest asset deployment and direct public verification pending.",
-    "retry_action": "Do not recreate Copenhagen pages or publish another copy. Reconcile latest main and Actions, including social JPG generator, Arabic editorial gate, exact final Pages deployment and direct live Arabic and English URLs/indexes. Verify audio, mobile, raster cover visual tests; preserve explicit owner exception for this case only. Once live verification is established, close content cycle and record residual technical checks separately; then daily schedule may start next eligible case."
+    "detail": "Full editorial rebuild requested by owner; static checks passed against saved evidence, mobile/audio/video/live tests not verified.",
+    "retry_action": "Reconcile the latest existing Copenhagen bilingual editorial rebuild without recreating or republishing. Verify exact final main Actions/Pages, both public URLs, indexes, title metadata, actual mobile/RTL/LTR, reviewed Arabic audio and video thumbnail/playback; keep the case-specific owner exception only and document all remaining unverified checks. Close content cycle only when live verification established. Preserve original publication date and prevent duplicate publication."
   },
   "pending_tts": [
     {
