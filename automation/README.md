@@ -27,3 +27,7 @@ Resume only from a completed stage boundary. If an external write may have succe
 Primary schedules start cycles. The coordinator resumes incomplete work only, except that it also starts the daily Qur'anic reflection at or after 17:00 Asia/Dubai. A new cycle requires the previous one to be `completed` or explicitly `blocked`, plus the workflow's cadence and duplicate checks.
 
 Publication completes only after final commit, checks, GitHub Pages, live pages, indexes and bilingual counterparts are verified. Monitoring and document workflows complete when their dated artifacts exist and delivery is recorded.
+
+## Chat publication recovery
+
+For owner-authorized 10X case publication from ordinary Chat, apply [Chat publication recovery playbook](chat-publication-recovery-playbook.md). It documents fenced lease takeover, atomic publication, reconciliation, and truthful reporting of pending tests. It does not change other workflows' schedules or authorize bypassing quality gates.

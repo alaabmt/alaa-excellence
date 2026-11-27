@@ -7,11 +7,234 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-13T07:33:00+04:00",
-  "workflow_status": "blocked",
+  "updated_at": "2026-11-26T03:47:38.496Z",
+  "workflow_status": "reconciling",
   "current_stage": "live_verification",
   "run_lease": null,
   "current_item": {
+    "slug": "case-copenhagen-heat-flexibility",
+    "publication_date": "2026-11-26",
+    "artifact_root": "automation/10x-cases/case-copenhagen-heat-flexibility/",
+    "candidate_status": "drafted_pending_verification",
+    "evidence_pack": {
+      "path": "automation/10x-cases/case-copenhagen-heat-flexibility/evidence-pack.md",
+      "commit": "deaa1c5aee7a916f2e9c9e6cc3f8430d010bc995"
+    },
+    "arabic_draft": {
+      "path": "automation/10x-cases/case-copenhagen-heat-flexibility/draft-ar.md",
+      "commit": "d66f900baede01f6d76be6ce5aafb51328ccd4b2",
+      "status": "revised_after_critique"
+    },
+    "english_draft": {
+      "path": "automation/10x-cases/case-copenhagen-heat-flexibility/draft-en.md",
+      "commit": "dc0be7b0490e02204aed101cd313a819a8c0b9a9",
+      "status": "revised_after_critique"
+    },
+    "checkpoint_reconciliation_path": "automation/10x-cases/case-copenhagen-heat-flexibility/checkpoint-reconciliation.md",
+    "company_insider_critique": {
+      "status": "passed_with_required_text_corrections",
+      "path": "automation/10x-cases/case-copenhagen-heat-flexibility/company-insider-critique.md"
+    },
+    "bilingual_parity": {
+      "status": "body_copy_passed_technical_parity_pending",
+      "path": "automation/10x-cases/case-copenhagen-heat-flexibility/bilingual-parity-review.md"
+    },
+    "executive_snapshots": {
+      "status": "editorial_passed_with_assembly_condition",
+      "arabic_path": "automation/10x-cases/case-copenhagen-heat-flexibility/executive-snapshot-ar.md",
+      "english_path": "automation/10x-cases/case-copenhagen-heat-flexibility/executive-snapshot-en.md",
+      "assembly_condition": "Replace original opening with snapshot; do not repeat the introduction; omit review notes from publication."
+    },
+    "resume_checkpoint_path": "automation/10x-cases/case-copenhagen-heat-flexibility/resume-2026-11-26.md",
+    "html_assembly": {
+      "status": "draft_structure_checked_not_publish_ready",
+      "arabic_path": "automation/10x-cases/case-copenhagen-heat-flexibility/page-ar.preview.html.txt",
+      "english_path": "automation/10x-cases/case-copenhagen-heat-flexibility/page-en.preview.html.txt",
+      "pending": [
+        "vocalized_audio_layer",
+        "original_social_covers",
+        "shared_component_runtime_verification",
+        "actual_mobile_visual_qa",
+        "final_social_metadata_and_release_date",
+        "final_quality_gate"
+      ],
+      "validation_path": "automation/10x-cases/case-copenhagen-heat-flexibility/html-assembly-review.md",
+      "shared_components": {
+        "status": "integrated_static_checks_passed_runtime_not_verified",
+        "review_path": "automation/10x-cases/case-copenhagen-heat-flexibility/component-integration-review.md",
+        "engagement_blob": "1cc5e69309f6fbe22c78f6dac0dd208b8e20c4aa"
+      }
+    },
+    "publishing": {
+      "status": "repository_committed_pages_success_at_corrected_content_head_live_check_pending",
+      "arabic_path": "case-copenhagen-heat-flexibility.html",
+      "english_path": "en/case-copenhagen-heat-flexibility.html",
+      "arabic_url": "https://tamayuz10x.com/case-copenhagen-heat-flexibility.html",
+      "english_url": "https://tamayuz10x.com/en/case-copenhagen-heat-flexibility.html",
+      "publication_date_intended": "2026-11-26",
+      "publication_report": "automation/10x-cases/case-copenhagen-heat-flexibility/chat-publication-recovery.md",
+      "owner_exception": true,
+      "base_head": "ad087316c1951b747a4c1de774fbca7468266a11",
+      "provisional_cover_paths": [
+        "assets/previews/story/case-copenhagen-heat-flexibility-ar.svg",
+        "assets/previews/story/case-copenhagen-heat-flexibility-en.svg"
+      ],
+      "original_background": "assets/previews/story-backgrounds/case-copenhagen-heat-flexibility.png",
+      "pending": [
+        "GitHub Actions and Pages exact deployment",
+        "live bilingual URLs and indexes",
+        "final raster social cards and visual review",
+        "actual mobile/RTL/LTR/runtime QA",
+        "reviewed vocalized Arabic audio and actual TTS"
+      ],
+      "content_commit": "d0a6c82f6f5e91dc6a5f4d4a8760fa091368b8db",
+      "language_isolation_fix": "a3b540e2bd85b6a745e48ca8c2acbbc309e94f02",
+      "cover_pipeline_dependency_fix": "bab24d462b735e27cae50f50170b616373621fd6",
+      "last_observed_main": "e6d8ba40ab91a1120d6e225969acfe2716a55ddb",
+      "page_blobs": {
+        "ar": "b79178579e46115fd498af8c78dacbcc7dd3b329",
+        "en": "6ff259319596d8749ac3f0ea2c779f35e00a2ef1"
+      },
+      "checks": [
+        {
+          "name": "pages build and deployment",
+          "run_id": 45747267481,
+          "head": "a3b540e2bd85b6a745e48ca8c2acbbc309e94f02",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/45747267481"
+        },
+        {
+          "name": "Generate social share cards",
+          "run_id": 45747371961,
+          "head": "bab24d462b735e27cae50f50170b616373621fd6",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/45747371961"
+        },
+        {
+          "name": "Arabic editorial gate",
+          "run_id": 45747372025,
+          "head": "bab24d462b735e27cae50f50170b616373621fd6",
+          "status": "in_progress",
+          "conclusion": null,
+          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/45747372025"
+        },
+        {
+          "name": "Site health QA",
+          "run_id": 45747371973,
+          "head": "bab24d462b735e27cae50f50170b616373621fd6",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/45747371973"
+        },
+        {
+          "name": "Article date integrity",
+          "run_id": 45747372018,
+          "head": "bab24d462b735e27cae50f50170b616373621fd6",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/45747372018"
+        },
+        {
+          "name": "Maintain sitemap and crawlability",
+          "run_id": 45747372065,
+          "head": "bab24d462b735e27cae50f50170b616373621fd6",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/45747372065"
+        },
+        {
+          "name": "pages build and deployment",
+          "run_id": 45747397658,
+          "head": "0220e88fee6f78e61f0ea08c8374f05dd149e90a",
+          "status": "completed",
+          "conclusion": "cancelled",
+          "url": "https://github.com/alaabmt/alaa-excellence/actions/runs/45747397658"
+        }
+      ],
+      "live_check": "Direct public pages inaccessible to web tool; cached indexes predate release. Pages success confirmed for corrected content head a3b540e2bd85b6a745e48ca8c2acbbc309e94f02. Exact latest asset deployment and direct public verification pending."
+    },
+    "video": {
+      "status": "official_related_video_link_added_embedding_pending_verification",
+      "video_id": "7cM9MpW2Vy0",
+      "watch_url": "https://www.youtube.com/watch?v=7cM9MpW2Vy0",
+      "publisher": "Danfoss Climate Solutions",
+      "date": "2023-10-25",
+      "scope": "technology explainer, not independent case evidence",
+      "review_path": "automation/10x-cases/case-copenhagen-heat-flexibility/video-review.md",
+      "thumbnail": "NOT VERIFIED",
+      "playback": "NOT VERIFIED",
+      "embeddability": "NOT VERIFIED",
+      "placement": "after 10X question before editorial disclaimer",
+      "next_action": "Verify direct live pages, thumbnail and playback; add iframe only once embedding is positively verified. Do not duplicate section."
+    },
+    "editorial_rebuild": {
+      "status": "revised_content_pending_live_verification",
+      "date": "2026-11-26",
+      "report_path": "automation/10x-cases/case-copenhagen-heat-flexibility/editorial-rebuild-review.md",
+      "arabic_draft": "automation/10x-cases/case-copenhagen-heat-flexibility/editorial-rebuild-ar.html.txt",
+      "english_draft": "automation/10x-cases/case-copenhagen-heat-flexibility/editorial-rebuild-en.html.txt",
+      "base_head": "69c58c5b3d34f22b7b87fa9e7ba2579b420765e8",
+      "text_review": "passed_against_saved_evidence",
+      "mobile": "NOT VERIFIED",
+      "audio": "NOT VERIFIED",
+      "video_playback": "NOT VERIFIED",
+      "previous_page_blobs": {
+        "ar": "d3e55dceba4f298e3f9211e8eed5702446c3e4b1",
+        "en": "fb70edc0e555bc522a46677cb80115a0b520757d"
+      },
+      "title_ar": "كيف اختبرت كوبنهاغن تخزين الحرارة في المباني لتخفيف الطلب وقت الذروة؟",
+      "title_en": "How Copenhagen Tested Buildings as Heat Stores to Ease Peak Heating Demand"
+    }
+  },
+  "stage_order": [
+    "capability_check",
+    "load_checkpoint",
+    "duplicate_check",
+    "candidate_scan",
+    "evidence_pack",
+    "backcasting_and_10x_analysis",
+    "arabic_draft",
+    "company_insider_critique",
+    "english_draft",
+    "bilingual_parity",
+    "final_quality_gate",
+    "repository_publish",
+    "actions_and_pages",
+    "live_verification",
+    "completion_report",
+    "completed"
+  ],
+  "artifact_policy": {
+    "root": "automation/10x-cases/<slug>/",
+    "files": [
+      "candidate-notes.md",
+      "evidence-pack.md",
+      "draft-ar.md",
+      "draft-en.md",
+      "company-insider-critique.md",
+      "quality-review.md",
+      "publication-report.md"
+    ]
+  },
+  "checkpoint_policy": {
+    "checkpoint_after_every_stage": true,
+    "run_lease_minutes": 110,
+    "concurrency_rule": "Re-read the state before work. Skip while another unexpired run lease exists. Acquire the lease in a committed state update and re-read before every later write.",
+    "interruption_rule": "Resume only from a completed stage boundary. Reconcile pending or uncertain external actions before replaying them.",
+    "usage_limit_rule": "If safe writing remains possible, set retry_waiting, preserve next_action, record the blocker and release the lease. Otherwise leave the last valid checkpoint untouched for the hourly retry.",
+    "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
+    "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
+  },
+  "next_action": "Reconcile the latest existing Copenhagen bilingual editorial rebuild without recreating or republishing. Verify exact final main Actions/Pages, both public URLs, indexes, title metadata, actual mobile/RTL/LTR, reviewed Arabic audio and video thumbnail/playback; keep the case-specific owner exception only and document all remaining unverified checks. Close content cycle only when live verification established. Preserve original publication date and prevent duplicate publication.",
+  "last_run": {
+    "mode": "owner_authorized_chat_recovery",
+    "status": "reconciling",
+    "last_checkpoint": "repository_publish",
+    "notes": "Published both reviewed content routes to main in one commit, fixed English runtime, repaired the Japan legacy cover dependency. Verified Pages success for corrected content head. No direct live or final raster/mobile/audio pass claimed."
+  },
+  "last_completed_item": {
     "slug": "case-brazil-family-health-strategy-community-primary-care",
     "publication_date": "2026-11-12",
     "title_working_ar": "كيف نقلت البرازيل الرعاية الأولية من انتظار المريض إلى فرق مسؤولة عن الأحياء؟",
@@ -150,118 +373,7 @@
       "status": "partial_blocked_tts"
     }
   },
-  "stage_order": [
-    "capability_check",
-    "load_checkpoint",
-    "duplicate_check",
-    "candidate_scan",
-    "evidence_pack",
-    "backcasting_and_10x_analysis",
-    "arabic_draft",
-    "company_insider_critique",
-    "english_draft",
-    "bilingual_parity",
-    "final_quality_gate",
-    "repository_publish",
-    "actions_and_pages",
-    "live_verification",
-    "completion_report",
-    "completed"
-  ],
-  "artifact_policy": {
-    "root": "automation/10x-cases/<slug>/",
-    "files": [
-      "candidate-notes.md",
-      "evidence-pack.md",
-      "draft-ar.md",
-      "draft-en.md",
-      "company-insider-critique.md",
-      "quality-review.md",
-      "publication-report.md"
-    ]
-  },
-  "checkpoint_policy": {
-    "checkpoint_after_every_stage": true,
-    "run_lease_minutes": 110,
-    "concurrency_rule": "Re-read the state before work. Skip while another unexpired run lease exists. Acquire the lease in a committed state update and re-read before every later write.",
-    "interruption_rule": "Resume only from a completed stage boundary. Reconcile pending or uncertain external actions before replaying them.",
-    "usage_limit_rule": "If safe writing remains possible, set retry_waiting, preserve next_action, record the blocker and release the lease. Otherwise leave the last valid checkpoint untouched for the hourly retry.",
-    "duplicate_rule": "Check the checkpoint, repository records, intended artifacts and live destination before publication or delivery.",
-    "routine_approval": "Continue without routine editorial approval when authorized; stop for confirmations required by the platform."
-  },
-  "next_action": "Run actual Arabic and English TTS playback in a browser/device with Web Speech speechSynthesis and audible voices; verify start-from-H1, synchronized highlighting and floating controls. If it passes, checkpoint live_verification and complete. Alternatively, the owner must explicitly approve the documented technical exception allowed by the TTS standard.",
-  "last_run": {
-    "mode": "primary_scheduled_resume",
-    "status": "blocked",
-    "started_at": "2026-11-13T07:26:41+04:00",
-    "starting_head": null,
-    "last_checkpoint": "actions_and_pages",
-    "notes": "Resumed the existing Brazil FHS case. Live page opened successfully and controls were visible, but the managed Chrome again had no speechSynthesis or voices; clicking Listen produced no playback or highlighting. Partial publication report committed. No new 2026-11-13 case was started.",
-    "current_item": "case-brazil-family-health-strategy-community-primary-care",
-    "completed_at": "2026-11-13T07:33:00+04:00"
-  },
-  "last_completed_item": {
-    "slug": "case-bangladesh-cyclone-preparedness-community-warning",
-    "publication_date": "2026-11-07",
-    "title_working_ar": "كيف حوّلت بنغلاديش الإنذار من رسالة مركزية إلى استجابة يقودها المجتمع؟",
-    "title_working_en": "How Bangladesh Turned Cyclone Warnings into Community Action",
-    "candidate_status": "published_live_verified",
-    "artifact_root": "automation/10x-cases/case-bangladesh-cyclone-preparedness-community-warning/",
-    "candidate_notes": {
-      "path": "automation/10x-cases/case-bangladesh-cyclone-preparedness-community-warning/candidate-notes.md",
-      "commit": "644afa04b08bcf7eaf975ef829263b5cf32b3569"
-    },
-    "evidence_pack": {
-      "status": "passed_with_explicit_attribution_limits",
-      "path": "automation/10x-cases/case-bangladesh-cyclone-preparedness-community-warning/evidence-pack.md",
-      "commit": "15a85d1c49c2e1d1ee2700e57a17c3ef016ef8bc",
-      "confidence": {
-        "operating_model": "high",
-        "programme_inventory": "high_reported",
-        "bulbul_evacuation": "medium_not_cpp_exclusive",
-        "mortality_attribution": "rejected",
-        "equity": "mixed"
-      }
-    },
-    "arabic_draft": {
-      "path": "automation/10x-cases/case-bangladesh-cyclone-preparedness-community-warning/arabic-draft.md",
-      "commit": "77997cbcd0e22368032ee2f24607ff1da0bd6bc4"
-    },
-    "english_draft": {
-      "path": "automation/10x-cases/case-bangladesh-cyclone-preparedness-community-warning/english-draft.md",
-      "commit": "a77983e79f7f87aa867911be2891a4d05480846e"
-    },
-    "company_insider_critique": {
-      "status": "passed_simulated",
-      "path": "automation/10x-cases/case-bangladesh-cyclone-preparedness-community-warning/company-insider-critique.md",
-      "commit": "d6b7678cf304e1047ea696e97d596535ad1a28ab"
-    },
-    "final_quality_gate": {
-      "status": "passed_postdeploy",
-      "path": "automation/10x-cases/case-bangladesh-cyclone-preparedness-community-warning/final-quality-gate.md",
-      "commit": "e17e4fee23be683975a58df4de3a5ae9a6443717"
-    },
-    "publishing": {
-      "status": "published_live_verified",
-      "arabic_url": "https://tamayuz10x.com/case-bangladesh-cyclone-preparedness-community-warning.html",
-      "english_url": "https://tamayuz10x.com/en/case-bangladesh-cyclone-preparedness-community-warning.html",
-      "initial_publication_commit": "84b6c48bacb3e3f8ce61f31d81cfb29e24865bb4",
-      "social_manifest_commit": "63c8c3616159cbd1457cac670b632b988555a698",
-      "latest_pages_verified_head": "73dbd0eb7faadad2f14cfe03c698610f5cd57467",
-      "pages_run": "https://github.com/alaabmt/alaa-excellence/actions/runs/42355930058",
-      "mobile_verification": "passed_real_390px_chromium_ar_en_no_horizontal_overflow",
-      "index_verification": "passed_ar_en_one_card",
-      "sitemap_verification": "passed_ar_en_one_url",
-      "image_verification": "passed_ar_en_1200x630_http200",
-      "metadata_verification": "passed_canonical_hreflang_og_twitter_schema",
-      "video_verification": "not_inserted_unverified"
-    },
-    "publication_report": {
-      "path": "automation/10x-cases/case-bangladesh-cyclone-preparedness-community-warning/publication-report.md",
-      "commit": "508b16434c509075af0b83e9d7d8cd23e6ed6fff"
-    }
-  },
-  "run_date": "2026-11-13",
+  "run_date": "2026-11-26",
   "completed_stages": [
     "capability_check",
     "load_checkpoint",
@@ -272,14 +384,141 @@
     "arabic_draft",
     "company_insider_critique",
     "english_draft",
-    "bilingual_parity",
-    "final_quality_gate",
-    "repository_publish",
-    "actions_and_pages"
+    "bilingual_parity"
   ],
   "blocker": {
+    "type": "pending_final_live_verification",
+    "detail": "Full editorial rebuild requested by owner; static checks passed against saved evidence, mobile/audio/video/live tests not verified.",
+    "retry_action": "Reconcile the latest existing Copenhagen bilingual editorial rebuild without recreating or republishing. Verify exact final main Actions/Pages, both public URLs, indexes, title metadata, actual mobile/RTL/LTR, reviewed Arabic audio and video thumbnail/playback; keep the case-specific owner exception only and document all remaining unverified checks. Close content cycle only when live verification established. Preserve original publication date and prevent duplicate publication."
+  },
+  "pending_tts": [
+    {
+      "slug": "case-brazil-family-health-strategy-community-primary-care",
+      "status": "published_pending_tts",
+      "publication": {
+        "status": "published_live_content_verified_tts_blocked",
+        "arabic_url": "https://tamayuz10x.com/case-brazil-family-health-strategy-community-primary-care.html",
+        "english_url": "https://tamayuz10x.com/en/case-brazil-family-health-strategy-community-primary-care.html",
+        "initial_publication_commit": "053104d35c05fd5a3a4f5c79f9a5788f684d420c",
+        "sitemap_commit": "1415361332507d0cec05e7c30f15b58e9437ed6e",
+        "social_manifest_fix_commit": "bbedcc231ec640067a05585063b3f508dc921407",
+        "social_card_workflow": {
+          "status": "success",
+          "run_id": 43150948784,
+          "run_number": 556,
+          "head_sha": "bbedcc231ec640067a05585063b3f508dc921407",
+          "generated_commit": "8fac4b71ee8e045a165331d59c521c98cb1ed848",
+          "arabic_asset": "assets/previews/story/case-brazil-family-health-strategy-community-primary-care-ar.jpg",
+          "english_asset": "assets/previews/story/case-brazil-family-health-strategy-community-primary-care-en.jpg",
+          "arabic_image": "1200x630_109677_bytes",
+          "english_image": "1200x630_113360_bytes",
+          "metadata_indexes": "passed_ar_en_pages_and_indexes_deduplicated"
+        },
+        "exact_head_actions_pages": {
+          "head_sha": "1c41e6a858cb1da3f6038b532a4fa8c9b6c341b5",
+          "site_health": {
+            "run_id": 43181491034,
+            "conclusion": "success"
+          },
+          "pages": {
+            "run_id": 43181490172,
+            "conclusion": "success"
+          },
+          "arabic_editorial_gate": {
+            "run_id": 43181490915,
+            "conclusion": "success"
+          }
+        },
+        "latest_exact_head_actions_pages": {
+          "head_sha": "20bd8f7e464c3c65191243d51254ca561729cf73",
+          "site_health": {
+            "run_id": 43182247092,
+            "conclusion": "success"
+          },
+          "pages": {
+            "run_id": 43182246081,
+            "conclusion": "success"
+          },
+          "arabic_editorial_gate": {
+            "run_id": 43182246953,
+            "conclusion": "success"
+          }
+        },
+        "live_verification": {
+          "arabic_url": "http_200_live_metadata_h1_and_1200x630_social_image_verified",
+          "english_url": "http_200_live_metadata_h1_and_1200x630_social_image_verified",
+          "mobile_viewport": "passed_real_391px_chromium_target_390px_rounding_no_horizontal_overflow_ar_en",
+          "responsive_bracketing": "passed_340px_and_454px_no_horizontal_overflow_ar_en",
+          "tts_controls": "visible_ar_en",
+          "tts_actual_playback": "blocked_browser_has_no_speechSynthesis_and_click_produced_no_audio_state",
+          "duplicate_verification": "passed_one_ar_index_card_one_en_index_card_one_ar_sitemap_url_one_en_sitemap_url",
+          "tts_retry_2026_11_13": "failed_environment_has_no_speechSynthesis_no_voices_no_playback_state_no_highlighting"
+        }
+      },
+      "blocker": {
+        "type": "platform_capability_missing",
+        "detail": "The available managed Chrome on 2026-11-13 again reports window.speechSynthesis unavailable and zero voices. Clicking Listen produced no speaking, pending, paused or highlighting state. The mandatory TTS standard requires actual browser/device playback; visible controls alone are insufficient.",
+        "required_decision": "Provide or authorize a TTS-capable browser/device for actual Arabic and English playback verification, or explicitly approve the documented technical exception permitted by ARABIC-LANGUAGE-AND-TTS-STANDARD.md section 10."
+      },
+      "exception_approved_date": "2026-11-25",
+      "next_check": "next scheduled cycle; actual bilingual playback on supported device"
+    }
+  ],
+  "content_cycle_resolution": "copenhagen_body_review_complete_publication_gates_pending",
+  "previous_blocker": {
     "type": "platform_capability_missing",
     "detail": "The available managed Chrome on 2026-11-13 again reports window.speechSynthesis unavailable and zero voices. Clicking Listen produced no speaking, pending, paused or highlighting state. The mandatory TTS standard requires actual browser/device playback; visible controls alone are insufficient.",
     "required_decision": "Provide or authorize a TTS-capable browser/device for actual Arabic and English playback verification, or explicitly approve the documented technical exception permitted by ARABIC-LANGUAGE-AND-TTS-STANDARD.md section 10."
-  }
+  },
+  "legacy_checkpoint_before_copenhagen_reconciliation": {
+    "run_date": "2026-11-13",
+    "completed_stages": [
+      "capability_check",
+      "load_checkpoint",
+      "duplicate_check",
+      "candidate_scan",
+      "evidence_pack",
+      "backcasting_and_10x_analysis",
+      "arabic_draft",
+      "company_insider_critique",
+      "english_draft",
+      "bilingual_parity",
+      "final_quality_gate",
+      "repository_publish",
+      "actions_and_pages"
+    ],
+    "last_run": {
+      "mode": "primary_scheduled_resume",
+      "status": "blocked",
+      "started_at": "2026-11-13T07:26:41+04:00",
+      "starting_head": null,
+      "last_checkpoint": "actions_and_pages",
+      "notes": "Resumed the existing Brazil FHS case. Live page opened successfully and controls were visible, but the managed Chrome again had no speechSynthesis or voices; clicking Listen produced no playback or highlighting. Partial publication report committed. No new 2026-11-13 case was started.",
+      "current_item": "case-brazil-family-health-strategy-community-primary-care",
+      "completed_at": "2026-11-13T07:33:00+04:00"
+    },
+    "content_cycle_resolution": "completed_under_documented_environment_exception_audio_not_verified"
+  },
+  "owner_publication_override": {
+    "date": "2026-11-26",
+    "instruction": "نشرها الآنولا تنتظر",
+    "scope": "Publish current bilingual Copenhagen content immediately despite previously disclosed pending audio, social cards and mobile/runtime gates. Do not label unperformed tests PASS."
+  },
+  "lease_takeover_audit": {
+    "previous_lease": {
+      "owner": "owner-directed-publication-20261126",
+      "acquired_at": "2026-11-26T02:44:19.506Z",
+      "expires_at": "2026-11-26T04:34:19.506Z"
+    },
+    "owner_authorization": "26 Nov 2026: حل المشكلة وتجاوز القفل",
+    "reason": "Owner explicitly authorized controlled takeover; main unchanged since 02:44:25Z, no public article or index entry found. Previous runner must abort on changed state; no forced Git ref.",
+    "at": "2026-11-26T03:08:00Z",
+    "released_lease": {
+      "owner": "chat-owner-authorized-recovery-20261126",
+      "acquired_at": "2026-11-26T03:08:00Z",
+      "expires_at": "2026-11-26T04:58:00Z"
+    },
+    "released_at": "2026-11-26T03:12:00Z"
+  },
+  "recovery_playbook": "automation/chat-publication-recovery-playbook.md"
 }

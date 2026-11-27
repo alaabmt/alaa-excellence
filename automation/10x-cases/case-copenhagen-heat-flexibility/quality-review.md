@@ -1,0 +1,1 @@
+Draft review: evidence attribution, cohort separation, power versus energy and business model limitations addressed. Independent reviewer and actual mobile viewport, site metadata, assets, TTS and deployment not verified. Publication not approved. Academic source DOI 10.1016/J.ENBUILD.2020.109804 is simulation evidence, not project outcome validation.

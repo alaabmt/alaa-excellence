@@ -2597,6 +2597,48 @@
         "subtitle": "Maintenance delays at an airline.",
         "alt": "Navy and gold FMEA · Failure Mode & Effects Analysis cover titled “Was the Effect Measured?” about aircraft maintenance delays at an airline."
       }
+    },
+    {
+      "slug": "case-copenhagen-heat-flexibility",
+      "background": "assets/previews/story-backgrounds/case-copenhagen-heat-flexibility.png",
+      "category": "case",
+      "ar": {
+        "title": [
+          "مبانٍ تختزن",
+          "الحرارة"
+        ],
+        "subtitle": "تغيير توقيت طلب التدفئة في كوبنهاغن",
+        "alt": "رسم توضيحي أصلي لمبانٍ متصلة بشبكة تدفئة في كوبنهاغن"
+      },
+      "en": {
+        "title": [
+          "Buildings as",
+          "Heat Buffers"
+        ],
+        "subtitle": "Shifting heating demand in Copenhagen",
+        "alt": "Original illustration of buildings connected to a district heating network in Copenhagen"
+      }
+    },
+    {
+      "slug": "case-japan-shinkansen-safety-system",
+      "background": "assets/previews/story-backgrounds/case-japan-shinkansen-safety-system.png",
+      "category": "case",
+      "ar": {
+        "title": [
+          "سلامة الشينكانسن",
+          "حين يُصمَّم النظام للوقاية"
+        ],
+        "subtitle": "الإنذار المبكر والتحكم والحواجز الهندسية",
+        "alt": "رسم توضيحي أصلي لقطار ياباني فائق السرعة على مساره"
+      },
+      "en": {
+        "title": [
+          "Shinkansen",
+          "Safety by Design"
+        ],
+        "subtitle": "Early warnings, controls and physical safeguards",
+        "alt": "Original illustration of a Japanese high-speed train on railway tracks"
+      }
     }
   ]
 }
