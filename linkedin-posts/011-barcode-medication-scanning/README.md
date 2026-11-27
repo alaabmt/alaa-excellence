@@ -3,7 +3,7 @@
 **Format:** LinkedIn document (carousel), 8 slides, 1080×1350, two separate posts: Arabic (`carousel-ar.pdf`) and English (`carousel-en.pdf`). The English version is written as original English, not a translation.
 **Website article:** https://tamayuz10x.com/article-oe-evidence-barcode-medication-scanning.html and https://tamayuz10x.com/en/article-oe-evidence-barcode-medication-scanning.html (PR #256, squash merge 7f57961, live 2026-11-27).
 **Editorial review:** article, slides and captions reviewed with the owner's `arabic-editorial-reviewer` and `english-editorial-reviewer` agents; all BLOCK/FIX findings fixed before delivery (final: Arabic OVERALL PASS after 3 rounds, English OVERALL PASS after 3 rounds).
-**Status:** Approved by the owner on 2026-11-27 (article and both posts). Article live; Arabic post published; English post scheduled.
+**Status:** Approved by the owner on 2026-11-27 (article and both posts). COMPLETE. Article live 27 Nov; Arabic and English posts published 27 Nov.
 
 | File | Purpose |
 |---|---|
@@ -41,4 +41,4 @@ Checked on 25 Nov 2026 against the PubMed abstracts (efetch); DOIs checked with 
 |---|---|---|
 | Website article | Live 2026-11-27 (PR #256) | https://tamayuz10x.com/article-oe-evidence-barcode-medication-scanning.html |
 | Arabic post | Published 2026-11-27 (urn:li:ugcPost:7532180114671923200) | https://www.linkedin.com/feed/update/urn:li:ugcPost:7532180114671923200/ |
-| English post | Scheduled for about 2 hours after the Arabic post (27 Nov) | — |
+| English post | Published 2026-11-27 (urn:li:ugcPost:7532210825613176834) | https://www.linkedin.com/feed/update/urn:li:ugcPost:7532210825613176834/ |
