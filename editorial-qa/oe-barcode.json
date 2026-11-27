@@ -1,0 +1,67 @@
+{
+  "article": "article-oe-evidence-barcode-medication-scanning.html",
+  "headline": "ماذا حدث حين صار الممرضون يتحققون من الدواء بماسح ضوئي قبل إعطائه للمريض؟",
+  "reviewed_at": "2026-11-27",
+  "reviewer": "AI editorial review using the owner's arabic-editorial-reviewer and english-editorial-reviewer agents (not a human reader test)",
+  "introduction_answers": {
+    "problem": "قد يُعطى المريض في المستشفى دواءً غير دوائه، أو جرعة غير جرعته.",
+    "who": "الممرضون في أقسام المستشفيات، ومرضاهم.",
+    "change": "تحقق من الدواء والمريض بماسح ضوئي قبل الإعطاء؛ ارتبط بأخطاء أقل مما كانت قبله في دراسات أكثرها من نوع قبل وبعد، لكن قراءة الرموز بالماسح اختلفت كثيرًا بين الأقسام."
+  },
+  "summary": "ارتبط التحقق من الدواء بماسح ضوئي بأخطاء أقل مما كانت قبله، في دراسات أكثرها من نوع قبل وبعد، لكن العاملين لا يستعملون الماسح دائمًا. ويرى الكاتب أن التغيير يحدث حين تصير قراءة الرمز بالماسح الطريقة العادية للعمل وتُزال عوائقها.",
+  "gates": {
+    "title": "PASS",
+    "introduction": "PASS",
+    "summary": "PASS",
+    "terminology": "PASS",
+    "evidence": "PASS",
+    "mobile": "PASS",
+    "language": "PASS"
+  },
+  "terminology_evidence": "Barcode, academic (university) medical center, Cochrane, before-and-after study, systematic review, relative reduction, certainty of evidence and workaround are explained at first use or in the glossary.",
+  "language_evidence": "Arabic and English reviewed with the owner's arabic-editorial-reviewer and english-editorial-reviewer agents; all BLOCK/FIX findings applied before delivery. Editorial simulation, not a human reader test.",
+  "mobile_evidence": {
+    "method": "Playwright Chromium browser, 320/375/390/430px viewports",
+    "results": "editorial-qa/mobile-artifacts/oe-barcode-results.json",
+    "screenshots": [
+      "editorial-qa/mobile-artifacts/oe-barcode-320.png",
+      "editorial-qa/mobile-artifacts/oe-barcode-375.png",
+      "editorial-qa/mobile-artifacts/oe-barcode-390.png",
+      "editorial-qa/mobile-artifacts/oe-barcode-430.png"
+    ],
+    "scope": "Automated rendered-layout verification; screenshots retained for human visual review"
+  },
+  "source_evidence": [
+    {
+      "claim": "23 Australian hospitals randomised (12 MET, 11 control); 6 months; calling 3.1 vs 8.7 per 1000 admissions; composite 5.86 vs 5.31 per 1000 (p=0.640); MET called to 30% of patients meeting criteria later admitted to ICU; arrests and unexpected deaths fell from baseline in both groups",
+      "url": "https://doi.org/10.1016/S0140-6736(05)66733-5",
+      "location": "PubMed abstract PMID 15964445",
+      "assessment": "Cluster RCT (Hillman et al., MERIT, 2005)"
+    },
+    {
+      "claim": "Stepped-wedge cluster RCT; 14 Belgian hospitals planned, 28 wards of 7 hospitals analysed; 34,267 vs 35,389 admissions; no significant difference in unexpected death, arrest or unplanned ICU admission; lower-than-expected baseline reduced power",
+      "url": "https://doi.org/10.1016/j.resuscitation.2018.04.018",
+      "location": "PubMed abstract PMID 29679694",
+      "assessment": "Stepped-wedge cluster RCT (Haegdorens et al., 2018)"
+    },
+    {
+      "claim": "29 studies; 5 cluster RCT/controlled before-after/ITS, rest before-after; adult hospital mortality RR 0.87; adult cardiopulmonary arrest RR 0.65; substantial heterogeneity; associations",
+      "url": "https://doi.org/10.1186/s13054-015-0973-y",
+      "location": "PubMed abstract PMID 26070457",
+      "assessment": "Systematic review and meta-analysis (Maharaj et al., 2015)"
+    },
+    {
+      "claim": "61 studies: 4 RCTs, 4 non-randomised controlled, 6 ITS, 47 pre-post; evidence inconsistent; variation restricts comparison; most studies positive",
+      "url": "https://doi.org/10.1016/j.hrtlng.2023.09.007",
+      "location": "PubMed abstract PMID 37774510",
+      "assessment": "Systematic review (Zhang et al., 2024)"
+    },
+    {
+      "claim": "25 US studies on nurse-led RRT activation, 240,140 participants; three domains; main facilitators and barriers; leader and physician support facilitator when present, barrier when absent",
+      "url": "https://doi.org/10.1111/wvn.12700",
+      "location": "PubMed abstract PMID 38159058",
+      "assessment": "Systematic review (Hecht et al., 2024)"
+    }
+  ],
+  "decision": "CI candidate PASS only; authoritative approval is successful GitHub Actions job"
+}
