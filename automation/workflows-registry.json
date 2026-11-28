@@ -4,7 +4,7 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-26",
+  "updated_at": "2026-11-28",
   "coordinator": {
     "automation_id": "Automation_cacced3948c481918f73ff76b779965d",
     "title": "استئناف مهام التميّز 10X",
@@ -17,11 +17,12 @@
       "title": "التأمل القرآني اليومي 10X",
       "state_path": "automation/quran-reflections-state.json",
       "artifact_root": "automation/quran-reflections/",
-      "primary_automation_id": "Automation_cacced3948c481918f73ff76b779965d",
-      "primary_schedule": "hourly coordinator; daily start at or after 17:00 Asia/Dubai",
-      "recovery_enabled": true,
+      "primary_automation_id": "6b0a4d5461008191b09f0e3589d9253a",
+      "primary_schedule": "dedicated hourly Chat task; daily start at or after 17:00 Asia/Dubai",
+      "recovery_enabled": false,
       "priority": 1,
-      "prompt_path": "automation/prompts/quran-reflections.md"
+      "prompt_path": "automation/prompts/quran-reflections.md",
+      "recovery_note": "Dedicated task handles its own recovery; do not select this workflow in the general coordinator or start a parallel Quran cycle."
     },
     {
       "workflow_id": "tenx_cases",
