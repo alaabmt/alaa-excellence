@@ -56,3 +56,7 @@ Published HTML pages are the final authoritative article versions. The checkpoin
 - Start at most one article per Asia/Dubai calendar day. If the current day's article is complete, the hourly run is a no-op.
 - Start a new article only after the previous one is `completed` or explicitly `blocked`.
 - Do not mark publication complete until GitHub Actions, GitHub Pages, the two live pages, and their index entries are verified.
+
+## Dedicated recovery (2026-11-28)
+
+The Qur’anic reflections now have a dedicated hourly Chat task, registered in `automation/workflows-registry.json`; the general coordinator must not start this workflow. The task resumes existing incomplete work first and starts at most one new cycle per Asia/Dubai day at or after 17:00. Read the operational prompt `automation/prompts/quran-reflections.md` for the scoped TTS capability exception and required evidence. Do not confuse simulated listening controls with actual audible playback. When the only remaining limitation is unavailable audio capability in the test environment, retain `pending_tts` for later verification, and close only content production after every other required gate and live publication check succeeds. A real listening defect, missing mobile evidence or other failed mandatory gate still blocks publication. Historical gate reports remain unchanged as evidence of the original state.
