@@ -5,13 +5,13 @@
   "branch": "main",
   "website": "https://tamayuz10x.com",
   "timezone": "Asia/Dubai",
-  "updated_at": "2026-11-19T17:03:14.611Z",
-  "workflow_status": "blocked",
+  "updated_at": "2026-11-28",
+  "workflow_status": "in_progress",
   "current_stage": "quality_gate",
   "current_article": {
     "article_id": "quran-reflection-2026-11-19-al-hadid-loss-gain-and-gratitude",
     "cycle_date": "2026-11-19",
-    "status": "drafts_reviewed_publication_blocked",
+    "status": "drafts_reviewed_preview_qa_pending",
     "preflight_path": "automation/quran-reflections/2026-11-19-preflight.md",
     "slug": "reflection-al-hadid-loss-gain-and-gratitude",
     "working_title_ar": "كيف نستقبل الخسارة والنجاح دون أن نفقد اتزاننا؟",
@@ -60,7 +60,7 @@
       "technical_page_parity": "not_verified"
     },
     "quality_gate": {
-      "status": "blocked_not_passed",
+      "status": "pending_mandatory_preview_qa",
       "review_path": "automation/quran-reflections/reflection-al-hadid-loss-gain-and-gratitude/final-quality-gate.md",
       "editorial_content": "passed",
       "mobile_rtl_ltr": "not_verified",
@@ -97,9 +97,10 @@
       "Check the intended public URLs before publication."
     ],
     "new_article_rule": "Begin at most one article per Asia/Dubai calendar day, only when the prior article is completed or explicitly blocked. Resume incomplete work at any hourly run. If today's article is complete, do not start another.",
-    "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform."
+    "routine_approval": "Continue without routine editorial approval when capabilities permit; stop for confirmations required by the platform.",
+    "tts_capability_exception": "See automation/prompts/quran-reflections.md; audible playback deferred only for demonstrated environment limitation, not a real site defect; all other gates mandatory."
   },
-  "next_action": "After a usable TTS environment or explicit owner exception is available, prepare unpublished bilingual HTML previews; verify actual mobile/RTL/LTR, metadata and technical parity, and actual TTS unless explicitly excepted. Re-run final quality gate and all duplicate checks before publication. Do not repeat completed research/drafting or start another 2026-11-19 cycle.",
+  "next_action": "Resume existing Al-Hadid drafts at quality_gate: prepare non-public bilingual HTML previews; test actual mobile rendering and technical parity, reviewed voice layer and listening behavior (mock Web Speech only if real voices unavailable). Recheck all editorial and duplicate gates. If only audible playback is unavailable due to environment, document the limited exception and record pending_tts after verified publication; never claim audible playback passed. Continue to repository_publish only after other mandatory gates pass. Reconcile historic published TTS blockers without republishing.",
   "last_run": {
     "mode": "coordinator_resume",
     "status": "blocked",
@@ -503,13 +504,7 @@
     ],
     "note": "No repository, registry, recent-commit, live-index, sitemap, or public-search evidence of a Qur'anic reflection started or published for 2026-11-18. The previous cycle is explicitly blocked, so the daily exception permits one new cycle."
   },
-  "blocker": {
-    "type": "platform_capability_missing",
-    "stage": "quality_gate",
-    "detail": "Fresh available browser check: speechSynthesis and SpeechSynthesisUtterance both unavailable. Actual bilingual TTS cannot be verified. Mobile/RTL/LTR and final HTML technical checks are also pending, not passed.",
-    "decision_required": "Provide a Web Speech-capable environment with Arabic and English voices, or explicitly approve a documented exception to actual playback. Mobile and other mandatory gates still require verification.",
-    "safe_to_retry": false
-  },
+  "blocker": null,
   "verified_quranic_references": [],
   "previous_blocked_article": {
     "article_id": "quran-reflection-2026-11-18-al-hashr-what-have-we-sent-ahead",
@@ -2365,5 +2360,17 @@
         }
       }
     }
-  ]
+  ],
+  "recovery_2026_11_28": {
+    "prior_blocker": {
+      "type": "platform_capability_missing",
+      "stage": "quality_gate",
+      "detail": "Fresh available browser check: speechSynthesis and SpeechSynthesisUtterance both unavailable. Actual bilingual TTS cannot be verified. Mobile/RTL/LTR and final HTML technical checks are also pending, not passed.",
+      "decision_required": "Provide a Web Speech-capable environment with Arabic and English voices, or explicitly approve a documented exception to actual playback. Mobile and other mandatory gates still require verification.",
+      "safe_to_retry": false
+    },
+    "decision": "Scoped technical exception for environmental lack of audible TTS only; all editorial, Quran, mobile, technical parity, functional listening and publication gates remain mandatory. See automation/prompts/quran-reflections.md. No tests marked passed by this recovery.",
+    "status": "resume_ready"
+  },
+  "pending_tts": []
 }
